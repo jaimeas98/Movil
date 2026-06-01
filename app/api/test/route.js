@@ -1,15 +1,5 @@
-// Endpoint de diagnóstico: prueba si Vercel puede acceder a las webs de los cines.
-// Visita /api/test en el navegador para ver los resultados.
+// Endpoint de diagnóstico v2: extrae var cities de Yelmo y estructura de mk2.
 export const dynamic = 'force-dynamic';
-
-const TESTS = [
-  { label: 'Yelmo Bahía Sur (cartelera)', url: 'https://www.yelmocines.es/cartelera/cadiz/premium-bahia-sur' },
-  { label: 'Yelmo Jerez (cartelera)', url: 'https://www.yelmocines.es/cartelera/cadiz/jerez' },
-  { label: 'mk2 Cinesur (cartelera)', url: 'https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/cartelera' },
-  { label: 'Arte Siete (subdomain)', url: 'https://bahia.artesiete.es/Cartelera/33' },
-  { label: 'Arte Siete (corp)', url: 'https://www.cinesartesiete.com/cartelera/el-puerto' },
-  { label: 'Yelmo POST API', url: 'https://www.yelmocines.es/now-playing.aspx/GetNowPlaying', method: 'POST', body: '{"cityKey":"CADIZ"}' },
-];
 
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
@@ -18,83 +8,112 @@ const HEADERS = {
   'Referer': 'https://www.google.es/',
 };
 
-async function probe(test) {
-  const start = Date.now();
-  try {
-    const opts = {
-      method: test.method || 'GET',
-      headers: { ...HEADERS, ...(test.method === 'POST' ? { 'Content-Type': 'application/json' } : {}) },
-      signal: AbortSignal.timeout(10000),
-      cache: 'no-store',
-    };
-    if (test.body) opts.body = test.body;
-
-    const res = await fetch(test.url, opts);
-    const text = await res.text().catch(() => '');
-    const ms = Date.now() - start;
-
-    const hasNextData = text.includes('__NEXT_DATA__');
-    const hasCities = text.includes('var cities');
-    const hasMovies = /pelicula|movie|film|cartelera/i.test(text.slice(0, 5000));
-    const preview = text.slice(0, 300).replace(/\s+/g, ' ');
-
-    return {
-      label: test.label,
-      status: res.status,
-      ok: res.ok,
-      ms,
-      contentType: res.headers.get('content-type') || '',
-      bytes: text.length,
-      hasNextData,
-      hasCities,
-      hasMovies,
-      preview,
-    };
-  } catch (e) {
-    return { label: test.label, error: String(e), ms: Date.now() - start };
-  }
+async function get(url) {
+  const res = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(12000), cache: 'no-store' });
+  const text = await res.text().catch(() => '');
+  return { status: res.status, text };
 }
 
-export async function GET() {
-  const results = await Promise.all(TESTS.map(probe));
+async function post(url, body) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { ...HEADERS, 'Content-Type': 'application/json; charset=utf-8', 'X-Requested-With': 'XMLHttpRequest' },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(12000),
+    cache: 'no-store',
+  });
+  const text = await res.text().catch(() => '');
+  return { status: res.status, text };
+}
 
-  const html = `<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Diagnóstico de cines</title>
-  <style>
-    body { font-family: sans-serif; padding: 16px; background: #0b0d13; color: #e2e8f0; }
-    h1 { font-size: 18px; margin-bottom: 16px; }
-    .card { background: #1a1d27; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
-    .label { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
-    .ok { color: #34d399; } .fail { color: #f87171; } .warn { color: #fbbf24; }
-    .row { font-size: 12px; margin: 2px 0; color: #94a3b8; }
-    .preview { font-size: 11px; background: #0b0d13; padding: 6px; border-radius: 4px; margin-top: 6px; word-break: break-all; white-space: pre-wrap; }
-  </style>
-</head>
-<body>
-  <h1>🔍 Diagnóstico de acceso a cines</h1>
-  ${results.map((r) => {
-    if (r.error) {
-      return `<div class="card">
-        <div class="label fail">❌ ${r.label}</div>
-        <div class="row">Error: ${r.error}</div>
-        <div class="row">${r.ms}ms</div>
-      </div>`;
+// Extrae var cities=... del HTML de Yelmo
+function extractCities(html) {
+  const m = html.match(/var\s+cities\s*=\s*(\[[\s\S]{0,8000}?\])\s*[,;]/);
+  if (!m) return null;
+  try { return JSON.parse(m[1]); } catch { return m[1].slice(0, 2000); }
+}
+
+// Intenta encontrar el bloque principal de datos en el HTML de mk2
+function analyzeMk2(html) {
+  const results = [];
+  // Buscar scripts con JSON
+  const scriptMatches = [...html.matchAll(/<script[^>]*>([\s\S]{50,}?)<\/script>/gi)];
+  for (const m of scriptMatches.slice(0, 10)) {
+    const content = m[1].trim();
+    if (content.includes('pelicula') || content.includes('movie') || content.includes('Titulo') || content.includes('horario')) {
+      results.push({ type: 'script-con-datos', preview: content.slice(0, 500) });
     }
-    const cls = r.ok ? 'ok' : 'fail';
-    const icon = r.ok ? '✅' : '❌';
-    return `<div class="card">
-      <div class="label ${cls}">${icon} ${r.label} — HTTP ${r.status} (${r.ms}ms)</div>
-      <div class="row">Bytes: ${r.bytes} · Content-Type: ${r.contentType}</div>
-      <div class="row">__NEXT_DATA__: ${r.hasNextData ? '✅ sí' : '❌ no'} · var cities: ${r.hasCities ? '✅ sí' : '❌ no'} · keywords película: ${r.hasMovies ? '✅ sí' : '❌ no'}</div>
-      <div class="preview">${r.preview.replace(/</g, '&lt;')}</div>
-    </div>`;
-  }).join('')}
-</body>
-</html>`;
+  }
+  // Buscar patrones de API
+  const apiMatches = html.match(/['"`](\/api\/[^'"`\s]{3,60})['"`]/g) || [];
+  results.push({ type: 'api-endpoints-encontrados', endpoints: [...new Set(apiMatches)].slice(0, 20) });
+  // Buscar variables JS con datos de películas
+  const varMatches = html.match(/var\s+(\w+)\s*=\s*\[[\s\S]{20,}/g) || [];
+  results.push({ type: 'variables-js', vars: varMatches.map(v => v.slice(0, 200)) });
+  // Snippet de la zona central del HTML (donde suelen estar los datos)
+  results.push({ type: 'html-zona-central', snippet: html.slice(html.length / 2 - 500, html.length / 2 + 500) });
+  return results;
+}
 
-  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
+export async function GET(req) {
+  const url = new URL(req.url);
+  const section = url.searchParams.get('s') || 'all';
+  const sections = {};
+
+  // ── YELMO BAHÍA SUR ─────────────────────────────────────────────────────────
+  if (section === 'all' || section === 'yelmo') {
+    const { status: s1, text: h1 } = await get('https://www.yelmocines.es/cartelera/cadiz/premium-bahia-sur');
+    const cities1 = extractCities(h1);
+    sections.yelmo_bahia_sur = { status: s1, cities: cities1, htmlPreview: h1.slice(0, 500) };
+
+    const { status: s2, text: h2 } = await get('https://www.yelmocines.es/cartelera/cadiz/jerez');
+    const cities2 = extractCities(h2);
+    sections.yelmo_jerez = { status: s2, cities: cities2, htmlPreview: h2.slice(0, 500) };
+  }
+
+  // ── MK2 ────────────────────────────────────────────────────────────────────
+  if (section === 'all' || section === 'mk2') {
+    const { status: sm, text: hm } = await get('https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/cartelera');
+    sections.mk2 = { status: sm, analysis: analyzeMk2(hm), htmlSlice1: hm.slice(0, 1000), htmlSlice2: hm.slice(60000, 61000) };
+  }
+
+  // ── ARTE SIETE - BUSCAR URL CORRECTA ────────────────────────────────────────
+  if (section === 'all' || section === 'artesiete') {
+    const artUrls = [
+      'https://bahia.artesiete.es/',
+      'https://bahia.artesiete.es/Cartelera',
+      'https://bahia.artesiete.es/Peliculas',
+      'https://www.cinesartesiete.com/',
+      'https://www.cinesartesiete.com/el-puerto-de-santa-maria',
+    ];
+    sections.artesiete = {};
+    for (const u of artUrls) {
+      try {
+        const { status, text } = await get(u);
+        const hasMovies = /pelicula|movie|cartel|horario|sesion/i.test(text.slice(0, 5000));
+        sections.artesiete[u] = { status, bytes: text.length, hasMovies, preview: text.slice(0, 300) };
+      } catch (e) {
+        sections.artesiete[u] = { error: String(e) };
+      }
+    }
+  }
+
+  // ── YELMO POST CON CLAVES CANDIDATAS ────────────────────────────────────────
+  if (section === 'all' || section === 'yelmo-post') {
+    const keys = ['CADIZ', 'cadiz', 'SAN_FERNANDO', 'sanfernando', 'BAHIA_SUR', 'JEREZ', 'jerez'];
+    sections.yelmo_post_keys = {};
+    for (const key of keys) {
+      const { status, text } = await post('https://www.yelmocines.es/now-playing.aspx/GetNowPlaying', { cityKey: key });
+      try {
+        const json = JSON.parse(text);
+        const cinemas = json?.d?.Cinemas || [];
+        const dates = json?.d?.Dates || {};
+        sections.yelmo_post_keys[key] = { status, cinemasCount: cinemas.length, datesKeys: Object.keys(dates).slice(0, 5), cinemaNames: cinemas.map(c => c.Name || c.name).slice(0, 5) };
+      } catch {
+        sections.yelmo_post_keys[key] = { status, raw: text.slice(0, 200) };
+      }
+    }
+  }
+
+  return Response.json(sections, { headers: { 'Cache-Control': 'no-store' } });
 }
