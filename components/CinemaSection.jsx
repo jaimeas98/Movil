@@ -13,6 +13,11 @@ export default function CinemaSection({ cinema }) {
             {cinema.source === 'sample' && <span className="mode-pill mode-sample"><span className="dot" /> ejemplo</span>}
             {cinema.source === 'live' && <span className="mode-pill mode-live"><span className="dot" /> en vivo</span>}
           </div>
+          {cinema.source === 'sample' && cinema.reason && (
+            <div className="cinema-reason" title={cinema.reason}>
+              ⚠️ {cinema.reason.length > 80 ? cinema.reason.slice(0, 80) + '…' : cinema.reason}
+            </div>
+          )}
         </div>
         <span className="cinema-count">
           {movies.length} {movies.length === 1 ? 'película' : 'películas'}

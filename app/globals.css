@@ -433,6 +433,13 @@ button {
   color: var(--text-muted);
   white-space: nowrap;
 }
+.cinema-reason {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.7;
+  padding: 2px 0 0;
+  word-break: break-all;
+}
 
 /* ============================================================
    REJILLA DE PELÍCULAS
