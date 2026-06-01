@@ -1,4 +1,4 @@
-// Diagnóstico v5: buscar sesiones en mk2 y Arte Siete (zonas específicas)
+// Diagnóstico v6: Arte Siete - buscar API de Livewire y estructura de datos
 export const dynamic = 'force-dynamic';
 
 const H = {
@@ -8,88 +8,143 @@ const H = {
   'Referer': 'https://www.google.es/',
 };
 
-async function get(url) {
-  const res = await fetch(url, { headers: H, signal: AbortSignal.timeout(15000), cache: 'no-store' });
+async function get(url, extraHeaders = {}) {
+  const res = await fetch(url, { headers: { ...H, ...extraHeaders }, signal: AbortSignal.timeout(15000), cache: 'no-store' });
+  const text = await res.text().catch(() => '');
+  return { status: res.status, text, headers: Object.fromEntries(res.headers.entries()) };
+}
+
+async function post(url, body, extraHeaders = {}) {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { ...H, 'Content-Type': 'application/json', 'X-Livewire': 'true', ...extraHeaders },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(15000),
+    cache: 'no-store',
+  });
   const text = await res.text().catch(() => '');
   return { status: res.status, text };
 }
 
 export async function GET() {
   const result = {};
+  const today = new Date().toISOString().slice(0, 10);
 
-  // ── MK2: buscar sesiones en página de película y en la cartelera ──────────
+  // ── Arte Siete: analizar página del cine para extraer componentes Livewire ──
   try {
-    // 1. Página de película individual: zonas 15000-35000 donde estarían los horarios
-    const { text: movieHtml } = await get('https://www.mk2cines.es/es/toy-story-5');
-    result.mk2_movie_zones = {
-      bytes: movieHtml.length,
-      zone15k: movieHtml.slice(15000, 17000),
-      zone20k: movieHtml.slice(20000, 22000),
-      zone25k: movieHtml.slice(25000, 27000),
-      zone30k: movieHtml.slice(30000, 32000),
-      // Buscar data-ho (clave de sesiones en mk2)
-      dataHoMatches: (movieHtml.match(/data-ho="([^"]+)"/g) || []).slice(0, 20),
-      metricaLinks: (movieHtml.match(/<a[^>]+metrica[^>]+>[^<]*<\/a>/g) || []).slice(0, 15),
-      // Buscar hora en formato HH:MM
-      timePattern: (movieHtml.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 20),
-      // Buscar mk2-cinesur-bahia o similar
-      bahiaMatches: (movieHtml.match(/.{0,100}(?:bahia|cinesur|mk2.cinesur).{0,200}/gi) || []).slice(0, 5),
-    };
+    const { text: cineHtml, status: s1 } = await get('https://bahia.artesiete.es/Cine/33/Artesiete-Bahia');
 
-    // 2. Cartelera: zonas finales donde podrían estar sesiones
-    const { text: cartHtml } = await get('https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/cartelera');
-    result.mk2_cartelera_end = {
-      zone80k: cartHtml.slice(80000, 82000),
-      zone100k: cartHtml.slice(100000, 102000),
-      zone110k: cartHtml.slice(110000, 112000),
-      zone120k: cartHtml.slice(120000, cartHtml.length),
-      dataHoMatches: (cartHtml.match(/data-ho="([^"]+)"/g) || []).slice(0, 20),
-      timePattern: (cartHtml.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 30),
-    };
-  } catch (e) { result.mk2 = { error: String(e) }; }
+    // Extraer estado inicial de componentes Livewire (está en JSON embebido)
+    const livewireData = [];
+    for (const m of cineHtml.matchAll(/wire:initial-data="([^"]+)"/g)) {
+      try {
+        const decoded = m[1].replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, '&');
+        livewireData.push(JSON.parse(decoded));
+      } catch { livewireData.push({ raw: m[1].slice(0, 200) }); }
+    }
 
-  // ── ARTE SIETE: página de cine específico + zonas del home ─────────────────
-  try {
-    // 1. Página específica del cine Bahía (ID 33)
-    const { status: s1, text: cineHtml } = await get('https://bahia.artesiete.es/Cine/33/Artesiete-Bahia');
-    result.artesiete_cine33 = {
+    // Buscar token CSRF y Livewire token
+    const csrfM = cineHtml.match(/csrf[_-]token["\s:=]+["']([a-zA-Z0-9+/=]{20,})/i);
+    const lvTokenM = cineHtml.match(/livewire[^{]*fingerprint[^{]*{[^}]*token[^}]*}/i);
+    const allScriptUrls = (cineHtml.match(/src="([^"]*\.js[^"]*)"/g) || []).map(m => m.slice(5, -1)).slice(0, 15);
+
+    result.artesiete_cine = {
       status: s1,
       bytes: cineHtml.length,
-      zone0: cineHtml.slice(0, 600),
-      zone5k: cineHtml.slice(5000, 7000),
-      zone15k: cineHtml.slice(15000, 17000),
-      zone25k: cineHtml.slice(25000, 27000),
+      csrfToken: csrfM ? csrfM[1].slice(0, 40) : null,
+      livewireComponentCount: livewireData.length,
+      livewireData: livewireData.slice(0, 5),
+      scriptUrls: allScriptUrls,
+      // Buscar IDs de películas en el HTML
+      peliculaIds: (cineHtml.match(/id_pelicula["\s:=]+["']?(\d+)/gi) || []).slice(0, 10),
+      sesionIds: (cineHtml.match(/id_sesion["\s:=]+["']?(\d+)/gi) || []).slice(0, 10),
+      // Horarios en formato HH:MM
       timePattern: (cineHtml.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 30),
-      dataHoMatches: (cineHtml.match(/data-ho="([^"]+)"/g) || []).slice(0, 20),
-      // Buscar URLs de API internas en el JS
-      apiUrls: [...new Set((cineHtml.match(/['"`](\/(?:api|sesiones|horarios|cartelera|Sesiones|Horarios)[^'"`\s]{0,80})['"`]/g) || []).map(m => m.slice(1, -1)))].slice(0, 20),
+      // Buscar wire:model y wire:click para entender qué hace Livewire
+      wireModels: (cineHtml.match(/wire:[a-z]+="[^"]+"/g) || []).slice(0, 30),
+      // Zonas clave del HTML
+      zone0: cineHtml.slice(0, 2000),
+      zone10k: cineHtml.slice(10000, 13000),
+      zone20k: cineHtml.slice(20000, 23000),
+      zone30k: cineHtml.slice(30000, 33000),
     };
+  } catch(e) { result.artesiete_cine = { error: String(e) }; }
 
-    // 2. Zonas medias del home (60k-100k) que no hemos visto
+  // ── Arte Siete: probar página de cartelera directamente ─────────────────────
+  try {
+    const urls = [
+      `https://bahia.artesiete.es/Cartelera`,
+      `https://bahia.artesiete.es/`,
+      `https://bahia.artesiete.es/api/cartelera`,
+      `https://bahia.artesiete.es/api/sesiones`,
+    ];
+    result.artesiete_urls = {};
+    for (const url of urls) {
+      try {
+        const { status, text } = await get(url);
+        result.artesiete_urls[url] = {
+          status,
+          bytes: text.length,
+          preview: text.slice(0, 300),
+          timePattern: (text.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 10),
+        };
+      } catch(e) {
+        result.artesiete_urls[url] = { error: String(e) };
+      }
+    }
+  } catch(e) { result.artesiete_urls = { error: String(e) }; }
+
+  // ── Arte Siete: probar endpoint Livewire /livewire/message ──────────────────
+  try {
+    // Obtener CSRF token primero
     const { text: homeHtml } = await get('https://bahia.artesiete.es/');
-    result.artesiete_home_zones = {
-      zone60k: homeHtml.slice(60000, 62000),
-      zone70k: homeHtml.slice(70000, 72000),
-      zone80k: homeHtml.slice(80000, 82000),
-      zone90k: homeHtml.slice(90000, 92000),
-      zone100k: homeHtml.slice(100000, 102000),
-      timePattern: (homeHtml.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 30),
-      // Buscar JSON con ID_Centro 33 (el cine Bahía)
-      centro33: (homeHtml.match(/.{0,20}ID_Centro.{0,5}33.{0,500}/g) || []).slice(0, 5),
-      // Buscar Livewire component names
-      livewireComponents: (homeHtml.match(/livewire:name="([^"]+)"/g) || []).slice(0, 10),
-    };
+    const csrfM = homeHtml.match(/name="csrf-token"\s+content="([^"]+)"/);
+    const csrf = csrfM ? csrfM[1] : '';
 
-    // 3. Probar URL con fecha
-    const today = new Date().toISOString().slice(0, 10);
-    const { status: s3, text: t3 } = await get(`https://bahia.artesiete.es/Cine/33/Artesiete-Bahia?fecha=${today}`);
-    result.artesiete_cine33_fecha = {
-      status: s3,
-      bytes: t3.length,
-      preview: t3.slice(0, 500),
-      timePattern: (t3.match(/\b\d{2}:\d{2}\b/g) || []).slice(0, 20),
+    const { status: lvStatus, text: lvText } = await post(
+      'https://bahia.artesiete.es/livewire/message/cartelera',
+      { fingerprint: {}, serverMemo: {}, updates: [] },
+      { 'X-CSRF-TOKEN': csrf, 'X-Livewire': '1' }
+    );
+    result.artesiete_livewire_msg = {
+      status: lvStatus,
+      preview: lvText.slice(0, 500),
     };
-  } catch (e) { result.artesiete = { error: String(e) }; }
+  } catch(e) { result.artesiete_livewire_msg = { error: String(e) }; }
+
+  // ── Arte Siete home: buscar rutas de API en el JS ───────────────────────────
+  try {
+    const { text: homeHtml } = await get('https://bahia.artesiete.es/');
+
+    // Buscar todas las rutas de API en scripts inline
+    const apiRoutes = [...new Set([
+      ...(homeHtml.match(/['"`](\/(?:api|livewire|sesion|horario|cartelera|pelicula)[^'"`\s<]{0,100})['"`]/g) || []),
+    ])].map(m => m.slice(1, -1)).slice(0, 30);
+
+    // Buscar URLs absolutas de la misma web
+    const absUrls = [...new Set(
+      (homeHtml.match(/https?:\/\/(?:bahia\.artesiete\.es|cinesartesiete\.com)[^"'\s<]{0,100}/g) || [])
+    )].slice(0, 20);
+
+    // Buscar JSON con estructura de películas/sesiones
+    const jsonBlocks = [];
+    for (const m of homeHtml.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)) {
+      const s = m[1].trim();
+      if (s.length > 100 && (s.includes('pelicula') || s.includes('sesion') || s.includes('horario') || s.includes('Titulo'))) {
+        jsonBlocks.push(s.slice(0, 500));
+      }
+    }
+
+    result.artesiete_home_api = {
+      bytes: homeHtml.length,
+      apiRoutes,
+      absUrls,
+      jsonBlocks: jsonBlocks.slice(0, 5),
+      livewireComponents: (homeHtml.match(/livewire:name="([^"]+)"/g) || []).slice(0, 10),
+      // Buscar window. variables con datos
+      windowVars: (homeHtml.match(/window\.[a-zA-Z_][a-zA-Z0-9_]*\s*=/g) || []).slice(0, 20),
+    };
+  } catch(e) { result.artesiete_home_api = { error: String(e) }; }
 
   return Response.json(result, { headers: { 'Cache-Control': 'no-store' } });
 }
