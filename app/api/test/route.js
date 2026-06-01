@@ -1,4 +1,4 @@
-// Diagnóstico v7: Arte Siete - estructura HTML de películas/sesiones
+// Diagnóstico v8: ver hrefs reales de sesiones mk2 para filtrar por fecha
 export const dynamic = 'force-dynamic';
 
 const H = {
@@ -16,74 +16,48 @@ async function get(url) {
 
 export async function GET() {
   const result = {};
+  const today = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
 
-  // La página del cine tiene 767KB. Los datos de config están en 0-40k.
-  // Los bloques de películas deberían estar en 40k-200k.
-  try {
-    const { text, status } = await get('https://bahia.artesiete.es/Cine/33/Artesiete-Bahia');
-    result.meta = { status, bytes: text.length };
+  result.today = today;
 
-    // Buscar los patrones de bloques de película
-    // Buscar clases CSS que contengan "pelicula", "movie", "film", "cartelera", "sesion"
-    const classPatterns = [...new Set(
-      (text.match(/class="([^"]*(?:pelicula|movie|film|sesion|horario|pase|titulo|poster)[^"]*)"/gi) || [])
-    )].slice(0, 30);
+  // ── mk2: ver estructura real de sesiones en páginas de película ─────────────
+  // Probamos con "el-drama" (5 sesiones según usuario) y "toy-story-5"
+  for (const slug of ['el-drama', 'toy-story-5']) {
+    try {
+      const { text: html } = await get(`https://www.mk2cines.es/es/${slug}`);
 
-    // Buscar IDs HTML con keywords relevantes
-    const idPatterns = [...new Set(
-      (text.match(/id="([^"]*(?:pelicula|movie|film|sesion|horario|pase|cartelera)[^"]*)"/gi) || [])
-    )].slice(0, 20);
-
-    result.htmlPatterns = { classPatterns, idPatterns };
-
-    // Zonas donde probablemente están los bloques de película
-    result.zone40k = text.slice(40000, 43000);
-    result.zone50k = text.slice(50000, 53000);
-    result.zone60k = text.slice(60000, 63000);
-    result.zone80k = text.slice(80000, 83000);
-    result.zone100k = text.slice(100000, 103000);
-    result.zone120k = text.slice(120000, 123000);
-    result.zone150k = text.slice(150000, 153000);
-
-    // Buscar bloques con horarios (HH:MM) y lo que les rodea
-    const sessionContexts = [];
-    for (const m of text.matchAll(/(.{0,300}\b\d{2}:\d{2}\b.{0,300})/g)) {
-      const ctx = m[1];
-      // Solo incluir si parece HTML de sesión (tiene tags, horarios de tarde/noche)
-      if (/<[a-z]/.test(ctx) && /\b(?:1[6-9]|2[0-2]):\d{2}\b/.test(ctx)) {
-        sessionContexts.push(ctx.slice(0, 400));
+      // Todos los hrefs con cinesur-bahia-de-cadiz (URL COMPLETA con query params)
+      const hrefs = [];
+      for (const m of html.matchAll(/<a[^>]+href="([^"]*cinesur-bahia-de-cadiz[^"]*)"/g)) {
+        hrefs.push(m[1]);
       }
+
+      // Contexto HTML: 1500 chars antes y después del primer match
+      const firstIdx = html.indexOf('cinesur-bahia-de-cadiz');
+      const context = firstIdx >= 0
+        ? html.slice(Math.max(0, firstIdx - 1200), firstIdx + 1500)
+        : 'NO ENCONTRADO';
+
+      // Buscar headers de fecha en el HTML
+      const dateHeaders = (html.match(/<[^>]*>(?:\s*(?:lunes|martes|miércoles|jueves|viernes|sábado|domingo|lun|mar|mié|jue|vie|sáb|dom)\b[^<]{0,30})<\/[^>]+>/gi) || []).slice(0, 15);
+
+      // Buscar data-date o data-dia attributes
+      const dataAttrs = (html.match(/data-(?:date|dia|fecha)="([^"]+)"/gi) || []).slice(0, 20);
+
+      result[`mk2_${slug}`] = {
+        bytes: html.length,
+        totalHrefs: hrefs.length,
+        hrefs: hrefs.slice(0, 20), // URLs COMPLETAS para ver si tienen fecha
+        dateHeaders,
+        dataAttrs,
+        context, // HTML alrededor del primer enlace de sesión
+      };
+    } catch(e) {
+      result[`mk2_${slug}`] = { error: String(e) };
     }
-    result.sessionContexts = sessionContexts.slice(0, 8);
-
-    // Buscar div/section con horarios encadenados (patrón de pases)
-    const sessionBlocks = (text.match(/<[^>]+>(?:\s*\d{2}:\d{2}\s*<\/[^>]+>\s*){2,}/g) || []).slice(0, 5);
-    result.sessionBlocks = sessionBlocks;
-
-    // Buscar URLs de compra de entradas dentro del cine
-    const buyUrls = [...new Set(
-      (text.match(/href="([^"]*(?:comprar|entradas|ticket|buy|sesion|pase)[^"]*)"[^>]*>/gi) || [])
-        .map(m => m.match(/href="([^"]+)"/)?.[1])
-        .filter(Boolean)
-    )].slice(0, 15);
-    result.buyUrls = buyUrls;
-
-    // Buscar patrones de nombre de película (h2/h3/strong con texto > 3 chars)
-    const titleCandidates = (text.match(/<(?:h[1-4]|strong)[^>]*>([^<]{3,60})<\/(?:h[1-4]|strong)>/gi) || [])
-      .map(m => m.replace(/<[^>]+>/g, '').trim())
-      .filter(t => t.length > 3 && !/^\d/.test(t))
-      .slice(0, 20);
-    result.titleCandidates = titleCandidates;
-
-    // Buscar patrones de imágenes de póster
-    const posterUrls = [...new Set(
-      (text.match(/(?:src|href)="([^"]*(?:Poster|poster|cartel|img)[^"]*\.(?:jpg|png|webp|jpeg))[^"]*"/gi) || [])
-        .map(m => m.match(/["'](https?:\/\/[^"']+|\/[^"']+)/)?.[1])
-        .filter(Boolean)
-    )].slice(0, 15);
-    result.posterUrls = posterUrls;
-
-  } catch(e) { result.error = String(e); }
+  }
 
   return Response.json(result, { headers: { 'Cache-Control': 'no-store' } });
 }
