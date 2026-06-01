@@ -1,0 +1,17 @@
+{
+  "name": "cartelera-cine-jaime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cartelera unificada de los cines de la Bahía de Cádiz",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.2.35",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

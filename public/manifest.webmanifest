@@ -1,0 +1,10 @@
+{
+  "name": "Cartelera Cine Jaime",
+  "short_name": "Cine Jaime",
+  "description": "Cartelera unificada de los cines de la Bahía de Cádiz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d13",
+  "theme_color": "#4f46e5",
+  "icons": []
+}

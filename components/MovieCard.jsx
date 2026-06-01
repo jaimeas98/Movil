@@ -1,0 +1,72 @@
+'use client';
+
+import { useState } from 'react';
+import { minutesToHuman } from '@/lib/normalize.js';
+
+// Hue determinista a partir del título, para el póster generado.
+function hueFromTitle(title) {
+  let h = 0;
+  for (let i = 0; i < title.length; i++) h = (h * 31 + title.charCodeAt(i)) % 360;
+  return h;
+}
+
+export default function MovieCard({ movie }) {
+  const [imgFailed, setImgFailed] = useState(false);
+  const showImg = movie.posterUrl && !imgFailed;
+  const hue = hueFromTitle(movie.title || '');
+  const duration = minutesToHuman(movie.durationMin);
+
+  return (
+    <article className="card">
+      <div className="poster">
+        {showImg ? (
+          <img
+            src={movie.posterUrl}
+            alt={`Cartel de ${movie.title}`}
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          <div className="poster-ph" style={{ '--ph-hue': hue }}>
+            <span className="ph-title">{movie.title}</span>
+          </div>
+        )}
+      </div>
+
+      <div className="card-body">
+        <h3 className="movie-title">{movie.title}</h3>
+
+        <div className="badges">
+          {movie.genre && <span className="badge badge-genre">{movie.genre}</span>}
+          {duration && <span className="badge">⏱ {duration}</span>}
+          {movie.ageRating && <span className="badge badge-age">{movie.ageRating}</span>}
+        </div>
+
+        {movie.synopsis && <p className="synopsis">{movie.synopsis}</p>}
+
+        <div className="showtimes">
+          {movie.sessions.map((s, i) => {
+            const isVose = s.language === 'VOSE';
+            const tag = [s.format, isVose ? 'VOSE' : null].filter(Boolean).join(' · ');
+            const inner = (
+              <>
+                <span>{s.time}</span>
+                {tag && <span className="st-tag">{tag}</span>}
+              </>
+            );
+            const cls = `showtime${isVose ? ' vose' : ''}`;
+            return s.buyUrl ? (
+              <a key={i} className={cls} href={s.buyUrl} target="_blank" rel="noreferrer" title={s.room || 'Comprar entrada'}>
+                {inner}
+              </a>
+            ) : (
+              <span key={i} className={cls} title={s.room || ''}>
+                {inner}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+    </article>
+  );
+}
