@@ -1,4 +1,4 @@
-// Diagnóstico v3: estructura completa de respuestas Yelmo y Arte Siete
+// Diagnóstico v4: Arte Siete HTML completo alrededor de películas + mk2 página película
 export const dynamic = 'force-dynamic';
 
 const HEADERS = {
@@ -9,19 +9,7 @@ const HEADERS = {
 };
 
 async function get(url) {
-  const res = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(12000), cache: 'no-store' });
-  const text = await res.text().catch(() => '');
-  return { status: res.status, text };
-}
-
-async function postJson(url, body) {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { ...HEADERS, 'Content-Type': 'application/json; charset=utf-8', 'X-Requested-With': 'XMLHttpRequest' },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(12000),
-    cache: 'no-store',
-  });
+  const res = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(15000), cache: 'no-store' });
   const text = await res.text().catch(() => '');
   return { status: res.status, text };
 }
@@ -29,79 +17,99 @@ async function postJson(url, body) {
 export async function GET() {
   const result = {};
 
-  // ── 1. YELMO: respuesta completa para cadiz ──────────────────────────────────
-  try {
-    const { status, text } = await postJson('https://www.yelmocines.es/now-playing.aspx/GetNowPlaying', { cityKey: 'cadiz' });
-    let parsed = null;
-    try { parsed = JSON.parse(text); } catch { /* */ }
-    const d = parsed?.d;
-    // Mostrar estructura de un cine (Premium Bahía Sur) y primer día completo
-    const cinemas = d?.Cinemas || [];
-    const bahiaSur = cinemas.find(c => (c.key || c.Key || '').includes('bahia-sur') || (c.name || c.Name || '').toLowerCase().includes('bahia'));
-    const areaSur  = cinemas.find(c => (c.key || c.Key || '').includes('area-sur')  || (c.name || c.Name || '').toLowerCase().includes('área'));
-    result.yelmo_post = {
-      status,
-      cinemasCount: cinemas.length,
-      cinemaKeys: cinemas.map(c => ({ key: c.key || c.Key, name: c.name || c.Name })),
-      bahiaSurKeys: bahiaSur ? Object.keys(bahiaSur) : null,
-      bahiaSurDatesKeys: bahiaSur ? Object.keys(bahiaSur.Dates || bahiaSur.dates || {}).slice(0, 7) : null,
-      firstDayBahiaSur: bahiaSur
-        ? JSON.stringify(Object.values(bahiaSur.Dates || bahiaSur.dates || {})[0]).slice(0, 2000)
-        : null,
-      areaSurDatesKeys: areaSur ? Object.keys(areaSur.Dates || areaSur.dates || {}).slice(0, 7) : null,
-      firstDayAreaSur: areaSur
-        ? JSON.stringify(Object.values(areaSur.Dates || areaSur.dates || {})[0]).slice(0, 2000)
-        : null,
-      rawPreview: text.slice(0, 500),
-    };
-  } catch (e) { result.yelmo_post = { error: String(e) }; }
-
-  // ── 2. ARTE SIETE: explorar bahia.artesiete.es ──────────────────────────────
+  // ── ARTE SIETE: buscar estructura de películas en el HTML ──────────────────
   try {
     const { status, text } = await get('https://bahia.artesiete.es/');
-    // Buscar URLs internas de cartelera/horarios en el HTML
-    const internalLinks = [...new Set((text.match(/href="([^"#]{3,80})"/g) || []).map(m => m.slice(6, -1)).filter(u => !u.startsWith('http') || u.includes('artesiete')))].slice(0, 30);
-    const apiCalls = [...new Set((text.match(/(?:url|href|action)\s*[:=]\s*['"]([^'"]{5,80})['"]/g) || []).map(m => m.slice(0, 100)))].slice(0, 20);
-    const scripts = (text.match(/<script[^>]*src="([^"]{5,80})"/g) || []).map(m => m.slice(0, 100)).slice(0, 10);
-    const formActions = (text.match(/<form[^>]*action="([^"]{3,80})"/g) || []).map(m => m.slice(0, 100));
-    // Extractar zona con palabras clave de película/horario
-    const idx = text.search(/pelicula|horario|sesion|pase|titulo|cine/i);
-    result.artesiete_home = {
-      status,
-      bytes: text.length,
-      internalLinks,
-      apiCalls: apiCalls.slice(0, 15),
-      scripts,
-      formActions,
-      movieZonePreview: idx >= 0 ? text.slice(Math.max(0, idx - 100), idx + 600) : null,
-      htmlHead: text.slice(0, 800),
-    };
-  } catch (e) { result.artesiete_home = { error: String(e) }; }
 
-  // ── 3. MK2: ver si hay URL de horarios separada ─────────────────────────────
-  try {
-    const urls = [
-      'https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/horarios',
-      'https://www.mk2cines.es/es/horarios?cine=mk2-cinesur-bahia-de-cadiz',
-    ];
-    result.mk2_horarios = {};
-    for (const u of urls) {
-      const { status, text } = await get(u);
-      result.mk2_horarios[u] = { status, bytes: text.length, preview: text.slice(0, 400) };
+    // Encontrar todos los bloques con datos de película (wire: data, JSON embebido, etc.)
+    const wireMatches = (text.match(/wire:initial-data="([^"]{20,}?)"/g) || []).map(m => {
+      try { return JSON.parse(m.slice(20, -1).replace(/&quot;/g, '"')); } catch { return m.slice(0, 200); }
+    }).slice(0, 5);
+
+    // Buscar bloques JSON en scripts
+    const jsonScripts = [];
+    for (const m of text.matchAll(/<script[^>]*type="application\/json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+      try {
+        const j = JSON.parse(m[1]);
+        jsonScripts.push(JSON.stringify(j).slice(0, 500));
+      } catch { jsonScripts.push(m[1].slice(0, 200)); }
     }
-    // Intentar también un enlace de película individual para ver horarios
-    const { text: carteleraHtml } = await get('https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/cartelera');
-    const movieLinks = [...carteleraHtml.matchAll(/href="(https:\/\/www\.mk2cines\.es\/es\/[a-z0-9-]+)"/g)].map(m => m[1]).filter((v, i, a) => a.indexOf(v) === i).slice(0, 3);
-    result.mk2_horarios.movieLinks = movieLinks;
+
+    // Buscar apariciones de palabras clave de sesión
+    const keywords = ['Titulo', 'titulo', 'Pelicula', 'pelicula', 'Horario', 'horario', 'Sesion', 'sesion', 'pase', 'poster', 'Poster'];
+    const snippets = [];
+    for (const kw of keywords) {
+      const idx = text.indexOf(kw);
+      if (idx >= 0) {
+        snippets.push({ keyword: kw, context: text.slice(Math.max(0, idx - 50), idx + 400) });
+        break; // sólo el primero interesante
+      }
+    }
+
+    // Slices del HTML en distintas zonas
+    const zones = [
+      text.slice(0, 600),
+      text.slice(20000, 21000),
+      text.slice(50000, 51500),
+      text.slice(100000, 101500),
+      text.slice(150000, text.length),
+    ];
+
+    result.artesiete = { status, bytes: text.length, wireMatches, jsonScripts, snippets, zones };
+  } catch (e) { result.artesiete = { error: String(e) }; }
+
+  // ── MK2: extraer links de películas reales y ver página de una película ─────
+  try {
+    const { text: cartHtml } = await get('https://www.mk2cines.es/es/mk2-cinesur-bahia-de-cadiz/cartelera');
+
+    // Extraer links únicos de películas (excluir páginas genéricas)
+    const GENERIC = new Set(['aviso-privacidad','cartelera','vose','contacto','tarjeta-mk2','eventos-sesiones-exclusivas','eventos-ciclos-exclusivos','eventos-cine-junior','eventos-estrenos','cumpl','horarios','mk2-cinesur-bahia-de-cadiz']);
+    const allLinks = [...cartHtml.matchAll(/href="(https:\/\/www\.mk2cines\.es\/es\/[a-z0-9-]+[0-9])"/g)].map(m => m[1]);
+    const movieLinks = [...new Set(allLinks)].filter(u => {
+      const slug = u.split('/es/')[1] || '';
+      return !GENERIC.has(slug) && slug.length > 3;
+    });
+
+    // Extraer también info básica del cartel: titulo, duración, poster
+    const filmItems = [];
+    for (const m of cartHtml.matchAll(/class="film-list-item"[\s\S]{0,2000}?(?=class="film-list-item"|$)/g)) {
+      const block = m[0];
+      const titleM = block.match(/film-list-title[^>]*>[\s\S]*?href="([^"]+)"[^>]*>([^<]+)/);
+      const durationM = block.match(/(\d+)\s*minutos/i);
+      const posterM = block.match(/src="(fr-216x326-data[^"]+)"/);
+      if (titleM) {
+        filmItems.push({
+          url: titleM[1],
+          title: titleM[2].trim(),
+          duration: durationM ? durationM[1] : null,
+          poster: posterM ? 'https://www.mk2cines.es/' + posterM[1] : null,
+        });
+      }
+    }
+
+    result.mk2_cartelera = { movieLinkCount: movieLinks.length, movieLinks: movieLinks.slice(0, 5), filmItems: filmItems.slice(0, 6) };
+
+    // Visitar la primera película real para ver estructura de horarios
     if (movieLinks[0]) {
-      const { status, text } = await get(movieLinks[0]);
-      const horariosIdx = text.search(/horario|sesion|pase|\d{2}:\d{2}/i);
-      result.mk2_horarios.firstMoviePage = {
-        url: movieLinks[0], status,
-        horarioZone: horariosIdx >= 0 ? text.slice(Math.max(0, horariosIdx - 100), horariosIdx + 1000) : 'NO ENCONTRADO',
+      const { status, text: movieHtml } = await get(movieLinks[0]);
+      // Buscar zona de horarios
+      const hIdx = movieHtml.search(/id="horarios"|class="horarios|Pases|HORARIOS|pases-dia|showtimes/i);
+      // Buscar patrón HH:MM (horas)
+      const timesZone = movieHtml.slice(Math.max(0, hIdx - 200), hIdx + 3000);
+      // También buscar si aparece el nombre del cine Bahía de Cádiz
+      const bahiaIdx = movieHtml.search(/bahia.de.cadiz|cinesur|bahía de cádiz/i);
+      result.mk2_pelicula = {
+        url: movieLinks[0],
+        status,
+        hIdx,
+        timesZone: timesZone.slice(0, 2000),
+        bahiaIdx,
+        bahiaContext: bahiaIdx >= 0 ? movieHtml.slice(Math.max(0, bahiaIdx - 100), bahiaIdx + 1000) : 'NO ENCONTRADO',
+        formActions: (movieHtml.match(/<form[^>]*action="([^"]{3,80})"/g) || []).slice(0, 5),
+        ajaxUrls: [...new Set((movieHtml.match(/url\s*:\s*['"]([^'"]{5,80})['"]/g) || []).map(m => m))].slice(0, 10),
       };
     }
-  } catch (e) { result.mk2_horarios = { error: String(e) }; }
+  } catch (e) { result.mk2_cartelera = { error: String(e) }; }
 
   return Response.json(result, { headers: { 'Cache-Control': 'no-store' } });
 }
