@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 
 function hueFromTitle(title) {
@@ -50,7 +50,10 @@ function ratingLinks(title, ratings) {
 }
 
 export default function MovieModal({ movie, cinema, onClose }) {
-  const [ratings, setRatings] = useState(null);
+  // El padre (Page) ya enriqueció `movie.ratings` desde /api/ratings.
+  // Aquí solo presentamos. Si por algún motivo no hay ratings se muestran
+  // los enlaces externos sin notas, como antes.
+  const ratings = movie.ratings ?? null;
 
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose();
@@ -62,13 +65,6 @@ export default function MovieModal({ movie, cinema, onClose }) {
       document.body.style.overflow = prev;
     };
   }, [onClose]);
-
-  useEffect(() => {
-    fetch(`/api/movie-info?title=${encodeURIComponent(movie.title)}`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => d?.ratings && setRatings(d.ratings))
-      .catch(() => {});
-  }, [movie.title]);
 
   const duration = minutesToHuman(movie.durationMin);
   const hue = hueFromTitle(movie.title || '');
@@ -94,10 +90,14 @@ export default function MovieModal({ movie, cinema, onClose }) {
           <div className="modal-head">
             <h2 className="modal-title">{movie.title}</h2>
             <div className="badges">
+              {ratings?.average != null && (
+                <span className="badge badge-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">
+                  ★ {(ratings.average / 10).toFixed(1)}
+                </span>
+              )}
               {movie.genre && <span className="badge badge-genre">{movie.genre}</span>}
               {duration && <span className="badge">⏱ {duration}</span>}
               {movie.ageRating && <span className="badge badge-age">{movie.ageRating}</span>}
-              {movie.rating != null && <span className="badge badge-rating">★ {Number(movie.rating).toFixed(1)}</span>}
             </div>
             {cinema && (
               <div className="modal-cinema">

@@ -84,6 +84,7 @@ export default function Page() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [ratings, setRatings] = useState({}); // { title: {imdb, rt, metacritic, average, genre} | null }
 
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
@@ -124,14 +125,48 @@ export default function Page() {
     load(false);
   }, [load]);
 
+  // Cuando llega data, pedimos las valoraciones en lote (un solo POST con
+  // todos los títulos únicos). OMDB tiene cache 24h en el server, así que
+  // las recargas posteriores no consumen cuota.
+  useEffect(() => {
+    if (!data) return;
+    const titles = new Set();
+    for (const c of data.cinemas) {
+      for (const iso of Object.keys(c.byDate || {})) {
+        for (const m of c.byDate[iso] || []) if (m.title) titles.add(m.title);
+      }
+    }
+    if (!titles.size) return;
+    fetch('/api/ratings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ titles: [...titles] }),
+    })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d?.ratings && setRatings(d.ratings))
+      .catch(() => {});
+  }, [data]);
+
   // Cartelera del día seleccionado (filtrado en memoria → instantáneo).
+  // Aquí mezclamos cada película con sus valoraciones OMDB para que la card
+  // muestre la nota media y el modal el desglose. Si una película de mk2 no
+  // tiene género (mk2 lo ha deshabilitado en su HTML), se usa el primero de
+  // OMDB como fallback.
   const dayCinemas = useMemo(() => {
     if (!data) return [];
     return data.cinemas.map((c) => ({
       ...c,
-      movies: (c.byDate && c.byDate[selectedDate]) || [],
+      movies: ((c.byDate && c.byDate[selectedDate]) || []).map((m) => {
+        const r = ratings[m.title] || null;
+        const fallbackGenre = r?.genre ? r.genre.split(',')[0].trim() : null;
+        return {
+          ...m,
+          genre: m.genre || fallbackGenre,
+          ratings: r,
+        };
+      }),
     }));
-  }, [data, selectedDate]);
+  }, [data, selectedDate, ratings]);
 
   // Géneros disponibles ese día.
   const genres = useMemo(() => {

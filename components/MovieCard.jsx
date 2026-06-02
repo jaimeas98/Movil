@@ -34,8 +34,10 @@ export default function MovieCard({ movie, cinema, onOpen }) {
               <span className="ph-title">{movie.title}</span>
             </div>
           )}
-          {movie.rating != null && (
-            <span className="poster-rating">★ {Number(movie.rating).toFixed(1)}</span>
+          {movie.ratings?.average != null && (
+            <span className="poster-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">
+              ★ {(movie.ratings.average / 10).toFixed(1)}
+            </span>
           )}
         </div>
       </button>
@@ -46,6 +48,11 @@ export default function MovieCard({ movie, cinema, onOpen }) {
         </button>
 
         <div className="badges">
+          {movie.ratings?.average != null && (
+            <span className="badge badge-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">
+              ★ {(movie.ratings.average / 10).toFixed(1)}
+            </span>
+          )}
           {movie.genre && <span className="badge badge-genre">{movie.genre}</span>}
           {duration && <span className="badge">⏱ {duration}</span>}
           {movie.ageRating && <span className="badge badge-age">{movie.ageRating}</span>}
