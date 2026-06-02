@@ -77,7 +77,7 @@ export default function MovieCard({ movie, cinema, onOpen }) {
           })}
         </div>
 
-        <button className="card-detail-link" onClick={open}>Ver ficha y valoraciones →</button>
+        <button className="card-detail-link" onClick={open}>Ficha · Valoraciones ↗</button>
       </div>
     </article>
   );

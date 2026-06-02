@@ -688,6 +688,12 @@ a.showtime:hover {
   all: unset;
   display: block;
   cursor: pointer;
+  height: 100%;
+}
+.card-open .poster {
+  height: 100%;
+  aspect-ratio: unset;
+  min-height: 140px;
 }
 .poster-rating {
   position: absolute;
@@ -712,14 +718,25 @@ a.showtime:hover {
 .card-detail-link {
   all: unset;
   cursor: pointer;
-  margin-top: 4px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--primary);
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.01em;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 .card-detail-link:hover {
-  text-decoration: underline;
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 .showtime .st-room {
   font-size: 9px;
@@ -922,15 +939,17 @@ a.showtime:hover {
   margin-top: 0;
 }
 @media (max-width: 540px) {
+  .modal-overlay {
+    padding: 12px;
+  }
   .modal {
     padding: 18px 16px;
-    max-height: 94vh;
   }
   .modal-hero {
-    grid-template-columns: 104px 1fr;
-    gap: 14px;
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
   }
   .modal-head {
-    padding-right: 24px;
+    padding-right: 20px;
   }
 }
