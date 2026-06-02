@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 
 function hueFromTitle(title) {
@@ -9,23 +9,49 @@ function hueFromTitle(title) {
   return h;
 }
 
-// Limpia el título para buscarlo en webs de valoración (quita "(VOSE)", años…).
 function searchQuery(title) {
   return encodeURIComponent(String(title || '').replace(/\(.*?\)/g, '').trim());
 }
 
-// Enlaces a las principales webs de valoración (búsqueda por título).
-function ratingLinks(title) {
+function ratingLinks(title, ratings) {
   const q = searchQuery(title);
   return [
-    { key: 'fa', label: 'FilmAffinity', color: '#0f4c81', url: `https://www.filmaffinity.com/es/search.php?stext=${q}` },
-    { key: 'imdb', label: 'IMDb', color: '#f5c518', dark: true, url: `https://www.imdb.com/find/?q=${q}&s=tt` },
-    { key: 'rt', label: 'Rotten Tomatoes', color: '#fa320a', url: `https://www.rottentomatoes.com/search?search=${q}` },
-    { key: 'mc', label: 'Metacritic', color: '#ffcc33', dark: true, url: `https://www.metacritic.com/search/${q}/` },
+    {
+      key: 'fa',
+      label: 'FilmAffinity',
+      color: '#0f4c81',
+      url: `https://www.filmaffinity.com/es/search.php?stext=${q}`,
+      score: null,
+    },
+    {
+      key: 'imdb',
+      label: 'IMDb',
+      color: '#f5c518',
+      dark: true,
+      url: `https://www.imdb.com/find/?q=${q}&s=tt`,
+      score: ratings?.imdb ? `${ratings.imdb}/10` : null,
+    },
+    {
+      key: 'rt',
+      label: 'Rotten Tomatoes',
+      color: '#fa320a',
+      url: `https://www.rottentomatoes.com/search?search=${q}`,
+      score: ratings?.rt ?? null,
+    },
+    {
+      key: 'mc',
+      label: 'Metacritic',
+      color: '#ffcc33',
+      dark: true,
+      url: `https://www.metacritic.com/search/${q}/`,
+      score: ratings?.metacritic ? `${ratings.metacritic}/100` : null,
+    },
   ];
 }
 
 export default function MovieModal({ movie, cinema, onClose }) {
+  const [ratings, setRatings] = useState(null);
+
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
@@ -37,9 +63,17 @@ export default function MovieModal({ movie, cinema, onClose }) {
     };
   }, [onClose]);
 
+  useEffect(() => {
+    fetch(`/api/movie-info?title=${encodeURIComponent(movie.title)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => d?.ratings && setRatings(d.ratings))
+      .catch(() => {});
+  }, [movie.title]);
+
   const duration = minutesToHuman(movie.durationMin);
   const hue = hueFromTitle(movie.title || '');
-  const links = ratingLinks(movie.title);
+  const links = ratingLinks(movie.title, ratings);
+  const trailerUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + ' tráiler oficial')}`;
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={movie.title}>
@@ -92,7 +126,8 @@ export default function MovieModal({ movie, cinema, onClose }) {
                 className="rating-link"
                 style={{ '--rl-bg': l.color, '--rl-fg': l.dark ? '#1a1a1a' : '#fff' }}
               >
-                {l.label} ↗
+                {l.score && <span className="rl-score">{l.score}</span>}
+                <span className="rl-label">{l.label} ↗</span>
               </a>
             ))}
           </div>
@@ -121,6 +156,13 @@ export default function MovieModal({ movie, cinema, onClose }) {
               );
             })}
           </div>
+        </div>
+
+        <div className="modal-section">
+          <h4 className="modal-h4">Tráiler</h4>
+          <a href={trailerUrl} target="_blank" rel="noreferrer" className="trailer-link">
+            ▶ Buscar tráiler en YouTube
+          </a>
         </div>
       </div>
     </div>

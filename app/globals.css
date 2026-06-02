@@ -688,11 +688,6 @@ a.showtime:hover {
   all: unset;
   display: block;
   cursor: pointer;
-  height: 100%;
-}
-.card-open .poster {
-  height: 100%;
-  min-height: 168px;
 }
 .poster-rating {
   position: absolute;
@@ -749,9 +744,10 @@ a.showtime:hover {
   inset: 0;
   z-index: 100;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 20px;
+  overflow-y: auto;
   background: rgba(8, 10, 18, 0.62);
   backdrop-filter: blur(6px);
   animation: fadeIn 0.16s ease;
@@ -764,8 +760,7 @@ a.showtime:hover {
   position: relative;
   width: 100%;
   max-width: 720px;
-  max-height: 90vh;
-  overflow-y: auto;
+  margin: auto;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -876,12 +871,16 @@ a.showtime:hover {
 }
 .rating-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
-  padding: 9px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 13.5px;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
   font-weight: 700;
+  text-align: center;
+  min-width: 80px;
   background: var(--rl-bg);
   color: var(--rl-fg);
   box-shadow: var(--shadow-sm);
@@ -891,6 +890,33 @@ a.showtime:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   filter: brightness(1.06);
+}
+.rl-score {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+.rl-label {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.92;
+}
+.trailer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: #ff0000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+.trailer-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 .modal-section .showtimes {
   margin-top: 0;
