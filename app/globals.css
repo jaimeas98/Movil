@@ -707,6 +707,19 @@ a.showtime:hover {
   border-radius: var(--radius-pill);
   backdrop-filter: blur(2px);
 }
+.poster-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+}
 .movie-title-btn {
   all: unset;
   cursor: pointer;

@@ -10,7 +10,7 @@ export default function CinemaSection({ cinema, onMovieClick }) {
           <div className="cinema-name">{cinema.name}</div>
           <div className="cinema-meta">
             <span>📍 {cinema.venue}, {cinema.city}</span>
-            {cinema.source === 'sample' && <span className="mode-pill mode-sample"><span className="dot" /> ejemplo</span>}
+            {cinema.source === 'error' && <span className="mode-pill mode-sample"><span className="dot" /> sin conexión</span>}
             {cinema.source === 'live' && <span className="mode-pill mode-live"><span className="dot" /> en vivo</span>}
           </div>
         </div>

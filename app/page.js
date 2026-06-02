@@ -17,7 +17,7 @@ import MovieModal from '@/components/MovieModal.jsx';
 // Bumped la versión de clave (v2) para invalidar caches anteriores con la
 // vida útil larga; los usuarios verán datos frescos en su próxima recarga.
 
-const CACHE_KEY = 'cartelera_v2';
+const CACHE_KEY = 'cartelera_v3';
 const CACHE_TTL_MS = 15 * 60 * 1000;
 
 function madridDate() {
@@ -79,8 +79,8 @@ function normalizeText(s) {
 }
 
 export default function Page() {
-  const days = useMemo(() => buildDayList(14), []);
-  const [selectedDate, setSelectedDate] = useState(days[0].iso);
+  const allDays = useMemo(() => buildDayList(14), []);
+  const [selectedDate, setSelectedDate] = useState(allDays[0].iso);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -146,6 +146,27 @@ export default function Page() {
       .then((d) => d?.ratings && setRatings(d.ratings))
       .catch(() => {});
   }, [data]);
+
+  // Días con AL MENOS una película en ALGÚN cine. Los días vacíos
+  // (típicamente más allá de la ventana de programación de los cines) se
+  // ocultan del selector para que no quepa dudas — antes pasaba que
+  // aparecían días con datos de muestra falsos y ahora simplemente no
+  // existen en la línea de tiempo.
+  const days = useMemo(() => {
+    if (!data) return allDays;
+    return allDays.filter((d) =>
+      data.cinemas.some((c) => (c.byDate?.[d.iso]?.length ?? 0) > 0)
+    );
+  }, [data, allDays]);
+
+  // Si el día seleccionado deja de estar en la lista (porque cambió data),
+  // movemos la selección al primer día disponible.
+  useEffect(() => {
+    if (!days.length) return;
+    if (!days.some((d) => d.iso === selectedDate)) {
+      setSelectedDate(days[0].iso);
+    }
+  }, [days, selectedDate]);
 
   // Cartelera del día seleccionado (filtrado en memoria → instantáneo).
   // Aquí mezclamos cada película con sus valoraciones OMDB para que la card

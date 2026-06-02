@@ -39,6 +39,7 @@ export default function MovieCard({ movie, cinema, onOpen }) {
               ★ {(movie.ratings.average / 10).toFixed(1)}
             </span>
           )}
+          {movie.isNew && <span className="poster-new">ESTRENO</span>}
         </div>
       </button>
 
