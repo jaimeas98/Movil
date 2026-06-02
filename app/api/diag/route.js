@@ -1,8 +1,7 @@
 // Endpoint de diagnóstico: ejecuta todos los adaptadores y devuelve un
-// informe detallado. Útil para depurar sin necesidad de que el usuario
-// compruebe la interfaz. GET /api/diag  (o /api/diag?cinema=yelmo-bahia-sur)
-//
-// IMPORTANTE: solo accesible en desarrollo (NODE_ENV !== 'production').
+// informe detallado. GET /api/diag  (o /api/diag?cinema=yelmo-bahia-sur)
+// También incluye una sección "raw" con las claves Yelmo disponibles y
+// el conteo de sesiones Arte Siete para detectar problemas de datos.
 
 import { NextResponse } from 'next/server';
 import { fetchMk2 } from '@/lib/cinemas/mk2.js';
@@ -58,6 +57,39 @@ export async function GET(request) {
     }
 
     report.cinemas.push(entry);
+  }
+
+  // Sección raw: claves de cine disponibles en el API de Yelmo + conteo Arte Siete
+  report.raw = {};
+  try {
+    const H = {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36',
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Accept-Language': 'es-ES,es;q=0.9',
+    };
+    const res = await fetch('https://www.yelmocines.es/now-playing.aspx/GetNowPlaying', {
+      method: 'POST', headers: H, body: JSON.stringify({ cityKey: 'cadiz' }),
+      signal: AbortSignal.timeout(12000), cache: 'no-store',
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const cinemas = data?.d?.Cinemas ?? [];
+      report.raw.yelmo_keys = cinemas.map((c) => c.Key);
+      // Para cada cine, mostrar cuántos días y películas retorna
+      report.raw.yelmo_dates = cinemas.map((c) => ({
+        key: c.Key,
+        dates: (c.Dates ?? []).map((d, i) => ({
+          idx: i,
+          movies: d.Movies?.length ?? 0,
+          firstTimeFilter: d.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.TimeFilter ?? null,
+        })),
+      }));
+    } else {
+      report.raw.yelmo_error = `HTTP ${res.status}`;
+    }
+  } catch (e) {
+    report.raw.yelmo_error = String(e?.message ?? e);
   }
 
   // Resumen global de issues
