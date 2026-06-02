@@ -9,6 +9,59 @@ import Filters from '@/components/Filters.jsx';
 import CinemaSection from '@/components/CinemaSection.jsx';
 import MovieModal from '@/components/MovieModal.jsx';
 
+// ── Caché en localStorage ──────────────────────────────────────────────────────
+// Los datos reales de cada cine se pueden perder si el API "now playing" no los
+// incluye en consultas nocturnas. Guardamos el resultado completo durante todo
+// el día de Madrid y lo servimos instantáneamente en las recargas.
+
+const CACHE_KEY = 'cartelera_v1';
+
+function madridDate() {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Madrid',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
+}
+
+function readCache() {
+  try {
+    const s = localStorage.getItem(CACHE_KEY);
+    if (!s) return null;
+    const { day, data } = JSON.parse(s);
+    return day === madridDate() ? data : null;
+  } catch { return null; }
+}
+
+function writeCache(data) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ day: madridDate(), data }));
+  } catch { /* cuota llena — ignorar */ }
+}
+
+// Fusión inteligente: conserva sesiones reales (live) aunque el API fresco no las incluya.
+// Útil cuando Yelmo/Arte Siete omiten hoy en consultas vespertinas.
+function mergeWithCache(fresh, cached) {
+  if (!cached?.cinemas || !fresh?.cinemas) return fresh;
+  return {
+    ...fresh,
+    cinemas: fresh.cinemas.map((fc) => {
+      const cc = cached.cinemas.find((c) => c.id === fc.id);
+      if (!cc) return fc;
+      const freshLive = new Set(fc.liveDates ?? []);
+      const cachedLive = new Set(cc.liveDates ?? []);
+      const mergedByDate = { ...(fc.byDate ?? {}) };
+      const mergedLiveDates = [...freshLive];
+      for (const iso of cachedLive) {
+        if (!freshLive.has(iso) && cc.byDate?.[iso]?.length) {
+          mergedByDate[iso] = cc.byDate[iso]; // conservar datos reales del caché
+          mergedLiveDates.push(iso);
+        }
+      }
+      return { ...fc, byDate: mergedByDate, liveDates: mergedLiveDates };
+    }),
+  };
+}
+
 function normalizeText(s) {
   return String(s || '')
     .toLowerCase()
@@ -28,15 +81,28 @@ export default function Page() {
   const [cinemaFilter, setCinemaFilter] = useState('');
   const [active, setActive] = useState(null); // película abierta en el modal
 
-  // Carga ÚNICA: trae todos los días de una vez y se cachea en cliente.
+  // Carga ÚNICA: trae todos los días de una vez.
+  // Sin refresh: sirve localStorage si existe (mismo día Madrid), luego fetch.
+  // Con refresh: siempre fetch, fusiona con caché para no perder sesiones reales.
   const load = useCallback(async (refresh = false) => {
     setLoading(true);
     setError(null);
     try {
+      if (!refresh) {
+        const cached = readCache();
+        if (cached) {
+          setData(cached);
+          setLoading(false);
+          return;
+        }
+      }
       const res = await fetch(`/api/showtimes${refresh ? '?refresh=1' : ''}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Error ${res.status}`);
       const json = await res.json();
-      setData(json);
+      const cached = readCache();
+      const merged = refresh && cached ? mergeWithCache(json, cached) : json;
+      writeCache(merged);
+      setData(merged);
     } catch (e) {
       setError('No se pudo cargar la cartelera. Inténtalo de nuevo.');
       setData(null);
