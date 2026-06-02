@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard.jsx';
 
-export default function CinemaSection({ cinema }) {
+export default function CinemaSection({ cinema, onMovieClick }) {
   const movies = cinema.movies || [];
   return (
     <section className="cinema" id={cinema.id}>
@@ -13,11 +13,6 @@ export default function CinemaSection({ cinema }) {
             {cinema.source === 'sample' && <span className="mode-pill mode-sample"><span className="dot" /> ejemplo</span>}
             {cinema.source === 'live' && <span className="mode-pill mode-live"><span className="dot" /> en vivo</span>}
           </div>
-          {cinema.source === 'sample' && cinema.reason && (
-            <div className="cinema-reason" title={cinema.reason}>
-              ⚠️ {cinema.reason.length > 80 ? cinema.reason.slice(0, 80) + '…' : cinema.reason}
-            </div>
-          )}
         </div>
         <span className="cinema-count">
           {movies.length} {movies.length === 1 ? 'película' : 'películas'}
@@ -25,11 +20,15 @@ export default function CinemaSection({ cinema }) {
       </div>
 
       {movies.length === 0 ? (
-        <div className="cinema-empty">No hay películas que coincidan con el filtro en este cine.</div>
+        <div className="cinema-empty">
+          {cinema.source === 'live'
+            ? 'Este cine no tiene sesiones publicadas para este día.'
+            : 'No hay películas que coincidan con el filtro en este cine.'}
+        </div>
       ) : (
         <div className="movies-grid">
           {movies.map((m) => (
-            <MovieCard key={m.id} movie={m} />
+            <MovieCard key={m.id} movie={m} cinema={cinema} onOpen={onMovieClick} />
           ))}
         </div>
       )}

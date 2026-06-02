@@ -7,6 +7,7 @@ import ThemeToggle from '@/components/ThemeToggle.jsx';
 import DayTimeline from '@/components/DayTimeline.jsx';
 import Filters from '@/components/Filters.jsx';
 import CinemaSection from '@/components/CinemaSection.jsx';
+import MovieModal from '@/components/MovieModal.jsx';
 
 function normalizeText(s) {
   return String(s || '')
@@ -25,12 +26,14 @@ export default function Page() {
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
   const [cinemaFilter, setCinemaFilter] = useState('');
+  const [active, setActive] = useState(null); // película abierta en el modal
 
-  const load = useCallback(async (date) => {
+  // Carga ÚNICA: trae todos los días de una vez y se cachea en cliente.
+  const load = useCallback(async (refresh = false) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/showtimes?date=${date}`, { cache: 'no-store' });
+      const res = await fetch(`/api/showtimes${refresh ? '?refresh=1' : ''}`, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Error ${res.status}`);
       const json = await res.json();
       setData(json);
@@ -42,24 +45,30 @@ export default function Page() {
     }
   }, []);
 
-  // Carga automática al entrar y cada vez que cambia el día.
   useEffect(() => {
-    load(selectedDate);
-  }, [selectedDate, load]);
+    load(false);
+  }, [load]);
 
-  // Lista de géneros disponibles en la cartelera actual.
+  // Cartelera del día seleccionado (filtrado en memoria → instantáneo).
+  const dayCinemas = useMemo(() => {
+    if (!data) return [];
+    return data.cinemas.map((c) => ({
+      ...c,
+      movies: (c.byDate && c.byDate[selectedDate]) || [],
+    }));
+  }, [data, selectedDate]);
+
+  // Géneros disponibles ese día.
   const genres = useMemo(() => {
-    if (!data) return [];
     const set = new Set();
-    for (const c of data.cinemas) for (const m of c.movies) if (m.genre) set.add(m.genre);
+    for (const c of dayCinemas) for (const m of c.movies) if (m.genre) set.add(m.genre);
     return [...set].sort((a, b) => a.localeCompare(b, 'es'));
-  }, [data]);
+  }, [dayCinemas]);
 
-  // Aplica los filtros (título, género, cine) a los datos.
+  // Aplica filtros de búsqueda/género/cine.
   const filtered = useMemo(() => {
-    if (!data) return [];
     const q = normalizeText(query.trim());
-    return data.cinemas
+    return dayCinemas
       .filter((c) => !cinemaFilter || c.id === cinemaFilter)
       .map((c) => ({
         ...c,
@@ -69,7 +78,7 @@ export default function Page() {
           return true;
         }),
       }));
-  }, [data, query, genre, cinemaFilter]);
+  }, [dayCinemas, query, genre, cinemaFilter]);
 
   const totalMovies = useMemo(
     () => filtered.reduce((acc, c) => acc + c.movies.length, 0),
@@ -80,6 +89,10 @@ export default function Page() {
   const updatedTime = data?.generatedAt
     ? new Date(data.generatedAt).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
     : null;
+
+  const openMovie = useCallback((movie, cinema) => {
+    setActive({ movie, cinema });
+  }, []);
 
   return (
     <>
@@ -94,7 +107,7 @@ export default function Page() {
             </div>
           </div>
           <div className="header-actions">
-            <button className="btn btn-primary" onClick={() => load(selectedDate)} disabled={loading}>
+            <button className="btn btn-primary" onClick={() => load(true)} disabled={loading}>
               <span className={loading ? 'spin' : ''}>↻</span>
               <span>{loading ? 'Actualizando…' : 'Actualizar'}</span>
             </button>
@@ -107,7 +120,6 @@ export default function Page() {
       <DayTimeline days={days} selected={selectedDate} onSelect={setSelectedDate} />
 
       <main className="container">
-        {/* TÍTULO + FILTROS */}
         <div className="toolbar">
           <h1 className="selected-day">{longLabel(selectedDate)}</h1>
           <Filters
@@ -123,7 +135,7 @@ export default function Page() {
 
           <div className="results-line">
             <span>
-              {loading
+              {loading && !data
                 ? 'Cargando cartelera…'
                 : `${totalMovies} ${totalMovies === 1 ? 'película' : 'películas'} ${
                     hasActiveFilters ? 'tras el filtro' : 'en cartelera'
@@ -141,13 +153,12 @@ export default function Page() {
           </div>
         </div>
 
-        {/* CONTENIDO */}
         {error ? (
           <div className="empty">
             <div className="em-ic">⚠️</div>
             <h3>Vaya…</h3>
             <p>{error}</p>
-            <button className="btn btn-primary" onClick={() => load(selectedDate)} style={{ marginTop: 12 }}>
+            <button className="btn btn-primary" onClick={() => load(true)} style={{ marginTop: 12 }}>
               Reintentar
             </button>
           </div>
@@ -157,10 +168,10 @@ export default function Page() {
           <div className="empty">
             <div className="em-ic">🍿</div>
             <h3>Sin resultados</h3>
-            <p>No encontramos películas con estos filtros para {longLabel(selectedDate).toLowerCase()}.</p>
+            <p>No hay películas con estos filtros para {longLabel(selectedDate).toLowerCase()}.</p>
           </div>
         ) : (
-          filtered.map((c) => <CinemaSection key={c.id} cinema={c} />)
+          filtered.map((c) => <CinemaSection key={c.id} cinema={c} onMovieClick={openMovie} />)
         )}
       </main>
 
@@ -173,6 +184,10 @@ export default function Page() {
           Hecho con ❤️ para Jaime &amp; equipo · Los horarios pueden cambiar; confirma en la web del cine.
         </div>
       </footer>
+
+      {active && (
+        <MovieModal movie={active.movie} cinema={active.cinema} onClose={() => setActive(null)} />
+      )}
     </>
   );
 }
