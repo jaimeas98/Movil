@@ -10,11 +10,15 @@ import CinemaSection from '@/components/CinemaSection.jsx';
 import MovieModal from '@/components/MovieModal.jsx';
 
 // ── Caché en localStorage ──────────────────────────────────────────────────────
-// Los datos reales de cada cine se pueden perder si el API "now playing" no los
-// incluye en consultas nocturnas. Guardamos el resultado completo durante todo
-// el día de Madrid y lo servimos instantáneamente en las recargas.
+// Guardamos la respuesta completa de /api/showtimes para que recargas
+// inmediatas sean instantáneas. TTL corto (15 min) para que un redeploy con
+// adaptadores corregidos se vea sin tener que pulsar "Actualizar" — antes el
+// caché era válido todo el día Madrid y cristalizaba estados defectuosos.
+// Bumped la versión de clave (v2) para invalidar caches anteriores con la
+// vida útil larga; los usuarios verán datos frescos en su próxima recarga.
 
-const CACHE_KEY = 'cartelera_v1';
+const CACHE_KEY = 'cartelera_v2';
+const CACHE_TTL_MS = 15 * 60 * 1000;
 
 function madridDate() {
   return new Intl.DateTimeFormat('en-CA', {
@@ -27,14 +31,19 @@ function readCache() {
   try {
     const s = localStorage.getItem(CACHE_KEY);
     if (!s) return null;
-    const { day, data } = JSON.parse(s);
-    return day === madridDate() ? data : null;
+    const { day, at, data } = JSON.parse(s);
+    if (day !== madridDate()) return null;
+    if (typeof at !== 'number' || Date.now() - at > CACHE_TTL_MS) return null;
+    return data;
   } catch { return null; }
 }
 
 function writeCache(data) {
   try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({ day: madridDate(), data }));
+    localStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({ day: madridDate(), at: Date.now(), data })
+    );
   } catch { /* cuota llena — ignorar */ }
 }
 
@@ -245,7 +254,7 @@ export default function Page() {
         <div className="container">
           Cartelera unificada de{' '}
           <strong>Cinesur Bahía de Cádiz</strong>, <strong>Yelmo Bahía Sur</strong>,{' '}
-          <strong>Yelmo Jerez</strong> y <strong>Arte Siete El Puerto</strong>.
+          <strong>Yelmo Área Sur</strong> y <strong>Arte Siete El Puerto</strong>.
           <br />
           Hecho con ❤️ para Jaime &amp; equipo · Los horarios pueden cambiar; confirma en la web del cine.
         </div>

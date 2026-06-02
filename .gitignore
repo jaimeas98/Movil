@@ -28,3 +28,8 @@ yarn-error.log*
 
 # logs
 *.log
+
+# session-local debug dumps (no committearlos)
+_debug_*.html
+_debug_*.json
+SESSION_CONTEXT.md
