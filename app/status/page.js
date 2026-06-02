@@ -61,7 +61,7 @@ export default function StatusPage() {
               {c.allDates.map((d) => (
                 <td key={d.iso} style={{
                   padding: '4px 6px', textAlign: 'center', fontSize: 11,
-                  ...(d.count === 0 ? red : d.count > 0 ? {} : {}),
+                  ...(d.count === 0 ? red : d.isLive ? green : yellow),
                 }}>
                   {d.count === 0 ? '❌' : d.count}
                 </td>

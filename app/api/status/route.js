@@ -21,10 +21,12 @@ export async function GET(request) {
       name: c.name,
       source: c.source,
       reason: c.reason ?? null,
-      today: { date: today, movies: c.byDate[today]?.length ?? 0 },
+      liveDates: c.liveDates ?? [],
+      today: { date: today, movies: c.byDate[today]?.length ?? 0, isLive: (c.liveDates ?? []).includes(today) },
       allDates: data.dates.map((iso) => ({
         iso,
         count: c.byDate[iso]?.length ?? 0,
+        isLive: (c.liveDates ?? []).includes(iso),
       })),
     }));
 
