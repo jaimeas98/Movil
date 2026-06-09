@@ -10,6 +10,25 @@
   --radius-pill: 999px;
   --maxw: 1680px;
   --header-h: 64px;
+
+  /* Fallbacks (light theme) activos antes de que el script de tema se ejecute */
+  --bg: #f3f5fb;
+  --bg-soft: #eef1f9;
+  --surface: #ffffff;
+  --surface-2: #f1f3fa;
+  --surface-3: #e9ecf6;
+  --text: #151823;
+  --text-muted: #5a6276;
+  --text-faint: #8b92a6;
+  --border: #e3e7f1;
+  --border-strong: #d3d8e6;
+  --primary: #4f46e5;
+  --primary-strong: #4338ca;
+  --primary-soft: #ecebfc;
+  --primary-contrast: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(20, 25, 50, 0.06), 0 1px 3px rgba(20, 25, 50, 0.05);
+  --shadow-md: 0 6px 20px rgba(20, 25, 50, 0.08);
+  --shadow-lg: 0 18px 50px rgba(20, 25, 50, 0.14);
 }
 
 [data-theme='light'] {
@@ -82,6 +101,7 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+  color: inherit;
 }
 ::selection {
   background: var(--primary);
