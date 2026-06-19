@@ -252,21 +252,22 @@ button {
 .day-chip {
   scroll-snap-align: start;
   flex: 0 0 auto;
-  min-width: 64px;
+  min-width: 62px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
+  gap: 3px;
+  padding: 9px 14px;
+  border-radius: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease;
+  transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 .day-chip:hover {
   transform: translateY(-2px);
   border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 .day-chip .dow {
   font-size: 12px;
@@ -413,20 +414,23 @@ button {
    SECCIÓN DE CINE
    ============================================================ */
 .cinema {
-  margin: 26px 0 8px;
+  margin: 30px 0 8px;
 }
 .cinema-head {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+  gap: 13px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 .cinema-bar {
-  width: 6px;
+  width: 5px;
   align-self: stretch;
-  min-height: 38px;
+  min-height: 40px;
   border-radius: 999px;
 }
 .cinema-titles {
@@ -436,7 +440,7 @@ button {
 .cinema-name {
   font-size: clamp(17px, 2.4vw, 21px);
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 .cinema-meta {
   font-size: 13px;
@@ -445,12 +449,18 @@ button {
   gap: 8px;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 2px;
 }
 .cinema-count {
   margin-left: auto;
-  font-size: 13px;
-  font-weight: 600;
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 700;
   color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 .cinema-reason {
@@ -503,40 +513,48 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 12px 11px;
   color: #fff;
   background:
-    linear-gradient(160deg,
-      hsl(var(--ph-hue, 250) 70% 58%),
-      hsl(calc(var(--ph-hue, 250) + 40) 65% 42%));
+    radial-gradient(120% 80% at 50% 0%, hsl(var(--ph-hue, 250) 78% 64%), transparent 70%),
+    linear-gradient(165deg,
+      hsl(var(--ph-hue, 250) 68% 52%),
+      hsl(calc(var(--ph-hue, 250) + 45) 62% 36%));
 }
 .poster-ph::before {
   content: '🎬';
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 18px;
-  opacity: 0.85;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  font-size: 30px;
+  opacity: 0.5;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 .poster-ph .ph-title {
+  position: relative;
   font-size: 12px;
-  font-weight: 700;
-  line-height: 1.2;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .card-body {
-  padding: 12px 14px 14px;
+  padding: 13px 15px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
   min-width: 0;
 }
 .movie-title {
   font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
 }
 .badges {
   display: flex;
@@ -577,27 +595,33 @@ button {
   flex-wrap: wrap;
   gap: 7px;
   margin-top: auto;
-  padding-top: 6px;
+  padding-top: 10px;
 }
 .showtime {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1px;
-  min-width: 56px;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
+  padding: 5px 11px;
+  border-radius: 9px;
   background: var(--surface-2);
   border: 1px solid var(--border);
+  color: var(--text);
+  line-height: 1.1;
+  transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.showtime .st-time {
   font-weight: 700;
   font-size: 14px;
-  color: var(--text);
-  transition: transform 0.1s ease, border-color 0.15s ease, background 0.15s ease;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
 }
 a.showtime:hover {
   transform: translateY(-2px);
   border-color: var(--primary);
   background: var(--primary-soft);
+  box-shadow: var(--shadow-sm);
 }
 .showtime .st-tag {
   font-size: 9px;
@@ -605,6 +629,11 @@ a.showtime:hover {
   letter-spacing: 0.04em;
   color: var(--text-faint);
   text-transform: uppercase;
+}
+/* Sesión en versión original: acento sutil a la izquierda */
+.showtime.vose {
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+  background: color-mix(in srgb, var(--primary) 7%, var(--surface-2));
 }
 .showtime.vose .st-tag {
   color: var(--primary);
@@ -751,17 +780,17 @@ a.showtime:hover {
 .card-detail-link {
   all: unset;
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 8px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   align-self: flex-start;
   font-size: 11px;
   font-weight: 700;
   color: var(--text-muted);
-  background: var(--surface-2);
+  background: transparent;
   border: 1px solid var(--border);
-  padding: 5px 11px;
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   letter-spacing: 0.01em;
   transition: background 0.15s, border-color 0.15s, color 0.15s;

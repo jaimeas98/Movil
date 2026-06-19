@@ -143,7 +143,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
                 .join(' · ');
               const inner = (
                 <>
-                  <span>{s.time}</span>
+                  <span className="st-time">{s.time}</span>
                   {tag && <span className="st-tag">{tag}</span>}
                   {s.room && <span className="st-room">{s.room}</span>}
                 </>

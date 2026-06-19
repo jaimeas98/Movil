@@ -62,14 +62,12 @@ export default function MovieCard({ movie, cinema, onOpen }) {
         <div className="showtimes">
           {movie.sessions.map((s, i) => {
             const isVose = s.language === 'VOSE';
-            const tag = [s.format && s.format !== '2D' ? s.format : null, isVose ? 'VOSE' : null]
-              .filter(Boolean)
-              .join(' · ');
+            const fmt = s.format && s.format !== '2D' ? s.format : null;
+            const tag = [fmt, isVose ? 'VOSE' : null].filter(Boolean).join(' · ');
             const inner = (
               <>
-                <span>{s.time}</span>
+                <span className="st-time">{s.time}</span>
                 {tag && <span className="st-tag">{tag}</span>}
-                {s.room && <span className="st-room">{s.room}</span>}
               </>
             );
             const cls = `showtime${isVose ? ' vose' : ''}${s.room && /premium/i.test(s.room) ? ' premium' : ''}`;
