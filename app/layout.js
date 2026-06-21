@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#4f46e5',
+  themeColor: '#0d0f16',
   width: 'device-width',
   initialScale: 1,
 };
@@ -19,7 +19,9 @@ const themeInit = `
   try {
     var t = localStorage.getItem('theme');
     if (!t) {
-      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      // Modo oscuro como predeterminado (estética cinematográfica).
+      // Si el sistema pide explícitamente claro, lo respetamos.
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     }
     document.documentElement.setAttribute('data-theme', t);
   } catch (e) {}
