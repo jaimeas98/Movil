@@ -30,9 +30,7 @@ export default function MovieCard({ movie, cinema, onOpen }) {
               onError={() => setImgFailed(true)}
             />
           ) : (
-            <div className="poster-ph" style={{ '--ph-hue': hue }}>
-              <span className="ph-title">{movie.title}</span>
-            </div>
+            <div className="poster-ph" style={{ '--ph-hue': hue }} />
           )}
           {movie.ratings?.average != null && (
             <span className="poster-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">

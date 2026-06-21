@@ -81,9 +81,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
             {movie.posterUrl ? (
               <img src={movie.posterUrl} alt={`Cartel de ${movie.title}`} />
             ) : (
-              <div className="poster-ph" style={{ '--ph-hue': hue }}>
-                <span className="ph-title">{movie.title}</span>
-              </div>
+              <div className="poster-ph" style={{ '--ph-hue': hue }} />
             )}
           </div>
 
