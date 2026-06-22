@@ -34,11 +34,23 @@ function cleanTitle(title) {
 }
 
 // TMDB: buscar película por título → devuelve el primer resultado
-async function tmdbSearch(title, token) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(title)}&language=es-ES&page=1&include_adult=false`;
+// Construye headers/URL para TMDB según el tipo de credencial:
+// - JWT (TMDB_READ_TOKEN): Authorization: Bearer <token>
+// - API key v3 (TMDB_API_KEY): ?api_key=<key> en la URL
+function tmdbFetchOpts(baseUrl, auth) {
+  const isJwt = auth.startsWith('eyJ');
+  return {
+    url: isJwt ? baseUrl : `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}api_key=${auth}`,
+    headers: isJwt ? { Authorization: `Bearer ${auth}` } : {},
+  };
+}
+
+async function tmdbSearch(title, auth) {
+  const base = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(title)}&language=es-ES&page=1&include_adult=false`;
+  const { url, headers } = tmdbFetchOpts(base, auth);
   try {
     const res = await fetch(url, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers,
       next: { revalidate: 86400 },
       signal: AbortSignal.timeout(8000),
     });
@@ -55,11 +67,12 @@ async function tmdbSearch(title, token) {
 }
 
 // TMDB: detalles de película → imdb_id + géneros en español
-async function tmdbDetails(id, token) {
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=es-ES`;
+async function tmdbDetails(id, auth) {
+  const base = `https://api.themoviedb.org/3/movie/${id}?language=es-ES`;
+  const { url, headers } = tmdbFetchOpts(base, auth);
   try {
     const res = await fetch(url, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers,
       next: { revalidate: 86400 },
       signal: AbortSignal.timeout(8000),
     });

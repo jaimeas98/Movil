@@ -103,9 +103,12 @@ export async function GET(request) {
   };
   if (tmdbAuth) {
     try {
-      const testUrl = `https://api.themoviedb.org/3/search/movie?query=Avengers&language=es-ES&page=1`;
+      const isJwt = tmdbAuth.startsWith('eyJ');
+      const base = `https://api.themoviedb.org/3/search/movie?query=Avengers&language=es-ES&page=1`;
+      const testUrl = isJwt ? base : `${base}&api_key=${tmdbAuth}`;
+      const testHeaders = isJwt ? { Authorization: `Bearer ${tmdbAuth}` } : {};
       const testRes = await fetch(testUrl, {
-        headers: { Authorization: `Bearer ${tmdbAuth}` },
+        headers: testHeaders,
         signal: AbortSignal.timeout(6000),
       });
       const testData = await testRes.json();
