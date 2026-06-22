@@ -92,6 +92,26 @@ export async function GET(request) {
     report.raw.yelmo_error = String(e?.message ?? e);
   }
 
+  // Verificación de claves de valoraciones y prueba con una película conocida
+  const tmdbKey = process.env.TMDB_API_KEY;
+  const omdbKey = process.env.OMDB_API_KEY;
+  report.ratings_keys = {
+    tmdb: tmdbKey ? '✅ configurada' : '❌ falta TMDB_API_KEY',
+    omdb: omdbKey ? '✅ configurada' : '⚠️  falta OMDB_API_KEY (opcional pero da RT y Metacritic)',
+  };
+  if (tmdbKey) {
+    try {
+      const testUrl = `https://api.themoviedb.org/3/search/movie?api_key=${tmdbKey}&query=Avengers&language=es-ES&page=1`;
+      const testRes = await fetch(testUrl, { signal: AbortSignal.timeout(6000) });
+      const testData = await testRes.json();
+      report.ratings_keys.tmdb_test = testData.results?.length
+        ? `✅ TMDB responde — ${testData.results.length} resultados para "Avengers"`
+        : `⚠️  TMDB responde pero sin resultados`;
+    } catch (e) {
+      report.ratings_keys.tmdb_test = `❌ Error TMDB: ${e.message}`;
+    }
+  }
+
   // Resumen global de issues
   report.totalIssues = report.cinemas.flatMap((c) => c.issues).length;
   report.healthy = report.totalIssues === 0;
