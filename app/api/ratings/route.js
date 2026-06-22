@@ -34,10 +34,11 @@ function cleanTitle(title) {
 }
 
 // TMDB: buscar película por título → devuelve el primer resultado
-async function tmdbSearch(title, key) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${encodeURIComponent(title)}&language=es-ES&page=1&include_adult=false`;
+async function tmdbSearch(title, token) {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(title)}&language=es-ES&page=1&include_adult=false`;
   try {
     const res = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` },
       next: { revalidate: 86400 },
       signal: AbortSignal.timeout(8000),
     });
@@ -54,10 +55,11 @@ async function tmdbSearch(title, key) {
 }
 
 // TMDB: detalles de película → imdb_id + géneros en español
-async function tmdbDetails(id, key) {
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=es-ES`;
+async function tmdbDetails(id, token) {
+  const url = `https://api.themoviedb.org/3/movie/${id}?language=es-ES`;
   try {
     const res = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}` },
       next: { revalidate: 86400 },
       signal: AbortSignal.timeout(8000),
     });
@@ -125,13 +127,17 @@ export async function POST(request) {
   const titles = Array.isArray(body?.titles) ? body.titles.filter(Boolean) : [];
   if (!titles.length) return NextResponse.json({ ratings: {} });
 
-  const tmdbKey = process.env.TMDB_API_KEY;
-  const omdbKey = process.env.OMDB_API_KEY;
+  const tmdbToken = process.env.TMDB_READ_TOKEN;
+  const tmdbKey   = process.env.TMDB_API_KEY;
+  const omdbKey   = process.env.OMDB_API_KEY;
 
-  if (!tmdbKey && !omdbKey) {
+  // Bearer token preferred; API key as fallback
+  const tmdbAuth = tmdbToken || tmdbKey;
+
+  if (!tmdbAuth && !omdbKey) {
     return NextResponse.json({
       ratings: {},
-      error: 'Configura TMDB_API_KEY (y opcionalmente OMDB_API_KEY) en las variables de entorno de Vercel.',
+      error: 'Configura TMDB_READ_TOKEN (o TMDB_API_KEY) en las variables de entorno de Vercel.',
     });
   }
 
@@ -143,12 +149,12 @@ export async function POST(request) {
     try {
       let imdb = null, rt = null, mc = null, genre = null, average = null;
 
-      if (tmdbKey) {
+      if (tmdbAuth) {
         // Flujo TMDB (soporta títulos españoles)
-        const search = await tmdbSearch(clean, tmdbKey);
+        const search = await tmdbSearch(clean, tmdbAuth);
         if (search?.id) {
           // Details en paralelo: siempre necesitamos el imdb_id
-          const details = await tmdbDetails(search.id, tmdbKey);
+          const details = await tmdbDetails(search.id, tmdbAuth);
           if (details?.genre) genre = details.genre;
 
           if (details?.imdbId && omdbKey) {
