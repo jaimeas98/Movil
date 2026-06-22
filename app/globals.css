@@ -642,6 +642,7 @@ a.showtime:hover {
   .card:hover .poster-tags { opacity: 1; }
   .reveal-cta {
     color: var(--text-muted); border-bottom-color: var(--border-mid);
+    margin-top: auto; /* siempre al fondo, independientemente de cuántos horarios haya */
   }
 
   /* Modo claro en táctil: zona de horarios integrada con el diseño parchment */
