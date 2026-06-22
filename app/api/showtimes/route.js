@@ -5,6 +5,8 @@ import { getShowtimes, clearShowtimesCache } from '@/lib/cinemas/aggregator.js';
 // días) en una sola respuesta; el cliente filtra por día en memoria.
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+export const runtime = 'nodejs';
+export const maxDuration = 60; // segundos — evita el corte a 10s del plan Hobby de Vercel
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);

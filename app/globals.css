@@ -699,6 +699,10 @@ a.showtime:hover {
   .field { border-right: none; border-bottom: 1px solid var(--glass-border); }
   .field:last-child { border-bottom: none; }
   .brand-sub { display: none; }
+  /* En móvil el botón muestra solo el icono ↻ para que el título quepa */
+  .btn-label { display: none; }
+  /* Título más compacto en móvil */
+  .brand-title { font-size: 14px; letter-spacing: .07em; overflow: hidden; text-overflow: ellipsis; }
 }
 @media (max-width: 480px) {
   .movies-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }

@@ -106,7 +106,10 @@ export default function Page() {
           return;
         }
       }
-      const res = await fetch(`/api/showtimes${refresh ? '?refresh=1' : ''}`, { cache: 'no-store' });
+      const res = await fetch(`/api/showtimes${refresh ? '?refresh=1' : ''}`, {
+        cache: 'no-store',
+        signal: AbortSignal.timeout(25000),
+      });
       if (!res.ok) throw new Error(`Error ${res.status}`);
       const json = await res.json();
       const cached = readCache();
@@ -240,7 +243,7 @@ export default function Page() {
           <div className="header-actions">
             <button className="btn btn-primary" onClick={() => load(true)} disabled={loading}>
               <span className={loading ? 'spin' : ''}>↻</span>
-              <span>{loading ? 'Actualizando…' : 'Actualizar'}</span>
+              <span className="btn-label">{loading ? 'Actualizando…' : 'Actualizar'}</span>
             </button>
             <ThemeToggle />
           </div>
