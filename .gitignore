@@ -1,3 +1,6 @@
+# Claude Code worktrees (temporary agent working directories)
+.claude/
+
 # dependencies
 /node_modules
 /.pnp

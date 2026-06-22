@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 
 function hueFromTitle(title) {
@@ -54,6 +54,8 @@ export default function MovieModal({ movie, cinema, onClose }) {
   // Aquí solo presentamos. Si por algún motivo no hay ratings se muestran
   // los enlaces externos sin notas, como antes.
   const ratings = movie.ratings ?? null;
+  const touchStartY = useRef(null);
+  const touchStartX = useRef(null);
 
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose();
@@ -66,6 +68,21 @@ export default function MovieModal({ movie, cinema, onClose }) {
     };
   }, [onClose]);
 
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartY.current === null) return;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    const dx = Math.abs(e.changedTouches[0].clientX - touchStartX.current);
+    touchStartY.current = null;
+    touchStartX.current = null;
+    // Close only on downward swipe > 90px that is predominantly vertical
+    if (dy > 90 && dy > dx) onClose();
+  };
+
   const duration = minutesToHuman(movie.durationMin);
   const hue = hueFromTitle(movie.title || '');
   const links = ratingLinks(movie.title, ratings);
@@ -73,7 +90,12 @@ export default function MovieModal({ movie, cinema, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={movie.title}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal"
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <button className="modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
 
         <div className="modal-hero">

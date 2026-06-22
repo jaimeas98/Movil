@@ -887,3 +887,87 @@ a.showtime:hover {
     transition-duration: .01ms !important;
   }
 }
+
+/* ============================================================ KEYBOARD HINTS */
+
+/* ? button in header — desktop only */
+.kbd-btn {
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.kbd-btn:hover { color: var(--text); }
+
+/* Hide the ? button on touch/mobile devices */
+@media (hover: none) {
+  .kbd-btn { display: none; }
+}
+
+/* Full-screen backdrop + panel container */
+.kbd-panel {
+  position: fixed; inset: 0; z-index: 90;
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: 24px;
+  /* backdrop rendered by kbd-panel-backdrop sibling */
+  pointer-events: none;
+}
+
+/* Transparent clickable backdrop */
+.kbd-panel-backdrop {
+  position: absolute; inset: 0;
+  pointer-events: auto;
+}
+
+/* The floating card */
+.kbd-panel-inner {
+  position: relative;
+  pointer-events: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--sh-lg);
+  padding: 18px 20px 20px;
+  min-width: 280px;
+  animation: modalExpand .28s var(--ease-expand);
+}
+
+.kbd-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+
+/* Grid of shortcut rows */
+.kbd-grid {
+  display: flex; flex-direction: column; gap: 9px;
+}
+
+.kbd-row {
+  display: flex; align-items: center; gap: 12px;
+}
+
+/* Styled keyboard key chip */
+.kbd-key {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 36px; padding: 3px 7px;
+  font-family: var(--font); font-size: 11px; font-weight: 700;
+  background: var(--surface-3);
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  color: var(--text);
+  white-space: nowrap;
+  box-shadow: 0 1px 0 var(--border-strong);
+  flex-shrink: 0;
+}
+
+.kbd-action {
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* Hide the entire panel on mobile (pointer shortcuts don't apply there) */
+@media (hover: none) {
+  .kbd-panel { display: none; }
+}

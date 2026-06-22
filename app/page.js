@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CINEMAS } from '@/lib/cinemas/config.js';
 import { buildDayList, longLabel } from '@/lib/dates.js';
 import ThemeToggle from '@/components/ThemeToggle.jsx';
@@ -78,6 +78,15 @@ function normalizeText(s) {
     .replace(/[̀-ͯ]/g, '');
 }
 
+const KBD_SHORTCUTS = [
+  { key: '← →', action: 'Día anterior / siguiente' },
+  { key: '/', action: 'Buscar película' },
+  { key: 'T', action: 'Cambiar tema' },
+  { key: 'R', action: 'Actualizar cartelera' },
+  { key: 'Esc', action: 'Cerrar / limpiar búsqueda' },
+  { key: '?', action: 'Mostrar/ocultar esta ayuda' },
+];
+
 export default function Page() {
   const allDays = useMemo(() => buildDayList(14), []);
   const [selectedDate, setSelectedDate] = useState(allDays[0].iso);
@@ -90,6 +99,11 @@ export default function Page() {
   const [genre, setGenre] = useState('');
   const [cinemaFilter, setCinemaFilter] = useState('');
   const [active, setActive] = useState(null); // película abierta en el modal
+  const [showKbd, setShowKbd] = useState(false);
+
+  // Refs for swipe tracking on <main>
+  const swipeTouchStartX = useRef(null);
+  const swipeTouchStartY = useRef(null);
 
   // Carga ÚNICA: trae todos los días de una vez.
   // Sin refresh: sirve localStorage si existe (mismo día Madrid), luego fetch.
@@ -228,6 +242,78 @@ export default function Page() {
     setActive({ movie, cinema });
   }, []);
 
+  // ── Keyboard shortcuts ─────────────────────────────────────────────────────
+  useEffect(() => {
+    const onKey = (e) => {
+      // Don't fire when user is typing in an input or select
+      const tag = document.activeElement?.tagName;
+      const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+
+      // Escape is always allowed (modal handles its own, we handle query clear)
+      if (e.key === 'Escape') {
+        if (showKbd) { setShowKbd(false); return; }
+        if (!active && query) { setQuery(''); }
+        return;
+      }
+
+      // All other shortcuts: skip when modal is open or user is typing
+      if (active || isTyping) return;
+
+      if (e.key === 'ArrowLeft') {
+        const idx = days.findIndex((d) => d.iso === selectedDate);
+        if (idx > 0) setSelectedDate(days[idx - 1].iso);
+        return;
+      }
+      if (e.key === 'ArrowRight') {
+        const idx = days.findIndex((d) => d.iso === selectedDate);
+        if (idx < days.length - 1) setSelectedDate(days[idx + 1].iso);
+        return;
+      }
+      if (e.key === '/') {
+        e.preventDefault();
+        document.getElementById('search-input')?.focus();
+        return;
+      }
+      if (e.key === 't' || e.key === 'T') {
+        const root = document.documentElement;
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch {}
+        return;
+      }
+      if (e.key === 'r' || e.key === 'R') {
+        if (!loading) load(true);
+        return;
+      }
+      if (e.key === '?') {
+        setShowKbd((v) => !v);
+        return;
+      }
+    };
+
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [active, days, selectedDate, query, loading, load, showKbd]);
+
+  // ── Horizontal swipe on <main> to change day ───────────────────────────────
+  const handleMainTouchStart = (e) => {
+    swipeTouchStartX.current = e.touches[0].clientX;
+    swipeTouchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleMainTouchEnd = (e) => {
+    if (swipeTouchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - swipeTouchStartX.current;
+    const dy = Math.abs(e.changedTouches[0].clientY - swipeTouchStartY.current);
+    swipeTouchStartX.current = null;
+    swipeTouchStartY.current = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > dy) {
+      const idx = days.findIndex((d) => d.iso === selectedDate);
+      if (dx < 0 && idx < days.length - 1) setSelectedDate(days[idx + 1].iso); // swipe left → next
+      if (dx > 0 && idx > 0) setSelectedDate(days[idx - 1].iso);               // swipe right → prev
+    }
+  };
+
   return (
     <>
       {/* CABECERA */}
@@ -245,6 +331,14 @@ export default function Page() {
               <span className={loading ? 'spin' : ''}>↻</span>
               <span className="btn-label">{loading ? 'Actualizando…' : 'Actualizar'}</span>
             </button>
+            <button
+              className="btn btn-icon kbd-btn"
+              onClick={() => setShowKbd((v) => !v)}
+              aria-label="Atajos de teclado"
+              title="Atajos de teclado (?)"
+            >
+              ?
+            </button>
             <ThemeToggle />
           </div>
         </div>
@@ -253,7 +347,11 @@ export default function Page() {
       {/* TIRA DE DÍAS */}
       <DayTimeline days={days} selected={selectedDate} onSelect={setSelectedDate} />
 
-      <main className="container">
+      <main
+        className="container"
+        onTouchStart={handleMainTouchStart}
+        onTouchEnd={handleMainTouchEnd}
+      >
         <div className="toolbar">
           <h1 className="selected-day">{longLabel(selectedDate)}</h1>
           <Filters
@@ -321,6 +419,35 @@ export default function Page() {
 
       {active && (
         <MovieModal movie={active.movie} cinema={active.cinema} onClose={() => setActive(null)} />
+      )}
+
+      {/* Keyboard shortcuts panel */}
+      {showKbd && (
+        <div className="kbd-panel" role="dialog" aria-label="Atajos de teclado">
+          {/* Click outside overlay */}
+          <div className="kbd-panel-backdrop" onClick={() => setShowKbd(false)} />
+          <div className="kbd-panel-inner">
+            <div className="kbd-panel-header">
+              <span>Atajos de teclado</span>
+              <button
+                className="modal-close"
+                style={{ position: 'static', width: 28, height: 28, fontSize: 11 }}
+                onClick={() => setShowKbd(false)}
+                aria-label="Cerrar"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="kbd-grid">
+              {KBD_SHORTCUTS.map(({ key, action }) => (
+                <div key={key} className="kbd-row">
+                  <kbd className="kbd-key">{key}</kbd>
+                  <span className="kbd-action">{action}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

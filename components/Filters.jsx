@@ -13,6 +13,7 @@ export default function Filters({
       <div className="field">
         <span className="ic">🔎</span>
         <input
+          id="search-input"
           className="input"
           type="text"
           placeholder="Buscar por título…"
