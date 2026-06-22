@@ -438,7 +438,17 @@ img { display: block; }
   opacity: .4;
 }
 
-/* Badges flotantes — vidrio */
+/* Placeholder en modo claro: pastel suave (no los oscuros del modo noche) */
+[data-theme='light'] .poster-ph {
+  background:
+    radial-gradient(ellipse at 50% 20%,
+      hsl(var(--ph-hue,220) 38% 78%), transparent 60%),
+    linear-gradient(155deg,
+      hsl(var(--ph-hue,220) 30% 84%),
+      hsl(calc(var(--ph-hue,220) + 60) 24% 91%));
+}
+
+
 .poster-rating, .poster-new {
   position: absolute; top: 10px; z-index: 3;
   font-weight: 700; letter-spacing: .03em;
@@ -627,6 +637,24 @@ a.showtime:hover {
   .card:hover .poster-tags { opacity: 1; }
   .reveal-cta {
     color: var(--text-muted); border-bottom-color: var(--border-mid);
+  }
+
+  /* Modo claro en táctil: zona de horarios integrada con el diseño parchment */
+  [data-theme='light'] .poster-reveal {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+  }
+  [data-theme='light'] .showtime {
+    background: var(--surface-2);
+    border-color: var(--border-mid);
+    color: var(--text);
+  }
+  [data-theme='light'] .showtime.vose {
+    background: rgba(64,188,244,0.10);
+    border-color: rgba(64,188,244,0.25);
+  }
+  [data-theme='light'] .reveal-cta {
+    color: var(--text-muted);
   }
 }
 
