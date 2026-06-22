@@ -76,9 +76,11 @@ export async function GET(request) {
       const data = await res.json();
       const cinemas = data?.d?.Cinemas ?? [];
       report.raw.yelmo_keys = cinemas.map((c) => c.Key);
-      // Para cada cine, mostrar cuántos días y películas retorna
+      // Para cada cine, mostrar vistaId (para construir URLs de compra) y datos de fechas
       report.raw.yelmo_dates = cinemas.map((c) => ({
         key: c.Key,
+        vistaId: c.VistaId ?? c.CinemaVistaId ?? c.Id ?? null,
+        firstShowtimeId: c.Dates?.[0]?.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.ShowtimeId ?? null,
         dates: (c.Dates ?? []).map((d, i) => ({
           idx: i,
           movies: d.Movies?.length ?? 0,
