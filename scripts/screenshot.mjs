@@ -19,8 +19,10 @@ const OUT = process.argv[2] || '/tmp/shots';
 mkdirSync(OUT, { recursive: true });
 
 const VIEWPORTS = [
-  { name: 'desktop', width: 1440, height: 900 },
-  { name: 'mobile', width: 390, height: 844 },
+  { name: 'desktop', width: 1440, height: 900, touch: false },
+  // touch:true → el navegador reporta `hover: none`, igual que un móvil real,
+  // para verificar que los horarios se muestran siempre (no solo al hover).
+  { name: 'mobile', width: 390, height: 844, touch: true },
 ];
 
 async function shoot(page, name) {
@@ -35,6 +37,8 @@ async function run() {
       const ctx = await browser.newContext({
         viewport: { width: vp.width, height: vp.height },
         deviceScaleFactor: 2,
+        hasTouch: vp.touch,
+        isMobile: vp.touch,
       });
       const page = await ctx.newPage();
       // Fijar el tema antes de cargar
@@ -53,10 +57,17 @@ async function run() {
         await shoot(page, `${vp.name}-${theme}-cards`);
       }
 
-      // Modal (abrir la primera tarjeta)
-      const firstCard = page.locator('.card-open').first();
-      if (await firstCard.count()) {
-        await firstCard.click();
+      // Hover sobre la primera tarjeta (solo escritorio: revela horarios)
+      const firstPoster = page.locator('.poster').first();
+      if (!vp.touch && await firstPoster.count()) {
+        await firstPoster.hover();
+        await page.waitForTimeout(450);
+        await shoot(page, `${vp.name}-${theme}-cards-hover`);
+      }
+
+      // Modal (abrir la primera tarjeta haciendo clic en el póster)
+      if (await firstPoster.count()) {
+        await firstPoster.click();
         await page.waitForTimeout(500);
         await shoot(page, `${vp.name}-${theme}-modal`);
       }
