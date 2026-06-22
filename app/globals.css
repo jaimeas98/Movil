@@ -626,6 +626,7 @@ a.showtime:hover {
   .card:hover { transform: none; box-shadow: var(--sh-sm); border-color: var(--border); }
   .poster-reveal {
     position: static; opacity: 1; transform: none; pointer-events: auto;
+    flex: 1; /* estirar para llenar el hueco cuando la otra tarjeta de la fila es más alta */
     background: var(--surface-2);
     padding: 10px 12px 12px;
   }
@@ -633,7 +634,11 @@ a.showtime:hover {
     background: var(--surface-3);
     border-color: var(--border);
     backdrop-filter: none;
+    /* horas más grandes y legibles en táctil */
+    padding: 7px 11px;
   }
+  .showtime .st-time { font-size: 14px; }
+  .showtime .st-tag  { font-size: 9px; }
   .card:hover .poster-tags { opacity: 1; }
   .reveal-cta {
     color: var(--text-muted); border-bottom-color: var(--border-mid);
