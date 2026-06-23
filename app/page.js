@@ -413,7 +413,7 @@ export default function Page() {
           <strong>Cinesur Bahía de Cádiz</strong>, <strong>Yelmo Bahía Sur</strong>,{' '}
           <strong>Yelmo Área Sur</strong> y <strong>Arte Siete El Puerto</strong>.
           <br />
-          Hecho con ❤️ para Jaime &amp; equipo · Los horarios pueden cambiar; confirma en la web del cine.
+          Hecho por Jaime · Los horarios pueden cambiar; confirma en la web del cine.
         </div>
       </footer>
 

@@ -137,7 +137,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
         <div className="modal-section">
           <h4 className="modal-h4">Valoraciones</h4>
           <div className="rating-links">
-            {links.map((l) => (
+            {links.filter((l) => l.score != null).map((l) => (
               <a
                 key={l.key}
                 href={l.url}
@@ -146,7 +146,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
                 className="rating-link"
                 style={{ '--rl-bg': l.color, '--rl-fg': l.dark ? '#1a1a1a' : '#fff' }}
               >
-                {l.score && <span className="rl-score">{l.score}</span>}
+                <span className="rl-score">{l.score}</span>
                 <span className="rl-label">{l.label} ↗</span>
               </a>
             ))}
