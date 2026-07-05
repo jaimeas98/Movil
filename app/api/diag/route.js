@@ -6,7 +6,7 @@
 import { NextResponse } from 'next/server';
 import { fetchMk2 } from '@/lib/cinemas/mk2.js';
 import { fetchYelmo } from '@/lib/cinemas/yelmo.js';
-import { fetchArteSiete } from '@/lib/cinemas/artesiete.js';
+import { fetchArteSiete, fetchArteSieteRawSample } from '@/lib/cinemas/artesiete.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -94,6 +94,14 @@ export async function GET(request) {
     report.raw.yelmo_error = String(e?.message ?? e);
   }
 
+  // Muestra de sesiones RAW de Arte Siete (sin procesar) — para verificar los
+  // nombres de campo reales del ID de sesión/espectáculo usados en la URL de compra.
+  try {
+    report.raw.artesiete_sample = await fetchArteSieteRawSample(2);
+  } catch (e) {
+    report.raw.artesiete_error = String(e?.message ?? e);
+  }
+
   // Verificación de claves de valoraciones y prueba con una película conocida
   const tmdbToken = process.env.TMDB_READ_TOKEN;
   const tmdbKey   = process.env.TMDB_API_KEY;
@@ -165,6 +173,7 @@ function summarize(byDate, dates, issues) {
             format: s.format,
             language: s.language,
             room: s.room ?? null,
+            buyUrl: s.buyUrl ?? null,
           })),
           issues: mIssues,
         };
