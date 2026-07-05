@@ -96,8 +96,12 @@ export async function GET(request) {
 
   // Muestra de sesiones RAW de Arte Siete (sin procesar) — para verificar los
   // nombres de campo reales del ID de sesión/espectáculo usados en la URL de compra.
+  // ?titulo=backrooms filtra la muestra a sesiones de esa película.
   try {
-    report.raw.artesiete_sample = await fetchArteSieteRawSample(2);
+    const tituloFilter = searchParams.get('titulo');
+    const { stats, sample } = await fetchArteSieteRawSample(5, tituloFilter);
+    report.raw.artesiete_stats = stats;
+    report.raw.artesiete_sample = sample;
   } catch (e) {
     report.raw.artesiete_error = String(e?.message ?? e);
   }
