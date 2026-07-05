@@ -60,9 +60,9 @@
   --glass-bg:    rgba(255,255,255,0.03);
   --glass-border:rgba(255,255,255,0.07);
 
-  --sh-sm: 0 2px 8px rgba(0,0,0,0.5);
-  --sh-md: 0 12px 32px rgba(0,0,0,0.55);
-  --sh-lg: 0 28px 70px rgba(0,0,0,0.7);
+  --sh-sm: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.25);
+  --sh-md: 0 4px 10px rgba(0,0,0,0.28), 0 14px 28px rgba(0,0,0,0.30);
+  --sh-lg: 0 8px 20px rgba(0,0,0,0.35), 0 30px 60px rgba(0,0,0,0.45);
   --sh-gold: 0 0 0 1px rgba(212,168,67,0.3), 0 0 22px rgba(212,168,67,0.10);
 }
 
@@ -97,9 +97,9 @@
   --glass-bg:    rgba(255,255,255,0.6);
   --glass-border:rgba(0,0,0,0.08);
 
-  --sh-sm: 0 1px 3px rgba(26,29,46,0.08);
-  --sh-md: 0 8px 24px rgba(26,29,46,0.12);
-  --sh-lg: 0 24px 60px rgba(26,29,46,0.16);
+  --sh-sm: 0 1px 2px rgba(26,29,46,0.06), 0 2px 5px rgba(26,29,46,0.06);
+  --sh-md: 0 3px 8px rgba(26,29,46,0.06), 0 12px 20px rgba(26,29,46,0.08);
+  --sh-lg: 0 8px 16px rgba(26,29,46,0.08), 0 26px 50px rgba(26,29,46,0.12);
   --sh-gold: 0 0 0 1px rgba(154,111,20,0.25), 0 0 16px rgba(154,111,20,0.08);
 }
 
@@ -176,7 +176,7 @@ img { display: block; }
   padding: 9px 18px;
   border-radius: var(--radius-pill);
   font-weight: 600; font-size: 12.5px; letter-spacing: .03em;
-  transition: transform .2s var(--ease-spring), background .18s var(--ease),
+  transition: transform .16s var(--ease), background .18s var(--ease),
               border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
 .btn:hover {
@@ -226,7 +226,7 @@ img { display: block; }
   background: transparent; border: 1px solid transparent;
   color: var(--text-muted);
   transition: background .18s var(--ease), color .18s var(--ease),
-              transform .2s var(--ease-spring);
+              transform .16s var(--ease);
 }
 .day-chip:hover {
   background: var(--glass-bg);
@@ -268,6 +268,7 @@ img { display: block; }
   font-size: clamp(34px, 6vw, 56px);
   letter-spacing: .03em; text-transform: uppercase; line-height: .95;
   margin: 0 0 22px;
+  text-wrap: balance;
 }
 .filters {
   display: grid; grid-template-columns: 1.8fr 1fr 1fr;
@@ -337,17 +338,21 @@ img { display: block; }
   border-bottom: 1px solid var(--border);
   position: relative;
 }
-/* Barra izquierda de color — sangra al borde del container */
+/* Punto de color — identifica la cadena de cine sin recurrir al borde lateral genérico */
 .cinema-bar {
-  width: 4px; align-self: stretch; min-height: 44px;
-  border-radius: 4px; flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(255,255,255,0.1);
+  width: 11px; height: 11px; border-radius: 50%;
+  align-self: center; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.06), 0 0 14px rgba(255,255,255,0.28);
+}
+[data-theme='light'] .cinema-bar {
+  box-shadow: 0 0 0 4px rgba(26,29,46,0.05), 0 0 10px rgba(26,29,46,0.18);
 }
 .cinema-titles { min-width: 0; flex: 1; }
 .cinema-name {
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 44px);
   letter-spacing: .05em; text-transform: uppercase; line-height: .95;
+  text-wrap: balance;
 }
 .cinema-meta {
   font-size: 11.5px; color: var(--text-faint);
@@ -383,21 +388,22 @@ img { display: block; }
   border: 1px solid var(--border);
   box-shadow: var(--sh-sm);
 
-  /* Animación de entrada al renderizar */
-  animation: cardIn .45s var(--ease) both;
+  /* Animación de entrada al renderizar, con stagger sutil por posición */
+  animation: cardIn .4s var(--ease) both;
+  animation-delay: calc(var(--card-i, 0) * 35ms);
 
   transition:
-    transform       .28s var(--ease-spring),
+    transform       .22s var(--ease),
     box-shadow      .28s var(--ease),
     border-color    .22s var(--ease);
 }
 @keyframes cardIn {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .card:hover {
-  transform: scale(1.035) translateY(-5px);
+  transform: scale(1.025) translateY(-3px);
   box-shadow: var(--sh-md), var(--sh-gold);
   border-color: rgba(212,168,67,0.35);
   z-index: 1;
@@ -569,7 +575,7 @@ img { display: block; }
   color: #F0EDE8; line-height: 1;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: transform .15s var(--ease-spring),
+  transition: transform .15s var(--ease),
               background .18s var(--ease), border-color .18s var(--ease);
 }
 .showtime .st-time {
@@ -674,6 +680,7 @@ a.showtime:hover {
   font-family: var(--font-display);
   font-size: 28px; letter-spacing: .04em; text-transform: uppercase;
   color: var(--text);
+  text-wrap: balance;
 }
 .cinema-empty {
   padding: 22px; border: 1px dashed var(--border);
@@ -744,7 +751,7 @@ a.showtime:hover {
   animation: modalExpand .38s var(--ease-expand);
 }
 @keyframes modalExpand {
-  from { opacity: 0; transform: scale(.82) translateY(12px); }
+  from { opacity: 0; transform: scale(.94) translateY(10px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 .modal-close {
@@ -777,6 +784,7 @@ a.showtime:hover {
   margin: 0 0 11px;
   font-size: clamp(22px, 4vw, 30px);
   font-weight: 700; letter-spacing: -.01em; line-height: 1.08;
+  text-wrap: balance;
 }
 
 /* Badges: más discretos — chips pequeños sin color ruidoso */
@@ -809,10 +817,13 @@ a.showtime:hover {
   margin-top: 12px; font-size: 12px; font-weight: 600;
   color: var(--text-muted); letter-spacing: .02em;
 }
-.modal-cinema .cinema-bar { width: 3px; height: 14px; min-height: 0; border-radius: 3px; }
+.modal-cinema .cinema-bar { width: 9px; height: 9px; box-shadow: 0 0 0 3px rgba(255,255,255,0.06), 0 0 10px rgba(255,255,255,0.28); }
+[data-theme='light'] .modal-cinema .cinema-bar { box-shadow: 0 0 0 3px rgba(26,29,46,0.05), 0 0 8px rgba(26,29,46,0.18); }
 .modal-synopsis {
   margin: 18px 0 0; font-size: 14px; line-height: 1.7;
   color: var(--text-muted);
+  max-width: 68ch;
+  text-wrap: pretty;
 }
 .modal-synopsis.muted { color: var(--text-faint); font-style: italic; }
 .modal-section { margin-top: 22px; }
@@ -884,6 +895,7 @@ a.showtime:hover {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
     transition-duration: .01ms !important;
   }
 }

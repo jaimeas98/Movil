@@ -27,8 +27,8 @@ export default function CinemaSection({ cinema, onMovieClick }) {
         </div>
       ) : (
         <div className="movies-grid">
-          {movies.map((m) => (
-            <MovieCard key={m.id} movie={m} cinema={cinema} onOpen={onMovieClick} />
+          {movies.map((m, i) => (
+            <MovieCard key={m.id} movie={m} cinema={cinema} onOpen={onMovieClick} index={i} />
           ))}
         </div>
       )}

@@ -1,6 +1,9 @@
 # Claude Code worktrees (temporary agent working directories)
 .claude/
 
+# AI design skills tooling (local dev aid, not part of the app)
+skills-lock.json
+
 # dependencies
 /node_modules
 /.pnp

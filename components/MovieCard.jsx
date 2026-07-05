@@ -10,7 +10,7 @@ function hueFromTitle(title) {
   return h;
 }
 
-export default function MovieCard({ movie, cinema, onOpen }) {
+export default function MovieCard({ movie, cinema, onOpen, index = 0 }) {
   const [imgFailed, setImgFailed] = useState(false);
   const showImg = movie.posterUrl && !imgFailed;
   const hue = hueFromTitle(movie.title || '');
@@ -22,7 +22,7 @@ export default function MovieCard({ movie, cinema, onOpen }) {
   };
 
   return (
-    <article className="card">
+    <article className="card" style={{ '--card-i': Math.min(index, 8) }}>
       {/* Póster = área principal clicable. Usamos div con rol button
           (no <button>) para no anidar enlaces de compra dentro de un botón. */}
       <div
