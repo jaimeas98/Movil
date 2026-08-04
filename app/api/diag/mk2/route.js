@@ -18,6 +18,7 @@
 
 import { NextResponse } from 'next/server';
 import { fetchText } from '@/lib/cinemas/http.js';
+import { fetchMk2 } from '@/lib/cinemas/mk2.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -57,6 +58,44 @@ function openingTag(fullAnchor) {
   return m ? m[0] : fullAnchor.slice(0, 300);
 }
 
+// ¿Lleva el propio enlace la fecha de la sesión? Si la respuesta es sí, ésa es
+// la fuente de verdad que debemos usar para fechar la sesión, en vez de
+// deducirla por el índice del día. Aceptamos varios formatos.
+function dateFromHref(href) {
+  let m = href.match(/(20\d{2})[-/](\d{1,2})[-/](\d{1,2})/);
+  if (m) return `${m[1]}-${String(m[2]).padStart(2, '0')}-${String(m[3]).padStart(2, '0')}`;
+  m = href.match(/\b(\d{1,2})[-/](\d{1,2})[-/](20\d{2})\b/);
+  if (m) return `${m[3]}-${String(m[2]).padStart(2, '0')}-${String(m[1]).padStart(2, '0')}`;
+  m = href.match(/\b(20\d{2})(\d{2})(\d{2})\b/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+  return null;
+}
+
+// Recuento de cada fecha que aparece en TODO el documento. Si el 29 de octubre
+// está en el HTML, aquí sale — y sabremos que la fecha real está disponible.
+function dateTokenCounts(html) {
+  const counts = {};
+  const bump = (k) => { counts[k] = (counts[k] || 0) + 1; };
+  for (const m of html.matchAll(/\b20\d{2}-\d{2}-\d{2}\b/g)) bump(m[0]);
+  for (const m of html.matchAll(/\b\d{1,2}\/\d{1,2}\/20\d{2}\b/g)) bump(m[0]);
+  return Object.fromEntries(
+    Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 20)
+  );
+}
+
+// Nombres de atributos data-* presentes en el documento, con su frecuencia.
+// Sirve para descubrir si hay un data-fecha/data-dia que hoy ignoramos.
+function dataAttrNames(html) {
+  const counts = {};
+  for (const m of html.matchAll(/\sdata-([a-z0-9_-]+)=/gi)) {
+    const k = `data-${m[1].toLowerCase()}`;
+    counts[k] = (counts[k] || 0) + 1;
+  }
+  return Object.fromEntries(
+    Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 25)
+  );
+}
+
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const q = searchParams.get('q');
@@ -78,6 +117,8 @@ export async function GET(request) {
   }
 
   report.htmlLength = html.length;
+  report.dateTokens = dateTokenCounts(html);
+  report.dataAttrNames = dataAttrNames(html);
 
   // ── ¿Existen marcadores de día en la cartelera? ──────────────────────────────
   const markers = [];
@@ -117,11 +158,13 @@ export async function GET(request) {
       for (const a of hb.matchAll(
         /<a[^>]+href="([^"]*cinesur-bahia-de-cadiz[^"]*)"[^>]*>([\s\S]*?)<\/a>/g
       )) {
+        const hrefFull = a[1].replace(/&amp;/g, '&');
         sessions.push({
           // etiqueta <a> completa: aquí se ve si hay fecha o id de sesión
           tag: openingTag(a[0]),
           text: a[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
-          hrefFull: a[1].replace(/&amp;/g, '&'),
+          hrefFull,
+          dateInHref: dateFromHref(hrefFull),
         });
       }
     }
@@ -151,6 +194,35 @@ export async function GET(request) {
     filmsWithoutSessions: films.filter((f) => f.sessionCount === 0).length,
     totalSessions: films.reduce((n, f) => n + f.sessionCount, 0),
   };
+
+  // ── Lo que produce REALMENTE el adaptador ───────────────────────────────────
+  // La comparación decisiva: si aquí salen 25 títulos bajo la fecha de hoy
+  // (incluidos los de cine antiguo), el bug es de atribución de fecha, no de
+  // extracción. Además, para cada sesión comprobamos si la fecha que lleva su
+  // propio enlace coincide con el día bajo el que la estamos colocando.
+  try {
+    const byDate = await fetchMk2();
+    const parser = {};
+    const mismatches = [];
+    for (const [iso, movies] of Object.entries(byDate)) {
+      parser[iso] = {
+        count: movies.length,
+        titles: movies.map((m) => m.title),
+      };
+      for (const m of movies) {
+        for (const s of m.sessions || []) {
+          const d = dateFromHref(s.buyUrl || '');
+          if (d && d !== iso && mismatches.length < 12) {
+            mismatches.push({ title: m.title, assignedIso: iso, dateInHref: d, buyUrl: s.buyUrl });
+          }
+        }
+      }
+    }
+    report.parserOutput = parser;
+    report.mismatches = { count: mismatches.length, sample: mismatches };
+  } catch (e) {
+    report.parserError = String(e?.message ?? e);
+  }
 
   return NextResponse.json(report, {
     headers: { 'Cache-Control': 'no-store', 'Content-Type': 'application/json' },
