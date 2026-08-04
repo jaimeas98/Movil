@@ -4,7 +4,7 @@
 // el conteo de sesiones Arte Siete para detectar problemas de datos.
 
 import { NextResponse } from 'next/server';
-import { fetchMk2 } from '@/lib/cinemas/mk2.js';
+import { fetchMk2, fetchMk2RawSample } from '@/lib/cinemas/mk2.js';
 import { fetchYelmo } from '@/lib/cinemas/yelmo.js';
 import { fetchArteSiete, fetchArteSieteRawSample } from '@/lib/cinemas/artesiete.js';
 
@@ -104,6 +104,16 @@ export async function GET(request) {
     report.raw.artesiete_sample = sample;
   } catch (e) {
     report.raw.artesiete_error = String(e?.message ?? e);
+  }
+
+  // Muestra RAW de mk2: por cada segmento de día de la cartelera, compara la
+  // fecha calculada por índice (data-num) contra la fecha real leída del
+  // rótulo, y muestra los href sin recortar de una película (?titulo=...).
+  try {
+    const tituloFilter = searchParams.get('titulo');
+    report.raw.mk2_sample = await fetchMk2RawSample(tituloFilter);
+  } catch (e) {
+    report.raw.mk2_error = String(e?.message ?? e);
   }
 
   // Verificación de claves de valoraciones y prueba con una película conocida
