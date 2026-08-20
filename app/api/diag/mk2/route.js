@@ -169,7 +169,8 @@ export async function GET(request) {
       }
     }
 
-    films.push({
+    // Sin filtro son 60+ películas: modo compacto para que quepa de un vistazo.
+    films.push(q ? {
       title,
       slug,
       horariosBlocks: horariosBlocks.length,
@@ -177,7 +178,7 @@ export async function GET(request) {
       sessionCount: sessions.length,
       dateHints: findDateHints(block),
       sessions: sessions.slice(0, 6),
-    });
+    } : { title, slug, sessionCount: sessions.length });
 
     if (wantRaw && rawSnippet === null) {
       rawSnippet = block.slice(0, chars);
@@ -222,6 +223,66 @@ export async function GET(request) {
     report.mismatches = { count: mismatches.length, sample: mismatches };
   } catch (e) {
     report.parserError = String(e?.message ?? e);
+  }
+
+  // ── Fichas individuales de película ─────────────────────────────────────────
+  // Aquí está la clave: la cartelera no trae horarios, así que las sesiones
+  // salen de estas fichas. Necesitamos saber cómo marcan el día para poder
+  // fechar cada sesión por su fecha REAL en vez de asumir "hoy".
+  //   ?movies=pesadilla-en-elm-street,toy-story-5
+  const slugs = (searchParams.get('movies') || '')
+    .split(',').map((s) => s.trim()).filter(Boolean).slice(0, 4);
+
+  if (slugs.length) {
+    report.moviePages = {};
+    await Promise.all(slugs.map(async (slug) => {
+      try {
+        const mh = await fetchText(`${BASE}/es/${slug}`, { timeoutMs: 12000 });
+
+        // Todos los rotulo_dia, lleven o no data-num (si no lo llevan,
+        // splitDaySegments() no los ve y por eso caemos en el fallback a hoy).
+        const all = [...mh.matchAll(/<div[^>]*class="[^"]*rotulo_dia[^"]*"[^>]*>([^<]*)</g)]
+          .map((m) => ({ tag: m[0].slice(0, 200), text: m[1].trim() }));
+        const withNum = [...mh.matchAll(/<div[^>]*class="[^"]*rotulo_dia[^"]*"[^>]*data-num="(\d+)"[^>]*>([^<]*)</g)]
+          .map((m) => ({ num: m[1], text: m[2].trim() }));
+
+        const horarios = mh.split('<div class="horarios">').slice(1);
+        const bahia = horarios.filter((b) => b.includes(CINEMA_SLUG));
+        const anchors = [];
+        for (const b of bahia) {
+          for (const a of b.matchAll(
+            /<a[^>]+href="([^"]*cinesur-bahia-de-cadiz[^"]*)"[^>]*>([\s\S]*?)<\/a>/g
+          )) {
+            if (anchors.length < 8) {
+              anchors.push({
+                tag: openingTag(a[0]),
+                text: a[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+              });
+            }
+          }
+        }
+
+        report.moviePages[slug] = {
+          htmlLength: mh.length,
+          rotuloDiaTotal: all.length,
+          rotuloDiaConDataNum: withNum.length,
+          rotulos: all.slice(0, 12),
+          rotulosConNum: withNum.slice(0, 12),
+          horariosBlocks: horarios.length,
+          bahiaBlocks: bahia.length,
+          bahiaAnchors: anchors,
+          dateTokens: dateTokenCounts(mh),
+          // Contexto alrededor del primer horario de Bahía: aquí se ve qué
+          // elemento indica el día justo por encima de las sesiones.
+          contextBeforeFirstBahia: (() => {
+            const i = mh.indexOf(CINEMA_SLUG);
+            return i < 0 ? null : mh.slice(Math.max(0, i - 1200), i + 400);
+          })(),
+        };
+      } catch (e) {
+        report.moviePages[slug] = { error: String(e?.message ?? e) };
+      }
+    }));
   }
 
   return NextResponse.json(report, {
