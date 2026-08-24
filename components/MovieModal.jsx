@@ -13,40 +13,53 @@ function searchQuery(title) {
   return encodeURIComponent(String(title || '').replace(/\(.*?\)/g, '').trim());
 }
 
-function ratingLinks(title, ratings) {
+// Desglose por fuente. Todo se normaliza a 0-100 (`pct`) para que los tres
+// medidores sean comparables aunque IMDb puntúe sobre 10, Rotten en % y
+// Metacritic sobre 100. Ojo con esa comparación: el % de Rotten es la
+// proporción de críticos que aprueban la película, no una nota media, así que
+// escribimos siempre la escala junto a la cifra para no dar gato por liebre.
+function ratingSources(title, ratings) {
   const q = searchQuery(title);
+  // Las notas llegan como cadenas ("7.4", "85%") y cualquiera puede faltar.
+  const num = (v) => {
+    if (v == null) return null;
+    const n = parseFloat(String(v).replace(',', '.').replace('%', ''));
+    return Number.isFinite(n) ? n : null;
+  };
+  const imdb = num(ratings?.imdb);
+  const rt   = num(ratings?.rt);
+  const mc   = num(ratings?.metacritic);
+  const tmdb = num(ratings?.tmdb);
+
   return [
     {
-      key: 'fa',
-      label: 'FilmAffinity',
-      color: '#0f4c81',
-      url: `https://www.filmaffinity.com/es/search.php?stext=${q}`,
-      score: null,
-    },
-    {
-      key: 'imdb',
-      label: 'IMDb',
-      color: '#f5c518',
-      dark: true,
+      key: 'imdb', label: 'IMDb', scale: '/10',
+      value: imdb, display: imdb != null ? imdb.toFixed(1) : null,
+      pct: imdb != null ? imdb * 10 : null,
       url: `https://www.imdb.com/find/?q=${q}&s=tt`,
-      score: ratings?.imdb ? `${ratings.imdb}/10` : null,
     },
     {
-      key: 'rt',
-      label: 'Rotten Tomatoes',
-      color: '#fa320a',
+      key: 'rt', label: 'Rotten Tomatoes', scale: '%',
+      value: rt, display: rt != null ? String(Math.round(rt)) : null,
+      pct: rt,
       url: `https://www.rottentomatoes.com/search?search=${q}`,
-      score: ratings?.rt ?? null,
     },
     {
-      key: 'mc',
-      label: 'Metacritic',
-      color: '#ffcc33',
-      dark: true,
+      key: 'mc', label: 'Metacritic', scale: '/100',
+      value: mc, display: mc != null ? String(Math.round(mc)) : null,
+      pct: mc,
       url: `https://www.metacritic.com/search/${q}/`,
-      score: ratings?.metacritic ? `${ratings.metacritic}/100` : null,
     },
-  ];
+    // TMDB solo aparece cuando ninguna de las tres anteriores tiene nota: es
+    // el voto de su comunidad y antes se presentaba como si fuera de IMDb.
+    {
+      key: 'tmdb', label: 'TMDB', scale: '/10',
+      value: imdb == null && rt == null && mc == null ? tmdb : null,
+      display: tmdb != null ? tmdb.toFixed(1) : null,
+      pct: tmdb != null ? tmdb * 10 : null,
+      url: `https://www.themoviedb.org/search?query=${q}`,
+    },
+  ].filter((s) => s.value != null);
 }
 
 export default function MovieModal({ movie, cinema, onClose }) {
@@ -85,7 +98,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
 
   const duration = minutesToHuman(movie.durationMin);
   const hue = hueFromTitle(movie.title || '');
-  const links = ratingLinks(movie.title, ratings);
+  const sources = ratingSources(movie.title, ratings);
   const trailerUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + ' tráiler oficial')}`;
 
   return (
@@ -111,7 +124,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
             <h2 className="modal-title">{movie.title}</h2>
             <div className="badges">
               {ratings?.average != null && (
-                <span className="badge badge-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">
+                <span className="badge badge-rating" title="Media de las fuentes disponibles">
                   ★ {(ratings.average / 10).toFixed(1)}
                 </span>
               )}
@@ -134,24 +147,61 @@ export default function MovieModal({ movie, cinema, onClose }) {
           <p className="modal-synopsis muted">Sinopsis no disponible. Consulta las valoraciones para saber más.</p>
         )}
 
-        <div className="modal-section">
-          <h4 className="modal-h4">Valoraciones</h4>
-          <div className="rating-links">
-            {links.filter((l) => l.score != null).map((l) => (
-              <a
-                key={l.key}
-                href={l.url}
-                target="_blank"
-                rel="noreferrer"
-                className="rating-link"
-                style={{ '--rl-bg': l.color, '--rl-fg': l.dark ? '#1a1a1a' : '#fff' }}
-              >
-                <span className="rl-score">{l.score}</span>
-                <span className="rl-label">{l.label} ↗</span>
-              </a>
-            ))}
+        {/* La sección entera desaparece si no hay nada que enseñar: antes la
+            cabecera "Valoraciones" presidía una rejilla vacía. */}
+        {(sources.length > 0 || ratings?.average != null) && (
+          <div className="modal-section">
+            <div className="ratings-head">
+              <h4 className="modal-h4">Valoraciones</h4>
+              {ratings?.average != null && (
+                <span className="ratings-avg" title="Media de las fuentes disponibles">
+                  <span className="ra-label">Media</span>
+                  <span className="ra-num">{(ratings.average / 10).toFixed(1)}</span>
+                </span>
+              )}
+            </div>
+
+            {sources.length > 0 && (
+              <div className="rating-grid">
+                {sources.map((s) => (
+                  <a
+                    key={s.key}
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rsrc"
+                    aria-label={`${s.label}: ${s.display}${s.scale}. Abrir en ${s.label}`}
+                  >
+                    <span className="rsrc-label">{s.label}</span>
+                    <span className="rsrc-score">
+                      <span className="rsrc-num">{s.display}</span>
+                      <span className="rsrc-scale">{s.scale}</span>
+                    </span>
+                    {/* aria-hidden: el medidor repite en gráfico lo que el
+                        aria-label del enlace ya dice con palabras. */}
+                    <span className="rsrc-meter" aria-hidden="true">
+                      <span
+                        className="rsrc-fill"
+                        style={{ width: `${Math.max(0, Math.min(100, s.pct))}%` }}
+                      />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* FilmAffinity no publica nota por API, así que no puede tener
+                ficha; pero para público español sigue siendo la referencia. */}
+            <a
+              className="ratings-more"
+              href={`https://www.filmaffinity.com/es/search.php?stext=${searchQuery(movie.title)}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver en FilmAffinity ↗
+            </a>
           </div>
-        </div>
+        )}
 
         <div className="modal-section">
           <h4 className="modal-h4">Sesiones</h4>
@@ -181,7 +231,8 @@ export default function MovieModal({ movie, cinema, onClose }) {
         <div className="modal-section">
           <h4 className="modal-h4">Tráiler</h4>
           <a href={trailerUrl} target="_blank" rel="noreferrer" className="trailer-link">
-            ▶ Buscar tráiler en YouTube
+            <span className="tl-play" aria-hidden="true">▶</span>
+            Buscar tráiler en YouTube
           </a>
         </div>
       </div>

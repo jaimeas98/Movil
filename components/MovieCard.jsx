@@ -45,8 +45,15 @@ export default function MovieCard({ movie, cinema, onOpen, index = 0 }) {
         )}
 
         {movie.ratings?.average != null && (
-          <span className="poster-rating" title="Media IMDb · Rotten Tomatoes · Metacritic">
-            ★ {(movie.ratings.average / 10).toFixed(1)}
+          <span
+            className="poster-rating"
+            title="Nota media de las fuentes disponibles"
+            aria-label={`Nota media ${(movie.ratings.average / 10).toFixed(1)} sobre 10`}
+          >
+            {/* Estrella y cifra separadas: la estrella baja de tamaño para que
+                el peso visual se lo lleve el número, que es el dato. */}
+            <span className="pr-star" aria-hidden="true">★</span>
+            <span className="pr-num">{(movie.ratings.average / 10).toFixed(1)}</span>
           </span>
         )}
         {movie.isNew && <span className="poster-new">Estreno</span>}

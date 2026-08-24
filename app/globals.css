@@ -64,6 +64,23 @@
   --sh-md: 0 4px 10px rgba(0,0,0,0.28), 0 14px 28px rgba(0,0,0,0.30);
   --sh-lg: 0 8px 20px rgba(0,0,0,0.35), 0 30px 60px rgba(0,0,0,0.45);
   --sh-gold: 0 0 0 1px rgba(212,168,67,0.3), 0 0 22px rgba(212,168,67,0.10);
+
+  /* === Capa "sobre imagen" ===================================================
+     Estos NO se redefinen en tema claro, a propósito. El resto de la paleta
+     describe superficies nuestras y por eso se invierte con el tema; aquí el
+     fondo es un cartel que puede ser blanco o negro en cualquiera de los dos.
+     Invertirlos rompía la insignia justo en el caso que estamos arreglando:
+     en tema claro el oro se oscurece y quedaba oro oscuro sobre velo negro. */
+  --media-ink:        #E5B65C;             /* la nota: oro claro, siempre */
+  --media-ink-soft:   rgba(229,182,92,0.34);
+  --media-deep:       #0B0E16;             /* tinta sobre fondo dorado opaco */
+  --media-scrim:      rgba(6,8,15,0.78);   /* velo SIN backdrop-filter */
+  /* 0.60 y no 0.45: medido en el navegador, con 0.45 la nota se quedaba en
+     3,3:1 sobre un cartel blanco. El filtro compone más claro de lo que sugiere
+     la aritmética porque el desenfoque arrastra píxeles claros de alrededor. */
+  --media-scrim-soft: rgba(6,8,15,0.60);   /* velo CON backdrop-filter */
+  --media-shadow:     rgba(6,8,15,0.55);
+  --media-ring:       rgba(6,8,15,0.28);
 }
 
 /* === Claro (parchment editorial — cálido, no blanco aséptico) === */
@@ -548,24 +565,47 @@ img { display: block; }
 }
 
 
-.poster-rating, .poster-new {
-  position: absolute; top: 10px; z-index: 3;
-  font-weight: 700; letter-spacing: .03em;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
+/* El cartel es una imagen que no controlamos: puede ser negro o beige claro.
+   Antes el velo era fijo (negro al 55%) y la tinta usaba var(--gold), que en
+   tema claro se vuelve oro oscuro: sobre un cartel claro la nota desaparecía.
+   Ahora la insignia se fabrica su propio fondo y su tinta no depende del tema. */
 .poster-rating {
-  right: 10px;
-  font-size: 11px; color: var(--gold);
-  background: rgba(0,0,0,0.55);
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  display: inline-flex; align-items: baseline; gap: 4px;
   padding: 4px 9px; border-radius: var(--radius-pill);
-  border: 1px solid rgba(212,168,67,0.35);
+  font-size: 11px; font-weight: 700; letter-spacing: .03em;
+  color: var(--media-ink);
+  /* Rama base: sin backdrop-filter el velo es lo único que sostiene el
+     contraste, así que va casi opaco. La rama de abajo lo aligera. */
+  background: var(--media-scrim);
+  border: 1px solid var(--media-ink-soft);
+  box-shadow: 0 0 0 1px var(--media-ring), 0 2px 8px var(--media-shadow);
+  text-shadow: 0 1px 2px var(--media-shadow);
 }
+@supports ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  .poster-rating {
+    /* La clave está en brightness(), que multiplica: el negro sigue negro y
+       el blanco baja al 42%, así que el velo se adapta al cartel en vez de
+       aplicarse siempre igual. El blur() que había antes no servía de nada
+       para esto — desenfoca, pero no cambia la luminosidad. saturate()
+       devuelve el color que el oscurecimiento se lleva, y es lo que mantiene
+       el aire de cristal en lugar de pegatina. */
+    backdrop-filter: blur(10px) saturate(180%) brightness(.34);
+    -webkit-backdrop-filter: blur(10px) saturate(180%) brightness(.34);
+    background: var(--media-scrim-soft);
+  }
+}
+.poster-rating .pr-star { font-size: 9.5px; opacity: .9; }
+.poster-rating .pr-num { font-variant-numeric: tabular-nums; }
+
 .poster-new {
-  left: 10px;
+  position: absolute; top: 10px; left: 10px; z-index: 3;
   font-size: 8.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
-  color: #000; background: var(--gold);
   padding: 4px 8px; border-radius: var(--radius-pill);
+  /* Fondo opaco: no hay nada detrás que mirar, así que el backdrop-filter que
+     heredaba solo costaba una capa de composición por tarjeta. */
+  color: var(--media-deep); background: var(--media-ink);
+  box-shadow: 0 2px 8px var(--media-shadow);
 }
 
 /* Degradado siempre visible — legibilidad del título */
@@ -953,6 +993,8 @@ a.showtime:hover {
   background: var(--gold-bg);
   border-color: rgba(212,168,67,0.28);
 }
+/* El oro claro sobre su propio fondo no llegaba al mínimo de contraste */
+[data-theme='light'] .badge-rating { color: var(--gold-dark); }
 
 .modal-cinema {
   display: inline-flex; align-items: center; gap: 7px;
@@ -975,26 +1017,114 @@ a.showtime:hover {
 }
 .modal-h4 {
   margin: 0 0 11px; font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .12em; color: var(--text-faint);
+  /* --text-faint es demasiado tenue para texto real: sobre el panel del modal
+     daba menos de 3:1. --text-muted mantiene la jerarquía y sí se lee. */
+  text-transform: uppercase; letter-spacing: .12em; color: var(--text-muted);
 }
-.rating-links { display: flex; flex-wrap: wrap; gap: 8px; }
-.rating-link {
-  display: inline-flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  gap: 3px; padding: 9px 13px; border-radius: var(--radius-sm);
-  font-weight: 700; text-align: center; min-width: 78px;
-  background: var(--rl-bg); color: var(--rl-fg);
+/* Desglose por fuente. Sin colores corporativos a propósito: el amarillo de
+   IMDb y el rojo de Rotten metían dos marcas ajenas en una ficha que ya tiene
+   paleta propia. Aquí las fuentes se distinguen por tipografía y escala, y el
+   oro queda reservado para la media, que es el dato de la casa. */
+.ratings-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+}
+.ratings-avg { display: inline-flex; align-items: baseline; gap: 6px; flex-shrink: 0; }
+.ra-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.ra-num {
+  font-family: var(--font-display);
+  font-size: 22px; line-height: 1; letter-spacing: .03em;
+  color: var(--gold); font-variant-numeric: tabular-nums;
+}
+/* En claro el oro base se queda al filo sobre el panel del modal */
+[data-theme='light'] .ra-num { color: var(--gold-dark); }
+
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 8px;
+}
+.rsrc {
+  position: relative;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 11px 13px 12px;
+  border-radius: var(--radius-sm);
+  /* --surface y no --glass-bg: aleja el fondo del gris medio, que era lo que
+     asfixiaba el contraste de la etiqueta pequeña. */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color .18s var(--ease), transform .22s var(--ease-spring),
+              box-shadow .2s var(--ease);
+}
+.rsrc:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-glow);
   box-shadow: var(--sh-sm);
-  transition: transform .22s var(--ease-spring),
-              box-shadow .2s var(--ease), filter .18s var(--ease);
 }
-.rating-link:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sh-md);
-  filter: brightness(1.12);
+.rsrc:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* Señal de enlace externo, discreta hasta que se apunta: así la rejilla se lee
+   como datos y no como una fila de botones. */
+.rsrc::after {
+  content: '↗';
+  position: absolute; top: 9px; right: 11px;
+  font-size: 10px; color: var(--text-muted);
+  opacity: 0; transition: opacity .18s var(--ease);
 }
-.rl-score { font-size: 20px; font-weight: 800; line-height: 1; }
-.rl-label { font-size: 10px; font-weight: 700; opacity: .9; }
+.rsrc:hover::after, .rsrc:focus-visible::after { opacity: 1; }
+
+.rsrc-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  padding-right: 14px;
+}
+.rsrc-score { display: flex; align-items: baseline; gap: 4px; }
+.rsrc-num {
+  font-family: var(--font-display);
+  font-size: 30px; line-height: .8; letter-spacing: .02em;
+  color: var(--text);
+}
+.rsrc-scale { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+
+/* El medidor permite comparar las tres fuentes de un vistazo pese a que cada
+   una puntúe en su escala. Ver el aviso sobre Rotten en el JSX. */
+.rsrc-meter {
+  height: 3px; border-radius: 2px;
+  background: var(--border-mid); overflow: hidden;
+}
+.rsrc-fill { display: block; height: 100%; border-radius: inherit; background: var(--gold); }
+
+.ratings-more {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 12px;
+  font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-mid);
+  padding-bottom: 1px;
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.ratings-more:hover { color: var(--gold); border-bottom-color: var(--gold-glow); }
+
+@media (max-width: 540px) {
+  /* En móvil pesa más la lista que la rejilla: etiqueta y nota en la misma
+     línea, medidor cruzando por debajo. Entran las tres sin scroll. */
+  .rating-grid { grid-template-columns: 1fr; gap: 6px; }
+  .rsrc {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 6px 12px;
+    padding: 10px 13px 11px;
+  }
+  .rsrc-label { padding-right: 0; }
+  .rsrc-num { font-size: 26px; }
+  .rsrc-meter { grid-column: 1 / -1; }
+  .rsrc::after { display: none; }
+}
+@media (hover: none) {
+  .rsrc:hover { transform: none; }
+  .rsrc::after { opacity: .55; }
+}
 
 /* Horarios en modal: chips sobre superficie sólida */
 .modal-section .showtimes { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 0; }
@@ -1012,19 +1142,32 @@ a.showtime:hover {
 .modal-section .showtime.premium { border-color: rgba(212,168,67,0.4); }
 .modal-section .showtime.premium .st-room { color: var(--gold); opacity: 1; }
 
+/* Antes iba en rojo YouTube sólido: al quitar los colores de marca del
+   desglose de valoraciones, este botón se quedaba como lo único que gritaba en
+   toda la ficha. El triángulo de reproducción ya dice que es un vídeo. */
 .trailer-link {
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 18px; border-radius: var(--radius-pill);
-  background: #e50914; color: #fff;
-  font-weight: 700; font-size: 13px;
-  box-shadow: 0 4px 18px rgba(229,9,20,0.35);
-  transition: filter .2s var(--ease), transform .22s var(--ease-spring), box-shadow .2s var(--ease);
+  background: var(--glass-bg); color: var(--text);
+  border: 1px solid var(--border-mid);
+  font-weight: 600; font-size: 13px; letter-spacing: .02em;
+  transition: color .18s var(--ease), border-color .18s var(--ease),
+              background .18s var(--ease), transform .22s var(--ease-spring);
+}
+.trailer-link .tl-play {
+  display: grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--gold); color: #000;
+  font-size: 9px; padding-left: 2px;
+  transition: transform .22s var(--ease-spring);
 }
 .trailer-link:hover {
-  filter: brightness(1.12);
+  color: var(--text); border-color: var(--gold-glow);
+  background: var(--gold-bg);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(229,9,20,0.45);
 }
+.trailer-link:hover .tl-play { transform: scale(1.1); }
+.trailer-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 @media (max-width: 540px) {
   .modal-overlay { padding: 10px; }
