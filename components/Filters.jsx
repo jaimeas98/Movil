@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { Children, cloneElement, isValidElement, useEffect, useRef, useState } from 'react';
 
 // Filtros de la cartelera.
 //
@@ -41,8 +41,74 @@ function IconoAspa(props) {
 // app/page.js (mira el comentario allí): en App Router React escucha en
 // `document`, el mismo nodo que el atajo global, así que detener la
 // propagación desde aquí no serviría de nada.
-function FilaChips({ label, ariaLabel, children }) {
+// Milisegundos que el chip permanece resaltado antes de aplicarse. Es la
+// "confirmación visual": da tiempo a ver qué va a pasar y a seguir deslizando
+// si te has pasado, sin que se apliquen filtros de paso mientras buscas.
+const ESPERA_RULETA = 420;
+
+function FilaChips({ label, ariaLabel, valores, onElegir, children }) {
   const ref = useRef(null);
+  const [candidato, setCandidato] = useState(null);
+  const temporizador = useRef(null);
+
+  // Ruleta: al dejar de deslizar, el chip que queda en la zona de selección
+  // (el borde izquierdo de la fila) se resalta y, si sigues sin tocar nada, se
+  // aplica solo. Únicamente tiene sentido cuando la fila se desliza, es decir
+  // en móvil: en escritorio los chips van en varias líneas y no hay scroll.
+  useEffect(() => {
+    const fila = ref.current;
+    if (!fila || !onElegir) return;
+
+    const cancelar = () => clearTimeout(temporizador.current);
+
+    const alParar = () => {
+      // Sin scroll horizontal no hay ruleta (escritorio, o pocos chips).
+      if (fila.scrollWidth <= fila.clientWidth + 4) return;
+
+      const chips = Array.from(fila.querySelectorAll('button'));
+      const refX = fila.getBoundingClientRect().left + 2;
+      let mejor = null;
+      let mejorDist = Infinity;
+      chips.forEach((chip, i) => {
+        const d = Math.abs(chip.getBoundingClientRect().left - refX);
+        if (d < mejorDist) { mejorDist = d; mejor = i; }
+      });
+      if (mejor == null) return;
+
+      const valor = valores[mejor];
+      setCandidato(mejor);
+      cancelar();
+      temporizador.current = setTimeout(() => {
+        setCandidato(null);
+        onElegir(valor);
+      }, ESPERA_RULETA);
+    };
+
+    // scrollend existe en Chrome/Firefox modernos; donde no, lo emulamos.
+    const soportaScrollEnd = 'onscrollend' in window;
+    let debounce;
+    const alDeslizar = () => {
+      cancelar();
+      setCandidato(null);
+      if (soportaScrollEnd) return;
+      clearTimeout(debounce);
+      debounce = setTimeout(alParar, 140);
+    };
+
+    fila.addEventListener('scroll', alDeslizar, { passive: true });
+    if (soportaScrollEnd) fila.addEventListener('scrollend', alParar);
+    // Tocar la fila cancela la aplicación pendiente: si vas a pulsar un chip,
+    // manda tu pulsación, no lo que hubiera quedado en la zona de selección.
+    fila.addEventListener('pointerdown', cancelar);
+
+    return () => {
+      fila.removeEventListener('scroll', alDeslizar);
+      if (soportaScrollEnd) fila.removeEventListener('scrollend', alParar);
+      fila.removeEventListener('pointerdown', cancelar);
+      cancelar();
+      clearTimeout(debounce);
+    };
+  }, [valores, onElegir]);
 
   const onKeyDown = (e) => {
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
@@ -63,17 +129,19 @@ function FilaChips({ label, ariaLabel, children }) {
     <div className="chip-group">
       <span className="chip-group-label" aria-hidden="true">{label}</span>
       <div className="chip-row" ref={ref} role="group" aria-label={ariaLabel} onKeyDown={onKeyDown}>
-        {children}
+        {Children.map(children, (hijo, i) =>
+          isValidElement(hijo) ? cloneElement(hijo, { candidato: candidato === i }) : hijo
+        )}
       </div>
     </div>
   );
 }
 
-function Chip({ activo, onClick, children }) {
+function Chip({ activo, candidato, onClick, children }) {
   return (
     <button
       type="button"
-      className="f-chip"
+      className={`f-chip${candidato ? ' is-candidato' : ''}`}
       aria-pressed={activo}
       tabIndex={activo ? 0 : -1}
       onClick={onClick}
@@ -152,7 +220,12 @@ export default function Filters({
       </div>
 
       {listaGeneros.length > 0 && (
-        <FilaChips label="Género" ariaLabel="Filtrar por género">
+        <FilaChips
+          label="Género"
+          ariaLabel="Filtrar por género"
+          valores={['', ...listaGeneros]}
+          onElegir={onGenre}
+        >
           <Chip activo={!genre} onClick={() => onGenre('')}>Todos los géneros</Chip>
           {listaGeneros.map((g) => (
             <Chip key={g} activo={genre === g} onClick={() => onGenre(genre === g ? '' : g)}>
@@ -162,7 +235,12 @@ export default function Filters({
         </FilaChips>
       )}
 
-      <FilaChips label="Cine" ariaLabel="Filtrar por cine">
+      <FilaChips
+        label="Cine"
+        ariaLabel="Filtrar por cine"
+        valores={['', ...cinemas.map((c) => c.id)]}
+        onElegir={onCinema}
+      >
         <Chip activo={!cinema} onClick={() => onCinema('')}>Todos los cines</Chip>
         {cinemas.map((c) => (
           <Chip

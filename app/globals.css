@@ -865,9 +865,12 @@ a.showtime:hover {
   .chip-row {
     flex-wrap: nowrap; overflow-x: auto;
     scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    /* Sin imán de scroll a propósito: con el sangrado lateral, "snap" arrastraba
-       la fila hasta pegar el primer chip al borde de la pantalla y se comía el
-       margen. En los días sí tiene sentido encajar; en una tira de filtros no. */
+    /* Imán de scroll: los chips encajan como una ruleta y el que queda a la
+       izquierda es el candidato a aplicarse. scroll-padding es imprescindible
+       aquí: sin él el imán ignora el sangrado lateral y pega el primer chip al
+       borde de la pantalla, comiéndose el margen. */
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: clamp(16px, 4vw, 56px);
     /* Colchón para que el anillo de foco y el chip elevado no se recorten,
        compensado con margen negativo (mismo motivo que en .days-scroll). */
     padding-block: 6px; margin-block: -6px;
@@ -876,6 +879,17 @@ a.showtime:hover {
     padding-inline: clamp(16px, 4vw, 56px);
   }
   .chip-row::-webkit-scrollbar { display: none; }
+  .f-chip { scroll-snap-align: start; }
+
+  /* Confirmación visual de la ruleta: el chip que ha quedado en la zona de
+     selección se resalta un instante ANTES de aplicarse, para que veas lo que
+     va a pasar y puedas seguir deslizando si te has pasado. */
+  .f-chip.is-candidato {
+    color: var(--text);
+    border-color: var(--gold);
+    background: var(--gold-bg);
+    box-shadow: 0 0 0 3px var(--gold-glow);
+  }
 
 
   .brand-sub { display: none; }
@@ -1055,12 +1069,19 @@ a.showtime:hover {
      asfixiaba el contraste de la etiqueta pequeña. */
   background: var(--surface);
   border: 1px solid var(--border);
+  /* La franja lleva el color de la web de origen: identifica la fuente de un
+     vistazo sin que la marca ajena entre en el interior de la ficha. */
+  border-left: 3px solid var(--src-color, var(--border-mid));
+  padding-left: 11px;
   transition: border-color .18s var(--ease), transform .22s var(--ease-spring),
               box-shadow .2s var(--ease);
 }
 .rsrc:hover {
   transform: translateY(-2px);
-  border-color: var(--gold-glow);
+  /* Solo los tres lados neutros: el izquierdo conserva el color de la fuente */
+  border-top-color: var(--gold-glow);
+  border-right-color: var(--gold-glow);
+  border-bottom-color: var(--gold-glow);
   box-shadow: var(--sh-sm);
 }
 .rsrc:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
@@ -1114,7 +1135,7 @@ a.showtime:hover {
   .rsrc {
     display: grid; grid-template-columns: 1fr auto;
     align-items: center; gap: 6px 12px;
-    padding: 10px 13px 11px;
+    padding: 10px 13px 11px 11px;
   }
   .rsrc-label { padding-right: 0; }
   .rsrc-num { font-size: 26px; }

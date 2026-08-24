@@ -31,21 +31,24 @@ function ratingSources(title, ratings) {
   const mc   = num(ratings?.metacritic);
   const tmdb = num(ratings?.tmdb);
 
+  // El color es el de cada web, y va SOLO en la franja lateral de la ficha:
+  // identifica la fuente de un vistazo sin que la marca ajena invada el
+  // interior, que se queda con la tipografía y la paleta de la casa.
   return [
     {
-      key: 'imdb', label: 'IMDb', scale: '/10',
+      key: 'imdb', label: 'IMDb', scale: '/10', color: '#F5C518',
       value: imdb, display: imdb != null ? imdb.toFixed(1) : null,
       pct: imdb != null ? imdb * 10 : null,
       url: `https://www.imdb.com/find/?q=${q}&s=tt`,
     },
     {
-      key: 'rt', label: 'Rotten Tomatoes', scale: '%',
+      key: 'rt', label: 'Rotten Tomatoes', scale: '%', color: '#FA320A',
       value: rt, display: rt != null ? String(Math.round(rt)) : null,
       pct: rt,
       url: `https://www.rottentomatoes.com/search?search=${q}`,
     },
     {
-      key: 'mc', label: 'Metacritic', scale: '/100',
+      key: 'mc', label: 'Metacritic', scale: '/100', color: '#00CE7A',
       value: mc, display: mc != null ? String(Math.round(mc)) : null,
       pct: mc,
       url: `https://www.metacritic.com/search/${q}/`,
@@ -53,7 +56,7 @@ function ratingSources(title, ratings) {
     // TMDB solo aparece cuando ninguna de las tres anteriores tiene nota: es
     // el voto de su comunidad y antes se presentaba como si fuera de IMDb.
     {
-      key: 'tmdb', label: 'TMDB', scale: '/10',
+      key: 'tmdb', label: 'TMDB', scale: '/10', color: '#01B4E4',
       value: imdb == null && rt == null && mc == null ? tmdb : null,
       display: tmdb != null ? tmdb.toFixed(1) : null,
       pct: tmdb != null ? tmdb * 10 : null,
@@ -170,6 +173,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
                     target="_blank"
                     rel="noreferrer"
                     className="rsrc"
+                    style={{ '--src-color': s.color }}
                     aria-label={`${s.label}: ${s.display}${s.scale}. Abrir en ${s.label}`}
                   >
                     <span className="rsrc-label">{s.label}</span>
