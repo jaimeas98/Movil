@@ -275,46 +275,134 @@ img { display: block; }
   margin: 0 0 22px;
   text-wrap: balance;
 }
-.filters {
-  display: grid; grid-template-columns: 1.8fr 1fr 1fr;
-  gap: 0;
+/* Filtros: mismo lenguaje que la tira de días — chip apagado que se enciende
+   en oro. Sin selects nativos (los pintaba el sistema operativo a su manera)
+   y sin emoji: iconos SVG de trazo. */
+.filters { display: flex; flex-direction: column; gap: 12px; }
+
+.filters-top { display: flex; align-items: center; gap: 10px; }
+
+.search-field {
+  position: relative; flex: 1 1 auto; min-width: 0;
+  display: flex; align-items: center; height: 46px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-panel);
+  border-radius: var(--radius-pill);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-  overflow: hidden;
   box-shadow: var(--sh-sm);
+  transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
-.field {
-  position: relative; display: flex; align-items: center;
-  border-right: 1px solid var(--glass-border);
+.search-field:hover { border-color: var(--border-mid); }
+.search-field:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
 }
-.field:last-child { border-right: none; }
-.field .ic {
-  position: absolute; left: 14px;
-  font-size: 13px; opacity: 0.45; pointer-events: none;
-}
-.input, .select {
-  width: 100%; border: none;
-  background: transparent; color: var(--text);
-  padding: 14px 14px 14px 38px;
-  font-size: 14px; font-family: var(--font);
-  outline: none; appearance: none;
-  transition: background .2s var(--ease);
-}
-.input::placeholder { color: var(--text-faint); }
-.input:focus, .select:focus { background: rgba(255,255,255,0.04); }
-.select { cursor: pointer; }
-.select option { background: var(--surface-2); color: var(--text); }
-.field-clear {
-  position: absolute; right: 10px;
-  color: var(--text-faint); width: 20px; height: 20px;
-  border-radius: 50%; font-size: 12px;
-  display: grid; place-items: center;
+.search-ic {
+  position: absolute; left: 16px; width: 17px; height: 17px;
+  color: var(--text-faint); pointer-events: none;
   transition: color .18s var(--ease);
 }
-.field-clear:hover { color: var(--text); }
+.search-field:focus-within .search-ic { color: var(--gold); }
+.search-input {
+  width: 100%; height: 100%;
+  border: none; outline: none; background: transparent;
+  color: var(--text);
+  font-family: var(--font); font-size: 14px; letter-spacing: .01em;
+  padding: 0 46px 0 43px;
+  border-radius: var(--radius-pill);
+}
+.search-input::placeholder { color: var(--text-faint); }
+.search-clear {
+  position: absolute; right: 5px;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--text-faint);
+  transition: color .18s var(--ease), background .18s var(--ease);
+}
+.search-clear svg { width: 13px; height: 13px; }
+.search-clear:hover { color: var(--text); background: var(--surface-3); }
+
+/* Solo se monta cuando hay algún filtro puesto */
+.filters-clear {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 46px; padding: 0 15px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-mid);
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  font-size: 12px; font-weight: 600; letter-spacing: .04em;
+  white-space: nowrap;
+  transition: color .18s var(--ease), border-color .18s var(--ease),
+              background .18s var(--ease), transform .16s var(--ease);
+  animation: chipPop .26s var(--ease-spring);
+}
+.filters-clear:hover {
+  color: var(--text); background: var(--surface-2);
+  border-color: var(--border-strong); transform: translateY(-1px);
+}
+.filters-clear:active { transform: scale(.97); }
+.filters-clear .fc-x { width: 12px; height: 12px; opacity: .7; }
+.filters-count {
+  min-width: 20px; height: 20px; padding: 0 6px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--gold); color: #000;
+  font-size: 11px; font-weight: 800; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes chipPop {
+  from { opacity: 0; transform: scale(.82); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.chip-group { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.chip-group-label {
+  /* Ancho fijo para que los chips de ambas filas arranquen alineados; 58px es
+     lo que mide "Género", la más larga, sin desbordarse sobre el hueco. */
+  flex: 0 0 auto; width: 58px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.chip-row { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.f-chip {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 7px;
+  min-height: 36px; padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: transparent; border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font); font-size: 12.5px; font-weight: 600;
+  letter-spacing: .03em; white-space: nowrap;
+  transition: background .18s var(--ease), color .18s var(--ease),
+              border-color .18s var(--ease), transform .16s var(--ease),
+              box-shadow .18s var(--ease);
+}
+.f-chip:hover {
+  background: var(--glass-bg); border-color: var(--border);
+  color: var(--text); transform: translateY(-2px);
+}
+.f-chip:active { transform: scale(.97); }
+.f-chip[aria-pressed='true'] {
+  background: var(--gold); border-color: transparent;
+  color: #000; font-weight: 700;
+  box-shadow: 0 4px 16px var(--gold-glow);
+}
+.f-chip[aria-pressed='true']:hover { transform: translateY(-2px); }
+.f-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--glass-bg);
+}
+.f-chip[aria-pressed='true'] .f-dot { box-shadow: 0 0 0 2px rgba(0,0,0,0.25); }
+
+.f-chip:focus-visible,
+.search-clear:focus-visible,
+.filters-clear:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 2px;
+}
 .results-line {
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: 8px;
@@ -713,9 +801,34 @@ a.showtime:hover {
 
 /* ============================================================ RESPONSIVE */
 @media (max-width: 720px) {
-  .filters { grid-template-columns: 1fr; border-radius: var(--radius); }
-  .field { border-right: none; border-bottom: 1px solid var(--glass-border); }
-  .field:last-child { border-bottom: none; }
+  .filters { gap: 10px; }
+  .search-field { height: 48px; }
+  /* 16px evita que iOS haga zoom automático al enfocar el campo */
+  .search-input { font-size: 16px; padding: 0 48px 0 43px; }
+  .search-clear { width: 40px; height: 40px; right: 4px; }
+  .filters-clear { height: 48px; }
+
+  /* La etiqueta sobra: el primer chip ("Todos los géneros") ya dice de qué va
+     la fila. El grupo conserva su aria-label para lectores de pantalla. */
+  .chip-group { gap: 0; }
+  .chip-group-label { display: none; }
+
+  /* Una sola línea que se desliza, igual que la tira de días: el gesto ya
+     está aprendido y ahorra el alto de dos filas apiladas. */
+  .chip-row {
+    flex-wrap: nowrap; overflow-x: auto;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    /* Colchón para que el anillo de foco y el chip elevado no se recorten,
+       compensado con margen negativo (mismo motivo que en .days-scroll). */
+    padding-block: 6px; margin-block: -6px;
+    /* Sangrado hasta el borde de la pantalla */
+    margin-inline: calc(-1 * clamp(16px, 4vw, 56px));
+    padding-inline: clamp(16px, 4vw, 56px);
+  }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .f-chip { scroll-snap-align: start; }
+
   .brand-sub { display: none; }
   /* En móvil el botón muestra solo el icono ↻ para que el título quepa */
   .btn-label { display: none; }
@@ -726,6 +839,21 @@ a.showtime:hover {
   .movies-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .movie-title { font-size: 13.5px; }
   .poster-meta { padding: 10px 10px 11px; }
+  .f-chip { font-size: 12px; padding: 8px 13px; }
+  /* El botón se reduce a contador + aspa, y sigue pasando de 44px de ancho */
+  .filters-clear { padding: 0 12px; gap: 7px; }
+  .filters-clear .fc-label { display: none; }
+}
+
+/* Táctil: área mínima de 44px y sin hover que se quede pegado tras el toque */
+@media (hover: none) {
+  .f-chip { min-height: 44px; padding: 11px 15px; }
+  .f-chip:not([aria-pressed='true']):hover {
+    background: transparent; border-color: transparent;
+    color: var(--text-muted); transform: none;
+  }
+  .f-chip[aria-pressed='true']:hover { transform: none; }
+  .filters-clear:hover { transform: none; }
 }
 @media (min-width: 1500px) {
   .movies-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }

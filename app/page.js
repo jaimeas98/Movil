@@ -259,12 +259,21 @@ export default function Page() {
       // All other shortcuts: skip when modal is open or user is typing
       if (active || isTyping) return;
 
+      // Dentro de una fila de chips de filtro, ← y → mueven el foco de un chip
+      // a otro; no deben cambiar el día por detrás. Se comprueba aquí y no en
+      // Filters.jsx porque en App Router React engancha los eventos en
+      // `document`, el mismo nodo en el que escuchamos: detener la propagación
+      // desde el componente no impediría que este manejador se ejecutase.
+      const enChipsDeFiltro = document.activeElement?.closest?.('.chip-row');
+
       if (e.key === 'ArrowLeft') {
+        if (enChipsDeFiltro) return;
         const idx = days.findIndex((d) => d.iso === selectedDate);
         if (idx > 0) setSelectedDate(days[idx - 1].iso);
         return;
       }
       if (e.key === 'ArrowRight') {
+        if (enChipsDeFiltro) return;
         const idx = days.findIndex((d) => d.iso === selectedDate);
         if (idx < days.length - 1) setSelectedDate(days[idx + 1].iso);
         return;
