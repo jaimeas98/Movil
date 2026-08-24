@@ -808,17 +808,26 @@ a.showtime:hover {
   .search-clear { width: 40px; height: 40px; right: 4px; }
   .filters-clear { height: 48px; }
 
-  /* La etiqueta sobra: el primer chip ("Todos los géneros") ya dice de qué va
-     la fila. El grupo conserva su aria-label para lectores de pantalla. */
+  /* La etiqueta a la izquierda robaría demasiado ancho, pero sin ella las dos
+     filas se leían como una sola masa de chips. Un filete a todo lo ancho
+     marca dónde acaba una y empieza la otra sin añadir apenas alto. */
   .chip-group { gap: 0; }
   .chip-group-label { display: none; }
+  .chip-group + .chip-group {
+    padding-top: 11px;
+    border-top: 1px solid var(--border);
+    margin-inline: calc(-1 * clamp(16px, 4vw, 56px));
+    padding-inline: clamp(16px, 4vw, 56px);
+  }
 
   /* Una sola línea que se desliza, igual que la tira de días: el gesto ya
      está aprendido y ahorra el alto de dos filas apiladas. */
   .chip-row {
     flex-wrap: nowrap; overflow-x: auto;
     scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
+    /* Sin imán de scroll a propósito: con el sangrado lateral, "snap" arrastraba
+       la fila hasta pegar el primer chip al borde de la pantalla y se comía el
+       margen. En los días sí tiene sentido encajar; en una tira de filtros no. */
     /* Colchón para que el anillo de foco y el chip elevado no se recorten,
        compensado con margen negativo (mismo motivo que en .days-scroll). */
     padding-block: 6px; margin-block: -6px;
@@ -827,7 +836,7 @@ a.showtime:hover {
     padding-inline: clamp(16px, 4vw, 56px);
   }
   .chip-row::-webkit-scrollbar { display: none; }
-  .f-chip { scroll-snap-align: start; }
+
 
   .brand-sub { display: none; }
   /* En móvil el botón muestra solo el icono ↻ para que el título quepa */

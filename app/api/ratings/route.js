@@ -22,6 +22,7 @@
 // Cache 24h en los fetch externos (revalidate en Next.js).
 
 import { NextResponse } from 'next/server';
+import { variantesDeTitulo, pareceElMismo } from '@/lib/ratings/match.js';
 
 export const runtime = 'nodejs';
 
@@ -56,14 +57,35 @@ async function tmdbSearch(title, auth) {
     });
     if (!res.ok) return null;
     const data = await res.json();
-    const movie = data.results?.[0];
-    if (!movie?.id) return null;
+    const resultados = data.results ?? [];
+    if (!resultados.length) return null;
+
+    // No aceptamos a ciegas el primer resultado: TMDB devuelve algo para casi
+    // cualquier cosa y así es como una película acaba con la nota de otra.
+    const bueno = resultados.find(
+      (m) => pareceElMismo(title, m.title) || pareceElMismo(title, m.original_title)
+    );
+    if (!bueno?.id) return null;
+
     return {
-      id: movie.id,
-      voteAverage: movie.vote_average > 0 ? movie.vote_average : null,
-      voteCount: movie.vote_count ?? 0,
+      id: bueno.id,
+      title: bueno.title,
+      originalTitle: bueno.original_title,
+      year: (bueno.release_date || '').slice(0, 4) || null,
+      voteAverage: bueno.vote_average > 0 ? bueno.vote_average : null,
+      voteCount: bueno.vote_count ?? 0,
     };
   } catch { return null; }
+}
+
+// Prueba las variantes del título de la más fiel a la más agresiva y se queda
+// con la primera que da un resultado creíble.
+async function buscarPelicula(titulo, auth) {
+  for (const variante of variantesDeTitulo(titulo)) {
+    const hallazgo = await tmdbSearch(variante, auth);
+    if (hallazgo) return { ...hallazgo, consulta: variante };
+  }
+  return null;
 }
 
 // TMDB: detalles de película → imdb_id + géneros en español
@@ -105,9 +127,9 @@ async function omdbById(imdbId, key) {
 }
 
 // OMDB: búsqueda por título (fallback sin TMDB — solo funciona bien con títulos en inglés)
-async function omdbByTitle(title, key) {
+async function omdbByTitle(title, key, year = null) {
   const clean = cleanTitle(title);
-  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(clean)}&apikey=${key}`;
+  const url = `https://www.omdbapi.com/?t=${encodeURIComponent(clean)}${year ? `&y=${year}` : ''}&apikey=${key}`;
   try {
     const res = await fetch(url, {
       next: { revalidate: 86400 },
@@ -124,11 +146,14 @@ async function omdbByTitle(title, key) {
   } catch { return null; }
 }
 
-function computeAverage(imdb, rt, mc) {
+// La media solo usa TMDB cuando no hay ninguna nota de las buenas, para que
+// una película conocida no vea su media desplazada por el voto de TMDB.
+function computeAverage(imdb, rt, mc, tmdb) {
   const scores = [];
   if (imdb)  scores.push(Number(imdb) * 10);
   if (rt)    scores.push(parseInt(rt, 10));
   if (mc)    scores.push(Number(mc));
+  if (!scores.length && tmdb) scores.push(Number(tmdb) * 10);
   if (!scores.length) return null;
   return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
 }
@@ -162,28 +187,38 @@ export async function POST(request) {
     try {
       let imdb = null, rt = null, mc = null, genre = null, average = null;
 
+      let tmdb = null;
+
       if (tmdbAuth) {
         // Flujo TMDB (soporta títulos españoles)
-        const search = await tmdbSearch(clean, tmdbAuth);
+        const search = await buscarPelicula(title, tmdbAuth);
         if (search?.id) {
-          // Details en paralelo: siempre necesitamos el imdb_id
+          if (search.voteAverage != null && search.voteCount >= 10) {
+            tmdb = search.voteAverage.toFixed(1);
+          }
+
           const details = await tmdbDetails(search.id, tmdbAuth);
           if (details?.genre) genre = details.genre;
 
-          if (details?.imdbId && omdbKey) {
-            // Mejor ruta: OMDB por ID (100% preciso, no depende del título)
-            const omdb = await omdbById(details.imdbId, omdbKey);
-            if (omdb) {
-              imdb = omdb.imdb;
-              rt   = omdb.rt;
-              mc   = omdb.metacritic;
-              if (omdb.genre) genre = omdb.genre;
+          let omdb = null;
+          if (omdbKey) {
+            if (details?.imdbId) {
+              // Mejor ruta: OMDB por ID (100% preciso, no depende del título)
+              omdb = await omdbById(details.imdbId, omdbKey);
+            }
+            // Sin imdb_id nos quedábamos sin consultar OMDB, y con ello sin
+            // Rotten Tomatoes ni Metacritic. El título ORIGINAL que nos da
+            // TMDB (casi siempre el inglés) es justo lo que OMDB entiende.
+            if (!omdb && search.originalTitle) {
+              omdb = await omdbByTitle(search.originalTitle, omdbKey, search.year);
             }
           }
 
-          // Si OMDB no devolvió nada o no hay clave OMDB, usar rating de TMDB
-          if (!imdb && search.voteAverage != null) {
-            imdb = search.voteAverage.toFixed(1); // TMDB rating (0-10 como IMDb)
+          if (omdb) {
+            imdb = omdb.imdb;
+            rt   = omdb.rt;
+            mc   = omdb.metacritic;
+            if (omdb.genre) genre = omdb.genre;
           }
         }
       } else if (omdbKey) {
@@ -192,10 +227,10 @@ export async function POST(request) {
         if (omdb) { imdb = omdb.imdb; rt = omdb.rt; mc = omdb.metacritic; genre = omdb.genre; }
       }
 
-      average = computeAverage(imdb, rt, mc);
-      if (!imdb && !rt && !mc) return [title, null];
+      average = computeAverage(imdb, rt, mc, tmdb);
+      if (!imdb && !rt && !mc && !tmdb) return [title, null];
 
-      return [title, { imdb, rt, metacritic: mc, average, genre }];
+      return [title, { imdb, rt, metacritic: mc, tmdb, average, genre }];
     } catch {
       return [title, null];
     }

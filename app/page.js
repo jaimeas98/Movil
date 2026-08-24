@@ -306,6 +306,13 @@ export default function Page() {
 
   // ── Horizontal swipe on <main> to change day ───────────────────────────────
   const handleMainTouchStart = (e) => {
+    // Las filas de filtros se deslizan en horizontal, el mismo gesto que usamos
+    // para cambiar de día. Si el dedo empieza ahí, el deslizamiento es suyo.
+    if (e.target?.closest?.('.chip-row')) {
+      swipeTouchStartX.current = null;
+      swipeTouchStartY.current = null;
+      return;
+    }
     swipeTouchStartX.current = e.touches[0].clientX;
     swipeTouchStartY.current = e.touches[0].clientY;
   };
