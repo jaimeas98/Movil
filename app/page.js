@@ -1,6 +1,9 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import {
+  goma, crearVelocimetro, movimientoReducido, enScrollHorizontal, alTerminarTransicion,
+} from '@/lib/gestos.js';
 import { CINEMAS } from '@/lib/cinemas/config.js';
 import { buildDayList, longLabel } from '@/lib/dates.js';
 import ThemeToggle from '@/components/ThemeToggle.jsx';
@@ -101,9 +104,20 @@ export default function Page() {
   const [active, setActive] = useState(null); // película abierta en el modal
   const [showKbd, setShowKbd] = useState(false);
 
-  // Refs for swipe tracking on <main>
-  const swipeTouchStartX = useRef(null);
-  const swipeTouchStartY = useRef(null);
+  // ── Refs del gesto horizontal ───────────────────────────────────────────────
+  // Todo el gesto vive en refs y en el DOM: si el estado del arrastre estuviera
+  // en useState, cada píxel de dedo re-renderizaría la cartelera entera.
+  const zonaRef = useRef(null);      // <main>
+  const tituloRef = useRef(null);    // h1.selected-day
+  const panelRef = useRef(null);     // contenedor de resultados
+  const animandoRef = useRef(false);
+  const entradaRef = useRef(0);      // dirección de la animación de entrada pendiente
+  // Espejos del estado para que el listener táctil tenga dependencias vacías y
+  // no se resuscriba en cada render, lo que perdería el gesto a medias.
+  // Arrancan vacíos porque `days` se calcula más abajo; los efectos de sincronía
+  // los rellenan antes de que ningún gesto pueda leerlos.
+  const diasRef = useRef([]);
+  const fechaRef = useRef(selectedDate);
 
   // Carga ÚNICA: trae todos los días de una vez.
   // Sin refresh: sirve localStorage si existe (mismo día Madrid), luego fetch.
@@ -304,31 +318,227 @@ export default function Page() {
     return () => document.removeEventListener('keydown', onKey);
   }, [active, days, selectedDate, query, loading, load, showKbd]);
 
-  // ── Horizontal swipe on <main> to change day ───────────────────────────────
-  const handleMainTouchStart = (e) => {
-    // Las filas de filtros se deslizan en horizontal, el mismo gesto que usamos
-    // para cambiar de día. Si el dedo empieza ahí, el deslizamiento es suyo.
-    if (e.target?.closest?.('.chip-row')) {
-      swipeTouchStartX.current = null;
-      swipeTouchStartY.current = null;
+  useEffect(() => { diasRef.current = days; }, [days]);
+  useEffect(() => { fechaRef.current = selectedDate; }, [selectedDate]);
+
+  // ── Deslizar en horizontal para cambiar de día ──────────────────────────────
+  // Antes esto era un clasificador que se ejecutaba al soltar: nada leía la
+  // posición del dedo mientras se movía, así que el contenido no podía
+  // acompañarlo y el día cambiaba de golpe. De ahí la sensación de tosquedad.
+  useEffect(() => {
+    const zona = zonaRef.current;
+    if (!zona) return;
+
+    const reducido = movimientoReducido();
+    const capas = () => [tituloRef.current, panelRef.current].filter(Boolean);
+
+    let activo = false;
+    let decidido = 0;   // 0 sin decidir, 1 nuestro (horizontal), -1 del scroll
+    let x0 = 0, y0 = 0, x = 0;
+    let raf = 0;
+    const vel = crearVelocimetro();
+
+    const pintar = () => {
+      raf = 0;
+      const w = zona.clientWidth || 1;
+      const p = Math.min(1, Math.abs(x) / w);
+      for (const c of capas()) {
+        c.style.transform = `translate3d(${x}px, 0, 0)`;
+        // Atenuar mientras se va es lo que hace legible que el contenido "se
+        // marcha": sin ello parece que la lista se ha descolocado.
+        c.style.opacity = String(1 - p * 0.55);
+      }
+    };
+
+    const indiceActual = () => diasRef.current.findIndex((d) => d.iso === fechaRef.current);
+
+    const alEmpezar = (e) => {
+      if (animandoRef.current || e.touches.length !== 1) { activo = false; return; }
+      // Regla que se mantiene: si el dedo empieza en una fila de chips, ese
+      // deslizamiento es suyo y no cambia de día.
+      if (enScrollHorizontal(e.target, zona)) { activo = false; return; }
+      const t = e.target.tagName;
+      if (t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT') { activo = false; return; }
+
+      activo = true; decidido = 0; x = 0;
+      x0 = e.touches[0].clientX;
+      y0 = e.touches[0].clientY;
+      vel.limpiar(); vel.anotar(0);
+    };
+
+    const alMover = (e) => {
+      if (!activo) return;
+      const dx = e.touches[0].clientX - x0;
+      const dy = e.touches[0].clientY - y0;
+
+      if (decidido === 0) {
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;  // aquí NO bloqueamos
+        // Sesgo a favor del scroll: casi nadie desliza recto con el pulgar y,
+        // sin este margen, bajar con algo de diagonal cambiaba de día sin
+        // querer. Ese era medio problema del gesto.
+        decidido = Math.abs(dx) > Math.abs(dy) * 1.3 ? 1 : -1;
+        if (decidido === -1) { activo = false; return; }
+        for (const c of capas()) {
+          c.style.transition = 'none';
+          c.style.willChange = 'transform, opacity';
+        }
+        zona.dataset.deslizando = '1';
+      }
+
+      e.preventDefault();   // ya es nuestro: nada de desplazarse en diagonal
+      const dias = diasRef.current;
+      const i = indiceActual();
+      const hayDestino = dx < 0 ? i > -1 && i < dias.length - 1 : i > 0;
+      const w = zona.clientWidth || 1;
+      // En los extremos el contenido cede un poco y vuelve: es la forma de
+      // decir "no hay más días" sin un bloqueo seco.
+      x = hayDestino ? dx * 0.92 : goma(dx, w * 0.10);
+      vel.anotar(x);
+      if (!raf) raf = requestAnimationFrame(pintar);
+    };
+
+    const volver = () => {
+      for (const c of capas()) {
+        c.style.transition = 'transform 340ms var(--ease-back), opacity 200ms var(--ease-out)';
+        c.style.transform = 'translate3d(0,0,0)';
+        c.style.opacity = '1';
+      }
+      alTerminarTransicion(capas()[0], 'transform', 340, () => {
+        for (const c of capas()) { c.style.transition = ''; c.style.willChange = ''; }
+        delete zona.dataset.deslizando;
+      });
+    };
+
+    const salir = (dir, iso) => {
+      animandoRef.current = true;
+      entradaRef.current = dir;
+      const w = zona.clientWidth || 1;
+      for (const c of capas()) {
+        c.style.transition = 'transform 150ms var(--ease-out), opacity 150ms linear';
+        // Un 30% basta para que el contenido salga de la zona de atención.
+        // Recorrer el ancho entero obliga a duraciones largas, y ahí es donde
+        // una transición empieza a sentirse lenta.
+        c.style.transform = `translate3d(${-dir * w * 0.3}px, 0, 0)`;
+        c.style.opacity = '0';
+      }
+      alTerminarTransicion(capas()[0], 'transform', 150, () => setSelectedDate(iso));
+    };
+
+    const alSoltar = () => {
+      if (!activo) return;
+      activo = false;
+      if (decidido !== 1) return;
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+
+      const w = zona.clientWidth || 1;
+      const v = vel.valor();
+      const dias = diasRef.current;
+      const i = indiceActual();
+      const dir = x < 0 ? 1 : -1;          // 1 = día siguiente
+      const destino = i > -1 ? dias[i + dir] : null;
+      // Distancia O velocidad: antes solo había distancia, así que un gesto
+      // rápido y corto no hacía nada y uno lento y largo sí. De ahí que
+      // pareciera que "a veces va y a veces no".
+      const cambia = !!destino &&
+        (Math.abs(x) > w * 0.22 || (Math.abs(v) > 0.45 && Math.abs(x) > 36));
+
+      if (cambia) salir(dir, destino.iso); else volver();
+    };
+
+    // Con movimiento reducido, mismo gesto y mismos umbrales pero sin seguir al
+    // dedo. La navegación no se pierde.
+    const alMoverReducido = (e) => {
+      if (!activo) return;
+      const dx = e.touches[0].clientX - x0;
+      const dy = e.touches[0].clientY - y0;
+      if (decidido === 0) {
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+        decidido = Math.abs(dx) > Math.abs(dy) * 1.3 ? 1 : -1;
+        if (decidido === -1) { activo = false; return; }
+      }
+      x = dx;
+    };
+    const alSoltarReducido = () => {
+      if (!activo) return;
+      activo = false;
+      if (decidido !== 1 || Math.abs(x) < 60) return;
+      const dias = diasRef.current;
+      const i = indiceActual();
+      const destino = i > -1 ? dias[i + (x < 0 ? 1 : -1)] : null;
+      if (destino) setSelectedDate(destino.iso);
+    };
+
+    const mover = reducido ? alMoverReducido : alMover;
+    const soltar = reducido ? alSoltarReducido : alSoltar;
+
+    zona.addEventListener('touchstart', alEmpezar, { passive: true });
+    zona.addEventListener('touchmove', mover, { passive: false });
+    zona.addEventListener('touchend', soltar, { passive: true });
+    zona.addEventListener('touchcancel', soltar, { passive: true });
+
+    return () => {
+      zona.removeEventListener('touchstart', alEmpezar);
+      zona.removeEventListener('touchmove', mover);
+      zona.removeEventListener('touchend', soltar);
+      zona.removeEventListener('touchcancel', soltar);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  // Animación de ENTRADA del día nuevo. Va en useLayoutEffect y no en el
+  // manejador del gesto porque tiene que ejecutarse con el DOM nuevo ya montado
+  // pero ANTES de pintar: en un useEffect normal se vería un fotograma del
+  // contenido nuevo ya colocado en su sitio.
+  useLayoutEffect(() => {
+    const dir = entradaRef.current;
+    if (!dir) return;
+    entradaRef.current = 0;
+
+    const zona = zonaRef.current;
+    const capas = [tituloRef.current, panelRef.current].filter(Boolean);
+    if (!zona || !capas.length) { animandoRef.current = false; return; }
+
+    const w = zona.clientWidth || 1;
+
+    // Si veníamos desplazados por la lista anterior, volvemos arriba AHORA, con
+    // el contenido todavía invisible: un salto que nadie llega a ver.
+    const barras = document.querySelector('.days')?.getBoundingClientRect().bottom ?? 0;
+    const arriba = zona.getBoundingClientRect().top;
+    if (arriba < barras - 4) window.scrollBy({ top: arriba - barras, behavior: 'instant' });
+
+    if (movimientoReducido()) {
+      for (const c of capas) { c.style.transition = ''; c.style.transform = ''; c.style.opacity = ''; }
+      delete zona.dataset.deslizando;
+      animandoRef.current = false;
       return;
     }
-    swipeTouchStartX.current = e.touches[0].clientX;
-    swipeTouchStartY.current = e.touches[0].clientY;
-  };
 
-  const handleMainTouchEnd = (e) => {
-    if (swipeTouchStartX.current === null) return;
-    const dx = e.changedTouches[0].clientX - swipeTouchStartX.current;
-    const dy = Math.abs(e.changedTouches[0].clientY - swipeTouchStartY.current);
-    swipeTouchStartX.current = null;
-    swipeTouchStartY.current = null;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > dy) {
-      const idx = days.findIndex((d) => d.iso === selectedDate);
-      if (dx < 0 && idx < days.length - 1) setSelectedDate(days[idx + 1].iso); // swipe left → next
-      if (dx > 0 && idx > 0) setSelectedDate(days[idx - 1].iso);               // swipe right → prev
+    for (const c of capas) {
+      c.style.transition = 'none';
+      c.style.transform = `translate3d(${dir * w * 0.3}px, 0, 0)`;
+      c.style.opacity = '0';
     }
-  };
+    // Lectura forzada de layout: obliga al navegador a "ver" el punto de
+    // partida. Sin esto agruparía ambos estilos en el mismo recálculo y no
+    // habría transición, solo un salto.
+    void capas[0].offsetWidth;
+
+    requestAnimationFrame(() => {
+      for (const c of capas) {
+        c.style.transition = 'transform 260ms var(--ease-out), opacity 190ms linear';
+        c.style.transform = 'translate3d(0,0,0)';
+        c.style.opacity = '1';
+      }
+      alTerminarTransicion(capas[0], 'transform', 260, () => {
+        for (const c of capas) {
+          c.style.transition = ''; c.style.willChange = '';
+          c.style.transform = ''; c.style.opacity = '';
+        }
+        delete zona.dataset.deslizando;
+        animandoRef.current = false;
+      });
+    });
+  }, [selectedDate]);
 
   return (
     <>
@@ -363,13 +573,13 @@ export default function Page() {
       {/* TIRA DE DÍAS */}
       <DayTimeline days={days} selected={selectedDate} onSelect={setSelectedDate} />
 
-      <main
-        className="container"
-        onTouchStart={handleMainTouchStart}
-        onTouchEnd={handleMainTouchEnd}
-      >
+      <main className="container" ref={zonaRef}>
         <div className="toolbar">
-          <h1 className="selected-day">{longLabel(selectedDate)}</h1>
+          {/* aria-live: al deslizar, el día cambia sin que nadie haya pulsado
+              nada, así que sin esto un lector de pantalla no anuncia el cambio. */}
+          <h1 className="selected-day" ref={tituloRef} aria-live="polite">
+            {longLabel(selectedDate)}
+          </h1>
           <Filters
             query={query}
             onQuery={setQuery}
@@ -401,26 +611,37 @@ export default function Page() {
           </div>
         </div>
 
-        {error ? (
-          <div className="empty">
-            <div className="em-ic">⚠️</div>
-            <h3>Vaya…</h3>
-            <p>{error}</p>
-            <button className="btn btn-primary" onClick={() => load(true)} style={{ marginTop: 12 }}>
-              Reintentar
-            </button>
-          </div>
-        ) : loading && !data ? (
-          <SkeletonGrid />
-        ) : totalMovies === 0 ? (
-          <div className="empty">
-            <div className="em-ic">🍿</div>
-            <h3>Sin resultados</h3>
-            <p>No hay películas con estos filtros para {longLabel(selectedDate).toLowerCase()}.</p>
-          </div>
-        ) : (
-          filtered.map((c) => <CinemaSection key={c.id} cinema={c} onMovieClick={openMovie} />)
-        )}
+        {/* La capa que se desliza. El role cierra el ARIA que la tira de días
+            ya empezaba con role="tablist": unas pestañas sin panel al que
+            apuntar quedaban incompletas. */}
+        <div
+          className="dia-panel"
+          ref={panelRef}
+          role="tabpanel"
+          id="panel-dia"
+          aria-labelledby={`tab-${selectedDate}`}
+        >
+          {error ? (
+            <div className="empty">
+              <div className="em-ic">⚠️</div>
+              <h3>Vaya…</h3>
+              <p>{error}</p>
+              <button className="btn btn-primary" onClick={() => load(true)} style={{ marginTop: 12 }}>
+                Reintentar
+              </button>
+            </div>
+          ) : loading && !data ? (
+            <SkeletonGrid />
+          ) : totalMovies === 0 ? (
+            <div className="empty">
+              <div className="em-ic">🍿</div>
+              <h3>Sin resultados</h3>
+              <p>No hay películas con estos filtros para {longLabel(selectedDate).toLowerCase()}.</p>
+            </div>
+          ) : (
+            filtered.map((c) => <CinemaSection key={c.id} cinema={c} onMovieClick={openMovie} />)
+          )}
+        </div>
       </main>
 
       <footer className="footer">

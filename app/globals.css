@@ -29,6 +29,12 @@
   --ease:        cubic-bezier(.25, .46, .45, .94);
   --ease-spring: cubic-bezier(.34, 1.56, .64, 1);   /* rebote */
   --ease-expand: cubic-bezier(.34, 1.20, .64, 1);   /* expansión modal */
+  /* Curvas para gestos. --ease es easeOutQuad: va bien para hover pero se
+     queda blanda al soltar un dedo. */
+  --ease-out:  cubic-bezier(.22, 1, .36, 1);        /* frenada seca */
+  --ease-back: cubic-bezier(.18, 1.12, .34, 1);     /* muelle contenido */
+  /* Fondo de las barras pegajosas en móvil, donde el desenfoque no compensa */
+  --bar-bg: rgba(6,8,15,0.90);
 
   /* === Oscuro (Letterboxd / MUBI inspired — NO negro puro) === */
   --bg:        #06080F;   /* fondo página — near-black con tinte azul */
@@ -118,33 +124,58 @@
   --sh-md: 0 3px 8px rgba(26,29,46,0.06), 0 12px 20px rgba(26,29,46,0.08);
   --sh-lg: 0 8px 16px rgba(26,29,46,0.08), 0 26px 50px rgba(26,29,46,0.12);
   --sh-gold: 0 0 0 1px rgba(154,111,20,0.25), 0 0 16px rgba(154,111,20,0.08);
+  --bar-bg: rgba(245,242,236,0.92);
 }
 
 /* ============================================================ BASE */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+html {
+  /* En Chrome/Android mata el "tirar para recargar" de raíz, y en todas partes
+     impide que un contenedor interno encadene su rebote con el documento. */
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+  /* Dos barras pegajosas apiladas: sin esto cualquier salto por ancla deja el
+     destino escondido debajo. */
+  scroll-padding-top: calc(var(--header-h) + 70px);
+  /* El recuadro gris que iOS pinta en cada toque es buena parte de la
+     sensación de tosquedad. Lo sustituimos por un :active de verdad. */
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: var(--font);
-  /* Fondo con mesh gradient — profundidad, no plano */
   background-color: var(--bg);
-  background-image:
-    radial-gradient(ellipse 80% 50% at 15% 10%,
-      rgba(26,29,46,0.9) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 85% 90%,
-      rgba(40,20,10,0.5) 0%, transparent 55%);
-  background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
+  min-height: 100dvh;   /* la barra de Safari se encoge; 100vh sobra ~60px */
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  /* Las capas del gesto de día se salen del viewport durante la animación.
+     `clip` y no `hidden`: hidden convertiría body en contenedor de scroll y el
+     position:sticky de la cabecera y la tira de días dejaría de funcionar. */
+  overflow-x: clip;
   transition: background-color .3s var(--ease), color .3s var(--ease);
+  /* Se quita text-rendering:optimizeLegibility: fuerza kerning y ligaduras en
+     todo el documento, es un lastre conocido en móvil y aquí no se nota. */
 }
-[data-theme='light'] body {
+
+/* El degradado del fondo, en su propia capa fija.
+   Antes era background-attachment:fixed sobre body, que obliga a repintar el
+   viewport ENTERO en cada fotograma de scroll. En móvil ese es, con diferencia,
+   el mayor coste de toda la página. Como capa aparte el compositor la deja
+   quieta y no la vuelve a pintar. */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none;
   background-image:
-    radial-gradient(ellipse 70% 40% at 10% 5%,
-      rgba(212,168,67,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 35% at 90% 95%,
-      rgba(64,188,244,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 50% at 15% 10%, rgba(26,29,46,0.9) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 90%, rgba(40,20,10,0.5) 0%, transparent 55%);
+}
+[data-theme='light'] body::before {
+  background-image:
+    radial-gradient(ellipse 70% 40% at 10% 5%, rgba(212,168,67,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 90% 95%, rgba(64,188,244,0.04) 0%, transparent 50%);
 }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; color: inherit; background: none; border: none; padding: 0; }
@@ -1288,4 +1319,98 @@ a.showtime:hover {
 /* Hide the entire panel on mobile (pointer shortcuts don't apply there) */
 @media (hover: none) {
   .kbd-panel { display: none; }
+}
+
+/* ============================================================ GESTOS Y FLUIDEZ */
+
+/* Capa que se desliza al cambiar de día. Su transform lo escribe el gesto desde
+   JS; aquí solo aislamos su coste de layout del resto de la página. */
+.dia-panel { contain: layout; overflow-x: clip; }
+
+/* Mientras dura el gesto apagamos la entrada escalonada de las tarjetas: dos
+   animaciones a la vez (la lista deslizándose y ocho tarjetas subiendo con
+   desfase) se lee como ruido, no como fluidez. */
+main[data-deslizando] .card { animation: none !important; }
+
+.movies-grid { contain: layout; }
+
+/* Área segura del indicador de inicio del iPhone */
+.footer { padding-bottom: calc(52px + env(safe-area-inset-bottom, 0px)); }
+
+/* En los carruseles horizontales, que el rebote no se convierta en el gesto de
+   "atrás" del navegador. */
+.days-scroll, .chip-row { overscroll-behavior-x: contain; }
+
+/* ── Ficha: velo y hoja ────────────────────────────────────────────────────── */
+.modal-overlay {
+  /* Primera de las tres capas contra la recarga accidental; las otras dos son
+     el bloqueo del documento y el preventDefault del gesto. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+}
+.modal {
+  /* Baja de .38s a .28s: por encima de ~300ms una apertura deja de leerse como
+     respuesta al toque y empieza a leerse como espera. */
+  animation: modalExpand .28s var(--ease-expand);
+  transform-origin: 50% 40%;
+}
+
+/* Tirador de arrastre: solo en táctil */
+.modal-tirador { display: none; }
+@media (max-width: 720px) {
+  .modal-tirador {
+    display: block; position: relative;
+    width: 40px; height: 4px;
+    margin: -6px auto 14px;
+    border-radius: 999px;
+    background: var(--border-strong);
+    /* Única declaración estática de touch-action del proyecto. Es una zona que
+       nunca hace scroll, así que quitarle el gesto al navegador no rompe nada,
+       y garantiza el arrastre: iOS fija el touch-action al inicio del gesto,
+       así que cambiarlo desde touchstart llegaría tarde. */
+    touch-action: none;
+  }
+  /* Zona de agarre real de 46px sin engordar el filete visible */
+  .modal-tirador::before {
+    content: ''; position: absolute;
+    left: -60px; right: -60px; top: -14px; height: 46px;
+  }
+}
+
+/* ── Barras pegajosas en móvil ─────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  /* Dos capas de desenfoque apiladas sobre una lista que se desplaza es de lo
+     más caro que hace la página. A este tamaño el efecto cristal apenas se
+     aprecia y un fondo casi opaco cuesta cero. */
+  .header, .days {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bar-bg);
+  }
+  .search-field {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--surface-2);
+  }
+}
+
+/* ── Respuesta al toque ────────────────────────────────────────────────────── */
+@media (hover: none) {
+  /* Antes el bloque táctil solo DESACTIVABA el hover, así que un toque no
+     producía ninguna señal visual: pulsabas y no pasaba nada hasta que aparecía
+     la ficha. Un hundimiento breve cambia por completo la percepción. */
+  .poster, .day-chip, .f-chip, .btn, .showtime,
+  .trailer-link, .rsrc, .filters-clear, .modal-close {
+    transition: transform .18s var(--ease-out);
+  }
+  .poster:active, .day-chip:active, .f-chip:active, .btn:active,
+  .showtime:active, .trailer-link:active, .rsrc:active,
+  .filters-clear:active, .modal-close:active {
+    transform: scale(.96);
+    transition-duration: .04s;   /* hundirse es instantáneo; volver, suave */
+  }
+  /* El zoom del cartel al pasar el ratón no tiene sentido en táctil y mantiene
+     una capa de composición viva por tarjeta. */
+  .poster img { transition: none; }
 }

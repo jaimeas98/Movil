@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
+import { goma, crearVelocimetro, movimientoReducido, alTerminarTransicion } from '@/lib/gestos.js';
+import { bloquearScroll, desbloquearScroll } from '@/lib/bloqueoScroll.js';
 
 function hueFromTitle(title) {
   let h = 0;
@@ -65,39 +67,233 @@ function ratingSources(title, ratings) {
   ].filter((s) => s.value != null);
 }
 
+// ── Parámetros del gesto de cerrar ────────────────────────────────────────────
+const HOLGURA = 3;              // px por debajo de los cuales aún no decidimos
+const UMBRAL_FRACCION = 0.26;   // 26% del alto de pantalla
+const UMBRAL_VELOCIDAD = 0.55;  // px/ms ≈ 550 px/s: un lanzamiento claro
+const RECORRIDO_MINIMO = 40;    // un lanzamiento tiene que haber recorrido algo
+
 export default function MovieModal({ movie, cinema, onClose }) {
   // El padre (Page) ya enriqueció `movie.ratings` desde /api/ratings.
   // Aquí solo presentamos. Si por algún motivo no hay ratings se muestran
   // los enlaces externos sin notas, como antes.
   const ratings = movie.ratings ?? null;
-  const touchStartY = useRef(null);
-  const touchStartX = useRef(null);
 
+  const capaRef = useRef(null);   // .modal-overlay — es el que hace scroll
+  const hojaRef = useRef(null);   // .modal — es el que se mueve
+
+  // onClose llega como función nueva en cada render del padre. Guardarlo en un
+  // ref permite que los efectos de abajo tengan dependencias vacías y no se
+  // resuscriban solos (lo que, con el bloqueo de scroll dentro, provocaría
+  // desbloquear y rebloquear el documento a cada rato).
+  const cerrarRef = useRef(onClose);
+  useEffect(() => { cerrarRef.current = onClose; });
+
+  // ── Teclado, foco y bloqueo del documento ───────────────────────────────────
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose();
-    document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
+    const hoja = hojaRef.current;
+    const anterior = document.activeElement;
+
+    bloquearScroll();
+    // Sin esto el foco se quedaba en el póster de detrás y el tabulador
+    // paseaba por una página que ya no se ve.
+    hoja?.focus({ preventScroll: true });
+
+    const alTeclear = (e) => {
+      if (e.key === 'Escape') { cerrarRef.current?.(); return; }
+      if (e.key !== 'Tab' || !hoja) return;
+      const focos = hoja.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focos.length) return;
+      const primero = focos[0];
+      const ultimo = focos[focos.length - 1];
+      if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+      else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
     };
-  }, [onClose]);
 
-  const handleTouchStart = (e) => {
-    touchStartY.current = e.touches[0].clientY;
-    touchStartX.current = e.touches[0].clientX;
-  };
+    document.addEventListener('keydown', alTeclear);
+    return () => {
+      document.removeEventListener('keydown', alTeclear);
+      desbloquearScroll();                          // primero devolver el scroll…
+      anterior?.focus?.({ preventScroll: true });   // …y luego el foco
+    };
+  }, []);
 
-  const handleTouchEnd = (e) => {
-    if (touchStartY.current === null) return;
-    const dy = e.changedTouches[0].clientY - touchStartY.current;
-    const dx = Math.abs(e.changedTouches[0].clientX - touchStartX.current);
-    touchStartY.current = null;
-    touchStartX.current = null;
-    // Close only on downward swipe > 90px that is predominantly vertical
-    if (dy > 90 && dy > dx) onClose();
-  };
+  // ── Arrastrar para cerrar ───────────────────────────────────────────────────
+  useEffect(() => {
+    const hoja = hojaRef.current;
+    const capa = capaRef.current;
+    if (!hoja || !capa) return;
+
+    const reducido = movimientoReducido();
+
+    let activo = false;
+    let decidido = 0;   // 0 sin decidir, 1 el gesto es nuestro, -1 es del scroll
+    let y0 = 0, x0 = 0, y = 0;
+    let raf = 0;
+    let cerrando = false;
+    let finArrastre = 0;
+    const vel = crearVelocimetro();
+
+    // Un solo escritor de estilos, dentro de rAF: escribir el transform en cada
+    // touchmove encola varios estilos por frame y el navegador acaba
+    // componiendo con retraso.
+    const pintar = () => {
+      raf = 0;
+      const p = Math.min(1, Math.abs(y) / (window.innerHeight * 0.55));
+      hoja.style.transform = `translate3d(0, ${y}px, 0) scale(${1 - p * 0.05})`;
+      hoja.style.opacity = String(1 - p * 0.5);
+    };
+
+    const limpiarEstilos = () => {
+      hoja.style.transition = '';
+      hoja.style.willChange = '';
+    };
+
+    const volverASitio = () => {
+      // Rebote muy contenido a propósito: con el muelle del proyecto (que se
+      // pasa un 56%) la ficha se salía por arriba y parecía un error.
+      hoja.style.transition = 'transform 400ms var(--ease-back), opacity 200ms var(--ease-out)';
+      hoja.style.transform = 'translate3d(0,0,0) scale(1)';
+      hoja.style.opacity = '1';
+      alTerminarTransicion(hoja, 'transform', 400, limpiarEstilos);
+    };
+
+    const salir = (desde, v) => {
+      cerrando = true;
+      const restante = Math.max(1, window.innerHeight - desde);
+      // La duración sale de la velocidad REAL del dedo, no de una constante: si
+      // lo lanzas sale disparada, si lo empujas justo hasta el umbral se va
+      // despacio. Eso es lo que se percibe como que acompaña.
+      const ms = Math.round(Math.min(320, Math.max(130, restante / Math.max(0.7, v))));
+      hoja.style.transition = `transform ${ms}ms var(--ease-out), opacity ${ms}ms linear`;
+      hoja.style.transform = `translate3d(0, ${window.innerHeight}px, 0) scale(.94)`;
+      hoja.style.opacity = '0';
+      capa.style.transition = `opacity ${ms}ms linear`;
+      capa.style.opacity = '0';
+      alTerminarTransicion(hoja, 'transform', ms, () => cerrarRef.current?.());
+    };
+
+    const alEmpezar = (e) => {
+      if (cerrando || e.touches.length !== 1) { activo = false; return; }
+      const enTirador = !!e.target.closest?.('[data-tirador]');
+      // El contenedor con scroll es la CAPA, no la hoja. Solo podemos quedarnos
+      // el gesto si ya está arriba del todo: si el usuario va por la mitad de la
+      // ficha, bajar el dedo significa "sigue leyendo hacia arriba". Esto es lo
+      // que arregla que la ficha se cerrara mientras hacías scroll.
+      if (!enTirador && capa.scrollTop > 0) { activo = false; return; }
+
+      activo = true; decidido = 0; y = 0;
+      y0 = e.touches[0].clientY;
+      x0 = e.touches[0].clientX;
+      vel.limpiar(); vel.anotar(0);
+
+      hoja.style.transition = 'none';
+      // La animación de entrada también anima transform y, mientras sigue viva,
+      // gana a cualquier estilo en línea: sin apagarla, agarrar la ficha en los
+      // primeros instantes no la movería.
+      hoja.style.animation = 'none';
+      // will-change solo durante el gesto: dejarlo en el CSS mantendría una
+      // capa de composición reservada de forma permanente.
+      hoja.style.willChange = 'transform, opacity';
+    };
+
+    const alMover = (e) => {
+      if (!activo) return;
+      const dy = e.touches[0].clientY - y0;
+      const dx = e.touches[0].clientX - x0;
+
+      if (decidido === 0) {
+        if (Math.abs(dy) < HOLGURA && Math.abs(dx) < HOLGURA) {
+          // Bloqueamos estos primeros píxeles mientras decidimos. Aquí no se
+          // pierde nada porque la capa ya está arriba del todo, y es justo la
+          // ventana en la que iOS se compromete con el "tirar para recargar".
+          e.preventDefault();
+          return;
+        }
+        decidido = (dy > 0 && Math.abs(dy) > Math.abs(dx)) ? 1 : -1;
+        if (decidido === -1) {
+          // No es nuestro: nos apartamos y no volvemos a llamar a
+          // preventDefault en este gesto, así el scroll interno queda intacto.
+          activo = false;
+          limpiarEstilos();
+          return;
+        }
+        capa.style.overflowY = 'hidden';
+      }
+
+      e.preventDefault();   // la garantía real contra el "tirar para recargar"
+      y = dy > 0 ? dy : goma(dy, window.innerHeight * 0.22);
+      vel.anotar(y);
+      if (!raf) raf = requestAnimationFrame(pintar);
+    };
+
+    const alSoltar = () => {
+      if (!activo) return;
+      activo = false;
+      capa.style.overflowY = '';
+      if (decidido !== 1) { limpiarEstilos(); return; }
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+
+      finArrastre = performance.now();
+      const v = vel.valor();
+      // Distancia O velocidad: solo distancia obliga a arrastrar media pantalla
+      // y se siente pesado; solo velocidad impide cerrar despacio a propósito.
+      const cerrar =
+        y > window.innerHeight * UMBRAL_FRACCION ||
+        (v > UMBRAL_VELOCIDAD && y > RECORRIDO_MINIMO);
+
+      if (cerrar) salir(y, v); else volverASitio();
+    };
+
+    // Si ha habido arrastre, el toque no debe contar como clic: sin esto,
+    // soltar sobre una sesión abría la web del cine y soltar sobre el velo
+    // disparaba el cierre por segunda vez.
+    const alClic = (e) => {
+      if (performance.now() - finArrastre < 350) {
+        e.stopPropagation();
+        e.preventDefault();
+        finArrastre = 0;
+      }
+    };
+
+    // Con movimiento reducido el gesto sigue existiendo (no le quitamos a nadie
+    // una forma de cerrar) pero sin seguir al dedo. El preventDefault se
+    // mantiene: la recarga accidental no es una cuestión de estética.
+    const alMoverReducido = (e) => {
+      if (!activo) return;
+      const dy = e.touches[0].clientY - y0;
+      if (dy > 0) { e.preventDefault(); y = dy; }
+    };
+    const alSoltarReducido = () => {
+      if (!activo) return;
+      activo = false;
+      if (y > 90) cerrarRef.current?.();
+      y = 0;
+    };
+
+    const mover = reducido ? alMoverReducido : alMover;
+    const soltar = reducido ? alSoltarReducido : alSoltar;
+
+    // passive:false SOLO en touchmove, que es el único donde llamamos a
+    // preventDefault. React registra sus manejadores de touchmove como pasivos,
+    // así que un onTouchMove en el JSX no podría hacerlo: tiene que ser aquí.
+    hoja.addEventListener('touchstart', alEmpezar, { passive: true });
+    hoja.addEventListener('touchmove', mover, { passive: false });
+    hoja.addEventListener('touchend', soltar, { passive: true });
+    hoja.addEventListener('touchcancel', soltar, { passive: true });
+    document.addEventListener('click', alClic, true);
+
+    return () => {
+      hoja.removeEventListener('touchstart', alEmpezar);
+      hoja.removeEventListener('touchmove', mover);
+      hoja.removeEventListener('touchend', soltar);
+      hoja.removeEventListener('touchcancel', soltar);
+      document.removeEventListener('click', alClic, true);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const duration = minutesToHuman(movie.durationMin);
   const hue = hueFromTitle(movie.title || '');
@@ -105,13 +301,23 @@ export default function MovieModal({ movie, cinema, onClose }) {
   const trailerUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + ' tráiler oficial')}`;
 
   return (
-    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label={movie.title}>
+    // Los roles van en la hoja, no en el velo: el velo solo es el fondo oscuro
+    // y anunciarlo como diálogo describía como tal a un elemento cuyo único
+    // cometido es cerrar al tocarlo.
+    <div className="modal-overlay" ref={capaRef} onClick={onClose}>
       <div
         className="modal"
+        ref={hojaRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={movie.title}
+        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
       >
+        {/* Único punto con touch-action fijo: nunca hace scroll, así que
+            garantiza el arrastre aunque la ficha esté desplazada. */}
+        <div className="modal-tirador" data-tirador aria-hidden="true" />
+
         <button className="modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
 
         <div className="modal-hero">
