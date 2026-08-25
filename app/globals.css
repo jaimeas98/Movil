@@ -273,7 +273,10 @@ img { display: block; }
 
 .day-chip {
   scroll-snap-align: start; flex: 0 0 auto;
-  min-width: 52px;
+  /* Ancho FIJO, no mínimo: "Mañana" es más larga que "Hoy" o que "AGO" y
+     ensanchaba solo ese chip, que es por lo que el día de mañana se veía más
+     grande que los demás sin ninguna razón. */
+  width: 64px;
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   padding: 9px 14px; border-radius: var(--radius);
   background: transparent; border: 1px solid transparent;
@@ -303,14 +306,20 @@ img { display: block; }
   background: var(--gold); border-color: transparent;
   color: #000;
   box-shadow: 0 4px 16px var(--gold-glow);
+  /* El que destaca debe ser el SELECCIONADO. Antes el único que sobresalía era
+     el de mañana, y por accidente: por la longitud de su etiqueta. */
+  transform: scale(1.06);
 }
+.day-chip.active .dnum { font-size: 24px; }
 .day-chip.active .dnum,
 .day-chip.active .dow,
 .day-chip.active .dmon { color: #000; }
 .day-chip.active .badge-today { color: rgba(0,0,0,0.6); }
 .day-chip .badge-today {
   font-size: 8px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .10em; color: var(--gold);
+  letter-spacing: .06em; color: var(--gold);
+  /* No debe empujar el ancho del chip pase lo que pase */
+  max-width: 100%; overflow: hidden; white-space: nowrap;
 }
 
 /* ============================================================ TOOLBAR & FILTERS
@@ -901,7 +910,6 @@ a.showtime:hover {
        aquí: sin él el imán ignora el sangrado lateral y pega el primer chip al
        borde de la pantalla, comiéndose el margen. */
     scroll-snap-type: x mandatory;
-    scroll-padding-inline-start: clamp(16px, 4vw, 56px);
     /* Colchón para que el anillo de foco y el chip elevado no se recorten,
        compensado con margen negativo (mismo motivo que en .days-scroll). */
     padding-block: 6px; margin-block: -6px;
@@ -910,7 +918,39 @@ a.showtime:hover {
     padding-inline: clamp(16px, 4vw, 56px);
   }
   .chip-row::-webkit-scrollbar { display: none; }
-  .f-chip { scroll-snap-align: start; }
+
+  /* Espaciadores para que el primer y el último chip puedan llegar al centro.
+     Sin ellos "Todos los géneros" nunca alcanzaría el punto de selección y la
+     rueda tendría dos posiciones muertas en los extremos. */
+  .chip-row::before, .chip-row::after {
+    content: ''; flex: 0 0 calc(50% - 68px);
+  }
+
+  .f-chip {
+    scroll-snap-align: center;
+    /* Las variables las escribe el JS según la distancia al centro: es el
+       degradado de tamaño lo que hace que se lea como una rueda. */
+    transform: scale(var(--esc, 1));
+    opacity: var(--op, 1);
+    transition: transform .2s var(--ease-out), opacity .2s var(--ease-out),
+                background .18s var(--ease), color .18s var(--ease),
+                border-color .18s var(--ease), box-shadow .18s var(--ease);
+  }
+  .f-chip:hover, .f-chip:active { transform: scale(var(--esc, 1)); }
+
+  /* Marca del punto de selección: dos filetes tenues que enmarcan el centro.
+     Sin una referencia visible, encajar en el centro no se percibe. */
+  .chip-group { position: relative; }
+  .chip-group::after {
+    content: '';
+    position: absolute; left: 50%; top: 50%;
+    width: 132px; height: 40px;
+    transform: translate(-50%, -50%);
+    border-left: 1px solid var(--gold-glow);
+    border-right: 1px solid var(--gold-glow);
+    pointer-events: none;
+    opacity: .55;
+  }
 
   /* Confirmación visual de la ruleta: el chip que ha quedado en la zona de
      selección se resalta un instante ANTES de aplicarse, para que veas lo que
@@ -959,7 +999,10 @@ a.showtime:hover {
 .modal-overlay {
   position: fixed; inset: 0; z-index: 100;
   display: flex; align-items: flex-start; justify-content: center;
-  padding: 24px; overflow-y: auto;
+  /* El que desplaza es la FICHA, no el velo. Antes era al revés y por eso el
+     arrastre se quedaba muerto: en cuanto habías desplazado un poco, el gesto
+     no se reclamaba nunca más y la tarjeta se quedaba estática. */
+  padding: 24px; overflow: hidden;
   background: rgba(0,0,0,0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -969,6 +1012,12 @@ a.showtime:hover {
 .modal {
   position: relative; width: 100%; max-width: 680px;
   margin: auto;
+  /* Scroll propio y contenido: el rebote al llegar arriba no se encadena con
+     el documento, que es de donde salía la recarga accidental. */
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: var(--surface-2);
   border: 1px solid var(--border-mid);
   border-radius: var(--radius-panel);
@@ -1413,4 +1462,153 @@ main[data-deslizando] .card { animation: none !important; }
   /* El zoom del cartel al pasar el ratón no tiene sentido en táctil y mantiene
      una capa de composición viva por tarjeta. */
   .poster img { transition: none; }
+}
+
+/* ── Ficha como hoja inferior en móvil ─────────────────────────────────────────
+   Es el patrón que usan las apps que el usuario ya conoce (hojas de Instagram,
+   Maps, Apple Music): pegada abajo, esquinas redondeadas arriba, tirador, y se
+   arrastra hacia abajo para descartarla. Encaja con el gesto que el pulgar ya
+   espera y deja el contenido al alcance. */
+@media (max-width: 720px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal {
+    max-width: none;
+    margin: 0;
+    max-height: 92dvh;
+    border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+    border-width: 1px 0 0;
+    padding: 10px 15px calc(22px + env(safe-area-inset-bottom, 0px));
+    /* Entra deslizando desde abajo, no expandiendo desde el centro: el
+       movimiento de entrada y el de salida son ahora el mismo eje. */
+    animation: hojaEntra .3s var(--ease-out);
+  }
+  @keyframes hojaEntra { from { transform: translate3d(0, 100%, 0); } to { transform: translate3d(0, 0, 0); } }
+
+  /* El tirador se queda fijo arriba aunque el contenido se desplace, para que
+     siempre haya un punto desde el que arrastrar. */
+  .modal-tirador {
+    position: sticky; top: 0; z-index: 5;
+    margin: 0 auto 12px;
+  }
+  .modal-close { top: 14px; right: 12px; }
+}
+
+/* ============================================================ PRÓXIMAS
+   Ciclos y reestrenos ya programados más allá de la tira de días. Vive en una
+   hoja aparte, con la misma mecánica que la ficha de película, para no robarle
+   sitio a lo principal: la cartelera de hoy. */
+.prox-btn { position: relative; }
+.prox-btn svg { width: 17px; height: 17px; }
+/* Punto discreto: avisa de que hay algo sin gritar ni poner un número */
+.prox-punto {
+  position: absolute; top: 7px; right: 7px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 2px var(--bg), 0 0 8px var(--gold-glow);
+}
+
+.modal.proximas { max-width: 760px; }
+.prox-head { margin-bottom: 20px; padding-right: 40px; }
+.prox-title {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: .04em; text-transform: uppercase; line-height: 1;
+}
+.prox-sub { margin: 0; font-size: 13px; color: var(--text-muted); max-width: 52ch; }
+
+.prox-lista { list-style: none; margin: 0; padding: 0; }
+.prox-mes {
+  margin: 22px 0 10px;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 7px;
+}
+.prox-item {
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background .18s var(--ease), border-color .18s var(--ease);
+}
+.prox-item.abierta { background: var(--surface); border-color: var(--border); }
+
+.prox-cabecera {
+  width: 100%;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px;
+  text-align: left;
+}
+.prox-cartel {
+  flex: 0 0 auto; width: 44px; height: 62px;
+  border-radius: var(--radius-sm); overflow: hidden;
+  background: var(--surface-3);
+}
+.prox-cartel img { width: 100%; height: 100%; object-fit: cover; }
+.prox-cartel-ph {
+  display: block; width: 100%; height: 100%;
+  background: linear-gradient(140deg, var(--surface-3), var(--surface-2));
+}
+.prox-datos { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.prox-nombre {
+  font-family: var(--font-title);
+  font-size: 16px; font-weight: 600; color: var(--text);
+  line-height: 1.15;
+}
+.prox-meta {
+  display: flex; flex-wrap: wrap; gap: 4px 10px;
+  font-size: 11.5px; color: var(--text-muted);
+}
+.prox-cuenta { color: var(--gold); font-weight: 600; }
+.prox-cuando { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+.prox-fecha {
+  font-size: 11.5px; font-weight: 700;
+  letter-spacing: .03em; color: var(--text);
+  white-space: nowrap;
+}
+.prox-flecha {
+  font-size: 17px; color: var(--text-faint);
+  transition: transform .22s var(--ease-out);
+}
+.prox-item.abierta .prox-flecha { transform: rotate(90deg); }
+
+.prox-detalle { padding: 0 12px 14px; }
+.prox-sinopsis {
+  margin: 0 0 12px; font-size: 13px; line-height: 1.55;
+  color: var(--text-muted);
+}
+.prox-pases { display: flex; flex-direction: column; gap: 8px; }
+.prox-pase {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px;
+  padding: 9px 11px;
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--border);
+}
+.prox-pase-dia {
+  font-size: 12px; font-weight: 700; color: var(--text);
+  min-width: 86px;
+}
+.prox-pase-cine {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; color: var(--text-muted);
+}
+.prox-pase-horas { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.prox-hora {
+  padding: 4px 9px; border-radius: var(--radius-pill);
+  border: 1px solid var(--border-mid);
+  font-size: 11.5px; font-weight: 700;
+  color: var(--text);
+  transition: border-color .18s var(--ease), color .18s var(--ease);
+}
+a.prox-hora:hover { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 540px) {
+  .prox-pase-dia { min-width: 0; }
+  .prox-pase-horas { margin-left: 0; width: 100%; }
+  .prox-cartel { width: 38px; height: 54px; }
+  .prox-nombre { font-size: 15px; }
 }

@@ -139,37 +139,45 @@ export default function MovieModal({ movie, cinema, onClose }) {
     // Un solo escritor de estilos, dentro de rAF: escribir el transform en cada
     // touchmove encola varios estilos por frame y el navegador acaba
     // componiendo con retraso.
+    // La hoja SOLO se desplaza; lo que se atenúa es el velo. Es como se
+    // comportan las hojas de las apps: escalar o difuminar la propia hoja la
+    // despega del dedo y delata que es una animación en vez de un objeto.
     const pintar = () => {
       raf = 0;
-      const p = Math.min(1, Math.abs(y) / (window.innerHeight * 0.55));
-      hoja.style.transform = `translate3d(0, ${y}px, 0) scale(${1 - p * 0.05})`;
-      hoja.style.opacity = String(1 - p * 0.5);
+      const p = Math.min(1, Math.abs(y) / (hoja.offsetHeight || window.innerHeight));
+      hoja.style.transform = `translate3d(0, ${y}px, 0)`;
+      capa.style.opacity = String(1 - p * 0.6);
     };
 
     const limpiarEstilos = () => {
       hoja.style.transition = '';
       hoja.style.willChange = '';
+      hoja.style.overflowY = '';
     };
 
     const volverASitio = () => {
       // Rebote muy contenido a propósito: con el muelle del proyecto (que se
       // pasa un 56%) la ficha se salía por arriba y parecía un error.
-      hoja.style.transition = 'transform 400ms var(--ease-back), opacity 200ms var(--ease-out)';
-      hoja.style.transform = 'translate3d(0,0,0) scale(1)';
-      hoja.style.opacity = '1';
-      alTerminarTransicion(hoja, 'transform', 400, limpiarEstilos);
+      hoja.style.transition = 'transform 380ms var(--ease-back)';
+      hoja.style.transform = 'translate3d(0,0,0)';
+      capa.style.transition = 'opacity 220ms var(--ease-out)';
+      capa.style.opacity = '1';
+      alTerminarTransicion(hoja, 'transform', 380, () => {
+        limpiarEstilos();
+        capa.style.transition = '';
+      });
     };
 
     const salir = (desde, v) => {
       cerrando = true;
-      const restante = Math.max(1, window.innerHeight - desde);
+      hoja.style.overflowY = 'hidden';
+      const restante = Math.max(1, (hoja.offsetHeight || window.innerHeight) - desde);
       // La duración sale de la velocidad REAL del dedo, no de una constante: si
       // lo lanzas sale disparada, si lo empujas justo hasta el umbral se va
       // despacio. Eso es lo que se percibe como que acompaña.
       const ms = Math.round(Math.min(320, Math.max(130, restante / Math.max(0.7, v))));
-      hoja.style.transition = `transform ${ms}ms var(--ease-out), opacity ${ms}ms linear`;
-      hoja.style.transform = `translate3d(0, ${window.innerHeight}px, 0) scale(.94)`;
-      hoja.style.opacity = '0';
+      hoja.style.transition = `transform ${ms}ms var(--ease-out)`;
+      hoja.style.transform = `translate3d(0, ${hoja.offsetHeight || window.innerHeight}px, 0)`;
       capa.style.transition = `opacity ${ms}ms linear`;
       capa.style.opacity = '0';
       alTerminarTransicion(hoja, 'transform', ms, () => cerrarRef.current?.());
@@ -178,11 +186,10 @@ export default function MovieModal({ movie, cinema, onClose }) {
     const alEmpezar = (e) => {
       if (cerrando || e.touches.length !== 1) { activo = false; return; }
       const enTirador = !!e.target.closest?.('[data-tirador]');
-      // El contenedor con scroll es la CAPA, no la hoja. Solo podemos quedarnos
-      // el gesto si ya está arriba del todo: si el usuario va por la mitad de la
-      // ficha, bajar el dedo significa "sigue leyendo hacia arriba". Esto es lo
-      // que arregla que la ficha se cerrara mientras hacías scroll.
-      if (!enTirador && capa.scrollTop > 0) { activo = false; return; }
+      // Desde el tirador siempre se puede arrastrar. Desde el cuerpo, solo si
+      // ya estás arriba del todo: si vas por la mitad, bajar el dedo significa
+      // "sigue leyendo hacia arriba". Es la regla de cualquier hoja inferior.
+      if (!enTirador && hoja.scrollTop > 0) { activo = false; return; }
 
       activo = true; decidido = 0; y = 0;
       y0 = e.touches[0].clientY;
@@ -220,7 +227,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
           limpiarEstilos();
           return;
         }
-        capa.style.overflowY = 'hidden';
+        hoja.style.overflowY = 'hidden';
       }
 
       e.preventDefault();   // la garantía real contra el "tirar para recargar"
@@ -232,7 +239,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
     const alSoltar = () => {
       if (!activo) return;
       activo = false;
-      capa.style.overflowY = '';
+      hoja.style.overflowY = '';
       if (decidido !== 1) { limpiarEstilos(); return; }
       if (raf) { cancelAnimationFrame(raf); raf = 0; }
 

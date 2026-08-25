@@ -11,6 +11,8 @@ import DayTimeline from '@/components/DayTimeline.jsx';
 import Filters from '@/components/Filters.jsx';
 import CinemaSection from '@/components/CinemaSection.jsx';
 import MovieModal from '@/components/MovieModal.jsx';
+import UpcomingSheet from '@/components/UpcomingSheet.jsx';
+import { calcularProximas } from '@/lib/proximas.js';
 
 // ── Caché en localStorage ──────────────────────────────────────────────────────
 // Guardamos la respuesta completa de /api/showtimes para que recargas
@@ -103,6 +105,7 @@ export default function Page() {
   const [cinemaFilter, setCinemaFilter] = useState('');
   const [active, setActive] = useState(null); // película abierta en el modal
   const [showKbd, setShowKbd] = useState(false);
+  const [verProximas, setVerProximas] = useState(false);
 
   // ── Refs del gesto horizontal ───────────────────────────────────────────────
   // Todo el gesto vive en refs y en el DOM: si el estado del arrastre estuviera
@@ -189,6 +192,13 @@ export default function Page() {
       data.cinemas.some((c) => (c.byDate?.[d.iso]?.length ?? 0) > 0)
     );
   }, [data, allDays]);
+
+  // Películas ya programadas MÁS ALLÁ de los días de la tira: ciclos y
+  // reestrenos que de otro modo solo verías si entras el día justo.
+  const proximas = useMemo(
+    () => (data ? calcularProximas(data.cinemas, days.at(-1)?.iso) : []),
+    [data, days]
+  );
 
   // Si el día seleccionado deja de estar en la lista (porque cambió data),
   // movemos la selección al primer día disponible.
@@ -557,6 +567,23 @@ export default function Page() {
               <span className={loading ? 'spin' : ''}>↻</span>
               <span className="btn-label">{loading ? 'Actualizando…' : 'Actualizar'}</span>
             </button>
+            {/* Solo aparece si hay algo que enseñar: es una función de detalle
+                y no debe ocupar sitio cuando no hay ciclos programados. */}
+            {proximas.length > 0 && (
+              <button
+                className="btn btn-icon prox-btn"
+                onClick={() => setVerProximas(true)}
+                aria-label={`Próximas películas (${proximas.length})`}
+                title="Próximas películas"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
+                     strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="16" rx="2.5" />
+                  <path d="M3 10h18M8 3v4M16 3v4" />
+                </svg>
+                <span className="prox-punto" aria-hidden="true" />
+              </button>
+            )}
             <button
               className="btn btn-icon kbd-btn"
               onClick={() => setShowKbd((v) => !v)}
@@ -656,6 +683,10 @@ export default function Page() {
 
       {active && (
         <MovieModal movie={active.movie} cinema={active.cinema} onClose={() => setActive(null)} />
+      )}
+
+      {verProximas && (
+        <UpcomingSheet peliculas={proximas} onClose={() => setVerProximas(false)} />
       )}
 
       {/* Keyboard shortcuts panel */}
