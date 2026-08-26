@@ -196,8 +196,8 @@ export default function Page() {
   // Películas ya programadas MÁS ALLÁ de los días de la tira: ciclos y
   // reestrenos que de otro modo solo verías si entras el día justo.
   const proximas = useMemo(
-    () => (data ? calcularProximas(data.cinemas, days.at(-1)?.iso) : []),
-    [data, days]
+    () => (data ? calcularProximas(data.cinemas, days.at(-1)?.iso, ratings) : []),
+    [data, days, ratings]
   );
 
   // Si el día seleccionado deja de estar en la lista (porque cambió data),
@@ -224,6 +224,11 @@ export default function Page() {
         return {
           ...m,
           genre: m.genre || fallbackGenre,
+          // El cartel de TMDB manda cuando existe: los cines los sirven a
+          // tamaños muy dispares y mk2 los pide tan pequeños que se ven
+          // borrosos en tablet y escritorio. Así toda la cartelera tiene la
+          // misma calidad, no solo Arte Siete.
+          posterUrl: r?.poster || m.posterUrl,
           ratings: r,
         };
       }),

@@ -414,14 +414,14 @@ img { display: block; }
   to   { opacity: 1; transform: scale(1); }
 }
 
-.chip-group { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.chip-group { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+/* La etiqueta encima y no al lado: nombra la fila sin comerle ancho a los
+   chips, que es lo que pasaba en móvil (y por lo que se había acabado
+   ocultando, dejando las dos filas sin distinguir). */
 .chip-group-label {
-  /* Ancho fijo para que los chips de ambas filas arranquen alineados; 58px es
-     lo que mide "Género", la más larga, sin desbordarse sobre el hueco. */
-  flex: 0 0 auto; width: 58px;
   font-size: 10px; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--text-muted);
 }
 .chip-row { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 
@@ -888,28 +888,13 @@ a.showtime:hover {
   .search-clear { width: 40px; height: 40px; right: 4px; }
   .filters-clear { height: 48px; }
 
-  /* La etiqueta a la izquierda robaría demasiado ancho, pero sin ella las dos
-     filas se leían como una sola masa de chips. Un filete a todo lo ancho
-     marca dónde acaba una y empieza la otra sin añadir apenas alto. */
-  .chip-group { gap: 0; }
-  .chip-group-label { display: none; }
-  .chip-group + .chip-group {
-    padding-top: 11px;
-    border-top: 1px solid var(--border);
-    margin-inline: calc(-1 * clamp(16px, 4vw, 56px));
-    padding-inline: clamp(16px, 4vw, 56px);
-  }
 
-  /* Una sola línea que se desliza, igual que la tira de días: el gesto ya
-     está aprendido y ahorra el alto de dos filas apiladas. */
+  /* Una sola línea que se desliza libre, con la inercia del navegador y sin
+     imán: el imán peleaba con el dedo y era buena parte de la sensación de
+     tosquedad. Deslizar sirve para MIRAR; para elegir, se pulsa. */
   .chip-row {
     flex-wrap: nowrap; overflow-x: auto;
     scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    /* Imán de scroll: los chips encajan como una ruleta y el que queda a la
-       izquierda es el candidato a aplicarse. scroll-padding es imprescindible
-       aquí: sin él el imán ignora el sangrado lateral y pega el primer chip al
-       borde de la pantalla, comiéndose el margen. */
-    scroll-snap-type: x mandatory;
     /* Colchón para que el anillo de foco y el chip elevado no se recorten,
        compensado con margen negativo (mismo motivo que en .days-scroll). */
     padding-block: 6px; margin-block: -6px;
@@ -918,50 +903,6 @@ a.showtime:hover {
     padding-inline: clamp(16px, 4vw, 56px);
   }
   .chip-row::-webkit-scrollbar { display: none; }
-
-  /* Espaciadores para que el primer y el último chip puedan llegar al centro.
-     Sin ellos "Todos los géneros" nunca alcanzaría el punto de selección y la
-     rueda tendría dos posiciones muertas en los extremos. */
-  .chip-row::before, .chip-row::after {
-    content: ''; flex: 0 0 calc(50% - 68px);
-  }
-
-  .f-chip {
-    scroll-snap-align: center;
-    /* Las variables las escribe el JS según la distancia al centro: es el
-       degradado de tamaño lo que hace que se lea como una rueda. */
-    transform: scale(var(--esc, 1));
-    opacity: var(--op, 1);
-    transition: transform .2s var(--ease-out), opacity .2s var(--ease-out),
-                background .18s var(--ease), color .18s var(--ease),
-                border-color .18s var(--ease), box-shadow .18s var(--ease);
-  }
-  .f-chip:hover, .f-chip:active { transform: scale(var(--esc, 1)); }
-
-  /* Marca del punto de selección: dos filetes tenues que enmarcan el centro.
-     Sin una referencia visible, encajar en el centro no se percibe. */
-  .chip-group { position: relative; }
-  .chip-group::after {
-    content: '';
-    position: absolute; left: 50%; top: 50%;
-    width: 132px; height: 40px;
-    transform: translate(-50%, -50%);
-    border-left: 1px solid var(--gold-glow);
-    border-right: 1px solid var(--gold-glow);
-    pointer-events: none;
-    opacity: .55;
-  }
-
-  /* Confirmación visual de la ruleta: el chip que ha quedado en la zona de
-     selección se resalta un instante ANTES de aplicarse, para que veas lo que
-     va a pasar y puedas seguir deslizando si te has pasado. */
-  .f-chip.is-candidato {
-    color: var(--text);
-    border-color: var(--gold);
-    background: var(--gold-bg);
-    box-shadow: 0 0 0 3px var(--gold-glow);
-  }
-
 
   .brand-sub { display: none; }
   /* En móvil el botón muestra solo el icono ↻ para que el título quepa */

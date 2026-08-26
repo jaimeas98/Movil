@@ -71,6 +71,10 @@ async function tmdbSearch(title, auth) {
       id: bueno.id,
       title: bueno.title,
       originalTitle: bueno.original_title,
+      // Los cines sirven carteles de tamaños muy dispares: mk2 los pide a
+      // 216px de ancho y se ven borrosos en cuanto la pantalla tiene densidad.
+      // TMDB da el cartel oficial a buena resolución para todos por igual.
+      poster: bueno.poster_path ? `https://image.tmdb.org/t/p/w780${bueno.poster_path}` : null,
       year: (bueno.release_date || '').slice(0, 4) || null,
       voteAverage: bueno.vote_average > 0 ? bueno.vote_average : null,
       voteCount: bueno.vote_count ?? 0,
@@ -188,11 +192,13 @@ export async function POST(request) {
       let imdb = null, rt = null, mc = null, genre = null, average = null;
 
       let tmdb = null;
+      let poster = null;
 
       if (tmdbAuth) {
         // Flujo TMDB (soporta títulos españoles)
         const search = await buscarPelicula(title, tmdbAuth);
         if (search?.id) {
+          poster = search.poster;
           if (search.voteAverage != null && search.voteCount >= 10) {
             tmdb = search.voteAverage.toFixed(1);
           }
@@ -228,9 +234,11 @@ export async function POST(request) {
       }
 
       average = computeAverage(imdb, rt, mc, tmdb);
-      if (!imdb && !rt && !mc && !tmdb) return [title, null];
+      // Aunque no haya ninguna nota, el cartel de TMDB por sí solo ya merece
+      // devolverse: es la mejora de calidad de imagen para toda la cartelera.
+      if (!imdb && !rt && !mc && !tmdb && !poster) return [title, null];
 
-      return [title, { imdb, rt, metacritic: mc, tmdb, average, genre }];
+      return [title, { imdb, rt, metacritic: mc, tmdb, average, genre, poster }];
     } catch {
       return [title, null];
     }

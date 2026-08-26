@@ -1,13 +1,17 @@
 'use client';
 
-import { Children, cloneElement, isValidElement, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { movimientoReducido } from '@/lib/gestos.js';
 
 // Filtros de la cartelera.
 //
-// Hablan el mismo idioma que la tira de días: un chip apagado que se enciende
-// en oro al seleccionarlo. Antes esto era un panel con emojis y dos <select>
-// nativos, que el sistema operativo dibujaba a su manera y rompían el diseño.
+// Chips que se pulsan, sin más. Hubo una versión con "ruleta" —el chip que
+// quedaba en un punto de selección se aplicaba solo al dejar de deslizar— y se
+// ha quitado a conciencia: ninguna aplicación de catálogo (Netflix, Spotify,
+// YouTube, Instagram) filtra así. La rueda es para elegir un valor de una lista
+// cerrada (una hora, una fecha), donde el gesto ES la elección. Al filtrar, en
+// cambio, deslizas para MIRAR qué hay, y que eso aplique filtros de paso hace
+// que la interfaz se sienta impredecible: tocas para elegir, deslizas para ver.
 //
 // Nada de emoji: iconos SVG de trazo que heredan el color con currentColor y
 // por tanto funcionan igual en tema claro y oscuro.
@@ -31,7 +35,7 @@ function IconoAspa(props) {
   );
 }
 
-// Una fila de chips con navegación por flechas.
+// Una fila de chips deslizable.
 //
 // `tabIndex` rotatorio: solo el chip activo entra en el recorrido del
 // tabulador. Si todos fueran tabulables harían falta ~20 pulsaciones de Tab
@@ -42,105 +46,23 @@ function IconoAspa(props) {
 // app/page.js (mira el comentario allí): en App Router React escucha en
 // `document`, el mismo nodo que el atajo global, así que detener la
 // propagación desde aquí no serviría de nada.
-// Milisegundos que el chip permanece resaltado antes de aplicarse. Es la
-// "confirmación visual": da tiempo a ver qué va a pasar y a seguir deslizando
-// si te has pasado, sin que se apliquen filtros de paso mientras buscas.
-const ESPERA_RULETA = 420;
-
-function FilaChips({ label, ariaLabel, valores, onElegir, activo, children }) {
+function FilaChips({ label, ariaLabel, valores, activo, children }) {
   const ref = useRef(null);
-  const [candidato, setCandidato] = useState(null);
-  const temporizador = useRef(null);
 
-  // Ruleta con selección AL CENTRO, como los selectores de las apps: hay un
-  // punto fijo de selección, los chips encajan en él y los de los lados se
-  // encogen y apagan según se alejan. La versión anterior seleccionaba en el
-  // borde izquierdo —invisible— y no reposicionaba nada, por eso se leía como
-  // un scroll cualquiera que además cambiaba el filtro.
-  useEffect(() => {
-    const fila = ref.current;
-    if (!fila || !onElegir) return;
-
-    const cancelar = () => clearTimeout(temporizador.current);
-    const esRuleta = () => fila.scrollWidth > fila.clientWidth + 4;
-
-    const chips = () => Array.from(fila.querySelectorAll('button'));
-
-    // Devuelve el índice del chip más cercano al centro y, de paso, pinta el
-    // escalado progresivo. Es lo que hace que se lea como una ruleta y no como
-    // una lista: sin el degradado de tamaño no hay sensación de rueda.
-    let raf = 0;
-    const medir = () => {
-      raf = 0;
-      const caja = fila.getBoundingClientRect();
-      const centro = caja.left + caja.width / 2;
-      let mejor = null, mejorDist = Infinity;
-      chips().forEach((chip, i) => {
-        const c = chip.getBoundingClientRect();
-        const d = Math.abs(c.left + c.width / 2 - centro);
-        // Normalizado a media anchura: 0 en el centro, 1 en los extremos.
-        const t = Math.min(1, d / (caja.width / 2 || 1));
-        chip.style.setProperty('--esc', String(1 - t * 0.14));
-        chip.style.setProperty('--op', String(1 - t * 0.45));
-        if (d < mejorDist) { mejorDist = d; mejor = i; }
-      });
-      return mejor;
-    };
-
-    const alParar = () => {
-      if (!esRuleta()) return;
-      const mejor = medir();
-      if (mejor == null) return;
-      const valor = valores[mejor];
-      if (valor === activo) { setCandidato(null); return; }   // ya aplicado
-      setCandidato(mejor);
-      cancelar();
-      temporizador.current = setTimeout(() => {
-        setCandidato(null);
-        onElegir(valor);
-      }, ESPERA_RULETA);
-    };
-
-    const soportaScrollEnd = 'onscrollend' in window;
-    let debounce;
-    const alDeslizar = () => {
-      cancelar();
-      setCandidato(null);
-      if (!raf) raf = requestAnimationFrame(medir);
-      if (soportaScrollEnd) return;
-      clearTimeout(debounce);
-      debounce = setTimeout(alParar, 140);
-    };
-
-    // Pintado inicial para que el degradado esté puesto antes de tocar nada.
-    if (esRuleta()) medir();
-
-    fila.addEventListener('scroll', alDeslizar, { passive: true });
-    if (soportaScrollEnd) fila.addEventListener('scrollend', alParar);
-    // Tocar cancela lo pendiente: si vas a pulsar un chip manda tu pulsación.
-    fila.addEventListener('pointerdown', cancelar);
-
-    return () => {
-      fila.removeEventListener('scroll', alDeslizar);
-      if (soportaScrollEnd) fila.removeEventListener('scrollend', alParar);
-      fila.removeEventListener('pointerdown', cancelar);
-      cancelar();
-      clearTimeout(debounce);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [valores, onElegir, activo]);
-
-  // Al aplicarse un filtro (por pulsación o por ruleta) el chip elegido se
-  // coloca en el punto de selección. Sin esto la posición no se ajustaba nunca
-  // y la rueda parecía no tener efecto.
+  // El chip elegido se trae a la vista si se había quedado fuera. Solo eso: no
+  // reposicionamos la fila en cada gesto, que era lo que hacía que deslizar se
+  // sintiera como una pelea contra la interfaz.
   useEffect(() => {
     const fila = ref.current;
     if (!fila || fila.scrollWidth <= fila.clientWidth + 4) return;
-    const i = valores.indexOf(activo);
+    const i = valores?.indexOf(activo) ?? -1;
     const chip = i > -1 ? fila.querySelectorAll('button')[i] : null;
     if (!chip) return;
+    const izq = chip.offsetLeft - fila.scrollLeft;
+    const der = izq + chip.offsetWidth;
+    if (izq >= 0 && der <= fila.clientWidth) return;   // ya se ve entero
     fila.scrollTo({
-      left: chip.offsetLeft - (fila.clientWidth - chip.offsetWidth) / 2,
+      left: Math.max(0, chip.offsetLeft - (fila.clientWidth - chip.offsetWidth) / 2),
       behavior: movimientoReducido() ? 'auto' : 'smooth',
     });
   }, [activo, valores]);
@@ -162,21 +84,23 @@ function FilaChips({ label, ariaLabel, valores, onElegir, activo, children }) {
 
   return (
     <div className="chip-group">
-      <span className="chip-group-label" aria-hidden="true">{label}</span>
+      {/* La etiqueta va SIEMPRE, también en móvil. Antes se ocultaba y se
+          sustituía por un filete separador, y sin nombre no se distinguía qué
+          filtraba cada fila: el filete decía "aquí acaba una" pero no "de qué
+          va la otra". */}
+      <span className="chip-group-label">{label}</span>
       <div className="chip-row" ref={ref} role="group" aria-label={ariaLabel} onKeyDown={onKeyDown}>
-        {Children.map(children, (hijo, i) =>
-          isValidElement(hijo) ? cloneElement(hijo, { candidato: candidato === i }) : hijo
-        )}
+        {children}
       </div>
     </div>
   );
 }
 
-function Chip({ activo, candidato, onClick, children }) {
+function Chip({ activo, onClick, children }) {
   return (
     <button
       type="button"
-      className={`f-chip${candidato ? ' is-candidato' : ''}`}
+      className="f-chip"
       aria-pressed={activo}
       tabIndex={activo ? 0 : -1}
       onClick={onClick}
@@ -259,10 +183,9 @@ export default function Filters({
           label="Género"
           ariaLabel="Filtrar por género"
           valores={['', ...listaGeneros]}
-          onElegir={onGenre}
           activo={genre}
         >
-          <Chip activo={!genre} onClick={() => onGenre('')}>Todos los géneros</Chip>
+          <Chip activo={!genre} onClick={() => onGenre('')}>Todos</Chip>
           {listaGeneros.map((g) => (
             <Chip key={g} activo={genre === g} onClick={() => onGenre(genre === g ? '' : g)}>
               {g}
@@ -275,10 +198,9 @@ export default function Filters({
         label="Cine"
         ariaLabel="Filtrar por cine"
         valores={['', ...cinemas.map((c) => c.id)]}
-        onElegir={onCinema}
         activo={cinema}
       >
-        <Chip activo={!cinema} onClick={() => onCinema('')}>Todos los cines</Chip>
+        <Chip activo={!cinema} onClick={() => onCinema('')}>Todos</Chip>
         {cinemas.map((c) => (
           <Chip
             key={c.id}
