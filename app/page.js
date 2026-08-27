@@ -6,6 +6,7 @@ import {
 } from '@/lib/gestos.js';
 import { CINEMAS } from '@/lib/cinemas/config.js';
 import { buildDayList, longLabel } from '@/lib/dates.js';
+import { normalizaGenero } from '@/lib/normalize.js';
 import ThemeToggle from '@/components/ThemeToggle.jsx';
 import DayTimeline from '@/components/DayTimeline.jsx';
 import Filters from '@/components/Filters.jsx';
@@ -223,7 +224,9 @@ export default function Page() {
         const fallbackGenre = r?.genre ? r.genre.split(',')[0].trim() : null;
         return {
           ...m,
-          genre: m.genre || fallbackGenre,
+          // Normalizado aquí, que es el único punto por el que pasan todos:
+          // el género del cine y el de respaldo de TMDB/OMDB.
+          genre: normalizaGenero(m.genre || fallbackGenre),
           // El cartel de TMDB manda cuando existe: los cines los sirven a
           // tamaños muy dispares y mk2 los pide tan pequeños que se ven
           // borrosos en tablet y escritorio. Así toda la cartelera tiene la
