@@ -224,7 +224,11 @@ export async function POST(request) {
             imdb = omdb.imdb;
             rt   = omdb.rt;
             mc   = omdb.metacritic;
-            if (omdb.genre) genre = omdb.genre;
+            // OMDB devuelve el género en INGLÉS y estaba pisando el de TMDB,
+            // que viene en español. Por eso en los filtros salían mezclados
+            // "Acción", "Action" y "Adventure" como si fueran géneros
+            // distintos. TMDB manda; OMDB solo si TMDB no trajo ninguno.
+            if (!genre && omdb.genre) genre = omdb.genre;
           }
         }
       } else if (omdbKey) {

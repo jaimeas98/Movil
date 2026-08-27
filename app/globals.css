@@ -266,8 +266,10 @@ img { display: block; }
   /* Con overflow-x:auto el eje vertical deja de ser "visible" y también
      recorta. Sin este colchón se cortaban por arriba tanto el translateY(-2px)
      del hover como la sombra dorada del día activo. El margen negativo lo
-     compensa para que la barra no cambie de altura. */
-  padding: 16px 0; margin: -16px 0;
+     compensa para que la barra no cambie de altura.
+     El colchón lateral es por lo mismo: el día seleccionado se agranda un 6% y,
+     siendo el primero de la fila, se salía por la izquierda y aparecía cortado. */
+  padding: 16px 6px; margin: -16px -6px;
 }
 .days-scroll::-webkit-scrollbar { display: none; }
 
@@ -278,7 +280,9 @@ img { display: block; }
      grande que los demás sin ninguna razón. */
   width: 64px;
   display: flex; flex-direction: column; align-items: center; gap: 2px;
-  padding: 9px 14px; border-radius: var(--radius);
+  /* Relleno lateral corto: el ancho del chip es fijo (64px) y "MAÑANA" es la
+     etiqueta más larga; con 14px a cada lado no le cabía y salía cortada. */
+  padding: 9px 5px; border-radius: var(--radius);
   background: transparent; border: 1px solid transparent;
   color: var(--text-muted);
   transition: background .18s var(--ease), color .18s var(--ease),
