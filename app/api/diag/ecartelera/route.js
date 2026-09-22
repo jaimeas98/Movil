@@ -98,6 +98,18 @@ export async function GET(request) {
     informe.cines.push({ ciudad: ciudad.texto, url: ciudad.url, yelmo: encontrados });
   }
 
+  // 2b. Falta Yelmo Bahía Sur (San Fernando): no salió filtrando por "yelmo"
+  // en la página de la provincia. Volcamos TODOS sus cines para ver con qué
+  // nombre lo tienen y si está en otra página.
+  const provincia = informe.ciudades.find((c) => /c[áa]diz/i.test(c.texto));
+  if (provincia) {
+    const r = await pedir(provincia.url);
+    if (!r.saltado && r.cuerpo) {
+      informe.todosLosCinesDeCadiz = enlaces(r.cuerpo, /./).map((e) => e.texto);
+      informe.enlacesCadiz = enlaces(r.cuerpo, /./).slice(0, 25);
+    }
+  }
+
   // 3. Abrir la primera ficha de Yelmo y ver cómo publica los horarios
   const primera = informe.cines.flatMap((c) => c.yelmo)[0];
   if (primera) {
