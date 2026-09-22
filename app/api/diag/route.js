@@ -9,6 +9,14 @@ import { fetchYelmo } from '@/lib/cinemas/yelmo.js';
 import { fetchArteSiete, fetchArteSieteRawSample } from '@/lib/cinemas/artesiete.js';
 
 export const runtime = 'nodejs';
+// Ejecutar en Europa y no en Washington, que es el valor por defecto de Vercel.
+// Tiene dos motivos y ninguno es esquivar nada: es absurdo que una web de cines
+// españoles consulte webs españolas dando la vuelta por Estados Unidos, y las
+// protecciones antibot puntúan mucho peor a un servidor estadounidense pidiendo
+// la cartelera de Cádiz que a uno europeo. Si el bloqueo de Yelmo es por
+// reputación de origen, esto lo resuelve sin disfrazar quiénes somos.
+// (Una sola región: en el plan Hobby de Vercel no se admiten varias.)
+export const preferredRegion = 'cdg1';
 export const dynamic = 'force-dynamic';
 
 const ADAPTERS = {
