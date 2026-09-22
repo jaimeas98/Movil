@@ -25,6 +25,18 @@ function madridToday() {
   }).format(new Date());
 }
 
+// Réplica de la lógica de fechas del adaptador de Yelmo, para poder comparar
+// lado a lado lo que devuelve el API con la fecha que nosotros deducimos.
+function isoDesdeTimeFilter(tf) {
+  const dm = String(tf).match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+  if (dm) return `${dm[3]}-${dm[2]}-${dm[1]}`;
+  const ms = Number((String(tf).match(/\/Date\((\d+)\)\//) || [])[1]);
+  if (!isNaN(ms) && ms > 0) {
+    return new Date(ms - 6 * 3600 * 1000).toISOString().slice(0, 10);
+  }
+  return null;
+}
+
 function dateRange(n = 7) {
   const today = madridToday();
   const out = [];
@@ -75,23 +87,59 @@ export async function GET(request) {
       method: 'POST', headers: H, body: JSON.stringify({ cityKey: 'cadiz' }),
       signal: AbortSignal.timeout(12000), cache: 'no-store',
     });
-    if (res.ok) {
-      const data = await res.json();
+
+    report.raw.yelmo_http = {
+      status: res.status,
+      contentType: res.headers.get('content-type'),
+      // Si un día Yelmo empieza a filtrar por bot, la respuesta llega con 200
+      // y un HTML de desafío en vez de JSON. Sin ver estas cabeceras no hay
+      // forma de distinguir "han cambiado el API" de "nos están bloqueando".
+      server: res.headers.get('server'),
+      cfRay: res.headers.get('cf-ray'),
+      cfMitigated: res.headers.get('cf-mitigated'),
+    };
+
+    const cuerpo = await res.text();
+    report.raw.yelmo_bytes = cuerpo.length;
+
+    let data = null;
+    try {
+      data = JSON.parse(cuerpo);
+    } catch {
+      // No es JSON: enseñamos el principio del cuerpo, que es donde se ve si
+      // es una página de bloqueo, un error de .NET o un mantenimiento.
+      report.raw.yelmo_error = 'La respuesta no es JSON';
+      report.raw.yelmo_cuerpo = cuerpo.slice(0, 600);
+    }
+
+    if (data) {
       const cinemas = data?.d?.Cinemas ?? [];
       report.raw.yelmo_keys = cinemas.map((c) => c.Key);
+      if (!cinemas.length) {
+        // JSON válido pero sin cines: el API ha cambiado de forma. Volcamos las
+        // claves de primer nivel para ver dónde han movido los datos.
+        report.raw.yelmo_forma = {
+          clavesRaiz: Object.keys(data || {}),
+          clavesD: data?.d && typeof data.d === 'object' ? Object.keys(data.d) : null,
+          muestra: JSON.stringify(data).slice(0, 500),
+        };
+      }
       // Para cada cine, mostrar vistaId (para construir URLs de compra) y datos de fechas
       report.raw.yelmo_dates = cinemas.map((c) => ({
         key: c.Key,
         vistaId: c.VistaId ?? c.CinemaVistaId ?? c.Id ?? null,
         firstShowtimeId: c.Dates?.[0]?.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.ShowtimeId ?? null,
-        dates: (c.Dates ?? []).map((d, i) => ({
+        dates: (c.Dates ?? []).slice(0, 10).map((d, i) => ({
           idx: i,
           movies: d.Movies?.length ?? 0,
           firstTimeFilter: d.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.TimeFilter ?? null,
+          // La fecha que DEDUCE nuestro código a partir de ese TimeFilter: si
+          // el API cambia el formato, aquí se ve el desajuste de inmediato.
+          isoDeducido: isoDesdeTimeFilter(
+            d.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.TimeFilter ?? ''
+          ),
         })),
       }));
-    } else {
-      report.raw.yelmo_error = `HTTP ${res.status}`;
     }
   } catch (e) {
     report.raw.yelmo_error = String(e?.message ?? e);
