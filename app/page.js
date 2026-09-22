@@ -77,6 +77,57 @@ function mergeWithCache(fresh, cached) {
   };
 }
 
+// ── Respaldo por cine, en el propio dispositivo ───────────────────────────────
+// Yelmo bloquea a cualquier servidor, así que su cine puede llegar vacío en
+// cualquier momento. El servidor guarda su última respuesta buena, pero vive en
+// memoria y se pierde en cuanto la función se apaga. Este respaldo está en TU
+// móvil: aguanta reinicios del servidor y funciona aunque no haya nada más.
+//
+// Los horarios ya publicados de un día no cambian, así que enseñarlos avisando
+// de cuándo se obtuvieron es mucho mejor que dejar el cine en blanco. Nunca se
+// presentan como información fresca.
+const RESPALDO_KEY = 'cartelera_respaldo_v1';
+const RESPALDO_TTL_MS = 48 * 60 * 60 * 1000;
+
+function leerRespaldo() {
+  try { return JSON.parse(localStorage.getItem(RESPALDO_KEY) || '{}'); }
+  catch { return {}; }
+}
+
+function guardarRespaldo(cinemas) {
+  try {
+    const previo = leerRespaldo();
+    const ahora = Date.now();
+    for (const c of cinemas ?? []) {
+      // Solo se guarda lo que vino en vivo: un respaldo nunca se respalda a sí
+      // mismo, o acabaríamos arrastrando datos viejos indefinidamente.
+      if (c.source === 'live' && Object.keys(c.byDate ?? {}).length) {
+        previo[c.id] = { at: ahora, byDate: c.byDate };
+      }
+    }
+    for (const [id, v] of Object.entries(previo)) {
+      if (!v?.at || ahora - v.at > RESPALDO_TTL_MS) delete previo[id];
+    }
+    localStorage.setItem(RESPALDO_KEY, JSON.stringify(previo));
+  } catch { /* cuota llena — el respaldo es un extra, no puede romper nada */ }
+}
+
+function aplicarRespaldo(data) {
+  if (!data?.cinemas) return data;
+  const respaldo = leerRespaldo();
+  const ahora = Date.now();
+  return {
+    ...data,
+    cinemas: data.cinemas.map((c) => {
+      const tieneDatos = Object.keys(c.byDate ?? {}).length > 0;
+      if (tieneDatos) return c;
+      const r = respaldo[c.id];
+      if (!r?.at || ahora - r.at > RESPALDO_TTL_MS) return c;
+      return { ...c, byDate: r.byDate, source: 'stale', staleAt: r.at };
+    }),
+  };
+}
+
 function normalizeText(s) {
   return String(s || '')
     .toLowerCase()
@@ -146,8 +197,12 @@ export default function Page() {
       const json = await res.json();
       const cached = readCache();
       const merged = refresh && cached ? mergeWithCache(json, cached) : json;
-      writeCache(merged);
-      setData(merged);
+      // Primero guardamos lo bueno de esta respuesta, luego rellenamos los
+      // cines que hayan venido vacíos con lo último que sí tuvimos.
+      guardarRespaldo(merged.cinemas);
+      const conRespaldo = aplicarRespaldo(merged);
+      writeCache(conRespaldo);
+      setData(conRespaldo);
     } catch (e) {
       setError('No se pudo cargar la cartelera. Inténtalo de nuevo.');
       setData(null);
