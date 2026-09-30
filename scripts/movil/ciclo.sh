@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # Arranque de cada vuelta del recolector. Lo lanza el planificador de Android
-# cada 30 minutos.
+# cada 15 minutos.
 #
 # Este fichero se copia FUERA del repositorio (~/.recolector/ciclo.sh) y es
 # mínimo a propósito: trae la última versión del código y le pasa el control a

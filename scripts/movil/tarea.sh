@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Una vuelta del recolector en el móvil. La lanza ciclo.sh cada 30 minutos,
+# Una vuelta del recolector en el móvil. La lanza ciclo.sh cada 15 minutos,
 # SIEMPRE con la versión más reciente de este fichero: cualquier cambio que se
 # suba al repositorio se aplica solo en la vuelta siguiente.
 #
@@ -90,16 +90,71 @@ if [ -n "$motivo" ]; then
   echo "resultado: $resultado"
 fi
 
+# ── Órdenes desde el repositorio ────────────────────────────────────────────
+# Es el acceso a distancia: si en la rama de la web existe data/orden.sh, se
+# ejecuta UNA vez (se recuerda por su huella) y la salida va al informe, en
+# orden-salida.txt. Funciona como un SSH con el retraso de una vuelta, sin
+# abrir ningún puerto del móvil.
+#
+# No amplía quién puede mandar nada: quien puede subir data/orden.sh ya podía
+# cambiar este mismo tarea.sh, que el móvil ejecuta en cada vuelta.
+#
+# El informe es PÚBLICO. Por eso la salida pasa por un filtro que tapa claves
+# privadas, aunque una orden no debería imprimirlas nunca.
+if [ -f data/orden.sh ]; then
+  huella=$(sha1sum data/orden.sh | cut -c1-12)
+  if [ "$huella" != "$(cat "$BASE/orden-hecha" 2>/dev/null)" ]; then
+    echo "ejecutando orden $huella"
+    inicio=$(date '+%Y-%m-%d %H:%M:%S')
+    salida_orden=$(cd "$HOME" && timeout 300 bash "$DIR/data/orden.sh" 2>&1); codigo_orden=$?
+    {
+      echo "orden:   $huella"
+      echo "inicio:  $inicio"
+      echo "fin:     $(date '+%Y-%m-%d %H:%M:%S')"
+      echo "salida:  código $codigo_orden$([ "$codigo_orden" = 124 ] && echo ' (cortada a los 5 minutos)')"
+      echo "────────────────────────────────────────"
+      printf '%s\n' "$salida_orden" | head -n 600 \
+        | sed -E '/-----BEGIN [A-Z ]*PRIVATE KEY-----/,/-----END [A-Z ]*PRIVATE KEY-----/c\[clave privada omitida]'
+    } > "$DIR_ESTADO/orden-salida.txt"
+    echo "$huella" > "$BASE/orden-hecha"
+  fi
+fi
+
+# ── Límite de carga con un enchufe inteligente (opcional) ───────────────────
+# El Mi Note 10 Lite no trae límite de carga sin root, y un móvil enchufado
+# siempre al 100 % acaba con la batería hinchada. Si hay un enchufe WiFi con
+# API local (Shelly, Tasmota…), el móvil lo corta al 80 % y lo vuelve a dar al
+# 40 %. Se activa creando ~/.recolector/enchufe.conf con dos líneas:
+#   ENCENDER=http://192.168.1.50/relay/0?turn=on
+#   APAGAR=http://192.168.1.50/relay/0?turn=off
+bateria=$(timeout 10 termux-battery-status 2>/dev/null || echo "null")
+enchufe=""
+if [ -f "$BASE/enchufe.conf" ]; then
+  # shellcheck disable=SC1091
+  . "$BASE/enchufe.conf"
+  pct=$(printf '%s' "$bateria" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).percentage??"")}catch{console.log("")}})')
+  if [ -n "$pct" ]; then
+    if [ "$pct" -ge 80 ] && [ -n "${APAGAR:-}" ]; then
+      curl -fsS -m 10 "$APAGAR" >/dev/null && enchufe="apagado al $pct %" || enchufe="ERROR al apagar ($pct %)"
+    elif [ "$pct" -le 40 ] && [ -n "${ENCENDER:-}" ]; then
+      curl -fsS -m 10 "$ENCENDER" >/dev/null && enchufe="encendido al $pct %" || enchufe="ERROR al encender ($pct %): ¡revisa el enchufe!"
+    else
+      enchufe="sin cambios ($pct %)"
+    fi
+    echo "enchufe: $enchufe"
+  fi
+fi
+
 # ── Informe ─────────────────────────────────────────────────────────────────
 # Lo escribe Node y no un heredoc de bash: los mensajes de error traen comillas
 # y saltos de línea que romperían un JSON montado a mano.
 #
 # El repositorio es público, así que el informe es visible para cualquiera. Por
 # eso solo lleva datos técnicos: nada de IP, ubicación ni nada que identifique.
-bateria=$(timeout 10 termux-battery-status 2>/dev/null || echo "null")
 ultima_ahora=$(cat "$BASE/ultima-recogida" 2>/dev/null || echo 0)
 
-RESULTADO="$resultado" ERROR="$error" MOTIVO="$motivo" BATERIA="$bateria" \
+RESULTADO="$resultado" ERROR="$error" MOTIVO="$motivo" BATERIA="$bateria" ENCHUFE="$enchufe" \
+ORDEN="$(cat "$BASE/orden-hecha" 2>/dev/null)" \
 ULTIMA="$ultima_ahora" CADA="$CADA_HORAS" \
 CODIGO="$codigo" \
 MODELO="$(getprop ro.product.model 2>/dev/null)" \
@@ -119,6 +174,8 @@ node -e '
     ultimaRecogida: ultima ? new Date(ultima * 1000).toISOString() : null,
     proximaRecogida: ultima ? new Date((ultima + Number(e.CADA) * 3600) * 1000).toISOString() : "en la próxima vuelta",
     codigo: e.CODIGO,
+    ultimaOrden: e.ORDEN || null,
+    enchufe: e.ENCHUFE || null,
     dispositivo: { modelo: e.MODELO || null, android: e.ANDROID || null, node: e.NODEV || null },
     bateria: bateria && {
       porcentaje: bateria.percentage,

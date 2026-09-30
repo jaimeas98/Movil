@@ -8,7 +8,7 @@
 #   bash scripts/movil/instalar.sh
 #
 # QUÉ DEJA MONTADO
-#  · Cada 30 minutos el móvil se trae la última versión del código. Si Claude
+#  · Cada 15 minutos el móvil se trae la última versión del código. Si Claude
 #    arregla algo y lo sube, en la vuelta siguiente ya se está usando.
 #  · Dos veces al día recoge la cartelera de Yelmo y la publica.
 #  · En cada vuelta deja un informe en la rama `estado-movil` —qué ha hecho,
@@ -113,7 +113,7 @@ termux-job-scheduler --cancel --job-id 7 >/dev/null 2>&1 || true
 termux-job-scheduler \
   --job-id 7 \
   --script "$BASE/ciclo.sh" \
-  --period-ms 1800000 \
+  --period-ms 900000 \
   --persisted true \
   --network any
 
@@ -122,7 +122,7 @@ mkdir -p "$HOME/.termux/boot"
 cat > "$HOME/.termux/boot/recolector.sh" <<EOF
 #!/data/data/com.termux/files/usr/bin/bash
 termux-wake-lock
-termux-job-scheduler --job-id 7 --script "$BASE/ciclo.sh" --period-ms 1800000 --persisted true --network any
+termux-job-scheduler --job-id 7 --script "$BASE/ciclo.sh" --period-ms 900000 --persisted true --network any
 EOF
 chmod +x "$HOME/.termux/boot/recolector.sh"
 
@@ -135,25 +135,32 @@ tail -n 25 "$BASE/ciclo.log" || true
 
 cat <<'EOF'
 
-Listo. A partir de aquí no hace falta tocar nada más en Termux.
+Listo. Las vueltas corren cada 15 minutos (el mínimo que permite Android).
 
-Quedan cuatro ajustes del propio Android que un script no puede hacer. Son los
-que evitan que el sistema cierre Termux por su cuenta:
+Quedan los ajustes que un script no puede tocar. En un Xiaomi son los que
+más importan: MIUI cierra apps en segundo plano de forma muy agresiva.
 
-  1. Ajustes → Aplicaciones → Termux, Termux:API y Termux:Boot →
-     Batería → "Sin restricciones" (en las tres).
+  1. EN LAS TRES APPS (Termux, Termux:API y Termux:Boot):
+     Ajustes → Aplicaciones → Administrar aplicaciones → la app →
+       · "Inicio automático": ACTIVADO
+       · "Ahorro de batería": "Sin restricciones"
+       · "Otros permisos": permitir "Iniciar en segundo plano"
+         y "Mostrar ventanas emergentes en segundo plano"
 
   2. Abre Termux:Boot una vez. Solo con abrirla queda activada.
 
-  3. Si tu Android es 12 o superior, desactiva el límite de procesos:
-     Ajustes → Opciones de desarrollador →
-     "Desactivar restricciones de procesos secundarios".
-     (Si no aparece esa opción, dímelo: se hace con un comando desde un PC.)
+  3. Bloquea Termux en recientes: botón de recientes → mantén pulsada la
+     tarjeta de Termux → icono del candado. MIUI no cierra lo bloqueado.
 
-  4. Mira tu marca en https://dontkillmyapp.com — Samsung, Xiaomi y Huawei
-     añaden sus propios cierres agresivos y cada una se desactiva distinto.
+  4. Ajustes → Batería → desactiva "Ahorro de batería" y "Ahorro extremo".
 
-Y uno de cuidado del propio móvil: si tiene la opción de limitar la carga al
-80 % (Samsung "Proteger batería", Pixel "Carga adaptativa"), actívala. Un móvil
-enchufado siempre al 100 % envejece la batería mucho más rápido.
+  5. Y el ajuste que en Android 12 no está en ninguna pantalla (el límite de
+     procesos en segundo plano). Se aplica sin PC con:
+
+        bash ~/Movil/scripts/movil/ajustes-android.sh
+
+Para la batería: este modelo no permite limitar la carga sin root. Mira
+scripts/movil/tarea.sh, sección "enchufe inteligente", o pregúntaselo a
+Claude: con un enchufe WiFi de unos 10 € el propio móvil corta la carga al
+80 % y la reanuda al 40 %.
 EOF

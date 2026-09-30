@@ -15,7 +15,7 @@ mkdir -p "$S/bin" "$S/home"
 
 for c in termux-wake-lock termux-wake-unlock termux-job-scheduler; do printf '#!/bin/sh\nexit 0\n' > "$S/bin/$c"; done
 echo '#!/bin/sh
-echo "{\"percentage\": 81, \"plugged\": \"PLUGGED_AC\", \"health\": \"GOOD\", \"temperature\": 29.5}"' > "$S/bin/termux-battery-status"
+echo "{\"percentage\": ${BAT_PCT:-81}, \"plugged\": \"PLUGGED_AC\", \"health\": \"GOOD\", \"temperature\": 29.5}"' > "$S/bin/termux-battery-status"
 echo '#!/bin/sh
 case "$1" in ro.product.model) echo "Movil de prueba";; ro.build.version.release) echo "14";; esac' > "$S/bin/getprop"
 chmod +x "$S/bin/"*
@@ -86,5 +86,29 @@ nuevo=$(git -C "$T" rev-parse --short HEAD); MOCK_YELMO=ok vuelta
 ( exec 9>"$HOME/.recolector/candado"; flock 9; sleep 3 ) & sleep 0.5; MOCK_YELMO=ok vuelta; wait
 tail -n 3 "$HOME/.recolector/ciclo.log" | grep -q "ya hay otra vuelta" && ok "no se solapan dos vueltas" || mal "candado"
 [ "$(git -C "$S/origin.git" rev-list --count estado-movil)" -eq 1 ] && ok "la rama de informes no acumula commits" || mal "informes acumulan"
+
+# Canal de órdenes: se ejecuta una sola vez y nunca filtra una clave privada
+subir sh -c "cat > '$T/data/orden.sh' <<'EOF'
+echo hola-desde-el-movil
+echo x >> \"\$HOME/veces-orden\"
+echo '-----BEGIN OPENSSH PRIVATE KEY-----'
+echo SECRETO-QUE-NO-DEBE-SALIR
+echo '-----END OPENSSH PRIVATE KEY-----'
+EOF"
+MOCK_YELMO=ok vuelta; MOCK_YELMO=ok vuelta
+sal=$(git -C "$S/origin.git" show estado-movil:orden-salida.txt 2>/dev/null)
+echo "$sal" | grep -q hola-desde-el-movil && ok "una orden subida se ejecuta y devuelve su salida" || mal "la orden no se ejecutó"
+[ "$(wc -l < "$HOME/veces-orden" 2>/dev/null)" = "1" ] && ok "la orden se ejecuta una sola vez" || mal "la orden se ejecutó $(wc -l < "$HOME/veces-orden" 2>/dev/null) veces"
+echo "$sal" | grep -q SECRETO && mal "¡una clave privada llegó al informe público!" || ok "una clave privada nunca llega al informe público"
+
+# Enchufe: corta al 80 % y reanuda al 40 %
+printf 'ENCENDER=file://%s/on\nAPAGAR=file://%s/off\n' "$S" "$S" > "$HOME/.recolector/enchufe.conf"
+touch "$S/off"; rm -f "$S/on"
+BAT_PCT=81 MOCK_YELMO=ok vuelta
+campo .enchufe | grep -q "apagado al 81" && ok "enchufe: corta la carga al pasar del 80 %" || mal "enchufe al 81: '$(campo .enchufe)'"
+touch "$S/on"; BAT_PCT=35 MOCK_YELMO=ok vuelta
+campo .enchufe | grep -q "encendido al 35" && ok "enchufe: reanuda la carga al bajar del 40 %" || mal "enchufe al 35: '$(campo .enchufe)'"
+rm -f "$S/on"; BAT_PCT=30 MOCK_YELMO=ok vuelta
+campo .enchufe | grep -q "ERROR" && ok "enchufe: si no responde, el informe lo avisa" || mal "fallo de enchufe no avisado: '$(campo .enchufe)'"
 
 echo; [ $fallos -eq 0 ] && echo "Todo correcto" || { echo "$fallos FALLOS"; exit 1; }
