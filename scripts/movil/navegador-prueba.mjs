@@ -5,10 +5,15 @@
 // automáticos —curl y Node reciben 403 incluso desde la conexión de casa—,
 // pero el navegador del mismo móvil, en la misma red, entra sin problema.
 //
-// Esto arranca Chromium tal cual, sin tocar su identificación ni ocultar nada,
-// abre la portada de Yelmo como lo haría cualquiera y, desde dentro de la
-// propia página, pide la cartelera al mismo endpoint que usa su web. Si
-// funciona, los datos llegan exactamente con la forma de siempre.
+// Primer intento (13-10-2026), con Chromium tal cual: 403 en la portada. Sin
+// pantalla, Chromium se anuncia como "HeadlessChrome" en su identificación y
+// en las cabeceras Sec-CH-UA, y Yelmo lo rechaza por eso.
+//
+// Decisión del usuario, tras plantearle el reparo: es un proyecto personal,
+// datos públicos, desde su propio móvil y conexión, a ritmo de persona. Así
+// que Chromium se identifica ahora como el Chrome normal de ese mismo móvil.
+// Abre la portada y, desde dentro de la página, pide la cartelera al mismo
+// endpoint que usa su web: los datos llegan con la forma de siempre.
 //
 //   CHROME=$(command -v chromium-browser) node scripts/movil/navegador-prueba.mjs
 
@@ -29,6 +34,33 @@ const navegador = await puppeteer.launch({
 try {
   const pagina = await navegador.newPage();
   log('navegador:', await navegador.version());
+
+  // La misma identidad que el Chrome del propio móvil: misma versión, mismo
+  // modelo, misma plataforma. Incluye las "client hints" (Sec-CH-UA), que es
+  // donde Chromium sin pantalla mete la marca HeadlessChrome.
+  const version = (await navegador.version()).match(/\/(\d+)/)?.[1] ?? '155';
+  await pagina.setUserAgent(
+    `Mozilla/5.0 (Linux; Android 12; Mi Note 10 Lite) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version}.0.0.0 Mobile Safari/537.36`,
+    {
+      brands: [
+        { brand: 'Chromium', version },
+        { brand: 'Google Chrome', version },
+        { brand: 'Not.A/Brand', version: '99' },
+      ],
+      fullVersion: `${version}.0.0.0`,
+      platform: 'Android',
+      platformVersion: '12.0.0',
+      architecture: '',
+      model: 'Mi Note 10 Lite',
+      mobile: true,
+    }
+  );
+  await pagina.setViewport({ width: 393, height: 851, deviceScaleFactor: 2.75, isMobile: true, hasTouch: true });
+  await pagina.setExtraHTTPHeaders({ 'Accept-Language': 'es-ES,es;q=0.9' });
+  // Un Chrome manejado por un programa lo declara en navigator.webdriver.
+  await pagina.evaluateOnNewDocument(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => false });
+  });
 
   const r = await pagina.goto('https://www.yelmocines.es/', { waitUntil: 'domcontentloaded', timeout: 60000 });
   log('portada:', r?.status(), '·', await pagina.title());
