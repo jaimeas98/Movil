@@ -1,30 +1,32 @@
-# Orden 3 — Instalar Chromium en el móvil y probar si un navegador de verdad
-# puede leer la cartelera de Yelmo (curl y Node están bloqueados por Cloudflare).
+# Orden 4 — Arreglar Chromium y repetir la prueba.
 #
-# Instalarlo tarda varios minutos y las órdenes se cortan a los 5, así que se
-# lanza aparte. Al acabar, fuerza una vuelta para subir el resultado ya, sin
-# esperar a la siguiente.
+# La orden 3 instaló Chromium pero no arrancaba: "cannot locate symbol
+# __hash_memory". Chromium está compilado contra un libc++ más nuevo que el
+# del móvil, porque la instalación solo actualizó el índice de paquetes, no
+# los paquetes. Se actualiza todo Termux, se termina la configuración que dpkg
+# dejó a medias y se reinstala Chromium.
 
 SALIDA="$HOME/estado-movil/navegador.txt"
 nohup bash -c '
   termux-wake-lock
   exec > "'"$SALIDA"'" 2>&1
   echo "inicio: $(date "+%Y-%m-%d %H:%M:%S")"
-  echo "── instalando Chromium (x11-repo)…"
-  pkg install -y -o Dpkg::Options::=--force-confnew x11-repo </dev/null >/dev/null 2>&1
-  pkg install -y -o Dpkg::Options::=--force-confnew chromium </dev/null 2>&1 | tail -n 3
+  OPC="-o Dpkg::Options::=--force-confnew -o Dpkg::Options::=--force-confdef"
+  echo "── terminar configuración pendiente"
+  dpkg --configure -a </dev/null 2>&1 | tail -n 2
+  echo "── actualizar todo Termux (tarda)…"
+  pkg update -y </dev/null >/dev/null 2>&1
+  pkg upgrade -y $OPC </dev/null 2>&1 | tail -n 3
+  echo "── reinstalar Chromium"
+  pkg install -y --reinstall $OPC libc++ chromium </dev/null 2>&1 | tail -n 3
   CHROME=$(command -v chromium-browser || command -v chromium)
   echo "binario: ${CHROME:-NO ENCONTRADO}"
-  [ -n "$CHROME" ] && "$CHROME" --version 2>&1 | head -1
-  echo "── instalando puppeteer-core…"
-  mkdir -p "$HOME/navegador" && cd "$HOME/navegador"
-  [ -f package.json ] || npm init -y >/dev/null 2>&1
-  npm install --no-audit --no-fund puppeteer-core 2>&1 | tail -n 2
-  cp "$HOME/Movil/scripts/movil/navegador-prueba.mjs" ./prueba.mjs
+  "$CHROME" --version 2>&1 | head -2
   echo "── prueba"
+  cd "$HOME/navegador" && cp "$HOME/Movil/scripts/movil/navegador-prueba.mjs" ./prueba.mjs
   CHROME="$CHROME" timeout 180 node prueba.mjs 2>&1
   echo "fin: $(date "+%Y-%m-%d %H:%M:%S")"
   termux-wake-unlock
   bash "$HOME/.recolector/ciclo.sh"
 ' >/dev/null 2>&1 &
-echo "instalación de Chromium lanzada en segundo plano; resultado en navegador.txt"
+echo "actualización y reinstalación de Chromium lanzadas en segundo plano; resultado en navegador.txt"
