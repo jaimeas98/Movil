@@ -29,10 +29,31 @@ LOG="$BASE/ciclo.log"
 TURNOS="07:00 18:00"
 CERCA=7200
 
-# Mantener la CPU despierta mientras dura la vuelta. Con el móvil cargando no
-# debería dormirse, pero una recogida a medias deja la instantánea sin publicar.
+# Mantener la CPU despierta. Ya no se suelta al acabar la vuelta: el bucle
+# propio (bucle.sh) lo necesita tomado para no dormirse entre vuelta y vuelta.
 termux-wake-lock 2>/dev/null
-trap 'termux-wake-unlock 2>/dev/null' EXIT
+
+# ── Que el bucle propio esté vivo ───────────────────────────────────────────
+# El planificador de Android falla con el móvil bloqueado (ver bucle.sh), así
+# que cada vuelta, la lance quien la lance, comprueba que el bucle siga
+# corriendo y si no lo arranca. Si nadie tiene su candado, no está vivo.
+# También deja Termux:Boot arrancándolo al encender el móvil.
+if [ -z "${RECOLECTOR_SIN_BUCLE:-}" ]; then   # RECOLECTOR_SIN_BUCLE: solo para probar.sh
+  cmp -s "$DIR/scripts/movil/bucle.sh" "$BASE/bucle.sh" || cp "$DIR/scripts/movil/bucle.sh" "$BASE/bucle.sh"
+  if flock -n "$BASE/bucle.candado" true 2>/dev/null; then
+    echo "el bucle propio no estaba corriendo: lo arranco"
+    nohup bash "$BASE/bucle.sh" </dev/null >/dev/null 2>&1 9>&- &
+  fi
+  arranque="$HOME/.termux/boot/recolector.sh"
+  contenido=$(printf '#!/data/data/com.termux/files/usr/bin/bash
+termux-wake-lock
+termux-job-scheduler --job-id 7 --script %s/ciclo.sh --period-ms 900000 --persisted true --network any
+nohup bash %s/bucle.sh </dev/null >/dev/null 2>&1 &
+' "$BASE" "$BASE")
+  if [ -d "$HOME/.termux/boot" ] && [ "$(cat "$arranque" 2>/dev/null)" != "$contenido" ]; then
+    printf '%s\n' "$contenido" > "$arranque" && chmod +x "$arranque"
+  fi
+fi
 
 cd "$DIR" || exit 1
 

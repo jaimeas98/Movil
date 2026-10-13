@@ -49,7 +49,7 @@ EOF
 # rápido; lo que se comprueba aquí es que eso no tumbe nada.
 echo "globalThis.fetch = async () => { throw new Error('sin red en la simulación'); };" > "$S/sin-red.mjs"
 
-export HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas" NODE_OPTIONS="--import $S/sin-red.mjs"
+export RECOLECTOR_SIN_BUCLE=1 HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas" NODE_OPTIONS="--import $S/sin-red.mjs"
 : > "$LLAMADAS"
 git config --global user.name sim; git config --global user.email sim@x; git config --global init.defaultBranch main
 
@@ -60,6 +60,7 @@ git clone -q --branch "$RAMA" --single-branch "$S/origin.git" "$HOME/Movil" 2>/d
   || git clone -q "$S/origin.git" "$HOME/Movil"
 git -C "$HOME/Movil" checkout -q -B "$RAMA"
 rsync -a --exclude .git --exclude node_modules "$RAIZ/" "$HOME/Movil/" 2>/dev/null || cp -r "$RAIZ/scripts" "$RAIZ/data" "$RAIZ/lib" "$HOME/Movil/"
+rm -f "$HOME/Movil/data/forzar-recogida" "$HOME/Movil/data/orden.sh"   # avisos pendientes del repo real: la simulación empieza limpia
 git -C "$HOME/Movil" add -A && git -C "$HOME/Movil" commit -qm "estado a probar" --allow-empty && git -C "$HOME/Movil" push -q -f origin "HEAD:$RAMA"
 mkdir -p "$HOME/estado-movil" && ( cd "$HOME/estado-movil" && git init -q && git remote add origin "$S/origin.git" \
   && git checkout -q --orphan estado-movil && echo x > LEEME.txt && git add . && git commit -qm init && git push -q -u origin estado-movil )
@@ -165,5 +166,14 @@ touch "$S/on"; BAT_PCT=35 MOCK_YELMO=ok vuelta
 campo .enchufe | grep -q "encendido al 35" && ok "enchufe: reanuda la carga al bajar del 40 %" || mal "enchufe al 35: '$(campo .enchufe)'"
 rm -f "$S/on"; BAT_PCT=30 MOCK_YELMO=ok vuelta
 campo .enchufe | grep -q "ERROR" && ok "enchufe: si no responde, el informe lo avisa" || mal "fallo de enchufe no avisado: '$(campo .enchufe)'"
+
+# Bucle propio: una vuelta lo arranca si no está vivo, y solo uno a la vez
+mkdir -p "$HOME/.termux/boot"
+RECOLECTOR_SIN_BUCLE= MOCK_YELMO=ok vuelta; sleep 1
+! flock -n "$HOME/.recolector/bucle.candado" true && ok "una vuelta arranca el bucle propio si no está corriendo" || mal "el bucle no arrancó"
+RECOLECTOR_SIN_BUCLE= MOCK_YELMO=ok vuelta; sleep 1
+[ "$(pgrep -fc "$HOME/.recolector/bucle.sh")" = 1 ] && ok "nunca hay dos bucles a la vez" || mal "hay $(pgrep -fc "$HOME/.recolector/bucle.sh") bucles"
+grep -q "bucle.sh" "$HOME/.termux/boot/recolector.sh" && ok "al encender el móvil también arranca el bucle" || mal "Termux:Boot sin bucle"
+pkill -f "$HOME/.recolector/bucle.sh"; sleep 1
 
 echo; [ $fallos -eq 0 ] && echo "Todo correcto" || { echo "$fallos FALLOS"; exit 1; }

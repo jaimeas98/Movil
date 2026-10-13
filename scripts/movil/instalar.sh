@@ -161,9 +161,12 @@ EOF
 
   # Red de seguridad al reiniciar el móvil: vuelve a registrar la tarea.
   mkdir -p "$HOME/.termux/boot"
-  printf '#!/data/data/com.termux/files/usr/bin/bash\ntermux-wake-lock\n%s\n' "$PROGRAMAR" \
+  printf '#!/data/data/com.termux/files/usr/bin/bash\ntermux-wake-lock\n%s\nnohup bash %s/bucle.sh </dev/null >/dev/null 2>&1 &\n' "$PROGRAMAR" "$BASE" \
     > "$HOME/.termux/boot/recolector.sh"
   chmod +x "$HOME/.termux/boot/recolector.sh"
+  # El ritmo real lo lleva el bucle propio: con el móvil bloqueado, MIUI se
+  # salta tareas del planificador (ver bucle.sh). La primera vuelta lo arranca.
+  cp "$DIR/scripts/movil/bucle.sh" "$BASE/bucle.sh"
   ok "una vuelta cada 15 minutos, también tras reiniciar"
 
   paso "6/6  Primera vuelta, ahora mismo"
