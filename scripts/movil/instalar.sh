@@ -9,7 +9,7 @@
 # QUÉ DEJA MONTADO
 #  · Cada 15 minutos el móvil se trae la última versión del código. Si Claude
 #    arregla algo y lo sube, en la vuelta siguiente ya se está usando.
-#  · Dos veces al día recoge la cartelera de Yelmo y la publica.
+#  · Dos veces al día recoge la cartelera de Yelmo (con Chromium) y la publica.
 #  · En cada vuelta deja un informe en la rama `estado-movil`, que se puede leer
 #    desde cualquier sesión sin tocar el móvil.
 #  · Ejecuta las órdenes que se le dejen en data/orden.sh (una sola vez cada una).
@@ -44,10 +44,20 @@ principal() {
   paso "1/6  Paquetes (tarda unos minutos la primera vez)"
   # force-confnew: si un paquete trae un fichero de configuración nuevo, se
   # acepta sin preguntar. Si preguntara, la instalación se quedaría esperando.
+  local OPC="-o Dpkg::Options::=--force-confnew -o Dpkg::Options::=--force-confdef"
   pkg update -y </dev/null
-  pkg install -y -o Dpkg::Options::=--force-confnew \
-    git nodejs-lts openssh termux-api util-linux gh </dev/null
-  ok "paquetes instalados"
+  # upgrade y no solo update: Chromium se compila contra las librerías más
+  # nuevas y, con un Termux a medio actualizar, ni arranca ("cannot locate
+  # symbol __hash_memory", visto el 13-10-2026).
+  pkg upgrade -y $OPC </dev/null
+  pkg install -y $OPC git nodejs-lts openssh termux-api util-linux gh x11-repo </dev/null
+  # Chromium recoge la cartelera de Yelmo: Cloudflare bloquea a cualquier
+  # cliente que no sea un navegador (ver recolector-navegador.mjs).
+  pkg install -y $OPC chromium </dev/null
+  mkdir -p "$HOME/navegador"
+  ( cd "$HOME/navegador" && { [ -f package.json ] || npm init -y >/dev/null; } \
+    && npm install --no-audit --no-fund puppeteer-core </dev/null >/dev/null )
+  ok "paquetes instalados (incluido Chromium)"
 
   paso "2/6  Clave del móvil para GitHub"
   mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"

@@ -5,7 +5,7 @@
 #
 # En cada vuelta:
 #  1. decide si toca recoger la cartelera (cada 11 h, o si se ha pedido);
-#  2. si toca, la recoge y la publica en la rama de la web;
+#  2. si toca, la recoge con Chromium y la publica en la rama de la web;
 #  3. pase lo que pase, deja un informe en la rama `estado-movil`.
 #
 # El informe es el latido del móvil: si su fecha deja de avanzar, el móvil se
@@ -50,8 +50,19 @@ desde_intento=$(( ahora - intento ))
 espera=3600
 [ -f "$BASE/bloqueado" ] && espera=86400
 
+# La excepción: si el último intento FALLÓ y desde entonces ha cambiado el
+# recolector, se prueba ya, sin esperar. Es un arreglo nuevo, no insistir con
+# lo mismo que falló, y esperar 24 h para saber si funciona no tiene sentido.
+huella_rec=$(cat scripts/movil/tarea.sh scripts/movil/recolector-navegador.mjs 2>/dev/null | sha1sum | cut -c1-12)
+reintento=""
+if [ "$intento" -gt "$ultima" ] && [ "$huella_rec" != "$(cat "$BASE/intento-codigo" 2>/dev/null)" ]; then
+  reintento=1
+fi
+
 motivo=""
-if [ -f data/forzar-recogida ] && [ "$desde_intento" -ge 7200 ]; then
+if [ -n "$reintento" ]; then
+  motivo="reintento: el recolector ha cambiado tras un fallo"
+elif [ -f data/forzar-recogida ] && [ "$desde_intento" -ge 7200 ]; then
   motivo="pedida desde el repositorio"
 elif [ $(( ahora - ultima )) -ge $(( CADA_HORAS * 3600 )) ] && [ "$desde_intento" -ge "$espera" ]; then
   motivo="toca (cada ${CADA_HORAS} h)"
@@ -60,10 +71,28 @@ fi
 resultado="sin recogida: no tocaba"
 error=""
 
+# La recogida la hace Chromium, no Node a pelo: Yelmo bloquea con Cloudflare a
+# cualquier cliente que no sea un navegador (ver recolector-navegador.mjs).
+# Chromium y puppeteer-core los deja instalados instalar.sh; el recolector se
+# copia junto a puppeteer-core para que Node lo encuentre.
+recolectar() {
+  local nav="$HOME/navegador" chrome
+  chrome=$(command -v chromium-browser || command -v chromium) \
+    || { echo "❌ Chromium no está instalado (pkg install x11-repo && pkg install chromium)"; return 1; }
+  [ -d "$nav/node_modules/puppeteer-core" ] \
+    || { echo "❌ falta puppeteer-core en ~/navegador (cd ~/navegador && npm install puppeteer-core)"; return 1; }
+  cp "$DIR/scripts/movil/recolector-navegador.mjs" "$nav/recolector.mjs"
+  ( cd "$nav" && DESTINO="$DIR/data/yelmo.js" CHROME="$chrome" timeout 240 node recolector.mjs ) && return 0
+  local r=$?
+  [ "$r" = 124 ] && echo "❌ cortado a los 4 minutos (¿Yelmo o la red muy lentos?)"
+  return "$r"
+}
+
 if [ -n "$motivo" ]; then
   echo "recogiendo: $motivo"
   echo "$ahora" > "$BASE/ultimo-intento"
-  if salida=$(node scripts/recolector-yelmo.mjs 2>&1); then
+  echo "$huella_rec" > "$BASE/intento-codigo"
+  if salida=$(recolectar 2>&1); then
     echo "$salida"
     echo "$ahora" > "$BASE/ultima-recogida"
     rm -f "$BASE/bloqueado"

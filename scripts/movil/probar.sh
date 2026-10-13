@@ -20,23 +20,32 @@ echo '#!/bin/sh
 case "$1" in ro.product.model) echo "Movil de prueba";; ro.build.version.release) echo "14";; esac' > "$S/bin/getprop"
 chmod +x "$S/bin/"*
 
-cat > "$S/mock.mjs" <<'EOF'
+# Chromium y puppeteer-core simulados: el recolector real se ejecuta entero,
+# pero lo que "responde Yelmo" lo decide MOCK_YELMO (ok, bloqueo, uno).
+printf '#!/bin/sh\nexit 0\n' > "$S/bin/chromium-browser"; chmod +x "$S/bin/chromium-browser"
+P="$S/home/navegador/node_modules/puppeteer-core"; mkdir -p "$P"
+echo '{"name":"puppeteer-core","type":"module","exports":"./index.js"}' > "$P/package.json"
+cat > "$P/index.js" <<'EOF'
 import { appendFileSync } from 'node:fs';
 const hoy = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid' }).format(new Date());
 const cine = (Key) => ({ Key, VistaId: '1', Dates: [{ Movies: [{ Title: 'Peli ' + Key, RunTime: 100,
   Formats: [{ Name: '2D', Language: 'Español', Showtimes: [{ Time: '20:00', ShowtimeId: '1', TimeFilter: hoy + ' 22:30:00' }] }] }] }] });
-const real = globalThis.fetch;
-globalThis.fetch = async (url, opts) => {
-  if (!String(url).includes('yelmocines')) return real(url, opts);
-  appendFileSync(process.env.LLAMADAS, 'x');
-  if (process.env.MOCK_YELMO === 'bloqueo')
-    return new Response('<title>Attention Required! | Cloudflare</title>', { status: 403, headers: { server: 'cloudflare' } });
-  return new Response(JSON.stringify({ d: { Cinemas: [cine('premium-bahia-sur'), cine('area-sur')] } }),
-    { status: 200, headers: { 'content-type': 'application/json' } });
+const modo = () => process.env.MOCK_YELMO;
+const pagina = {
+  setUserAgent: async () => {}, setViewport: async () => {}, setExtraHTTPHeaders: async () => {},
+  evaluateOnNewDocument: async () => {}, title: async () => 'Yelmo Cines',
+  goto: async () => { appendFileSync(process.env.LLAMADAS, 'x'); return { status: () => (modo() === 'bloqueo' ? 403 : 200) }; },
+  createCDPSession: async () => ({ send: async (m) => {
+    if (m === 'Page.getFrameTree') return { frameTree: { frame: { id: 'f' } } };
+    if (m === 'Page.createIsolatedWorld') return { executionContextId: 1 };
+    const cines = modo() === 'uno' ? [cine('area-sur')] : [cine('premium-bahia-sur'), cine('area-sur')];
+    return { result: { value: { status: 200, texto: JSON.stringify({ d: { Cinemas: cines } }) } } };
+  } }),
 };
+export default { launch: async () => ({ newPage: async () => pagina, version: async () => 'Chrome/155.0.0.0', close: async () => {} }) };
 EOF
 
-export HOME="$S/home" PATH="$S/bin:$PATH" NODE_OPTIONS="--import $S/mock.mjs" LLAMADAS="$S/llamadas"
+export HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas"
 : > "$LLAMADAS"
 git config --global user.name sim; git config --global user.email sim@x; git config --global init.defaultBranch main
 
@@ -78,6 +87,27 @@ n=$(llamadas); for i in 1 2 3; do MOCK_YELMO=bloqueo vuelta; done
 [ "$(llamadas)" -eq "$n" ] && ok "tras un fallo no insiste contra el bloqueo" || mal "insistió $(( $(llamadas) - n )) veces"
 echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=ok vuelta
 [ "$(campo .resultado)" = "recogida y publicada" ] && ok "pasada la espera, reintenta" || mal "reintento: '$(campo .resultado)'"
+
+# Un arreglo del recolector tras un fallo se prueba ya, sin esperar 24 h…
+subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=bloqueo vuelta
+n=$(llamadas); MOCK_YELMO=ok vuelta
+[ "$(llamadas)" -eq "$n" ] || mal "tras el bloqueo reintentó sin que cambiara nada"
+subir sh -c "echo '// arreglo' >> '$T/scripts/movil/recolector-navegador.mjs'"; MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" = "recogida y publicada" ] && campo .motivo | grep -q "ha cambiado" \
+  && ok "un arreglo del recolector tras un fallo se prueba en la vuelta siguiente" || mal "arreglo: '$(campo .resultado)' / '$(campo .motivo)'"
+# …pero un cambio que no toca al recolector no sirve de excusa para insistir.
+subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=bloqueo vuelta
+n=$(llamadas); subir sh -c "echo x >> '$T/data/otra-cosa'"; MOCK_YELMO=ok vuelta
+[ "$(llamadas)" -eq "$n" ] && ok "otros cambios del repositorio no provocan reintentos" || mal "reintentó por un cambio ajeno"
+
+# Si un día viene un cine de menos, se conserva la instantánea completa
+echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; a=$(commits); MOCK_YELMO=uno vuelta
+[ "$(campo .resultado)" = "fallo al recoger" ] && [ "$(commits)" -eq "$a" ] \
+  && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
+  && ok "con un cine de menos no pisa la instantánea buena" || mal "un cine de menos: '$(campo .resultado)'"
+git -C "$T" pull -q --rebase origin "$RAMA"; subir git -C "$T" rm -q data/forzar-recogida
+echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; echo 0 > "$HOME/.recolector/ultima-recogida"; MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" != "fallo al recoger" ] || mal "no se recuperó tras el cine de menos: '$(campo .error)'"
 
 subir sed -i 's/^CADA_HORAS=11$/CADA_HORAS=11  # cambio de prueba/' "$T/scripts/movil/tarea.sh"
 nuevo=$(git -C "$T" rev-parse --short HEAD); MOCK_YELMO=ok vuelta
