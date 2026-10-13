@@ -70,24 +70,46 @@ try {
   await new Promise((ok) => setTimeout(ok, 10000));
   log('tras esperar:', await pagina.title());
 
-  const api = await pagina.evaluate(async () => {
+  // La petición NO se ejecuta en el JavaScript de la página: Yelmo carga
+  // MicrosoftAjax, que reescribe funciones nativas como String.prototype
+  // .startsWith con versiones que solo aceptan un parámetro y lanzan
+  // "Sys.ParameterCountException" con dos. Un mundo aislado comparte el
+  // origen, la sesión y las cookies de la página, pero tiene sus propias
+  // funciones nativas intactas, y no toca nada de la web.
+  const cdp = await pagina.createCDPSession();
+  const { frameTree } = await cdp.send('Page.getFrameTree');
+  const { executionContextId } = await cdp.send('Page.createIsolatedWorld', {
+    frameId: frameTree.frame.id,
+    worldName: 'recolector',
+  });
+  const peticion = `(async () => {
     const res = await fetch('/now-playing.aspx/GetNowPlaying', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json; charset=utf-8', 'X-Requested-With': 'XMLHttpRequest' },
       body: JSON.stringify({ cityKey: 'cadiz' }),
     });
-    const texto = await res.text();
-    let resumen = null;
-    try {
-      const d = JSON.parse(texto);
-      resumen = (d?.d?.Cinemas ?? []).map((c) => ({
-        cine: c.Key,
-        dias: c.Dates?.length ?? 0,
-        peliculas: (c.Dates ?? []).reduce((n, x) => n + (x.Movies?.length ?? 0), 0),
-      }));
-    } catch {}
-    return { status: res.status, bytes: texto.length, resumen, inicio: resumen ? null : texto.slice(0, 160) };
+    return { status: res.status, texto: await res.text() };
+  })()`;
+  const { result, exceptionDetails } = await cdp.send('Runtime.evaluate', {
+    expression: peticion,
+    contextId: executionContextId,
+    awaitPromise: true,
+    returnByValue: true,
   });
+  if (exceptionDetails) throw new Error(exceptionDetails.exception?.description || exceptionDetails.text);
+
+  const { status, texto } = result.value;
+  let resumen = null;
+  try {
+    const d = JSON.parse(texto);
+    resumen = (d?.d?.Cinemas ?? []).map((c) => ({
+      cine: c.Key,
+      dias: c.Dates?.length ?? 0,
+      peliculas: (c.Dates ?? []).reduce((n, x) => n + (x.Movies?.length ?? 0), 0),
+    }));
+  } catch {}
+  const api = { status, bytes: texto.length, resumen, inicio: resumen ? null : texto.slice(0, 160) };
   log('API de cartelera:', JSON.stringify(api));
   log(api.resumen?.length ? 'VEREDICTO: FUNCIONA' : 'VEREDICTO: BLOQUEADO');
 } catch (e) {
