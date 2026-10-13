@@ -1,0 +1,893 @@
+{
+ "cuando": "2026-10-23T13:30:53.856Z",
+ "scripts": 71,
+ "operaciones": [
+  {
+   "nombre": "Benefits",
+   "tipo": "query",
+   "variables": "($countryId: String!, $levelId: String!)",
+   "texto": "query Benefits($countryId: String!, $levelId: String!) {\n    benefits(countryId: $countryId, tcc: $levelId) {\n      key\n      name\n      caption\n      imageUrl\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "createOrchestratorLog",
+   "tipo": "mutation",
+   "variables": "($input: OrchestratorLogInput!)",
+   "texto": "mutation createOrchestratorLog($input: OrchestratorLogInput!) {\n    createOrchestratorLog(input: $input) {\n      message\n      code\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "paymentBankCard",
+   "tipo": "mutation",
+   "variables": "($input: BankCard)",
+   "texto": "mutation paymentBankCard($input: BankCard) {\n    paymentBankCard(bank_card_data: $input) {\n      bookingInfo {\n        booking_id\n        booking_number\n        trans_number\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "paypalCheckout",
+   "tipo": "mutation",
+   "variables": "($input: BaseRequestPayment)",
+   "texto": "mutation paypalCheckout($input: BaseRequestPayment) {\n    paypalCheckout(paypal_checkout: $input) {\n      checkoutUrl {\n        checkout_url\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "paypalComplete",
+   "tipo": "mutation",
+   "variables": "($input: PaypalComplete)",
+   "texto": "mutation paypalComplete($input: PaypalComplete) {\n    paypalComplete(paypal_complete: $input) {\n      bookingInfo {\n        booking_id\n        booking_number\n        trans_number\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "ExtendOrder",
+   "tipo": "mutation",
+   "variables": "($user_session_id: String)",
+   "texto": "mutation ExtendOrder($user_session_id: String) {\n    ExtendOrder(extend_order: { user_session_id: $user_session_id }) {\n      extendOrderResult {\n        status\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "CancelOrder",
+   "tipo": "mutation",
+   "variables": "($input: CancelOrderModel)",
+   "texto": "mutation CancelOrder($input: CancelOrderModel) {\n    CancelOrder(cancel_order: $input) {\n      cancelOrderResult {\n        extended_result_code\n        order_not_found\n        result\n        error_description\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "kueskiCheckout",
+   "tipo": "mutation",
+   "variables": "($input: BaseRequestPayment)",
+   "texto": "mutation kueskiCheckout($input: BaseRequestPayment) {\n    kueskiCheckout(kueski_checkout: $input) {\n      checkoutUrl {\n        status\n        data {\n          callback_url\n          payment_id\n          order_id\n          name\n        }\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "handlerComplete",
+   "tipo": "mutation",
+   "variables": "($input: DispacherComplete)",
+   "texto": "mutation handlerComplete($input: DispacherComplete) {\n    handlerComplete(dispacher_complete: $input) {\n      bookingInfo {\n        booking_id\n        booking_number\n        trans_number\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "payment_methods",
+   "tipo": "query",
+   "variables": "($orderSessionId: String!, $countryId: String!)",
+   "texto": "query payment_methods($orderSessionId: String!, $countryId: String!) {\n    payment_methods(orderSessionId: $orderSessionId, countryId: $countryId) {\n      name\n      order\n      key\n      enabled\n      settings {\n        profile {\n          org_id\n          merch\n          provider\n        }\n        iframe_url\n        icon {\n          url\n        },\n        public_key,\n        merchant,\n        org_id,\n        env, \n        use_wallet,\n        otp,\n        otp_flow\n        points_to_use,\n        available_points\n        total_redeemed\n        placeholder\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "yunoCheckout",
+   "tipo": "mutation",
+   "variables": "($input: BaseRequestYunoPayment)",
+   "texto": "mutation yunoCheckout($input: BaseRequestYunoPayment) {\n    yunoCheckout(yuno_checkout: $input) {\n      checkoutSession {\n        merchant_order_id\n        checkout_session\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "JuspayCreateOrder",
+   "tipo": "mutation",
+   "variables": "($input: JuspayComplete!)",
+   "texto": "mutation JuspayCreateOrder($input: JuspayComplete!) {\n    JuspayCreateOrder(juspay_complete: $input) {\n      orderInfo {\n        order_id\n        customer_id\n        status\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "Juspay_status",
+   "tipo": "mutation",
+   "variables": "($input: JuspayPaymentModel!)",
+   "texto": "mutation Juspay_status ($input: JuspayPaymentModel!) {\n    juspay_status( juspay_payment_status: $input)  {\n        bookingInfo {\n            txn_id\n            status_id\n            status\n        }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "blacklist",
+   "tipo": "mutation",
+   "variables": "(\\n    $email: String!\\n    $country_id: String!\\n    $language: String!\\n  )",
+   "texto": "mutation blacklist(\n    $email: String!\n    $country_id: String!\n    $language: String!\n  ) {\n    blacklist(email: $email, country_id: $country_id, language: $language) {\n      blacklistResult {\n        result\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "BlacklistPhoneNumber",
+   "tipo": "mutation",
+   "variables": "(\\n    $email: String!\\n    $country_id: String!\\n    $language: String!\\n    $phone_number: String!\\n  )",
+   "texto": "mutation BlacklistPhoneNumber(\n    $email: String!\n    $country_id: String!\n    $language: String!\n    $phone_number: String!\n  ) {\n    blacklistPhoneNumber(email: $email, country_id: $country_id, language: $language, phone_number: $phone_number) {\n      blacklistResult {\n        result\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "aplazoCheckout",
+   "tipo": "mutation",
+   "variables": "($input: AplazoCheckoutRequestPayment)",
+   "texto": "mutation aplazoCheckout($input: AplazoCheckoutRequestPayment) {\n    aplazoCheckout(aplazo_checkout: $input){\n      orderToken {\n        order_token\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "deunaCheckout",
+   "tipo": "mutation",
+   "variables": "($input: DeunaCheckoutRequestPayment)",
+   "texto": "mutation deunaCheckout($input: DeunaCheckoutRequestPayment) {\n    deunaCheckout(deuna_checkout: $input) {\n      checkout_response {\n        checkout_url,\n        checkout_id\n      } \n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "JuspayValidateUPI",
+   "tipo": "mutation",
+   "variables": "($vpa: String!, $country_id: String!)",
+   "texto": "mutation JuspayValidateUPI($vpa: String!, $country_id: String!) {\n    JuspayValidateUPI(juspay_upi: { \n      vpa: $vpa, \n      country_id: $country_id \n    }) {\n      upiInfo {\n        status\n        customer_name\n        vpa\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "ApplyPromotion",
+   "tipo": "mutation",
+   "variables": "($input: ApplyPromotionRequestModel)",
+   "texto": "mutation ApplyPromotion($input: ApplyPromotionRequestModel) {\n    ApplyPromotion(apply_promotion: $input) {\n          updatedCartResult {\n              orderSessionId\n              countryLanguage\n              countryId\n              createdAt\n              cinema {\n                  name\n                  id\n                  cinemaVistaId\n                  cinemaType\n                  businessType\n              }\n              tickets {\n                  orderId\n                  providerName\n                  movie {\n                      rating\n                      synopsis\n                      duration\n                      name\n                      image\n                      ratingDescription\n                  }\n                  schedule {\n                      sessionId\n                      datetime\n                      language\n                      screenNumber\n                      imageBackgroundSynopsis\n                  }\n                  seats {\n                      areasCategoryCode\n                      capacity\n                      description\n                      number\n                  }\n              }\n              foods {\n                  orderId\n                  providerName\n                  screenNumber\n              }\n              amount {\n                  charges\n                  subtotal\n                  total\n                  discount\n              }\n              promotionVoucher {\n                  voucher\n                  transactionId\n                  status\n                  discountPercentage\n              }\n          }\n      }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "paypalWalletCheckout",
+   "tipo": "mutation",
+   "variables": "(\\n      $country_id: String!, \\n      $order_session_id: String!, \\n      $user_session_id: String!,\\n      $email: String!,\\n      $first_name: String!,\\n      $last_name: String!,\\n      $format: String!\\n      $isPartial: Boolean!\\n    )",
+   "texto": "mutation paypalWalletCheckout(\n      $country_id: String!, \n      $order_session_id: String!, \n      $user_session_id: String!,\n      $email: String!,\n      $first_name: String!,\n      $last_name: String!,\n      $format: String!\n      $isPartial: Boolean!\n    ){\n    paypalWalletCheckout(\n      paypal_checkout: {\n          country_id: $country_id,\n          order_session_id : $order_session_id,\n          user_session_id : $user_session_id,\n          customer:{\n            email : $email,\n            first_name: $first_name,\n            last_name: $last_name\n          },\n          movie:{\n            format: $format\n          },\n          is_partial: $isPartial\n      }\n    ) {\n      orderToken {\n          order_token\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "bizumCheckout",
+   "tipo": "mutation",
+   "variables": "(\\n    $country_id: String!\\n    $order_session_id: String!\\n    $user_session_id: String!\\n    $email: String!\\n    $first_name: String!\\n    $last_name: String!\\n    $format: String!\\n    $isPartial: Boolean!\\n  )",
+   "texto": "mutation bizumCheckout(\n    $country_id: String!\n    $order_session_id: String!\n    $user_session_id: String!\n    $email: String!\n    $first_name: String!\n    $last_name: String!\n    $format: String!\n    $isPartial: Boolean!\n  ) {\n    bizumCheckout(\n      bizum_checkout: {\n        country_id: $country_id\n        order_session_id: $order_session_id\n        user_session_id: $user_session_id\n        customer: { email: $email, first_name: $first_name, last_name: $last_name }\n        movie: { format: $format }\n        is_partial: $isPartial\n      }\n    ) {\n      orderToken {\n        order_token\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "GetNotification",
+   "tipo": "query",
+   "variables": "($order_id: String!)",
+   "texto": "query GetNotification($order_id: String!) {\n    getPaypalNotification(order_id: $order_id) {\n      __typename\n      ... on PaymentResponse {\n        status\n      }\n      ... on ErrorResponse {\n        status\n        error\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "RollBackCoupon",
+   "tipo": "mutation",
+   "variables": "($input: CouponRollbackInput)",
+   "texto": "mutation RollBackCoupon($input: CouponRollbackInput) {\n    RollBackCoupon(rollback_promotion: $input) {\n      updatedCartResult {\n        orderSessionId\n        countryLanguage\n        countryId\n        createdAt\n        cinema {\n          name\n          id\n          cinemaVistaId\n          cinemaType\n          businessType\n        }\n        tickets {\n          orderId\n          providerName\n        }\n        foods {\n          orderId\n          providerName\n          screenNumber\n        }\n        amount {\n          charges\n          subtotal\n          total\n          discount\n        }\n        promotionVoucher {\n          voucher\n          transactionId\n          status\n        }\n      }\n    }\n}",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "AlarmsBatch",
+   "tipo": "query",
+   "variables": "($country: String!, $project: String!, $language: String!, $alarm: [String!]!)",
+   "texto": "query AlarmsBatch($country: String!, $project: String!, $language: String!, $alarm: [String!]!) {\n    alarmsBatch(country: $country, project: $project, language: $language, alarm: $alarm) {\n      alarmCode\n      title\n      description\n      detail\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "avatars",
+   "tipo": "query",
+   "variables": "($countryId: String!)",
+   "texto": "query avatars($countryId: String!){\n    avatars(countryId: $countryId) {\n      avatars\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "AvatarsMutation",
+   "tipo": "mutation",
+   "variables": "($imgAvatar: String!)",
+   "texto": "mutation AvatarsMutation($imgAvatar: String!) {\n    setAvatar(\n      avatar: {\n        selectedAvatar: $imgAvatar\n      }){ avatar{\n        path\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "postal_code",
+   "tipo": "query",
+   "variables": "($postal_code: String!, $countryId: String!)",
+   "texto": "query postal_code($postal_code: String!, $countryId: String!) {\n    postal_code(postal_code: $postal_code, country_code: $countryId) {\n      postal_code\n      state\n      town\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "Profile",
+   "tipo": "mutation",
+   "variables": "($memberId: String!)",
+   "texto": "mutation Profile($memberId: String!){\n        profile(\n            profileData: {\n                member_id: $memberId, \n            }\n        ) {\n            profile {\n                subscription{\n                    name\n                    description\n                    creationDate\n                    startDate\n                    amountPaid\n                    transactionNumber\n                    status\n                    membershipType\n                    tickets\n                    double\n                    premium\n                    basePrice\n                    premiumPrice\n                    totalPrice\n                }\n                invoincing{\n                    cardNumber\n                    nextPayment\n                }\n                lastEvaluatedKey\n                paymentHistory{\n                    paymentDate\n                    description\n                    paymentMethod\n                    price\n                }\n            }\n        }\n        \n    }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "UserSessionId",
+   "tipo": "query",
+   "variables": "(\\n    $cinemaId: String!\\n    $pass: String\\n    $pin: String\\n    $userSessionId: String\\n  )",
+   "texto": "query UserSessionId(\n    $cinemaId: String!\n    $pass: String\n    $pin: String\n    $userSessionId: String\n  ) {\n    user_session_id(\n      cinemaId: $cinemaId\n      pass: $pass\n      pin: $pin\n      userSessionId: $userSessionId\n    )\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "alarmsBatch",
+   "tipo": "query",
+   "variables": "(\\n    $country: String!\\n    $project: String!\\n    $language: String!\\n    $alarm: [String!]!\\n  )",
+   "texto": "query alarmsBatch(\n    $country: String!\n    $project: String!\n    $language: String!\n    $alarm: [String!]!\n  ) {\n    alarmsBatch(\n      country: $country\n      project: $project\n      language: $language\n      alarm: $alarm\n    ) {\n      alarmCode\n      title\n      description\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "Alarm",
+   "tipo": "query",
+   "variables": "(\\n    $country: String!\\n    $project: String!\\n    $language: String!\\n    $cinema: [String!]!\\n  )",
+   "texto": "query Alarm(\n    $country: String!\n    $project: String!\n    $language: String!\n    $cinema: [String!]!\n  ) {\n    alarms(\n      country: $country\n      project: $project\n      language: $language\n      cinema: $cinema\n    ) {\n      alarmCode\n      countryCode\n      project\n      title\n      description\n      active\n      color\n      language\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "countrySettings",
+   "tipo": "query",
+   "variables": "($countryId: String!)",
+   "texto": "query countrySettings($countryId: String!) {\n    countrySettings(countryId: $countryId) {\n      countryName\n      countryId\n      countryUrlDomain\n      countryUrlPath\n      languages\n      currency\n      currencySymbol\n      currencyGroupSeparator\n      currencyDecimalSeparator\n      currencyDecimalDigits\n      countryDateFormat\n      countryFeatureFlags {\n        loyalty\n        wallet\n        promotion\n        isFormat12Hours\n      }\n      sessionTtl\n      termsAndConditions {\n        title\n        url\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "GetSharedConfig",
+   "tipo": "query",
+   "variables": "(\\n    $country: String!\\n    $project: String!\\n    $config: String!\\n  )",
+   "texto": "query GetSharedConfig(\n    $country: String!\n    $project: String!\n    $config: String!\n  ) {\n    getSharedConfig(country: $country, project: $project, config: $config) {\n      country\n      project\n      config\n      setting\n      active\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "GetFavorites",
+   "tipo": "query",
+   "variables": "",
+   "texto": "query GetFavorites {\n    cinemas {\n      id\n      name\n      experiences {\n        icon\n        name\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "AddFavoriteCinema",
+   "tipo": "mutation",
+   "variables": "($cinemaData: AddCinemasDataInput!)",
+   "texto": "mutation AddFavoriteCinema($cinemaData: AddCinemasDataInput!) {\n    addCinemas(cinemaData: $cinemaData) {\n      cinemas {\n        id\n        name\n        cityId\n        experiences {\n          icon\n          name\n        }\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "RemoveFavoriteCinema",
+   "tipo": "mutation",
+   "variables": "($id: String!)",
+   "texto": "mutation RemoveFavoriteCinema($id: String!) {\n    deleteCinemas(id: $id) {\n      success\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "AddFavoriteFood",
+   "tipo": "mutation",
+   "variables": "($foodData: AddFoodsDataInput!)",
+   "texto": "mutation AddFavoriteFood($foodData: AddFoodsDataInput!) {\n    addFoods(foodData: $foodData) {\n      foods {\n        id\n      }\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "RemoveFavoriteFood",
+   "tipo": "mutation",
+   "variables": "($foodId: String!)",
+   "texto": "mutation RemoveFavoriteFood($foodId: String!) {\n    deleteFoods(id: $foodId) {\n      success\n    }\n  }",
+   "fichero": "_app-8ff42d669f757bf0.js"
+  },
+  {
+   "nombre": "Country",
+   "tipo": "query",
+   "variables": "",
+   "texto": "query Country {\n        countries {\n            name\n            countryId\n            icon\n            languages {\n                name\n                languageId\n            }\n        }\n    }",
+   "fichero": "9386-5773ceb656b921ce.js"
+  },
+  {
+   "nombre": "Footer",
+   "tipo": "query",
+   "variables": "($countryId: String!, $language: String!)",
+   "texto": "query Footer($countryId: String!, $language: String!) {\n    footer(country: $countryId, language: $language) {\n      name\n      position\n      sections {\n        title\n        position\n        link\n        isExternal\n      }\n    }\n  }",
+   "fichero": "9386-5773ceb656b921ce.js"
+  },
+  {
+   "nombre": "HasConcessions",
+   "tipo": "query",
+   "variables": "($cinema: String!, $country: String!)",
+   "texto": "query HasConcessions($cinema: String!, $country: String!) {\n    hasConcessions(cinema: $cinema, country: $country)\n  }",
+   "fichero": "8595-908bd3479b87d575.js"
+  },
+  {
+   "nombre": "AddConcession",
+   "tipo": "mutation",
+   "variables": "(\\n    $cinema: JSONString!\\n    $concessions: [ConcessionInput]!\\n    $deliveryInfo: DeliveryInfoInput\\n    $country: String!\\n    $orderId: String\\n    $orderUserId: String!\\n  )",
+   "texto": "mutation AddConcession(\n    $cinema: JSONString!\n    $concessions: [ConcessionInput]!\n    $deliveryInfo: DeliveryInfoInput\n    $country: String!\n    $orderId: String\n    $orderUserId: String!\n  ) {\n    addConcession(\n      cinema: $cinema\n      deliveryInfo: $deliveryInfo\n      concessions: $concessions\n      country: $country\n      orderId: $orderId\n      orderUserId: $orderUserId\n    ) {\n      order {\n        cinemaVistaId\n        cinemaName\n        cinemaId\n        cinemaType\n        orderUserId\n        foods\n        total\n        charges\n        subtotal\n      }\n    }\n  }",
+   "fichero": "8595-908bd3479b87d575.js"
+  },
+  {
+   "nombre": "UpdateConcession",
+   "tipo": "mutation",
+   "variables": "(\\n    $cinema: JSONString!\\n    $concessions: [ConcessionInput]!\\n    $deliveryInfo: DeliveryInfoInput\\n    $country: String!\\n    $orderId: String!\\n    $orderUserId: String!\\n  )",
+   "texto": "mutation UpdateConcession(\n    $cinema: JSONString!\n    $concessions: [ConcessionInput]!\n    $deliveryInfo: DeliveryInfoInput\n    $country: String!\n    $orderId: String!\n    $orderUserId: String!\n  ) {\n    updateConcession(\n      cinema: $cinema\n      deliveryInfo: $deliveryInfo\n      concessions: $concessions\n      country: $country\n      orderId: $orderId\n      orderUserId: $orderUserId\n    ) {\n      order {\n        cinemaVistaId\n        cinemaName\n        cinemaId\n        cinemaType\n        orderUserId\n        foods\n        total\n        charges\n        subtotal\n      }\n    }\n  }",
+   "fichero": "8595-908bd3479b87d575.js"
+  },
+  {
+   "nombre": "Order",
+   "tipo": "mutation",
+   "variables": "($orderData: OrdersInput!)",
+   "texto": "mutation Order($orderData: OrdersInput!) {\n    order(orderData: $orderData) {\n      order {\n        cinemaVistaId\n        orderUserId\n        tickets {\n          orderId\n        }\n        total\n        charges\n        subtotal\n      }\n    }\n  }",
+   "fichero": "8595-908bd3479b87d575.js"
+  },
+  {
+   "nombre": "Movies",
+   "tipo": "query",
+   "variables": "($countryId: String!, $id: String!, $isAbsoluteMediaPath: Boolean)",
+   "texto": "query Movies($countryId: String!, $id: String!, $isAbsoluteMediaPath: Boolean) {\n    movie(countryId: $countryId, id: $id, isAbsoluteMediaPath: $isAbsoluteMediaPath) {\n      id\n      type\n      countryId\n      name\n      originalName\n      distributor\n      rating\n      position\n      ratingDescription\n      genre\n      synopsis\n      length\n      availableForSale\n      alerts {\n        title\n        message\n      }\n      releaseDate\n      tags {\n        name\n        resource\n      }\n      media {\n        resource\n        type\n        code\n        sizes {\n          large\n          medium\n          small\n        }\n      }\n      cities\n      cinemas\n      categories\n      experiences {\n        icon\n        name\n      }\n      cast {\n        actors {\n          name\n          description\n          nameInMovie\n          moviesTotal\n          image {\n            resource\n            sizes {\n              large\n              medium\n            }\n          }\n        }\n        directors {\n          name\n          description\n          nameInMovie\n          moviesTotal\n          image {\n            resource\n            sizes {\n              large\n              medium\n            }\n          }\n        }\n        producers {\n          name\n          description\n          nameInMovie\n          moviesTotal\n          image {\n            resource\n            sizes {\n              large\n              medium\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "5680-1748cf62209cf1c7.js"
+  },
+  {
+   "nombre": "Billboard",
+   "tipo": "query",
+   "variables": "(\\n    $countryId: String!\\n    $movieId: String!\\n    $cinemas: String!\\n    $timezone: String\\n  )",
+   "texto": "query Billboard(\n    $countryId: String!\n    $movieId: String!\n    $cinemas: String!\n    $timezone: String\n  ) {\n    billboard(\n      countryId: $countryId\n      movieId: $movieId\n      cinemas: $cinemas\n      timezone: $timezone\n    ) {\n      dates\n      schedules {\n        cinemaId\n        cityId\n        movieId\n        dates {\n          date\n          languages {\n            language\n            displayLanguage\n            showtimes {\n              format {\n                icon\n                name\n              }\n              sessionId\n              datetime\n              screen\n              experience {\n                icon\n                name\n              }\n              movieVistaId\n              cinemaVistaId\n              alerts {\n                section\n                title\n                message\n              }\n              availability\n              isAllocatedSeating\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "5680-1748cf62209cf1c7.js"
+  },
+  {
+   "nombre": "Cinemas",
+   "tipo": "query",
+   "variables": "($country_id: String!, $cinemas: String!)",
+   "texto": "query Cinemas($country_id: String!, $cinemas: String!) {\n    cinemasById(country_id: $country_id, cinemas: $cinemas) {\n      edges {\n        cursor\n        node {\n          id\n          lat\n          lng\n          name\n          type\n          cityId\n          vistaId\n          regionId\n          timezone\n          businessType\n          settings {\n            requireContiguousSeating\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "5680-1748cf62209cf1c7.js"
+  },
+  {
+   "nombre": "Blog",
+   "tipo": "query",
+   "variables": "($countryId: String!)",
+   "texto": "query Blog($countryId: String!) {\n    blog(countryId: $countryId) {\n      id\n      title\n      link\n      image\n    }\n  }",
+   "fichero": "[country]-bd114a9a6fcda756.js"
+  },
+  {
+   "nombre": "AnnualPassesMutation",
+   "tipo": "mutation",
+   "variables": "($pass: String!, $pin: String!)",
+   "texto": "mutation AnnualPassesMutation($pass: String!, $pin: String!) {\n    addPass(annualPassData: { pass: $pass, pin: $pin }) {\n      annualPass {\n        passType\n        hashId\n        expiryDate\n        lastFourDigits\n      }\n    }\n  }",
+   "fichero": "asientos-a98f762bb642833c.js"
+  },
+  {
+   "nombre": "Promotions",
+   "tipo": "query",
+   "variables": "($countryId: String!, $type: String)",
+   "texto": "query Promotions($countryId: String!, $type: String) {\n    promotions(countryId: $countryId, type: $type) {\n      id\n      countryId\n      order\n      name\n      image\n      usePin\n      type\n      description\n    }\n  }",
+   "fichero": "asientos-a98f762bb642833c.js"
+  },
+  {
+   "nombre": "TicketsForVoucherBarcode",
+   "tipo": "query",
+   "variables": "(\\n    $countryId: String!\\n    $cinemaVistaId: String!\\n    $sessionId: String!\\n    $voucherBarcode: String!\\n    $userSessionId: String\\n  )",
+   "texto": "query TicketsForVoucherBarcode(\n    $countryId: String!\n    $cinemaVistaId: String!\n    $sessionId: String!\n    $voucherBarcode: String!\n    $userSessionId: String\n  ) {\n    ticketsForVoucherBarcode(\n      countryId: $countryId\n      cinemaVistaId: $cinemaVistaId\n      sessionId: $sessionId\n      voucherBarcode: $voucherBarcode\n      userSessionId: $userSessionId\n    ) {\n      areaCategoryCode\n      tickets {\n        id\n        ticketTypeCode\n        ticketCode\n        ticketDescription\n        description\n        bookingFee\n        priceInCents\n        taxInCents\n        displaySequence\n        quantityAvailablePerOrder\n        type\n        isPackageTicket\n        packageContent {\n          tickets {\n            description\n            quantity\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "asientos-a98f762bb642833c.js"
+  },
+  {
+   "nombre": "ValidateVoucherBarcodeMC",
+   "tipo": "query",
+   "variables": "($cinemaVistaId: String!, $experience: String!, $sessionId: String!)",
+   "texto": "query ValidateVoucherBarcodeMC ($cinemaVistaId: String!, $experience: String!, $sessionId: String!) {\n    validateVoucherBarcodeMC(\n      cinemaVistaId: $cinemaVistaId,\n      experience: $experience,\n      sessionId: $sessionId\n    )\n  }",
+   "fichero": "asientos-a98f762bb642833c.js"
+  },
+  {
+   "nombre": "Tickets",
+   "tipo": "query",
+   "variables": "(\\n    $countryId: String!\\n    $sessionId: String!\\n    $cinemaVistaId: String!\\n    $userSessionId: String\\n  )",
+   "texto": "query Tickets(\n    $countryId: String!\n    $sessionId: String!\n    $cinemaVistaId: String!\n    $userSessionId: String\n  ) {\n    tickets(\n      countryId: $countryId\n      cinemaVistaId: $cinemaVistaId\n      sessionId: $sessionId\n      userSessionId: $userSessionId\n    ) {\n      areaCategoryCode\n      tickets {\n        id\n        ticketTypeCode\n        description\n        ticketDescription\n        priceInCents\n        bookingFee\n        taxInCents\n        displaySequence\n        quantityAvailablePerOrder\n        loyaltyRecognitionId\n        type\n        isPackageTicket\n        packageContent {\n          tickets {\n            description\n            quantity\n          },\n          concessions {\n            charge\n            description\n            displayName\n            isConfigurable\n            isInventoryProduct\n            itemId\n            quantity\n          }\n        }\n        isThirdMember\n      }\n    }\n  }",
+   "fichero": "asientos-a98f762bb642833c.js"
+  },
+  {
+   "nombre": "ValidateCheckIn",
+   "tipo": "query",
+   "variables": "(\\n    $country: String!\\n    $cinema: String!\\n    $orderUserId: String!\\n    $language: String!\\n  )",
+   "texto": "query ValidateCheckIn(\n    $country: String!\n    $cinema: String!\n    $orderUserId: String!\n    $language: String!\n  ) {\n    validateCheckIn(\n      country: $country\n      cinema: $cinema\n      order: $orderUserId\n      language: $language\n    ) {\n      order {\n        checkInCandidate\n        checkInAvailable\n        icon\n        checkInStartTime\n        checkInEndTime\n        checkInDisclaimerMessage\n        checkInStartTimeMessage\n        deliveryTypes {\n          message\n          id\n          subMessage\n          image\n          currentStatus\n          priority\n        }\n        orderInfo {\n          deliveryType\n          loyaltyId\n          email\n          bookingNumber\n          transactionNumber\n          orderId\n          externalOrderId\n          bookingId\n          transactionId\n          country\n          countryCinema\n          cartCreatedAt\n          userId\n          totalAmount\n          bookingId\n          cinema {\n            cinemaId\n            cinemaName\n            cinemaVistaId\n            cinemaTimezone\n          }\n          amount {\n            charges\n            subtotal\n            points\n            total\n          }\n          tickets {\n            providerName\n            movie {\n              name\n              image\n            }\n            schedule {\n              sessionId\n              screenNumber\n              language\n              startTime\n            }\n            seats {\n              position {\n                areaNumber\n                columnIndex\n                rowIndex\n                seatNumber\n              }\n              seatType\n              ticketsOptions {\n                description\n                loyaltyRecognitionId\n                price\n                selected\n                ticketTypeCode\n                type\n                packageContent {\n                  concessions {\n                    concession\n                    description\n                    price\n                  }\n                  tickets\n                }\n              }\n            }\n          }\n          foods {\n            concessions {\n              concession\n              description\n              id\n              price\n              quantity\n              image\n              ingredientsName\n              modifiers\n              price\n              product\n              productName\n            }\n            deliveryLine\n            orderId\n            providerName\n          }\n          status\n          cinemaId\n        }\n      }\n    }\n  }",
+   "fichero": "check-in-5dee99f25c68668c.js"
+  },
+  {
+   "nombre": "ExecuteCheckIn",
+   "tipo": "mutation",
+   "variables": "(\\n    $country: String!\\n    $cinema: String!\\n    $order: String!\\n    $deliveryType: String!\\n  )",
+   "texto": "mutation ExecuteCheckIn(\n    $country: String!\n    $cinema: String!\n    $order: String!\n    $deliveryType: String!\n  ) {\n    executeCheckIn(\n      country: $country\n      cinema: $cinema\n      order: $order\n      deliveryType: $deliveryType\n    ) {\n      order {\n        checkInStatus\n      }\n    }\n  }",
+   "fichero": "check-in-5dee99f25c68668c.js"
+  },
+  {
+   "nombre": "Cities",
+   "tipo": "query",
+   "variables": "($countryId: String!)",
+   "texto": "query Cities($countryId: String!) {\n    cities(country_id: $countryId) {\n      edges {\n        node {\n          id\n          name\n          regions {\n            regionId\n            regionName\n          }\n          settings {\n            hasFoodSales\n            hasPresales\n          }\n          timezone\n          cinemas {\n            id\n            regionId\n            vistaId\n            type\n            name\n            cityId\n            lat\n            lng\n            distance\n            businessType\n            experiences {\n              icon\n              name\n            }\n            settings {\n              requireContiguousSeating\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "location-b3c919b77f443ceb.js"
+  },
+  {
+   "nombre": "SitemapCinemas",
+   "tipo": "query",
+   "variables": "($countryId: String!)",
+   "texto": "query SitemapCinemas($countryId: String!) {\n    cities(country_id: $countryId) {\n      edges {\n        node {\n          id\n          cinemas {\n            id\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "location-b3c919b77f443ceb.js"
+  },
+  {
+   "nombre": "OrderState",
+   "tipo": "query",
+   "variables": "(\\n    $country: String!\\n    $cinema: String!\\n    $order: String!\\n  )",
+   "texto": "query OrderState(\n    $country: String!\n    $cinema: String!\n    $order: String!\n  ) {\n    orderState(\n      country: $country\n      cinema: $cinema\n      order: $order\n    ) {\n    states {\n      statusId\n      statusMessage\n      statusSubMessage\n      statusImage\n      currentStatus\n      priority\n    }\n    deliveryType\n    backgroundColor\n    createdAt\n    orderInfo {\n        deliveryType\n        loyaltyId\n        email\n        bookingNumber\n        transactionNumber\n        orderId\n        externalOrderId\n        bookingId\n        transactionId\n        country\n        countryCinema\n        cartCreatedAt\n        userId\n        totalAmount\n        cinema {\n          cinemaId\n          cinemaName\n          cinemaVistaId\n          cinemaTimezone\n        }\n        amount {\n          charges\n          subtotal\n          points\n          total\n        }\n        tickets {\n          providerName\n          movie {\n            name\n            image\n          }\n          schedule {\n            sessionId\n            screenNumber\n            language\n            startTime\n          }\n          seats {\n            position {\n              areaNumber\n              columnIndex\n              rowIndex\n              seatNumber\n            }\n            seatType\n            ticketsOptions {\n              description\n              loyaltyRecognitionId\n              price\n              selected\n              ticketTypeCode\n              type\n              packageContent {\n                concessions {\n                  concession\n                  description\n                  price\n                }\n                tickets\n              }\n            }\n          }\n        }\n        foods {\n          concessions {\n            concession\n            description\n            id\n            price\n            quantity\n            image\n            ingredientsName\n            modifiers\n            price\n            product\n            productName\n          }\n          deliveryLine\n          orderId\n          providerName\n        }\n        status\n        cinemaId\n      }\n    }\n  }",
+   "fichero": "order-tracker-f6316f688641e497.js"
+  },
+  {
+   "nombre": "OrderDispatcher",
+   "tipo": "query",
+   "variables": "($orderSessionId: String!, $countryId: String!)",
+   "texto": "query OrderDispatcher($orderSessionId: String!, $countryId: String!) {\n        orderDispatcher(\n            orderSessionId: $orderSessionId\n            countryId: $countryId\n        ) {\n            order_session_id\n            country_id\n            status\n            tcc\n            purchase_datetime\n            transaction_datetime\n            booking_id\n            booking_time\n            transaction_number\n            country_id_cinema_id\n            transaction {\n                booking_id\n                trans_number\n                booking_number\n                transact_type\n            }\n            cinema {\n                type\n                id\n                name\n                vista_id\n                business_type\n            }\n            payment {\n                payment_id\n                payment_method\n                payment_info {\n                    last4Digits\n                    cardType\n                }\n            }\n            foods {\n                order_id\n                delivery_line\n                provider_name\n                concessions {\n                    added_points\n                    comments\n                    concession\n                    description\n                    ingredients_name\n                    modifiers\n                    price\n                    product_name\n                    promotion\n                    quantity\n                    image\n                    recipe_items {\n                        product\n                        quantity\n                        description\n                        product_description\n                        product_name\n                        modifiers\n                        ingredients_name\n                    }\n                }\n            }\n            tickets {\n                provider_name\n                order_id\n                added_points\n                movie {\n                    type\n                    duration\n                    image\n                    synopsis\n                    rating\n                    name\n                }\n                schedule {\n                    session_id\n                    screen_number\n                    datetime\n                    language\n                    experience {\n                        name \n                    }\n                }\n                seats {\n                    number\n                    capacity\n                    promotion\n                    tickets_options {\n                        description\n                        selected\n                        price\n                        booking_fee\n                        ticket_type_code\n                        package_content {\n                            concessions {\n                                description\n                                display_name\n                                charge\n                                quantity\n                            }\n                        }\n                    }\n                }\n            }\n            bill_url{\n                url\n            },\n            amount {\n                subtotal\n                charges\n                points\n                total\n            }\n        }\n    }",
+   "fichero": "resumen-da6f90ff2de6e21f.js"
+  },
+  {
+   "nombre": "NavBarByProject",
+   "tipo": "query",
+   "variables": "($country: String!, $language: String!, $project: String!)",
+   "texto": "query NavBarByProject($country: String!, $language: String!, $project: String!) {\n    navBarByProject(country: $country, language: $language, project: $project) {\n      order\n      title\n      navBarTabs {\n        order\n        title\n        navBarCards {\n          description\n          link\n          order\n          target\n          title\n          image {\n            android {\n              normal\n            }\n            ios {\n              normal\n            }\n            web {\n              normal\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "2690-d662b7720c8e9786.js"
+  },
+  {
+   "nombre": "Search",
+   "tipo": "query",
+   "variables": "($countryId: String!, $search: String!)",
+   "texto": "query Search($countryId: String!, $search: String!) {\n    searchEntities(countryId: $countryId, search: $search) {\n      edges {\n        node {\n          cinemas {\n            id\n            lat\n            lng\n            name\n            type\n            cityId\n            vistaId\n            timeZone\n            cityName\n            cityRegion\n            businessType\n            experiences {\n              name\n            }\n            countryId\n          }\n          movies {\n            id\n            name\n            countryId\n            media {\n              platform\n              resources {\n                type\n                code\n                resource\n                sizes {\n                  large\n                  small\n                  medium\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "2690-d662b7720c8e9786.js"
+  },
+  {
+   "nombre": "Seats",
+   "tipo": "query",
+   "variables": "(\\n    $countryId: String!\\n    $sessionId: String!\\n    $cinemaVistaId: String!\\n    $userSessionId: String\\n    $experience: String\\n  )",
+   "texto": "query Seats(\n    $countryId: String!\n    $sessionId: String!\n    $cinemaVistaId: String!\n    $userSessionId: String\n    $experience: String\n  ) {\n    seats(\n      countryId: $countryId\n      sessionId: $sessionId\n      cinemaVistaId: $cinemaVistaId\n      userSessionId: $userSessionId\n      experience: $experience\n    ) {\n      maxQuantity\n      seatLayoutData {\n        areas {\n          rowCount\n          columnCount\n          description\n          areaCategoryCode\n          rows {\n            physicalName\n            seats {\n              id\n              status\n              originalStatus\n              seatStyle\n              position {\n                columnIndex\n                rowIndex\n                areaNumber\n              }\n            }\n          }\n        }\n        areaCategories {\n          areaCategoryCode\n          capacity\n          name\n          description\n          image\n          hopk\n          selectedSeats {\n            areaNumber\n            rowIndex\n            columnIndex\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "BillboardOrderLinking",
+   "tipo": "query",
+   "variables": "(\\n    $countryId: String!\\n    $movieId: String!\\n    $cinemaId: String!\\n    $controlTime: Int!\\n    $isAbsoluteExperiencePath: Boolean!\\n  )",
+   "texto": "query BillboardOrderLinking(\n    $countryId: String!\n    $movieId: String!\n    $cinemaId: String!\n    $controlTime: Int!\n    $isAbsoluteExperiencePath: Boolean!\n  ) {\n    billboardOrderLinking(\n      countryId: $countryId\n      movieId: $movieId\n      cinemaId: $cinemaId\n      controlTime: $controlTime\n      isAbsoluteExperiencePath: $isAbsoluteExperiencePath\n    ) {\n      dates\n      schedules {\n        movieId\n        dates {\n          date\n          languages {\n            language\n            displayLanguage\n            showtimes {\n              sessionId\n              datetime\n              screen\n              movieVistaId\n              movieName\n              cinemaVistaId\n              availability\n              isAllocatedSeating\n              format {\n                icon\n                name\n              }\n              experience {\n                icon\n                name\n              }\n              alerts {\n                section\n                title\n                message\n              }\n            }\n          }\n        }\n      }\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "Purchases",
+   "tipo": "query",
+   "variables": "(\\n    $tcc: String!\\n    $status: String!\\n    $limit: Int!\\n    $after: String!\\n  )",
+   "texto": "query Purchases(\n    $tcc: String!\n    $status: String!\n    $limit: Int!\n    $after: String!\n  ) {\n    purchases(tcc: $tcc, status: $status, limit: $limit, after: $after) {\n      purchases {\n        tcc\n        purchaseDatetime\n        orderSessionId\n        foods {\n          concessions {\n            description\n            modifiers\n            price\n            addedPoints\n            productName\n            comments\n            ingredientsName\n            concession\n          }\n          orderId\n          providerName\n        }\n        transactionDatetime\n        cinema {\n          name\n          type\n        }\n        tickets {\n          orderId\n          providerName\n          addedPoints\n          movie {\n            duration\n            image\n            name\n            ratingDescription\n            rating\n            synopsis\n          }\n          schedule {\n            datetime\n            screenNumber\n            sessionId\n            language\n            imageBackgroundSynopsis\n            experience {\n              icon\n              name\n            }\n            format {\n              icon\n              name\n            }\n          }\n          seats {\n            areaCategoryCode\n            capacity\n            description\n            number\n            position {\n              areaNumber\n              columnIndex\n              rowIndex\n            }\n            promotion {\n              id\n              type\n              voucherBarcode\n            }\n            ticketsOptions {\n              bookingFee\n              description\n              price\n              selected\n              ticketTypeCode\n            }\n          }\n        }\n        amount {\n          charges\n          points\n          subtotal\n          total\n        }\n        payment {\n          paymentId\n          paymentMethod\n          paymentInfo {\n            cardType\n            last4Digits\n          }\n        }\n        status\n        countryId\n        transaction {\n          bookingId\n          bookingNumber\n          transactType\n          transNumber\n        }\n        customer {\n          email\n          firstName\n          lastName\n          loyalty {\n            memberTCC\n            points\n          }\n        }\n      }\n      lastEvaluatedKey\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "emailOTP",
+   "tipo": "query",
+   "variables": "($email: String!, $flow: String!)",
+   "texto": "query emailOTP($email: String!, $flow: String!) {\n    emailOTP(email: $email, flow: $flow) {\n      success\n      isBlocked\n      message\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "EmailOTPMutation",
+   "tipo": "mutation",
+   "variables": "($email: String!, $codeOTP: String!)",
+   "texto": "mutation EmailOTPMutation($email: String!, $codeOTP: String!) {\n    verify(emailOTP: { email: $email, otp: $codeOTP }) {\n      verify {\n        accessToken\n        idToken\n        expiresIn\n      }\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "emailOTPAttempts",
+   "tipo": "query",
+   "variables": "($email: String!, $flow: String!)",
+   "texto": "query emailOTPAttempts($email: String!, $flow: String!) {\n    emailOTPAttempts(email: $email, flow: $flow) {\n      email\n      attemptCount\n      isBlocked\n      message\n    }\n  }",
+   "fichero": "518-0a1e6d5603d369c4.js"
+  },
+  {
+   "nombre": "GetRecommendations",
+   "tipo": "query",
+   "variables": "($countryId: String!, $cinema: String!, $userSessionId: String!, $userAction: String!)",
+   "texto": "query GetRecommendations($countryId: String!, $cinema: String!, $userSessionId: String!, $userAction: String!) {\n    getRecommendations(                                            \n        country: $countryId,                                                       \n        cinema: $cinema,                                                        \n        userSessionId: $userSessionId,                                   \n        userAction: $userAction                                                \n    ) {                                                               \n        showRecommendations                                                   \n        recommendationType                                                   \n        recommendations {                                                   \n            product                                                                  \n            productName                                                              \n            price                                                                      \n            discount                                                                 \n            productDescription                                                        \n            productStructure                                                      \n            productType                                                              \n            category                                                                \n            tag                                                                      \n            promotionType                                                           \n            active                                                                  \n            sellable                                                                \n            resource {                                                             \n                web {    \n                    promotional      \n                    normal           \n                    wide             \n                    icon             \n                }        \n            }                                                                      \n        }                                                                   \n    }                                                               \n}",
+   "fichero": "391-65af619887e50c87.js"
+  },
+  {
+   "nombre": "GetWalletCards",
+   "tipo": "query",
+   "variables": "",
+   "texto": "query GetWalletCards {\n    wallet {\n        size,\n        max_limit,\n        exceed_max_limit,\n        payment_methods{\n            payment_method_type,\n            payment_method_brand,\n            payment_method_id,\n            payment_method_name,\n            payment_method_expired\n            last_four_digits,\n            first_six_digits,\n            default_card\n        }\n    }\n  }",
+   "fichero": "2777-d2e70aed54e7f5c3.js"
+  },
+  {
+   "nombre": "CardWalletDeuna",
+   "tipo": "query",
+   "variables": "",
+   "texto": "query CardWalletDeuna{\n    cardWalletDeuna {\n      size\n      max_limit\n      exceed_max_limit\n      payment_methods {\n        payment_method_type\n        payment_method_brand\n        payment_method_id\n        payment_method_name\n        payment_method_expired\n        last_four_digits\n        first_six_digits\n        default_card\n      }\n    }\n  }",
+   "fichero": "2777-d2e70aed54e7f5c3.js"
+  },
+  {
+   "nombre": "DefaultCardUser",
+   "tipo": "mutation",
+   "variables": "($card_id: String!)",
+   "texto": "mutation DefaultCardUser($card_id: String!) {\n    updatePreferenceCardDeuna(payment_method_id: $card_id) {\n      success\n    }\n  }",
+   "fichero": "2777-d2e70aed54e7f5c3.js"
+  },
+  {
+   "nombre": "RemoveCardDeuna",
+   "tipo": "mutation",
+   "variables": "($card_id: String!)",
+   "texto": "mutation RemoveCardDeuna($card_id: String!) {\n  removeCardDeuna(payment_method_id: $card_id) {\n      success\n      card\n    }\n  }",
+   "fichero": "2777-d2e70aed54e7f5c3.js"
+  },
+  {
+   "nombre": "UserSessionDeuna",
+   "tipo": "query",
+   "variables": "($first_name: String!, $last_name: String!)",
+   "texto": "query UserSessionDeuna ($first_name: String!, $last_name: String!) {\n    userSessionDeuna(first_name: $first_name, last_name: $last_name) {\n      user_token\n    }\n  }",
+   "fichero": "2777-d2e70aed54e7f5c3.js"
+  }
+ ],
+ "pruebas": [
+  {
+   "nombre": "payment_methods",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "orderSessionId": null,
+    "countryId": "ES"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "UserSessionId",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "cinemaId": "premium-bahia-sur-cadiz",
+    "pass": null,
+    "pin": null,
+    "userSessionId": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Alarm",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "country": "ES",
+    "project": null,
+    "language": "es",
+    "cinema": "premium-bahia-sur-cadiz"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "HasConcessions",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "cinema": "premium-bahia-sur-cadiz",
+    "country": "ES"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Billboard",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "movieId": null,
+    "cinemas": "premium-bahia-sur-cadiz",
+    "timezone": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Cinemas",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "country_id": "ES",
+    "cinemas": "premium-bahia-sur-cadiz"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "TicketsForVoucherBarcode",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "sessionId": null,
+    "voucherBarcode": null,
+    "userSessionId": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "ValidateVoucherBarcodeMC",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "experience": null,
+    "sessionId": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Tickets",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "sessionId": null,
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "userSessionId": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "ValidateCheckIn",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "country": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "orderUserId": null,
+    "language": "es"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "SitemapCinemas",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "countryId": "ES"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "OrderState",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "country": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "order": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "OrderDispatcher",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "orderSessionId": null,
+    "countryId": "ES"
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Seats",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "sessionId": null,
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "userSessionId": null,
+    "experience": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "BillboardOrderLinking",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "movieId": null,
+    "cinemaId": "premium-bahia-sur-cadiz",
+    "controlTime": null,
+    "isAbsoluteExperiencePath": true
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "GetRecommendations",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "userSessionId": null,
+    "userAction": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "UserSessionDeuna",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "first_name": 100,
+    "last_name": null
+   },
+   "estado": 401,
+   "texto": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  }
+ ],
+ "pulsando": [
+  {
+   "nombre": "payment_methods",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "orderSessionId": null,
+    "countryId": "ES"
+   },
+   "consulta": "query payment_methods($orderSessionId: String!, $countryId: String!) {\n    payment_methods(orderSessionId: $orderSessionId, countryId: $countryId) {\n      name\n      order\n      key\n      enabled\n      settings {\n        profile {\n          org_id\n          merch\n          provider\n        }\n        iframe_url\n        icon {\n          url\n        },\n        public_key,\n        merchant,\n        org_id,\n        env, \n        use_wallet,\n        otp,\n        otp_flow\n        points_to_use,\n        available_points\n        total_redeemed\n        placeholder\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "UserSessionId",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "cinemaId": "premium-bahia-sur-cadiz",
+    "pass": null,
+    "pin": null,
+    "userSessionId": null
+   },
+   "consulta": "query UserSessionId(\n    $cinemaId: String!\n    $pass: String\n    $pin: String\n    $userSessionId: String\n  ) {\n    user_session_id(\n      cinemaId: $cinemaId\n      pass: $pass\n      pin: $pin\n      userSessionId: $userSessionId\n    )\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "HasConcessions",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "cinema": "premium-bahia-sur-cadiz",
+    "country": "ES"
+   },
+   "consulta": "query HasConcessions($cinema: String!, $country: String!) {\n    hasConcessions(cinema: $cinema, country: $country)\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Billboard",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "movieId": null,
+    "cinemas": "premium-bahia-sur-cadiz",
+    "timezone": null
+   },
+   "consulta": "query Billboard(\n    $countryId: String!\n    $movieId: String!\n    $cinemas: String!\n    $timezone: String\n  ) {\n    billboard(\n      countryId: $countryId\n      movieId: $movieId\n      cinemas: $cinemas\n      timezone: $timezone\n    ) {\n      dates\n      schedules {\n        cinemaId\n        cityId\n        movieId\n        dates {\n          date\n          languages {\n            language\n            displayLanguage\n            showtimes {\n              format {\n                icon\n                name\n              }\n              sessionId\n              datetime\n              screen\n              experience {\n                icon\n                name\n              }\n              movieVistaId\n              cinemaVistaId\n              alerts {\n                section\n                title\n                message\n              }\n              availability\n              isAllocatedSeating\n            }\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Cinemas",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "country_id": "ES",
+    "cinemas": "premium-bahia-sur-cadiz"
+   },
+   "consulta": "query Cinemas($country_id: String!, $cinemas: String!) {\n    cinemasById(country_id: $country_id, cinemas: $cinemas) {\n      edges {\n        cursor\n        node {\n          id\n          lat\n          lng\n          name\n          type\n          cityId\n          vistaId\n          regionId\n          timezone\n          businessType\n          settings {\n            requireContiguousSeating\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "TicketsForVoucherBarcode",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "sessionId": null,
+    "voucherBarcode": null,
+    "userSessionId": null
+   },
+   "consulta": "query TicketsForVoucherBarcode(\n    $countryId: String!\n    $cinemaVistaId: String!\n    $sessionId: String!\n    $voucherBarcode: String!\n    $userSessionId: String\n  ) {\n    ticketsForVoucherBarcode(\n      countryId: $countryId\n      cinemaVistaId: $cinemaVistaId\n      sessionId: $sessionId\n      voucherBarcode: $voucherBarcode\n      userSessionId: $userSessionId\n    ) {\n      areaCategoryCode\n      tickets {\n        id\n        ticketTypeCode\n        ticketCode\n        ticketDescription\n        description\n        bookingFee\n        priceInCents\n        taxInCents\n        displaySequence\n        quantityAvailablePerOrder\n        type\n        isPackageTicket\n        packageContent {\n          tickets {\n            description\n            quantity\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "ValidateVoucherBarcodeMC",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "experience": null,
+    "sessionId": null
+   },
+   "consulta": "query ValidateVoucherBarcodeMC ($cinemaVistaId: String!, $experience: String!, $sessionId: String!) {\n    validateVoucherBarcodeMC(\n      cinemaVistaId: $cinemaVistaId,\n      experience: $experience,\n      sessionId: $sessionId\n    )\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Tickets",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "sessionId": null,
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "userSessionId": null
+   },
+   "consulta": "query Tickets(\n    $countryId: String!\n    $sessionId: String!\n    $cinemaVistaId: String!\n    $userSessionId: String\n  ) {\n    tickets(\n      countryId: $countryId\n      cinemaVistaId: $cinemaVistaId\n      sessionId: $sessionId\n      userSessionId: $userSessionId\n    ) {\n      areaCategoryCode\n      tickets {\n        id\n        ticketTypeCode\n        description\n        ticketDescription\n        priceInCents\n        bookingFee\n        taxInCents\n        displaySequence\n        quantityAvailablePerOrder\n        loyaltyRecognitionId\n        type\n        isPackageTicket\n        packageContent {\n          tickets {\n            description\n            quantity\n          },\n          concessions {\n            charge\n            description\n            displayName\n            isConfigurable\n            isInventoryProduct\n            itemId\n            quantity\n          }\n        }\n        isThirdMember\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "ValidateCheckIn",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "country": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "orderUserId": null,
+    "language": "es"
+   },
+   "consulta": "query ValidateCheckIn(\n    $country: String!\n    $cinema: String!\n    $orderUserId: String!\n    $language: String!\n  ) {\n    validateCheckIn(\n      country: $country\n      cinema: $cinema\n      order: $orderUserId\n      language: $language\n    ) {\n      order {\n        checkInCandidate\n        checkInAvailable\n        icon\n        checkInStartTime\n        checkInEndTime\n        checkInDisclaimerMessage\n        checkInStartTimeMessage\n        deliveryTypes {\n          message\n          id\n          subMessage\n          image\n          currentStatus\n          priority\n        }\n        orderInfo {\n          deliveryType\n          loyaltyId\n          email\n          bookingNumber\n          transactionNumber\n          orderId\n          externalOrderId\n          bookingId\n          transactionId\n          country\n          countryCinema\n          cartCreatedAt\n          userId\n          totalAmount\n          bookingId\n          cinema {\n            cinemaId\n            cinemaName\n            cinemaVistaId\n            cinemaTimezone\n          }\n          amount {\n            charges\n            subtotal\n            points\n            total\n          }\n          tickets {\n            providerName\n            movie {\n              name\n              image\n            }\n            schedule {\n              sessionId\n              screenNumber\n              language\n              startTime\n            }\n            seats {\n              position {\n                areaNumber\n                columnIndex\n                rowIndex\n                seatNumber\n              }\n              seatType\n              ticketsOptions {\n                description\n                loyaltyRecognitionId\n                price\n                selected\n                ticketTypeCode\n                type\n                packageContent {\n                  concessions {\n                    concession\n                    description\n                    price\n                  }\n                  tickets\n                }\n              }\n            }\n          }\n          foods {\n            concessions {\n              concession\n              description\n              id\n              price\n              quantity\n              image\n              ingredientsName\n              modifiers\n              price\n              product\n              productName\n            }\n            deliveryLine\n            orderId\n            providerName\n          }\n          status\n          cinemaId\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "SitemapCinemas",
+   "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+   "variables": {
+    "countryId": "ES"
+   },
+   "consulta": "query SitemapCinemas($countryId: String!) {\n    cities(country_id: $countryId) {\n      edges {\n        node {\n          id\n          cinemas {\n            id\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "OrderState",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "country": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "order": null
+   },
+   "consulta": "query OrderState(\n    $country: String!\n    $cinema: String!\n    $order: String!\n  ) {\n    orderState(\n      country: $country\n      cinema: $cinema\n      order: $order\n    ) {\n    states {\n      statusId\n      statusMessage\n      statusSubMessage\n      statusImage\n      currentStatus\n      priority\n    }\n    deliveryType\n    backgroundColor\n    createdAt\n    orderInfo {\n        deliveryType\n        loyaltyId\n        email\n        bookingNumber\n        transactionNumber\n        orderId\n        externalOrderId\n        bookingId\n        transactionId\n        country\n        countryCinema\n        cartCreatedAt\n        userId\n        totalAmount\n        cinema {\n          cinemaId\n          cinemaName\n          cinemaVistaId\n          cinemaTimezone\n        }\n        amount {\n          charges\n          subtotal\n          points\n          total\n        }\n        tickets {\n          providerName\n          movie {\n            name\n            image\n          }\n          schedule {\n            sessionId\n            screenNumber\n            language\n            startTime\n          }\n          seats {\n            position {\n              areaNumber\n              columnIndex\n              rowIndex\n              seatNumber\n            }\n            seatType\n            ticketsOptions {\n              description\n              loyaltyRecognitionId\n              price\n              selected\n              ticketTypeCode\n              type\n              packageContent {\n                concessions {\n                  concession\n                  description\n                  price\n                }\n                tickets\n              }\n            }\n          }\n        }\n        foods {\n          concessions {\n            concession\n            description\n            id\n            price\n            quantity\n            image\n            ingredientsName\n            modifiers\n            price\n            product\n            productName\n          }\n          deliveryLine\n          orderId\n          providerName\n        }\n        status\n        cinemaId\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "OrderDispatcher",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "orderSessionId": null,
+    "countryId": "ES"
+   },
+   "consulta": "query OrderDispatcher($orderSessionId: String!, $countryId: String!) {\n        orderDispatcher(\n            orderSessionId: $orderSessionId\n            countryId: $countryId\n        ) {\n            order_session_id\n            country_id\n            status\n            tcc\n            purchase_datetime\n            transaction_datetime\n            booking_id\n            booking_time\n            transaction_number\n            country_id_cinema_id\n            transaction {\n                booking_id\n                trans_number\n                booking_number\n                transact_type\n            }\n            cinema {\n                type\n                id\n                name\n                vista_id\n                business_type\n            }\n            payment {\n                payment_id\n                payment_method\n                payment_info {\n                    last4Digits\n                    cardType\n                }\n            }\n            foods {\n                order_id\n                delivery_line\n                provider_name\n                concessions {\n                    added_points\n                    comments\n                    concession\n                    description\n                    ingredients_name\n                    modifiers\n                    price\n                    product_name\n                    promotion\n                    quantity\n                    image\n                    recipe_items {\n                        product\n                        quantity\n                        description\n                        product_description\n                        product_name\n                        modifiers\n                        ingredients_name\n                    }\n                }\n            }\n            tickets {\n                provider_name\n                order_id\n                added_points\n                movie {\n                    type\n                    duration\n                    image\n                    synopsis\n                    rating\n                    name\n                }\n                schedule {\n                    session_id\n                    screen_number\n                    datetime\n                    language\n                    experience {\n                        name \n                    }\n                }\n                seats {\n                    number\n                    capacity\n                    promotion\n                    tickets_options {\n                        description\n                        selected\n                        price\n                        booking_fee\n                        ticket_type_code\n                        package_content {\n                            concessions {\n                                description\n                                display_name\n                                charge\n                                quantity\n                            }\n                        }\n                    }\n                }\n            }\n            bill_url{\n                url\n            },\n            amount {\n                subtotal\n                charges\n                points\n                total\n            }\n        }\n    }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "Seats",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "sessionId": null,
+    "cinemaVistaId": "premium-bahia-sur-cadiz",
+    "userSessionId": null,
+    "experience": null
+   },
+   "consulta": "query Seats(\n    $countryId: String!\n    $sessionId: String!\n    $cinemaVistaId: String!\n    $userSessionId: String\n    $experience: String\n  ) {\n    seats(\n      countryId: $countryId\n      sessionId: $sessionId\n      cinemaVistaId: $cinemaVistaId\n      userSessionId: $userSessionId\n      experience: $experience\n    ) {\n      maxQuantity\n      seatLayoutData {\n        areas {\n          rowCount\n          columnCount\n          description\n          areaCategoryCode\n          rows {\n            physicalName\n            seats {\n              id\n              status\n              originalStatus\n              seatStyle\n              position {\n                columnIndex\n                rowIndex\n                areaNumber\n              }\n            }\n          }\n        }\n        areaCategories {\n          areaCategoryCode\n          capacity\n          name\n          description\n          image\n          hopk\n          selectedSeats {\n            areaNumber\n            rowIndex\n            columnIndex\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "BillboardOrderLinking",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "movieId": null,
+    "cinemaId": "premium-bahia-sur-cadiz",
+    "controlTime": null,
+    "isAbsoluteExperiencePath": true
+   },
+   "consulta": "query BillboardOrderLinking(\n    $countryId: String!\n    $movieId: String!\n    $cinemaId: String!\n    $controlTime: Int!\n    $isAbsoluteExperiencePath: Boolean!\n  ) {\n    billboardOrderLinking(\n      countryId: $countryId\n      movieId: $movieId\n      cinemaId: $cinemaId\n      controlTime: $controlTime\n      isAbsoluteExperiencePath: $isAbsoluteExperiencePath\n    ) {\n      dates\n      schedules {\n        movieId\n        dates {\n          date\n          languages {\n            language\n            displayLanguage\n            showtimes {\n              sessionId\n              datetime\n              screen\n              movieVistaId\n              movieName\n              cinemaVistaId\n              availability\n              isAllocatedSeating\n              format {\n                icon\n                name\n              }\n              experience {\n                icon\n                name\n              }\n              alerts {\n                section\n                title\n                message\n              }\n            }\n          }\n        }\n      }\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "GetRecommendations",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "countryId": "ES",
+    "cinema": "premium-bahia-sur-cadiz",
+    "userSessionId": null,
+    "userAction": null
+   },
+   "consulta": "query GetRecommendations($countryId: String!, $cinema: String!, $userSessionId: String!, $userAction: String!) {\n    getRecommendations(                                            \n        country: $countryId,                                                       \n        cinema: $cinema,                                                        \n        userSessionId: $userSessionId,                                   \n        userAction: $userAction                                                \n    ) {                                                               \n        showRecommendations                                                   \n        recommendationType                                                   \n        recommendations {                                                   \n            product                                                                  \n            productName                                                              \n            price                                                                      \n            discount                                                                 \n            productDescription                                                        \n            productStructure                                                      \n            productType                                                              \n            category                                                                \n            tag                                                                      \n            promotionType                                                           \n            active                                                                  \n            sellable                                                                \n            resource {                                                             \n                web {    \n                    promotional      \n                    normal           \n                    wide             \n                    icon             \n                }        \n            }                                                                      \n        }                                                                   \n    }                                                               \n}",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  },
+  {
+   "nombre": "UserSessionDeuna",
+   "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+   "variables": {
+    "first_name": 100,
+    "last_name": null
+   },
+   "consulta": "query UserSessionDeuna ($first_name: String!, $last_name: String!) {\n    userSessionDeuna(first_name: $first_name, last_name: $last_name) {\n      user_token\n    }\n  }",
+   "respuesta": "\n            {\n                \"message\":\"Unauthorized access.\",\n                \"internal_status_code\":1\n            }\n        "
+  }
+ ]
+}
