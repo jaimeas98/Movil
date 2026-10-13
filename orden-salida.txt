@@ -1,0 +1,10 @@
+orden:   c75be82cc79a
+inicio:  2026-10-13 19:50:55
+fin:     2026-10-13 19:51:11
+salida:  código 0
+────────────────────────────────────────
+navegador: Chrome/155.0.8059.39
+portada: 200 · Cine Yelmo
+tras esperar: Cine Yelmo
+API de cartelera: {"status":200,"bytes":423859,"resumen":[{"cine":"area-sur","dias":41,"peliculas":122},{"cine":"premium-puerta-europa","dias":23,"peliculas":73},{"cine":"premium-bahia-sur","dias":27,"peliculas":59}],"inicio":null}
+VEREDICTO: FUNCIONA

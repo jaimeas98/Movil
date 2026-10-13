@@ -1,0 +1,200 @@
+
+=== 2026-10-17 11:37:03 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 11:52:10 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 12:07:17 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 12:22:25 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 12:37:32 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 12:52:42 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 13:07:49 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 13:22:55 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 13:38:02 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 13:53:09 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 14:08:16 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 14:23:23 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 14:38:30 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 14:53:37 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 15:08:44 vuelta
+código al día: 7d2efa5
+
+=== 2026-10-17 15:23:51 vuelta
+código al día: d7b4f53
+el bucle en marcha es de una versión anterior: lo cambio por el nuevo
+el bucle propio no estaba corriendo: lo arranco
+
+=== 2026-10-17 15:23:57 vuelta
+ya hay otra vuelta en marcha; salgo
+
+=== 2026-10-17 15:39:29 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 15:55:12 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 16:10:54 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 16:26:34 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 16:42:16 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 16:57:57 vuelta
+código al día: d7b4f53
+
+=== 2026-10-17 17:13:38 vuelta
+código al día: ab64eb0
+
+=== 2026-10-17 17:29:17 vuelta
+código al día: ab64eb0
+
+=== 2026-10-17 17:45:01 vuelta
+código al día: ab64eb0
+
+=== 2026-10-17 18:00:42 vuelta
+código al día: c542933
+recogiendo: turno de las 18:00
+identidad: Android 12 · Mi Note 10 Lite · Chrome 155
+portada: 200 · Cine Yelmo
+✅ yelmo-bahia-sur: 26 días, 91 películas
+✅ yelmo-jerez: 41 días, 146 películas
+guardado en /data/data/com.termux/files/home/Movil/data/yelmo.js
+✅ respaldo cinesur-bahia-cadiz: 34 días
+✅ respaldo arte-siete-puerto: 16 días
+resultado: recogida y publicada
+
+=== 2026-10-17 18:15:44 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 18:31:26 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 18:47:08 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 19:02:50 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 19:18:30 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 19:34:11 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 19:49:51 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 20:05:31 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 20:21:12 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 20:36:52 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 20:52:33 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 21:08:13 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 21:23:54 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 21:39:34 vuelta
+código al día: 544f0fa
+
+=== 2026-10-17 21:55:15 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 22:10:55 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 22:26:37 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 22:42:19 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 22:58:00 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 23:13:39 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 23:29:19 vuelta
+código al día: 3a3e266
+
+=== 2026-10-17 23:44:59 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 00:00:39 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 00:16:20 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 00:32:01 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 00:47:41 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 01:03:21 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 01:19:00 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 01:34:41 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 01:50:21 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 02:06:02 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 02:21:45 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 02:37:25 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 02:53:07 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 03:08:49 vuelta
+código al día: 3a3e266
+
+=== 2026-10-18 03:24:30 vuelta
+código al día: 3a3e266
