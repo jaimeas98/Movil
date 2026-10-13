@@ -87,7 +87,9 @@ function mergeWithCache(fresh, cached) {
 // de cuándo se obtuvieron es mucho mejor que dejar el cine en blanco. Nunca se
 // presentan como información fresca.
 const RESPALDO_KEY = 'cartelera_respaldo_v1';
-const RESPALDO_TTL_MS = 48 * 60 * 60 * 1000;
+// 7 días, como la instantánea de Yelmo: mejor una cartelera avisando de su
+// fecha que un cine vacío, y los horarios ya publicados casi nunca cambian.
+const RESPALDO_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 function leerRespaldo() {
   try { return JSON.parse(localStorage.getItem(RESPALDO_KEY) || '{}'); }

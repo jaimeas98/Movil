@@ -4,8 +4,9 @@
 # suba al repositorio se aplica solo en la vuelta siguiente.
 #
 # En cada vuelta:
-#  1. decide si toca recoger la cartelera (cada 11 h, o si se ha pedido);
-#  2. si toca, la recoge con Chromium y la publica en la rama de la web;
+#  1. decide si toca recoger la cartelera (ver TURNOS, o si se ha pedido);
+#  2. si toca, recoge Yelmo con Chromium, hace copia de mk2 y Arte Siete, y lo
+#     publica en la rama de la web;
 #  3. pase lo que pase, deja un informe en la rama `estado-movil`.
 #
 # El informe es el latido del móvil: si su fecha deja de avanzar, el móvil se
@@ -22,7 +23,11 @@ BASE="$HOME/.recolector"
 RAMA_APP="claude/puerto-santa-maria-restaurants-NxChu"
 RAMA_ESTADO="estado-movil"
 LOG="$BASE/ciclo.log"
-CADA_HORAS=11
+# Dos recogidas al día, a horas fijas (hora del móvil, que es la de España).
+# Si una falla, se reintenta cada hora, pero ya no a menos de CERCA segundos
+# del turno siguiente: ese turno la hará igualmente.
+TURNOS="07:00 18:00"
+CERCA=7200
 
 # Mantener la CPU despierta mientras dura la vuelta. Con el móvil cargando no
 # debería dormirse, pero una recogida a medias deja la instantánea sin publicar.
@@ -35,24 +40,28 @@ cd "$DIR" || exit 1
 # mueva: es la que dice si un arreglo subido al repositorio ya ha llegado.
 codigo=$(git rev-parse --short HEAD)
 
-ahora=$(date +%s)
+ahora=${AHORA_PRUEBA:-$(date +%s)}   # AHORA_PRUEBA: solo para probar.sh
 ultima=$(cat "$BASE/ultima-recogida" 2>/dev/null || echo 0)   # último ÉXITO
 intento=$(cat "$BASE/ultimo-intento" 2>/dev/null || echo 0)   # último intento, saliera como saliera
 desde_intento=$(( ahora - intento ))
+rm -f "$BASE/bloqueado"   # de la versión anterior, que esperaba 24 h tras un bloqueo
 
-# Espera tras un fallo. Si Yelmo bloquea también a este móvil, reintentar cada
-# media hora sería insistir contra un bloqueo, que es lo que lo endurece.
-# Así se reintenta cada hora por calendario y cada dos si la pidieron a mano.
-# Si el último fallo fue un BLOQUEO de Cloudflare (no un corte de red), la
-# espera sube a 24 h: probado el 13-10-2026, Yelmo bloquea a programas
-# automáticos también desde la conexión de casa, así que insistir cada hora
-# solo es llamar a una puerta cerrada.
-espera=3600
-[ -f "$BASE/bloqueado" ] && espera=86400
+# El turno en curso (el último que ya ha empezado) y el siguiente. Se parte del
+# mediodía de hoy para que sumar o restar un día no tropiece con el cambio de
+# hora.
+hora() { date -d "@$1" '+%H:%M'; }
+mediodia=$(date -d "$(date -d "@$ahora" +%F) 12:00" +%s)
+turno=0; siguiente=0
+for m in $(( mediodia - 86400 )) "$mediodia" $(( mediodia + 86400 )); do
+  for h in $TURNOS; do
+    t=$(date -d "$(date -d "@$m" +%F) $h" +%s)
+    if [ "$t" -le "$ahora" ]; then turno=$t; elif [ "$siguiente" = 0 ]; then siguiente=$t; fi
+  done
+done
 
-# La excepción: si el último intento FALLÓ y desde entonces ha cambiado el
-# recolector, se prueba ya, sin esperar. Es un arreglo nuevo, no insistir con
-# lo mismo que falló, y esperar 24 h para saber si funciona no tiene sentido.
+# Excepción: si el último intento FALLÓ y desde entonces ha cambiado el
+# recolector, se prueba ya, sin esperar: es un arreglo nuevo, no insistir con
+# lo mismo que falló.
 huella_rec=$(cat scripts/movil/tarea.sh scripts/movil/recolector-navegador.mjs 2>/dev/null | sha1sum | cut -c1-12)
 reintento=""
 if [ "$intento" -gt "$ultima" ] && [ "$huella_rec" != "$(cat "$BASE/intento-codigo" 2>/dev/null)" ]; then
@@ -60,15 +69,25 @@ if [ "$intento" -gt "$ultima" ] && [ "$huella_rec" != "$(cat "$BASE/intento-codi
 fi
 
 motivo=""
+espera=""
 if [ -n "$reintento" ]; then
   motivo="reintento: el recolector ha cambiado tras un fallo"
-elif [ -f data/forzar-recogida ] && [ "$desde_intento" -ge 7200 ]; then
+elif [ -f data/forzar-recogida ] && [ "$desde_intento" -ge 3600 ]; then
   motivo="pedida desde el repositorio"
-elif [ $(( ahora - ultima )) -ge $(( CADA_HORAS * 3600 )) ] && [ "$desde_intento" -ge "$espera" ]; then
-  motivo="toca (cada ${CADA_HORAS} h)"
+elif [ "$ultima" -lt "$turno" ]; then
+  # Este turno aún no ha salido bien.
+  if [ "$intento" -lt "$turno" ]; then
+    motivo="turno de las $(hora "$turno")"
+  elif [ $(( siguiente - ahora )) -le "$CERCA" ]; then
+    espera="falló; el turno de las $(hora "$siguiente") está cerca y lo hará él"
+  elif [ "$desde_intento" -ge 3600 ]; then
+    motivo="reintento del turno de las $(hora "$turno") (falló hace $(( desde_intento / 60 )) min)"
+  else
+    espera="falló; reintento a las $(hora $(( intento + 3600 )))"
+  fi
 fi
 
-resultado="sin recogida: no tocaba"
+resultado="sin recogida: ${espera:-no tocaba}"
 error=""
 
 # La recogida la hace Chromium, no Node a pelo: Yelmo bloquea con Cloudflare a
@@ -92,40 +111,58 @@ if [ -n "$motivo" ]; then
   echo "recogiendo: $motivo"
   echo "$ahora" > "$BASE/ultimo-intento"
   echo "$huella_rec" > "$BASE/intento-codigo"
-  if salida=$(recolectar 2>&1); then
-    echo "$salida"
+  yelmo_ok=""
+  if salida=$(recolectar 2>&1); then yelmo_ok=1; fi
+  echo "$salida"
+
+  # Copia de mk2 y Arte Siete. Va aparte de Yelmo y nunca hace fallar la
+  # vuelta: si no responden, se conserva la copia anterior.
+  ( cd "$DIR" && DESTINO=data/respaldo.js timeout 180 node --no-warnings scripts/movil/respaldo-cines.mjs 2>&1 ) || true
+
+  if [ -n "$yelmo_ok" ]; then
     echo "$ahora" > "$BASE/ultima-recogida"
-    rm -f "$BASE/bloqueado"
-
     [ -f data/forzar-recogida ] && git rm -q data/forzar-recogida
-    git add data/yelmo.js
-
-    if git diff --cached --quiet; then
-      resultado="recogida, sin cambios que publicar"
-    else
-      git commit -q -m "Cartelera de Yelmo — $(date '+%Y-%m-%d %H:%M') (móvil)"
-      # Por si entre medias se ha subido algo: nuestro commit va encima.
-      if git pull --rebase --quiet origin "$RAMA_APP" && git push --quiet origin "HEAD:$RAMA_APP"; then
-        resultado="recogida y publicada"
-      else
-        resultado="recogida, pero no se pudo publicar"
-        error="falló el push a GitHub (¿sin red, o la clave ya no es válida?)"
-        # Deshacer el commit local para no arrastrarlo: la vuelta siguiente
-        # vuelve a recoger desde cero y lo intenta de nuevo. El abort va
-        # primero porque un rebase a medias sobrevive a un reset y dejaría el
-        # repositorio en un estado que confunde a la vuelta siguiente.
-        git rebase --abort 2>/dev/null
-        git reset --hard --quiet "origin/$RAMA_APP"
-        rm -f "$BASE/ultima-recogida"   # vuelve a tocar, pero respetando la espera de una hora
-      fi
-    fi
   else
-    echo "$salida"
-    resultado="fallo al recoger"
     error=$(printf '%s' "$salida" | tail -n 6)
-    if printf '%s' "$salida" | grep -qi cloudflare; then touch "$BASE/bloqueado"; else rm -f "$BASE/bloqueado"; fi
+  fi
+  git add data/yelmo.js data/respaldo.js 2>/dev/null
+
+  if git diff --cached --quiet; then
+    publicado="sin cambios que publicar"
+  else
+    git commit -q -m "Cartelera de Yelmo — $(date '+%Y-%m-%d %H:%M') (móvil)"
+    # Por si entre medias se ha subido algo: nuestro commit va encima.
+    if git pull --rebase --quiet origin "$RAMA_APP" && git push --quiet origin "HEAD:$RAMA_APP"; then
+      publicado="publicada"
+    else
+      publicado="no se pudo publicar"
+      error="falló el push a GitHub (¿sin red, o la clave ya no es válida?)"
+      # Deshacer el commit local para no arrastrarlo: la vuelta siguiente
+      # vuelve a recoger desde cero y lo intenta de nuevo. El abort va
+      # primero porque un rebase a medias sobrevive a un reset y dejaría el
+      # repositorio en un estado que confunde a la vuelta siguiente.
+      git rebase --abort 2>/dev/null
+      git reset --hard --quiet "origin/$RAMA_APP"
+      rm -f "$BASE/ultima-recogida"   # el turno vuelve a quedar pendiente: se reintenta en una hora
+    fi
+  fi
+
+  if [ -z "$yelmo_ok" ]; then resultado="fallo al recoger"
+  elif [ "$publicado" = "publicada" ]; then resultado="recogida y publicada"
+  elif [ "$publicado" = "no se pudo publicar" ]; then resultado="recogida, pero no se pudo publicar"
+  else resultado="recogida, sin cambios que publicar"
   fi
   echo "resultado: $resultado"
+fi
+
+# Cuándo será la próxima recogida, para el informe.
+ultima_ahora=$(cat "$BASE/ultima-recogida" 2>/dev/null || echo 0)
+intento_ahora=$(cat "$BASE/ultimo-intento" 2>/dev/null || echo 0)
+if [ "$ultima_ahora" -ge "$turno" ] || [ "$intento_ahora" -lt "$turno" ] \
+   || [ $(( intento_ahora + 3600 )) -gt $(( siguiente - CERCA )) ]; then
+  proxima=$siguiente
+else
+  proxima=$(( intento_ahora + 3600 ))
 fi
 
 # ── Órdenes desde el repositorio ────────────────────────────────────────────
@@ -190,11 +227,9 @@ fi
 #
 # El repositorio es público, así que el informe es visible para cualquiera. Por
 # eso solo lleva datos técnicos: nada de IP, ubicación ni nada que identifique.
-ultima_ahora=$(cat "$BASE/ultima-recogida" 2>/dev/null || echo 0)
-
 RESULTADO="$resultado" ERROR="$error" MOTIVO="$motivo" BATERIA="$bateria" ENCHUFE="$enchufe" \
 ORDEN="$(cat "$BASE/orden-hecha" 2>/dev/null)" \
-ULTIMA="$ultima_ahora" CADA="$CADA_HORAS" \
+ULTIMA="$ultima_ahora" PROXIMA="$proxima" \
 CODIGO="$codigo" \
 MODELO="$(getprop ro.product.model 2>/dev/null)" \
 ANDROID="$(getprop ro.build.version.release 2>/dev/null)" \
@@ -211,7 +246,7 @@ node -e '
     motivo: e.MOTIVO || null,
     error: e.ERROR || null,
     ultimaRecogida: ultima ? new Date(ultima * 1000).toISOString() : null,
-    proximaRecogida: ultima ? new Date((ultima + Number(e.CADA) * 3600) * 1000).toISOString() : "en la próxima vuelta",
+    proximaRecogida: new Date(Number(e.PROXIMA) * 1000).toISOString(),
     codigo: e.CODIGO,
     ultimaOrden: e.ORDEN || null,
     enchufe: e.ENCHUFE || null,

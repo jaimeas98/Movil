@@ -37,10 +37,20 @@ else ok('descarta los días ya pasados');
 if (!r || !r[hoy]) mal('debería conservar el día de hoy');
 else ok('conserva hoy y los días siguientes');
 
-// 4. Demasiado vieja → no se usa (mejor vacío que mentir)
-if (leerInstantanea('yelmo-bahia-sur', hacer(new Date(Date.now() - 40 * 3600 * 1000).toISOString()))) {
-  mal('una instantánea de hace 40 h no debería usarse');
-} else ok('una de más de 36 h se descarta en vez de mentir');
+// 4. De hace un par de días → se usa, pero marcada con su fecha
+const deAntes = leerInstantanea('yelmo-bahia-sur', hacer(new Date(Date.now() - 40 * 3600 * 1000).toISOString()));
+if (!deAntes) mal('una instantánea de hace 40 h debería seguir sirviendo (mejor que el cine vacío)');
+else if (!deAntes.staleAt) mal('una de hace 40 h debe ir marcada con su fecha, no como de ahora');
+else ok('una de hace 40 h se usa, marcada con su fecha');
+const reciente = leerInstantanea('yelmo-bahia-sur', hacer(new Date(Date.now() - 5 * 3600 * 1000).toISOString()));
+if (reciente?.staleAt) mal('una de hace 5 h (dentro del turno) no debería marcarse como antigua');
+else ok('una de hace 5 h se presenta normal');
+if (Object.keys(deAntes ?? {}).includes('staleAt')) mal('la marca no puede aparecer como si fuera un día más');
+
+// 4b. Más de 7 días → no se usa (mejor vacío que mentir)
+if (leerInstantanea('yelmo-bahia-sur', hacer(new Date(Date.now() - 8 * 24 * 3600 * 1000).toISOString()))) {
+  mal('una instantánea de hace 8 días no debería usarse');
+} else ok('una de más de 7 días se descarta en vez de mentir');
 
 // 5. Vacía o de otro cine → nada
 if (leerInstantanea('yelmo-bahia-sur', { generatedAt: null, cines: {} })) mal('sin datos no debería devolver nada');

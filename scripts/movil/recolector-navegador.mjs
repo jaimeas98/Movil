@@ -17,14 +17,22 @@
 // cines tal cual vienen, en el mismo formato que leía siempre el adaptador:
 // para la web no cambia nada.
 //
+// LO NUEVO NO BORRA LO QUE YA HABÍA
+// Cada recogida se FUSIONA con la anterior en vez de sustituirla: un día que
+// viene en la nueva manda (los horarios pueden cambiar), pero un día que ya
+// no aparece —porque la recogida ha venido corta por lo que sea— se conserva
+// de la anterior, y un cine que no aparece, también. Mejor ver la cartelera
+// de ayer de un día que perder el día. Lo conservado caduca a los 7 días y
+// los días ya pasados se van solos.
+//
 //   DESTINO=~/Movil/data/yelmo.js CHROME=$(command -v chromium-browser) node recolector.mjs
 //   … --solo-probar      no escribe nada, solo dice si funciona
 //
 // Necesita puppeteer-core instalado junto a él (lo prepara instalar.sh en
 // ~/navegador, que es desde donde lo ejecuta tarea.sh).
 
-import puppeteer from 'puppeteer-core';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 
 const SOLO_PROBAR = process.argv.includes('--solo-probar');
 const DESTINO = process.env.DESTINO;
@@ -34,7 +42,60 @@ const CINES = { 'yelmo-bahia-sur': 'premium-bahia-sur', 'yelmo-jerez': 'area-sur
 // El informe es público: cualquier IP que apareciera se tapa.
 const log = (...a) => console.log(a.join(' ').replace(/\b\d{1,3}(\.\d{1,3}){3}\b/g, '[IP omitida]'));
 
+// ── Fusión con la recogida anterior ───────────────────────────────────────
+const CONSERVAR_MS = 7 * 24 * 3600 * 1000;
+
+const hoyMadrid = (ms) => new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date(ms));
+
+// El día de un bloque de Yelmo, con la misma regla que lib/cinemas/yelmo.js:
+// sale del TimeFilter de su primera sesión. Si no se puede saber, null: ese
+// día no se conserva, porque no habría forma de saber si está repetido.
+export function diaDe(bloque) {
+  const tf = bloque?.Movies?.[0]?.Formats?.[0]?.Showtimes?.[0]?.TimeFilter ?? '';
+  const dm = tf.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+  if (dm) return `${dm[3]}-${dm[2]}-${dm[1]}`;
+  const ms = Number((tf.match(/\/Date\((\d+)\)\//) || [])[1]);
+  if (ms > 0) return new Date(ms - 6 * 3600 * 1000).toISOString().slice(0, 10);
+  return null;
+}
+
+// Devuelve { cines, conservados } donde conservados cuenta, por cine, cuántos
+// días vienen de la recogida anterior porque esta no los traía.
+export function fusionar(previa, nueva, ahora = Date.now()) {
+  const hoy = hoyMadrid(ahora);
+  const marca = new Date(ahora).toISOString();
+  const cines = {};
+  const conservados = {};
+  const ids = new Set([...Object.keys(previa?.cines ?? {}), ...Object.keys(nueva.cines)]);
+
+  for (const id of ids) {
+    const antes = previa?.cines?.[id];
+    const ahoraCine = nueva.cines[id];
+    // Cada día lleva la fecha en que se recogió, para poder caducarlo.
+    const nuevos = (ahoraCine?.Dates ?? []).map((d) => ({ ...d, _recogido: marca }));
+    const yaEstan = new Set(nuevos.map(diaDe).filter(Boolean));
+    // Lo conservado guarda SU fecha de recogida, no la de hoy: si no, cada
+    // fusión lo "rejuvenecería" y no caducaría nunca.
+    const viejos = (antes?.Dates ?? [])
+      .map((d) => ({ ...d, _recogido: d._recogido ?? previa?.generatedAt }))
+      .filter((d) => {
+        const dia = diaDe(d);
+        const recogido = Date.parse(d._recogido ?? '') || 0;
+        return dia && dia >= hoy && !yaEstan.has(dia) && ahora - recogido <= CONSERVAR_MS;
+      });
+    const dias = [...nuevos, ...viejos].sort((a, b) => (diaDe(a) ?? '').localeCompare(diaDe(b) ?? ''));
+    if (!dias.length) continue;
+    cines[id] = { ...(antes ?? {}), ...(ahoraCine ?? {}), Dates: dias };
+    if (viejos.length) conservados[id] = viejos.length;
+  }
+  return { cines, conservados };
+}
+
+// ── Recogida ──────────────────────────────────────────────────────────────
 async function recoger() {
+  const { default: puppeteer } = await import('puppeteer-core');
   const navegador = await puppeteer.launch({
     executablePath: process.env.CHROME,
     headless: true,
@@ -128,39 +189,48 @@ async function recoger() {
   }
 }
 
-try {
-  const instantanea = await recoger();
-  for (const [id, c] of Object.entries(instantanea.cines)) {
+async function principal() {
+  const recogida = await recoger();
+  for (const [id, c] of Object.entries(recogida.cines)) {
     const pelis = (c.Dates ?? []).reduce((n, d) => n + (d.Movies?.length ?? 0), 0);
     log(`✅ ${id}: ${c.Dates?.length ?? 0} días, ${pelis} películas`);
   }
 
   if (SOLO_PROBAR) {
     log('VEREDICTO: FUNCIONA (no se ha escrito nada)');
-  } else {
-    if (!DESTINO) throw new Error('Falta DESTINO: dónde escribir data/yelmo.js');
-    // No pisar una instantánea buena con una peor: si hoy viniera un cine de
-    // menos, mejor conservar la anterior que dejar la web sin él.
-    try {
-      const t = readFileSync(DESTINO, 'utf8');
-      const previa = JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1));
-      const antes = Object.keys(previa.cines ?? {}).length;
-      const ahora = Object.keys(instantanea.cines).length;
-      if (antes > ahora) {
-        log(`⚠️  la anterior tenía ${antes} cines y ésta ${ahora}: se conserva la anterior`);
-        process.exit(1);
-      }
-    } catch { /* no había instantánea previa */ }
-
-    writeFileSync(
-      DESTINO,
-      '// Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.\n' +
-      '// La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.\n' +
-      'export default ' + JSON.stringify(instantanea, null, 2) + ';\n'
-    );
-    log(`guardado en ${DESTINO}`);
+    return;
   }
-} catch (e) {
-  log(`❌ ${e.message}`);
-  process.exit(1);
+  if (!DESTINO) throw new Error('Falta DESTINO: dónde escribir data/yelmo.js');
+
+  let previa = null;
+  try {
+    const t = readFileSync(DESTINO, 'utf8');
+    previa = JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1));
+  } catch { /* no había instantánea previa (o era el marcador vacío) */ }
+
+  const { cines, conservados } = fusionar(previa, recogida);
+  for (const [id, n] of Object.entries(conservados)) {
+    log(`🛟 ${id}: ${n} día(s) que esta recogida no traía se conservan de la anterior`);
+  }
+  for (const id of Object.keys(cines)) {
+    if (!recogida.cines[id]) log(`🛟 ${id}: no ha venido; se conserva el de la recogida anterior`);
+  }
+
+  writeFileSync(
+    DESTINO,
+    '// Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.\n' +
+    '// La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.\n' +
+    'export default ' + JSON.stringify({ ...recogida, cines }, null, 2) + ';\n'
+  );
+  log(`guardado en ${DESTINO}`);
+}
+
+// Solo se recoge al ejecutarlo; importarlo (las pruebas) no abre nada.
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+  try {
+    await principal();
+  } catch (e) {
+    log(`❌ ${e.message}`);
+    process.exit(1);
+  }
 }

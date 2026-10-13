@@ -1,8 +1,15 @@
 import MovieCard from './MovieCard.jsx';
 
-function horaDe(ms) {
-  if (!ms) return 'antes';
-  return new Date(ms).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+// "de 18:03" si es de hoy; "del lun 12, 18:03" si es de otro día, que con
+// datos de hace días la hora sola engañaría.
+function deCuando(ms) {
+  if (!ms) return 'de antes';
+  const d = new Date(ms);
+  const hora = d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' });
+  const dia = (x) => x.toLocaleDateString('es-ES', { timeZone: 'Europe/Madrid' });
+  if (dia(d) === dia(new Date())) return `de ${hora}`;
+  const fecha = d.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', timeZone: 'Europe/Madrid' });
+  return `del ${fecha.replace('.', '')}, ${hora}`;
 }
 
 export default function CinemaSection({ cinema, onMovieClick }) {
@@ -19,7 +26,7 @@ export default function CinemaSection({ cinema, onMovieClick }) {
             {/* Nunca presentar datos guardados como si fueran de ahora mismo */}
             {cinema.source === 'stale' && (
               <span className="mode-pill mode-sample" title={cinema.reason || ''}>
-                <span className="dot" /> datos de {horaDe(cinema.staleAt)}
+                <span className="dot" /> datos {deCuando(cinema.staleAt)}
               </span>
             )}
             {cinema.source === 'live' && <span className="mode-pill mode-live"><span className="dot" /> en vivo</span>}

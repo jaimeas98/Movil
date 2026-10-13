@@ -45,7 +45,11 @@ const pagina = {
 export default { launch: async () => ({ newPage: async () => pagina, version: async () => 'Chrome/155.0.0.0', close: async () => {} }) };
 EOF
 
-export HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas"
+# mk2 y Arte Siete (la copia de respaldo): sin red en la simulación, fallan
+# rápido; lo que se comprueba aquí es que eso no tumbe nada.
+echo "globalThis.fetch = async () => { throw new Error('sin red en la simulación'); };" > "$S/sin-red.mjs"
+
+export HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas" NODE_OPTIONS="--import $S/sin-red.mjs"
 : > "$LLAMADAS"
 git config --global user.name sim; git config --global user.email sim@x; git config --global init.defaultBranch main
 
@@ -69,49 +73,70 @@ llamadas(){ wc -c < "$LLAMADAS" | tr -d ' '; }
 T="$S/fuera"; git clone -q --branch "$RAMA" "$S/origin.git" "$T"
 subir(){ git -C "$T" pull -q --rebase origin "$RAMA"; "$@"; git -C "$T" add -A; git -C "$T" commit -qm "desde fuera"; git -C "$T" push -q origin "HEAD:$RAMA"; }
 
-MOCK_YELMO=ok vuelta
-[ "$(campo .resultado)" = "recogida y publicada" ] && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
-  && ok "1ª vuelta: recoge y publica los dos cines" || mal "1ª vuelta: '$(campo .resultado)'"
+# El reloj de tarea.sh se fija con AHORA_PRUEBA para probar los turnos.
+reloj(){ export AHORA_PRUEBA=$(date -d "$1" +%s); }
+D=2026-11-02; D1=2026-11-03; D2=2026-11-04
+ultimo_intento(){ date -d "$1" +%s > "$HOME/.recolector/ultimo-intento"; }
 
-sleep 1; a=$(commits); MOCK_YELMO=ok vuelta
-[ "$(campo .resultado)" = "sin recogida: no tocaba" ] && [ "$(commits)" -eq "$a" ] && ok "si no toca, no recoge ni gasta despliegue" || mal "no tocaba: '$(campo .resultado)'"
+reloj "$D 07:05"; MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" = "recogida y publicada" ] && [ "$(campo .motivo)" = "turno de las 07:00" ] \
+  && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
+  && ok "turno de las 07:00: recoge y publica los dos cines" || mal "1ª vuelta: '$(campo .resultado)' / '$(campo .motivo)'"
 
-subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=ok vuelta
+reloj "$D 07:20"; a=$(commits); MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" = "sin recogida: no tocaba" ] && [ "$(commits)" -eq "$a" ] && ok "dentro del mismo turno no repite ni gasta despliegue" || mal "no tocaba: '$(campo .resultado)'"
+
+# Fallo en el turno de las 18:00 → reintento cada hora
+reloj "$D 18:02"; a=$(commits); MOCK_YELMO=bloqueo vuelta
+[ "$(campo .resultado)" = "fallo al recoger" ] && campo .error | grep -qi cloudflare && [ "$(commits)" -eq "$a" ] \
+  && ok "con bloqueo: explica el motivo y no publica nada roto" || mal "bloqueo: '$(campo .resultado)'"
+n=$(llamadas); reloj "$D 18:40"; MOCK_YELMO=bloqueo vuelta
+[ "$(llamadas)" -eq "$n" ] && campo .resultado | grep -q "reintento a las 19:02" \
+  && ok "tras un fallo espera una hora (informe: '$(campo .resultado)')" || mal "no esperó: '$(campo .resultado)'"
+reloj "$D 19:05"; MOCK_YELMO=bloqueo vuelta
+[ "$(llamadas)" -eq $(( n + 1 )) ] && campo .motivo | grep -q "reintento del turno de las 18:00" \
+  && ok "pasada la hora, reintenta" || mal "reintento: '$(campo .motivo)'"
+reloj "$D 20:10"; MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" = "recogida y publicada" ] && ok "y cuando vuelve a funcionar, publica" || mal "recuperación: '$(campo .resultado)'"
+[ "$(campo .proximaRecogida)" = "$(date -u -d "$D1 07:00" +%Y-%m-%dT%H:%M:%S.000Z)" ] \
+  && ok "el informe dice cuándo es la próxima (turno de las 07:00)" || mal "próxima: '$(campo .proximaRecogida)'"
+
+# Cerca del turno siguiente ya no reintenta: lo hará ese turno
+reloj "$D1 07:01"; MOCK_YELMO=bloqueo vuelta; ultimo_intento "$D1 15:10"
+n=$(llamadas); reloj "$D1 16:15"; MOCK_YELMO=ok vuelta
+[ "$(llamadas)" -eq "$n" ] && campo .resultado | grep -q "18:00 está cerca" \
+  && ok "a menos de 2 h del turno siguiente deja de reintentar" || mal "cerca del turno: '$(campo .resultado)'"
+reloj "$D1 18:01"; MOCK_YELMO=ok vuelta
+[ "$(campo .motivo)" = "turno de las 18:00" ] && [ "$(campo .resultado)" = "recogida y publicada" ] \
+  && ok "y el turno siguiente recoge" || mal "turno siguiente: '$(campo .motivo)'"
+
+subir touch "$T/data/forzar-recogida"; reloj "$D1 23:30"; MOCK_YELMO=ok vuelta
 [ "$(campo .motivo)" = "pedida desde el repositorio" ] && ! git -C "$S/origin.git" cat-file -e "$RAMA:data/forzar-recogida" 2>/dev/null \
   && ok "atiende una recogida pedida desde fuera y borra el aviso" || mal "pedida: '$(campo .motivo)'"
 
-subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; a=$(commits); MOCK_YELMO=bloqueo vuelta
-[ "$(campo .resultado)" = "fallo al recoger" ] && campo .error | grep -qi cloudflare && [ "$(commits)" -eq "$a" ] \
-  && ok "con bloqueo: explica el motivo y no publica nada roto" || mal "bloqueo: '$(campo .resultado)'"
-n=$(llamadas); for i in 1 2 3; do MOCK_YELMO=bloqueo vuelta; done
-[ "$(llamadas)" -eq "$n" ] && ok "tras un fallo no insiste contra el bloqueo" || mal "insistió $(( $(llamadas) - n )) veces"
-echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=ok vuelta
-[ "$(campo .resultado)" = "recogida y publicada" ] && ok "pasada la espera, reintenta" || mal "reintento: '$(campo .resultado)'"
-
-# Un arreglo del recolector tras un fallo se prueba ya, sin esperar 24 h…
-subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=bloqueo vuelta
-n=$(llamadas); MOCK_YELMO=ok vuelta
+# Un arreglo del recolector tras un fallo se prueba ya, sin esperar…
+reloj "$D2 07:01"; MOCK_YELMO=bloqueo vuelta
+n=$(llamadas); reloj "$D2 07:10"; MOCK_YELMO=ok vuelta
 [ "$(llamadas)" -eq "$n" ] || mal "tras el bloqueo reintentó sin que cambiara nada"
-subir sh -c "echo '// arreglo' >> '$T/scripts/movil/recolector-navegador.mjs'"; MOCK_YELMO=ok vuelta
+subir sh -c "echo '// arreglo' >> '$T/scripts/movil/recolector-navegador.mjs'"; reloj "$D2 07:15"; MOCK_YELMO=ok vuelta
 [ "$(campo .resultado)" = "recogida y publicada" ] && campo .motivo | grep -q "ha cambiado" \
   && ok "un arreglo del recolector tras un fallo se prueba en la vuelta siguiente" || mal "arreglo: '$(campo .resultado)' / '$(campo .motivo)'"
 # …pero un cambio que no toca al recolector no sirve de excusa para insistir.
-subir touch "$T/data/forzar-recogida"; echo 0 > "$HOME/.recolector/ultimo-intento"; MOCK_YELMO=bloqueo vuelta
-n=$(llamadas); subir sh -c "echo x >> '$T/data/otra-cosa'"; MOCK_YELMO=ok vuelta
+reloj "$D2 18:01"; MOCK_YELMO=bloqueo vuelta
+n=$(llamadas); subir sh -c "echo x >> '$T/data/otra-cosa'"; reloj "$D2 18:20"; MOCK_YELMO=ok vuelta
 [ "$(llamadas)" -eq "$n" ] && ok "otros cambios del repositorio no provocan reintentos" || mal "reintentó por un cambio ajeno"
 
-# Si un día viene un cine de menos, se conserva la instantánea completa
-echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; a=$(commits); MOCK_YELMO=uno vuelta
-[ "$(campo .resultado)" = "fallo al recoger" ] && [ "$(commits)" -eq "$a" ] \
-  && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
-  && ok "con un cine de menos no pisa la instantánea buena" || mal "un cine de menos: '$(campo .resultado)'"
-git -C "$T" pull -q --rebase origin "$RAMA"; subir git -C "$T" rm -q data/forzar-recogida
-echo $(( $(date +%s) - 7300 )) > "$HOME/.recolector/ultimo-intento"; echo 0 > "$HOME/.recolector/ultima-recogida"; MOCK_YELMO=ok vuelta
-[ "$(campo .resultado)" != "fallo al recoger" ] || mal "no se recuperó tras el cine de menos: '$(campo .error)'"
+# Una recogida corta (un cine de menos) no quita nada: se fusiona
+reloj "$D2 19:05"; MOCK_YELMO=uno vuelta
+[ "$(campo .resultado)" = "recogida y publicada" ] && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
+  && grep -q "se conserva el de la recogida anterior" "$HOME/.recolector/ciclo.log" \
+  && ok "si falta un cine, se conserva el de la recogida anterior" || mal "un cine de menos: '$(campo .resultado)'"
 
-subir sed -i 's/^CADA_HORAS=11$/CADA_HORAS=11  # cambio de prueba/' "$T/scripts/movil/tarea.sh"
+subir sed -i 's/^CERCA=7200$/CERCA=7200  # cambio de prueba/' "$T/scripts/movil/tarea.sh"
 nuevo=$(git -C "$T" rev-parse --short HEAD); MOCK_YELMO=ok vuelta
 [ "$(campo .codigo)" = "$nuevo" ] && ok "un cambio subido se aplica en la vuelta siguiente" || mal "arrancó con $(campo .codigo), esperaba $nuevo"
+grep -q "respaldo: no ha respondido ningún cine" "$HOME/.recolector/ciclo.log" \
+  && ok "sin mk2 ni Arte Siete, la copia de respaldo no se toca ni tumba la vuelta" || mal "respaldo sin red"
 
 ( exec 9>"$HOME/.recolector/candado"; flock 9; sleep 3 ) & sleep 0.5; MOCK_YELMO=ok vuelta; wait
 tail -n 3 "$HOME/.recolector/ciclo.log" | grep -q "ya hay otra vuelta" && ok "no se solapan dos vueltas" || mal "candado"
