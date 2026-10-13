@@ -43,10 +43,17 @@ desde_intento=$(( ahora - intento ))
 # Espera tras un fallo. Si Yelmo bloquea también a este móvil, reintentar cada
 # media hora sería insistir contra un bloqueo, que es lo que lo endurece.
 # Así se reintenta cada hora por calendario y cada dos si la pidieron a mano.
+# Si el último fallo fue un BLOQUEO de Cloudflare (no un corte de red), la
+# espera sube a 24 h: probado el 13-10-2026, Yelmo bloquea a programas
+# automáticos también desde la conexión de casa, así que insistir cada hora
+# solo es llamar a una puerta cerrada.
+espera=3600
+[ -f "$BASE/bloqueado" ] && espera=86400
+
 motivo=""
 if [ -f data/forzar-recogida ] && [ "$desde_intento" -ge 7200 ]; then
   motivo="pedida desde el repositorio"
-elif [ $(( ahora - ultima )) -ge $(( CADA_HORAS * 3600 )) ] && [ "$desde_intento" -ge 3600 ]; then
+elif [ $(( ahora - ultima )) -ge $(( CADA_HORAS * 3600 )) ] && [ "$desde_intento" -ge "$espera" ]; then
   motivo="toca (cada ${CADA_HORAS} h)"
 fi
 
@@ -59,6 +66,7 @@ if [ -n "$motivo" ]; then
   if salida=$(node scripts/recolector-yelmo.mjs 2>&1); then
     echo "$salida"
     echo "$ahora" > "$BASE/ultima-recogida"
+    rm -f "$BASE/bloqueado"
 
     [ -f data/forzar-recogida ] && git rm -q data/forzar-recogida
     git add data/yelmo.js
@@ -86,6 +94,7 @@ if [ -n "$motivo" ]; then
     echo "$salida"
     resultado="fallo al recoger"
     error=$(printf '%s' "$salida" | tail -n 6)
+    if printf '%s' "$salida" | grep -qi cloudflare; then touch "$BASE/bloqueado"; else rm -f "$BASE/bloqueado"; fi
   fi
   echo "resultado: $resultado"
 fi
