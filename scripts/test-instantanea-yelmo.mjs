@@ -1,6 +1,6 @@
 // La instantánea local es el último eslabón de la cadena de Yelmo: se usa solo
 // cuando su API bloquea, y solo si es reciente. Aquí se comprueba esa lógica.
-import { leerInstantanea, fetchYelmo } from '../lib/cinemas/yelmo.js';
+import { leerInstantanea, fetchYelmo, usarInstantanea } from '../lib/cinemas/yelmo.js';
 
 let fallos = 0;
 const ok = (m) => console.log('ok    ' + m);
@@ -49,13 +49,30 @@ if (leerInstantanea('yelmo-jerez', hacer(new Date().toISOString()))) mal('no deb
 else ok('un cine que no está en la instantánea no se rellena con otro');
 
 // 6. Integración: con Yelmo bloqueado y sin instantánea, falla limpio
-globalThis.fetch = async () => new Response('<title>Attention Required! | Cloudflare</title>', {
-  status: 403, headers: { server: 'cloudflare', 'content-type': 'text/html' } });
+let peticiones = 0;
+globalThis.fetch = async () => (peticiones++, new Response('<title>Attention Required! | Cloudflare</title>', {
+  status: 403, headers: { server: 'cloudflare', 'content-type': 'text/html' } }));
 try {
+  usarInstantanea({ generatedAt: null, cines: {} });
   await fetchYelmo('yelmo-bahia-sur');
   mal('con todo bloqueado y sin instantánea debería fallar, no devolver datos');
 } catch (e) {
   ok(`con todo bloqueado falla de forma clara: "${e.message.slice(0, 60)}…"`);
+}
+
+// 7. Integración: con Yelmo bloqueado y CON instantánea del móvil, la web la
+// enseña. Es el caso real de cada día; el 13-10-2026 fallaba: el error del API
+// se lanzaba antes de llegar a leer la instantánea y Yelmo salía vacío.
+peticiones = 0;
+try {
+  usarInstantanea(hacer(new Date().toISOString()));
+  const datos = await fetchYelmo('yelmo-bahia-sur');
+  if (datos?.[hoy]?.[0]?.title === 'Peli de hoy') ok('con Yelmo bloqueado, la web enseña la instantánea del móvil');
+  else mal(`con instantánea debería devolver sus películas, y ha dado: ${JSON.stringify(datos).slice(0, 80)}`);
+  if (peticiones === 1) ok('y no insiste con más peticiones a una web que ya ha bloqueado');
+  else mal(`ha hecho ${peticiones} peticiones a Yelmo; con la primera bloqueada sobra el resto`);
+} catch (e) {
+  mal(`con instantánea fresca no debería fallar: ${e.message}`);
 }
 
 console.log(fallos ? `\n${fallos} FALLOS` : '\nTodas pasan');

@@ -2,6 +2,11 @@
 // API y bloquea a nuestro servidor— la web debe seguir enseñando lo último que
 // sí consiguió, avisando de que es antiguo, en vez de quedarse en blanco.
 import { getShowtimes, clearShowtimesCache } from '../lib/cinemas/aggregator.js';
+import { usarInstantanea } from '../lib/cinemas/yelmo.js';
+
+// Sin instantánea del móvil: aquí se prueba el respaldo del servidor, que es
+// el que queda cuando el móvil lleva más de 36 h sin publicar.
+usarInstantanea({ generatedAt: null, cines: {} });
 
 let fallos = 0;
 const mal = (m) => { fallos++; console.log('FALLO ' + m); };
