@@ -100,7 +100,7 @@ fi
 # cambiar este mismo tarea.sh, que el móvil ejecuta en cada vuelta.
 #
 # El informe es PÚBLICO. Por eso la salida pasa por un filtro que tapa claves
-# privadas, aunque una orden no debería imprimirlas nunca.
+# privadas y tokens de GitHub, aunque una orden no debería imprimirlos nunca.
 if [ -f data/orden.sh ]; then
   huella=$(sha1sum data/orden.sh | cut -c1-12)
   if [ "$huella" != "$(cat "$BASE/orden-hecha" 2>/dev/null)" ]; then
@@ -114,7 +114,8 @@ if [ -f data/orden.sh ]; then
       echo "salida:  código $codigo_orden$([ "$codigo_orden" = 124 ] && echo ' (cortada a los 5 minutos)')"
       echo "────────────────────────────────────────"
       printf '%s\n' "$salida_orden" | head -n 600 \
-        | sed -E '/-----BEGIN [A-Z ]*PRIVATE KEY-----/,/-----END [A-Z ]*PRIVATE KEY-----/c\[clave privada omitida]'
+        | sed -E -e '/-----BEGIN [A-Z ]*PRIVATE KEY-----/,/-----END [A-Z ]*PRIVATE KEY-----/c\[clave privada omitida]' \
+                 -e 's/(gh[pousr]_|github_pat_)[A-Za-z0-9_]{20,}/[token omitido]/g'
     } > "$DIR_ESTADO/orden-salida.txt"
     echo "$huella" > "$BASE/orden-hecha"
   fi
