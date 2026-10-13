@@ -1,33 +1,30 @@
-# Orden 2 (la 1 escribía en /tmp, que en Termux no existe) — ¿Por qué bloquea Cloudflare al móvil?
-# Su página de bloqueo trae un código que lo dice:
-#   1006 / 1007 / 1008 → la IP está vetada
-#   1010               → veta el TIPO de programa (huella del navegador)
-#   1020               → regla de cortafuegos (país, red, cabeceras…)
-# No se imprime la IP: este informe es público.
+# Orden 3 — Instalar Chromium en el móvil y probar si un navegador de verdad
+# puede leer la cartelera de Yelmo (curl y Node están bloqueados por Cloudflare).
+#
+# Instalarlo tarda varios minutos y las órdenes se cortan a los 5, así que se
+# lanza aparte. Al acabar, fuerza una vuelta para subir el resultado ya, sin
+# esperar a la siguiente.
 
-# En Termux no existe /tmp: se usa el directorio temporal propio de Termux.
-D=$(mktemp -d)
-ua='Mozilla/5.0 (Linux; Android 12; Mi Note 10 Lite) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36'
-
-probar() {
-  echo "── $1"
-  curl -sS -m 20 -A "$ua" -H 'Accept-Language: es-ES,es;q=0.9' -o $D/cuerpo -D $D/cabeceras "${@:2}" \
-    || { echo "   curl falló"; return; }
-  echo "   estado:    $(head -1 $D/cabeceras | tr -d '\r')"
-  echo "   servidor:  $(grep -i '^server:' $D/cabeceras | tr -d '\r' | cut -d' ' -f2-)"
-  echo "   mitigado:  $(grep -i '^cf-mitigated:' $D/cabeceras | tr -d '\r' | cut -d' ' -f2- || true)"
-  echo "   bytes:     $(wc -c < $D/cuerpo)"
-  codigo=$(grep -o 'cf-error-code">[0-9]*' $D/cuerpo | grep -o '[0-9]*$' | head -1)
-  echo "   código CF: ${codigo:-ninguno}"
-  sed -n 's/.*<h2[^>]*>\(What happened?\)<\/h2>.*/\1/p' $D/cuerpo | head -1
-  grep -o 'cf-error-description[^<]*<[^>]*>[^<]*' $D/cuerpo | sed 's/<[^>]*>//g' | head -2
-  tr -s ' \n' ' ' < $D/cuerpo | grep -o '<title>[^<]*</title>' | head -1
-}
-
-probar "Portada (curl)"           https://www.yelmocines.es/
-probar "Cartelera Bahía Sur"      https://www.yelmocines.es/cartelera/cadiz/premium-bahia-sur
-probar "API now-playing"          -X POST -H 'Content-Type: application/json; charset=utf-8' \
-                                  -H 'X-Requested-With: XMLHttpRequest' --data '{"cityKey":"cadiz"}' \
-                                  https://www.yelmocines.es/now-playing.aspx/GetNowPlaying
-probar "Control: otra web con Cloudflare" https://www.cloudflare.com/
-echo "── versiones"; curl --version | head -1; node --version
+SALIDA="$HOME/estado-movil/navegador.txt"
+nohup bash -c '
+  termux-wake-lock
+  exec > "'"$SALIDA"'" 2>&1
+  echo "inicio: $(date "+%Y-%m-%d %H:%M:%S")"
+  echo "── instalando Chromium (x11-repo)…"
+  pkg install -y -o Dpkg::Options::=--force-confnew x11-repo </dev/null >/dev/null 2>&1
+  pkg install -y -o Dpkg::Options::=--force-confnew chromium </dev/null 2>&1 | tail -n 3
+  CHROME=$(command -v chromium-browser || command -v chromium)
+  echo "binario: ${CHROME:-NO ENCONTRADO}"
+  [ -n "$CHROME" ] && "$CHROME" --version 2>&1 | head -1
+  echo "── instalando puppeteer-core…"
+  mkdir -p "$HOME/navegador" && cd "$HOME/navegador"
+  [ -f package.json ] || npm init -y >/dev/null 2>&1
+  npm install --no-audit --no-fund puppeteer-core 2>&1 | tail -n 2
+  cp "$HOME/Movil/scripts/movil/navegador-prueba.mjs" ./prueba.mjs
+  echo "── prueba"
+  CHROME="$CHROME" timeout 180 node prueba.mjs 2>&1
+  echo "fin: $(date "+%Y-%m-%d %H:%M:%S")"
+  termux-wake-unlock
+  bash "$HOME/.recolector/ciclo.sh"
+' >/dev/null 2>&1 &
+echo "instalación de Chromium lanzada en segundo plano; resultado en navegador.txt"
