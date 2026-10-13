@@ -1,0 +1,706 @@
+{
+ "cuando": "2026-10-23T12:59:35.452Z",
+ "paginas": [
+  {
+   "etiqueta": "portada",
+   "url": "https://www.yelmocines.es/",
+   "estado": 200,
+   "urlFinal": "https://cineyelmo.com/es",
+   "titulo": "Cine Yelmo",
+   "enlaces": [
+    "https://cineyelmo.com/es#",
+    "https://eu-static.yelmocines.es/landings/cookiebot/index.html?_gl=1*1sy9yfh*_gcl_au*MTMwOTQzMDAzMC4xNzM5Mzg0OTU3*_ga*MTIxNzczOTQ4NS4xNzIzNTYyOTE5*_ga_9XSYV3RHSY*czE3NDY2MzE4NTYkbzk0JGcxJHQxNzQ2NjMzODY0JGo1JGwwJGgw",
+    "https://hazteuncine.es/",
+    "https://cineyelmo.com/",
+    "https://cinepolis.com/",
+    "https://lavaguadacines.es/",
+    "https://compra.yelmocines.es/",
+    "https://beta.yelmocines.es/",
+    "https://eu-static.yelmocines.es/",
+    "https://opera.yelmocines.es/",
+    "https://professional.yelmocines.es/",
+    "https://inetvis.yelmocines.es/",
+    "https://yelmocines.es/",
+    "https://cineyelmo.com/[country]",
+    "https://eu-static.yelmocines.es/content/pdf/extended-synopsis/Gastos-de-Gestion.pdf?_gl=1*ar5e1s*_gcl_au*MTU2ODcyNzc2NS4xNzUxNDc4NTc4*_ga*NTA5OTgyNzcyLjE3NTE0Nzg1Nzg.*_ga_9XSYV3RHSY*czE3NTE1Njg1NTEkbzQkZzAkdDE3NTE1Njg1NTEkajYwJGwwJGgw",
+    "https://www.facebook.com/CineYelmo",
+    "https://x.com/cineyelmo",
+    "https://www.instagram.com/cineyelmo/",
+    "https://www.tiktok.com/@cineyelmo",
+    "https://www.youtube.com/user/YelmoCines3D",
+    "https://www.linkedin.com/company/cineyelmo/"
+   ],
+   "nextData": "{\"props\":{\"pageProps\":{}},\"page\":\"/[country]\",\"query\":{},\"buildId\":\"P-NBAVcEiQg2FmF9kT46u\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}",
+   "flightTamano": 0,
+   "flightMuestra": null,
+   "ldJson": [],
+   "textoVisible": "Esta página web usa cookies\nUtilizamos cookies propias y de terceros para analizar el uso del sitio web, poder mejorarlo y mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación. En este sentido, tratamos tus datos personales, por ejemplo, el número de IP, utilizando tecnología como cookies para almacenar y acceder a información en su dispositivo. Puedes configurar y aceptar el uso de cookies, así como modificar tus opciones de consentimiento en cualquier momento. Más información\nMostrar detalles\nPermitir todas\nPersonalizar\nDenegar\nWildwood: El bosque salvaje\n\n🦉 ¿Qué te ha traído por estos bosques?\n\nYa en Cine Yelmo\nCartelera\nHorarios\n\nCines\n\nElige tu cine\n\nClayface\n\nM-16\nVer sinopsis\n\nSuperthings: La\npelícula\n\nTP\nVer sinopsis\n\nSentido y sensibilidad\n\nM-7\nVer sinopsis\n\nWildwood: El bosque\nsalvaje\n\nM-12\nVer sinopsis\n\nLa bola negra\n\nM-16\nVer sinopsis\n\nArriba Tutto\n\nM-12\nVer sinopsis\n\nLeones en invierno\n\nM-16\nVer sinopsis\n\nEn el corazón de la\nbestia\n\nM-12\nVer sinopsis\n\nCars 20º Aniversario\n\nTP\nVer sinopsis\n\nMinions & Monsters\n\nM-7\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG: BUENOS...\n\nPDC\n25th Oct\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG IN SAO..",
+   "peticiones": [
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://www.yelmocines.es/",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://cinepolis.com/es",
+     "ct": ""
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://cineyelmo.com/es",
+     "ct": "text/html; charset=utf-8"
+    },
+    {
+     "tipo": "other",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://cineyelmo.com/icon.png",
+     "ct": "image/png"
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/country/config/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/country/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"countrySettings\",\"variables\":{\"countryId\":\"es\"},\"query\":\"query countrySettings($countryId: String!) {\\n  countrySettings(countryId: $countryId) {\\n    countryName\\n    countryId\\n    countryUrlDomain\\n    countryUrlPath\\n    languages\\n    currency\\n    currencySymbol\\n    currencyGroupSeparator\\n    currencyDecimalSeparator\\n    currencyDecimalDigits\\n    countryDateFormat\\n    …",
+     "tamano": 674,
+     "inicio": "{\"data\":{\"countrySettings\":{\"countryName\":\"España\",\"countryId\":\"ES\",\"countryUrlDomain\":\"https://cinepolis.com\",\"countryUrlPath\":\"/es\",\"languages\":[\"es\",\"en\",\"ca\"],\"currency\":\"EUR\",\"currencySymbol\":\"€\",\"currencyGroupSeparator\":\".\",\"currencyDecimalSeparator\":\",\",\"currencyDecimalDigits\":\"2\",\"countryDateFormat\":\"YYYY-mm-dd\",\"countryFeatureFlags\":{\"loyalty\":true,\"wallet\":false,\"promotion\":false,\"isFormat12Hours\":false,\"__typename\":\"CountryFeatureFlags\"},\"sessionTtl\":\"900\",\"termsAndConditions\":{\"title\":\"Aviso legal\",\"url\":\"https://eu-static.yelmocines.es/content/pdf/extended-synopsis/Aviso_Legal_Cin…"
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"GetSharedConfig\",\"variables\":{\"country\":\"ES\",\"project\":\"web\",\"config\":\"webAuthOptions\"},\"query\":\"query GetSharedConfig($country: String!, $project: String!, $config: String!) {\\n  getSharedConfig(country: $country, project: $project, config: $config) {\\n    country\\n    project\\n    config\\n    setting\\n    active\\n    __typename\\n  }\\n}\"}",
+     "tamano": 1123,
+     "inicio": "{\"data\":{\"getSharedConfig\":{\"country\":\"ES\",\"project\":\"WEB\",\"config\":\"WEBAUTHOPTIONS\",\"setting\":\"{\\\"auth\\\":{\\\"tenantDomain\\\":\\\"movieyelmo.yelmocines.es\\\",\\\"redirectUri\\\":\\\"https://cinepolis.com/es\\\",\\\"clientId\\\":\\\"nUsp51vMy7z38BXUGoURY4ycH55Zyh4O\\\",\\\"audience\\\":\\\"https://cnpls-redesign\\\",\\\"scheme\\\":\\\"demo\\\"},\\\"features\\\":{\\\"profile\\\":{\\\"sections\\\":{\\\"personalData\\\":{\\\"enabled\\\":true,\\\"editable\\\":false,\\\"displayOrder\\\":0,\\\"label\\\":\\\"Datos Personales\\\"},\\\"clubCinepolis\\\":{\\\"enabled\\\":true,\\\"editable\\\":false,\\\"displayOrder\\\":1,\\\"label\\\":\\\"Movie Yelmo\\\"},\\\"purchases\\\":{\\\"enabled\\\":true,\\\"editable\\\"…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"createOrchestratorLog\",\"variables\":{\"input\":{\"service\":\"CountrySettings\",\"country\":\"ES\",\"event\":\"dynatrace\",\"notificationType\":\"log\",\"resource\":{\"cinema\":\"\",\"uuid\":\"\",\"application\":\"web\",\"applicationVersion\":\"\",\"device\":\"web\",\"status\":\"ok\",\"description\":\"Country settings were successfully retrieved from the /es\",\"userCode\":\"\",\"event\":\"Country settings retrieved [es]\",\"nameSpace\":…",
+     "tamano": 115,
+     "inicio": "{\"data\":{\"createOrchestratorLog\":{\"message\":\"Log is processing in background\",\"code\":200,\"__typename\":\"Response\"}}}"
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/sdk/bc-v5.min.html",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "xhr",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/consentconfig/d988abee-d0d7-450b-b445-4b967a2207f9/settings.json",
+     "ct": "application/json",
+     "tamano": 603,
+     "inicio": "{\"widget\":{\"enabled\":true,\"position\":{\"position\":\"bottom-left\",\"distanceVerticalPx\":5,\"distanceHorizontalPx\":5},\"theme\":{\"closed\":{\"backgroundColor\":\"#FFFFFF\",\"foregroundColor\":\"#141414\"},\"opened\":{\"backgroundColor\":\"#141414\",\"foregroundColor\":\"#FFFFFF\",\"highlightColor\":\"#2EA7FF\",\"shadeColor\":\"#1D1D1D\",\"changeBackgroundColor\":\"#2EA7FF\",\"changeTextColor\":\"#141414\",\"changeBorderColor\":\"#2EA7FF\",\"withdrawBackgroundColor\":\"#141414\",\"withdrawTextColor\":\"#FFFFFF\",\"withdrawBorderColor\":\"#2EA7FF\",\"detailsBackgroundColor\":\"#202020\"}},\"content\":{\"cultures\":[\"es\"],\"default\":\"es\",\"autodetectLanguage\":true…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"NavBarByProject\",\"variables\":{\"country\":\"ES\",\"language\":\"ES\",\"project\":\"NAVBAR\"},\"query\":\"query NavBarByProject($country: String!, $language: String!, $project: String!) {\\n  navBarByProject(country: $country, language: $language, project: $project) {\\n    order\\n    title\\n    navBarTabs {\\n      order\\n      title\\n      navBarCards {\\n        description\\n        link\\n       …",
+     "tamano": 34079,
+     "inicio": "{\"data\":{\"navBarByProject\":[{\"order\":2,\"title\":\"Alimentos\",\"navBarTabs\":[{\"order\":1,\"title\":\"Menús\",\"navBarCards\":[{\"description\":\"Todos los alimentos favoritos para disfrutar tu película.\",\"link\":\"https://cinepolis.com/es/solo-alimentos\",\"order\":1,\"target\":false,\"title\":\"Menú Tradicional\",\"image\":{\"android\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":\"ImageDetailDto\"},\"ios\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Alarm\",\"variables\":{\"country\":\"ES\",\"project\":\"TICKETS\",\"language\":\"ES\"},\"query\":\"query Alarm($country: String!, $project: String!, $language: String!) {\\n  alarms(country: $country, project: $project, language: $language) {\\n    alarmCode\\n    title\\n    description\\n    color\\n    __typename\\n  }\\n}\"}",
+     "tamano": 11944,
+     "inicio": "{\"data\":{\"alarms\":[{\"alarmCode\":\"PROHIBICION_ALIMENTOS_CINE1075\",\"title\":\"Atención\",\"description\":\"CINE YELMO informa de que, al disponer de servicio de bar en este establecimiento, al amparo de lo previsto en el artículo 52.2 del Decreto 86/2013, de 1 de agosto, por el que se aprueba el Reglamento de actividades clasificadas y espectáculos públicos, no se permite el acceso a sus instalaciones con alimentos y/o bebidas adquiridos fuera de YELMO, reservándose el derecho de admisión en estos supuestos.\",\"color\":\"#FF5733\",\"__typename\":\"AlarmDto\"},{\"alarmCode\":\"4D\",\"title\":\"Película en 4D\",\"descri…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Footer\",\"variables\":{\"countryId\":\"ES\",\"language\":\"es\"},\"query\":\"query Footer($countryId: String!, $language: String!) {\\n  footer(country: $countryId, language: $language) {\\n    name\\n    position\\n    sections {\\n      title\\n      position\\n      link\\n      isExternal\\n      __typename\\n    }\\n    __typename\\n  }\\n}\"}",
+     "tamano": 4708,
+     "inicio": "{\"data\":{\"footer\":[{\"name\":\"Cine Yelmo\",\"position\":\"0\",\"sections\":[{\"title\":\"Anúnciate en Cine Yelmo\",\"position\":\"3\",\"link\":\"http://professional.yelmocines.es/?_gl=1*1joj5s0*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMzA2MD\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Apoyo Institucional \",\"position\":\"5\",\"link\":\"https://yelmocines.es/promocion-extendida/apoyo-institucional\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Garantía Cine Yelmo\",\"position\":\"0\",\"link\":\"http://www.yelmocines.es/garantia-yelmo?_gl=1*5qbe4x*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMz\",\"isEx…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/web-takeover/build/takeovers/config/movie-ids.json",
+     "ct": "application/json",
+     "tamano": 3,
+     "inicio": "{\n}"
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "other",
+     "metodo": "OPTIONS",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "",
+     "tamano": 0,
+     "inicio": ""
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"BannerByCode\",\"variables\":{\"country\":\"ES\",\"language\":\"es\",\"code\":\"Principal\"},\"query\":\"query BannerByCode($country: String!, $code: String!, $language: String!) {\\n  bannerByCode(country: $country, code: $code, language: $language) {\\n    type\\n    active\\n    language\\n    countryId\\n    bannerId\\n    bannerCode\\n    domainCode\\n    bannerName\\n    date {\\n      start\\n      end…",
+     "tamano": 10854,
+     "inicio": "{\"data\":{\"bannerByCode\":{\"type\":\"WEB\",\"active\":true,\"language\":\"ES\",\"countryId\":358,\"bannerId\":413,\"bannerCode\":\"Principal\",\"domainCode\":\"TICKETS\",\"bannerName\":\"\",\"date\":{\"start\":\"2024-09-10 06:00:00\",\"end\":\"2024-11-23 05:55:00\",\"__typename\":\"DateRange\"},\"country\":{\"countryCode\":\"ES\",\"countryName\":\"\",\"defaultLanguage\":\"ES\",\"__typename\":\"CountryBanner\"},\"components\":[{\"description\":\"Él no es solo una cara más en Gotham.\",\"bannerType\":\"B\",\"dataPosition\":\"LEFT\",\"title\":{\"order\":1,\"text\":\"Clayface\",\"logo\":\"\",\"__typename\":\"Title\"},\"button\":{\"title\":\"Ya en Cine Yelmo\",\"action\":{\"type\":\"MOVIE\",\"targe…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"coming-soon\",\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\n    isAbsoluteMediaPath:…",
+     "tamano": 36773,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"8\",\"hasNextPage\":true,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":8,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"bts-world-tour-arirang-in-buenos-aires-live-viewing\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"BTS WORLD TOUR ARIRANG: BUENOS AIRES LIVE VIEWING\",\"originalName\":\"BTS WORLD TOUR 'ARIRANG' IN BUENOS AIRES LIVE VIEWING\",\"distributor\":\"Trafalgar Releasing\",\"rating\":\"PDC\",\"ratingDescription\":\"Pendiente de clasificación de edades.\",\"position\":\"11\",\"genre\":[\"CONCIERTO\",\"CONTENIDO ALTERNATIVO\",\"MÚSICA\"],\"synopsis\":\"La primera t…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Cities\",\"variables\":{\"countryId\":\"ES\"},\"query\":\"query Cities($countryId: String!) {\\n  cities(country_id: $countryId) {\\n    edges {\\n      node {\\n        id\\n        name\\n        regions {\\n          regionId\\n          regionName\\n          __typename\\n        }\\n        settings {\\n          hasFoodSales\\n          hasPresales\\n          __typename\\n        }\\n        timezo…",
+     "tamano": 22023,
+     "inicio": "{\"data\":{\"cities\":{\"edges\":[{\"node\":{\"id\":\"alava\",\"name\":\"Álava\",\"regions\":[],\"settings\":{\"hasFoodSales\":true,\"hasPresales\":true,\"__typename\":\"CitySettings\"},\"timezone\":\"Europe/Madrid\",\"cinemas\":[{\"id\":\"boulevard-alava\",\"regionId\":null,\"vistaId\":\"812\",\"type\":\"TRADICIONAL\",\"name\":\"Boulevard\",\"cityId\":\"alava\",\"lat\":\"42.862475\",\"lng\":\"-2.6686788\",\"alias\":null,\"businessType\":\"TRADICIONAL\",\"experiences\":[],\"settings\":{\"requireContiguousSeating\":false,\"__typename\":\"CinemaSettings\"},\"__typename\":\"Cinema\"}],\"__typename\":\"City\"},\"__typename\":\"CityEdge\"},{\"node\":{\"id\":\"albacete\",\"name\":\"Albacete\",\"regio…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"createOrchestratorLog\",\"variables\":{\"input\":{\"service\":\"Cities\",\"country\":\"ES\",\"event\":\"dynatrace\",\"notificationType\":\"log\",\"resource\":{\"cinema\":\"\",\"uuid\":\"\",\"application\":\"web\",\"applicationVersion\":\"\",\"device\":\"web\",\"status\":\"ok\",\"description\":\"Select cities of ES\",\"userCode\":\"\",\"event\":\"Cities retrieved [ES]\",\"nameSpace\":\"prod\",\"statusCode\":\"OT0002WEB\"}}},\"query\":\"mutation crea…",
+     "tamano": 115,
+     "inicio": "{\"data\":{\"createOrchestratorLog\":{\"message\":\"Log is processing in background\",\"code\":200,\"__typename\":\"Response\"}}}"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://cineyelmo.com/_next/static/css/f38adad86c070524.css",
+     "ct": "text/css; charset=UTF-8"
+    }
+   ]
+  },
+  {
+   "etiqueta": "cine-bahia-sur",
+   "url": "https://www.yelmocines.es/cartelera/cadiz/premium-bahia-sur",
+   "estado": 304,
+   "urlFinal": "https://cineyelmo.com/es",
+   "titulo": "Cine Yelmo",
+   "enlaces": [
+    "https://cineyelmo.com/es#",
+    "https://eu-static.yelmocines.es/landings/cookiebot/index.html?_gl=1*1sy9yfh*_gcl_au*MTMwOTQzMDAzMC4xNzM5Mzg0OTU3*_ga*MTIxNzczOTQ4NS4xNzIzNTYyOTE5*_ga_9XSYV3RHSY*czE3NDY2MzE4NTYkbzk0JGcxJHQxNzQ2NjMzODY0JGo1JGwwJGgw",
+    "https://hazteuncine.es/",
+    "https://cineyelmo.com/",
+    "https://cinepolis.com/",
+    "https://lavaguadacines.es/",
+    "https://compra.yelmocines.es/",
+    "https://beta.yelmocines.es/",
+    "https://eu-static.yelmocines.es/",
+    "https://opera.yelmocines.es/",
+    "https://professional.yelmocines.es/",
+    "https://inetvis.yelmocines.es/",
+    "https://yelmocines.es/",
+    "https://cineyelmo.com/[country]",
+    "https://eu-static.yelmocines.es/content/pdf/extended-synopsis/Gastos-de-Gestion.pdf?_gl=1*ar5e1s*_gcl_au*MTU2ODcyNzc2NS4xNzUxNDc4NTc4*_ga*NTA5OTgyNzcyLjE3NTE0Nzg1Nzg.*_ga_9XSYV3RHSY*czE3NTE1Njg1NTEkbzQkZzAkdDE3NTE1Njg1NTEkajYwJGwwJGgw",
+    "https://www.facebook.com/CineYelmo",
+    "https://x.com/cineyelmo",
+    "https://www.instagram.com/cineyelmo/",
+    "https://www.tiktok.com/@cineyelmo",
+    "https://www.youtube.com/user/YelmoCines3D",
+    "https://www.linkedin.com/company/cineyelmo/"
+   ],
+   "nextData": "{\"props\":{\"pageProps\":{}},\"page\":\"/[country]\",\"query\":{},\"buildId\":\"P-NBAVcEiQg2FmF9kT46u\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}",
+   "flightTamano": 0,
+   "flightMuestra": null,
+   "ldJson": [],
+   "textoVisible": "Esta página web usa cookies\nUtilizamos cookies propias y de terceros para analizar el uso del sitio web, poder mejorarlo y mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación. En este sentido, tratamos tus datos personales, por ejemplo, el número de IP, utilizando tecnología como cookies para almacenar y acceder a información en su dispositivo. Puedes configurar y aceptar el uso de cookies, así como modificar tus opciones de consentimiento en cualquier momento. Más información\nMostrar detalles\nPermitir todas\nPersonalizar\nDenegar\nWildwood: El bosque salvaje\n\n🦉 ¿Qué te ha traído por estos bosques?\n\nYa en Cine Yelmo\nCartelera\nHorarios\n\nCines\n\nElige tu cine\n\nClayface\n\nM-16\nVer sinopsis\n\nSuperthings: La\npelícula\n\nTP\nVer sinopsis\n\nSentido y sensibilidad\n\nM-7\nVer sinopsis\n\nWildwood: El bosque\nsalvaje\n\nM-12\nVer sinopsis\n\nLa bola negra\n\nM-16\nVer sinopsis\n\nArriba Tutto\n\nM-12\nVer sinopsis\n\nLeones en invierno\n\nM-16\nVer sinopsis\n\nEn el corazón de la\nbestia\n\nM-12\nVer sinopsis\n\nCars 20º Aniversario\n\nTP\nVer sinopsis\n\nMinions & Monsters\n\nM-7\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG: BUENOS...\n\nPDC\n25th Oct\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG IN SAO..",
+   "peticiones": [
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://www.yelmocines.es/cartelera/cadiz/premium-bahia-sur",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://cinepolis.com/es",
+     "ct": ""
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 304,
+     "url": "https://cineyelmo.com/es",
+     "ct": ""
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"NavBarByProject\",\"variables\":{\"country\":\"ES\",\"language\":\"ES\",\"project\":\"NAVBAR\"},\"query\":\"query NavBarByProject($country: String!, $language: String!, $project: String!) {\\n  navBarByProject(country: $country, language: $language, project: $project) {\\n    order\\n    title\\n    navBarTabs {\\n      order\\n      title\\n      navBarCards {\\n        description\\n        link\\n       …",
+     "tamano": 34079,
+     "inicio": "{\"data\":{\"navBarByProject\":[{\"order\":2,\"title\":\"Alimentos\",\"navBarTabs\":[{\"order\":1,\"title\":\"Menús\",\"navBarCards\":[{\"description\":\"Todos los alimentos favoritos para disfrutar tu película.\",\"link\":\"https://cinepolis.com/es/solo-alimentos\",\"order\":1,\"target\":false,\"title\":\"Menú Tradicional\",\"image\":{\"android\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":\"ImageDetailDto\"},\"ios\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Footer\",\"variables\":{\"countryId\":\"ES\",\"language\":\"es\"},\"query\":\"query Footer($countryId: String!, $language: String!) {\\n  footer(country: $countryId, language: $language) {\\n    name\\n    position\\n    sections {\\n      title\\n      position\\n      link\\n      isExternal\\n      __typename\\n    }\\n    __typename\\n  }\\n}\"}",
+     "tamano": 4708,
+     "inicio": "{\"data\":{\"footer\":[{\"name\":\"Cine Yelmo\",\"position\":\"0\",\"sections\":[{\"title\":\"Anúnciate en Cine Yelmo\",\"position\":\"3\",\"link\":\"http://professional.yelmocines.es/?_gl=1*1joj5s0*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMzA2MD\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Apoyo Institucional \",\"position\":\"5\",\"link\":\"https://yelmocines.es/promocion-extendida/apoyo-institucional\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Garantía Cine Yelmo\",\"position\":\"0\",\"link\":\"http://www.yelmocines.es/garantia-yelmo?_gl=1*5qbe4x*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMz\",\"isEx…"
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/sdk/bc-v5.min.html",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "xhr",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/consentconfig/d988abee-d0d7-450b-b445-4b967a2207f9/settings.json",
+     "ct": "application/json",
+     "tamano": 603,
+     "inicio": "{\"widget\":{\"enabled\":true,\"position\":{\"position\":\"bottom-left\",\"distanceVerticalPx\":5,\"distanceHorizontalPx\":5},\"theme\":{\"closed\":{\"backgroundColor\":\"#FFFFFF\",\"foregroundColor\":\"#141414\"},\"opened\":{\"backgroundColor\":\"#141414\",\"foregroundColor\":\"#FFFFFF\",\"highlightColor\":\"#2EA7FF\",\"shadeColor\":\"#1D1D1D\",\"changeBackgroundColor\":\"#2EA7FF\",\"changeTextColor\":\"#141414\",\"changeBorderColor\":\"#2EA7FF\",\"withdrawBackgroundColor\":\"#141414\",\"withdrawTextColor\":\"#FFFFFF\",\"withdrawBorderColor\":\"#2EA7FF\",\"detailsBackgroundColor\":\"#202020\"}},\"content\":{\"cultures\":[\"es\"],\"default\":\"es\",\"autodetectLanguage\":true…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/web-takeover/build/takeovers/config/movie-ids.json",
+     "ct": "application/json",
+     "tamano": 3,
+     "inicio": "{\n}"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"BannerByCode\",\"variables\":{\"country\":\"ES\",\"language\":\"es\",\"code\":\"Principal\"},\"query\":\"query BannerByCode($country: String!, $code: String!, $language: String!) {\\n  bannerByCode(country: $country, code: $code, language: $language) {\\n    type\\n    active\\n    language\\n    countryId\\n    bannerId\\n    bannerCode\\n    domainCode\\n    bannerName\\n    date {\\n      start\\n      end…",
+     "tamano": 10854,
+     "inicio": "{\"data\":{\"bannerByCode\":{\"type\":\"WEB\",\"active\":true,\"language\":\"ES\",\"countryId\":358,\"bannerId\":413,\"bannerCode\":\"Principal\",\"domainCode\":\"TICKETS\",\"bannerName\":\"\",\"date\":{\"start\":\"2024-09-10 06:00:00\",\"end\":\"2024-11-23 05:55:00\",\"__typename\":\"DateRange\"},\"country\":{\"countryCode\":\"ES\",\"countryName\":\"\",\"defaultLanguage\":\"ES\",\"__typename\":\"CountryBanner\"},\"components\":[{\"description\":\"Él no es solo una cara más en Gotham.\",\"bannerType\":\"B\",\"dataPosition\":\"LEFT\",\"title\":{\"order\":1,\"text\":\"Clayface\",\"logo\":\"\",\"__typename\":\"Title\"},\"button\":{\"title\":\"Ya en Cine Yelmo\",\"action\":{\"type\":\"MOVIE\",\"targe…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"coming-soon\",\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\n    isAbsoluteMediaPath:…",
+     "tamano": 36773,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"8\",\"hasNextPage\":true,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":8,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"bts-world-tour-arirang-in-buenos-aires-live-viewing\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"BTS WORLD TOUR ARIRANG: BUENOS AIRES LIVE VIEWING\",\"originalName\":\"BTS WORLD TOUR 'ARIRANG' IN BUENOS AIRES LIVE VIEWING\",\"distributor\":\"Trafalgar Releasing\",\"rating\":\"PDC\",\"ratingDescription\":\"Pendiente de clasificación de edades.\",\"position\":\"11\",\"genre\":[\"CONCIERTO\",\"CONTENIDO ALTERNATIVO\",\"MÚSICA\"],\"synopsis\":\"La primera t…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Cities\",\"variables\":{\"countryId\":\"ES\"},\"query\":\"query Cities($countryId: String!) {\\n  cities(country_id: $countryId) {\\n    edges {\\n      node {\\n        id\\n        name\\n        regions {\\n          regionId\\n          regionName\\n          __typename\\n        }\\n        settings {\\n          hasFoodSales\\n          hasPresales\\n          __typename\\n        }\\n        timezo…",
+     "tamano": 22023,
+     "inicio": "{\"data\":{\"cities\":{\"edges\":[{\"node\":{\"id\":\"alava\",\"name\":\"Álava\",\"regions\":[],\"settings\":{\"hasFoodSales\":true,\"hasPresales\":true,\"__typename\":\"CitySettings\"},\"timezone\":\"Europe/Madrid\",\"cinemas\":[{\"id\":\"boulevard-alava\",\"regionId\":null,\"vistaId\":\"812\",\"type\":\"TRADICIONAL\",\"name\":\"Boulevard\",\"cityId\":\"alava\",\"lat\":\"42.862475\",\"lng\":\"-2.6686788\",\"alias\":null,\"businessType\":\"TRADICIONAL\",\"experiences\":[],\"settings\":{\"requireContiguousSeating\":false,\"__typename\":\"CinemaSettings\"},\"__typename\":\"Cinema\"}],\"__typename\":\"City\"},\"__typename\":\"CityEdge\"},{\"node\":{\"id\":\"albacete\",\"name\":\"Albacete\",\"regio…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"createOrchestratorLog\",\"variables\":{\"input\":{\"service\":\"Cities\",\"country\":\"ES\",\"event\":\"dynatrace\",\"notificationType\":\"log\",\"resource\":{\"cinema\":\"\",\"uuid\":\"\",\"application\":\"web\",\"applicationVersion\":\"\",\"device\":\"web\",\"status\":\"ok\",\"description\":\"Select cities of ES\",\"userCode\":\"\",\"event\":\"Cities retrieved [ES]\",\"nameSpace\":\"prod\",\"statusCode\":\"OT0002WEB\"}}},\"query\":\"mutation crea…",
+     "tamano": 115,
+     "inicio": "{\"data\":{\"createOrchestratorLog\":{\"message\":\"Log is processing in background\",\"code\":200,\"__typename\":\"Response\"}}}"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://cineyelmo.com/_next/static/css/f38adad86c070524.css",
+     "ct": "text/css; charset=UTF-8"
+    }
+   ]
+  },
+  {
+   "etiqueta": "cine-area-sur",
+   "url": "https://www.yelmocines.es/cartelera/cadiz/jerez",
+   "estado": 304,
+   "urlFinal": "https://cineyelmo.com/es",
+   "titulo": "Cine Yelmo",
+   "enlaces": [
+    "https://cineyelmo.com/es#",
+    "https://eu-static.yelmocines.es/landings/cookiebot/index.html?_gl=1*1sy9yfh*_gcl_au*MTMwOTQzMDAzMC4xNzM5Mzg0OTU3*_ga*MTIxNzczOTQ4NS4xNzIzNTYyOTE5*_ga_9XSYV3RHSY*czE3NDY2MzE4NTYkbzk0JGcxJHQxNzQ2NjMzODY0JGo1JGwwJGgw",
+    "https://hazteuncine.es/",
+    "https://cineyelmo.com/",
+    "https://cinepolis.com/",
+    "https://lavaguadacines.es/",
+    "https://compra.yelmocines.es/",
+    "https://beta.yelmocines.es/",
+    "https://eu-static.yelmocines.es/",
+    "https://opera.yelmocines.es/",
+    "https://professional.yelmocines.es/",
+    "https://inetvis.yelmocines.es/",
+    "https://yelmocines.es/",
+    "https://cineyelmo.com/[country]",
+    "https://eu-static.yelmocines.es/content/pdf/extended-synopsis/Gastos-de-Gestion.pdf?_gl=1*ar5e1s*_gcl_au*MTU2ODcyNzc2NS4xNzUxNDc4NTc4*_ga*NTA5OTgyNzcyLjE3NTE0Nzg1Nzg.*_ga_9XSYV3RHSY*czE3NTE1Njg1NTEkbzQkZzAkdDE3NTE1Njg1NTEkajYwJGwwJGgw",
+    "https://www.facebook.com/CineYelmo",
+    "https://x.com/cineyelmo",
+    "https://www.instagram.com/cineyelmo/",
+    "https://www.tiktok.com/@cineyelmo",
+    "https://www.youtube.com/user/YelmoCines3D",
+    "https://www.linkedin.com/company/cineyelmo/"
+   ],
+   "nextData": "{\"props\":{\"pageProps\":{}},\"page\":\"/[country]\",\"query\":{},\"buildId\":\"P-NBAVcEiQg2FmF9kT46u\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}",
+   "flightTamano": 0,
+   "flightMuestra": null,
+   "ldJson": [],
+   "textoVisible": "Esta página web usa cookies\nUtilizamos cookies propias y de terceros para analizar el uso del sitio web, poder mejorarlo y mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación. En este sentido, tratamos tus datos personales, por ejemplo, el número de IP, utilizando tecnología como cookies para almacenar y acceder a información en su dispositivo. Puedes configurar y aceptar el uso de cookies, así como modificar tus opciones de consentimiento en cualquier momento. Más información\nMostrar detalles\nPermitir todas\nPersonalizar\nDenegar\nWildwood: El bosque salvaje\n\n🦉 ¿Qué te ha traído por estos bosques?\n\nYa en Cine Yelmo\nCartelera\nHorarios\n\nCines\n\nElige tu cine\n\nClayface\n\nM-16\nVer sinopsis\n\nSuperthings: La\npelícula\n\nTP\nVer sinopsis\n\nSentido y sensibilidad\n\nM-7\nVer sinopsis\n\nWildwood: El bosque\nsalvaje\n\nM-12\nVer sinopsis\n\nLa bola negra\n\nM-16\nVer sinopsis\n\nArriba Tutto\n\nM-12\nVer sinopsis\n\nLeones en invierno\n\nM-16\nVer sinopsis\n\nEn el corazón de la\nbestia\n\nM-12\nVer sinopsis\n\nCars 20º Aniversario\n\nTP\nVer sinopsis\n\nMinions & Monsters\n\nM-7\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG: BUENOS...\n\nPDC\n25th Oct\nVer sinopsis\n\nBTS WORLD TOUR\nARIRANG IN SAO..",
+   "peticiones": [
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://www.yelmocines.es/cartelera/cadiz/jerez",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 302,
+     "url": "https://cinepolis.com/es",
+     "ct": ""
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 304,
+     "url": "https://cineyelmo.com/es",
+     "ct": ""
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"NavBarByProject\",\"variables\":{\"country\":\"ES\",\"language\":\"ES\",\"project\":\"NAVBAR\"},\"query\":\"query NavBarByProject($country: String!, $language: String!, $project: String!) {\\n  navBarByProject(country: $country, language: $language, project: $project) {\\n    order\\n    title\\n    navBarTabs {\\n      order\\n      title\\n      navBarCards {\\n        description\\n        link\\n       …",
+     "tamano": 34079,
+     "inicio": "{\"data\":{\"navBarByProject\":[{\"order\":2,\"title\":\"Alimentos\",\"navBarTabs\":[{\"order\":1,\"title\":\"Menús\",\"navBarCards\":[{\"description\":\"Todos los alimentos favoritos para disfrutar tu película.\",\"link\":\"https://cinepolis.com/es/solo-alimentos\",\"order\":1,\"target\":false,\"title\":\"Menú Tradicional\",\"image\":{\"android\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":\"ImageDetailDto\"},\"ios\":{\"normal\":\"https://pimcore-content.cinepolis.com/assets/España/NavBars/Alimentos/M3ns/Tradicional/Es/Tradicional_1.png\",\"__typename\":…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Footer\",\"variables\":{\"countryId\":\"ES\",\"language\":\"es\"},\"query\":\"query Footer($countryId: String!, $language: String!) {\\n  footer(country: $countryId, language: $language) {\\n    name\\n    position\\n    sections {\\n      title\\n      position\\n      link\\n      isExternal\\n      __typename\\n    }\\n    __typename\\n  }\\n}\"}",
+     "tamano": 4708,
+     "inicio": "{\"data\":{\"footer\":[{\"name\":\"Cine Yelmo\",\"position\":\"0\",\"sections\":[{\"title\":\"Anúnciate en Cine Yelmo\",\"position\":\"3\",\"link\":\"http://professional.yelmocines.es/?_gl=1*1joj5s0*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMzA2MD\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Apoyo Institucional \",\"position\":\"5\",\"link\":\"https://yelmocines.es/promocion-extendida/apoyo-institucional\",\"isExternal\":\"true\",\"__typename\":\"SectionDto\"},{\"title\":\"Garantía Cine Yelmo\",\"position\":\"0\",\"link\":\"http://www.yelmocines.es/garantia-yelmo?_gl=1*5qbe4x*_gcl_au*MTA5NzgwNDMzMC4xNzQ4Mzc2ODU5*_ga*MTMzMz\",\"isEx…"
+    },
+    {
+     "tipo": "document",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/sdk/bc-v5.min.html",
+     "ct": "text/html"
+    },
+    {
+     "tipo": "xhr",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://consentcdn.cookiebot.com/consentconfig/d988abee-d0d7-450b-b445-4b967a2207f9/settings.json",
+     "ct": "application/json",
+     "tamano": 603,
+     "inicio": "{\"widget\":{\"enabled\":true,\"position\":{\"position\":\"bottom-left\",\"distanceVerticalPx\":5,\"distanceHorizontalPx\":5},\"theme\":{\"closed\":{\"backgroundColor\":\"#FFFFFF\",\"foregroundColor\":\"#141414\"},\"opened\":{\"backgroundColor\":\"#141414\",\"foregroundColor\":\"#FFFFFF\",\"highlightColor\":\"#2EA7FF\",\"shadeColor\":\"#1D1D1D\",\"changeBackgroundColor\":\"#2EA7FF\",\"changeTextColor\":\"#141414\",\"changeBorderColor\":\"#2EA7FF\",\"withdrawBackgroundColor\":\"#141414\",\"withdrawTextColor\":\"#FFFFFF\",\"withdrawBorderColor\":\"#2EA7FF\",\"detailsBackgroundColor\":\"#202020\"}},\"content\":{\"cultures\":[\"es\"],\"default\":\"es\",\"autodetectLanguage\":true…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/web-takeover/build/takeovers/config/movie-ids.json",
+     "ct": "application/json",
+     "tamano": 3,
+     "inicio": "{\n}"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/miscellaneous/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"BannerByCode\",\"variables\":{\"country\":\"ES\",\"language\":\"es\",\"code\":\"Principal\"},\"query\":\"query BannerByCode($country: String!, $code: String!, $language: String!) {\\n  bannerByCode(country: $country, code: $code, language: $language) {\\n    type\\n    active\\n    language\\n    countryId\\n    bannerId\\n    bannerCode\\n    domainCode\\n    bannerName\\n    date {\\n      start\\n      end…",
+     "tamano": 10854,
+     "inicio": "{\"data\":{\"bannerByCode\":{\"type\":\"WEB\",\"active\":true,\"language\":\"ES\",\"countryId\":358,\"bannerId\":413,\"bannerCode\":\"Principal\",\"domainCode\":\"TICKETS\",\"bannerName\":\"\",\"date\":{\"start\":\"2024-09-10 06:00:00\",\"end\":\"2024-11-23 05:55:00\",\"__typename\":\"DateRange\"},\"country\":{\"countryCode\":\"ES\",\"countryName\":\"\",\"defaultLanguage\":\"ES\",\"__typename\":\"CountryBanner\"},\"components\":[{\"description\":\"Él no es solo una cara más en Gotham.\",\"bannerType\":\"B\",\"dataPosition\":\"LEFT\",\"title\":{\"order\":1,\"text\":\"Clayface\",\"logo\":\"\",\"__typename\":\"Title\"},\"button\":{\"title\":\"Ya en Cine Yelmo\",\"action\":{\"type\":\"MOVIE\",\"targe…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"coming-soon\",\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\n    isAbsoluteMediaPath:…",
+     "tamano": 36773,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"8\",\"hasNextPage\":true,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":8,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"bts-world-tour-arirang-in-buenos-aires-live-viewing\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"BTS WORLD TOUR ARIRANG: BUENOS AIRES LIVE VIEWING\",\"originalName\":\"BTS WORLD TOUR 'ARIRANG' IN BUENOS AIRES LIVE VIEWING\",\"distributor\":\"Trafalgar Releasing\",\"rating\":\"PDC\",\"ratingDescription\":\"Pendiente de clasificación de edades.\",\"position\":\"11\",\"genre\":[\"CONCIERTO\",\"CONTENIDO ALTERNATIVO\",\"MÚSICA\"],\"synopsis\":\"La primera t…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/locations/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Cities\",\"variables\":{\"countryId\":\"ES\"},\"query\":\"query Cities($countryId: String!) {\\n  cities(country_id: $countryId) {\\n    edges {\\n      node {\\n        id\\n        name\\n        regions {\\n          regionId\\n          regionName\\n          __typename\\n        }\\n        settings {\\n          hasFoodSales\\n          hasPresales\\n          __typename\\n        }\\n        timezo…",
+     "tamano": 22023,
+     "inicio": "{\"data\":{\"cities\":{\"edges\":[{\"node\":{\"id\":\"alava\",\"name\":\"Álava\",\"regions\":[],\"settings\":{\"hasFoodSales\":true,\"hasPresales\":true,\"__typename\":\"CitySettings\"},\"timezone\":\"Europe/Madrid\",\"cinemas\":[{\"id\":\"boulevard-alava\",\"regionId\":null,\"vistaId\":\"812\",\"type\":\"TRADICIONAL\",\"name\":\"Boulevard\",\"cityId\":\"alava\",\"lat\":\"42.862475\",\"lng\":\"-2.6686788\",\"alias\":null,\"businessType\":\"TRADICIONAL\",\"experiences\":[],\"settings\":{\"requireContiguousSeating\":false,\"__typename\":\"CinemaSettings\"},\"__typename\":\"Cinema\"}],\"__typename\":\"City\"},\"__typename\":\"CityEdge\"},{\"node\":{\"id\":\"albacete\",\"name\":\"Albacete\",\"regio…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://tickets-static-content.cinepolis.com/Tickets_Assets/Host/icons/IconOldPageArrowRight.svg",
+     "ct": "image/svg+xml"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/v2/billboards/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"Movies\",\"variables\":{\"category\":\"now-playing\",\"cinemas\":\"\",\"limit\":100,\"countryId\":\"ES\",\"isAbsoluteMediaPath\":true},\"query\":\"query Movies($countryId: String!, $category: String, $cinemas: String, $after: String, $limit: Int, $isAbsoluteMediaPath: Boolean) {\\n  movies(\\n    countryId: $countryId\\n    category: $category\\n    cinemas: $cinemas\\n    after: $after\\n    limit: $limit\\…",
+     "tamano": 412575,
+     "inicio": "{\"data\":{\"movies\":{\"pageInfo\":{\"startCursor\":\"0\",\"endCursor\":\"\",\"hasNextPage\":false,\"hasPreviousPage\":false,\"__typename\":\"PageInfo\"},\"totalCount\":92,\"edges\":[{\"cursor\":\"\",\"node\":{\"id\":\"clayface\",\"type\":\"\",\"countryId\":\"ES\",\"name\":\"Clayface\",\"originalName\":\"Clayface\",\"distributor\":\"WARNER BROS ENTERTAIMENT ESPAÑA S. L\",\"rating\":\"M-16\",\"ratingDescription\":\"No recomendada para menores de 16 años.\",\"position\":\"1\",\"genre\":[\"TERROR\",\"THRILLER\",\"SUSPENSO\"],\"synopsis\":\"El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de…"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "POST",
+     "estado": 200,
+     "url": "https://api-g.cinepolis.com/shared-services/config/graphql",
+     "ct": "application/json",
+     "cuerpoPedido": "{\"operationName\":\"createOrchestratorLog\",\"variables\":{\"input\":{\"service\":\"Cities\",\"country\":\"ES\",\"event\":\"dynatrace\",\"notificationType\":\"log\",\"resource\":{\"cinema\":\"\",\"uuid\":\"\",\"application\":\"web\",\"applicationVersion\":\"\",\"device\":\"web\",\"status\":\"ok\",\"description\":\"Select cities of ES\",\"userCode\":\"\",\"event\":\"Cities retrieved [ES]\",\"nameSpace\":\"prod\",\"statusCode\":\"OT0002WEB\"}}},\"query\":\"mutation crea…",
+     "tamano": 115,
+     "inicio": "{\"data\":{\"createOrchestratorLog\":{\"message\":\"Log is processing in background\",\"code\":200,\"__typename\":\"Response\"}}}"
+    },
+    {
+     "tipo": "fetch",
+     "metodo": "GET",
+     "estado": 200,
+     "url": "https://cineyelmo.com/_next/static/css/f38adad86c070524.css",
+     "ct": "text/css; charset=UTF-8"
+    }
+   ]
+  }
+ ]
+}

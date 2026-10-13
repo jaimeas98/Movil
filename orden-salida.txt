@@ -1,0 +1,52 @@
+orden:   9f71edc17655
+inicio:  2026-10-23 16:03:06
+fin:     2026-10-23 16:04:11
+salida:  código 0
+────────────────────────────────────────
+identidad: Android 12 · Mi Note 10 Lite · Chrome 155
+portada: 200 · Cinépolis | Entra
+peticiones de la web al API: countrySettings, GetSharedConfig, createOrchestratorLog, NavBarByProject, Alarm, Footer, BannerByCode, Cities, Movies
+cabeceras copiadas de la web (solo nombres): accept, content-type, country-id, language, x-apikey
+cartelera: 92 películas en España (la que ya había pedido la web)
+yelmo-bahia-sur: el API filtra por cine → 26 de 92 películas
+yelmo-jerez: el API filtra por cine → 53 de 92 películas
+horarios: 79 consultas (una por película y cine)
+⚠️  sin horarios de «Pesadilla en Elm Street» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Pesadilla en Elm Street»: Failed to fetch — se salta
+⚠️  sin horarios de «El resplandor» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «El resplandor»: Failed to fetch — se salta
+⚠️  sin horarios de «Los cazafantasmas» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Los cazafantasmas»: Failed to fetch — se salta
+⚠️  sin horarios de «Godzilla Minus Zero» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Godzilla Minus Zero»: Failed to fetch — se salta
+⚠️  sin horarios de «RAMMSTEIN - LIVE IN MEXICO CITY» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «RAMMSTEIN - LIVE IN MEXICO CITY»: Failed to fetch — se salta
+⚠️  sin horarios de «Stray Kids World Tour <RUN IT> LIVE VIEWING» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Stray Kids World Tour <RUN IT> LIVE VIEWING»: Failed to fetch — se salta
+⚠️  sin horarios de «SIMON BOCCANEGRA - Teatro real 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «SIMON BOCCANEGRA - Teatro real 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «NORMA - Teatro real 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «NORMA - Teatro real 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «TANNHÄUSER - Teatro real 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «TANNHÄUSER - Teatro real 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «Manon - Ballet Live ROH 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Manon - Ballet Live ROH 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «El Cascanueces- Ballet Live ROH 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «El Cascanueces- Ballet Live ROH 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «Alicia en el País de las Maravillas - ROH 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Alicia en el País de las Maravillas - ROH 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «El Lago de los Cisnes - Ballet ROH 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «El Lago de los Cisnes - Ballet ROH 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «Romeo y Julieta - Ballet ROH 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «Romeo y Julieta - Ballet ROH 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «CARMEN (Bizet) REPOSICIÓN - Grabado MET 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «CARMEN (Bizet) REPOSICIÓN - Grabado MET 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «SAMSON ET DALILA (Saint-Saëns) - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «SAMSON ET DALILA (Saint-Saëns) - MET LIVE 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «LA FANCIULLA DEL WEST (Puccini) - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «LA FANCIULLA DEL WEST (Puccini) - MET LIVE 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «SILENT NIGHT - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «SILENT NIGHT - MET LIVE 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «MANON (Massenet) - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «MANON (Massenet) - MET LIVE 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «OTELLO (Verdi) - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «OTELLO (Verdi) - MET LIVE 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «TOSCA (Puccini) - REPOSICIÓN MET 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «TOSCA (Puccini) - REPOSICIÓN MET 26-27»: Failed to fetch — se salta
+⚠️  sin horarios de «PARSIFAL (Wagner) - MET LIVE 26-27» (area-sur-cadiz): No se ha podido llamar al API para los horarios de «PARSIFAL (Wagner) - MET LIVE 26-27»: Failed to fetch — se salta
+horarios: 57 bien, 22 saltadas · 496 sesiones · 81 peticiones al API en 63 s
+✅ yelmo-bahia-sur: 27 días, 26 películas, 204 sesiones
+     · 2026-10-23 17:00 «La bola negra» — PREMIUM · ESPAÑOL (ESPAÑOL) · sala 7 · sesión 24250
+     · 2026-10-23 17:05 «Cars 20º Aniversario» — PREMIUM · ESPAÑOL (ESPAÑOL) · sala 3 · sesión 24242
+     · 2026-10-23 17:10 «Sentido y sensibilidad» — PREMIUM · ESPAÑOL (ESPAÑOL) · sala 1 · sesión 24236
+     compra (formato de siempre): https://compra.yelmocines.es/?cinemaVistaId=1340&showtimeVistaId=24250
+✅ yelmo-jerez: 23 días, 31 películas, 292 sesiones
+     · 2026-10-23 17:00 «Sentido y sensibilidad» — 2D · ESPAÑOL (ESPAÑOL) · sala 4 · sesión 38003
+     · 2026-10-23 17:05 «Verity. La sombra de un engaño» — 2D · ESPAÑOL (ESPAÑOL) · sala 6 · sesión 37988
+     · 2026-10-23 17:10 «Wildwood: El bosque salvaje» — 2D · ESPAÑOL (ESPAÑOL) · sala 9 · sesión 38011
+     compra (formato de siempre): https://compra.yelmocines.es/?cinemaVistaId=803&showtimeVistaId=38003
+muestra del API: {"date":"2026-10-23","datetime":"2026-10-23T18:05:00","screen":"6","language":"ESP","displayLanguage":"ESPAÑOL","format":"2D","experience":"PREM","cinemaVistaId":"1340","sessionId":"24024"}
+idiomas vistos: ESP|ESPAÑOL → ESPAÑOL ; SUB ESP|SUB ESP → ESPAÑOL ; COR|COR → VOSE ; ING|INGLÉS → VOSE
+formatos vistos: 2D+PREM → PREMIUM ; 2D+CA → CA ; 2D+ → 2D ; 3D+CA → 3D CA
+VEREDICTO: FUNCIONA (no se ha escrito nada)
+────────────────────────────────────────
+salida del recolector: 0 · 63 s en total

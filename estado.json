@@ -1,0 +1,25 @@
+{
+  "vuelta": "2026-10-24T13:16:41.559Z",
+  "resultado": "sin recogida: no tocaba",
+  "motivo": null,
+  "error": null,
+  "ultimaRecogida": "2026-10-24T05:11:11.000Z",
+  "proximaRecogida": "2026-10-24T16:00:00.000Z",
+  "codigo": "2aa9744",
+  "ultimaOrden": "9f71edc17655",
+  "enchufe": null,
+  "dispositivo": {
+    "modelo": "Mi Note 10 Lite",
+    "android": "12",
+    "node": "v24.18.0"
+  },
+  "bateria": {
+    "porcentaje": 100,
+    "cargando": true,
+    "estado": "GOOD",
+    "temperatura": 27.6,
+    "ritmoPorHora": null,
+    "horasHastaReserva": null,
+    "desenchufadoDesde": null
+  }
+}

@@ -1,0 +1,1 @@
+Informes del recolector del móvil. Los escribe scripts/movil/tarea.sh.

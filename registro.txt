@@ -1,0 +1,200 @@
+código al día: 81dc8a2
+
+=== 2026-10-23 23:36:07 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-23 23:51:48 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 00:07:29 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 00:23:09 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 00:38:50 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 00:54:30 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 01:10:12 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 01:25:53 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 01:41:35 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 01:57:17 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 02:12:58 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 02:28:40 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 02:44:23 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 03:00:04 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 03:15:45 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 03:31:25 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 03:47:06 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 04:02:47 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 04:18:33 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 04:34:13 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 04:49:57 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 05:05:37 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 05:21:19 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 05:36:59 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 05:52:40 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 06:08:24 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 06:24:05 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 06:39:46 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 06:55:26 vuelta
+código al día: 81dc8a2
+
+=== 2026-10-24 07:11:08 vuelta
+código al día: 81dc8a2
+recogiendo: turno de las 07:00
+identidad: Android 12 · Mi Note 10 Lite · Chrome 155
+portada: 200 · Cinépolis | Entra
+peticiones de la web al API: countrySettings, GetSharedConfig, createOrchestratorLog, NavBarByProject, Alarm, Footer, BannerByCode, Cities, Movies
+cabeceras copiadas de la web (solo nombres): accept, content-type, country-id, language, x-apikey
+cartelera: 94 películas en España (la que ya había pedido la web)
+yelmo-bahia-sur: el API filtra por cine → 26 de 94 películas
+yelmo-jerez: el API filtra por cine → 53 de 94 películas
+horarios: 79 consultas (una por película y cine)
+horarios: 79 bien, 0 saltadas · 472 sesiones · 81 peticiones al API en 74 s
+✅ yelmo-bahia-sur: 26 días, 26 películas, 184 sesiones
+✅ yelmo-jerez: 41 días, 53 películas, 288 sesiones
+guardado en /data/data/com.termux/files/home/Movil/data/yelmo.js
+✅ respaldo cinesur-bahia-cadiz: 32 días
+✅ respaldo arte-siete-puerto: 16 días
+resultado: recogida y publicada
+
+=== 2026-10-24 07:26:09 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 07:41:51 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 07:57:32 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 08:13:13 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 08:28:53 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 08:44:35 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 09:00:16 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 09:15:57 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 09:31:38 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 09:47:18 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 10:02:59 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 10:18:40 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 10:34:21 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 10:50:01 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 11:05:41 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 11:21:23 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 11:37:04 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 11:52:44 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 12:08:24 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 12:24:05 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 12:39:45 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 12:55:25 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 13:11:07 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 13:26:47 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 13:42:27 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 13:58:08 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 14:13:50 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 14:29:31 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 14:45:13 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 15:00:55 vuelta
+código al día: 2aa9744
+
+=== 2026-10-24 15:16:36 vuelta
+código al día: 2aa9744
