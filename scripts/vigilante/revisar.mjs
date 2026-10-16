@@ -199,7 +199,17 @@ async function principal() {
     else if (res.status !== 404) throw new Error(`no se pudo leer el informe: ${res.status}`);
   }
 
-  const alertas = evaluar(estado, Date.now(), { prueba: e.PRUEBA === 'true' });
+  // Aviso de prueba: a mano desde Actions (PRUEBA) o dejando el fichero
+  // data/prueba-aviso en la rama, que se puede hacer sin entrar en GitHub.
+  let prueba = e.PRUEBA === 'true';
+  if (!prueba && !e.ESTADO) {
+    const res = await fetch(`https://api.github.com/repos/${repo}/contents/data/prueba-aviso`, {
+      headers: { Authorization: `Bearer ${e.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json' },
+    });
+    prueba = res.ok;
+  }
+
+  const alertas = evaluar(estado, Date.now(), { prueba });
   console.log('alertas:', alertas.map((a) => `${a.tipo}/${a.nivel}`).join(', ') || 'ninguna');
   const hechos = await sincronizar(alertas, estado, { api, dueño });
   console.log(hechos.join('\n') || 'nada que cambiar');
