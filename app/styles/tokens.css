@@ -1,0 +1,142 @@
+/* ============================================================================
+   Marquesina de la Bahía — tokens
+   La noche azul de la bahía de Cádiz y las letras de luz de las marquesinas.
+   Oscuro por defecto (azul noche, tinta blanco cal, rojo butaca, ámbar de
+   bombilla solo para lo que está a punto de empezar); claro en blanco cal frío
+   con tinta añil y el mismo rojo.
+
+   Contrastes medidos (WCAG) y anotados junto a cada color: si se toca un tono,
+   se vuelve a medir. Ningún color de la interfaz se escribe a mano fuera de
+   este fichero.
+   ============================================================================ */
+
+:root {
+  /* ── Tipografía ──────────────────────────────────────────────────────────
+     Big Shoulders Display: la de rótulo y marquesina, para horas, títulos de
+     película y el día. Hanken Grotesk: todo lo demás. Autoalojadas con
+     @fontsource-variable (importadas en app/layout.js). Los respaldos son
+     condensado y grotesca, para que el salto mientras cargan sea pequeño. */
+  --f-rotulo: 'Big Shoulders Display Variable', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --f-texto: 'Hanken Grotesk Variable', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Escala fija (producto, no portada): pocos tamaños y bien separados. */
+  --t-detalle: 0.8125rem;  /* 13px: sala, formato, avisos pequeños */
+  --t-dato:    0.875rem;   /* 14px: datos de la película, etiquetas de control */
+  --t-cuerpo:  1rem;       /* 16px: texto corrido; también evita el zoom de iOS */
+  --t-hora:    1.75rem;    /* 28px: la hora de cada entrada */
+  --t-titulo:  2rem;       /* 32px: título de película */
+  --t-dia:     2.5rem;     /* 40px: el día elegido */
+
+  /* ── Espacio (base 4) ───────────────────────────────────────────────── */
+  --e-1: 4px;
+  --e-2: 8px;
+  --e-3: 12px;
+  --e-4: 16px;
+  --e-5: 24px;
+  --e-6: 32px;
+  --e-7: 48px;
+  --e-8: 64px;
+  --margen: 16px;          /* gutter lateral; crece en pantallas grandes */
+  --ancho: 1320px;
+
+  /* Dos radios, elegidos una vez: las piezas de contenido (entradas, carteles,
+     paneles) casi rectas, como el papel de una entrada; los controles,
+     redondos del todo. */
+  --r-pieza: 6px;
+  --r-control: 999px;
+
+  --toque: 44px;           /* objetivo táctil mínimo */
+
+  /* ── Movimiento ─────────────────────────────────────────────────────── */
+  --ease-out:  cubic-bezier(.22, 1, .36, 1);      /* frenada seca, para soltar */
+  --ease-back: cubic-bezier(.18, 1.12, .34, 1);   /* muelle contenido (gesto) */
+  --ease-press: cubic-bezier(.23, 1, .32, 1);
+  --d-press: 160ms;
+
+  /* ── Capas ──────────────────────────────────────────────────────────── */
+  --z-tira: 40;
+  --z-popover: 60;
+  --z-kbd: 90;
+  --z-hoja: 100;
+
+  /* ── Oscuro (por defecto) ───────────────────────────────────────────────
+     Contra --fondo #0B1526:  tinta 16.1 · apagada 8.6 · tenue 4.8 ·
+     rojo 3.3 (solo como relleno; su texto, 5.6) · ámbar 10.1 · anillo 8.4 */
+  color-scheme: dark;
+  --fondo:      #0B1526;   /* azul noche de bahía, tintado y hondo */
+  --superficie: #13213A;   /* un paso de tono: piezas y paneles */
+  --superficie-2: #1B2C4B; /* lo que flota encima: panel de géneros, hojas */
+  --linea:      rgba(166, 179, 200, 0.16);
+  --linea-fuerte: rgba(166, 179, 200, 0.30);
+  --tinta:      #EEF1F4;   /* blanco cal */
+  --apagada:    #A6B3C8;   /* texto secundario: 7.6 sobre superficie */
+  --tenue:      #75849E;   /* sesiones ya empezadas: 4.3 sobre superficie */
+  --rojo:       #C22E43;   /* rojo butaca: seleccionado y acción principal */
+  --rojo-tinta: #FFFFFF;   /* 5.6 sobre el rojo */
+  --rojo-texto: #FF8E9C;   /* el rojo cuando tiene que ser texto: 8.4 */
+  --ambar:      #F4B642;   /* bombilla de marquesina: solo "empieza ya" */
+  --ambar-tinta: #0B1526;  /* 10.1 sobre el ámbar */
+  --ambar-texto: #F4B642;  /* 10.1 sobre el fondo */
+  --anillo:     #FF8E9C;
+  --velo:       rgba(4, 9, 18, 0.72);
+  --sombra:     0 10px 30px -8px rgba(2, 6, 14, 0.7), 0 2px 6px rgba(2, 6, 14, 0.5);
+  --cartel-vacio: #1E3050;
+  --mezcla-entrada: 17%;   /* cuánto color de su cine lleva cada entrada */
+  --mezcla-entrada-hover: 28%;
+
+  /* Los cuatro cines, reajustados a la noche: se distinguen entre sí por tono
+     (rosa, cielo, lavanda, verde), ninguno se confunde con el rojo butaca ni
+     con el ámbar, y todos pasan 4.5:1 como TEXTO sobre fondo y superficie.
+     Sobre el fondo: 7.3 · 9.2 · 8.2 · 9.8 */
+  --c-cinesur:   #F27EB2;
+  --c-bahiasur:  #62C3F0;
+  --c-areasur:   #B7A0F6;
+  --c-artesiete: #5CD39A;
+}
+
+/* ── Claro: blanco cal frío, tinta añil ───────────────────────────────────
+   Contra --fondo #F2F5F9: tinta 14.1 · apagada 6.7 · tenue 3.9 · rojo 5.9 ·
+   texto del rojo 7.2 · ámbar como texto 5.6 */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --fondo:      #F2F5F9;
+  --superficie: #FFFFFF;
+  --superficie-2: #FFFFFF;
+  --linea:      rgba(23, 34, 74, 0.12);
+  --linea-fuerte: rgba(23, 34, 74, 0.24);
+  --tinta:      #17224A;   /* añil */
+  --apagada:    #4A5677;   /* 7.3 sobre superficie */
+  --tenue:      #6F7B98;   /* 4.2 sobre superficie */
+  --rojo:       #B3263A;   /* 6.5 de blanco sobre él */
+  --rojo-tinta: #FFFFFF;
+  --rojo-texto: #9C1F33;
+  --ambar:      #EE9F1E;   /* un punto más hondo: sobre blanco el de noche se pierde */
+  --ambar-tinta: #17224A;  /* 7.1 */
+  --ambar-texto: #8A5600;
+  --anillo:     #B3263A;
+  --velo:       rgba(23, 34, 74, 0.42);
+  --sombra:     0 12px 32px -10px rgba(23, 34, 74, 0.28), 0 2px 6px rgba(23, 34, 74, 0.10);
+  --cartel-vacio: #DCE3EE;
+  --mezcla-entrada: 11%;
+  --mezcla-entrada-hover: 19%;
+
+  /* Sobre el fondo: 5.6 · 5.5 · 6.0 · 5.2 */
+  --c-cinesur:   #B02E6C;
+  --c-bahiasur:  #0A6A97;
+  --c-areasur:   #6845C2;
+  --c-artesiete: #11764A;
+}
+
+/* El color de cada cine se elige por su id, que es lo que viaja en los datos:
+   así el tono depende del tema y no del hex fijo de lib/cinemas/config.js. */
+[data-cine='cinesur-bahia-cadiz'] { --cine: var(--c-cinesur); }
+[data-cine='yelmo-bahia-sur']     { --cine: var(--c-bahiasur); }
+[data-cine='yelmo-jerez']         { --cine: var(--c-areasur); }
+[data-cine='arte-siete-puerto']   { --cine: var(--c-artesiete); }
+
+@media (min-width: 720px) {
+  :root { --margen: 32px; --t-titulo: 2.25rem; --t-dia: 3rem; }
+}
+@media (min-width: 1200px) {
+  :root { --margen: 48px; }
+}

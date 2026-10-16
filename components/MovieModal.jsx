@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 import { goma, crearVelocimetro, movimientoReducido, alTerminarTransicion } from '@/lib/gestos.js';
 import { bloquearScroll, desbloquearScroll } from '@/lib/bloqueoScroll.js';
+import { lugarCorto } from '@/lib/rotulos.js';
+import Icono from './Icono.jsx';
+import Entrada from './Entrada.jsx';
+import { avisoDeCine, notaMedia } from './Pelicula.jsx';
 
 function hueFromTitle(title) {
   let h = 0;
@@ -73,7 +77,10 @@ const UMBRAL_FRACCION = 0.26;   // 26% del alto de pantalla
 const UMBRAL_VELOCIDAD = 0.55;  // px/ms ≈ 550 px/s: un lanzamiento claro
 const RECORRIDO_MINIMO = 40;    // un lanzamiento tiene que haber recorrido algo
 
-export default function MovieModal({ movie, cinema, onClose }) {
+// `cines` (opcional): la película junta de varios cines, [{ cine, sessions }].
+// Con ella la ficha enseña las sesiones de todos, agrupadas por cine; sin
+// ella se comporta como antes, con `cinema` y `movie.sessions`.
+export default function MovieModal({ movie, cinema, cines, fecha, onClose }) {
   // El padre (Page) ya enriqueció `movie.ratings` desde /api/ratings.
   // Aquí solo presentamos. Si por algún motivo no hay ratings se muestran
   // los enlaces externos sin notas, como antes.
@@ -325,7 +332,9 @@ export default function MovieModal({ movie, cinema, onClose }) {
             garantiza el arrastre aunque la ficha esté desplazada. */}
         <div className="modal-tirador" data-tirador aria-hidden="true" />
 
-        <button className="modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        <button type="button" className="modal-close boton-icono" onClick={onClose} aria-label="Cerrar">
+          <Icono nombre="aspa" />
+        </button>
 
         <div className="modal-hero">
           <div className="modal-poster">
@@ -341,16 +350,26 @@ export default function MovieModal({ movie, cinema, onClose }) {
             <div className="badges">
               {ratings?.average != null && (
                 <span className="badge badge-rating" title="Media de las fuentes disponibles">
-                  ★ {(ratings.average / 10).toFixed(1)}
+                  <Icono nombre="estrella" className="ico ico-nota" />
+                  <span className="sr">Nota media </span>{notaMedia(ratings)}
                 </span>
               )}
               {movie.genre && <span className="badge badge-genre">{movie.genre}</span>}
-              {duration && <span className="badge">⏱ {duration}</span>}
+              {duration && <span className="badge">{duration}</span>}
               {movie.ageRating && <span className="badge badge-age">{movie.ageRating}</span>}
             </div>
-            {cinema && (
-              <div className="modal-cinema">
-                <span className="cinema-bar" style={{ background: cinema.color }} />
+            {cines?.length ? (
+              <ul className="modal-cines">
+                {cines.map(({ cine }) => (
+                  <li key={cine.id} className="modal-cinema" data-cine={cine.id}>
+                    <span className="punto" aria-hidden="true" />
+                    {cine.name}
+                  </li>
+                ))}
+              </ul>
+            ) : cinema && (
+              <div className="modal-cinema" data-cine={cinema.id}>
+                <span className="punto" aria-hidden="true" />
                 {cinema.name}
               </div>
             )}
@@ -372,7 +391,7 @@ export default function MovieModal({ movie, cinema, onClose }) {
               {ratings?.average != null && (
                 <span className="ratings-avg" title="Media de las fuentes disponibles">
                   <span className="ra-label">Media</span>
-                  <span className="ra-num">{(ratings.average / 10).toFixed(1)}</span>
+                  <span className="ra-num">{notaMedia(ratings)}</span>
                 </span>
               )}
             </div>
@@ -422,7 +441,31 @@ export default function MovieModal({ movie, cinema, onClose }) {
 
         <div className="modal-section">
           <h4 className="modal-h4">Sesiones</h4>
-          <div className="showtimes">
+          {cines?.length ? (
+            // Las mismas entradas que en la cartelera, por cine. Sin enlace de
+            // compra no hacen nada aquí: ya estás en la ficha.
+            cines.map(({ cine, sessions }) => {
+              const aviso = avisoDeCine(cine);
+              return (
+                <div className="peli-cine" data-cine={cine.id} key={cine.id}>
+                  <h5 className="peli-cine-nombre">
+                    <span className="punto" aria-hidden="true" />
+                    <span className="peli-cine-marca">{cine.short || cine.name}</span>
+                    <span className="peli-cine-lugar">{lugarCorto(cine)}</span>
+                    {aviso && <span className="peli-cine-aviso">{aviso}</span>}
+                  </h5>
+                  <ul className="entradas">
+                    {sessions.map((s, i) => (
+                      <li key={`${s.time}-${i}`}>
+                        <Entrada sesion={s} cine={cine} pelicula={movie} fecha={fecha} onAbrir={null} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })
+          ) : (
+            <div className="showtimes">
             {movie.sessions.map((s, i) => {
               const isVose = s.language === 'VOSE';
               const tag = [s.format && s.format !== '2D' ? s.format : null, isVose ? 'VOSE' : null]
@@ -443,12 +486,13 @@ export default function MovieModal({ movie, cinema, onClose }) {
               );
             })}
           </div>
+          )}
         </div>
 
         <div className="modal-section">
           <h4 className="modal-h4">Tráiler</h4>
           <a href={trailerUrl} target="_blank" rel="noreferrer" className="trailer-link">
-            <span className="tl-play" aria-hidden="true">▶</span>
+            <Icono nombre="externo" className="ico tl-play" />
             Buscar tráiler en YouTube
           </a>
         </div>

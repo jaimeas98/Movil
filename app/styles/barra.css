@@ -1,0 +1,324 @@
+/* ============================================================================
+   Arriba del todo: barra fina, tira de días pegajosa y fila de controles.
+   En el móvil, entre las tres no pasan de ~230 px: la primera película entra
+   entera en la primera pantalla.
+   ============================================================================ */
+
+.saltar {
+  position: absolute; left: var(--margen); top: -100px; z-index: calc(var(--z-hoja) + 1);
+  padding: var(--e-2) var(--e-4);
+  background: var(--rojo); color: var(--rojo-tinta);
+  border-radius: var(--r-control);
+  font-weight: 650; text-decoration: none;
+}
+.saltar:focus { top: var(--e-2); }
+
+/* ── Barra superior ─────────────────────────────────────────────────────── */
+.barra-dentro {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--e-3);
+  min-height: 56px;
+}
+.marca {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  min-width: 0;
+  font-family: var(--f-rotulo);
+  font-size: 1.75rem; font-weight: 800; line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marca-lugar {
+  font-family: var(--f-texto);
+  font-size: var(--t-dato); font-weight: 500;
+  letter-spacing: 0; text-transform: none;
+  color: var(--apagada);
+}
+.header-actions { display: flex; align-items: center; gap: 2px; margin-right: -10px; }
+
+.prox-btn .prox-punto {
+  position: absolute; top: 10px; right: 10px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--rojo-texto);
+  box-shadow: 0 0 0 2px var(--fondo);
+}
+
+/* Los atajos son cosa del teclado: en táctil sobra el botón */
+@media (hover: none) {
+  .kbd-btn { display: none; }
+}
+@media (max-width: 479px) {
+  .marca-lugar { display: none; }
+}
+
+/* ── Tira de días ───────────────────────────────────────────────────────── */
+.days {
+  position: sticky; top: 0; z-index: var(--z-tira);
+  /* Opaca: dos capas de desenfoque sobre una lista que se desplaza es de lo
+     más caro que puede hacer un móvil, y aquí no aportaría nada. */
+  background: var(--fondo);
+  box-shadow: 0 1px 0 var(--linea);
+}
+.days-scroll {
+  display: flex; gap: var(--e-1);
+  overflow-x: auto; scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  /* Colchón para que el anillo de foco no se recorte (overflow-x:auto recorta
+     también en vertical); el margen negativo lo compensa. */
+  padding: 10px 4px; margin: 0 -4px;
+}
+.days-scroll::-webkit-scrollbar { display: none; }
+
+.day-chip {
+  flex: 0 0 auto;
+  /* Ancho FIJO, no mínimo: "Mañana" es más larga que "vie" y, si el ancho
+     dependiera del texto, ese día se vería más grande sin ninguna razón. */
+  width: 54px; min-height: 54px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  border-radius: var(--r-control);
+  color: var(--apagada);
+  transition: transform var(--d-press) var(--ease-press), background-color 150ms ease, color 150ms ease;
+}
+.day-chip:active { transform: scale(0.95); transition-duration: 40ms; }
+.dia-nombre {
+  font-size: 0.75rem; font-weight: 600; line-height: 1.1;
+  max-width: 100%; overflow: hidden; white-space: nowrap;
+}
+.dnum {
+  font-family: var(--f-rotulo);
+  font-size: 1.625rem; font-weight: 700; line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta);
+}
+.day-chip.es-hoy .dia-nombre { color: var(--rojo-texto); }
+.day-chip.active {
+  background: var(--rojo);
+  color: var(--rojo-tinta);
+}
+.day-chip.active .dnum,
+.day-chip.active .dia-nombre { color: var(--rojo-tinta); }
+@media (hover: hover) {
+  .day-chip:not(.active):hover { background: var(--superficie); color: var(--tinta); }
+}
+@media (min-width: 720px) {
+  .day-chip { width: 62px; }
+}
+
+/* ── Fila de controles ──────────────────────────────────────────────────────
+   Móvil: [Películas|Horario] [Género] [lupa] y, debajo, los cuatro cines.
+   Escritorio ancho: todo en una línea. */
+.controles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "vista genero busqueda"
+    "cines cines cines";
+  gap: var(--e-2);
+  align-items: center;
+  padding-top: var(--e-3);
+  position: relative;
+}
+.control-vista { grid-area: vista; }
+.control-genero { grid-area: genero; }
+.busqueda { grid-area: busqueda; }
+.cines { grid-area: cines; }
+
+/* Buscando en el móvil, el campo se queda la fila entera */
+.controles[data-buscando='true'] {
+  grid-template-areas:
+    "busqueda busqueda busqueda"
+    "cines cines cines";
+}
+.controles[data-buscando='true'] .control-vista,
+.controles[data-buscando='true'] .control-genero { display: none; }
+
+@media (min-width: 720px) {
+  .controles,
+  .controles[data-buscando='true'] {
+    grid-template-columns: auto auto minmax(12rem, 1fr);
+    grid-template-areas:
+      "vista genero busqueda"
+      "cines cines cines";
+  }
+  .controles[data-buscando='true'] .control-vista,
+  .controles[data-buscando='true'] .control-genero { display: flex; }
+}
+@media (min-width: 1180px) {
+  .controles,
+  .controles[data-buscando='true'] {
+    grid-template-columns: auto minmax(0, 1fr) auto minmax(14rem, 19rem);
+    grid-template-areas: "vista cines genero busqueda";
+    gap: var(--e-3);
+  }
+}
+
+/* Películas / Horario: control segmentado. El elegido va en tinta invertida,
+   neutro: el rojo ya lo tiene el día, y dos rojos grandes se pelean. */
+.control-vista {
+  display: inline-flex;
+  justify-self: start;
+  background: var(--superficie);
+  border-radius: var(--r-control);
+}
+.vista-opcion {
+  min-height: var(--toque);
+  padding: 0 var(--e-4);
+  border-radius: var(--r-control);
+  font-size: var(--t-dato); font-weight: 600;
+  color: var(--apagada);
+}
+.vista-opcion[aria-pressed='true'] {
+  background: var(--tinta);
+  color: var(--fondo);
+}
+@media (hover: hover) {
+  .vista-opcion[aria-pressed='false']:hover { color: var(--tinta); }
+}
+@media (min-width: 400px) {
+  .vista-opcion { padding: 0 var(--e-5); }
+}
+
+/* Pastilla de control (Género) */
+/* En el móvil el panel se ancla a la fila entera (de gutter a gutter), no al
+   botón: anclado al botón se salía por la izquierda. */
+.control-genero { position: static; display: flex; }
+@media (min-width: 720px) { .control-genero { position: relative; } }
+.control-pastilla {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  min-height: var(--toque);
+  padding: 0 var(--e-3) 0 var(--e-4);
+  border-radius: var(--r-control);
+  background: var(--superficie);
+  font-size: var(--t-dato); font-weight: 600;
+  white-space: nowrap;
+}
+.control-pastilla .ico { width: 18px; height: 18px; color: var(--apagada); }
+.control-pastilla-texto { max-width: 7.5rem; overflow: hidden; text-overflow: ellipsis; }
+.control-pastilla[data-activo='true'] { box-shadow: inset 0 0 0 1.5px var(--tinta); }
+.control-pastilla[data-activo='true'] .ico { color: var(--tinta); }
+.ico-chevron { transition: transform 150ms var(--ease-out); }
+.control-pastilla[aria-expanded='true'] .ico-chevron { transform: rotate(180deg); }
+@media (hover: hover) {
+  .control-pastilla:hover { background: var(--superficie-2); }
+}
+
+.panel-generos {
+  position: absolute; z-index: var(--z-popover);
+  top: calc(var(--e-3) + var(--toque) + var(--e-2)); left: 0; right: 0;
+  max-height: min(62vh, 28rem);
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: var(--e-1);
+  background: var(--superficie-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-pieza);
+  box-shadow: var(--sombra);
+}
+@media (min-width: 720px) {
+  .panel-generos { top: calc(100% + var(--e-2)); left: auto; right: 0; width: 20rem; }
+}
+.genero-opcion {
+  width: 100%;
+  display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: var(--e-3);
+  min-height: var(--toque);
+  padding: 0 var(--e-3);
+  border-radius: calc(var(--r-pieza) - 2px);
+  text-align: left; font-size: 0.9375rem;
+}
+.genero-opcion[aria-checked='true'] { font-weight: 650; }
+.genero-marca { display: grid; place-items: center; color: var(--rojo-texto); }
+.genero-marca .ico { width: 18px; height: 18px; }
+.genero-cuenta { color: var(--apagada); font-size: var(--t-detalle); font-variant-numeric: tabular-nums; }
+.genero-opcion:focus-visible { outline-offset: -2px; }
+@media (hover: hover) {
+  .genero-opcion:hover { background: color-mix(in oklab, var(--tinta) 8%, transparent); }
+}
+
+/* Búsqueda: un icono que se despliega en el móvil; campo fijo en escritorio */
+.busqueda { display: flex; min-width: 0; }
+.control-redondo { background: var(--superficie); }
+.busqueda-campo {
+  position: relative; display: none; align-items: center;
+  width: 100%; min-height: var(--toque);
+  background: var(--superficie);
+  border-radius: var(--r-control);
+}
+.controles[data-buscando='true'] .busqueda-abrir { display: none; }
+.controles[data-buscando='true'] .busqueda-campo { display: flex; }
+.busqueda-campo:focus-within { box-shadow: inset 0 0 0 1.5px var(--tinta); }
+.busqueda-lupa { position: absolute; left: 14px; width: 18px; height: 18px; color: var(--apagada); pointer-events: none; }
+.busqueda-entrada {
+  width: 100%; min-height: var(--toque);
+  padding: 0 var(--toque) 0 42px;
+  border: 0; outline: 0; background: transparent;
+  color: var(--tinta);
+  /* 16 px: por debajo, iOS hace zoom al enfocar el campo */
+  font: inherit; font-size: var(--t-cuerpo);
+  border-radius: var(--r-control);
+  -webkit-appearance: none; appearance: none;
+}
+.busqueda-entrada::placeholder { color: var(--apagada); opacity: 1; }
+.busqueda-entrada::-webkit-search-cancel-button,
+.busqueda-entrada::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+.busqueda-cerrar { position: absolute; right: 0; color: var(--apagada); }
+.busqueda-cerrar .ico { width: 18px; height: 18px; }
+@media (min-width: 720px) {
+  .busqueda-abrir { display: none; }
+  .busqueda-campo { display: flex; }
+}
+
+/* Interruptores de cine. Sin ninguno encendido se ven todos, y así se pintan:
+   los cuatro normales, con su punto de color. Con alguno encendido, el
+   encendido lleva su color de fondo y una marca, y los demás se apagan. */
+.cines {
+  display: flex; gap: var(--e-2); align-items: center;
+  min-width: 0;
+  overflow-x: auto; scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  /* Sangra hasta el borde de la pantalla para que se lea que hay más */
+  margin-inline: calc(-1 * var(--margen));
+  padding: 3px var(--margen);
+}
+.cines::-webkit-scrollbar { display: none; }
+@media (min-width: 1180px) {
+  .cines { margin-inline: 0; padding-inline: 3px; }
+}
+
+.cine-interruptor {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  min-height: var(--toque);
+  padding: 0 var(--e-4) 0 var(--e-3);
+  border-radius: var(--r-control);
+  background: var(--superficie);
+  font-size: var(--t-dato); font-weight: 600;
+  white-space: nowrap;
+  transition: transform var(--d-press) var(--ease-press), background-color 150ms ease, color 150ms ease;
+}
+.cine-interruptor .punto {
+  display: grid; place-items: center;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--cine);
+  transition: width 150ms var(--ease-out), height 150ms var(--ease-out);
+}
+.cine-interruptor[aria-pressed='true'] {
+  background: color-mix(in oklab, var(--cine) 22%, var(--superficie));
+  box-shadow: inset 0 0 0 1.5px var(--cine);
+}
+.cine-interruptor[aria-pressed='true'] .punto { width: 18px; height: 18px; }
+.ico-marca { width: 13px; height: 13px; color: var(--fondo); stroke-width: 2.6; }
+.cines[data-todos='false'] .cine-interruptor[aria-pressed='false'] { color: var(--apagada); }
+.cines[data-todos='false'] .cine-interruptor[aria-pressed='false'] .punto {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--cine);
+}
+.cines-todos {
+  flex: 0 0 auto;
+  min-height: var(--toque); padding: 0 var(--e-3);
+  font-size: var(--t-dato); font-weight: 600;
+  color: var(--apagada);
+  text-decoration: underline; text-underline-offset: 0.25em;
+}
+@media (hover: hover) {
+  .cine-interruptor:hover { background: color-mix(in oklab, var(--cine) 12%, var(--superficie)); }
+  .cine-interruptor[aria-pressed='true']:hover { background: color-mix(in oklab, var(--cine) 28%, var(--superficie)); }
+  .cines-todos:hover { color: var(--tinta); }
+}

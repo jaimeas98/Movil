@@ -7,10 +7,15 @@ import {
 import { CINEMAS } from '@/lib/cinemas/config.js';
 import { buildDayList, longLabel } from '@/lib/dates.js';
 import { normalizaGenero } from '@/lib/normalize.js';
+import { agruparPeliculas } from '@/lib/cartelera.js';
+import { fechaMadrid } from '@/lib/reloj.js';
 import ThemeToggle from '@/components/ThemeToggle.jsx';
 import DayTimeline from '@/components/DayTimeline.jsx';
-import Filters from '@/components/Filters.jsx';
-import CinemaSection from '@/components/CinemaSection.jsx';
+import Controles from '@/components/Controles.jsx';
+import ListaPeliculas from '@/components/ListaPeliculas.jsx';
+import VistaHorario from '@/components/VistaHorario.jsx';
+import { Avisos, Esqueleto, Estado } from '@/components/Estados.jsx';
+import Icono from '@/components/Icono.jsx';
 import MovieModal from '@/components/MovieModal.jsx';
 import UpcomingSheet from '@/components/UpcomingSheet.jsx';
 import { calcularProximas } from '@/lib/proximas.js';
@@ -137,14 +142,43 @@ function normalizeText(s) {
     .replace(/[̀-ͯ]/g, '');
 }
 
+// Sin red y sin caché vigente, todavía queda el respaldo por cine del propio
+// dispositivo (hasta 7 días). Se monta una cartelera solo con eso, con cada
+// cine marcado como datos guardados y su fecha, para que el aviso diga de
+// cuándo son. Si no hay nada guardado, null: entonces sí es un error.
+function carteleraDeRespaldo() {
+  const respaldo = leerRespaldo();
+  const ahora = Date.now();
+  let alguno = false;
+  const cinemas = CINEMAS.map((c) => {
+    const r = respaldo[c.id];
+    if (r?.at && ahora - r.at <= RESPALDO_TTL_MS && Object.keys(r.byDate ?? {}).length) {
+      alguno = true;
+      return { ...c, source: 'stale', staleAt: r.at, reason: 'sin conexión', liveDates: [], byDate: r.byDate };
+    }
+    return { ...c, source: 'error', reason: 'sin conexión', staleAt: null, liveDates: [], byDate: {} };
+  });
+  return alguno ? { generatedAt: null, mode: 'live', cinemas } : null;
+}
+
 const KBD_SHORTCUTS = [
   { key: '← →', action: 'Día anterior / siguiente' },
   { key: '/', action: 'Buscar película' },
+  { key: 'V', action: 'Cambiar entre Películas y Horario' },
   { key: 'T', action: 'Cambiar tema' },
   { key: 'R', action: 'Actualizar cartelera' },
   { key: 'Esc', action: 'Cerrar / limpiar búsqueda' },
   { key: '?', action: 'Mostrar/ocultar esta ayuda' },
 ];
+
+// "Hoy, viernes 16 de octubre": el título del día dice primero lo que importa.
+function tituloDelDia(iso, dias) {
+  const d = dias.find((x) => x.iso === iso);
+  const largo = longLabel(iso);
+  if (d?.isToday) return `Hoy, ${largo.charAt(0).toLowerCase()}${largo.slice(1)}`;
+  if (d?.isTomorrow) return `Mañana, ${largo.charAt(0).toLowerCase()}${largo.slice(1)}`;
+  return largo;
+}
 
 export default function Page() {
   const allDays = useMemo(() => buildDayList(14), []);
@@ -152,12 +186,16 @@ export default function Page() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [sinConexion, setSinConexion] = useState(false);
   const [ratings, setRatings] = useState({}); // { title: {imdb, rt, metacritic, average, genre} | null }
 
   const [query, setQuery] = useState('');
+  const [buscando, setBuscando] = useState(false);
   const [genre, setGenre] = useState('');
-  const [cinemaFilter, setCinemaFilter] = useState('');
-  const [active, setActive] = useState(null); // película abierta en el modal
+  // Cines elegidos. Vacío = todos: es el estado normal, no un filtro.
+  const [cinemaFilter, setCinemaFilter] = useState([]);
+  const [vista, setVista] = useState('peliculas'); // 'peliculas' | 'horario'
+  const [active, setActive] = useState(null); // película abierta en la ficha
   const [showKbd, setShowKbd] = useState(false);
   const [verProximas, setVerProximas] = useState(false);
 
@@ -175,6 +213,10 @@ export default function Page() {
   // los rellenan antes de que ningún gesto pueda leerlos.
   const diasRef = useRef([]);
   const fechaRef = useRef(selectedDate);
+  // ¿Hay ya una cartelera en pantalla? Lo necesita load() para no tirarla si
+  // falla una actualización.
+  const hayDatosRef = useRef(false);
+  useEffect(() => { hayDatosRef.current = !!data; }, [data]);
 
   // Carga ÚNICA: trae todos los días de una vez.
   // Sin refresh: sirve localStorage si existe (mismo día Madrid), luego fetch.
@@ -187,6 +229,7 @@ export default function Page() {
         const cached = readCache();
         if (cached) {
           setData(cached);
+          setSinConexion(false);
           setLoading(false);
           return;
         }
@@ -205,9 +248,23 @@ export default function Page() {
       const conRespaldo = aplicarRespaldo(merged);
       writeCache(conRespaldo);
       setData(conRespaldo);
+      setSinConexion(false);
     } catch (e) {
-      setError('No se pudo cargar la cartelera. Inténtalo de nuevo.');
-      setData(null);
+      // Si ya había cartelera en pantalla, se queda: una actualización fallida
+      // no tiene por qué dejarte sin nada. Si no la había, se tira del respaldo
+      // del dispositivo; y solo si tampoco hay respaldo, es un error.
+      if (hayDatosRef.current) {
+        setSinConexion(true);
+      } else {
+        const respaldo = carteleraDeRespaldo();
+        if (respaldo) {
+          setData(respaldo);
+          setSinConexion(true);
+        } else {
+          setError('No se pudo cargar la cartelera. Inténtalo de nuevo.');
+          setData(null);
+        }
+      }
     } finally {
       setLoading(false);
     }
@@ -216,6 +273,14 @@ export default function Page() {
   useEffect(() => {
     load(false);
   }, [load]);
+
+  // Al volver la conexión, se recarga sola si estábamos tirando de lo guardado.
+  useEffect(() => {
+    if (!sinConexion) return;
+    const alVolver = () => load(false);
+    window.addEventListener('online', alVolver);
+    return () => window.removeEventListener('online', alVolver);
+  }, [sinConexion, load]);
 
   // Cuando llega data, pedimos las valoraciones en lote (un solo POST con
   // todos los títulos únicos). OMDB tiene cache 24h en el server, así que
@@ -268,10 +333,10 @@ export default function Page() {
   }, [days, selectedDate]);
 
   // Cartelera del día seleccionado (filtrado en memoria → instantáneo).
-  // Aquí mezclamos cada película con sus valoraciones OMDB para que la card
-  // muestre la nota media y el modal el desglose. Si una película de mk2 no
-  // tiene género (mk2 lo ha deshabilitado en su HTML), se usa el primero de
-  // OMDB como fallback.
+  // Aquí mezclamos cada película con sus valoraciones OMDB para que la ficha
+  // muestre la nota media y el desglose. Si una película de mk2 no tiene
+  // género (mk2 lo ha deshabilitado en su HTML), se usa el primero de OMDB
+  // como fallback.
   const dayCinemas = useMemo(() => {
     if (!data) return [];
     return data.cinemas.map((c) => ({
@@ -302,34 +367,69 @@ export default function Page() {
     return [...set].sort((a, b) => a.localeCompare(b, 'es'));
   }, [dayCinemas]);
 
-  // Aplica filtros de búsqueda/género/cine.
-  const filtered = useMemo(() => {
-    const q = normalizeText(query.trim());
-    return dayCinemas
-      .filter((c) => !cinemaFilter || c.id === cinemaFilter)
-      .map((c) => ({
-        ...c,
-        movies: c.movies.filter((m) => {
-          if (genre && m.genre !== genre) return false;
-          if (q && !normalizeText(m.title).includes(q)) return false;
-          return true;
-        }),
-      }));
-  }, [dayCinemas, query, genre, cinemaFilter]);
+  // Cines que se ven: sin ninguno elegido, todos.
+  const cinesVisibles = useMemo(
+    () => (cinemaFilter.length ? dayCinemas.filter((c) => cinemaFilter.includes(c.id)) : dayCinemas),
+    [dayCinemas, cinemaFilter]
+  );
 
-  const totalMovies = useMemo(
-    () => filtered.reduce((acc, c) => acc + c.movies.length, 0),
+  // Una entrada por PELÍCULA, juntando la misma de varios cines (ver
+  // lib/cartelera.js). Se junta antes de buscar para que un título escrito
+  // distinto en cada cine no deje la película partida.
+  const peliculasDelDia = useMemo(() => agruparPeliculas(cinesVisibles), [cinesVisibles]);
+
+  const porTitulo = useMemo(() => {
+    const q = normalizeText(query.trim());
+    if (!q) return peliculasDelDia;
+    return peliculasDelDia.filter((p) => p.titulos.some((t) => normalizeText(t).includes(q)));
+  }, [peliculasDelDia, query]);
+
+  // Cuántas películas hay de cada género con el resto de filtros puestos: el
+  // panel lo enseña para no elegir un género y encontrarse la lista vacía.
+  const generosConCuenta = useMemo(
+    () => genres.map((g) => ({ nombre: g, cuenta: porTitulo.filter((p) => p.generos.includes(g)).length })),
+    [genres, porTitulo]
+  );
+
+  const filtered = useMemo(
+    () => (genre ? porTitulo.filter((p) => p.generos.includes(genre)) : porTitulo),
+    [porTitulo, genre]
+  );
+
+  const totalMovies = filtered.length;
+  const totalSesiones = useMemo(
+    () => filtered.reduce((n, p) => n + p.cines.reduce((m, c) => m + c.sessions.length, 0), 0),
     [filtered]
   );
 
-  const hasActiveFilters = query || genre || cinemaFilter;
+  // Cines que publican cartelera pero no tienen nada este día: se dice, para
+  // que no parezca que se han perdido.
+  const sinSesiones = useMemo(
+    () => cinesVisibles.filter((c) => c.source === 'live' && c.movies.length === 0),
+    [cinesVisibles]
+  );
+
+  const hasActiveFilters = !!(query || genre || cinemaFilter.length);
   const updatedTime = data?.generatedAt
     ? new Date(data.generatedAt).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
     : null;
 
-  const openMovie = useCallback((movie, cinema) => {
-    setActive({ movie, cinema });
+  const openMovie = useCallback((pelicula) => {
+    setActive(pelicula);
   }, []);
+
+  const quitarFiltros = useCallback(() => {
+    setQuery('');
+    setGenre('');
+    setCinemaFilter([]);
+    setBuscando(false);
+  }, []);
+
+  const indiceDia = days.findIndex((d) => d.iso === selectedDate);
+  const diaSiguiente = indiceDia > -1 && indiceDia < days.length - 1 ? days[indiceDia + 1] : null;
+  const irADiaSiguiente = useCallback(() => {
+    if (diaSiguiente) setSelectedDate(diaSiguiente.iso);
+  }, [diaSiguiente]);
 
   // ── Keyboard shortcuts ─────────────────────────────────────────────────────
   useEffect(() => {
@@ -346,14 +446,16 @@ export default function Page() {
       }
 
       // All other shortcuts: skip when modal is open or user is typing
-      if (active || isTyping) return;
+      if (active || verProximas || isTyping) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
 
-      // Dentro de una fila de chips de filtro, ← y → mueven el foco de un chip
-      // a otro; no deben cambiar el día por detrás. Se comprueba aquí y no en
-      // Filters.jsx porque en App Router React engancha los eventos en
-      // `document`, el mismo nodo en el que escuchamos: detener la propagación
-      // desde el componente no impediría que este manejador se ejecutase.
-      const enChipsDeFiltro = document.activeElement?.closest?.('.chip-row');
+      // Dentro de un grupo de botones que mueve el foco con las flechas (los
+      // cines, la vista, el panel de géneros), ← y → son suyas y no deben
+      // cambiar el día por detrás. Se comprueba aquí y no en el componente
+      // porque en App Router React engancha los eventos en `document`, el
+      // mismo nodo en el que escuchamos: detener la propagación desde el
+      // componente no impediría que este manejador se ejecutase.
+      const enChipsDeFiltro = document.activeElement?.closest?.('.chip-row, [data-flechas]');
 
       if (e.key === 'ArrowLeft') {
         if (enChipsDeFiltro) return;
@@ -369,7 +471,12 @@ export default function Page() {
       }
       if (e.key === '/') {
         e.preventDefault();
-        document.getElementById('search-input')?.focus();
+        setBuscando(true);
+        requestAnimationFrame(() => document.getElementById('search-input')?.focus());
+        return;
+      }
+      if (e.key === 'v' || e.key === 'V') {
+        setVista((v) => (v === 'peliculas' ? 'horario' : 'peliculas'));
         return;
       }
       if (e.key === 't' || e.key === 'T') {
@@ -391,7 +498,7 @@ export default function Page() {
 
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [active, days, selectedDate, query, loading, load, showKbd]);
+  }, [active, verProximas, days, selectedDate, query, loading, load, showKbd]);
 
   useEffect(() => { diasRef.current = days; }, [days]);
   useEffect(() => { fechaRef.current = selectedDate; }, [selectedDate]);
@@ -432,6 +539,9 @@ export default function Page() {
       // Regla que se mantiene: si el dedo empieza en una fila de chips, ese
       // deslizamiento es suyo y no cambia de día.
       if (enScrollHorizontal(e.target, zona)) { activo = false; return; }
+      // Paneles que se desplazan en vertical por dentro (el de géneros): ahí
+      // un deslizamiento en diagonal es para leer la lista, no para cambiar de día.
+      if (e.target.closest?.('[data-sin-gesto]')) { activo = false; return; }
       const t = e.target.tagName;
       if (t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT') { activo = false; return; }
 
@@ -615,47 +725,120 @@ export default function Page() {
     });
   }, [selectedDate]);
 
+  const diaTexto = useMemo(() => {
+    const d = days.find((x) => x.iso === selectedDate);
+    if (d?.isToday) return 'hoy';
+    if (d?.isTomorrow) return 'mañana';
+    return `el ${longLabel(selectedDate).toLowerCase()}`;
+  }, [days, selectedDate]);
+
+  const esHoy = selectedDate === fechaMadrid();
+
+  let contenido;
+  if (error) {
+    contenido = (
+      <Estado
+        icono="alerta"
+        titulo="No se pudo cargar la cartelera"
+        acciones={
+          <button type="button" className="boton boton-principal" onClick={() => load(true)}>
+            <Icono nombre="actualizar" />Reintentar
+          </button>
+        }
+      >
+        Puede que no haya cobertura o que el servidor no conteste. Vuelve a intentarlo en un momento.
+      </Estado>
+    );
+  } else if (loading && !data) {
+    contenido = <Esqueleto />;
+  } else if (totalMovies === 0) {
+    contenido = query ? (
+      <Estado
+        icono="lupa"
+        titulo={`Nada con «${query.trim()}»`}
+        acciones={
+          <>
+            <button type="button" className="boton boton-principal" onClick={() => setQuery('')}>Borrar la búsqueda</button>
+            {(genre || cinemaFilter.length > 0) && (
+              <button type="button" className="boton" onClick={quitarFiltros}>Quitar todos los filtros</button>
+            )}
+          </>
+        }
+      >
+        Ninguna película {diaTexto} tiene ese título{genre || cinemaFilter.length ? ' con los filtros puestos' : ''}.
+      </Estado>
+    ) : hasActiveFilters ? (
+      <Estado
+        icono="generos"
+        titulo="Nada con estos filtros"
+        acciones={<button type="button" className="boton boton-principal" onClick={quitarFiltros}>Quitar filtros</button>}
+      >
+        No hay películas {diaTexto}
+        {genre ? ` de ${genre.toLowerCase()}` : ''}
+        {cinemaFilter.length ? ` en ${cinemaFilter.length === 1 ? 'el cine elegido' : 'los cines elegidos'}` : ''}.
+      </Estado>
+    ) : (
+      <Estado icono="calendario" titulo="Sin sesiones este día">
+        Ningún cine ha publicado sesiones para {diaTexto}.
+      </Estado>
+    );
+  } else if (vista === 'horario') {
+    contenido = <VistaHorario key={selectedDate} peliculas={filtered} fecha={selectedDate} onAbrir={openMovie} />;
+  } else {
+    contenido = (
+      <ListaPeliculas
+        key={selectedDate}
+        peliculas={filtered}
+        fecha={selectedDate}
+        onAbrir={openMovie}
+        onDiaSiguiente={esHoy && diaSiguiente ? irADiaSiguiente : null}
+      />
+    );
+  }
+
   return (
     <>
-      {/* CABECERA */}
-      <header className="header">
-        <div className="container header-inner">
-          <div className="brand">
-            <span className="brand-logo">🎬</span>
-            <div className="brand-text">
-              <span className="brand-title">Cartelera Cine Jaime</span>
-              <span className="brand-sub">Cines de la Bahía de Cádiz · día a día</span>
-            </div>
-          </div>
+      <a className="saltar" href="#panel-dia">Saltar a la cartelera</a>
+
+      {/* BARRA SUPERIOR: fina, solo marca y acciones */}
+      <header className="barra">
+        <div className="contenedor barra-dentro">
+          <p className="marca" translate="no">
+            Cartelera<span className="marca-lugar">Bahía de Cádiz</span>
+          </p>
           <div className="header-actions">
-            <button className="btn btn-primary" onClick={() => load(true)} disabled={loading}>
-              <span className={loading ? 'spin' : ''}>↻</span>
-              <span className="btn-label">{loading ? 'Actualizando…' : 'Actualizar'}</span>
-            </button>
             {/* Solo aparece si hay algo que enseñar: es una función de detalle
                 y no debe ocupar sitio cuando no hay ciclos programados. */}
             {proximas.length > 0 && (
               <button
-                className="btn btn-icon prox-btn"
+                type="button"
+                className="boton-icono prox-btn"
                 onClick={() => setVerProximas(true)}
                 aria-label={`Próximas películas (${proximas.length})`}
                 title="Próximas películas"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
-                     strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="16" rx="2.5" />
-                  <path d="M3 10h18M8 3v4M16 3v4" />
-                </svg>
+                <Icono nombre="calendario" />
                 <span className="prox-punto" aria-hidden="true" />
               </button>
             )}
             <button
-              className="btn btn-icon kbd-btn"
+              type="button"
+              className="boton-icono"
+              onClick={() => load(true)}
+              disabled={loading}
+              aria-label={loading ? 'Actualizando la cartelera' : 'Actualizar la cartelera'}
+              title="Actualizar (R)"
+            >
+              <Icono nombre="actualizar" className={`ico${loading ? ' girando' : ''}`} />
+            </button>
+            <button
+              type="button"
+              className="boton-icono kbd-btn"
               onClick={() => setShowKbd((v) => !v)}
               aria-label="Atajos de teclado"
               title="Atajos de teclado (?)"
             >
-              ?
+              <Icono nombre="teclado" />
             </button>
             <ThemeToggle />
           </div>
@@ -665,43 +848,27 @@ export default function Page() {
       {/* TIRA DE DÍAS */}
       <DayTimeline days={days} selected={selectedDate} onSelect={setSelectedDate} />
 
-      <main className="container" ref={zonaRef}>
-        <div className="toolbar">
-          {/* aria-live: al deslizar, el día cambia sin que nadie haya pulsado
-              nada, así que sin esto un lector de pantalla no anuncia el cambio. */}
-          <h1 className="selected-day" ref={tituloRef} aria-live="polite">
-            {longLabel(selectedDate)}
-          </h1>
-          <Filters
-            query={query}
-            onQuery={setQuery}
-            genre={genre}
-            onGenre={setGenre}
-            cinema={cinemaFilter}
-            onCinema={setCinemaFilter}
-            genres={genres}
-            cinemas={CINEMAS}
-          />
+      <main className="contenedor zona" ref={zonaRef}>
+        <Controles
+          vista={vista}
+          onVista={setVista}
+          query={query}
+          onQuery={setQuery}
+          buscando={buscando}
+          onBuscando={setBuscando}
+          genero={genre}
+          generos={generosConCuenta}
+          onGenero={setGenre}
+          cines={CINEMAS}
+          seleccion={cinemaFilter}
+          onSeleccion={setCinemaFilter}
+        />
 
-          <div className="results-line">
-            <span>
-              {loading && !data
-                ? 'Cargando cartelera…'
-                : `${totalMovies} ${totalMovies === 1 ? 'película' : 'películas'} ${
-                    hasActiveFilters ? 'tras el filtro' : 'en cartelera'
-                  }`}
-            </span>
-            <span style={{ display: 'inline-flex', gap: 8, alignItems: 'center' }}>
-              {data && (
-                <span className={`mode-pill ${data.mode === 'sample' ? 'mode-sample' : 'mode-live'}`}>
-                  <span className="dot" />
-                  {data.mode === 'sample' ? 'datos de ejemplo' : 'datos en vivo'}
-                </span>
-              )}
-              {updatedTime && <span style={{ fontSize: 12 }}>act. {updatedTime}</span>}
-            </span>
-          </div>
-        </div>
+        {/* aria-live: al deslizar, el día cambia sin que nadie haya pulsado
+            nada, así que sin esto un lector de pantalla no anuncia el cambio. */}
+        <h1 className="selected-day" ref={tituloRef} aria-live="polite">
+          {tituloDelDia(selectedDate, days)}
+        </h1>
 
         {/* La capa que se desliza. El role cierra el ARIA que la tira de días
             ya empezaba con role="tablist": unas pestañas sin panel al que
@@ -712,99 +879,92 @@ export default function Page() {
           role="tabpanel"
           id="panel-dia"
           aria-labelledby={`tab-${selectedDate}`}
+          tabIndex={-1}
         >
-          {error ? (
-            <div className="empty">
-              <div className="em-ic">⚠️</div>
-              <h3>Vaya…</h3>
-              <p>{error}</p>
-              <button className="btn btn-primary" onClick={() => load(true)} style={{ marginTop: 12 }}>
-                Reintentar
-              </button>
-            </div>
-          ) : loading && !data ? (
-            <SkeletonGrid />
-          ) : totalMovies === 0 ? (
-            <div className="empty">
-              <div className="em-ic">🍿</div>
-              <h3>Sin resultados</h3>
-              <p>No hay películas con estos filtros para {longLabel(selectedDate).toLowerCase()}.</p>
-            </div>
-          ) : (
-            filtered.map((c) => <CinemaSection key={c.id} cinema={c} onMovieClick={openMovie} />)
+          {data && !error && (
+            <p className="dia-resumen">
+              {vista === 'horario'
+                ? `${totalSesiones} ${totalSesiones === 1 ? 'sesión' : 'sesiones'}`
+                : `${totalMovies} ${totalMovies === 1 ? 'película' : 'películas'}`}
+              {hasActiveFilters ? ' con los filtros' : ''}
+              {updatedTime && <span className="dia-act"> · act. {updatedTime}</span>}
+            </p>
           )}
+          {data && !error && (
+            <Avisos
+              cines={cinesVisibles}
+              sinSesiones={sinSesiones}
+              sinConexion={sinConexion}
+              actualizado={updatedTime ? `act. ${updatedTime}` : null}
+              onReintentar={() => load(true)}
+            />
+          )}
+          {contenido}
         </div>
       </main>
 
-      <footer className="footer">
-        <div className="container">
-          Cartelera unificada de{' '}
-          <strong>Cinesur Bahía de Cádiz</strong>, <strong>Yelmo Bahía Sur</strong>,{' '}
-          <strong>Yelmo Área Sur</strong> y <strong>Arte Siete El Puerto</strong>.
-          <br />
-          Hecho por Jaime · Los horarios pueden cambiar; confirma en la web del cine.
+      <footer className="pie">
+        <div className="contenedor pie-dentro">
+          <ul className="pie-cines" aria-label="Los cines">
+            {CINEMAS.map((c) => (
+              <li key={c.id} data-cine={c.id}>
+                <a href={c.website} target="_blank" rel="noopener noreferrer">
+                  <span className="punto" aria-hidden="true" />
+                  {c.name}
+                  <span className="sr"> (web del cine, se abre en otra pestaña)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="pie-nota">Los horarios pueden cambiar: confírmalos en la web del cine antes de ir.</p>
         </div>
       </footer>
 
       {active && (
-        <MovieModal movie={active.movie} cinema={active.cinema} onClose={() => setActive(null)} />
+        <MovieModal
+          // La ficha de la fase anterior espera una película de UN cine: se le
+          // da la del primero y, aparte, la lista completa de cines con sus
+          // sesiones para que las enseñe todas.
+          movie={{ ...active, sessions: active.cines[0]?.sessions ?? [] }}
+          cinema={active.cines[0]?.cine ?? null}
+          cines={active.cines}
+          fecha={selectedDate}
+          onClose={() => setActive(null)}
+        />
       )}
 
       {verProximas && (
         <UpcomingSheet peliculas={proximas} onClose={() => setVerProximas(false)} />
       )}
 
-      {/* Keyboard shortcuts panel */}
+      {/* Panel de atajos de teclado */}
       {showKbd && (
         <div className="kbd-panel" role="dialog" aria-label="Atajos de teclado">
-          {/* Click outside overlay */}
+          {/* Clic fuera para cerrar */}
           <div className="kbd-panel-backdrop" onClick={() => setShowKbd(false)} />
           <div className="kbd-panel-inner">
             <div className="kbd-panel-header">
-              <span>Atajos de teclado</span>
+              <h2 className="kbd-panel-titulo">Atajos de teclado</h2>
               <button
-                className="modal-close"
-                style={{ position: 'static', width: 28, height: 28, fontSize: 11 }}
+                type="button"
+                className="boton-icono"
                 onClick={() => setShowKbd(false)}
                 aria-label="Cerrar"
               >
-                ✕
+                <Icono nombre="aspa" />
               </button>
             </div>
-            <div className="kbd-grid">
+            <dl className="kbd-grid">
               {KBD_SHORTCUTS.map(({ key, action }) => (
                 <div key={key} className="kbd-row">
-                  <kbd className="kbd-key">{key}</kbd>
-                  <span className="kbd-action">{action}</span>
+                  <dt><kbd className="kbd-key">{key}</kbd></dt>
+                  <dd className="kbd-action">{action}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </div>
       )}
     </>
-  );
-}
-
-function SkeletonGrid() {
-  return (
-    <div style={{ marginTop: 20 }}>
-      {[0, 1].map((i) => (
-        <section className="cinema" key={i}>
-          <div className="cinema-head">
-            <span className="cinema-bar" style={{ background: 'var(--border-strong)' }} />
-            <div className="cinema-titles">
-              <div className="skeleton" style={{ height: 18, width: 220, marginBottom: 8 }} />
-              <div className="skeleton" style={{ height: 12, width: 160 }} />
-            </div>
-          </div>
-          <div className="movies-grid">
-            {[0, 1, 2, 3].map((j) => (
-              <div className="skeleton sk-card" key={j} />
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
   );
 }

@@ -1,0 +1,298 @@
+/* ============================================================================
+   Hojas: ficha de película, Próximas y panel de atajos.
+   Puesta al día de paleta y tipografía para que casen con la cartelera; su
+   rediseño completo (ficha como panel lateral en escritorio, cartel que crece
+   hasta la ficha) es la fase siguiente.
+   ============================================================================ */
+
+/* ── Velo y hoja ────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: var(--z-hoja);
+  display: flex; align-items: flex-start; justify-content: center;
+  /* El que desplaza es la FICHA, no el velo: si desplazara el velo, el gesto
+     de arrastrar para cerrar se quedaba muerto en cuanto bajabas un poco. */
+  padding: 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+  /* Primera de las tres capas contra la recarga accidental; las otras dos son
+     el bloqueo del documento y el preventDefault del gesto. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--velo);
+  animation: veloEntra 0.2s var(--ease-out);
+}
+@keyframes veloEntra { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  position: relative; width: 100%; max-width: 680px;
+  margin: auto;
+  /* Scroll propio y contenido: el rebote al llegar arriba no se encadena con
+     el documento, que es de donde salía la recarga accidental. */
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--superficie-2);
+  color: var(--tinta);
+  border-radius: var(--r-pieza);
+  box-shadow: var(--sombra);
+  padding: var(--e-5);
+  outline: none;
+  /* Por encima de ~300 ms una apertura deja de leerse como respuesta al toque
+     y empieza a leerse como espera. */
+  animation: hojaCrece 0.24s var(--ease-out);
+  transform-origin: 50% 40%;
+}
+@keyframes hojaCrece {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.modal-close { position: absolute; top: 10px; right: 10px; z-index: 2; color: var(--apagada); }
+@media (hover: hover) {
+  .modal-close:hover { color: var(--tinta); background: var(--superficie); }
+}
+
+/* Tirador de arrastre: solo en la hoja del móvil */
+.modal-tirador { display: none; }
+
+@media (max-width: 720px) {
+  /* Hoja pegada abajo, con tirador y arrastrable: el patrón que el pulgar ya
+     conoce, y entrada y salida por el mismo eje. */
+  .modal-overlay { align-items: flex-end; padding: 0; }
+  .modal {
+    max-width: none; margin: 0;
+    max-height: 92dvh;
+    border-radius: 14px 14px 0 0;
+    padding: 10px var(--margen) calc(var(--e-5) + env(safe-area-inset-bottom, 0px));
+    animation: hojaEntra 0.3s var(--ease-out);
+  }
+  @keyframes hojaEntra { from { transform: translate3d(0, 100%, 0); } to { transform: translate3d(0, 0, 0); } }
+
+  .modal-tirador {
+    display: block;
+    /* Fijo arriba aunque el contenido se desplace: siempre hay de dónde tirar */
+    position: sticky; top: 0; z-index: 5;
+    width: 40px; height: 4px;
+    margin: 0 auto 12px;
+    border-radius: 999px;
+    background: var(--linea-fuerte);
+    /* Única declaración estática de touch-action del proyecto. Es una zona que
+       nunca hace scroll, así que quitarle el gesto al navegador no rompe nada,
+       y garantiza el arrastre: iOS fija el touch-action al inicio del gesto,
+       así que cambiarlo desde touchstart llegaría tarde. */
+    touch-action: none;
+  }
+  /* Zona de agarre real de 46px sin engordar el filete visible */
+  .modal-tirador::before {
+    content: ''; position: absolute;
+    left: -60px; right: -60px; top: -14px; height: 46px;
+  }
+  .modal-close { top: 12px; right: 6px; }
+}
+
+/* ── Ficha de película ──────────────────────────────────────────────────── */
+.modal-hero { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--e-4); align-items: start; }
+.modal-poster {
+  position: relative; aspect-ratio: 2 / 3;
+  border-radius: var(--r-pieza); overflow: hidden;
+  background: var(--cartel-vacio);
+}
+.modal-poster img { width: 100%; height: 100%; object-fit: cover; }
+.poster-ph { position: absolute; inset: 0; background: hsl(var(--ph-hue, 220) 32% 30%); }
+:root[data-theme='light'] .poster-ph { background: hsl(var(--ph-hue, 220) 30% 84%); }
+.modal-head { min-width: 0; padding-right: 36px; }
+.modal-title {
+  margin: 0 0 var(--e-3);
+  font-family: var(--f-rotulo);
+  font-size: var(--t-titulo); font-weight: 800; line-height: 0.95;
+  text-transform: uppercase; letter-spacing: 0.01em;
+  text-wrap: balance; overflow-wrap: anywhere;
+}
+.badges { display: flex; flex-wrap: wrap; gap: var(--e-2) var(--e-3); font-size: var(--t-dato); color: var(--apagada); }
+.badge { display: inline-flex; align-items: center; gap: 4px; }
+.badge-rating, .badge-age { color: var(--tinta); font-weight: 650; }
+.modal-cines { display: grid; gap: 2px; margin-top: var(--e-3); }
+.modal-cinema {
+  display: flex; align-items: center; gap: var(--e-2);
+  margin-top: var(--e-3);
+  font-size: var(--t-dato); font-weight: 600;
+}
+.modal-cines .modal-cinema { margin-top: 0; }
+.modal-cinema .punto { width: 9px; height: 9px; border-radius: 50%; background: var(--cine); flex: 0 0 auto; }
+
+.modal-synopsis {
+  margin: var(--e-5) 0 0;
+  font-size: var(--t-cuerpo); line-height: 1.6;
+  color: var(--apagada);
+  max-width: 65ch; text-wrap: pretty;
+}
+.modal-synopsis.muted { font-style: italic; }
+.modal-section { margin-top: var(--e-5); padding-top: var(--e-4); border-top: 1px solid var(--linea); }
+.modal-section .peli-cine + .peli-cine { margin-top: var(--e-4); }
+.modal-section .peli-cine-nombre { font-size: var(--t-dato); }
+.modal-h4 {
+  margin: 0 0 var(--e-3);
+  font-family: var(--f-rotulo);
+  font-size: 1.375rem; font-weight: 700; line-height: 1;
+}
+
+.ratings-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--e-4); }
+.ratings-avg { display: inline-flex; align-items: baseline; gap: 6px; }
+.ra-label { font-size: var(--t-detalle); color: var(--apagada); }
+.ra-num {
+  font-family: var(--f-rotulo);
+  font-size: 1.75rem; font-weight: 700; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.rating-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--e-2); }
+.rsrc {
+  display: flex; flex-direction: column; gap: var(--e-2);
+  padding: var(--e-3);
+  border-radius: var(--r-pieza);
+  background: var(--superficie);
+  text-decoration: none;
+  transition: transform var(--d-press) var(--ease-press);
+}
+.rsrc:active { transform: scale(0.97); transition-duration: 40ms; }
+.rsrc-label { font-size: var(--t-detalle); font-weight: 600; color: var(--apagada); }
+.rsrc-score { display: flex; align-items: baseline; gap: 4px; }
+.rsrc-num { font-family: var(--f-rotulo); font-size: 1.875rem; font-weight: 700; line-height: 0.9; font-variant-numeric: tabular-nums; }
+.rsrc-scale { font-size: var(--t-detalle); color: var(--apagada); }
+.rsrc-meter { height: 3px; border-radius: 2px; background: var(--linea); overflow: hidden; }
+.rsrc-fill { display: block; height: 100%; border-radius: inherit; background: var(--tinta); }
+.ratings-more {
+  display: inline-flex; margin-top: var(--e-3);
+  font-size: var(--t-dato); font-weight: 600; color: var(--rojo-texto);
+  text-decoration: underline; text-underline-offset: 0.2em;
+}
+.trailer-link {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  min-height: var(--toque); padding: 0 var(--e-5);
+  border-radius: var(--r-control);
+  background: var(--superficie);
+  font-size: var(--t-dato); font-weight: 650; text-decoration: none;
+  transition: transform var(--d-press) var(--ease-press);
+}
+.trailer-link:active { transform: scale(0.97); transition-duration: 40ms; }
+.trailer-link .tl-play { width: 16px; height: 16px; }
+.modal-section .showtimes { display: flex; flex-wrap: wrap; gap: 6px; }
+.modal-section .showtime {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 8px 12px; border-radius: var(--r-pieza);
+  background: var(--superficie); text-decoration: none;
+}
+.showtime .st-time { font-family: var(--f-rotulo); font-size: 1.375rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.showtime .st-tag, .showtime .st-room { font-size: var(--t-detalle); color: var(--apagada); }
+
+@media (max-width: 540px) {
+  .modal-hero { grid-template-columns: 92px minmax(0, 1fr); gap: var(--e-3); }
+  .modal-head { padding-right: 28px; }
+  .rating-grid { grid-template-columns: 1fr; }
+  .rsrc { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+  .rsrc-meter { grid-column: 1 / -1; }
+}
+
+/* ── Próximas ───────────────────────────────────────────────────────────── */
+.modal.proximas { max-width: 760px; }
+.prox-head { margin-bottom: var(--e-5); padding-right: 40px; }
+.prox-title {
+  margin: 0 0 6px;
+  font-family: var(--f-rotulo);
+  font-size: var(--t-dia); font-weight: 800; line-height: 1;
+}
+.prox-sub { margin: 0; font-size: var(--t-dato); color: var(--apagada); max-width: 52ch; }
+.prox-lista { list-style: none; margin: 0; padding: 0; }
+.prox-mes {
+  margin: var(--e-5) 0 var(--e-2);
+  padding-bottom: var(--e-2);
+  border-bottom: 1px solid var(--linea);
+  font-family: var(--f-rotulo);
+  font-size: 1.25rem; font-weight: 700; color: var(--apagada);
+}
+.prox-item { border-radius: var(--r-pieza); }
+.prox-item.abierta { background: var(--superficie); }
+.prox-cabecera {
+  width: 100%;
+  display: flex; align-items: center; gap: var(--e-3);
+  min-height: var(--toque); padding: 10px;
+  text-align: left;
+}
+.prox-cartel {
+  flex: 0 0 auto; width: 44px; height: 66px;
+  border-radius: 4px; overflow: hidden; background: var(--cartel-vacio);
+}
+.prox-cartel img { width: 100%; height: 100%; object-fit: cover; }
+.prox-cartel-ph { display: block; width: 100%; height: 100%; }
+.prox-datos { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.prox-nombre {
+  font-family: var(--f-rotulo);
+  font-size: 1.25rem; font-weight: 800; line-height: 1;
+  text-transform: uppercase; letter-spacing: 0.01em;
+}
+.prox-meta { display: flex; flex-wrap: wrap; gap: 2px var(--e-3); font-size: var(--t-detalle); color: var(--apagada); }
+.prox-cuenta { color: var(--tinta); font-weight: 600; }
+.prox-cuando { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+.prox-fecha { font-size: var(--t-dato); font-weight: 650; white-space: nowrap; }
+.prox-flecha { width: 18px; height: 18px; color: var(--apagada); transform: rotate(-90deg); transition: transform 0.2s var(--ease-out); }
+.prox-item.abierta .prox-flecha { transform: none; }
+.prox-detalle { padding: 0 12px 14px; }
+.prox-sinopsis { margin: 0 0 var(--e-3); font-size: var(--t-dato); line-height: 1.55; color: var(--apagada); }
+.prox-pases { display: flex; flex-direction: column; gap: var(--e-2); }
+.prox-pase {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px;
+  padding: 8px 10px;
+  border-radius: var(--r-pieza);
+  background: var(--superficie-2);
+}
+.prox-pase-dia { font-size: var(--t-dato); font-weight: 650; min-width: 86px; }
+.prox-pase-cine { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-detalle); color: var(--apagada); }
+.prox-pase-cine .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
+.prox-pase-horas { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+.prox-hora {
+  padding: 4px 10px; border-radius: var(--r-control);
+  background: var(--superficie);
+  font-family: var(--f-rotulo); font-size: 1.0625rem; font-weight: 700;
+  font-variant-numeric: tabular-nums; text-decoration: none;
+}
+.empty { padding: var(--e-7) 0; color: var(--apagada); }
+.empty h3 { margin: 0 0 6px; font-family: var(--f-rotulo); font-size: var(--t-titulo); font-weight: 800; color: var(--tinta); }
+@media (max-width: 540px) {
+  .prox-pase-dia { min-width: 0; }
+  .prox-pase-horas { margin-left: 0; width: 100%; }
+}
+
+/* ── Atajos de teclado ──────────────────────────────────────────────────── */
+.kbd-panel {
+  position: fixed; inset: 0; z-index: var(--z-kbd);
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: var(--e-5);
+  pointer-events: none;
+}
+.kbd-panel-backdrop { position: absolute; inset: 0; pointer-events: auto; }
+.kbd-panel-inner {
+  position: relative; pointer-events: auto;
+  min-width: 300px;
+  padding: var(--e-3) var(--e-4) var(--e-4) var(--e-5);
+  background: var(--superficie-2);
+  border: 1px solid var(--linea);
+  border-radius: var(--r-pieza);
+  box-shadow: var(--sombra);
+}
+.kbd-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--e-2); margin-right: -8px; }
+.kbd-panel-titulo { font-family: var(--f-rotulo); font-size: 1.375rem; font-weight: 700; }
+.kbd-grid { display: grid; gap: var(--e-2); margin: 0; }
+.kbd-row { display: grid; grid-template-columns: 3.25rem 1fr; align-items: center; gap: var(--e-3); }
+.kbd-row dd { margin: 0; }
+.kbd-key {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2.25rem; padding: 3px 8px;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--tinta) 9%, transparent);
+  box-shadow: inset 0 -2px 0 var(--linea-fuerte);
+  font-family: var(--f-texto); font-size: var(--t-detalle); font-weight: 700;
+  white-space: nowrap;
+}
+.kbd-action { font-size: var(--t-dato); color: var(--apagada); }
+@media (hover: none) {
+  .kbd-panel { display: none; }
+}

@@ -5,6 +5,7 @@ import { minutesToHuman } from '@/lib/normalize.js';
 import { fechaCorta, mesDe } from '@/lib/proximas.js';
 import { goma, crearVelocimetro, movimientoReducido, alTerminarTransicion } from '@/lib/gestos.js';
 import { bloquearScroll, desbloquearScroll } from '@/lib/bloqueoScroll.js';
+import Icono from './Icono.jsx';
 
 // Panel de "Próximas". Reutiliza la misma mecánica de hoja que la ficha de
 // película: arrastrar hacia abajo la descarta, con el mismo tirador y las
@@ -135,7 +136,9 @@ export default function UpcomingSheet({ peliculas, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-tirador" data-tirador aria-hidden="true" />
-        <button className="modal-close" onClick={onClose} aria-label="Cerrar">✕</button>
+        <button type="button" className="modal-close boton-icono" onClick={onClose} aria-label="Cerrar">
+          <Icono nombre="aspa" />
+        </button>
 
         <div className="prox-head">
           <h2 className="prox-title">Próximas</h2>
@@ -147,7 +150,7 @@ export default function UpcomingSheet({ peliculas, onClose }) {
 
         {peliculas.length === 0 ? (
           <div className="empty">
-            <div className="em-ic">🗓️</div>
+            <Icono nombre="calendario" className="ico estado-icono" />
             <h3>Nada programado todavía</h3>
             <p>Cuando los cines anuncien ciclos o reestrenos, aparecerán aquí.</p>
           </div>
@@ -189,7 +192,7 @@ export default function UpcomingSheet({ peliculas, onClose }) {
                       <span className="prox-cuando">
                         {/* Lo primero que uno quiere saber: cuándo cae */}
                         <span className="prox-fecha">{fechaCorta(p.primeraFecha)}</span>
-                        <span className="prox-flecha" aria-hidden="true">›</span>
+                        <Icono nombre="abajo" className="ico prox-flecha" />
                       </span>
                     </button>
 
@@ -201,7 +204,7 @@ export default function UpcomingSheet({ peliculas, onClose }) {
                             <div className="prox-pase" key={`${pase.iso}-${pase.cineId}-${i}`}>
                               <span className="prox-pase-dia">{fechaCorta(pase.iso)}</span>
                               <span className="prox-pase-cine">
-                                <span className="f-dot" style={{ background: pase.color }} aria-hidden="true" />
+                                <span className="punto" data-cine={pase.cineId} aria-hidden="true" />
                                 {pase.cineNombre}
                               </span>
                               <span className="prox-pase-horas">

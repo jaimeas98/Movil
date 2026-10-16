@@ -1,0 +1,391 @@
+/* ============================================================================
+   La cartelera: el día, los avisos, las películas con sus entradas, la vista
+   Horario, los estados (cargando, error, vacío) y el pie.
+   ============================================================================ */
+
+/* ── El día ─────────────────────────────────────────────────────────────── */
+.selected-day {
+  padding: var(--e-5) 0 0;
+  font-family: var(--f-rotulo);
+  font-size: var(--t-dia); font-weight: 700;
+  line-height: 0.95; letter-spacing: 0;
+  text-wrap: balance;
+  /* Las mayúsculas redondas de Big Shoulders (H, O) se ven metidas hacia
+     dentro: se alinean ópticamente con el borde del texto de debajo. */
+  margin-left: -0.03em;
+}
+.dia-resumen {
+  padding: var(--e-1) 0 var(--e-3);
+  font-size: var(--t-dato); color: var(--apagada);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Capa que se desliza al cambiar de día. Su transform lo escribe el gesto
+   desde JS; aquí solo aislamos su coste de layout del resto de la página. */
+.dia-panel { contain: layout; overflow-x: clip; outline: none; }
+
+/* ── Avisos sobre los datos ─────────────────────────────────────────────── */
+.avisos {
+  display: grid; gap: var(--e-2);
+  margin-bottom: var(--e-3);
+  padding: 10px var(--e-3);
+  background: var(--superficie);
+  border-radius: var(--r-pieza);
+  font-size: var(--t-detalle); line-height: 1.4;
+  color: var(--apagada);
+}
+.aviso { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 10px; align-items: start; }
+.aviso strong { color: var(--tinta); font-weight: 650; }
+.aviso-icono { width: 16px; height: 16px; margin-top: 1px; }
+.aviso-accion {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--rojo-texto); font-weight: 650;
+  text-decoration: underline; text-underline-offset: 0.2em;
+  /* Área de toque sin engordar la línea */
+  padding-block: 10px; margin-block: -10px;
+}
+.aviso-cine {
+  display: inline-flex; align-items: center; gap: 3px;
+  color: var(--tinta); font-weight: 650;
+  text-decoration: underline; text-underline-offset: 0.2em;
+  padding-block: 10px; margin-block: -10px;
+}
+.ico-enlinea { width: 14px; height: 14px; display: inline-block; }
+
+/* ── Películas ──────────────────────────────────────────────────────────── */
+.pelis {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--e-7);
+}
+.pelis > li {
+  border-top: 1px solid var(--linea);
+  /* Las de abajo no se pintan hasta que se acercan: con 40 películas por día
+     es buena parte del coste de cambiar de día. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+@media (min-width: 1080px) {
+  .pelis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.peli {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  grid-template-areas:
+    "cartel cabeza"
+    "cines cines";
+  column-gap: var(--e-4);
+  row-gap: var(--e-4);
+  padding: var(--e-5) 0 var(--e-6);
+}
+@media (min-width: 560px) {
+  .peli {
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-areas:
+      "cartel cabeza"
+      "cartel cines";
+    grid-template-rows: auto 1fr;
+    column-gap: var(--e-5);
+  }
+}
+
+.peli-cartel {
+  grid-area: cartel;
+  display: block; align-self: start;
+  aspect-ratio: 2 / 3; width: 100%;
+  border-radius: var(--r-pieza);
+  overflow: hidden;
+  background: var(--cartel-vacio);
+}
+.peli-cartel-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cartel-vacio {
+  background: hsl(var(--tono, 220) 32% 30%);
+}
+:root[data-theme='light'] .cartel-vacio { background: hsl(var(--tono, 220) 30% 84%); }
+
+.peli-cabeza { grid-area: cabeza; min-width: 0; align-self: center; }
+@media (min-width: 560px) { .peli-cabeza { align-self: start; } }
+
+.peli-titulo {
+  font-family: var(--f-rotulo);
+  font-size: var(--t-titulo); font-weight: 800;
+  line-height: 0.95;
+  /* Las marquesinas se rotulan en mayúsculas; además iguala los títulos que
+     unos cines escriben en mayúsculas y otros no. */
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  hyphens: none;
+}
+.peli-titulo-boton {
+  text-align: left; text-transform: inherit;
+  letter-spacing: inherit; line-height: inherit;
+  border-radius: 2px;
+  /* Área de toque de 44 px aunque el título ocupe una sola línea */
+  padding-block: 7px; margin-block: -7px;
+}
+@media (hover: hover) {
+  .peli-titulo-boton:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.12em; }
+}
+.peli-datos {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--e-3); row-gap: 2px;
+  margin-top: var(--e-2);
+  font-size: var(--t-dato); color: var(--apagada);
+  font-variant-numeric: tabular-nums;
+}
+.peli-edad { font-weight: 650; color: var(--tinta); }
+.peli-nota { display: inline-flex; align-items: center; gap: 4px; color: var(--tinta); font-weight: 650; }
+.ico-nota { width: 15px; height: 15px; color: var(--apagada); }
+.peli-estreno { color: var(--rojo-texto); font-weight: 650; }
+
+.peli-cines { grid-area: cines; display: grid; gap: var(--e-4); min-width: 0; }
+
+.peli-cine-nombre {
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--e-2); row-gap: 0;
+  margin-bottom: var(--e-2);
+  font-family: var(--f-texto);
+  font-size: var(--t-dato); font-weight: 650; line-height: 1.3;
+}
+.peli-cine-nombre .punto {
+  align-self: center;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cine);
+}
+.peli-cine-lugar { font-weight: 500; color: var(--apagada); }
+.peli-cine-aviso {
+  font-size: var(--t-detalle); font-weight: 500; color: var(--apagada);
+}
+.peli-cine-aviso::before { content: '· '; }
+
+/* Cifras de ancho fijo para las horas en Big Shoulders (ver Hora en
+   components/Entrada.jsx): 0.45em es la cifra más ancha a peso 700. */
+.hora-cifras { white-space: nowrap; }
+.cifra { display: inline-block; width: 0.45em; text-align: center; }
+
+/* ── La entrada ─────────────────────────────────────────────────────────────
+   La sesión es una entrada de cine: la hora en grande, en pequeño lo que la
+   distingue, el color de su cine en el papel y las dos muescas del troquel a
+   los lados. El papel (y sus muescas) va en un ::before con máscara para que
+   el anillo de foco, que va en el propio elemento, no quede recortado. */
+.entradas { display: flex; flex-wrap: wrap; gap: 6px; }
+.entrada {
+  --papel: color-mix(in oklab, var(--cine) var(--mezcla-entrada), var(--superficie));
+  position: relative; isolation: isolate;
+  display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  min-width: 4.75rem; min-height: 3.625rem;
+  padding: 6px 14px 7px;
+  border-radius: var(--r-pieza);
+  color: var(--tinta);
+  text-align: left; text-decoration: none;
+  transition: transform var(--d-press) var(--ease-press);
+}
+.entrada::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit;
+  background: var(--papel);
+  transition: background-color 150ms ease;
+  -webkit-mask:
+    radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+a.entrada:active, button.entrada:active { transform: scale(0.97); transition-duration: 40ms; }
+@media (hover: hover) {
+  a.entrada:hover, button.entrada:hover {
+    --papel: color-mix(in oklab, var(--cine) var(--mezcla-entrada-hover), var(--superficie));
+  }
+}
+
+.entrada-hora {
+  font-family: var(--f-rotulo);
+  font-size: var(--t-hora); font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.entrada-datos {
+  display: flex; gap: 6px;
+  margin-top: 3px;
+  font-size: var(--t-detalle); line-height: 1.2;
+  white-space: nowrap;
+}
+.entrada-etiqueta { font-weight: 700; }
+.entrada-sala { color: var(--apagada); }
+/* Sin nada que decir en pequeño, la entrada mantiene la altura de las demás */
+.entrada-datos:empty::before { content: '\00a0'; }
+
+/* Ya empezada: apagada, sin el color de su cine */
+.entrada[data-estado='pasada'] {
+  --papel: color-mix(in oklab, var(--superficie) 55%, transparent);
+  color: var(--tenue);
+}
+.entrada[data-estado='pasada'] .entrada-sala { color: var(--tenue); }
+@media (hover: hover) {
+  a.entrada[data-estado='pasada']:hover, button.entrada[data-estado='pasada']:hover {
+    --papel: var(--superficie);
+  }
+}
+
+/* Empieza en menos de una hora: la bombilla de la marquesina */
+.entrada[data-estado='pronto'] {
+  --papel: var(--ambar);
+  color: var(--ambar-tinta);
+}
+.entrada[data-estado='pronto'] .entrada-sala { color: inherit; }
+.entrada-falta { font-weight: 700; }
+@media (hover: hover) {
+  a.entrada[data-estado='pronto']:hover, button.entrada[data-estado='pronto']:hover {
+    --papel: color-mix(in oklab, var(--ambar) 88%, white);
+  }
+}
+
+/* Las que ya no tienen sesiones hoy, cuando se piden */
+.pelis-apagadas .peli-cartel,
+.pelis-apagadas .peli-titulo { opacity: 0.6; }
+
+.empezadas { padding: var(--e-4) 0 0; border-top: 1px solid var(--linea); }
+.empezadas-arriba { border-top: 0; padding: 0 0 var(--e-4); }
+.empezadas-boton { width: 100%; justify-content: center; }
+.empezadas .pelis { margin-top: var(--e-4); }
+@media (min-width: 720px) {
+  .empezadas-boton { width: auto; }
+}
+
+/* ── Vista Horario ──────────────────────────────────────────────────────────
+   En escritorio las franjas se reparten en columnas, como un panel de
+   salidas: se leen por orden de hora de izquierda a derecha. */
+.horario { padding-bottom: var(--e-4); }
+.franjas { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--e-5) var(--e-7); align-items: start; }
+@media (min-width: 900px) {
+  .franjas { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); }
+}
+.franjas-apagadas { margin-top: var(--e-4); }
+.franjas-apagadas .fila-hora,
+.franjas-apagadas .fila-titulo { color: var(--tenue); }
+
+.franja-hora {
+  display: flex; align-items: center; gap: var(--e-3);
+  padding: var(--e-2) 0;
+  font-family: var(--f-rotulo);
+  font-size: 1.25rem; font-weight: 700; line-height: 1;
+  color: var(--apagada);
+  font-variant-numeric: tabular-nums;
+}
+.franja-hora::after { content: ''; flex: 1; height: 1px; background: var(--linea); }
+
+.fila-boton {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr) auto;
+  align-items: center; column-gap: var(--e-3);
+  min-height: 60px;
+  padding: var(--e-2) var(--e-2) var(--e-2) 0;
+  border-radius: var(--r-pieza);
+  text-align: left; text-decoration: none;
+  color: var(--tinta);
+  transition: transform var(--d-press) var(--ease-press), background-color 150ms ease;
+}
+.fila-boton:active { transform: scale(0.985); transition-duration: 40ms; }
+.fila + .fila .fila-boton { box-shadow: 0 -1px 0 var(--linea); }
+@media (hover: hover) {
+  .fila-boton:hover { background: var(--superficie); }
+}
+.fila-hora {
+  font-family: var(--f-rotulo);
+  font-size: var(--t-hora); font-weight: 700; line-height: 1;
+  font-variant-numeric: tabular-nums;
+  padding-left: 2px;
+}
+.fila-cuerpo { min-width: 0; display: grid; gap: 3px; }
+.fila-titulo {
+  font-family: var(--f-rotulo);
+  font-size: 1.25rem; font-weight: 800; line-height: 1;
+  text-transform: uppercase; letter-spacing: 0.01em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.fila-datos {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--e-2);
+  font-size: var(--t-detalle); color: var(--apagada); line-height: 1.3;
+}
+.fila-datos .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
+.fila-cine { color: var(--tinta); font-weight: 600; }
+.fila-etiqueta { color: var(--tinta); font-weight: 700; }
+.fila-falta {
+  padding: 3px 9px;
+  border-radius: var(--r-control);
+  background: var(--ambar); color: var(--ambar-tinta);
+  font-size: var(--t-detalle); font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.fila-boton[data-estado='pronto'] .fila-hora { color: var(--ambar-texto); }
+.fila-boton[data-estado='pasada'] .fila-hora,
+.fila-boton[data-estado='pasada'] .fila-titulo,
+.fila-boton[data-estado='pasada'] .fila-cine,
+.fila-boton[data-estado='pasada'] .fila-etiqueta { color: var(--tenue); }
+
+/* La línea del ahora: dónde estás en el día */
+.ahora {
+  display: flex; align-items: center; gap: var(--e-3);
+  margin: 0 0 var(--e-2);
+  color: var(--ambar-texto);
+}
+.ahora::after { content: ''; flex: 1; height: 2px; border-radius: 1px; background: var(--ambar); }
+.ahora-texto { font-size: var(--t-dato); font-weight: 700; }
+.ahora-hora { font-variant-numeric: tabular-nums; }
+
+/* ── Estados ────────────────────────────────────────────────────────────── */
+.estado {
+  max-width: 34rem;
+  padding: var(--e-7) 0 var(--e-8);
+}
+.estado-compacto { padding: var(--e-5) 0; }
+.estado-icono { width: 28px; height: 28px; color: var(--apagada); margin-bottom: var(--e-4); }
+.estado-titulo {
+  font-family: var(--f-rotulo);
+  font-size: var(--t-titulo); font-weight: 800; line-height: 1;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.estado-texto { margin-top: var(--e-3); color: var(--apagada); max-width: 60ch; text-wrap: pretty; }
+.estado-acciones { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-top: var(--e-5); }
+.estado-acciones .ico { width: 18px; height: 18px; }
+
+/* Esqueleto: la forma real, latiendo despacio (sin barrido, que en una lista
+   larga se lee como ruido) */
+.esq {
+  display: block;
+  background: color-mix(in oklab, var(--tinta) 8%, var(--fondo));
+  border-radius: var(--r-pieza);
+  animation: latido 1.4s ease-in-out infinite alternate;
+}
+.esqueleto .peli-cartel { background: color-mix(in oklab, var(--tinta) 8%, var(--fondo)); }
+.esq-titulo { height: 28px; margin-bottom: var(--e-2); }
+.esq-linea { height: 14px; width: 45%; }
+.esq-cine { height: 14px; width: 9rem; margin-bottom: var(--e-2); }
+.esq-entrada { width: 4.75rem; height: 3.625rem; }
+@keyframes latido { from { opacity: 0.55; } to { opacity: 1; } }
+
+/* ── Pie ────────────────────────────────────────────────────────────────── */
+.pie {
+  margin-top: var(--e-8);
+  padding: var(--e-5) 0 calc(var(--e-7) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--linea);
+  font-size: var(--t-dato); color: var(--apagada);
+}
+.pie-dentro { display: grid; gap: var(--e-3); }
+.pie-cines { display: flex; flex-wrap: wrap; column-gap: var(--e-5); row-gap: 0; }
+.pie-cines a {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  min-height: var(--toque);
+  color: var(--tinta); font-weight: 600; text-decoration: none;
+}
+.pie-cines .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
+@media (hover: hover) {
+  .pie-cines a:hover { text-decoration: underline; }
+}

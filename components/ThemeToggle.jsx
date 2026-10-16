@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Icono from './Icono.jsx';
 
 // El tema real vive en el atributo data-theme del <html>, que pone un script
 // en la cabecera antes de pintar. Este botón NO decide a partir de su propio
@@ -39,21 +40,14 @@ export default function ThemeToggle() {
   const aOscuro = theme !== 'dark';
   return (
     <button
-      className="btn btn-icon"
+      type="button"
+      className="boton-icono"
       onClick={toggle}
       aria-label={aOscuro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
-      title={aOscuro ? 'Modo oscuro' : 'Modo claro'}
+      title={aOscuro ? 'Modo oscuro (T)' : 'Modo claro (T)'}
     >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
-           strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
-           style={{ width: 17, height: 17 }}>
-        {aOscuro
-          ? <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
-          : <>
-              <circle cx="12" cy="12" r="4.2" />
-              <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" />
-            </>}
-      </svg>
+      {/* Se enseña el tema al que se va, no en el que se está */}
+      <Icono nombre={aOscuro ? 'luna' : 'sol'} />
     </button>
   );
 }
