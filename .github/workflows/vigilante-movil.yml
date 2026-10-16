@@ -1,0 +1,40 @@
+# Vigila al móvil recolector y avisa a Jaime (issue asignado + mención, que la
+# app de GitHub notifica) si deja de responder o se queda sin batería.
+# La lógica y el porqué están en scripts/vigilante/revisar.mjs.
+name: Vigilante del móvil
+
+on:
+  schedule:
+    # Cada 30 min, en minutos "raros": a las en punto GitHub va saturado y
+    # retrasa las tareas programadas.
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+    inputs:
+      prueba:
+        description: 'Mandar un aviso de prueba (se cierra solo en la siguiente revisión)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: vigilante-movil
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts/vigilante
+      - name: Revisar el informe del móvil
+        run: node scripts/vigilante/revisar.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DUENO: ${{ github.repository_owner }}
+          PRUEBA: ${{ inputs.prueba }}

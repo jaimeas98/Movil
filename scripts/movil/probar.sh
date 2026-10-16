@@ -15,7 +15,7 @@ mkdir -p "$S/bin" "$S/home"
 
 for c in termux-wake-lock termux-wake-unlock termux-job-scheduler; do printf '#!/bin/sh\nexit 0\n' > "$S/bin/$c"; done
 echo '#!/bin/sh
-echo "{\"percentage\": ${BAT_PCT:-81}, \"plugged\": \"PLUGGED_AC\", \"health\": \"GOOD\", \"temperature\": 29.5}"' > "$S/bin/termux-battery-status"
+echo "{\"percentage\": ${BAT_PCT:-81}, \"plugged\": \"${BAT_PLUG:-PLUGGED_AC}\", \"health\": \"GOOD\", \"temperature\": 29.5}"' > "$S/bin/termux-battery-status"
 echo '#!/bin/sh
 case "$1" in ro.product.model) echo "Movil de prueba";; ro.build.version.release) echo "14";; esac' > "$S/bin/getprop"
 chmod +x "$S/bin/"*
@@ -166,6 +166,17 @@ touch "$S/on"; BAT_PCT=35 MOCK_YELMO=ok vuelta
 campo .enchufe | grep -q "encendido al 35" && ok "enchufe: reanuda la carga al bajar del 40 %" || mal "enchufe al 35: '$(campo .enchufe)'"
 rm -f "$S/on"; BAT_PCT=30 MOCK_YELMO=ok vuelta
 campo .enchufe | grep -q "ERROR" && ok "enchufe: si no responde, el informe lo avisa" || mal "fallo de enchufe no avisado: '$(campo .enchufe)'"
+
+# Batería: desenchufado y bajando, el informe lleva el ritmo y cuánto le queda
+t0=$AHORA_PRUEBA
+for i in 0 1 2 3 4; do export AHORA_PRUEBA=$(( t0 + i * 900 )); BAT_PLUG=UNPLUGGED BAT_PCT=$(( 60 - i * 3 )) MOCK_YELMO=ok vuelta; done
+r=$(campo .bateria.ritmoPorHora); q=$(campo .bateria.horasHastaReserva)
+[ "$r" = "12" ] && [ "$q" = "2.8" ] && ok "el informe calcula a qué ritmo baja la batería (12 %/h, 2,8 h hasta el 15 %)" || mal "previsión de batería: ritmo $r, horas $q"
+BAT_PLUG=PLUGGED_AC BAT_PCT=50 MOCK_YELMO=ok vuelta
+[ "$(campo .bateria.ritmoPorHora)" = "null" ] && ok "al volver a cargar, sin previsión de descarga" || mal "cargando con ritmo"
+mv "$HOME/.recolector/bateria-historial.json" "$S/h.json"; echo "esto no es json" > "$HOME/.recolector/bateria-historial.json"
+BAT_PLUG=UNPLUGGED MOCK_YELMO=ok vuelta
+[ "$(campo .resultado)" != "" ] && ok "un historial de batería roto no impide el informe (el latido)" || mal "sin informe con historial roto"
 
 # Bucle propio: una vuelta lo arranca si no está vivo, y solo uno a la vez
 mkdir -p "$HOME/.termux/boot"

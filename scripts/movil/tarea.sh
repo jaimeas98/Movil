@@ -248,19 +248,39 @@ fi
 #
 # El repositorio es público, así que el informe es visible para cualquiera. Por
 # eso solo lleva datos técnicos: nada de IP, ubicación ni nada que identifique.
+# La batería, además, se anota en un historial local (24 h) para calcular a
+# qué ritmo baja cuando está desenchufado: el vigilante de GitHub avisa por la
+# previsión, no solo por el porcentaje (ver scripts/movil/bateria.mjs).
 RESULTADO="$resultado" ERROR="$error" MOTIVO="$motivo" BATERIA="$bateria" ENCHUFE="$enchufe" \
 ORDEN="$(cat "$BASE/orden-hecha" 2>/dev/null)" \
-ULTIMA="$ultima_ahora" PROXIMA="$proxima" \
+ULTIMA="$ultima_ahora" PROXIMA="$proxima" AHORA="$ahora" \
 CODIGO="$codigo" \
 MODELO="$(getprop ro.product.model 2>/dev/null)" \
 ANDROID="$(getprop ro.build.version.release 2>/dev/null)" \
 NODEV="$(node --version 2>/dev/null)" \
+HISTORIAL="$BASE/bateria-historial.json" MODULO_BATERIA="$DIR/scripts/movil/bateria.mjs" \
 DESTINO="$DIR_ESTADO/estado.json" \
-node -e '
+node --input-type=module -e '
+  import { readFileSync, writeFileSync } from "node:fs";
   const e = process.env;
   let bateria = null;
   try { bateria = JSON.parse(e.BATERIA); } catch {}
   const ultima = Number(e.ULTIMA) || 0;
+
+  let prev = { ritmoPorHora: null, horasHastaReserva: null, desenchufadoDesde: null };
+  // Este informe es el latido del móvil: un fallo en la previsión nunca puede
+  // impedir que se escriba, o el vigilante creería que el móvil ha muerto.
+  try {
+    if (bateria && Number.isFinite(bateria.percentage)) {
+      const { anotar, prevision } = await import(e.MODULO_BATERIA);
+      let historial = [];
+      try { historial = JSON.parse(readFileSync(e.HISTORIAL, "utf8")); } catch {}
+      historial = anotar(historial, { t: Number(e.AHORA) * 1000, pct: bateria.percentage, cargando: bateria.plugged !== "UNPLUGGED" });
+      writeFileSync(e.HISTORIAL, JSON.stringify(historial));
+      prev = prevision(historial);
+    }
+  } catch {}
+
   const informe = {
     vuelta: new Date().toISOString(),
     resultado: e.RESULTADO,
@@ -277,9 +297,10 @@ node -e '
       cargando: bateria.plugged !== "UNPLUGGED",
       estado: bateria.health,
       temperatura: bateria.temperature,
+      ...prev,
     },
   };
-  require("fs").writeFileSync(e.DESTINO, JSON.stringify(informe, null, 2) + "\n");
+  writeFileSync(e.DESTINO, JSON.stringify(informe, null, 2) + "\n");
 '
 
 # Las últimas líneas del registro, para poder ver el detalle de un fallo.
