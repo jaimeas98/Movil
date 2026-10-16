@@ -1,5 +1,7 @@
-# Claude Code worktrees (temporary agent working directories)
-.claude/
+# Claude Code: worktrees y ajustes locales fuera; las skills de diseño SÍ se
+# versionan (.claude/skills), para que cualquier sesión pueda usarlas.
+.claude/*
+!.claude/skills/
 
 # AI design skills tooling (local dev aid, not part of the app)
 skills-lock.json
