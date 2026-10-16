@@ -1,5 +1,14 @@
+// Próximas: el botón aparece solo si hay ciclos programados más allá de la
+// tira, agrupa por película, ordena por fecha y despliega pases por cine.
+// Requiere el servidor de desarrollo en el 3210 (o CARTELERA_URL) y
+// playwright instalado sin guardar (npm i --no-save playwright).
+//
+//   CARTELERA_SAMPLE=1 npx next dev -p 3210
+//   node scripts/test-proximas.mjs /tmp/shots
 import { chromium } from 'playwright';
-const OUT = process.argv[2];
+const OUT = process.argv[2] || '.';
+const URL = process.env.CARTELERA_URL || 'http://127.0.0.1:3210/';
+const HOJA = '.hoja[data-variante="proximas"]';
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 let fallos = 0; const mal = m => { fallos++; console.log('FALLO ' + m); };
 
@@ -40,7 +49,7 @@ const err = []; p.on('pageerror', e => err.push(String(e)));
 await p.route('**/api/showtimes**', r => r.fulfill({ status:200, contentType:'application/json', body: JSON.stringify(datos) }));
 await p.route('**/api/ratings', r => r.fulfill({ status:200, contentType:'application/json', body: JSON.stringify({ ratings: {} }) }));
 await p.addInitScript(() => localStorage.clear());
-await p.goto('http://127.0.0.1:3210/', { waitUntil: 'networkidle' });
+await p.goto(URL, { waitUntil: 'networkidle' });
 await p.waitForTimeout(900);
 
 const boton = p.locator('.prox-btn');
@@ -48,7 +57,7 @@ if (!(await boton.count())) mal('no aparece el botón de próximas habiendo cicl
 else console.log('ok    el botón aparece en la cabecera (solo si hay ciclos)');
 
 await boton.click();
-await p.waitForSelector('.modal.proximas');
+await p.waitForSelector(HOJA);
 await p.waitForTimeout(500);
 
 const items = await p.locator('.prox-item').count();
@@ -73,10 +82,30 @@ else console.log(`ok    al desplegar se ven los pases y su cine: ${JSON.stringif
 
 const sinopsis = await p.locator('.prox-sinopsis').count();
 if (!sinopsis) mal('no se muestra la sinopsis al desplegar');
-else console.log('ok    muestra sinopsis y horarios con enlace de compra');
+else console.log('ok    muestra la sinopsis al desplegar');
+// Los pases son las mismas entradas de la cartelera, con su enlace de compra
+const entradas = await p.locator(`${HOJA} .prox-pase a.entrada[href]`).count();
+if (!entradas) mal('los pases no llevan entradas con enlace de compra');
+else console.log(`ok    los pases son entradas con enlace de compra (${entradas})`);
+
+// Misma hoja que la ficha: Escape la cierra y el foco vuelve al botón
+await p.keyboard.press('Escape');
+await p.waitForTimeout(600);
+const tras = await p.evaluate(() => ({
+  abierta: !!document.querySelector('.hoja'),
+  foco: document.activeElement?.classList.contains('prox-btn'),
+}));
+if (tras.abierta) mal('Escape no cierra Próximas');
+else if (!tras.foco) mal('al cerrar, el foco no vuelve al botón de Próximas');
+else console.log('ok    Escape la cierra y el foco vuelve al botón');
+await boton.click();
+await p.waitForSelector(HOJA);
+await p.waitForTimeout(500);
+await p.locator('.prox-cabecera').first().click();
+await p.waitForTimeout(300);
 
 if (err.length) mal('JS: ' + err[0]);
-await p.locator('.modal.proximas').screenshot({ path: `${OUT}/proximas.png` });
+await p.locator(HOJA).screenshot({ path: `${OUT}/proximas.png` });
 await b.close();
 console.log(fallos ? `\n${fallos} FALLOS` : '\nPróximas correcto');
 process.exit(fallos ? 1 : 0);

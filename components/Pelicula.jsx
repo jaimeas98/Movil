@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useCallback, useRef, useState } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 import { deCuando } from '@/lib/cartelera.js';
 import { lugarCorto } from '@/lib/rotulos.js';
@@ -32,7 +32,9 @@ export function avisoDeCine(cine) {
   return null;
 }
 
-export function Cartel({ pelicula, className = 'peli-cartel-img' }) {
+// `inmediato`: sin carga perezosa ni decodificación diferida. Lo usa la ficha,
+// cuyo cartel fotografía la View Transition en cuanto se monta.
+export function Cartel({ pelicula, className = 'peli-cartel-img', inmediato = false }) {
   const [fallo, setFallo] = useState(false);
   if (pelicula.posterUrl && !fallo) {
     return (
@@ -40,8 +42,8 @@ export function Cartel({ pelicula, className = 'peli-cartel-img' }) {
         className={className}
         src={pelicula.posterUrl}
         alt=""
-        loading="lazy"
-        decoding="async"
+        loading={inmediato ? 'eager' : 'lazy'}
+        decoding={inmediato ? 'sync' : 'async'}
         onError={() => setFallo(true)}
       />
     );
@@ -53,19 +55,35 @@ export function Cartel({ pelicula, className = 'peli-cartel-img' }) {
 function Pelicula({ pelicula, fecha, onAbrir }) {
   const duracion = minutesToHuman(pelicula.durationMin);
   const nota = notaMedia(pelicula.ratings);
-  const abrir = () => onAbrir(pelicula);
+  const cartelRef = useRef(null);
+  const tituloRef = useRef(null);
+  // Se abra desde donde se abra (cartel, título o una entrada sin venta), el
+  // que vuela hasta la ficha es el cartel; y el foco, al cerrar, vuelve al
+  // título, que es el botón que un lector de pantalla conoce.
+  const abrir = useCallback(
+    () => onAbrir(pelicula, { cartel: cartelRef.current, foco: tituloRef.current }),
+    [onAbrir, pelicula]
+  );
 
   return (
     <article className="peli" aria-labelledby={`t-${pelicula.clave}`}>
       {/* El cartel repite el botón del título: fuera del tabulador y del
           árbol de accesibilidad para no anunciar dos veces lo mismo. */}
-      <button type="button" className="peli-cartel pulsable" onClick={abrir} tabIndex={-1} aria-hidden="true">
+      <button
+        type="button"
+        className="peli-cartel pulsable"
+        ref={cartelRef}
+        data-cartel={pelicula.clave}
+        onClick={abrir}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
         <Cartel pelicula={pelicula} />
       </button>
 
       <div className="peli-cabeza">
         <h2 className="peli-titulo" id={`t-${pelicula.clave}`}>
-          <button type="button" className="peli-titulo-boton" onClick={abrir}>
+          <button type="button" className="peli-titulo-boton" ref={tituloRef} onClick={abrir}>
             {pelicula.title}
             <span className="sr">. Ver ficha</span>
           </button>
@@ -98,7 +116,7 @@ function Pelicula({ pelicula, fecha, onAbrir }) {
               <ul className="entradas">
                 {sessions.map((s, i) => (
                   <li key={`${s.time}-${i}`}>
-                    <Entrada sesion={s} cine={cine} pelicula={pelicula} fecha={fecha} onAbrir={onAbrir} />
+                    <Entrada sesion={s} cine={cine} pelicula={pelicula} fecha={fecha} onAbrir={abrir} />
                   </li>
                 ))}
               </ul>

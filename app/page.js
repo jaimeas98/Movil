@@ -18,7 +18,9 @@ import { Avisos, Esqueleto, Estado } from '@/components/Estados.jsx';
 import Icono from '@/components/Icono.jsx';
 import MovieModal from '@/components/MovieModal.jsx';
 import UpcomingSheet from '@/components/UpcomingSheet.jsx';
+import Hoja from '@/components/Hoja.jsx';
 import { calcularProximas } from '@/lib/proximas.js';
+import { abrirConCartel, cerrarConCartel, cartelDe } from '@/lib/transicionCartel.js';
 
 // ── Caché en localStorage ──────────────────────────────────────────────────────
 // Guardamos la respuesta completa de /api/showtimes para que recargas
@@ -161,14 +163,15 @@ function carteleraDeRespaldo() {
   return alguno ? { generatedAt: null, mode: 'live', cinemas } : null;
 }
 
+// Cada tecla, su tecla: "← →" son dos teclas y se pintan como dos.
 const KBD_SHORTCUTS = [
-  { key: '← →', action: 'Día anterior / siguiente' },
-  { key: '/', action: 'Buscar película' },
-  { key: 'V', action: 'Cambiar entre Películas y Horario' },
-  { key: 'T', action: 'Cambiar tema' },
-  { key: 'R', action: 'Actualizar cartelera' },
-  { key: 'Esc', action: 'Cerrar / limpiar búsqueda' },
-  { key: '?', action: 'Mostrar/ocultar esta ayuda' },
+  { teclas: ['←', '→'], nombre: 'flecha izquierda o derecha', action: 'Día anterior o siguiente' },
+  { teclas: ['/'], nombre: 'barra', action: 'Buscar película' },
+  { teclas: ['V'], action: 'Cambiar entre Películas y Horario' },
+  { teclas: ['T'], action: 'Cambiar de tema' },
+  { teclas: ['R'], action: 'Actualizar la cartelera' },
+  { teclas: ['Esc'], nombre: 'Escape', action: 'Cerrar, o borrar la búsqueda' },
+  { teclas: ['?'], nombre: 'interrogación', action: 'Mostrar u ocultar esta ayuda' },
 ];
 
 // "Hoy, viernes 16 de octubre": el título del día dice primero lo que importa.
@@ -197,7 +200,12 @@ export default function Page() {
   const [vista, setVista] = useState('peliculas'); // 'peliculas' | 'horario'
   const [active, setActive] = useState(null); // película abierta en la ficha
   const [showKbd, setShowKbd] = useState(false);
+  // Abierta con "?": lo que se hace con el teclado no se anima (se hace cien
+  // veces y la animación solo sería espera). Con el botón, sí.
+  const [kbdPorTeclado, setKbdPorTeclado] = useState(false);
   const [verProximas, setVerProximas] = useState(false);
+  // Adónde vuelve el foco al cerrar la ficha (el título de la película).
+  const focoFichaRef = useRef(null);
 
   // ── Refs del gesto horizontal ───────────────────────────────────────────────
   // Todo el gesto vive en refs y en el DOM: si el estado del arrastre estuviera
@@ -414,9 +422,21 @@ export default function Page() {
     ? new Date(data.generatedAt).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
     : null;
 
-  const openMovie = useCallback((pelicula) => {
-    setActive(pelicula);
+  // Abrir la ficha: si se puede, el cartel pulsado vuela hasta ella (ver
+  // lib/transicionCartel.js); si no, la hoja sube sola.
+  const openMovie = useCallback((pelicula, origen) => {
+    focoFichaRef.current = origen?.foco ?? null;
+    abrirConCartel(origen?.cartel ?? null, () => setActive(pelicula));
   }, []);
+  const cerrarFicha = useCallback(() => setActive(null), []);
+  // El cierre con botón, Escape o velo devuelve el cartel a su sitio en la
+  // lista por el mismo camino. Devuelve false si no puede (sin la API, con
+  // movimiento reducido o con el cartel fuera de la vista) y entonces la hoja
+  // se cierra con su muelle.
+  const salidaFicha = useCallback(
+    () => cerrarConCartel(cartelDe(active?.clave), () => setActive(null)),
+    [active]
+  );
 
   const quitarFiltros = useCallback(() => {
     setQuery('');
@@ -438,9 +458,9 @@ export default function Page() {
       const tag = document.activeElement?.tagName;
       const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
 
-      // Escape is always allowed (modal handles its own, we handle query clear)
+      // Escape: con una hoja abierta lo atrapa ella (components/Hoja.jsx) y no
+      // llega aquí; sin hoja, borra la búsqueda.
       if (e.key === 'Escape') {
-        if (showKbd) { setShowKbd(false); return; }
         if (!active && query) { setQuery(''); }
         return;
       }
@@ -491,6 +511,7 @@ export default function Page() {
         return;
       }
       if (e.key === '?') {
+        setKbdPorTeclado(true);
         setShowKbd((v) => !v);
         return;
       }
@@ -498,7 +519,7 @@ export default function Page() {
 
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [active, verProximas, days, selectedDate, query, loading, load, showKbd]);
+  }, [active, verProximas, days, selectedDate, query, loading, load]);
 
   useEffect(() => { diasRef.current = days; }, [days]);
   useEffect(() => { fechaRef.current = selectedDate; }, [selectedDate]);
@@ -834,7 +855,7 @@ export default function Page() {
             <button
               type="button"
               className="boton-icono kbd-btn"
-              onClick={() => setShowKbd((v) => !v)}
+              onClick={() => { setKbdPorTeclado(false); setShowKbd((v) => !v); }}
               aria-label="Atajos de teclado"
               title="Atajos de teclado (?)"
             >
@@ -922,14 +943,14 @@ export default function Page() {
 
       {active && (
         <MovieModal
-          // La ficha de la fase anterior espera una película de UN cine: se le
-          // da la del primero y, aparte, la lista completa de cines con sus
-          // sesiones para que las enseñe todas.
-          movie={{ ...active, sessions: active.cines[0]?.sessions ?? [] }}
-          cinema={active.cines[0]?.cine ?? null}
-          cines={active.cines}
+          // La película se vuelve a buscar en la lista del día por su clave: si
+          // las notas llegan con la ficha ya abierta, aparecen en ella.
+          pelicula={peliculasDelDia.find((p) => p.clave === active.clave) ?? active}
           fecha={selectedDate}
-          onClose={() => setActive(null)}
+          rotuloDia={tituloDelDia(selectedDate, days)}
+          onCerrar={cerrarFicha}
+          salida={salidaFicha}
+          focoAlCerrar={focoFichaRef.current}
         />
       )}
 
@@ -937,33 +958,24 @@ export default function Page() {
         <UpcomingSheet peliculas={proximas} onClose={() => setVerProximas(false)} />
       )}
 
-      {/* Panel de atajos de teclado */}
+      {/* Atajos de teclado: la misma hoja/panel que la ficha. */}
       {showKbd && (
-        <div className="kbd-panel" role="dialog" aria-label="Atajos de teclado">
-          {/* Clic fuera para cerrar */}
-          <div className="kbd-panel-backdrop" onClick={() => setShowKbd(false)} />
-          <div className="kbd-panel-inner">
-            <div className="kbd-panel-header">
-              <h2 className="kbd-panel-titulo">Atajos de teclado</h2>
-              <button
-                type="button"
-                className="boton-icono"
-                onClick={() => setShowKbd(false)}
-                aria-label="Cerrar"
-              >
-                <Icono nombre="aspa" />
-              </button>
-            </div>
-            <dl className="kbd-grid">
-              {KBD_SHORTCUTS.map(({ key, action }) => (
-                <div key={key} className="kbd-row">
-                  <dt><kbd className="kbd-key">{key}</kbd></dt>
-                  <dd className="kbd-action">{action}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
+        <Hoja variante="atajos" etiquetadaPor="atajos-titulo" instantanea={kbdPorTeclado} onCerrar={() => setShowKbd(false)}>
+          <h2 className="atajos-titulo" id="atajos-titulo">Atajos de teclado</h2>
+          <dl className="atajos">
+            {KBD_SHORTCUTS.map(({ teclas, nombre, action }) => (
+              <div key={teclas.join('')} className="atajo">
+                <dt>
+                  <span className="sr">{nombre ?? teclas.join(' ')}</span>
+                  <span className="atajo-teclas" aria-hidden="true">
+                    {teclas.map((t) => <kbd key={t} className="tecla">{t}</kbd>)}
+                  </span>
+                </dt>
+                <dd className="atajo-accion">{action}</dd>
+              </div>
+            ))}
+          </dl>
+        </Hoja>
       )}
     </>
   );

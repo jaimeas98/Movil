@@ -18,36 +18,42 @@ function LineaAhora() {
   );
 }
 
-// Una fila del horario: hora grande, título, cine (color) e idioma/formato.
+// Jerarquía: la hora se escribe UNA vez por cada hora de inicio distinta, en
+// grande a la izquierda, y a su derecha todas las películas que empiezan a esa
+// hora. Antes cada franja ("19:00") llevaba su rótulo y además cada fila
+// repetía "19:00" en grande y en ámbar: cuatro veces lo mismo seguido, y el
+// ojo tenía que leer las horas para descubrir que no cambiaban. Ahora la
+// columna de la izquierda solo cambia cuando cambia la hora, que es justo lo
+// que se busca al bajar con el dedo ("¿qué empieza a las nueve y pico?").
+// El "en 20 min" también va con la hora, una vez, y no en cada fila.
+
+const hhmm = (minuto) => `${dosCifras(Math.floor(minuto / 60) % 24)}:${dosCifras(minuto % 60)}`;
+
+// Una película dentro de su hora: título, cine (color) e idioma/formato.
 // Tocarla lleva a comprar; sin enlace, a la ficha.
-const Fila = memo(function Fila({ fila, fecha, onAbrir }) {
+const Fila = memo(function Fila({ fila, onAbrir, pasada, falta }) {
   const { pelicula, cine, sesion } = fila;
-  const { pasada, falta } = useEstadoSesion(sesion.minuto, fecha);
   const { etiquetas, sala } = detallesDeSesion(sesion);
-  const estado = pasada ? 'pasada' : falta != null ? 'pronto' : undefined;
 
   const cuerpo = (
-    <>
-      <Hora className="fila-hora" texto={sesion.time} />
-      <span className="fila-cuerpo" aria-hidden="true">
-        <span className="fila-titulo">{pelicula.title}</span>
-        <span className="fila-datos">
-          <span className="punto" />
-          <span className="fila-cine">{cine.short || cine.name}</span>
-          {etiquetas.map((t) => <span key={t} className="fila-etiqueta">{t}</span>)}
-          {sala && <span className="fila-sala">{sala}</span>}
-        </span>
+    <span className="fila-cuerpo" aria-hidden="true">
+      <span className="fila-titulo">{pelicula.title}</span>
+      <span className="fila-datos">
+        <span className="punto" />
+        <span className="fila-cine">{cine.short || cine.name}</span>
+        {etiquetas.map((t) => <span key={t} className="fila-etiqueta">{t}</span>)}
+        {sala && <span className="fila-sala">{sala}</span>}
       </span>
-      {falta != null && <span className="fila-falta" aria-hidden="true">{textoFalta(falta)}</span>}
-    </>
+    </span>
   );
 
-  const comun = { className: 'fila-boton', 'data-estado': estado };
+  // La frase completa (con la hora) va en el enlace: quien salta de enlace en
+  // enlace con un lector de pantalla no ve la columna de la izquierda.
   return (
     <li className="fila" data-cine={cine.id}>
       {sesion.buyUrl ? (
         <a
-          {...comun}
+          className="fila-boton"
           href={sesion.buyUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -58,7 +64,7 @@ const Fila = memo(function Fila({ fila, fecha, onAbrir }) {
       ) : (
         <button
           type="button"
-          {...comun}
+          className="fila-boton"
           onClick={() => onAbrir(pelicula)}
           aria-label={frasePara({ titulo: pelicula.title, sesion, cine, pasada, falta, accion: 'Abre la ficha' })}
         >
@@ -69,20 +75,66 @@ const Fila = memo(function Fila({ fila, fecha, onAbrir }) {
   );
 });
 
+// Las películas que empiezan al mismo minuto, bajo una sola hora. El estado
+// (ya empezada, "en 20 min") es el mismo para todas: se calcula una vez.
+const Hueco = memo(function Hueco({ hueco, fecha, onAbrir }) {
+  const { pasada, falta } = useEstadoSesion(hueco.minuto, fecha);
+  const estado = pasada ? 'pasada' : falta != null ? 'pronto' : undefined;
+  return (
+    <li className="hueco" data-estado={estado}>
+      <p className="hueco-hora" aria-hidden="true">
+        <Hora className="hueco-cifras" texto={hhmm(hueco.minuto)} />
+        {falta != null && <span className="hueco-falta">{textoFalta(falta)}</span>}
+      </p>
+      <ul className="filas">
+        {hueco.filas.map((x, i) => (
+          <Fila
+            key={`${x.cine.id}-${x.pelicula.clave}-${x.sesion.time}-${i}`}
+            fila={x}
+            onAbrir={onAbrir}
+            pasada={pasada}
+            falta={falta}
+          />
+        ))}
+      </ul>
+    </li>
+  );
+});
+
+function porMinuto(filas) {
+  const huecos = [];
+  for (const f of filas) {
+    const ultimo = huecos.at(-1);
+    if (ultimo && ultimo.minuto === f.minuto) ultimo.filas.push(f);
+    else huecos.push({ minuto: f.minuto, filas: [f] });
+  }
+  return huecos;
+}
+
+// Franjas de una hora: en el móvil no se rotulan (la hora ya está en cada
+// hueco), pero siguen ahí para dos cosas: en escritorio cada una es una
+// columna, como un panel de salidas, y un lector de pantalla puede saltar de
+// franja en franja por su encabezado.
 function Franjas({ filas, fecha, onAbrir, apagadas = false }) {
-  const franjas = useMemo(() => franjasPorHora(filas), [filas]);
+  const franjas = useMemo(
+    () => franjasPorHora(filas).map((f) => ({ ...f, huecos: porMinuto(f.filas) })),
+    [filas]
+  );
   return (
     <div className={`franjas${apagadas ? ' franjas-apagadas' : ''}`}>
-      {franjas.map((f) => (
-        <section className="franja" key={f.hora} aria-labelledby={`fr-${apagadas ? 'p' : ''}${f.hora}`}>
-          <h2 className="franja-hora" id={`fr-${apagadas ? 'p' : ''}${f.hora}`}><Hora texto={f.etiqueta} /></h2>
-          <ul className="filas">
-            {f.filas.map((x, i) => (
-              <Fila key={`${x.cine.id}-${x.pelicula.clave}-${x.sesion.time}-${i}`} fila={x} fecha={fecha} onAbrir={onAbrir} />
-            ))}
-          </ul>
-        </section>
-      ))}
+      {franjas.map((f) => {
+        const id = `fr-${apagadas ? 'p' : ''}${f.hora}`;
+        return (
+          <section className="franja" key={f.hora} aria-labelledby={id}>
+            <h2 className="sr" id={id}>De las {f.etiqueta} a las {hhmm((f.hora + 1) * 60)}</h2>
+            <ul className="huecos">
+              {f.huecos.map((h) => (
+                <Hueco key={h.minuto} hueco={h} fecha={fecha} onAbrir={onAbrir} />
+              ))}
+            </ul>
+          </section>
+        );
+      })}
     </div>
   );
 }
@@ -96,8 +148,8 @@ function contarAnteriores(filas, ahora) {
   return lo;
 }
 
-// Vista "Horario": todas las sesiones del día por orden de hora, agrupadas en
-// franjas de una hora. Hoy, las que ya han empezado se recogen tras un botón y
+// Vista "Horario": todas las sesiones del día por orden de hora, agrupadas por
+// hora de inicio (y, por debajo, en franjas de una hora). Hoy, las que ya han empezado se recogen tras un botón y
 // una línea marca el "ahora".
 export default function VistaHorario({ peliculas, fecha, onAbrir }) {
   const [verPasadas, setVerPasadas] = useState(false);

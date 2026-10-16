@@ -211,9 +211,33 @@
   border: 1px solid var(--linea);
   border-radius: var(--r-pieza);
   box-shadow: var(--sombra);
+  /* Sale del botón (el JS pone --origen en su centro) y vuelve a él. */
+  transform-origin: var(--origen, 50% 0);
+  transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+/* Cerrado (al montarse y al irse): casi su tamaño, nunca desde cero. Salir es
+   más rápido que entrar: cuando cierras ya has decidido. */
+.panel-generos[data-fase='entrando'],
+.panel-generos[data-fase='saliendo'] {
+  opacity: 0;
+  transform: scale(0.96);
+}
+.panel-generos[data-fase='saliendo'] {
+  pointer-events: none;
+  transition-duration: 110ms;
 }
 @media (min-width: 720px) {
   .panel-generos { top: calc(100% + var(--e-2)); left: auto; right: 0; width: 20rem; }
+}
+/* Movimiento reducido: el fundido se queda (dice que algo aparece), el
+   cambio de escala no. Gana a la regla general de base.css por ser más
+   específica. */
+@media (prefers-reduced-motion: reduce) {
+  .panel-generos {
+    transform: none !important;
+    transition-property: opacity !important;
+    transition-duration: 120ms !important;
+  }
 }
 .genero-opcion {
   width: 100%;

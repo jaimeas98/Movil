@@ -56,7 +56,6 @@
   /* ── Capas ──────────────────────────────────────────────────────────── */
   --z-tira: 40;
   --z-popover: 60;
-  --z-kbd: 90;
   --z-hoja: 100;
 
   /* ── Oscuro (por defecto) ───────────────────────────────────────────────
@@ -79,6 +78,9 @@
   --ambar-texto: #F4B642;  /* 10.1 sobre el fondo */
   --anillo:     #FF8E9C;
   --velo:       rgba(4, 9, 18, 0.72);
+  /* Más ligero tras el panel de escritorio: la cartelera de la izquierda se
+     tiene que poder seguir leyendo. */
+  --velo-panel: rgba(4, 9, 18, 0.5);
   --sombra:     0 10px 30px -8px rgba(2, 6, 14, 0.7), 0 2px 6px rgba(2, 6, 14, 0.5);
   --cartel-vacio: #1E3050;
   --mezcla-entrada: 17%;   /* cuánto color de su cine lleva cada entrada */
@@ -115,6 +117,7 @@
   --ambar-texto: #8A5600;
   --anillo:     #B3263A;
   --velo:       rgba(23, 34, 74, 0.42);
+  --velo-panel: rgba(23, 34, 74, 0.26);
   --sombra:     0 12px 32px -10px rgba(23, 34, 74, 0.28), 0 2px 6px rgba(23, 34, 74, 0.10);
   --cartel-vacio: #DCE3EE;
   --mezcla-entrada: 11%;

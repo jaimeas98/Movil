@@ -1,298 +1,373 @@
 /* ============================================================================
-   Hojas: ficha de película, Próximas y panel de atajos.
-   Puesta al día de paleta y tipografía para que casen con la cartelera; su
-   rediseño completo (ficha como panel lateral en escritorio, cartel que crece
-   hasta la ficha) es la fase siguiente.
+   Hojas: la ficha de película, Próximas y los atajos de teclado comparten un
+   mismo envoltorio (components/Hoja.jsx) y una misma gramática:
+     · móvil: hoja que sube desde abajo, con tirador, arrastrable;
+     · escritorio (≥ 900 px): panel lateral que entra por la derecha.
+   Por qué panel lateral y no diálogo centrado en escritorio: en el ordenador
+   se planea con calma ("¿esta o aquella?") y el panel deja la cartelera a la
+   vista a la izquierda, en el mismo sitio y con el mismo scroll; un diálogo
+   centrado la tapa entera. Además el cartel vuela en una trayectoria limpia,
+   de su sitio en la lista hacia la derecha, y vuelve por ella.
    ============================================================================ */
 
-/* ── Velo y hoja ────────────────────────────────────────────────────────── */
-.modal-overlay {
+/* ── Capa, velo y hoja ──────────────────────────────────────────────────── */
+.hoja-capa {
   position: fixed; inset: 0; z-index: var(--z-hoja);
-  display: flex; align-items: flex-start; justify-content: center;
-  /* El que desplaza es la FICHA, no el velo: si desplazara el velo, el gesto
-     de arrastrar para cerrar se quedaba muerto en cuanto bajabas un poco. */
-  padding: 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-  overflow: hidden;
   /* Primera de las tres capas contra la recarga accidental; las otras dos son
      el bloqueo del documento y el preventDefault del gesto. */
   overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  background: var(--velo);
-  animation: veloEntra 0.2s var(--ease-out);
 }
-@keyframes veloEntra { from { opacity: 0; } to { opacity: 1; } }
+/* El velo es hermano de la hoja, no su padre: así atenuarlo al arrastrar no
+   atenúa también la hoja, que tiene que seguir siendo un objeto sólido. */
+.hoja-velo { position: absolute; inset: 0; background: var(--velo); }
 
-.modal {
-  position: relative; width: 100%; max-width: 680px;
-  margin: auto;
-  /* Scroll propio y contenido: el rebote al llegar arriba no se encadena con
-     el documento, que es de donde salía la recarga accidental. */
-  max-height: calc(100dvh - 48px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+.hoja {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  margin-inline: auto;
+  max-width: 720px;
+  /* Deja ver una franja de lo de detrás: dice "esto es una capa encima" y
+     da un sitio obvio donde tocar para cerrar. */
+  max-height: calc(100dvh - 40px);
+  display: flex; flex-direction: column;
   background: var(--superficie-2);
   color: var(--tinta);
-  border-radius: var(--r-pieza);
-  box-shadow: var(--sombra);
-  padding: var(--e-5);
+  /* Lo que va relleno DENTRO de la hoja (botones, avisos, teclas): un paso
+     de tinta sobre la propia hoja. --superficie no sirve: en claro la hoja
+     ya es blanca y los botones desaparecían. */
+  --relleno: color-mix(in oklab, var(--tinta) 7%, var(--superficie-2));
+  --relleno-fuerte: color-mix(in oklab, var(--tinta) 12%, var(--superficie-2));
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -10px 36px -14px rgba(2, 6, 14, 0.65);
   outline: none;
-  /* Por encima de ~300 ms una apertura deja de leerse como respuesta al toque
-     y empieza a leerse como espera. */
-  animation: hojaCrece 0.24s var(--ease-out);
-  transform-origin: 50% 40%;
 }
-@keyframes hojaCrece {
-  from { opacity: 0; transform: scale(0.97) translateY(8px); }
-  to   { opacity: 1; transform: none; }
+/* Prolongación de la hoja por debajo de su borde: cuando sube por encima de su
+   sitio (la goma al tirar hacia arriba, el rebote tras un lanzamiento) se ve
+   más hoja, nunca un hueco entre ella y el borde de la pantalla. */
+.hoja::after {
+  content: ''; position: absolute;
+  left: 0; right: 0; top: calc(100% - 1px); height: 50vh;
+  background: inherit;
+  pointer-events: none;
 }
 
-.modal-close { position: absolute; top: 10px; right: 10px; z-index: 2; color: var(--apagada); }
+/* Zona de agarre que nunca hace scroll. Única declaración estática de
+   touch-action del proyecto: iOS fija el touch-action al empezar el gesto, así
+   que cambiarlo desde touchstart llegaría tarde. */
+.hoja-tirador {
+  flex: 0 0 auto;
+  position: relative;
+  height: 22px;
+  touch-action: none;
+}
+.hoja-tirador::before {
+  content: ''; position: absolute; left: 50%; top: 9px;
+  width: 40px; height: 4px; margin-left: -20px;
+  border-radius: var(--r-control);
+  background: var(--linea-fuerte);
+}
+
+/* Con fondo propio: el contenido pasa por debajo al desplazarse y no debe
+   verse a través de la equis. */
+.hoja-cerrar { position: absolute; top: 4px; right: 4px; z-index: 2; color: var(--apagada); background: var(--superficie-2); }
 @media (hover: hover) {
-  .modal-close:hover { color: var(--tinta); background: var(--superficie); }
+  .hoja-cerrar:hover { color: var(--tinta); background: var(--relleno); }
 }
 
-/* Tirador de arrastre: solo en la hoja del móvil */
-.modal-tirador { display: none; }
+/* El que desplaza es el CUERPO, no la hoja ni el velo: el tirador y el botón
+   de cerrar se quedan siempre a mano, y el gesto sabe con certeza si el
+   contenido está arriba del todo (scrollTop del cuerpo). */
+.hoja-cuerpo {
+  flex: 1 1 auto; min-height: 0;
+  overflow-y: auto;
+  /* El rebote al llegar arriba no se encadena con el documento, que es de
+     donde salía la recarga accidental. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px var(--margen) calc(var(--e-6) + env(safe-area-inset-bottom, 0px));
+}
 
-@media (max-width: 720px) {
-  /* Hoja pegada abajo, con tirador y arrastrable: el patrón que el pulgar ya
-     conoce, y entrada y salida por el mismo eje. */
-  .modal-overlay { align-items: flex-end; padding: 0; }
-  .modal {
-    max-width: none; margin: 0;
-    max-height: 92dvh;
-    border-radius: 14px 14px 0 0;
-    padding: 10px var(--margen) calc(var(--e-5) + env(safe-area-inset-bottom, 0px));
-    animation: hojaEntra 0.3s var(--ease-out);
+/* Escritorio: panel lateral a toda altura. */
+@media (min-width: 900px) {
+  .hoja-velo { background: var(--velo-panel); }
+  .hoja {
+    top: 0; bottom: 0; left: auto; right: 0;
+    width: min(600px, 46vw);
+    max-width: none; max-height: none;
+    border-radius: 0;
+    border-left: 1px solid var(--linea);
+    box-shadow: -24px 0 48px -28px rgba(2, 6, 14, 0.6);
   }
-  @keyframes hojaEntra { from { transform: translate3d(0, 100%, 0); } to { transform: translate3d(0, 0, 0); } }
+  .hoja::after { top: 0; bottom: 0; left: calc(100% - 1px); right: auto; width: 40vw; height: auto; }
+  .hoja-tirador { display: none; }
+  .hoja-cerrar { top: 14px; right: 14px; }
+  .hoja-cuerpo { padding: var(--e-6) var(--e-6) var(--e-7); }
+  .hoja[data-variante='atajos'] { width: 400px; }
+}
 
-  .modal-tirador {
-    display: block;
-    /* Fijo arriba aunque el contenido se desplace: siempre hay de dónde tirar */
-    position: sticky; top: 0; z-index: 5;
-    width: 40px; height: 4px;
-    margin: 0 auto 12px;
-    border-radius: 999px;
-    background: var(--linea-fuerte);
-    /* Única declaración estática de touch-action del proyecto. Es una zona que
-       nunca hace scroll, así que quitarle el gesto al navegador no rompe nada,
-       y garantiza el arrastre: iOS fija el touch-action al inicio del gesto,
-       así que cambiarlo desde touchstart llegaría tarde. */
-    touch-action: none;
-  }
-  /* Zona de agarre real de 46px sin engordar el filete visible */
-  .modal-tirador::before {
-    content: ''; position: absolute;
-    left: -60px; right: -60px; top: -14px; height: 46px;
-  }
-  .modal-close { top: 12px; right: 6px; }
+/* ── La transición del cartel (lib/transicionCartel.js) ─────────────────────
+   Los nombres existen SOLO mientras <html data-vt> está puesto, y cada uno lo
+   lleva un único elemento en cada fotografía (el del cartel de la lista lo
+   pone y lo quita el JS). */
+:root[data-vt] .hoja[data-variante='ficha'] { view-transition-name: hoja; }
+:root[data-vt] .hoja-capa[data-variante='ficha'] .hoja-velo { view-transition-name: velo; }
+:root[data-vt] .ficha-cartel { view-transition-name: cartel; }
+/* El original se vacía mientras vuela su copia */
+[data-cartel-fuera] { opacity: 0; }
+
+/* La página no cambia por debajo: sin el fundido por defecto de la raíz, que
+   aquí solo emborronaría la cartelera durante el vuelo. */
+:root[data-vt]::view-transition-old(root),
+:root[data-vt]::view-transition-new(root) { animation: none; }
+
+/* El cartel por encima de todo, la hoja por encima del velo. */
+::view-transition-group(velo) { z-index: 1; }
+::view-transition-group(hoja) { z-index: 2; }
+::view-transition-group(cartel) { z-index: 3; }
+
+/* El cartel y la hoja con la MISMA curva (un muelle crítico pasado a
+   `linear()` desde lib/muelle.js) y la misma duración: llegan a la vez y se
+   leen como una sola pieza. Las dos fotos del cartel son la misma imagen a
+   dos tamaños, así que su fundido cruzado no se nota. */
+:root[data-vt='abrir']::view-transition-group(cartel),
+:root[data-vt='abrir']::view-transition-old(cartel),
+:root[data-vt='abrir']::view-transition-new(cartel) {
+  animation-duration: var(--vt-ms-abrir);
+  animation-timing-function: var(--vt-abrir);
+}
+:root[data-vt='cerrar']::view-transition-group(cartel),
+:root[data-vt='cerrar']::view-transition-old(cartel),
+:root[data-vt='cerrar']::view-transition-new(cartel) {
+  animation-duration: var(--vt-ms-cerrar);
+  animation-timing-function: var(--vt-cerrar);
+}
+:root[data-vt='abrir']::view-transition-new(hoja) { animation: vt-hoja-entra var(--vt-ms-abrir) var(--vt-abrir) both; }
+:root[data-vt='cerrar']::view-transition-old(hoja) { animation: vt-hoja-sale var(--vt-ms-cerrar) var(--vt-cerrar) both; }
+:root[data-vt='abrir']::view-transition-new(velo) { animation: vt-aparece var(--vt-ms-abrir) var(--ease-out) both; }
+:root[data-vt='cerrar']::view-transition-old(velo) { animation: vt-desaparece var(--vt-ms-cerrar) var(--ease-out) both; }
+@keyframes vt-hoja-entra { from { transform: translate3d(0, 100%, 0); } }
+@keyframes vt-hoja-sale { to { transform: translate3d(0, 100%, 0); } }
+@keyframes vt-panel-entra { from { transform: translate3d(100%, 0, 0); } }
+@keyframes vt-panel-sale { to { transform: translate3d(100%, 0, 0); } }
+@keyframes vt-aparece { from { opacity: 0; } }
+@keyframes vt-desaparece { to { opacity: 0; } }
+@media (min-width: 900px) {
+  :root[data-vt='abrir']::view-transition-new(hoja) { animation-name: vt-panel-entra; }
+  :root[data-vt='cerrar']::view-transition-old(hoja) { animation-name: vt-panel-sale; }
 }
 
 /* ── Ficha de película ──────────────────────────────────────────────────── */
-.modal-hero { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--e-4); align-items: start; }
-.modal-poster {
-  position: relative; aspect-ratio: 2 / 3;
-  border-radius: var(--r-pieza); overflow: hidden;
+.ficha-cabeza {
+  display: grid;
+  grid-template-columns: clamp(124px, 40%, 172px) minmax(0, 1fr);
+  gap: var(--e-4);
+  align-items: start;
+  padding-top: var(--e-2);
+}
+.ficha-cartel {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--r-pieza);
+  overflow: hidden;
   background: var(--cartel-vacio);
 }
-.modal-poster img { width: 100%; height: 100%; object-fit: cover; }
-.poster-ph { position: absolute; inset: 0; background: hsl(var(--ph-hue, 220) 32% 30%); }
-:root[data-theme='light'] .poster-ph { background: hsl(var(--ph-hue, 220) 30% 84%); }
-.modal-head { min-width: 0; padding-right: 36px; }
-.modal-title {
-  margin: 0 0 var(--e-3);
+.ficha-cartel-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Sitio para la equis: el título no se mete debajo */
+.ficha-datos { min-width: 0; padding-right: 36px; }
+.ficha-titulo {
   font-family: var(--f-rotulo);
-  font-size: var(--t-titulo); font-weight: 800; line-height: 0.95;
+  font-size: 1.875rem; font-weight: 800; line-height: 0.95;
   text-transform: uppercase; letter-spacing: 0.01em;
-  text-wrap: balance; overflow-wrap: anywhere;
+  text-wrap: balance; overflow-wrap: anywhere; hyphens: none;
 }
-.badges { display: flex; flex-wrap: wrap; gap: var(--e-2) var(--e-3); font-size: var(--t-dato); color: var(--apagada); }
-.badge { display: inline-flex; align-items: center; gap: 4px; }
-.badge-rating, .badge-age { color: var(--tinta); font-weight: 650; }
-.modal-cines { display: grid; gap: 2px; margin-top: var(--e-3); }
-.modal-cinema {
-  display: flex; align-items: center; gap: var(--e-2);
+.ficha-meta {
+  display: flex; flex-wrap: wrap; column-gap: var(--e-3); row-gap: 2px;
   margin-top: var(--e-3);
-  font-size: var(--t-dato); font-weight: 600;
-}
-.modal-cines .modal-cinema { margin-top: 0; }
-.modal-cinema .punto { width: 9px; height: 9px; border-radius: 50%; background: var(--cine); flex: 0 0 auto; }
-
-.modal-synopsis {
-  margin: var(--e-5) 0 0;
-  font-size: var(--t-cuerpo); line-height: 1.6;
-  color: var(--apagada);
-  max-width: 65ch; text-wrap: pretty;
-}
-.modal-synopsis.muted { font-style: italic; }
-.modal-section { margin-top: var(--e-5); padding-top: var(--e-4); border-top: 1px solid var(--linea); }
-.modal-section .peli-cine + .peli-cine { margin-top: var(--e-4); }
-.modal-section .peli-cine-nombre { font-size: var(--t-dato); }
-.modal-h4 {
-  margin: 0 0 var(--e-3);
-  font-family: var(--f-rotulo);
-  font-size: 1.375rem; font-weight: 700; line-height: 1;
-}
-
-.ratings-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--e-4); }
-.ratings-avg { display: inline-flex; align-items: baseline; gap: 6px; }
-.ra-label { font-size: var(--t-detalle); color: var(--apagada); }
-.ra-num {
-  font-family: var(--f-rotulo);
-  font-size: 1.75rem; font-weight: 700; line-height: 1;
+  font-size: var(--t-dato); color: var(--apagada);
   font-variant-numeric: tabular-nums;
 }
-.rating-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--e-2); }
-.rsrc {
-  display: flex; flex-direction: column; gap: var(--e-2);
-  padding: var(--e-3);
-  border-radius: var(--r-pieza);
-  background: var(--superficie);
+.ficha-edad { color: var(--tinta); font-weight: 650; }
+.ficha-estreno { color: var(--rojo-texto); font-weight: 650; }
+
+/* La nota media en grande, como una cifra de marquesina */
+.ficha-media {
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px;
+  margin-top: var(--e-4);
+}
+.ficha-media-icono { width: 18px; height: 18px; align-self: center; color: var(--tinta); margin-right: 2px; }
+.ficha-media-num {
+  font-family: var(--f-rotulo);
+  font-size: 2.5rem; font-weight: 700; line-height: 0.9;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.ficha-media-escala { font-size: var(--t-dato); color: var(--apagada); }
+.ficha-media-pie { flex-basis: 100%; margin-top: 2px; font-size: var(--t-detalle); color: var(--apagada); }
+
+.ficha-sinopsis {
+  margin-top: var(--e-5);
+  font-size: var(--t-cuerpo); line-height: 1.55;
+  max-width: 65ch; text-wrap: pretty;
+}
+.ficha-sin { color: var(--apagada); font-size: var(--t-dato); }
+
+.ficha-seccion { margin-top: var(--e-6); }
+.ficha-h {
+  margin-bottom: var(--e-3);
+  font-family: var(--f-rotulo);
+  font-size: 1.5rem; font-weight: 700; line-height: 1;
+}
+.ficha-h-dia {
+  font-family: var(--f-texto);
+  font-size: var(--t-dato); font-weight: 500;
+  color: var(--apagada);
+}
+.ficha-cines { display: grid; gap: var(--e-4); }
+.ficha-seccion .avisos { background: var(--relleno); }
+.hoja .boton { background: var(--relleno); }
+@media (hover: hover) {
+  .hoja .boton:hover { background: var(--relleno-fuerte); }
+}
+
+/* Valoraciones: un marcador de celdas separadas por filetes, sin tarjetas
+   dentro de la hoja (que ya es una superficie). */
+.notas {
+  display: grid;
+  grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+  gap: 1px;
+  background: var(--linea);
+  border-block: 1px solid var(--linea);
+}
+.notas[data-n='1'] { --n: 1; }
+.notas[data-n='2'] { --n: 2; }
+.notas[data-n='3'] { --n: 3; }
+.notas[data-n='4'] { --n: 4; }
+@media (max-width: 519px) {
+  .notas[data-n='4'] { --n: 2; }
+}
+.notas > li { background: var(--superficie-2); min-width: 0; }
+.nota {
+  display: grid; grid-template-rows: 1fr auto auto; gap: 6px;
+  height: 100%;
+  padding: var(--e-3) var(--e-3) var(--e-3) 0;
   text-decoration: none;
   transition: transform var(--d-press) var(--ease-press);
 }
-.rsrc:active { transform: scale(0.97); transition-duration: 40ms; }
-.rsrc-label { font-size: var(--t-detalle); font-weight: 600; color: var(--apagada); }
-.rsrc-score { display: flex; align-items: baseline; gap: 4px; }
-.rsrc-num { font-family: var(--f-rotulo); font-size: 1.875rem; font-weight: 700; line-height: 0.9; font-variant-numeric: tabular-nums; }
-.rsrc-scale { font-size: var(--t-detalle); color: var(--apagada); }
-.rsrc-meter { height: 3px; border-radius: 2px; background: var(--linea); overflow: hidden; }
-.rsrc-fill { display: block; height: 100%; border-radius: inherit; background: var(--tinta); }
-.ratings-more {
-  display: inline-flex; margin-top: var(--e-3);
-  font-size: var(--t-dato); font-weight: 600; color: var(--rojo-texto);
-  text-decoration: underline; text-underline-offset: 0.2em;
+.notas > li + li .nota { padding-left: var(--e-3); }
+@media (max-width: 519px) {
+  .notas[data-n='4'] > li:nth-child(odd) .nota { padding-left: 0; }
 }
-.trailer-link {
-  display: inline-flex; align-items: center; gap: var(--e-2);
-  min-height: var(--toque); padding: 0 var(--e-5);
-  border-radius: var(--r-control);
-  background: var(--superficie);
-  font-size: var(--t-dato); font-weight: 650; text-decoration: none;
-  transition: transform var(--d-press) var(--ease-press);
+.nota:active { transform: scale(0.97); transition-duration: 40ms; }
+.nota-fuente { font-size: var(--t-detalle); font-weight: 600; line-height: 1.2; color: var(--apagada); }
+.nota-cifra { display: flex; align-items: baseline; gap: 3px; }
+.nota-num {
+  font-family: var(--f-rotulo);
+  font-size: 2rem; font-weight: 700; line-height: 0.9;
+  color: var(--tinta);
+  font-variant-numeric: tabular-nums;
 }
-.trailer-link:active { transform: scale(0.97); transition-duration: 40ms; }
-.trailer-link .tl-play { width: 16px; height: 16px; }
-.modal-section .showtimes { display: flex; flex-wrap: wrap; gap: 6px; }
-.modal-section .showtime {
-  display: inline-flex; align-items: baseline; gap: 6px;
-  padding: 8px 12px; border-radius: var(--r-pieza);
-  background: var(--superficie); text-decoration: none;
+.nota-escala { font-size: var(--t-detalle); color: var(--apagada); }
+.nota-medidor { display: block; height: 3px; border-radius: 2px; background: var(--linea); overflow: hidden; }
+.nota-relleno { display: block; height: 100%; background: var(--apagada); transform-origin: left center; }
+@media (hover: hover) {
+  .nota:hover .nota-fuente { color: var(--tinta); text-decoration: underline; text-underline-offset: 0.2em; }
 }
-.showtime .st-time { font-family: var(--f-rotulo); font-size: 1.375rem; font-weight: 700; font-variant-numeric: tabular-nums; }
-.showtime .st-tag, .showtime .st-room { font-size: var(--t-detalle); color: var(--apagada); }
+.notas-pie { margin-top: var(--e-2); font-size: var(--t-detalle); color: var(--apagada); }
 
-@media (max-width: 540px) {
-  .modal-hero { grid-template-columns: 92px minmax(0, 1fr); gap: var(--e-3); }
-  .modal-head { padding-right: 28px; }
-  .rating-grid { grid-template-columns: 1fr; }
-  .rsrc { display: grid; grid-template-columns: 1fr auto; align-items: center; }
-  .rsrc-meter { grid-column: 1 / -1; }
+.ficha-enlaces { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-top: var(--e-6); }
+.ficha-enlaces .ico { width: 18px; height: 18px; }
+.ficha-enlaces .ico-enlinea { width: 14px; height: 14px; color: var(--apagada); }
+
+@media (min-width: 900px) {
+  .ficha-cabeza { grid-template-columns: 200px minmax(0, 1fr); gap: var(--e-5); padding-top: 0; }
+  .ficha-titulo { font-size: 2.5rem; }
+  .ficha-datos { padding-right: 40px; }
 }
 
 /* ── Próximas ───────────────────────────────────────────────────────────── */
-.modal.proximas { max-width: 760px; }
-.prox-head { margin-bottom: var(--e-5); padding-right: 40px; }
+.prox-head { padding-right: 40px; padding-top: var(--e-2); }
+@media (min-width: 900px) { .prox-head { padding-top: 0; } }
 .prox-title {
-  margin: 0 0 6px;
   font-family: var(--f-rotulo);
   font-size: var(--t-dia); font-weight: 800; line-height: 1;
 }
-.prox-sub { margin: 0; font-size: var(--t-dato); color: var(--apagada); max-width: 52ch; }
-.prox-lista { list-style: none; margin: 0; padding: 0; }
+.prox-sub { margin-top: 6px; font-size: var(--t-dato); color: var(--apagada); max-width: 52ch; }
+.prox-grupo { margin-top: var(--e-6); }
 .prox-mes {
-  margin: var(--e-5) 0 var(--e-2);
   padding-bottom: var(--e-2);
   border-bottom: 1px solid var(--linea);
   font-family: var(--f-rotulo);
-  font-size: 1.25rem; font-weight: 700; color: var(--apagada);
+  font-size: 1.375rem; font-weight: 700; line-height: 1;
+  color: var(--apagada);
 }
-.prox-item { border-radius: var(--r-pieza); }
-.prox-item.abierta { background: var(--superficie); }
+.prox-item { border-bottom: 1px solid var(--linea); }
 .prox-cabecera {
   width: 100%;
-  display: flex; align-items: center; gap: var(--e-3);
-  min-height: var(--toque); padding: 10px;
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: var(--e-3);
+  min-height: var(--toque);
+  padding: var(--e-3) 0;
   text-align: left;
 }
 .prox-cartel {
-  flex: 0 0 auto; width: 44px; height: 66px;
+  display: block; width: 48px; aspect-ratio: 2 / 3;
   border-radius: 4px; overflow: hidden; background: var(--cartel-vacio);
 }
-.prox-cartel img { width: 100%; height: 100%; object-fit: cover; }
-.prox-cartel-ph { display: block; width: 100%; height: 100%; }
-.prox-datos { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.prox-cartel-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.prox-datos { min-width: 0; display: grid; gap: 4px; }
 .prox-nombre {
   font-family: var(--f-rotulo);
-  font-size: 1.25rem; font-weight: 800; line-height: 1;
+  font-size: 1.375rem; font-weight: 800; line-height: 0.95;
   text-transform: uppercase; letter-spacing: 0.01em;
+  overflow-wrap: anywhere; text-wrap: balance;
 }
-.prox-meta { display: flex; flex-wrap: wrap; gap: 2px var(--e-3); font-size: var(--t-detalle); color: var(--apagada); }
-.prox-cuenta { color: var(--tinta); font-weight: 600; }
-.prox-cuando { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
-.prox-fecha { font-size: var(--t-dato); font-weight: 650; white-space: nowrap; }
-.prox-flecha { width: 18px; height: 18px; color: var(--apagada); transform: rotate(-90deg); transition: transform 0.2s var(--ease-out); }
-.prox-item.abierta .prox-flecha { transform: none; }
-.prox-detalle { padding: 0 12px 14px; }
-.prox-sinopsis { margin: 0 0 var(--e-3); font-size: var(--t-dato); line-height: 1.55; color: var(--apagada); }
-.prox-pases { display: flex; flex-direction: column; gap: var(--e-2); }
-.prox-pase {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px;
-  padding: 8px 10px;
-  border-radius: var(--r-pieza);
-  background: var(--superficie-2);
+.prox-meta { display: flex; flex-wrap: wrap; column-gap: var(--e-3); font-size: var(--t-detalle); color: var(--apagada); }
+.prox-cuando { display: flex; align-items: center; gap: 6px; }
+.prox-fecha {
+  font-family: var(--f-rotulo);
+  font-size: 1.25rem; font-weight: 700; line-height: 1;
+  white-space: nowrap; font-variant-numeric: tabular-nums;
 }
-.prox-pase-dia { font-size: var(--t-dato); font-weight: 650; min-width: 86px; }
-.prox-pase-cine { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-detalle); color: var(--apagada); }
+.prox-flecha { width: 18px; height: 18px; color: var(--apagada); transition: transform 180ms var(--ease-out); }
+.prox-item[data-abierta] .prox-flecha { transform: rotate(180deg); }
+/* Desplegar es un cambio de estado, no un viaje: aparece con un fundido
+   corto, sin animar la altura. */
+.prox-detalle { padding: 0 0 var(--e-4) calc(48px + var(--e-3)); animation: prox-aparece 160ms var(--ease-out); }
+@keyframes prox-aparece { from { opacity: 0; } }
+.prox-sinopsis { margin-bottom: var(--e-3); font-size: var(--t-dato); line-height: 1.55; color: var(--apagada); max-width: 60ch; }
+.prox-pases { display: grid; gap: var(--e-3); }
+.prox-pase-cabeza {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--e-3);
+  margin-bottom: var(--e-2);
+}
+.prox-pase-dia { font-size: var(--t-dato); font-weight: 700; }
+.prox-pase-cine { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-dato); font-weight: 600; color: var(--apagada); }
 .prox-pase-cine .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
-.prox-pase-horas { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
-.prox-hora {
-  padding: 4px 10px; border-radius: var(--r-control);
-  background: var(--superficie);
-  font-family: var(--f-rotulo); font-size: 1.0625rem; font-weight: 700;
-  font-variant-numeric: tabular-nums; text-decoration: none;
-}
-.empty { padding: var(--e-7) 0; color: var(--apagada); }
-.empty h3 { margin: 0 0 6px; font-family: var(--f-rotulo); font-size: var(--t-titulo); font-weight: 800; color: var(--tinta); }
-@media (max-width: 540px) {
-  .prox-pase-dia { min-width: 0; }
-  .prox-pase-horas { margin-left: 0; width: 100%; }
+@media (max-width: 519px) {
+  /* En el móvil los pases ocupan todo el ancho: el sangrado bajo el cartel
+     les quitaba sitio a las entradas. */
+  .prox-detalle { padding-left: 0; }
 }
 
 /* ── Atajos de teclado ──────────────────────────────────────────────────── */
-.kbd-panel {
-  position: fixed; inset: 0; z-index: var(--z-kbd);
-  display: flex; align-items: flex-end; justify-content: flex-end;
-  padding: var(--e-5);
-  pointer-events: none;
+.atajos-titulo {
+  padding: var(--e-2) 40px 0 0;
+  font-family: var(--f-rotulo);
+  font-size: 1.75rem; font-weight: 800; line-height: 1;
 }
-.kbd-panel-backdrop { position: absolute; inset: 0; pointer-events: auto; }
-.kbd-panel-inner {
-  position: relative; pointer-events: auto;
-  min-width: 300px;
-  padding: var(--e-3) var(--e-4) var(--e-4) var(--e-5);
-  background: var(--superficie-2);
-  border: 1px solid var(--linea);
-  border-radius: var(--r-pieza);
-  box-shadow: var(--sombra);
+@media (min-width: 900px) { .atajos-titulo { padding-top: 0; } }
+.atajos { display: grid; margin-top: var(--e-4); }
+.atajo {
+  display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); align-items: center; gap: var(--e-3);
+  min-height: var(--toque);
+  border-top: 1px solid var(--linea);
 }
-.kbd-panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--e-2); margin-right: -8px; }
-.kbd-panel-titulo { font-family: var(--f-rotulo); font-size: 1.375rem; font-weight: 700; }
-.kbd-grid { display: grid; gap: var(--e-2); margin: 0; }
-.kbd-row { display: grid; grid-template-columns: 3.25rem 1fr; align-items: center; gap: var(--e-3); }
-.kbd-row dd { margin: 0; }
-.kbd-key {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 2.25rem; padding: 3px 8px;
-  border-radius: 4px;
-  background: color-mix(in oklab, var(--tinta) 9%, transparent);
-  box-shadow: inset 0 -2px 0 var(--linea-fuerte);
+.atajo dd { margin: 0; }
+.atajo-teclas { display: inline-flex; gap: 4px; }
+.tecla {
+  display: inline-grid; place-items: center;
+  min-width: 2rem; height: 2rem; padding: 0 8px;
+  border-radius: 5px;
+  background: var(--relleno);
+  box-shadow: inset 0 -2px 0 var(--linea-fuerte), 0 0 0 1px var(--linea);
   font-family: var(--f-texto); font-size: var(--t-detalle); font-weight: 700;
   white-space: nowrap;
 }
-.kbd-action { font-size: var(--t-dato); color: var(--apagada); }
-@media (hover: none) {
-  .kbd-panel { display: none; }
-}
+.atajo-accion { font-size: var(--t-dato); color: var(--apagada); }

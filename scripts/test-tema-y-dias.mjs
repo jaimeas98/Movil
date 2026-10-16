@@ -1,5 +1,12 @@
+// Tema (primera pulsación, icono, atajo T) y tira de días (el día activo no
+// se corta). Requiere el servidor de desarrollo en el 3210 (o CARTELERA_URL) y
+// playwright instalado sin guardar (npm i --no-save playwright).
+//
+//   CARTELERA_SAMPLE=1 npx next dev -p 3210
+//   node scripts/test-tema-y-dias.mjs /tmp/shots
 import { chromium } from 'playwright';
-const OUT = process.argv[2];
+const OUT = process.argv[2] || '.';
+const URL = process.env.CARTELERA_URL || 'http://127.0.0.1:3210/';
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 let fallos = 0; const mal = m => { fallos++; console.log('FALLO ' + m); };
 
@@ -10,10 +17,10 @@ for (const esquema of ['dark', 'light']) {
   const p = await ctx.newPage();
   await p.route('**/api/ratings', r => r.fulfill({ status:200, contentType:'application/json', body: JSON.stringify({ ratings: {} }) }));
   await p.addInitScript(() => { try { localStorage.removeItem('theme'); } catch {} });
-  await p.goto('http://127.0.0.1:3210/', { waitUntil: 'networkidle' });
-  await p.waitForSelector('.f-chip'); await p.waitForTimeout(500);
+  await p.goto(URL, { waitUntil: 'networkidle' });
+  await p.waitForSelector('.cine-interruptor'); await p.waitForTimeout(500);
 
-  const boton = p.locator('.header-actions .btn-icon').last();
+  const boton = p.locator('.header-actions .boton-icono').last();
   const antes = await p.evaluate(() => ({
     attr: document.documentElement.getAttribute('data-theme'),
     fondo: getComputedStyle(document.body).backgroundColor,
@@ -30,7 +37,7 @@ for (const esquema of ['dark', 'light']) {
 
   // El icono debe corresponder con el tema
   const icono = await p.evaluate(() => {
-    const b = [...document.querySelectorAll('.header-actions .btn-icon')].pop();
+    const b = [...document.querySelectorAll('.header-actions .boton-icono')].pop();
     return { luna: !!b.querySelector('path[d^="M21"]'), etiqueta: b.getAttribute('aria-label') };
   });
   const esOscuro = despues.attr === 'dark';
@@ -41,7 +48,7 @@ for (const esquema of ['dark', 'light']) {
   await p.locator('body').click({ position: { x: 5, y: 500 } });
   await p.keyboard.press('t'); await p.waitForTimeout(400);
   const trasT = await p.evaluate(() => {
-    const b = [...document.querySelectorAll('.header-actions .btn-icon')].pop();
+    const b = [...document.querySelectorAll('.header-actions .boton-icono')].pop();
     return { attr: document.documentElement.getAttribute('data-theme'), luna: !!b.querySelector('path[d^="M21"]') };
   });
   if (trasT.luna === (trasT.attr === 'dark')) mal(`sistema ${esquema}: tras el atajo T el icono se quedó al revés`);
@@ -53,7 +60,7 @@ for (const esquema of ['dark', 'light']) {
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 3 });
 const p = await ctx.newPage();
 await p.route('**/api/ratings', r => r.fulfill({ status:200, contentType:'application/json', body: JSON.stringify({ ratings: {} }) }));
-await p.goto('http://127.0.0.1:3210/', { waitUntil: 'networkidle' });
+await p.goto(URL, { waitUntil: 'networkidle' });
 await p.waitForSelector('.day-chip'); await p.waitForTimeout(600);
 const corte = await p.evaluate(() => {
   const pista = document.querySelector('.days-scroll');

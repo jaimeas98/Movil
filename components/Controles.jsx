@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { alTerminarTransicion } from '@/lib/gestos.js';
 import Icono from './Icono.jsx';
 import { nombreInterruptor } from '@/lib/rotulos.js';
 
@@ -29,11 +30,48 @@ function moverConFlechas(e) {
   botones[destino].scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
 }
 
+// El panel sale DEL BOTÓN que lo abre: escala desde 0,96 (nunca desde 0: nada
+// aparece de la nada) con el origen de la transformación puesto en el botón,
+// y al cerrar vuelve hacia él, más rápido. Son transiciones CSS y no
+// animaciones con fotogramas, así que abrir y cerrar seguidos se retoma desde
+// donde iba en vez de saltar al principio.
+//   fase: null (no está) · 'entrando' (montado, aún con el aspecto de cerrado)
+//         · 'abierto' · 'saliendo' (montado mientras se va)
 function PanelGeneros({ genero, generos, onGenero }) {
-  const [abierto, setAbierto] = useState(false);
+  const [fase, setFase] = useState(null);
+  const abierto = fase === 'entrando' || fase === 'abierto';
   const envoltorio = useRef(null);
   const disparador = useRef(null);
   const panel = useRef(null);
+  const turno = useRef(0);
+
+  const abrir = () => setFase((f) => (f === 'abierto' ? f : 'entrando'));
+  const cerrar = () => {
+    const mio = ++turno.current;
+    setFase((f) => (f ? 'saliendo' : f));
+    requestAnimationFrame(() => {
+      alTerminarTransicion(panel.current, 'opacity', 150, () => {
+        if (turno.current === mio) setFase((f) => (f === 'saliendo' ? null : f));
+      });
+    });
+  };
+
+  // Al montarse: origen en el botón, y un fotograma con el aspecto de cerrado
+  // para que la transición tenga desde dónde salir.
+  useLayoutEffect(() => {
+    if (fase !== 'entrando') return;
+    turno.current++;
+    const p = panel.current;
+    const d = disparador.current;
+    if (p && d) {
+      const base = p.offsetParent?.getBoundingClientRect().left ?? 0;
+      const r = d.getBoundingClientRect();
+      const x = r.left + r.width / 2 - (base + p.offsetLeft);
+      p.style.setProperty('--origen', `${Math.round(x)}px -8px`);
+      void p.offsetWidth;   // que el navegador "vea" el punto de partida
+    }
+    setFase('abierto');
+  }, [fase]);
 
   // El género elegido puede no existir el día al que te has movido: entonces
   // se enseña igualmente para poder quitarlo.
@@ -42,21 +80,21 @@ function PanelGeneros({ genero, generos, onGenero }) {
     : generos;
 
   useEffect(() => {
-    if (!abierto) return;
+    if (fase !== 'abierto') return;
     // Al abrir, el foco va a la opción elegida: es por donde se sigue.
     const elegido = panel.current?.querySelector('[aria-checked="true"]') ?? panel.current?.querySelector('button');
     elegido?.focus({ preventScroll: true });
     elegido?.scrollIntoView?.({ block: 'nearest' });
 
     const fuera = (e) => {
-      if (!envoltorio.current?.contains(e.target)) setAbierto(false);
+      if (!envoltorio.current?.contains(e.target)) cerrar();
     };
     // En captura y cortando la propagación: Escape aquí cierra el panel y no
     // debe llegar al atajo global, que borraría la búsqueda por detrás.
     const tecla = (e) => {
       if (e.key === 'Escape') {
         e.stopPropagation();
-        setAbierto(false);
+        cerrar();
         disparador.current?.focus();
       }
     };
@@ -66,11 +104,11 @@ function PanelGeneros({ genero, generos, onGenero }) {
       document.removeEventListener('pointerdown', fuera);
       document.removeEventListener('keydown', tecla, true);
     };
-  }, [abierto]);
+  }, [fase]);
 
   const elegir = (g) => {
     onGenero(g);
-    setAbierto(false);
+    cerrar();
     disparador.current?.focus();
   };
 
@@ -93,20 +131,22 @@ function PanelGeneros({ genero, generos, onGenero }) {
         aria-haspopup="dialog"
         aria-expanded={abierto}
         aria-controls="panel-generos"
-        onClick={() => setAbierto((v) => !v)}
+        onClick={() => (abierto ? cerrar() : abrir())}
       >
         <Icono nombre="generos" />
         <span className="control-pastilla-texto">{genero || 'Género'}</span>
         <Icono nombre="abajo" className="ico ico-chevron" />
       </button>
 
-      {abierto && (
+      {fase && (
         <div
           className="panel-generos"
           id="panel-generos"
           ref={panel}
           role="dialog"
           aria-label="Filtrar por género"
+          aria-hidden={fase === 'saliendo' ? 'true' : undefined}
+          data-fase={fase}
           data-sin-gesto
           onKeyDown={alTeclear}
         >

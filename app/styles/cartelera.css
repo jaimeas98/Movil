@@ -257,33 +257,64 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 }
 
 /* ── Vista Horario ──────────────────────────────────────────────────────────
-   En escritorio las franjas se reparten en columnas, como un panel de
-   salidas: se leen por orden de hora de izquierda a derecha. */
+   Una hora grande por cada hora de inicio distinta y, a su derecha, lo que
+   empieza a esa hora (ver components/VistaHorario.jsx). En escritorio las
+   franjas de una hora se reparten en columnas, como un panel de salidas: se
+   leen por orden de izquierda a derecha. */
 .horario { padding-bottom: var(--e-4); }
-.franjas { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--e-5) var(--e-7); align-items: start; }
+.franjas { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: var(--e-7); align-items: start; }
 @media (min-width: 900px) {
-  .franjas { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); }
+  .franjas { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); row-gap: var(--e-5); }
 }
 .franjas-apagadas { margin-top: var(--e-4); }
-.franjas-apagadas .fila-hora,
-.franjas-apagadas .fila-titulo { color: var(--tenue); }
 
-.franja-hora {
-  display: flex; align-items: center; gap: var(--e-3);
+.hueco {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  column-gap: var(--e-3);
   padding: var(--e-2) 0;
+  border-top: 1px solid var(--linea);
+}
+.franja:first-child .hueco:first-child { border-top: 0; }
+/* En escritorio cada franja es una columna: todas empiezan sin filete, a la
+   misma altura. */
+@media (min-width: 900px) {
+  .hueco:first-child { border-top: 0; }
+}
+.hueco-hora {
+  /* Se queda a la vista mientras bajas por una hora con muchas películas:
+     la tira de días mide ~76 px y va pegada arriba. */
+  position: sticky; top: 84px;
+  align-self: start;
+  display: grid; justify-items: start; gap: 4px;
+  padding-top: 10px;
+}
+.hueco-cifras {
   font-family: var(--f-rotulo);
-  font-size: 1.25rem; font-weight: 700; line-height: 1;
-  color: var(--apagada);
+  font-size: var(--t-hora); font-weight: 700; line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.franja-hora::after { content: ''; flex: 1; height: 1px; background: var(--linea); }
+.hueco-falta {
+  padding: 2px 8px;
+  border-radius: var(--r-control);
+  background: var(--ambar); color: var(--ambar-tinta);
+  font-size: 0.75rem; font-weight: 700; line-height: 1.3;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.hueco[data-estado='pronto'] .hueco-cifras { color: var(--ambar-texto); }
+.hueco[data-estado='pasada'] .hueco-cifras,
+.hueco[data-estado='pasada'] .fila-titulo,
+.hueco[data-estado='pasada'] .fila-cine,
+.hueco[data-estado='pasada'] .fila-etiqueta,
+.franjas-apagadas .hueco-cifras,
+.franjas-apagadas .fila-titulo { color: var(--tenue); }
 
+.filas { min-width: 0; }
 .fila-boton {
   width: 100%;
-  display: grid;
-  grid-template-columns: 4.25rem minmax(0, 1fr) auto;
-  align-items: center; column-gap: var(--e-3);
-  min-height: 60px;
+  display: flex; align-items: center;
+  min-height: 52px;
   padding: var(--e-2) var(--e-2) var(--e-2) 0;
   border-radius: var(--r-pieza);
   text-align: left; text-decoration: none;
@@ -294,12 +325,6 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 .fila + .fila .fila-boton { box-shadow: 0 -1px 0 var(--linea); }
 @media (hover: hover) {
   .fila-boton:hover { background: var(--superficie); }
-}
-.fila-hora {
-  font-family: var(--f-rotulo);
-  font-size: var(--t-hora); font-weight: 700; line-height: 1;
-  font-variant-numeric: tabular-nums;
-  padding-left: 2px;
 }
 .fila-cuerpo { min-width: 0; display: grid; gap: 3px; }
 .fila-titulo {
@@ -315,19 +340,6 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 .fila-datos .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
 .fila-cine { color: var(--tinta); font-weight: 600; }
 .fila-etiqueta { color: var(--tinta); font-weight: 700; }
-.fila-falta {
-  padding: 3px 9px;
-  border-radius: var(--r-control);
-  background: var(--ambar); color: var(--ambar-tinta);
-  font-size: var(--t-detalle); font-weight: 700;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-.fila-boton[data-estado='pronto'] .fila-hora { color: var(--ambar-texto); }
-.fila-boton[data-estado='pasada'] .fila-hora,
-.fila-boton[data-estado='pasada'] .fila-titulo,
-.fila-boton[data-estado='pasada'] .fila-cine,
-.fila-boton[data-estado='pasada'] .fila-etiqueta { color: var(--tenue); }
 
 /* La línea del ahora: dónde estás en el día */
 .ahora {
