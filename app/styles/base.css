@@ -100,7 +100,7 @@ ul, ol { padding: 0; list-style: none; }
   display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
   min-height: var(--toque);
   padding: 0 var(--e-5);
-  border-radius: var(--r-control);
+  border-radius: var(--r-mando);
   font-size: var(--t-dato); font-weight: 650;
   background: var(--superficie);
   color: var(--tinta);
@@ -131,14 +131,21 @@ ul, ol { padding: 0; list-style: none; }
 .girando { animation: girar 0.9s linear infinite; }
 @keyframes girar { to { transform: rotate(360deg); } }
 
-/* Menos movimiento: sin desplazamientos ni giros; los cambios de estado se
-   quedan en cambios de color, que no marean. */
+/* Menos movimiento: fuera lo que se desplaza, escala o gira; los fundidos y
+   los cambios de color se quedan, que no marean y dicen que algo ha cambiado.
+   Antes esta regla ponía TODAS las transiciones y animaciones a 0, y con
+   ellas los fundidos que precisamente sustituyen al movimiento.
+   - Las transiciones solo pueden animar color, fondo, sombra y opacidad
+     (!important: gana también a los estilos en línea del gesto de día).
+   - Las animaciones con fotogramas que mueven algo se apagan una a una. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-property: color, background-color, border-color, box-shadow, opacity !important;
   }
-  .pulsable:active, .boton:active, .boton-icono:active { transform: none; }
+  .pulsable:active, .boton:active, .boton-icono:active,
+  .day-chip:active, .entrada:active, .fila-pase:active, .fila:active, .nota:active,
+  .vista-opcion:active, .cine-interruptor:active { transform: none; }
+  /* El indicador de "actualizando" late en vez de girar */
+  .girando { animation: latido 0.9s ease-in-out infinite alternate; }
 }

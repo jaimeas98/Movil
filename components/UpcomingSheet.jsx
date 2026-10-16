@@ -27,6 +27,20 @@ function porMes(peliculas) {
   return meses;
 }
 
+// Los pases de una película por DÍA y, dentro del día, por cine con sus
+// entradas en la misma línea. Antes cada pase llevaba encima "vie 30 oct ·
+// Cinesur" aunque solo tuviera una entrada: la cabecera pesaba más que lo que
+// encabezaba.
+function porDia(pases) {
+  const dias = [];
+  for (const pase of pases) {
+    const ultimo = dias.at(-1);
+    if (ultimo?.iso === pase.iso) ultimo.pases.push(pase);
+    else dias.push({ iso: pase.iso, pases: [pase] });
+  }
+  return dias;
+}
+
 function Pase({ pase, titulo }) {
   const cine = { id: pase.cineId, short: pase.cineNombre, name: pase.cineNombre };
   const sesiones = pase.sesiones
@@ -34,13 +48,10 @@ function Pase({ pase, titulo }) {
     .filter((s) => s.minuto != null);
   return (
     <li className="prox-pase" data-cine={pase.cineId}>
-      <p className="prox-pase-cabeza">
-        <span className="prox-pase-dia">{fechaCorta(pase.iso)}</span>
-        <span className="prox-pase-cine">
-          <span className="punto" aria-hidden="true" />
-          {pase.cineNombre}
-        </span>
-      </p>
+      <span className="prox-pase-cine">
+        <span className="punto" aria-hidden="true" />
+        {pase.cineNombre}
+      </span>
       <ul className="entradas">
         {sesiones.map((s, j) => (
           <li key={`${s.time}-${j}`}>
@@ -49,6 +60,23 @@ function Pase({ pase, titulo }) {
         ))}
       </ul>
     </li>
+  );
+}
+
+function Pases({ pases, titulo }) {
+  return (
+    <ul className="prox-dias">
+      {porDia(pases).map(({ iso, pases: delDia }) => (
+        <li key={iso} className="prox-dia">
+          <p className="prox-pase-dia">{fechaCorta(iso)}</p>
+          <ul className="prox-pases">
+            {delDia.map((pase, i) => (
+              <Pase key={`${pase.cineId}-${i}`} pase={pase} titulo={titulo} />
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -110,11 +138,7 @@ export default function UpcomingSheet({ peliculas, onClose }) {
                     {desplegada && (
                       <div className="prox-detalle" id={id}>
                         {p.synopsis && <p className="prox-sinopsis">{p.synopsis}</p>}
-                        <ul className="prox-pases">
-                          {p.pases.map((pase, i) => (
-                            <Pase key={`${pase.iso}-${pase.cineId}-${i}`} pase={pase} titulo={p.title} />
-                          ))}
-                        </ul>
+                        <Pases pases={p.pases} titulo={p.title} />
                       </div>
                     )}
                   </li>

@@ -1,22 +1,12 @@
 'use client';
 
-import { memo, useMemo, useState } from 'react';
-import { sesionesEnOrden, franjasPorHora, detallesDeSesion } from '@/lib/cartelera.js';
+import { memo, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { sesionesEnOrden, franjasPorHora, huecosPorMinuto, detallesDeSesion } from '@/lib/cartelera.js';
+import { nombreInterruptor } from '@/lib/rotulos.js';
 import { useAhora } from '@/lib/reloj.js';
 import { useEstadoSesion, textoFalta, frasePara, Hora } from './Entrada.jsx';
 
 const dosCifras = (n) => String(n).padStart(2, '0');
-
-function LineaAhora() {
-  const minuto = useAhora((a) => (a ? a.minuto : -1));
-  if (minuto < 0) return null;
-  const hora = `${dosCifras(Math.floor(minuto / 60))}:${dosCifras(minuto % 60)}`;
-  return (
-    <div className="ahora" role="note">
-      <span className="ahora-texto">Ahora <span className="ahora-hora">{hora}</span></span>
-    </div>
-  );
-}
 
 // Jerarquía: la hora se escribe UNA vez por cada hora de inicio distinta, en
 // grande a la izquierda, y a su derecha todas las películas que empiezan a esa
@@ -26,51 +16,65 @@ function LineaAhora() {
 // columna de la izquierda solo cambia cuando cambia la hora, que es justo lo
 // que se busca al bajar con el dedo ("¿qué empieza a las nueve y pico?").
 // El "en 20 min" también va con la hora, una vez, y no en cada fila.
+//
+// Y dentro de cada hora, una fila por PELÍCULA: si la echan a la misma hora
+// en tres cines, es un título con sus tres cines (cada uno, su enlace), no el
+// mismo título tres veces seguidas (ver huecosPorMinuto en lib/cartelera.js).
 
 const hhmm = (minuto) => `${dosCifras(Math.floor(minuto / 60) % 24)}:${dosCifras(minuto % 60)}`;
 
-// Una película dentro de su hora: título, cine (color) e idioma/formato.
-// Tocarla lleva a comprar; sin enlace, a la ficha.
-const Fila = memo(function Fila({ fila, onAbrir, pasada, falta }) {
-  const { pelicula, cine, sesion } = fila;
+// Un cine dentro de la fila: su punto de color, su nombre corto y lo que
+// distingue la sesión. Tocarlo lleva a comprar; sin enlace, a la ficha. La
+// frase completa (con título y hora) va en el enlace: quien salta de enlace
+// en enlace con un lector de pantalla no ve ni el título ni la columna de la
+// izquierda.
+function Pase({ pelicula, cine, sesion, onAbrir, pasada, falta }) {
   const { etiquetas, sala } = detallesDeSesion(sesion);
-
   const cuerpo = (
-    <span className="fila-cuerpo" aria-hidden="true">
-      <span className="fila-titulo">{pelicula.title}</span>
-      <span className="fila-datos">
-        <span className="punto" />
-        <span className="fila-cine">{cine.short || cine.name}</span>
-        {etiquetas.map((t) => <span key={t} className="fila-etiqueta">{t}</span>)}
-        {sala && <span className="fila-sala">{sala}</span>}
-      </span>
+    <span className="fila-pase-cuerpo" aria-hidden="true">
+      <span className="punto" />
+      <span className="fila-cine">{nombreInterruptor(cine)}</span>
+      {etiquetas.map((t) => <span key={t} className="fila-etiqueta">{t}</span>)}
+      {sala && <span className="fila-sala">{sala}</span>}
     </span>
   );
+  return sesion.buyUrl ? (
+    <a
+      className="fila-pase"
+      href={sesion.buyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={frasePara({ titulo: pelicula.title, sesion, cine, pasada, falta, accion: 'Comprar entrada, se abre en otra pestaña' })}
+    >
+      {cuerpo}
+    </a>
+  ) : (
+    <button
+      type="button"
+      className="fila-pase"
+      onClick={() => onAbrir(pelicula)}
+      aria-label={frasePara({ titulo: pelicula.title, sesion, cine, pasada, falta, accion: 'Abre la ficha' })}
+    >
+      {cuerpo}
+    </button>
+  );
+}
 
-  // La frase completa (con la hora) va en el enlace: quien salta de enlace en
-  // enlace con un lector de pantalla no ve la columna de la izquierda.
+// Una película dentro de su hora: el título una vez y sus cines debajo. Con
+// un solo cine, toda la fila es su enlace (como siempre: tocar la fila es
+// comprar); con varios, cada cine el suyo.
+const Fila = memo(function Fila({ grupo, onAbrir, pasada, falta }) {
+  const { pelicula, pases } = grupo;
   return (
-    <li className="fila" data-cine={cine.id}>
-      {sesion.buyUrl ? (
-        <a
-          className="fila-boton"
-          href={sesion.buyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={frasePara({ titulo: pelicula.title, sesion, cine, pasada, falta, accion: 'Comprar entrada, se abre en otra pestaña' })}
-        >
-          {cuerpo}
-        </a>
-      ) : (
-        <button
-          type="button"
-          className="fila-boton"
-          onClick={() => onAbrir(pelicula)}
-          aria-label={frasePara({ titulo: pelicula.title, sesion, cine, pasada, falta, accion: 'Abre la ficha' })}
-        >
-          {cuerpo}
-        </button>
-      )}
+    <li className="fila" data-unica={pases.length === 1 ? '' : undefined}>
+      <p className="fila-titulo" aria-hidden="true">{pelicula.title}</p>
+      <ul className="fila-pases">
+        {pases.map(({ cine, sesion }, i) => (
+          <li key={`${cine.id}-${sesion.time}-${i}`} data-cine={cine.id}>
+            <Pase pelicula={pelicula} cine={cine} sesion={sesion} onAbrir={onAbrir} pasada={pasada} falta={falta} />
+          </li>
+        ))}
+      </ul>
     </li>
   );
 });
@@ -87,29 +91,13 @@ const Hueco = memo(function Hueco({ hueco, fecha, onAbrir }) {
         {falta != null && <span className="hueco-falta">{textoFalta(falta)}</span>}
       </p>
       <ul className="filas">
-        {hueco.filas.map((x, i) => (
-          <Fila
-            key={`${x.cine.id}-${x.pelicula.clave}-${x.sesion.time}-${i}`}
-            fila={x}
-            onAbrir={onAbrir}
-            pasada={pasada}
-            falta={falta}
-          />
+        {hueco.pelis.map((g) => (
+          <Fila key={g.pelicula.clave} grupo={g} onAbrir={onAbrir} pasada={pasada} falta={falta} />
         ))}
       </ul>
     </li>
   );
 });
-
-function porMinuto(filas) {
-  const huecos = [];
-  for (const f of filas) {
-    const ultimo = huecos.at(-1);
-    if (ultimo && ultimo.minuto === f.minuto) ultimo.filas.push(f);
-    else huecos.push({ minuto: f.minuto, filas: [f] });
-  }
-  return huecos;
-}
 
 // Franjas de una hora: en el móvil no se rotulan (la hora ya está en cada
 // hueco), pero siguen ahí para dos cosas: en escritorio cada una es una
@@ -117,7 +105,7 @@ function porMinuto(filas) {
 // franja en franja por su encabezado.
 function Franjas({ filas, fecha, onAbrir, apagadas = false }) {
   const franjas = useMemo(
-    () => franjasPorHora(filas).map((f) => ({ ...f, huecos: porMinuto(f.filas) })),
+    () => franjasPorHora(filas).map((f) => ({ ...f, huecos: huecosPorMinuto(f.filas) })),
     [filas]
   );
   return (
@@ -148,9 +136,35 @@ function contarAnteriores(filas, ahora) {
   return lo;
 }
 
+// La línea del "ahora" lleva también el botón de las que ya han empezado: es
+// la frontera entre lo pasado y lo que queda, y así no cuesta una fila
+// entera de botón encima de la cartelera.
+function LineaAhora({ pasadas, verPasadas, onVerPasadas, botonRef }) {
+  const minuto = useAhora((a) => (a ? a.minuto : -1));
+  if (minuto < 0) return null;
+  const hora = `${dosCifras(Math.floor(minuto / 60))}:${dosCifras(minuto % 60)}`;
+  return (
+    <div className="ahora">
+      <span className="ahora-texto" role="note">Ahora <span className="ahora-hora">{hora}</span></span>
+      <span className="ahora-raya" aria-hidden="true" />
+      {pasadas > 0 && (
+        <button
+          ref={botonRef}
+          type="button"
+          className="ahora-pasadas"
+          aria-expanded={verPasadas}
+          onClick={onVerPasadas}
+        >
+          {verPasadas ? 'Ocultar las empezadas' : `Ver ${pasadas === 1 ? 'la empezada' : `las ${pasadas} empezadas`}`}
+        </button>
+      )}
+    </div>
+  );
+}
+
 // Vista "Horario": todas las sesiones del día por orden de hora, agrupadas por
-// hora de inicio (y, por debajo, en franjas de una hora). Hoy, las que ya han empezado se recogen tras un botón y
-// una línea marca el "ahora".
+// hora de inicio (y, por debajo, en franjas de una hora). Hoy, las que ya han
+// empezado se recogen tras un botón en la línea del "ahora".
 export default function VistaHorario({ peliculas, fecha, onAbrir }) {
   const [verPasadas, setVerPasadas] = useState(false);
   const filas = useMemo(() => sesionesEnOrden(peliculas), [peliculas]);
@@ -159,25 +173,32 @@ export default function VistaHorario({ peliculas, fecha, onAbrir }) {
   const pasadas = esHoy ? filas.slice(0, corte) : [];
   const resto = esHoy ? filas.slice(corte) : filas;
 
+  // Las empezadas se despliegan ENCIMA del botón (van antes en el día). Sin
+  // compensarlo, el botón y todo lo de debajo saltarían hacia abajo lo que
+  // midan; así el botón se queda bajo el dedo y lo nuevo aparece por arriba.
+  const botonRef = useRef(null);
+  const antesRef = useRef(null);
+  const alternar = () => {
+    antesRef.current = botonRef.current?.getBoundingClientRect().top ?? null;
+    setVerPasadas((v) => !v);
+  };
+  useLayoutEffect(() => {
+    const antes = antesRef.current;
+    antesRef.current = null;
+    const ahora = botonRef.current?.getBoundingClientRect().top;
+    if (antes == null || ahora == null) return;
+    if (Math.abs(ahora - antes) > 1) window.scrollBy({ top: ahora - antes, behavior: 'instant' });
+  }, [verPasadas]);
+
   return (
     <div className="horario">
-      {pasadas.length > 0 && (
-        <div className="empezadas empezadas-arriba">
-          <button
-            type="button"
-            className="boton empezadas-boton"
-            aria-expanded={verPasadas}
-            onClick={() => setVerPasadas((v) => !v)}
-          >
-            {verPasadas
-              ? 'Ocultar las que ya han empezado'
-              : `Ver ${pasadas.length === 1 ? 'la sesión que ya ha empezado' : `las ${pasadas.length} sesiones que ya han empezado`}`}
-          </button>
-          {verPasadas && <Franjas filas={pasadas} fecha={fecha} onAbrir={onAbrir} apagadas />}
-        </div>
+      {verPasadas && pasadas.length > 0 && (
+        <Franjas filas={pasadas} fecha={fecha} onAbrir={onAbrir} apagadas />
       )}
 
-      {esHoy && <LineaAhora />}
+      {esHoy && (
+        <LineaAhora pasadas={pasadas.length} verPasadas={verPasadas} onVerPasadas={alternar} botonRef={botonRef} />
+      )}
 
       {resto.length > 0 ? (
         <Franjas filas={resto} fecha={fecha} onAbrir={onAbrir} />

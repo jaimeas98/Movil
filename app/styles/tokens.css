@@ -25,7 +25,8 @@
   --t-cuerpo:  1rem;       /* 16px: texto corrido; también evita el zoom de iOS */
   --t-hora:    1.75rem;    /* 28px: la hora de cada entrada */
   --t-titulo:  2rem;       /* 32px: título de película */
-  --t-dia:     2.5rem;     /* 40px: el día elegido */
+  --t-dia:     2.5rem;     /* 40px: el día elegido (escritorio), títulos de hoja */
+  --t-dia-linea: 1.375rem; /* 22px: el día en el móvil, en una línea con su resumen */
 
   /* ── Espacio (base 4) ───────────────────────────────────────────────── */
   --e-1: 4px;
@@ -39,10 +40,16 @@
   --margen: 16px;          /* gutter lateral; crece en pantallas grandes */
   --ancho: 1320px;
 
-  /* Dos radios, elegidos una vez: las piezas de contenido (entradas, carteles,
-     paneles) casi rectas, como el papel de una entrada; los controles,
-     redondos del todo. */
+  /* Radios, elegidos una vez:
+     · --r-pieza: las piezas de contenido (entradas, carteles, paneles), casi
+       rectas, como el papel de una entrada.
+     · --r-mando: los mandos de la fila de controles y los botones de texto.
+       Del mismo papel que las entradas, con un punto más de esquina: antes
+       eran pastillas redondas del todo, lo más genérico de la página.
+     · --r-control: redondo del todo, solo para lo que es un punto o una
+       ficha (los días, los botones de icono, el "en 20 min" del Horario). */
   --r-pieza: 6px;
+  --r-mando: 8px;
   --r-control: 999px;
 
   --toque: 44px;           /* objetivo táctil mínimo */
@@ -59,7 +66,7 @@
   --z-hoja: 100;
 
   /* ── Oscuro (por defecto) ───────────────────────────────────────────────
-     Contra --fondo #0B1526:  tinta 16.1 · apagada 8.6 · tenue 4.8 ·
+     Contra --fondo #0B1526:  tinta 16.1 · apagada 8.6 · tenue 6.0 ·
      rojo 3.3 (solo como relleno; su texto, 5.6) · ámbar 10.1 · anillo 8.4 */
   color-scheme: dark;
   --fondo:      #0B1526;   /* azul noche de bahía, tintado y hondo */
@@ -69,7 +76,7 @@
   --linea-fuerte: rgba(166, 179, 200, 0.30);
   --tinta:      #EEF1F4;   /* blanco cal */
   --apagada:    #A6B3C8;   /* texto secundario: 7.6 sobre superficie */
-  --tenue:      #75849E;   /* sesiones ya empezadas: 4.3 sobre superficie */
+  --tenue:      #8695AE;   /* sesiones ya empezadas: 5.3 sobre superficie, 4.6 en la hoja */
   --rojo:       #C22E43;   /* rojo butaca: seleccionado y acción principal */
   --rojo-tinta: #FFFFFF;   /* 5.6 sobre el rojo */
   --rojo-texto: #FF8E9C;   /* el rojo cuando tiene que ser texto: 8.4 */
@@ -97,7 +104,7 @@
 }
 
 /* ── Claro: blanco cal frío, tinta añil ───────────────────────────────────
-   Contra --fondo #F2F5F9: tinta 14.1 · apagada 6.7 · tenue 3.9 · rojo 5.9 ·
+   Contra --fondo #F2F5F9: tinta 14.1 · apagada 6.7 · tenue 5.1 · rojo 5.9 ·
    texto del rojo 7.2 · ámbar como texto 5.6 */
 :root[data-theme='light'] {
   color-scheme: light;
@@ -108,7 +115,7 @@
   --linea-fuerte: rgba(23, 34, 74, 0.24);
   --tinta:      #17224A;   /* añil */
   --apagada:    #4A5677;   /* 7.3 sobre superficie */
-  --tenue:      #6F7B98;   /* 4.2 sobre superficie */
+  --tenue:      #5D6886;   /* 5.5 sobre superficie (y la hoja) */
   --rojo:       #B3263A;   /* 6.5 de blanco sobre él */
   --rojo-tinta: #FFFFFF;
   --rojo-texto: #9C1F33;

@@ -227,14 +227,14 @@
   .hoja .boton:hover { background: var(--relleno-fuerte); }
 }
 
-/* Valoraciones: un marcador de celdas separadas por filetes, sin tarjetas
-   dentro de la hoja (que ya es una superficie). */
+/* Valoraciones: las cifras en grande, separadas por aire y no por filetes
+   (una rejilla de celdas con medidores repetía cada número en una barra y
+   pesaba más que lo que contaba). El paso de tono hace el resto: la fuente en
+   apagado, la cifra en tinta, la escala otra vez en apagado. */
 .notas {
   display: grid;
   grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
-  gap: 1px;
-  background: var(--linea);
-  border-block: 1px solid var(--linea);
+  gap: var(--e-4) var(--e-5);
 }
 .notas[data-n='1'] { --n: 1; }
 .notas[data-n='2'] { --n: 2; }
@@ -243,17 +243,13 @@
 @media (max-width: 519px) {
   .notas[data-n='4'] { --n: 2; }
 }
-.notas > li { background: var(--superficie-2); min-width: 0; }
+.notas > li { min-width: 0; }
 .nota {
-  display: grid; grid-template-rows: 1fr auto auto; gap: 6px;
-  height: 100%;
-  padding: var(--e-3) var(--e-3) var(--e-3) 0;
+  display: grid; align-content: start; gap: 4px;
+  min-height: var(--toque);
+  padding: var(--e-1) 0;
   text-decoration: none;
   transition: transform var(--d-press) var(--ease-press);
-}
-.notas > li + li .nota { padding-left: var(--e-3); }
-@media (max-width: 519px) {
-  .notas[data-n='4'] > li:nth-child(odd) .nota { padding-left: 0; }
 }
 .nota:active { transform: scale(0.97); transition-duration: 40ms; }
 .nota-fuente { font-size: var(--t-detalle); font-weight: 600; line-height: 1.2; color: var(--apagada); }
@@ -265,8 +261,6 @@
   font-variant-numeric: tabular-nums;
 }
 .nota-escala { font-size: var(--t-detalle); color: var(--apagada); }
-.nota-medidor { display: block; height: 3px; border-radius: 2px; background: var(--linea); overflow: hidden; }
-.nota-relleno { display: block; height: 100%; background: var(--apagada); transform-origin: left center; }
 @media (hover: hover) {
   .nota:hover .nota-fuente { color: var(--tinta); text-decoration: underline; text-underline-offset: 0.2em; }
 }
@@ -292,13 +286,12 @@
 .prox-sub { margin-top: 6px; font-size: var(--t-dato); color: var(--apagada); max-width: 52ch; }
 .prox-grupo { margin-top: var(--e-6); }
 .prox-mes {
-  padding-bottom: var(--e-2);
-  border-bottom: 1px solid var(--linea);
+  padding-bottom: var(--e-1);
   font-family: var(--f-rotulo);
   font-size: 1.375rem; font-weight: 700; line-height: 1;
   color: var(--apagada);
 }
-.prox-item { border-bottom: 1px solid var(--linea); }
+.prox-item + .prox-item { margin-top: var(--e-1); }
 .prox-cabecera {
   width: 100%;
   display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: var(--e-3);
@@ -332,13 +325,15 @@
 .prox-detalle { padding: 0 0 var(--e-4) calc(48px + var(--e-3)); animation: prox-aparece 160ms var(--ease-out); }
 @keyframes prox-aparece { from { opacity: 0; } }
 .prox-sinopsis { margin-bottom: var(--e-3); font-size: var(--t-dato); line-height: 1.55; color: var(--apagada); max-width: 60ch; }
-.prox-pases { display: grid; gap: var(--e-3); }
-.prox-pase-cabeza {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--e-3);
-  margin-bottom: var(--e-2);
-}
-.prox-pase-dia { font-size: var(--t-dato); font-weight: 700; }
-.prox-pase-cine { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-dato); font-weight: 600; color: var(--apagada); }
+/* Pases por día y, dentro del día, una línea por cine con sus entradas al
+   lado: el día se escribe una vez aunque haya varios cines o varios pases. */
+.prox-dias { display: grid; gap: var(--e-4); }
+.prox-pase-dia { margin-bottom: var(--e-2); font-size: var(--t-dato); font-weight: 700; }
+.prox-pases { display: grid; gap: var(--e-2); }
+.prox-pase { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2) var(--e-3); }
+.prox-pase .entradas { display: flex; flex-wrap: wrap; gap: 6px; }
+.prox-pase .entrada { width: auto; min-width: 5.25rem; }
+.prox-pase-cine { display: inline-flex; align-items: center; gap: 6px; min-width: 7.5rem; font-size: var(--t-dato); font-weight: 600; color: var(--apagada); }
 .prox-pase-cine .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
 @media (max-width: 519px) {
   /* En el móvil los pases ocupan todo el ancho: el sangrado bajo el cartel

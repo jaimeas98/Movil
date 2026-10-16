@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { useAhora, estadoDeSesion } from '@/lib/reloj.js';
-import { detallesDeSesion } from '@/lib/cartelera.js';
+import { detallesDeSesion, propiosDeSesion } from '@/lib/cartelera.js';
 
 // Hora con cifras de ancho fijo. Big Shoulders no trae cifras tabulares (su
 // "1" mide la mitad que el "0") y `font-variant-numeric: tabular-nums` no hace
@@ -53,12 +53,15 @@ export function frasePara({ titulo, sesion, cine, pasada, falta, accion }) {
 
 // La sesión como una entrada de cine: la hora en grande y, en pequeño, lo que
 // cambia la decisión (VOSE, 3D, sala). Pulsarla lleva a comprar; si el cine no
-// da enlace, abre la ficha. Hoy, las que ya han empezado se apagan y las de la
-// próxima hora se encienden en ámbar con "en 25 min".
-function Entrada({ sesion, cine, pelicula, fecha, onAbrir }) {
+// da enlace, abre la ficha. Hoy, las de la próxima hora se encienden en ámbar
+// con "en 25 min" (las que ya han empezado no llegan aquí: ver Empezadas).
+//   comunes   lo que comparten todas las sesiones de su cine (ya escrito junto
+//             al nombre del cine): la entrada solo enseña lo que la distingue.
+//             El lector de pantalla sigue oyendo la frase entera.
+function Entrada({ sesion, cine, pelicula, fecha, onAbrir, comunes = null }) {
   const titulo = pelicula.title;
   const { pasada, falta } = useEstadoSesion(sesion.minuto, fecha);
-  const { etiquetas, sala } = detallesDeSesion(sesion);
+  const { etiquetas, sala } = propiosDeSesion(sesion, comunes);
   const estado = pasada ? 'pasada' : falta != null ? 'pronto' : undefined;
 
   const contenido = (
@@ -110,3 +113,57 @@ function Entrada({ sesion, cine, pelicula, fecha, onAbrir }) {
 }
 
 export default memo(Entrada);
+
+// Las sesiones de hoy que ya han empezado, en una línea discreta delante de
+// las entradas: "17:15 18:00 · ya empezadas". Como entradas de tamaño
+// completo ocupaban los primeros huecos de cada cine (8 de las 23 de la
+// primera película) y empujaban lo que todavía se puede ver fuera de la
+// pantalla. Siguen siendo enlaces (a veces se entra con la sesión empezada,
+// con los anuncios) y cada uno dice su frase completa.
+export const Empezadas = memo(function Empezadas({ sesiones, cine, pelicula, onAbrir }) {
+  if (!sesiones.length) return null;
+  const titulo = pelicula.title;
+  return (
+    <p className="empezadas-linea">
+      {sesiones.map((s, i) => {
+        const clave = `${s.time}-${i}`;
+        if (s.buyUrl) {
+          return (
+            <a
+              key={clave}
+              className="empezada"
+              href={s.buyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={frasePara({ titulo, sesion: s, cine, pasada: true, accion: 'Comprar entrada, se abre en otra pestaña' })}
+            >
+              {s.time}
+            </a>
+          );
+        }
+        if (onAbrir) {
+          return (
+            <button
+              key={clave}
+              type="button"
+              className="empezada"
+              onClick={() => onAbrir(pelicula)}
+              aria-label={frasePara({ titulo, sesion: s, cine, pasada: true, accion: 'Sin venta en línea; abre la ficha' })}
+            >
+              {s.time}
+            </button>
+          );
+        }
+        return (
+          <span key={clave} className="empezada">
+            <span aria-hidden="true">{s.time}</span>
+            <span className="sr">{frasePara({ titulo, sesion: s, cine, pasada: true, accion: 'Sin venta en línea' })}</span>
+          </span>
+        );
+      })}
+      <span className="empezadas-texto" aria-hidden="true">
+        {sesiones.length === 1 ? 'ya empezada' : 'ya empezadas'}
+      </span>
+    </p>
+  );
+});

@@ -1,12 +1,10 @@
 'use client';
 
 import { minutesToHuman } from '@/lib/normalize.js';
-import { lugarCorto } from '@/lib/rotulos.js';
 import Hoja from './Hoja.jsx';
 import Icono from './Icono.jsx';
-import Entrada from './Entrada.jsx';
 import { Avisos } from './Estados.jsx';
-import { Cartel, notaMedia } from './Pelicula.jsx';
+import { Cartel, GrupoCine, notaMedia } from './Pelicula.jsx';
 
 function buscable(title) {
   return encodeURIComponent(String(title || '').replace(/\(.*?\)/g, '').trim());
@@ -18,8 +16,9 @@ const decimal = (n) => n.toLocaleString('es-ES', { minimumFractionDigits: 1, max
 // Desglose por fuente. Las notas llegan como cadenas ("7.4", "85%") y
 // cualquiera puede faltar. Cada una se pinta en SU escala, escrita al lado:
 // el % de Rotten Tomatoes es la proporción de críticos que la aprueban, no una
-// nota media, y ponerlas todas sobre 10 sería dar gato por liebre. El medidor
-// de debajo sí las lleva a 0–100, solo para poder compararlas de un vistazo.
+// nota media, y ponerlas todas sobre 10 sería dar gato por liebre. (Hubo un
+// medidor de 0–100 debajo de cada cifra: repetía el número en una barra y
+// sobraba; la cifra grande ya se compara de un vistazo.)
 //
 // La media de la API (`average`, sobre 100) junta IMDb, Rotten y Metacritic;
 // TMDB solo entra cuando no hay ninguna de las tres (app/api/ratings). TMDB es
@@ -37,14 +36,10 @@ function fuentes(title, ratings) {
   const mc = num(ratings?.metacritic);
   const tmdb = num(ratings?.tmdb);
   return [
-    { clave: 'imdb', nombre: 'IMDb', escala: '/10', valor: imdb, texto: imdb != null ? decimal(imdb) : null,
-      pct: imdb != null ? imdb * 10 : null, url: `https://www.imdb.com/find/?q=${q}&s=tt` },
-    { clave: 'rt', nombre: 'Rotten Tomatoes', escala: '%', valor: rt, texto: rt != null ? String(Math.round(rt)) : null,
-      pct: rt, url: `https://www.rottentomatoes.com/search?search=${q}` },
-    { clave: 'mc', nombre: 'Metacritic', escala: '/100', valor: mc, texto: mc != null ? String(Math.round(mc)) : null,
-      pct: mc, url: `https://www.metacritic.com/search/${q}/` },
-    { clave: 'tmdb', nombre: 'TMDB', escala: '/10', valor: tmdb, texto: tmdb != null ? decimal(tmdb) : null,
-      pct: tmdb != null ? tmdb * 10 : null, url: `https://www.themoviedb.org/search?query=${q}` },
+    { clave: 'imdb', nombre: 'IMDb', escala: '/10', valor: imdb, texto: imdb != null ? decimal(imdb) : null, url: `https://www.imdb.com/find/?q=${q}&s=tt` },
+    { clave: 'rt', nombre: 'Rotten Tomatoes', escala: '%', valor: rt, texto: rt != null ? String(Math.round(rt)) : null, url: `https://www.rottentomatoes.com/search?search=${q}` },
+    { clave: 'mc', nombre: 'Metacritic', escala: '/100', valor: mc, texto: mc != null ? String(Math.round(mc)) : null, url: `https://www.metacritic.com/search/${q}/` },
+    { clave: 'tmdb', nombre: 'TMDB', escala: '/10', valor: tmdb, texto: tmdb != null ? decimal(tmdb) : null, url: `https://www.themoviedb.org/search?query=${q}` },
   ].filter((s) => s.valor != null);
 }
 
@@ -123,23 +118,11 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
           <p className="ficha-sin">No hay sesiones este día.</p>
         ) : (
           <div className="ficha-cines">
+            {/* El mismo grupo que en la cartelera (lo común escrito una vez,
+                las empezadas en su línea). Sin enlace de compra las entradas
+                no hacen nada aquí: ya estás en la ficha. */}
             {cines.map(({ cine, sessions }) => (
-              <div className="peli-cine" data-cine={cine.id} key={cine.id}>
-                <h4 className="peli-cine-nombre">
-                  <span className="punto" aria-hidden="true" />
-                  <span className="peli-cine-marca">{cine.short || cine.name}</span>
-                  <span className="peli-cine-lugar">{lugarCorto(cine)}</span>
-                </h4>
-                {/* Las mismas entradas que en la cartelera. Sin enlace de
-                    compra no hacen nada aquí: ya estás en la ficha. */}
-                <ul className="entradas">
-                  {sessions.map((s, i) => (
-                    <li key={`${s.time}-${i}`}>
-                      <Entrada sesion={s} cine={cine} pelicula={pelicula} fecha={fecha} onAbrir={null} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <GrupoCine key={cine.id} cine={cine} sessions={sessions} pelicula={pelicula} fecha={fecha} onAbrir={null} nivel={4} />
             ))}
           </div>
         )}
@@ -162,10 +145,6 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
                   <span className="nota-cifra">
                     <span className="nota-num">{n.texto}</span>
                     <span className="nota-escala">{n.escala}</span>
-                  </span>
-                  {/* Repite en gráfico lo que el aria-label ya dice */}
-                  <span className="nota-medidor" aria-hidden="true">
-                    <span className="nota-relleno" style={{ transform: `scaleX(${Math.max(0, Math.min(100, n.pct)) / 100})` }} />
                   </span>
                 </a>
               </li>

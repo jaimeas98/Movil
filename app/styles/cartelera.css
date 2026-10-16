@@ -3,21 +3,34 @@
    Horario, los estados (cargando, error, vacío) y el pie.
    ============================================================================ */
 
-/* ── El día ─────────────────────────────────────────────────────────────── */
+/* ── El día ─────────────────────────────────────────────────────────────────
+   En el móvil, discreto: el día a 22 px y su resumen debajo ("16 películas ·
+   act. 20:58"). El día elegido ya está en rojo en la tira, y en grande (40 px
+   más su resumen) se comía la primera pantalla y dejaba la primera película
+   por debajo del pliegue. En escritorio sobra sitio y vuelve a ser el rótulo
+   grande de la marquesina. Siempre dos líneas, también mientras carga: así
+   nada se mueve cuando llegan los datos. */
+.dia-cabeza {
+  padding: var(--e-4) 0 var(--e-3);
+}
 .selected-day {
-  padding: var(--e-5) 0 0;
   font-family: var(--f-rotulo);
-  font-size: var(--t-dia); font-weight: 700;
-  line-height: 0.95; letter-spacing: 0;
+  font-size: var(--t-dia-linea); font-weight: 700;
+  line-height: 1; letter-spacing: 0.005em;
   text-wrap: balance;
   /* Las mayúsculas redondas de Big Shoulders (H, O) se ven metidas hacia
      dentro: se alinean ópticamente con el borde del texto de debajo. */
   margin-left: -0.03em;
 }
 .dia-resumen {
-  padding: var(--e-1) 0 var(--e-3);
+  padding-top: 2px;
   font-size: var(--t-dato); color: var(--apagada);
   font-variant-numeric: tabular-nums;
+}
+@media (min-width: 720px) {
+  .dia-cabeza { padding: var(--e-5) 0 var(--e-3); }
+  .selected-day { font-size: var(--t-dia); line-height: 0.95; letter-spacing: 0; }
+  .dia-resumen { padding-top: var(--e-1); }
 }
 
 /* Capa que se desliza al cambiar de día. Su transform lo escribe el gesto
@@ -58,14 +71,19 @@
   grid-template-columns: minmax(0, 1fr);
   column-gap: var(--e-7);
 }
+/* Sin filetes entre películas: las separa el aire (y cada una empieza con su
+   cartel y su título en grande, que ya marcan el comienzo). */
 .pelis > li {
-  border-top: 1px solid var(--linea);
   /* Las de abajo no se pintan hasta que se acercan: con 40 películas por día
-     es buena parte del coste de cambiar de día. */
+     es buena parte del coste de cambiar de día. El tamaño de reserva es el de
+     una película típica (545–1040 px medidos); con 360 px la barra de scroll
+     daba saltos al ir pintándose. */
   content-visibility: auto;
-  contain-intrinsic-size: auto 360px;
+  contain-intrinsic-size: auto 640px;
 }
-@media (min-width: 1080px) {
+/* Dos columnas en cuanto caben dos películas con sus entradas (~450 px cada
+   una): a 1024 px una sola columna dejaba el 40 % de la pantalla vacío. */
+@media (min-width: 960px) {
   .pelis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -77,7 +95,7 @@
     "cines cines";
   column-gap: var(--e-4);
   row-gap: var(--e-4);
-  padding: var(--e-5) 0 var(--e-6);
+  padding: var(--e-4) 0 var(--e-6);
 }
 @media (min-width: 560px) {
   .peli {
@@ -154,6 +172,11 @@
   background: var(--cine);
 }
 .peli-cine-lugar { font-weight: 500; color: var(--apagada); }
+/* Lo que comparten todas sus sesiones ("Sala Premium", "4K Laser Atmos"),
+   escrito una vez aquí en vez de en cada entrada. */
+.peli-cine-comun { display: inline-flex; flex-wrap: wrap; column-gap: 6px; font-size: var(--t-detalle); font-weight: 500; color: var(--apagada); }
+.peli-cine-comun::before { content: '·'; }
+.peli-cine-etiqueta { font-weight: 700; color: var(--tinta); }
 .peli-cine-aviso {
   font-size: var(--t-detalle); font-weight: 500; color: var(--apagada);
 }
@@ -168,14 +191,22 @@
    La sesión es una entrada de cine: la hora en grande, en pequeño lo que la
    distingue, el color de su cine en el papel y las dos muescas del troquel a
    los lados. El papel (y sus muescas) va en un ::before con máscara para que
-   el anillo de foco, que va en el propio elemento, no quede recortado. */
-.entradas { display: flex; flex-wrap: wrap; gap: 6px; }
+   el anillo de foco, que va en el propio elemento, no quede recortado.
+
+   En rejilla y todas del mismo ancho: con anchos según el texto, una fila
+   de "Sala Premium" y otra de horas solas no casaban en columna (a 768 px
+   sobre todo) y la de "en 20 min" salía más ancha que sus vecinas. */
+.entradas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.25rem, 1fr));
+  gap: 6px;
+}
 .entrada {
   --papel: color-mix(in oklab, var(--cine) var(--mezcla-entrada), var(--superficie));
   position: relative; isolation: isolate;
-  display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-start;
-  min-width: 4.75rem; min-height: 3.625rem;
-  padding: 6px 14px 7px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  width: 100%; min-width: 0; min-height: 3.625rem;
+  padding: 6px 11px 7px;
   border-radius: var(--r-pieza);
   color: var(--tinta);
   text-align: left; text-decoration: none;
@@ -210,25 +241,46 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 }
 .entrada-datos {
   display: flex; gap: 6px;
+  max-width: 100%;
   margin-top: 3px;
   font-size: var(--t-detalle); line-height: 1.2;
   white-space: nowrap;
 }
+/* Sin nada que decir en pequeño (lo común ya va junto al cine), la hora
+   sola, centrada en su entrada: misma altura que las vecinas. */
+.entrada-datos:empty { display: none; }
 .entrada-etiqueta { font-weight: 700; }
-.entrada-sala { color: var(--apagada); }
-/* Sin nada que decir en pequeño, la entrada mantiene la altura de las demás */
-.entrada-datos:empty::before { content: '\00a0'; }
+.entrada-sala { color: var(--apagada); overflow: hidden; text-overflow: ellipsis; }
 
-/* Ya empezada: apagada, sin el color de su cine */
+/* Ya empezada (solo puede salir así en Próximas o si el minuto cambia entre
+   dos pintados): apagada, sin el color de su cine. En la cartelera y la
+   ficha las empezadas van en su línea discreta (ver más abajo). */
 .entrada[data-estado='pasada'] {
   --papel: color-mix(in oklab, var(--superficie) 55%, transparent);
   color: var(--tenue);
 }
 .entrada[data-estado='pasada'] .entrada-sala { color: var(--tenue); }
+
+/* Las de hoy que ya han empezado: "17:15 18:00 · ya empezadas", en tono
+   apagado y antes de las entradas. Siguen siendo enlaces; el área de toque
+   (44 px) se amplía por fuera sin engordar la línea. */
+.empezadas-linea {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  column-gap: var(--e-3); row-gap: var(--e-2);
+  margin-bottom: var(--e-2);
+  font-size: var(--t-dato); line-height: 20px;
+  color: var(--tenue);
+  font-variant-numeric: tabular-nums;
+}
+.empezada {
+  font-weight: 650; color: var(--tenue);
+  text-decoration: none;
+  padding: 12px 5px; margin: -12px -5px;
+  border-radius: 4px;
+}
+.empezadas-texto::before { content: '· '; }
 @media (hover: hover) {
-  a.entrada[data-estado='pasada']:hover, button.entrada[data-estado='pasada']:hover {
-    --papel: var(--superficie);
-  }
+  a.empezada:hover, button.empezada:hover { color: var(--tinta); text-decoration: underline; text-underline-offset: 0.2em; }
 }
 
 /* Empieza en menos de una hora: la bombilla de la marquesina */
@@ -248,8 +300,7 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 .pelis-apagadas .peli-cartel,
 .pelis-apagadas .peli-titulo { opacity: 0.6; }
 
-.empezadas { padding: var(--e-4) 0 0; border-top: 1px solid var(--linea); }
-.empezadas-arriba { border-top: 0; padding: 0 0 var(--e-4); }
+.empezadas { padding: var(--e-4) 0 0; }
 .empezadas-boton { width: 100%; justify-content: center; }
 .empezadas .pelis { margin-top: var(--e-4); }
 @media (min-width: 720px) {
@@ -258,28 +309,23 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 
 /* ── Vista Horario ──────────────────────────────────────────────────────────
    Una hora grande por cada hora de inicio distinta y, a su derecha, lo que
-   empieza a esa hora (ver components/VistaHorario.jsx). En escritorio las
-   franjas de una hora se reparten en columnas, como un panel de salidas: se
-   leen por orden de izquierda a derecha. */
+   empieza a esa hora: una fila por película con sus cines debajo (ver
+   components/VistaHorario.jsx). Sin filetes entre filas: las separa el aire
+   y la columna de la hora, que solo cambia cuando cambia la hora. En
+   escritorio las franjas de una hora se reparten en columnas, como un panel
+   de salidas: se leen por orden de izquierda a derecha. */
 .horario { padding-bottom: var(--e-4); }
 .franjas { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: var(--e-7); align-items: start; }
 @media (min-width: 900px) {
-  .franjas { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); row-gap: var(--e-5); }
+  .franjas { grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr)); row-gap: var(--e-4); }
 }
-.franjas-apagadas { margin-top: var(--e-4); }
+.franjas-apagadas { margin-bottom: var(--e-3); }
 
 .hueco {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  grid-template-columns: 4.25rem minmax(0, 1fr);
   column-gap: var(--e-3);
-  padding: var(--e-2) 0;
-  border-top: 1px solid var(--linea);
-}
-.franja:first-child .hueco:first-child { border-top: 0; }
-/* En escritorio cada franja es una columna: todas empiezan sin filete, a la
-   misma altura. */
-@media (min-width: 900px) {
-  .hueco:first-child { border-top: 0; }
+  padding: 6px 0;
 }
 .hueco-hora {
   /* Se queda a la vista mientras bajas por una hora con muchas películas:
@@ -287,7 +333,6 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
   position: sticky; top: 84px;
   align-self: start;
   display: grid; justify-items: start; gap: 4px;
-  padding-top: 10px;
 }
 .hueco-cifras {
   font-family: var(--f-rotulo);
@@ -307,49 +352,84 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 .hueco[data-estado='pasada'] .fila-titulo,
 .hueco[data-estado='pasada'] .fila-cine,
 .hueco[data-estado='pasada'] .fila-etiqueta,
+.hueco[data-estado='pasada'] .fila-sala,
 .franjas-apagadas .hueco-cifras,
 .franjas-apagadas .fila-titulo { color: var(--tenue); }
 
-.filas { min-width: 0; }
-.fila-boton {
-  width: 100%;
-  display: flex; align-items: center;
-  min-height: 52px;
-  padding: var(--e-2) var(--e-2) var(--e-2) 0;
+.filas { min-width: 0; display: grid; gap: 10px; }
+.fila {
+  position: relative;
   border-radius: var(--r-pieza);
-  text-align: left; text-decoration: none;
-  color: var(--tinta);
-  transition: transform var(--d-press) var(--ease-press), background-color 150ms ease;
 }
-.fila-boton:active { transform: scale(0.985); transition-duration: 40ms; }
-.fila + .fila .fila-boton { box-shadow: 0 -1px 0 var(--linea); }
-@media (hover: hover) {
-  .fila-boton:hover { background: var(--superficie); }
-}
-.fila-cuerpo { min-width: 0; display: grid; gap: 3px; }
 .fila-titulo {
+  /* Alineado con la hora de la izquierda (28 px) por arriba */
+  padding-top: 3px;
   font-family: var(--f-rotulo);
   font-size: 1.25rem; font-weight: 800; line-height: 1;
   text-transform: uppercase; letter-spacing: 0.01em;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.fila-datos {
-  display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--e-2);
+/* Cada cine, una línea de 22 px a la vista pero una caja de 44 px para el
+   dedo: los márgenes negativos devuelven la diferencia y la fila no engorda
+   (la caja invade un poco el título, que en estas filas no se toca). */
+.fila-pases { display: flex; flex-wrap: wrap; column-gap: var(--e-4); row-gap: 2px; }
+.fila-pase {
+  position: relative;
+  display: inline-flex; align-items: center;
+  min-height: var(--toque);
+  margin-block: -11px;
+  border-radius: 4px;
+  text-align: left; text-decoration: none;
+  color: var(--tinta);
+  transition: transform var(--d-press) var(--ease-press);
+}
+.fila-pase:active { transform: scale(0.97); transition-duration: 40ms; }
+/* Con un solo cine, toda la fila es su enlace (tocar la fila = comprar) */
+.fila[data-unica] .fila-pase { position: static; }
+.fila[data-unica] .fila-pase::after { content: ''; position: absolute; inset: -4px -6px; border-radius: var(--r-pieza); }
+/* Al apretar se hunde la FILA, no el enlace: con transform el enlace pasaría
+   a contener su ::after y el área de toque encogería bajo el dedo. */
+.fila[data-unica] { transition: transform var(--d-press) var(--ease-press); }
+.fila[data-unica]:active { transform: scale(0.985); transition-duration: 40ms; }
+.fila[data-unica] .fila-pase:active { transform: none; }
+.fila[data-unica] .fila-pase:focus-visible { outline: none; }
+.fila[data-unica] .fila-pase:focus-visible::after { outline: 2px solid var(--anillo); outline-offset: 0; }
+@media (hover: hover) {
+  .fila[data-unica]:hover { background: var(--superficie); box-shadow: 0 0 0 4px var(--superficie); }
+  .fila:not([data-unica]) .fila-pase:hover .fila-cine { text-decoration: underline; text-underline-offset: 0.2em; }
+}
+.fila-pase-cuerpo {
+  display: inline-flex; flex-wrap: wrap; align-items: center; column-gap: var(--e-2);
   font-size: var(--t-detalle); color: var(--apagada); line-height: 1.3;
 }
-.fila-datos .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
+.fila-pase .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
 .fila-cine { color: var(--tinta); font-weight: 600; }
 .fila-etiqueta { color: var(--tinta); font-weight: 700; }
 
-/* La línea del ahora: dónde estás en el día */
+/* La línea del ahora: dónde estás en el día. Lleva al final el botón de las
+   sesiones que ya han empezado, que es la frontera que marca. */
 .ahora {
   display: flex; align-items: center; gap: var(--e-3);
-  margin: 0 0 var(--e-2);
+  min-height: var(--toque);
+  margin: 0 0 var(--e-1);
   color: var(--ambar-texto);
 }
-.ahora::after { content: ''; flex: 1; height: 2px; border-radius: 1px; background: var(--ambar); }
-.ahora-texto { font-size: var(--t-dato); font-weight: 700; }
+.ahora-raya { flex: 1; height: 2px; border-radius: 1px; background: var(--ambar); }
+.ahora-texto { font-size: var(--t-dato); font-weight: 700; white-space: nowrap; }
 .ahora-hora { font-variant-numeric: tabular-nums; }
+.ahora-pasadas {
+  min-height: var(--toque);
+  padding: 0 var(--e-1);
+  margin-right: calc(-1 * var(--e-1));
+  font-size: var(--t-dato); font-weight: 600;
+  color: var(--apagada);
+  text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+@media (hover: hover) {
+  .ahora-pasadas:hover { color: var(--tinta); }
+}
 
 /* ── Estados ────────────────────────────────────────────────────────────── */
 .estado {

@@ -1,10 +1,11 @@
 'use client';
 
-import { memo, useCallback, useRef, useState } from 'react';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
-import { deCuando } from '@/lib/cartelera.js';
+import { deCuando, comunesDelCine } from '@/lib/cartelera.js';
 import { lugarCorto } from '@/lib/rotulos.js';
-import Entrada from './Entrada.jsx';
+import { useAhora } from '@/lib/reloj.js';
+import Entrada, { Empezadas } from './Entrada.jsx';
 import Icono from './Icono.jsx';
 
 // Tono estable a partir del título: el hueco del cartel mientras no hay
@@ -49,6 +50,57 @@ export function Cartel({ pelicula, className = 'peli-cartel-img', inmediato = fa
     );
   }
   return <span className={`${className} cartel-vacio`} style={{ '--tono': tonoDe(pelicula.title) }} />;
+}
+
+// Cuántas sesiones (ordenadas) han empezado ya, si `fecha` es hoy. Lo único
+// del reloj que importa al grupo: se repinta cuando empieza una, no cada minuto.
+function useCuantasEmpezadas(sesiones, fecha) {
+  return useAhora((a) => {
+    if (!a || a.fecha !== fecha) return 0;
+    let n = 0;
+    while (n < sesiones.length && sesiones[n].minuto < a.minuto) n++;
+    return n;
+  });
+}
+
+// Las horas de una película en UN cine: su nombre (con lo que comparten todas
+// sus sesiones, escrito una vez), las ya empezadas en una línea discreta y
+// las que quedan como entradas. Lo usan la cartelera y la ficha.
+//   nivel    3 en la cartelera, 4 en la ficha (debajo de "Sesiones")
+//   aviso    "datos del mar 13" si sus datos no son de ahora
+export function GrupoCine({ cine, sessions, pelicula, fecha, onAbrir, aviso = null, nivel = 3 }) {
+  const comunes = useMemo(() => comunesDelCine(sessions), [sessions]);
+  const corte = useCuantasEmpezadas(sessions, fecha);
+  const empezadas = corte ? sessions.slice(0, corte) : [];
+  const quedan = corte ? sessions.slice(corte) : sessions;
+  const Titulo = nivel === 4 ? 'h4' : 'h3';
+  const hayComun = comunes.etiquetas.length > 0 || !!comunes.sala;
+  return (
+    <div className="peli-cine" data-cine={cine.id}>
+      <Titulo className="peli-cine-nombre">
+        <span className="punto" aria-hidden="true" />
+        <span className="peli-cine-marca">{cine.short || cine.name}</span>
+        <span className="peli-cine-lugar">{lugarCorto(cine)}</span>
+        {hayComun && (
+          <span className="peli-cine-comun">
+            {comunes.etiquetas.map((t) => <span key={t} className="peli-cine-etiqueta">{t}</span>)}
+            {comunes.sala && <span className="peli-cine-sala">{comunes.sala}</span>}
+          </span>
+        )}
+        {aviso && <span className="peli-cine-aviso">{aviso}</span>}
+      </Titulo>
+      <Empezadas sesiones={empezadas} cine={cine} pelicula={pelicula} onAbrir={onAbrir} />
+      {quedan.length > 0 && (
+        <ul className="entradas">
+          {quedan.map((s, i) => (
+            <li key={`${s.time}-${i}`}>
+              <Entrada sesion={s} cine={cine} pelicula={pelicula} fecha={fecha} onAbrir={onAbrir} comunes={hayComun ? comunes : null} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
 
 // Una película con todas sus horas por la bahía, agrupadas por cine.
@@ -103,26 +155,17 @@ function Pelicula({ pelicula, fecha, onAbrir }) {
       </div>
 
       <div className="peli-cines">
-        {pelicula.cines.map(({ cine, sessions }) => {
-          const aviso = avisoDeCine(cine);
-          return (
-            <div className="peli-cine" data-cine={cine.id} key={cine.id}>
-              <h3 className="peli-cine-nombre">
-                <span className="punto" aria-hidden="true" />
-                <span className="peli-cine-marca">{cine.short || cine.name}</span>
-                <span className="peli-cine-lugar">{lugarCorto(cine)}</span>
-                {aviso && <span className="peli-cine-aviso">{aviso}</span>}
-              </h3>
-              <ul className="entradas">
-                {sessions.map((s, i) => (
-                  <li key={`${s.time}-${i}`}>
-                    <Entrada sesion={s} cine={cine} pelicula={pelicula} fecha={fecha} onAbrir={abrir} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+        {pelicula.cines.map(({ cine, sessions }) => (
+          <GrupoCine
+            key={cine.id}
+            cine={cine}
+            sessions={sessions}
+            pelicula={pelicula}
+            fecha={fecha}
+            onAbrir={abrir}
+            aviso={avisoDeCine(cine)}
+          />
+        ))}
       </div>
     </article>
   );

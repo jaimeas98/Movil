@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { goma, crearVelocimetro, movimientoReducido } from '@/lib/gestos.js';
-import { animarMuelle, proyectar } from '@/lib/muelle.js';
+import { goma, crearVelocimetro, movimientoReducido, instanteDe } from '@/lib/gestos.js';
+import { animarMuelle, animarTramo, proyectar } from '@/lib/muelle.js';
 import { bloquearScroll, desbloquearScroll } from '@/lib/bloqueoScroll.js';
 import Icono from './Icono.jsx';
 
@@ -36,7 +36,14 @@ const HOLGURA = 4;            // px antes de decidir de quién es el gesto
 const LANZAMIENTO = 0.3;      // px/ms (300 px/s): a partir de aquí, "lo ha lanzado"
 const SUBIENDO = -0.05;       // px/ms: soltar subiendo nunca cierra
 const MINIMO_CERRAR = 8;      // px: un temblor del dedo no es un gesto
-const REDUCIDO_CERRAR = 90;   // px: con movimiento reducido no hay inercia que medir
+// Las salidas sin gesto apuntan un poco MÁS ALLÁ del borde (la sombra de la
+// hoja asoma por encima) y se cortan al cruzarlo: la cola de un muelle
+// crítico es lenta e invisible, y mientras duraba el velo seguía tapando la
+// página (~120 ms de toques perdidos tras verla ya fuera).
+const PASADA = 24;
+// Movimiento reducido: los fundidos que sustituyen al desplazamiento.
+const MS_FUNDIDO_SALIDA = 140;
+const MS_FUNDIDO_VUELTA = 150;
 
 const PANEL = '(min-width: 900px)';
 const esPanel = () => typeof window !== 'undefined' && window.matchMedia(PANEL).matches;
@@ -117,7 +124,8 @@ export default function Hoja({
     if (!hoja || !velo || !cuerpo) return;
 
     const reducido = movimientoReducido();
-    let anim = null;          // muelle en curso (lib/muelle.js)
+    let anim = null;          // movimiento en curso (muelle o tramo, lib/muelle.js)
+    let destinoAnim = 0;      // adónde iba: 0 (en su sitio) o 'fuera'
     let fundido = null;       // fundido en curso (movimiento reducido)
     let cerrando = false;
 
@@ -131,28 +139,48 @@ export default function Hoja({
       hoja.style.willChange = '';
       velo.style.opacity = '';
     };
+    // Mientras se va, el velo deja pasar los toques: la página de detrás ya
+    // se ve y se puede tocar. La hoja no: aún se puede agarrar para pararla.
+    const veloSordo = (si) => { velo.style.pointerEvents = si ? 'none' : ''; };
 
     // La hoja SOLO se desplaza; lo que se atenúa es el velo, a la par. Escalar
     // o difuminar la propia hoja la despega del dedo y delata la animación.
-    const mover = (desde, hasta, velocidad, params, cortarSi) => {
+    //   tipo 'muelle' (params de lib/muelle.js) o 'tramo' (salida con gesto)
+    const mover = (desde, hasta, velocidad, { tramo = false, cortarSi, ...params } = {}) => {
       anim?.parar();
       const panel = esPanel();
       const recorrido = fuera();
-      const a = animarMuelle(hoja, {
-        desde, hasta, velocidad, ...params, cortarSi,
+      const opciones = {
+        desde, hasta, velocidad,
         aplicar: (v) => ({ transform: transformada(v, panel) }),
         acompanantes: [{ el: velo, aplicar: (v) => ({ opacity: String(limitar(1 - v / recorrido)) }) }],
-      });
+      };
+      const a = tramo ? animarTramo(hoja, opciones) : animarMuelle(hoja, { ...opciones, ...params, cortarSi });
       anim = a;
+      destinoAnim = hasta > 0 ? 'fuera' : 0;
       return a.terminado.then((ok) => { if (anim === a) anim = null; return ok; });
     };
 
-    // Con movimiento reducido: un fundido corto, sin desplazamiento.
+    // Con movimiento reducido: fundidos cortos, sin desplazamiento.
     const fundir = (de, a, ms) => {
       fundido?.forEach((x) => x.cancel());
       const op = { duration: ms, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'forwards' };
       fundido = [hoja.animate([{ opacity: de }, { opacity: a }], op), velo.animate([{ opacity: de }, { opacity: a }], op)];
       return fundido[0].finished.then(() => true, () => false);
+    };
+    // Volver a su sitio sin viajar: se apaga donde la dejó el dedo, salta a su
+    // sitio sin que se vea y se enciende ahí. Es el equivalente quieto del
+    // muelle de vuelta.
+    const volverFundida = () => {
+      fundido?.forEach((x) => x.cancel());
+      const ms = MS_FUNDIDO_VUELTA;
+      const op = { duration: ms, easing: 'linear', fill: 'none' };
+      const marcos = [{ opacity: 1, offset: 0 }, { opacity: 0, offset: 0.45 }, { opacity: 0, offset: 0.5 }, { opacity: 1, offset: 1 }];
+      const a = hoja.animate(marcos, op);
+      fundido = [a];
+      // A mitad (invisible), a su sitio.
+      setTimeout(() => { if (fundido?.[0] === a) enReposo(); }, ms * 0.47);
+      a.finished.then(() => { if (fundido?.[0] === a) { enReposo(); fundido = null; } }, () => {});
     };
 
     const cerrarYa = () => props.current.onCerrar?.();
@@ -165,11 +193,18 @@ export default function Hoja({
       if (motivo !== 'gesto' && props.current.salida?.()) { cerrando = true; return; }
       cerrando = true;
       if (props.current.instantanea && motivo !== 'gesto') { cerrarYa(); return; }
-      if (reducido) { fundir(1, 0, 140).then((ok) => ok && cerrarYa()); return; }
+      veloSordo(true);
+      // Movimiento reducido: se apaga desde donde esté (con gesto, donde la
+      // dejó el dedo), sin bajar.
+      if (reducido) { fundir(1, 0, MS_FUNDIDO_SALIDA).then((ok) => ok && cerrarYa()); return; }
       const actual = desde ?? (anim ? anim.parar().valor : 0);
       const lejos = fuera();
-      mover(actual, lejos, velocidad, MUELLE_SALIDA, (v) => v >= lejos - 1)
-        .then((ok) => { if (ok) cerrarYa(); });
+      const salida = motivo === 'gesto'
+        // Con gesto: tramo que arranca a la velocidad del dedo (ver
+        // animarTramo) y llega justo al borde.
+        ? mover(actual, lejos, velocidad, { tramo: true })
+        : mover(actual, lejos + PASADA, velocidad, { ...MUELLE_SALIDA, cortarSi: (v) => v >= lejos });
+      salida.then((ok) => { if (ok) cerrarYa(); });
     };
     pedirRef.current = (motivo) => salir({ motivo });
 
@@ -191,6 +226,12 @@ export default function Hoja({
     let enTirador = false;
     let raf = 0;
     let finArrastre = 0;
+    // Si el toque agarró la hoja en marcha: adónde iba, y si el dedo se ha
+    // movido de verdad desde entonces. Un toque quieto sobre una hoja que
+    // aún sube no es "soltarla ahí abajo" (eso la cerraba y se tragaba el
+    // clic): es un toque, y la hoja sigue a lo suyo.
+    let agarrada = null;      // null · { destino: 0 | 'fuera' }
+    let seMovio = false;
     const vel = crearVelocimetro();
 
     // Un solo escritor de estilos, dentro de rAF: escribir el transform en cada
@@ -227,23 +268,27 @@ export default function Hoja({
       enTirador = !!e.target.closest?.('[data-tirador]');
       vel.limpiar();
       base = 0; pos = 0; decidido = 0;
+      agarrada = null; seMovio = false;
 
       // ¿Estaba moviéndose? Se agarra donde esté (su valor EN PANTALLA, no su
       // destino) y desde ahí la lleva el dedo: abrir, cerrar o volver a su
       // sitio se pueden interrumpir en cualquier instante.
       if (anim) {
+        const destino = destinoAnim;
         const { valor } = anim.parar();
         anim = null;
         cerrando = false;
+        veloSordo(false);
         if (Math.abs(valor) > 2) {
           base = pos = valor;
           decidido = 1;
+          agarrada = { destino };
           empezarArrastre();
         } else {
           enReposo();
         }
       }
-      vel.anotar(pos);
+      vel.anotar(pos, instanteDe(e));
     };
 
     const alMover = (e) => {
@@ -255,6 +300,7 @@ export default function Hoja({
       const dx = t.clientX - x0;
       const bajando = y > yAnterior;
       yAnterior = y;
+      if (Math.abs(dy) >= HOLGURA || Math.abs(dx) >= HOLGURA) seMovio = true;
 
       if (decidido === 0) {
         const arriba = cuerpo.scrollTop <= 0;
@@ -279,10 +325,14 @@ export default function Hoja({
         // Relevo del scroll al arrastre: ibas subiendo el contenido y has
         // llegado arriba del todo. A partir de aquí, el mismo dedo se lleva la
         // hoja, sin soltar y volver a tocar (como en iOS).
-        if (bajando && cuerpo.scrollTop <= 0) {
+        //
+        // Solo si el touchmove se puede cancelar: en iOS, una vez que el
+        // scroll nativo ha arrancado, deja de serlo, y quitárselo entonces
+        // sería pelearse con él (la hoja y el contenido moviéndose a la vez).
+        if (bajando && cuerpo.scrollTop <= 0 && e.cancelable) {
           decidido = 1;
           y0 = y; base = 0; pos = 0;
-          vel.limpiar(); vel.anotar(0);
+          vel.limpiar(); vel.anotar(0, instanteDe(e));
           empezarArrastre();
         } else return;
       }
@@ -294,8 +344,10 @@ export default function Hoja({
       // Hacia abajo, 1:1. Hacia arriba no hay nada más que enseñar: cede con
       // goma, cada vez menos, en vez de pararse en seco.
       pos = crudo >= 0 ? crudo : goma(crudo, window.innerHeight * 0.12);
-      if (reducido) return;   // mismo gesto, sin seguir al dedo
-      vel.anotar(pos);
+      // También con movimiento reducido: seguir al dedo no es una animación,
+      // es la respuesta directa a la mano (y sin ella el gesto parecía roto).
+      // Lo que cambia con movimiento reducido es solo lo que pasa al soltar.
+      vel.anotar(pos, instanteDe(e));
       if (!raf) raf = requestAnimationFrame(pintar);
     };
 
@@ -309,15 +361,22 @@ export default function Hoja({
       decidido = 0;
       if (!eraNuestro) return;
       delete hoja.dataset.arrastrando;
-      if (raf) { cancelAnimationFrame(raf); raf = 0; if (!reducido) pintar(); }
-      finArrastre = performance.now();
+      if (raf) { cancelAnimationFrame(raf); raf = 0; pintar(); }
 
-      if (reducido) {
-        if (pos > REDUCIDO_CERRAR) salir({ motivo: 'gesto', desde: 0 });
+      // Un toque (sin mover el dedo) sobre la hoja en marcha: sigue adonde
+      // iba, desde donde está, y el clic llega a su destino.
+      if (agarrada && !seMovio) {
+        const { destino } = agarrada;
+        agarrada = null;
+        if (destino === 'fuera') { salir({ motivo: 'gesto', desde: pos }); return; }
+        if (reducido) { volverFundida(); return; }
+        mover(pos, 0, 0, MUELLE_VUELTA).then((ok) => ok && enReposo());
         return;
       }
+      agarrada = null;
+      finArrastre = performance.now();
 
-      const v = vel.valor();   // px/ms; > 0 hacia abajo
+      const v = vel.valor(instanteDe(e));   // px/ms; > 0 hacia abajo
       // Distancia O velocidad, juntas en una sola cuenta: adónde llegaría la
       // hoja si la soltaras con esta inercia (proyección de Apple). Un
       // lanzamiento corto y rápido proyecta lejos y cierra; arrastrarla
@@ -327,6 +386,8 @@ export default function Hoja({
       const cerrar = v > SUBIENDO && pos > MINIMO_CERRAR && pos + proyectar(v) > umbral;
       if (cerrar) {
         salir({ motivo: 'gesto', desde: pos, velocidad: v });
+      } else if (reducido) {
+        volverFundida();
       } else {
         // Vuelta con la velocidad del dedo (sin costura entre arrastre y
         // animación). Solo rebota si se lanzó: ver MUELLE_VUELTA_LANZADA.
@@ -363,6 +424,7 @@ export default function Hoja({
       anim?.parar();
       fundido?.forEach((x) => x.cancel());
       enReposo();
+      veloSordo(false);
       hoja.style.opacity = '';
       cuerpo.style.overflowY = '';
     };

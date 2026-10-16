@@ -6,9 +6,11 @@
 
 .saltar {
   position: absolute; left: var(--margen); top: -100px; z-index: calc(var(--z-hoja) + 1);
-  padding: var(--e-2) var(--e-4);
+  display: inline-flex; align-items: center;
+  min-height: var(--toque);
+  padding: 0 var(--e-4);
   background: var(--rojo); color: var(--rojo-tinta);
-  border-radius: var(--r-control);
+  border-radius: var(--r-mando);
   font-weight: 650; text-decoration: none;
 }
 .saltar:focus { top: var(--e-2); }
@@ -74,6 +76,7 @@
      dependiera del texto, ese día se vería más grande sin ninguna razón. */
   width: 54px; min-height: 54px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  /* Redondo: el día es una ficha, no un mando (ver --r-control) */
   border-radius: var(--r-control);
   color: var(--apagada);
   transition: transform var(--d-press) var(--ease-press), background-color 150ms ease, color 150ms ease;
@@ -122,7 +125,11 @@
 .busqueda { grid-area: busqueda; }
 .cines { grid-area: cines; }
 
-/* Buscando en el móvil, el campo se queda la fila entera */
+/* Buscando en el móvil, el campo se queda la fila entera y la vista y el
+   género se apartan: a 390 px no caben un campo usable y los dos mandos. Es
+   a propósito y se deshace solo: la equis del campo borra el texto y, con el
+   campo vacío, lo cierra; Escape hace lo mismo; y al salir del campo vacío
+   (tocar fuera) se recoge. Los cines siguen a la vista debajo. */
 .controles[data-buscando='true'] {
   grid-template-areas:
     "busqueda busqueda busqueda"
@@ -151,30 +158,59 @@
   }
 }
 
-/* Películas / Horario: control segmentado. El elegido va en tinta invertida,
-   neutro: el rojo ya lo tiene el día, y dos rojos grandes se pelean. */
+/* Películas / Horario: control segmentado hecho del mismo papel que las
+   entradas. Una entrada de dos partes: las muescas del troquel en los dos
+   extremos y una línea de picado entre las dos opciones, que es por donde
+   se "corta" de una a otra. El elegido va en tinta invertida, neutro: el
+   rojo ya lo tiene el día, y dos rojos grandes se pelean. El papel va en un
+   ::before (como en .entrada) para que la máscara no recorte el foco. */
 .control-vista {
+  position: relative; isolation: isolate;
   display: inline-flex;
   justify-self: start;
-  background: var(--superficie);
-  border-radius: var(--r-control);
+  padding: 0 7px;
+  border-radius: var(--r-mando);
 }
+.control-vista::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit;
+  background: var(--superficie);
+  -webkit-mask:
+    radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+/* Cada opción mide los 44 px enteros (es lo que se toca); el relleno del
+   elegido va por dentro, en un ::after a 3 px del borde del papel. */
 .vista-opcion {
+  position: relative; isolation: isolate;
   min-height: var(--toque);
-  padding: 0 var(--e-4);
-  border-radius: var(--r-control);
+  padding: 0 var(--e-3);
+  border-radius: calc(var(--r-mando) - 3px);
   font-size: var(--t-dato); font-weight: 600;
   color: var(--apagada);
 }
-.vista-opcion[aria-pressed='true'] {
-  background: var(--tinta);
-  color: var(--fondo);
+.vista-opcion::after {
+  content: '';
+  position: absolute; inset: 3px 0; z-index: -1;
+  border-radius: inherit;
 }
+/* El picado entre las dos mitades */
+.vista-opcion + .vista-opcion::before {
+  content: '';
+  position: absolute; left: -1px; top: 9px; bottom: 9px;
+  border-left: 2px dotted var(--linea-fuerte);
+}
+.vista-opcion[aria-pressed='true'] { color: var(--fondo); }
+.vista-opcion[aria-pressed='true']::after { background: var(--tinta); }
 @media (hover: hover) {
   .vista-opcion[aria-pressed='false']:hover { color: var(--tinta); }
 }
 @media (min-width: 400px) {
-  .vista-opcion { padding: 0 var(--e-5); }
+  .vista-opcion { padding: 0 var(--e-4); }
 }
 
 /* Pastilla de control (Género) */
@@ -185,8 +221,8 @@
 .control-pastilla {
   display: inline-flex; align-items: center; gap: var(--e-2);
   min-height: var(--toque);
-  padding: 0 var(--e-3) 0 var(--e-4);
-  border-radius: var(--r-control);
+  padding: 0 var(--e-3) 0 var(--e-3);
+  border-radius: var(--r-mando);
   background: var(--superficie);
   font-size: var(--t-dato); font-weight: 600;
   white-space: nowrap;
@@ -258,12 +294,12 @@
 
 /* Búsqueda: un icono que se despliega en el móvil; campo fijo en escritorio */
 .busqueda { display: flex; min-width: 0; }
-.control-redondo { background: var(--superficie); }
+.control-redondo { background: var(--superficie); border-radius: var(--r-mando); }
 .busqueda-campo {
   position: relative; display: none; align-items: center;
   width: 100%; min-height: var(--toque);
   background: var(--superficie);
-  border-radius: var(--r-control);
+  border-radius: var(--r-mando);
 }
 .controles[data-buscando='true'] .busqueda-abrir { display: none; }
 .controles[data-buscando='true'] .busqueda-campo { display: flex; }
@@ -276,13 +312,19 @@
   color: var(--tinta);
   /* 16 px: por debajo, iOS hace zoom al enfocar el campo */
   font: inherit; font-size: var(--t-cuerpo);
-  border-radius: var(--r-control);
+  border-radius: var(--r-mando);
   -webkit-appearance: none; appearance: none;
 }
 .busqueda-entrada::placeholder { color: var(--apagada); opacity: 1; }
 .busqueda-entrada::-webkit-search-cancel-button,
 .busqueda-entrada::-webkit-search-decoration { -webkit-appearance: none; display: none; }
-.busqueda-cerrar { position: absolute; right: 0; color: var(--apagada); }
+/* Sus 44 px enteros para el dedo, pero el fondo al pasar por encima se
+   queda 2 px por dentro (content-box) y no tapa el anillo del campo. */
+.busqueda-cerrar {
+  position: absolute; right: 0;
+  padding: 2px; background-clip: content-box;
+  color: var(--apagada); border-radius: var(--r-mando);
+}
 .busqueda-cerrar .ico { width: 18px; height: 18px; }
 @media (min-width: 720px) {
   .busqueda-abrir { display: none; }
@@ -291,7 +333,8 @@
 
 /* Interruptores de cine. Sin ninguno encendido se ven todos, y así se pintan:
    los cuatro normales, con su punto de color. Con alguno encendido, el
-   encendido lleva su color de fondo y una marca, y los demás se apagan. */
+   encendido lleva el papel de su cine (como sus entradas) y una marca, y los
+   demás se apagan. */
 .cines {
   display: flex; gap: var(--e-2); align-items: center;
   min-width: 0;
@@ -311,28 +354,33 @@
   display: inline-flex; align-items: center; gap: var(--e-2);
   min-height: var(--toque);
   padding: 0 var(--e-4) 0 var(--e-3);
-  border-radius: var(--r-control);
+  border-radius: var(--r-mando);
   background: var(--superficie);
   font-size: var(--t-dato); font-weight: 600;
   white-space: nowrap;
   transition: transform var(--d-press) var(--ease-press), background-color 150ms ease, color 150ms ease;
 }
+/* El punto tiene SIEMPRE una caja de 18 px y lo que cambia es su escala:
+   animar width/height recolocaba el texto en cada fotograma (layout), y
+   transform no toca nada fuera del propio punto. 12 px = 18 × 0,667. */
 .cine-interruptor .punto {
   display: grid; place-items: center;
-  width: 12px; height: 12px; border-radius: 50%;
+  width: 18px; height: 18px; border-radius: 50%;
   background: var(--cine);
-  transition: width 150ms var(--ease-out), height 150ms var(--ease-out);
+  transform: scale(0.667);
+  transition: transform 150ms var(--ease-out);
 }
 .cine-interruptor[aria-pressed='true'] {
   background: color-mix(in oklab, var(--cine) 22%, var(--superficie));
   box-shadow: inset 0 0 0 1.5px var(--cine);
 }
-.cine-interruptor[aria-pressed='true'] .punto { width: 18px; height: 18px; }
+.cine-interruptor[aria-pressed='true'] .punto { transform: none; }
 .ico-marca { width: 13px; height: 13px; color: var(--fondo); stroke-width: 2.6; }
 .cines[data-todos='false'] .cine-interruptor[aria-pressed='false'] { color: var(--apagada); }
 .cines[data-todos='false'] .cine-interruptor[aria-pressed='false'] .punto {
   background: transparent;
-  box-shadow: inset 0 0 0 1.5px var(--cine);
+  /* 2,25 px a escala 0,667 = 1,5 px en pantalla */
+  box-shadow: inset 0 0 0 2.25px var(--cine);
 }
 .cines-todos {
   flex: 0 0 auto;
@@ -340,6 +388,26 @@
   font-size: var(--t-dato); font-weight: 600;
   color: var(--apagada);
   text-decoration: underline; text-underline-offset: 0.25em;
+}
+/* En el móvil estrecho caben los cuatro sin desplazarse de lado (antes el
+   cuarto, Arte Siete, se cortaba y había que arrastrar la fila): cuatro
+   columnas iguales, punto encima del nombre. Siguen midiendo 44 px de alto.
+   "Todos", cuando aparece, ocupa su propia línea debajo. */
+@media (max-width: 479px) {
+  .cines {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+    margin-inline: 0; padding: 0;
+  }
+  .cine-interruptor {
+    flex-direction: column; justify-content: center; gap: 1px;
+    min-width: 0; min-height: 48px;
+    padding: 3px 2px 4px;
+    font-size: var(--t-detalle);
+  }
+  .cine-interruptor .punto { margin-block: -2px; }
+  .cines-todos { grid-column: 1 / -1; justify-self: start; padding-inline: 2px; }
 }
 @media (hover: hover) {
   .cine-interruptor:hover { background: color-mix(in oklab, var(--cine) 12%, var(--superficie)); }

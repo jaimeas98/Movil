@@ -5,6 +5,7 @@
 import {
   esLaMismaPelicula, agruparPeliculas, ordenarPeliculas, minutosDeSesion,
   sesionesEnOrden, franjasPorHora, detallesDeSesion,
+  soloEnCines, comunesDelCine, propiosDeSesion, huecosPorMinuto,
 } from '../lib/cartelera.js';
 
 let fallos = 0;
@@ -85,6 +86,55 @@ const d = detallesDeSesion({ language: 'VOSE', format: '3D', room: '7' });
 JSON.stringify(d) === '{"etiquetas":["VOSE","3D"],"sala":"Sala 7"}' ? ok('detalles de la sesión') : mal(JSON.stringify(d));
 const p = detallesDeSesion({ language: 'VE', format: 'PREMIUM', room: 'PREMIUM' });
 p.sala === '' && p.etiquetas[0] === 'PREMIUM' ? ok('no repite el formato en la sala') : mal(JSON.stringify(p));
+
+// ── Lo común de un cine se escribe una vez ───────────────────────────────────
+// Todas las sesiones en "Sala Premium": la sala va junto al cine y no en cada
+// entrada. Si una es distinta, cada una lleva la suya.
+const premium = [sesion('17:15', { room: 'Sala Premium' }), sesion('19:00', { room: 'Sala Premium' }), sesion('21:10', { room: 'Sala Premium' })];
+const comunP = comunesDelCine(premium);
+comunP.sala === 'Sala Premium' && comunP.etiquetas.length === 0
+  ? ok('lo común: la sala que comparten todas se saca una vez') : mal(`comunes: ${JSON.stringify(comunP)}`);
+premium.every((x) => propiosDeSesion(x, comunP).sala === '')
+  ? ok('lo común: las entradas ya no repiten la sala') : mal('las entradas siguen repitiendo la sala común');
+const mezcla = [sesion('17:00', { language: 'VOSE', format: '4K Laser Atmos', room: '3' }), sesion('20:00', { language: 'VOSE', format: '4K Laser Atmos', room: '5' })];
+const comunM = comunesDelCine(mezcla);
+JSON.stringify(comunM) === '{"etiquetas":["VOSE","4K Laser Atmos"],"sala":""}'
+  ? ok('lo común: VOSE y formato compartidos, salas distintas se quedan en su entrada') : mal(`comunes mezcla: ${JSON.stringify(comunM)}`);
+propiosDeSesion(mezcla[1], comunM).sala === 'Sala 5' && propiosDeSesion(mezcla[1], comunM).etiquetas.length === 0
+  ? ok('lo común: cada entrada enseña solo lo que la distingue') : mal(JSON.stringify(propiosDeSesion(mezcla[1], comunM)));
+const unaSola = comunesDelCine([sesion('20:00', { language: 'VOSE' })]);
+!unaSola.sala && !unaSola.etiquetas.length
+  ? ok('lo común: con una sola sesión, lo suyo se queda en su entrada') : mal('una sesión sola no debería sacar nada');
+JSON.stringify(comunesDelCine([sesion('17:00', { language: 'VOSE' }), sesion('20:00')]).etiquetas) === '[]'
+  ? ok('lo común: si una no es VOSE, no se saca como común') : mal('VOSE de una sola se ha sacado como común');
+
+// ── Horario: una fila por película dentro de cada minuto ─────────────────────
+const tresCines = [
+  { id: 'a', short: 'A', movies: [{ id: 'sf', title: 'Street Fighter', sessions: [sesion('20:00')] }, { id: 'x', title: 'Otra', sessions: [sesion('20:00')] }] },
+  { id: 'b', short: 'B', movies: [{ id: 'sf', title: 'STREET FIGHTER', sessions: [sesion('20:00', { language: 'VOSE' })] }] },
+  { id: 'c', short: 'C', movies: [{ id: 'sf', title: 'Street Fighter', sessions: [sesion('20:00'), sesion('22:30')] }] },
+];
+const huecos = huecosPorMinuto(sesionesEnOrden(agruparPeliculas(tresCines)));
+const a20 = huecos.find((h) => h.minuto === 20 * 60);
+const sf = a20?.pelis.find((x) => x.pelicula.title === 'Street Fighter');
+a20?.pelis.length === 2 ? ok('horario: a las 20:00, dos filas (Street Fighter y Otra), no cuatro') : mal(`horario 20:00: ${a20?.pelis.map((x) => x.pelicula.title)}`);
+sf?.pases.map((x) => x.cine.id).join(',') === 'a,b,c'
+  ? ok('horario: Street Fighter una vez, con sus tres cines (cada uno su enlace)') : mal(`pases: ${sf?.pases.map((x) => x.cine.id)}`);
+huecos.map((h) => h.minuto).join(',') === `${20 * 60},${22 * 60 + 30}` ? ok('horario: un hueco por minuto de inicio') : mal(`huecos: ${huecos.map((h) => h.minuto)}`);
+
+// ── Filtro de cine: los datos de la película no dependen del filtro ──────────
+const dosDuraciones = [
+  { id: 'a', short: 'A', movies: [{ id: 'bn', title: 'La bola negra', durationMin: 155, ageRating: '+16', sessions: [sesion('19:00')] }] },
+  { id: 'b', short: 'B', movies: [{ id: 'bn', title: 'La bola negra', durationMin: 159, ageRating: 'M-16', sessions: [sesion('17:00')] }] },
+];
+const todas = agruparPeliculas(dosDuraciones);
+const soloB = soloEnCines(todas, ['b']);
+soloB[0]?.durationMin === todas[0].durationMin && soloB[0]?.ageRating === todas[0].ageRating
+  ? ok('filtro de cine: duración y edad no cambian al filtrar') : mal(`con filtro: ${soloB[0]?.durationMin} ${soloB[0]?.ageRating}`);
+soloB[0]?.cines.length === 1 && soloB[0].primera === 17 * 60
+  ? ok('filtro de cine: solo quedan sus sesiones y el orden se recalcula') : mal(JSON.stringify(soloB[0]?.cines.map((c) => c.cine.id)));
+soloEnCines(todas, ['z']).length === 0 ? ok('filtro de cine: sin sesiones en el cine elegido, no sale') : mal('sale una película sin sesiones en el cine elegido');
+soloEnCines(todas, []) === todas ? ok('filtro de cine: vacío = todos') : mal('sin filtro debería devolver la misma lista');
 
 if (fallos) { console.log(`\n${fallos} fallo(s)`); process.exit(1); }
 console.log('\ntodo bien');

@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T19:18:28.891Z",
+  "title": "Design System: Cartelera Cine Jaime · Bahía de Cádiz",
+  "extensions": {
+    "colorMeta": {
+      "fondo-noche": {
+        "role": "neutral",
+        "displayName": "Azul Noche de Bahía",
+        "canonical": "oklch(19.6% 0.038 260.5)",
+        "tonalRamp": [
+          "oklch(15% 0.038 260.5)",
+          "oklch(26% 0.038 260.5)",
+          "oklch(37% 0.038 260.5)",
+          "oklch(48% 0.038 260.5)",
+          "oklch(59% 0.038 260.5)",
+          "oklch(70% 0.038 260.5)",
+          "oklch(82% 0.038 260.5)",
+          "oklch(95% 0.038 260.5)"
+        ]
+      },
+      "superficie-noche": {
+        "role": "neutral",
+        "displayName": "Azul Superficie",
+        "canonical": "oklch(24.9% 0.052 261.3)",
+        "tonalRamp": [
+          "oklch(15% 0.052 261.3)",
+          "oklch(26% 0.052 261.3)",
+          "oklch(37% 0.052 261.3)",
+          "oklch(48% 0.052 261.3)",
+          "oklch(59% 0.052 261.3)",
+          "oklch(70% 0.052 261.3)",
+          "oklch(82% 0.052 261.3)",
+          "oklch(95% 0.052 261.3)"
+        ]
+      },
+      "flotante-noche": {
+        "role": "neutral",
+        "displayName": "Azul Flotante",
+        "canonical": "oklch(29.5% 0.061 261.6)",
+        "tonalRamp": [
+          "oklch(15% 0.061 261.6)",
+          "oklch(26% 0.061 261.6)",
+          "oklch(37% 0.061 261.6)",
+          "oklch(48% 0.061 261.6)",
+          "oklch(59% 0.061 261.6)",
+          "oklch(70% 0.061 261.6)",
+          "oklch(82% 0.061 261.6)",
+          "oklch(95% 0.061 261.6)"
+        ]
+      },
+      "tinta-cal": {
+        "role": "neutral",
+        "displayName": "Blanco Cal",
+        "canonical": "oklch(95.7% 0.005 247.9)",
+        "tonalRamp": [
+          "oklch(15% 0.005 247.9)",
+          "oklch(26% 0.005 247.9)",
+          "oklch(37% 0.005 247.9)",
+          "oklch(48% 0.005 247.9)",
+          "oklch(59% 0.005 247.9)",
+          "oklch(70% 0.005 247.9)",
+          "oklch(82% 0.005 247.9)",
+          "oklch(95% 0.005 247.9)"
+        ]
+      },
+      "apagada-noche": {
+        "role": "neutral",
+        "displayName": "Apagada (noche)",
+        "canonical": "oklch(76.3% 0.033 260.0)",
+        "tonalRamp": [
+          "oklch(15% 0.033 260.0)",
+          "oklch(26% 0.033 260.0)",
+          "oklch(37% 0.033 260.0)",
+          "oklch(48% 0.033 260.0)",
+          "oklch(59% 0.033 260.0)",
+          "oklch(70% 0.033 260.0)",
+          "oklch(82% 0.033 260.0)",
+          "oklch(95% 0.033 260.0)"
+        ]
+      },
+      "tenue-noche": {
+        "role": "neutral",
+        "displayName": "Tenue (noche)",
+        "canonical": "oklch(66.7% 0.041 260.6)",
+        "tonalRamp": [
+          "oklch(15% 0.041 260.6)",
+          "oklch(26% 0.041 260.6)",
+          "oklch(37% 0.041 260.6)",
+          "oklch(48% 0.041 260.6)",
+          "oklch(59% 0.041 260.6)",
+          "oklch(70% 0.041 260.6)",
+          "oklch(82% 0.041 260.6)",
+          "oklch(95% 0.041 260.6)"
+        ]
+      },
+      "rojo-butaca": {
+        "role": "primary",
+        "displayName": "Rojo Butaca",
+        "canonical": "oklch(54.0% 0.183 18.5)",
+        "tonalRamp": [
+          "oklch(15% 0.183 18.5)",
+          "oklch(26% 0.183 18.5)",
+          "oklch(37% 0.183 18.5)",
+          "oklch(48% 0.183 18.5)",
+          "oklch(59% 0.183 18.5)",
+          "oklch(70% 0.183 18.5)",
+          "oklch(82% 0.183 18.5)",
+          "oklch(95% 0.183 18.5)"
+        ]
+      },
+      "rojo-butaca-texto": {
+        "role": "primary",
+        "displayName": "Rojo Butaca Texto",
+        "canonical": "oklch(77.2% 0.137 12.9)",
+        "tonalRamp": [
+          "oklch(15% 0.137 12.9)",
+          "oklch(26% 0.137 12.9)",
+          "oklch(37% 0.137 12.9)",
+          "oklch(48% 0.137 12.9)",
+          "oklch(59% 0.137 12.9)",
+          "oklch(70% 0.137 12.9)",
+          "oklch(82% 0.137 12.9)",
+          "oklch(95% 0.137 12.9)"
+        ]
+      },
+      "ambar-bombilla": {
+        "role": "secondary",
+        "displayName": "Ámbar Bombilla",
+        "canonical": "oklch(81.4% 0.146 79.3)",
+        "tonalRamp": [
+          "oklch(15% 0.146 79.3)",
+          "oklch(26% 0.146 79.3)",
+          "oklch(37% 0.146 79.3)",
+          "oklch(48% 0.146 79.3)",
+          "oklch(59% 0.146 79.3)",
+          "oklch(70% 0.146 79.3)",
+          "oklch(82% 0.146 79.3)",
+          "oklch(95% 0.146 79.3)"
+        ]
+      },
+      "fondo-cal": {
+        "role": "neutral",
+        "displayName": "Blanco Cal Frío",
+        "canonical": "oklch(96.9% 0.006 255.5)",
+        "tonalRamp": [
+          "oklch(15% 0.006 255.5)",
+          "oklch(26% 0.006 255.5)",
+          "oklch(37% 0.006 255.5)",
+          "oklch(48% 0.006 255.5)",
+          "oklch(59% 0.006 255.5)",
+          "oklch(70% 0.006 255.5)",
+          "oklch(82% 0.006 255.5)",
+          "oklch(95% 0.006 255.5)"
+        ]
+      },
+      "superficie-cal": {
+        "role": "neutral",
+        "displayName": "Papel Blanco",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(59% 0.000 89.9)",
+          "oklch(70% 0.000 89.9)",
+          "oklch(82% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "tinta-anil": {
+        "role": "neutral",
+        "displayName": "Tinta Añil",
+        "canonical": "oklch(26.7% 0.076 269.2)",
+        "tonalRamp": [
+          "oklch(15% 0.076 269.2)",
+          "oklch(26% 0.076 269.2)",
+          "oklch(37% 0.076 269.2)",
+          "oklch(48% 0.076 269.2)",
+          "oklch(59% 0.076 269.2)",
+          "oklch(70% 0.076 269.2)",
+          "oklch(82% 0.076 269.2)",
+          "oklch(95% 0.076 269.2)"
+        ]
+      },
+      "apagada-cal": {
+        "role": "neutral",
+        "displayName": "Apagada (cal)",
+        "canonical": "oklch(45.7% 0.056 268.7)",
+        "tonalRamp": [
+          "oklch(15% 0.056 268.7)",
+          "oklch(26% 0.056 268.7)",
+          "oklch(37% 0.056 268.7)",
+          "oklch(48% 0.056 268.7)",
+          "oklch(59% 0.056 268.7)",
+          "oklch(70% 0.056 268.7)",
+          "oklch(82% 0.056 268.7)",
+          "oklch(95% 0.056 268.7)"
+        ]
+      },
+      "tenue-cal": {
+        "role": "neutral",
+        "displayName": "Tenue (cal)",
+        "canonical": "oklch(52.0% 0.049 269.0)",
+        "tonalRamp": [
+          "oklch(15% 0.049 269.0)",
+          "oklch(26% 0.049 269.0)",
+          "oklch(37% 0.049 269.0)",
+          "oklch(48% 0.049 269.0)",
+          "oklch(59% 0.049 269.0)",
+          "oklch(70% 0.049 269.0)",
+          "oklch(82% 0.049 269.0)",
+          "oklch(95% 0.049 269.0)"
+        ]
+      },
+      "rojo-butaca-claro": {
+        "role": "primary",
+        "displayName": "Rojo Butaca (claro)",
+        "canonical": "oklch(50.5% 0.176 19.1)",
+        "tonalRamp": [
+          "oklch(15% 0.176 19.1)",
+          "oklch(26% 0.176 19.1)",
+          "oklch(37% 0.176 19.1)",
+          "oklch(48% 0.176 19.1)",
+          "oklch(59% 0.176 19.1)",
+          "oklch(70% 0.176 19.1)",
+          "oklch(82% 0.176 19.1)",
+          "oklch(95% 0.176 19.1)"
+        ]
+      },
+      "rojo-texto-claro": {
+        "role": "primary",
+        "displayName": "Rojo Butaca Texto (claro)",
+        "canonical": "oklch(45.6% 0.159 18.2)",
+        "tonalRamp": [
+          "oklch(15% 0.159 18.2)",
+          "oklch(26% 0.159 18.2)",
+          "oklch(37% 0.159 18.2)",
+          "oklch(48% 0.159 18.2)",
+          "oklch(59% 0.159 18.2)",
+          "oklch(70% 0.159 18.2)",
+          "oklch(82% 0.159 18.2)",
+          "oklch(95% 0.159 18.2)"
+        ]
+      },
+      "ambar-claro": {
+        "role": "secondary",
+        "displayName": "Ámbar Bombilla (claro)",
+        "canonical": "oklch(76.3% 0.156 72.1)",
+        "tonalRamp": [
+          "oklch(15% 0.156 72.1)",
+          "oklch(26% 0.156 72.1)",
+          "oklch(37% 0.156 72.1)",
+          "oklch(48% 0.156 72.1)",
+          "oklch(59% 0.156 72.1)",
+          "oklch(70% 0.156 72.1)",
+          "oklch(82% 0.156 72.1)",
+          "oklch(95% 0.156 72.1)"
+        ]
+      },
+      "ambar-texto-claro": {
+        "role": "secondary",
+        "displayName": "Ámbar Texto (claro)",
+        "canonical": "oklch(50.0% 0.109 69.6)",
+        "tonalRamp": [
+          "oklch(15% 0.109 69.6)",
+          "oklch(26% 0.109 69.6)",
+          "oklch(37% 0.109 69.6)",
+          "oklch(48% 0.109 69.6)",
+          "oklch(59% 0.109 69.6)",
+          "oklch(70% 0.109 69.6)",
+          "oklch(82% 0.109 69.6)",
+          "oklch(95% 0.109 69.6)"
+        ]
+      },
+      "cine-cinesur": {
+        "role": "tertiary",
+        "displayName": "Rosa Cinesur",
+        "canonical": "oklch(73.8% 0.153 353.3)",
+        "tonalRamp": [
+          "oklch(15% 0.153 353.3)",
+          "oklch(26% 0.153 353.3)",
+          "oklch(37% 0.153 353.3)",
+          "oklch(48% 0.153 353.3)",
+          "oklch(59% 0.153 353.3)",
+          "oklch(70% 0.153 353.3)",
+          "oklch(82% 0.153 353.3)",
+          "oklch(95% 0.153 353.3)"
+        ]
+      },
+      "cine-bahiasur": {
+        "role": "tertiary",
+        "displayName": "Cielo Bahía Sur",
+        "canonical": "oklch(77.6% 0.111 230.6)",
+        "tonalRamp": [
+          "oklch(15% 0.111 230.6)",
+          "oklch(26% 0.111 230.6)",
+          "oklch(37% 0.111 230.6)",
+          "oklch(48% 0.111 230.6)",
+          "oklch(59% 0.111 230.6)",
+          "oklch(70% 0.111 230.6)",
+          "oklch(82% 0.111 230.6)",
+          "oklch(95% 0.111 230.6)"
+        ]
+      },
+      "cine-areasur": {
+        "role": "tertiary",
+        "displayName": "Lavanda Área Sur",
+        "canonical": "oklch(75.8% 0.123 295.6)",
+        "tonalRamp": [
+          "oklch(15% 0.123 295.6)",
+          "oklch(26% 0.123 295.6)",
+          "oklch(37% 0.123 295.6)",
+          "oklch(48% 0.123 295.6)",
+          "oklch(59% 0.123 295.6)",
+          "oklch(70% 0.123 295.6)",
+          "oklch(82% 0.123 295.6)",
+          "oklch(95% 0.123 295.6)"
+        ]
+      },
+      "cine-artesiete": {
+        "role": "tertiary",
+        "displayName": "Verde Arte Siete",
+        "canonical": "oklch(78.4% 0.136 159.9)",
+        "tonalRamp": [
+          "oklch(15% 0.136 159.9)",
+          "oklch(26% 0.136 159.9)",
+          "oklch(37% 0.136 159.9)",
+          "oklch(48% 0.136 159.9)",
+          "oklch(59% 0.136 159.9)",
+          "oklch(70% 0.136 159.9)",
+          "oklch(82% 0.136 159.9)",
+          "oklch(95% 0.136 159.9)"
+        ]
+      },
+      "cine-cinesur-claro": {
+        "role": "tertiary",
+        "displayName": "Rosa Cinesur (claro)",
+        "canonical": "oklch(52.0% 0.174 356.0)",
+        "tonalRamp": [
+          "oklch(15% 0.174 356.0)",
+          "oklch(26% 0.174 356.0)",
+          "oklch(37% 0.174 356.0)",
+          "oklch(48% 0.174 356.0)",
+          "oklch(59% 0.174 356.0)",
+          "oklch(70% 0.174 356.0)",
+          "oklch(82% 0.174 356.0)",
+          "oklch(95% 0.174 356.0)"
+        ]
+      },
+      "cine-bahiasur-claro": {
+        "role": "tertiary",
+        "displayName": "Cielo Bahía Sur (claro)",
+        "canonical": "oklch(49.7% 0.106 237.3)",
+        "tonalRamp": [
+          "oklch(15% 0.106 237.3)",
+          "oklch(26% 0.106 237.3)",
+          "oklch(37% 0.106 237.3)",
+          "oklch(48% 0.106 237.3)",
+          "oklch(59% 0.106 237.3)",
+          "oklch(70% 0.106 237.3)",
+          "oklch(82% 0.106 237.3)",
+          "oklch(95% 0.106 237.3)"
+        ]
+      },
+      "cine-areasur-claro": {
+        "role": "tertiary",
+        "displayName": "Lavanda Área Sur (claro)",
+        "canonical": "oklch(50.0% 0.185 291.1)",
+        "tonalRamp": [
+          "oklch(15% 0.185 291.1)",
+          "oklch(26% 0.185 291.1)",
+          "oklch(37% 0.185 291.1)",
+          "oklch(48% 0.185 291.1)",
+          "oklch(59% 0.185 291.1)",
+          "oklch(70% 0.185 291.1)",
+          "oklch(82% 0.185 291.1)",
+          "oklch(95% 0.185 291.1)"
+        ]
+      },
+      "cine-artesiete-claro": {
+        "role": "tertiary",
+        "displayName": "Verde Arte Siete (claro)",
+        "canonical": "oklch(50.1% 0.112 157.9)",
+        "tonalRamp": [
+          "oklch(15% 0.112 157.9)",
+          "oklch(26% 0.112 157.9)",
+          "oklch(37% 0.112 157.9)",
+          "oklch(48% 0.112 157.9)",
+          "oklch(59% 0.112 157.9)",
+          "oklch(70% 0.112 157.9)",
+          "oklch(82% 0.112 157.9)",
+          "oklch(95% 0.112 157.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Rótulo del día",
+        "purpose": "El día elegido en escritorio y los títulos de hoja; en el móvil baja a 1,375rem en línea con su resumen."
+      },
+      "headline": {
+        "displayName": "Título de marquesina",
+        "purpose": "El título de cada película, en mayúsculas."
+      },
+      "title": {
+        "displayName": "La hora",
+        "purpose": "La hora de cada entrada y de cada hueco del Horario; cifras en celdas de 0,45em."
+      },
+      "title-sm": {
+        "displayName": "Título pequeño",
+        "purpose": "La película dentro del Horario y de Próximas."
+      },
+      "body": {
+        "displayName": "Texto",
+        "purpose": "Sinopsis y textos de estado (máx. 65ch)."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Nombres de cine, mandos, botones, datos de la película."
+      },
+      "detail": {
+        "displayName": "Detalle",
+        "purpose": "VOSE/3D/sala dentro de la entrada, avisos, fuente de cada nota."
+      }
+    },
+    "shadows": [
+      {
+        "name": "flotante",
+        "value": "0 10px 30px -8px rgba(2, 6, 14, 0.7), 0 2px 6px rgba(2, 6, 14, 0.5)",
+        "purpose": "Panel de géneros (claro: 0 12px 32px -10px rgba(23,34,74,.28), 0 2px 6px rgba(23,34,74,.10))."
+      },
+      {
+        "name": "hoja-movil",
+        "value": "0 -10px 36px -14px rgba(2, 6, 14, 0.65)",
+        "purpose": "La hoja que sube desde abajo."
+      },
+      {
+        "name": "panel-lateral",
+        "value": "-24px 0 48px -28px rgba(2, 6, 14, 0.6)",
+        "purpose": "El panel de escritorio, con un borde de 1 px en Línea."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "Frenada seca: entrada y vuelta del día, panel de géneros, fundidos."
+      },
+      {
+        "name": "ease-press",
+        "value": "cubic-bezier(.23, 1, .32, 1)",
+        "purpose": "Vuelta de la pulsación (160 ms); al apretar, 40 ms."
+      },
+      {
+        "name": "muelle-entrada-hoja",
+        "value": "ζ 1, respuesta 0.30 s",
+        "purpose": "La hoja/panel entra; también la vuelta a su sitio sin lanzamiento."
+      },
+      {
+        "name": "muelle-vuelta-lanzada",
+        "value": "ζ 0.8, respuesta 0.32 s",
+        "purpose": "Vuelta tras un lanzamiento: el único rebote."
+      },
+      {
+        "name": "muelle-salida-hoja",
+        "value": "ζ 1, respuesta 0.26 s, 24 px más allá del borde",
+        "purpose": "Cierre con botón, velo o Escape cuando no hay vuelo del cartel."
+      },
+      {
+        "name": "tramo-salida-gesto",
+        "value": "T = clamp(D / max(v,1), 160, 280) ms; cubic-bezier(.2, min(1, .2·v·T/D), .4, 1)",
+        "purpose": "Cierre con el dedo: arranca a la velocidad del dedo."
+      },
+      {
+        "name": "vuelo-cartel",
+        "value": "linear() de ζ 1 / 0.30 s en 320 ms (abrir); ζ 1 / 0.24 s en 260 ms (cerrar)",
+        "purpose": "View Transition cartel → ficha y vuelta."
+      },
+      {
+        "name": "dia-salida",
+        "value": "180ms ease-out hasta x − dir·max(40, |v|·120)",
+        "purpose": "El día viejo sigue hacia donde iba el dedo."
+      },
+      {
+        "name": "dia-entrada",
+        "value": "180ms ease-out, 32 px, opacidad 0.3 → 1",
+        "purpose": "El día nuevo entra por el otro lado."
+      },
+      {
+        "name": "dia-vuelta",
+        "value": "200ms ease-out",
+        "purpose": "Deslizamiento que se queda corto."
+      },
+      {
+        "name": "reducido",
+        "value": "fundidos: hoja 180 ms entra / 140 ms sale / 150 ms vuelve; día 120 ms",
+        "purpose": "Movimiento reducido: el dedo se sigue 1:1, lo demás se funde."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "cartel-al-lado",
+        "value": "480px"
+      },
+      {
+        "name": "cartel-columna",
+        "value": "560px"
+      },
+      {
+        "name": "tableta",
+        "value": "720px"
+      },
+      {
+        "name": "panel-lateral",
+        "value": "900px"
+      },
+      {
+        "name": "dos-columnas",
+        "value": "960px"
+      },
+      {
+        "name": "controles-en-linea",
+        "value": "1180px"
+      },
+      {
+        "name": "margen-ancho",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Entrada (sesión)",
+      "kind": "custom",
+      "refersTo": "entrada",
+      "description": "La sesión como entrada de papel con el tinte de su cine y troquel; pulsarla es comprar.",
+      "html": "<div class=\"ds-entradas\"><a class=\"ds-entrada\" href=\"#\"><span class=\"ds-hora\">20:30</span><span class=\"ds-entrada-datos\">Sala 2</span></a><a class=\"ds-entrada\" href=\"#\"><span class=\"ds-hora\">21:40</span><span class=\"ds-entrada-datos\"><b>VOSE</b></span></a><a class=\"ds-entrada\" href=\"#\"><span class=\"ds-hora\">22:00</span></a></div>",
+      "css": ".ds-entradas{display:grid;grid-template-columns:repeat(auto-fill,minmax(5.25rem,1fr));gap:6px;max-width:360px;--cine:#62C3F0}.ds-entrada{--papel:color-mix(in oklab,var(--cine) 17%,var(--superficie, #13213A));position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;min-height:3.625rem;padding:6px 11px 7px;border-radius:6px;color:var(--tinta, #EEF1F4);text-decoration:none;transition:transform 160ms cubic-bezier(.23,1,.32,1)}.ds-entrada::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--papel);-webkit-mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat}.ds-entrada:hover{--papel:color-mix(in oklab,var(--cine) 28%,var(--superficie, #13213A))}.ds-entrada:active{transform:scale(.97);transition-duration:40ms}.ds-entrada:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}.ds-hora{font-family:'Big Shoulders Display Variable','Arial Narrow',sans-serif;font-size:1.75rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}.ds-entrada-datos{margin-top:3px;font-family:'Hanken Grotesk Variable',sans-serif;font-size:.8125rem;line-height:1.2;color:var(--apagada, #A6B3C8)}.ds-entrada-datos b{color:var(--tinta, #EEF1F4);font-weight:700}"
+    },
+    {
+      "name": "Entrada pronto",
+      "kind": "custom",
+      "refersTo": "entrada-pronto",
+      "description": "Empieza en menos de una hora: papel ámbar de bombilla con \"en N min\".",
+      "html": "<a class=\"ds-entrada-pronto\" href=\"#\"><span class=\"ds-hora\">19:00</span><span class=\"ds-falta\">en 20 min</span></a>",
+      "css": ".ds-entrada-pronto{position:relative;isolation:isolate;display:inline-flex;flex-direction:column;justify-content:center;min-width:5.25rem;min-height:3.625rem;padding:6px 11px 7px;border-radius:6px;color:var(--ambar-tinta, #0B1526);text-decoration:none;transition:transform 160ms cubic-bezier(.23,1,.32,1)}.ds-entrada-pronto::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--ambar, #F4B642);-webkit-mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat}.ds-entrada-pronto:hover::before{background:color-mix(in oklab,var(--ambar, #F4B642) 88%,white)}.ds-entrada-pronto:active{transform:scale(.97);transition-duration:40ms}.ds-entrada-pronto:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}.ds-hora{font-family:'Big Shoulders Display Variable','Arial Narrow',sans-serif;font-size:1.75rem;font-weight:700;line-height:1}.ds-falta{margin-top:3px;font-family:'Hanken Grotesk Variable',sans-serif;font-size:.8125rem;font-weight:700}"
+    },
+    {
+      "name": "Línea de ya empezadas",
+      "kind": "custom",
+      "description": "Las sesiones de hoy que ya han empezado: discretas, en Tenue, siguen siendo enlaces de 44 px.",
+      "html": "<p class=\"ds-empezadas\"><a href=\"#\" class=\"ds-empezada\">17:15</a><a href=\"#\" class=\"ds-empezada\">18:00</a><span class=\"ds-empezadas-texto\">· ya empezadas</span></p>",
+      "css": ".ds-empezadas{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:12px;margin:0;font-family:'Hanken Grotesk Variable',sans-serif;font-size:.875rem;line-height:20px;color:var(--tenue, #8695AE);font-variant-numeric:tabular-nums}.ds-empezada{font-weight:650;color:inherit;text-decoration:none;padding:12px 5px;margin:-12px -5px;border-radius:4px}.ds-empezada:hover{color:var(--tinta, #EEF1F4);text-decoration:underline;text-underline-offset:.2em}.ds-empezada:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}"
+    },
+    {
+      "name": "Día de la tira",
+      "kind": "nav",
+      "refersTo": "dia-elegido",
+      "description": "Ficha redonda de 54 px; el día elegido en rojo butaca.",
+      "html": "<div class=\"ds-dias\"><button class=\"ds-dia ds-dia-activo\" aria-selected=\"true\"><span class=\"ds-dia-n\">Hoy</span><span class=\"ds-dia-num\">16</span></button><button class=\"ds-dia\"><span class=\"ds-dia-n\">Mañana</span><span class=\"ds-dia-num\">17</span></button><button class=\"ds-dia\"><span class=\"ds-dia-n\">dom</span><span class=\"ds-dia-num\">18</span></button></div>",
+      "css": ".ds-dias{display:flex;gap:4px}.ds-dia{width:54px;min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:0;border-radius:999px;background:none;color:var(--apagada, #A6B3C8);cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 150ms ease}.ds-dia:hover:not(.ds-dia-activo){background:var(--superficie, #13213A)}.ds-dia:active{transform:scale(.95);transition-duration:40ms}.ds-dia:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}.ds-dia-n{font-family:'Hanken Grotesk Variable',sans-serif;font-size:.75rem;font-weight:600}.ds-dia-num{font-family:'Big Shoulders Display Variable',sans-serif;font-size:1.625rem;font-weight:700;line-height:1;color:var(--tinta, #EEF1F4)}.ds-dia-activo{background:var(--rojo, #C22E43)}.ds-dia-activo .ds-dia-n,.ds-dia-activo .ds-dia-num{color:#fff}"
+    },
+    {
+      "name": "Películas | Horario",
+      "kind": "chip",
+      "refersTo": "vista-segmentada",
+      "description": "Control segmentado como entrada de dos partes: troquel en los extremos y picado entre opciones.",
+      "html": "<div class=\"ds-vista\" role=\"group\"><button class=\"ds-vista-op\" aria-pressed=\"true\">Películas</button><button class=\"ds-vista-op\" aria-pressed=\"false\">Horario</button></div>",
+      "css": ".ds-vista{position:relative;isolation:isolate;display:inline-flex;padding:0 7px;border-radius:8px}.ds-vista::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--superficie, #13213A);-webkit-mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;mask:radial-gradient(circle 4.5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 4.5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat}.ds-vista-op{position:relative;isolation:isolate;min-height:44px;padding:0 16px;border:0;background:none;border-radius:5px;font-family:'Hanken Grotesk Variable',sans-serif;font-size:.875rem;font-weight:600;color:var(--apagada, #A6B3C8);cursor:pointer}.ds-vista-op::after{content:'';position:absolute;inset:3px 0;z-index:-1;border-radius:inherit}.ds-vista-op+.ds-vista-op::before{content:'';position:absolute;left:-1px;top:9px;bottom:9px;border-left:2px dotted var(--linea-fuerte, rgba(166,179,200,.3))}.ds-vista-op[aria-pressed=true]{color:var(--fondo, #0B1526)}.ds-vista-op[aria-pressed=true]::after{background:var(--tinta, #EEF1F4)}.ds-vista-op[aria-pressed=false]:hover{color:var(--tinta, #EEF1F4)}.ds-vista-op:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}"
+    },
+    {
+      "name": "Interruptor de cine",
+      "kind": "chip",
+      "refersTo": "interruptor-cine",
+      "description": "Papel con el punto del cine; encendido, papel del cine con contorno y marca.",
+      "html": "<div class=\"ds-cines\"><button class=\"ds-cine\" aria-pressed=\"false\" style=\"--cine:#F27EB2\"><span class=\"ds-punto\"></span>Cinesur</button><button class=\"ds-cine\" aria-pressed=\"true\" style=\"--cine:#62C3F0\"><span class=\"ds-punto\"><svg viewBox=\"0 0 24 24\" width=\"13\" height=\"13\" fill=\"none\" stroke=\"#0B1526\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg></span>Bahía Sur</button></div>",
+      "css": ".ds-cines{display:flex;gap:8px}.ds-cine{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:0;border-radius:8px;background:var(--superficie, #13213A);color:var(--tinta, #EEF1F4);font-family:'Hanken Grotesk Variable',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 150ms ease}.ds-cine:hover{background:color-mix(in oklab,var(--cine) 12%,var(--superficie, #13213A))}.ds-cine:active{transform:scale(.97);transition-duration:40ms}.ds-cine:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}.ds-punto{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--cine);transform:scale(.667);transition:transform 150ms cubic-bezier(.22,1,.36,1)}.ds-cine[aria-pressed=true]{background:color-mix(in oklab,var(--cine) 22%,var(--superficie, #13213A));box-shadow:inset 0 0 0 1.5px var(--cine)}.ds-cine[aria-pressed=true] .ds-punto{transform:none}"
+    },
+    {
+      "name": "Campo de búsqueda",
+      "kind": "input",
+      "refersTo": "campo-busqueda",
+      "description": "Campo de 44 px del papel de los mandos, lupa dentro y equis que borra y luego cierra.",
+      "html": "<label class=\"ds-busqueda\"><svg class=\"ds-lupa\" viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M20 20l-4.2-4.2\"/></svg><input type=\"search\" placeholder=\"Buscar película\"></label>",
+      "css": ".ds-busqueda{position:relative;display:flex;align-items:center;width:280px;min-height:44px;border-radius:8px;background:var(--superficie, #13213A);color:var(--apagada, #A6B3C8)}.ds-busqueda:focus-within{box-shadow:inset 0 0 0 1.5px var(--tinta, #EEF1F4)}.ds-lupa{position:absolute;left:14px;pointer-events:none}.ds-busqueda input{width:100%;min-height:44px;padding:0 44px 0 42px;border:0;outline:0;background:transparent;color:var(--tinta, #EEF1F4);font:16px 'Hanken Grotesk Variable',sans-serif;border-radius:8px}.ds-busqueda input::placeholder{color:var(--apagada, #A6B3C8);opacity:1}"
+    },
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "boton-principal",
+      "description": "La acción principal de un estado (Reintentar, Borrar la búsqueda): rojo butaca.",
+      "html": "<button class=\"ds-boton-principal\">Reintentar</button> <button class=\"ds-boton\">Quitar filtros</button>",
+      "css": ".ds-boton-principal,.ds-boton{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 24px;border:0;border-radius:8px;font-family:'Hanken Grotesk Variable',sans-serif;font-size:.875rem;font-weight:650;cursor:pointer;transition:transform 160ms cubic-bezier(.23,1,.32,1),background-color 150ms ease}.ds-boton-principal{background:var(--rojo, #C22E43);color:#fff}.ds-boton-principal:hover{background:color-mix(in oklab,var(--rojo, #C22E43) 88%,black)}.ds-boton{background:var(--superficie, #13213A);color:var(--tinta, #EEF1F4)}.ds-boton:hover{background:var(--superficie-2, #1B2C4B)}.ds-boton-principal:active,.ds-boton:active{transform:scale(.97);transition-duration:40ms}.ds-boton-principal:focus-visible,.ds-boton:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}"
+    },
+    {
+      "name": "Fila del Horario",
+      "kind": "custom",
+      "description": "La hora una vez por minuto; una fila por película con sus cines, cada uno su enlace.",
+      "html": "<div class=\"ds-hueco\"><p class=\"ds-hueco-hora\"><span class=\"ds-hora ds-ambar\">19:00</span><span class=\"ds-hueco-falta\">en 20 min</span></p><div><p class=\"ds-fila-titulo\">LA BOLA NEGRA</p><p class=\"ds-pases\"><a href=\"#\" class=\"ds-pase\" style=\"--cine:#5CD39A\"><span class=\"ds-p\"></span><b>Arte Siete</b> <b>4K Laser Atmos</b> Sala 03</a><a href=\"#\" class=\"ds-pase\" style=\"--cine:#F27EB2\"><span class=\"ds-p\"></span><b>Cinesur</b> Sala Premium</a></p></div></div>",
+      "css": ".ds-hueco{display:grid;grid-template-columns:4.25rem minmax(0,1fr);column-gap:12px;max-width:360px;color:var(--tinta, #EEF1F4)}.ds-hueco-hora{display:grid;justify-items:start;gap:4px;margin:0}.ds-hora{font-family:'Big Shoulders Display Variable',sans-serif;font-size:1.75rem;font-weight:700;line-height:1}.ds-ambar{color:var(--ambar-texto, #F4B642)}.ds-hueco-falta{padding:2px 8px;border-radius:999px;background:var(--ambar, #F4B642);color:var(--ambar-tinta, #0B1526);font:700 .75rem/1.3 'Hanken Grotesk Variable',sans-serif}.ds-fila-titulo{margin:0;padding-top:3px;font-family:'Big Shoulders Display Variable',sans-serif;font-size:1.25rem;font-weight:800;line-height:1;letter-spacing:.01em}.ds-pases{display:flex;flex-direction:column;margin:0}.ds-pase{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-block:-11px;font:500 .8125rem/1.3 'Hanken Grotesk Variable',sans-serif;color:var(--apagada, #A6B3C8);text-decoration:none}.ds-pase b{color:var(--tinta, #EEF1F4);font-weight:650}.ds-pase:hover b:first-of-type{text-decoration:underline}.ds-pase:focus-visible{outline:2px solid var(--anillo, #FF8E9C);outline-offset:2px}.ds-p{width:8px;height:8px;border-radius:50%;background:var(--cine)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Marquesina de la Bahía",
+    "overview": "La cartelera se lee como el rótulo de un cine de barrio por la noche: letras de marquesina altas y estrechas sobre el azul hondo de la bahía de Cádiz, y debajo, entradas de papel con la hora en grande. La hora manda. Cada película es \"sus horas por toda la bahía\", agrupadas por cine con el color de ese cine, y hay una vista por horas para \"qué empieza ya\". Es una herramienta de uso diario desde el móvil, de tarde o de noche, así que la densidad es la de un producto (Operate), no la de una portada: poco texto de adorno, mucho dato a la vista, y la marca vive en piezas concretas (la entrada troquelada, la línea \"Ahora\" en ámbar, el rótulo condensado), no en decorado.\n\nEl oscuro es el tema por defecto y el de referencia; el claro es \"blanco cal\" frío con tinta añil y el mismo rojo. Rojo butaca solo para lo elegido y la acción principal; ámbar de bombilla solo para lo que está a punto de empezar. Todo lo demás es azul y tinta, en pasos de tono, sin filetes entre piezas: las separa el aire.\n\nEl movimiento es físico y breve: muelles críticamente amortiguados que arrancan a la velocidad del dedo y se pueden agarrar a mitad, una sola interacción firma (el cartel que vuela de la lista a la ficha) y nada de animación de adorno en lo que se hace cien veces al día (cambiar de día, abrir con el teclado).",
+    "keyCharacteristics": [
+      "La hora como protagonista: Big Shoulders 700 a 28 px, cifras en celdas de ancho fijo.",
+      "La sesión es una entrada de papel con el color de su cine y dos muescas de troquel.",
+      "Un solo estado encendido: ámbar \"en N min\" para la próxima hora y la línea \"Ahora\".",
+      "Fondo azul noche tintado, nunca negro; tinta blanco cal, nunca blanco puro de pantalla.",
+      "Lo común se dice una vez (la sala junto al cine, la película una vez por minuto en Horario).",
+      "Lo pasado se apaga y se encoge: una línea discreta, no entradas de tamaño completo.",
+      "Muelles con velocidad heredada; gestos 1:1 con el dedo, también con movimiento reducido."
+    ],
+    "rules": [
+      {
+        "name": "The One Red Rule",
+        "body": "El rojo butaca es lo elegido o la acción principal, y en pantalla hay un rojo grande a la vez (el día). El cambio Películas/Horario va en tinta invertida, no en rojo, precisamente para no pelearse con el día.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Bulb Rule",
+        "body": "El ámbar significa \"empieza en menos de una hora\" y nada más. No es un acento ni un color de aviso: los avisos de datos van en apagado con su icono.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper Tint Rule",
+        "body": "El color de un cine nunca es un fondo pleno ni un borde grueso: es un punto o un tinte del papel (≤ 28 %). La única excepción es el interruptor encendido, que lleva su contorno de 1,5 px en el color del cine.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hour First Rule",
+        "body": "En cualquier pieza con sesión, la hora es lo más grande y lo primero; idioma, formato y sala van debajo en Detail. Nunca al revés.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "No hay etiquetas en mayúsculas espaciadas encima de los títulos. Las mayúsculas son de los títulos condensados, no de rótulos de sección.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tone Step Rule",
+        "body": "Para separar, primero aire; si no basta, un paso de tono. Un filete de 1 px solo donde el contenido pasa por debajo (la tira pegada) o en el borde de la página (el pie).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do poner la hora en Big Shoulders 700 a 1,75rem con cifras en celdas de 0,45em en cualquier pieza nueva que muestre una sesión.",
+      "Do hacer de cada sesión una entrada de papel con el tinte de su cine (17 % / 11 %) y su troquel, en la rejilla `minmax(5.25rem, 1fr)`.",
+      "Do escribir una vez lo que comparten todas las sesiones de un cine, junto al nombre del cine, y dejar en cada entrada solo lo que la distingue.",
+      "Do apagar y encoger lo que ya ha empezado (Tenue, una línea), sin quitarle el enlace ni la frase completa al lector de pantalla.",
+      "Do separar con aire y pasos de tono (fondo → superficie → flotante) antes que con filetes.",
+      "Do usar `{rounded.mando}` para cualquier mando nuevo de la fila de controles y `{rounded.control}` solo para puntos, fichas e iconos.",
+      "Do lanzar el movimiento desde el valor en pantalla y con la velocidad del dedo (lib/muelle.js), y dejar que se pueda agarrar a mitad.",
+      "Do medir el contraste al tocar un tono y anotarlo junto al token en `tokens.css` (AA: 4,5:1 para todo el texto de 13–14 px).",
+      "Do mantener todos los objetivos táctiles en 44 px, ampliando el área por fuera (márgenes negativos o `::after`) cuando la pieza visible es más pequeña."
+    ],
+    "donts": [
+      "Don't usar el rojo butaca para nada que no sea lo elegido o la acción principal, ni poner dos rojos grandes a la vez.",
+      "Don't usar el ámbar como acento, aviso o decoración: es solo \"empieza en menos de una hora\".",
+      "Don't usar negro puro, gris neutro ni un fondo crema: el fondo es azul noche tintado o blanco cal frío.",
+      "Don't repetir el mismo dato en cada pieza de un grupo (la sala en cada entrada, el mismo título tres veces en el mismo minuto).",
+      "Don't volver a las pastillas redondas del todo para los mandos ni añadir halos, cristal o degradados de relleno.",
+      "Don't poner etiquetas en mayúsculas espaciadas encima de los títulos, emoji como iconos ni números de sección.",
+      "Don't animar el cambio de día con entradas en cascada ni lo que se hace con el teclado; nada de rebote sin un gesto con inercia detrás.",
+      "Don't animar `width`, `height`, `top` o `left`: solo `transform` y `opacity` (el punto de cine escala dentro de una caja fija de 18 px).",
+      "Don't dejar que una hoja o un panel atrape toques cuando ya se ve fuera, ni que el cartel vuele desde algo que no se ve."
+    ]
+  }
+}
