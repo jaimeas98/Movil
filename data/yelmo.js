@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-16T15:12:24.802Z",
+  "generatedAt": "2026-10-16T16:12:51.042Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -533,7 +533,7 @@ export default {
           ],
           "FilterDate": "/Date(1792126800000)/",
           "ShowtimeDate": "16 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -1199,7 +1199,7 @@ export default {
           ],
           "FilterDate": "/Date(1792213200000)/",
           "ShowtimeDate": "17 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -1843,7 +1843,7 @@ export default {
           ],
           "FilterDate": "/Date(1792299600000)/",
           "ShowtimeDate": "18 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -2455,7 +2455,7 @@ export default {
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -3067,7 +3067,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -3679,7 +3679,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4313,7 +4313,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4385,7 +4385,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4511,7 +4511,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4691,7 +4691,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4741,7 +4741,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4888,7 +4888,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -4981,7 +4981,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5031,7 +5031,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5081,7 +5081,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5131,7 +5131,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5235,7 +5235,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5285,7 +5285,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5335,7 +5335,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5385,7 +5385,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5435,7 +5435,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5485,7 +5485,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5557,7 +5557,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5684,7 +5684,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5778,7 +5778,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5872,7 +5872,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -5966,7 +5966,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         }
       ],
       "Id": 74,
@@ -6735,7 +6735,7 @@ export default {
           ],
           "FilterDate": "/Date(1792126800000)/",
           "ShowtimeDate": "16 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -7596,7 +7596,7 @@ export default {
           ],
           "FilterDate": "/Date(1792213200000)/",
           "ShowtimeDate": "17 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -8479,7 +8479,7 @@ export default {
           ],
           "FilterDate": "/Date(1792299600000)/",
           "ShowtimeDate": "18 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -9362,7 +9362,7 @@ export default {
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -10256,7 +10256,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -11139,7 +11139,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12097,7 +12097,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12169,7 +12169,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12381,7 +12381,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12593,7 +12593,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12686,7 +12686,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12779,7 +12779,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12872,7 +12872,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -12965,7 +12965,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13101,7 +13101,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13291,7 +13291,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13384,7 +13384,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13434,7 +13434,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13484,7 +13484,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13534,7 +13534,7 @@ export default {
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13584,7 +13584,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13731,7 +13731,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13781,7 +13781,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13874,7 +13874,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13924,7 +13924,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -13974,7 +13974,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14024,7 +14024,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14074,7 +14074,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14146,7 +14146,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14327,7 +14327,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14486,7 +14486,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14645,7 +14645,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14793,7 +14793,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14843,7 +14843,7 @@ export default {
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14893,7 +14893,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14943,7 +14943,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -14993,7 +14993,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -15043,7 +15043,7 @@ export default {
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -15093,7 +15093,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -15143,7 +15143,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -15193,7 +15193,7 @@ export default {
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         },
         {
           "Movies": [
@@ -15243,7 +15243,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-16T15:12:25.129Z"
+          "_recogido": "2026-10-16T16:12:51.270Z"
         }
       ],
       "Id": 53,
