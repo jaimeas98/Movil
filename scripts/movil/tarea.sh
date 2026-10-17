@@ -163,7 +163,12 @@ recolectar() {
   [ -d "$nav/node_modules/puppeteer-core" ] \
     || { echo "❌ falta puppeteer-core en ~/navegador (cd ~/navegador && npm install puppeteer-core)"; return 1; }
   cp "$DIR/scripts/movil/recolector-navegador.mjs" "$nav/recolector.mjs"
-  ( cd "$nav" && DESTINO="$DIR/data/yelmo.js" CHROME="$chrome" timeout 240 node recolector.mjs ) && return 0
+  # Modelo y Android, los de ESTE móvil: Chromium se presenta como su Chrome
+  # (ver recolector-navegador.mjs). Si el móvil se cambia, cambian solos.
+  ( cd "$nav" && DESTINO="$DIR/data/yelmo.js" CHROME="$chrome" \
+      DISPOSITIVO_MODELO="$(getprop ro.product.model 2>/dev/null)" \
+      DISPOSITIVO_ANDROID="$(getprop ro.build.version.release 2>/dev/null)" \
+      timeout 240 node recolector.mjs ) && return 0
   local r=$?
   [ "$r" = 124 ] && echo "❌ cortado a los 4 minutos (¿Yelmo o la red muy lentos?)"
   return "$r"
@@ -283,8 +288,8 @@ if [ -f data/orden.sh ]; then
 fi
 
 # ── Límite de carga con un enchufe inteligente (opcional) ───────────────────
-# El Mi Note 10 Lite no trae límite de carga sin root, y un móvil enchufado
-# siempre al 100 % acaba con la batería hinchada. Si hay un enchufe WiFi con
+# El Mi Note 10 Lite (el primer móvil) no trae límite de carga sin root, y un
+# móvil enchufado siempre al 100 % acaba con la batería hinchada. Si hay un enchufe WiFi con
 # API local (Shelly, Tasmota…), el móvil lo corta al 80 % y lo vuelve a dar al
 # 40 %. Se activa creando ~/.recolector/enchufe.conf con dos líneas:
 #   ENCENDER=http://192.168.1.50/relay/0?turn=on

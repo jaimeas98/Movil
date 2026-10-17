@@ -10,6 +10,8 @@
 //   node ordenes.mjs filtrar  < texto  > texto filtrado (lo mismo que va al informe)
 //   ID=… ACCION=… ESTADO=… INICIO=… FIN=… CODIGO=… node ordenes.mjs anotar RESULTADOS  < salida
 //       Añade (o sustituye) el resultado de una orden en ordenes-resultado.json.
+//   node ordenes.mjs heredar HECHAS RESULTADOS  < ordenes.json
+//       Solo al instalar un móvil nuevo (instalar.sh): ver heredar() abajo.
 //
 // SEGURIDAD
 // ordenes.json lo puede escribir cualquiera con permiso de escritura en el
@@ -138,6 +140,32 @@ export function nuevas(ordenesTexto, hechas, resultados, registro = [], ahora = 
   return { lista: candidatas, registro: reg.slice(-200) };
 }
 
+// CAMBIO DE MÓVIL. Las órdenes que ya hay en ordenes.json se le pidieron al
+// móvil anterior: las que tienen resultado las hizo él, y las que no, o no
+// llegó a cogerlas o se quedó a medias al morir. El móvil nuevo no repite
+// ninguna (un «actualizar-paquetes» o un «recoger» de ayer no tienen sentido
+// hoy, y de todas formas su primera vuelta ya recoge): todas se dan por
+// vistas, y las que no tenían resultado se anotan «caducada», para que el
+// panel no las enseñe pendientes para siempre ni impida pedirlas otra vez.
+// Devuelve { ids, sinResultado: [{ id, accion }] }.
+export function heredar(ordenesTexto, resultados) {
+  let datos = null;
+  try { datos = JSON.parse(ordenesTexto); } catch { /* sin órdenes que heredar */ }
+  const lista = Array.isArray(datos?.ordenes) ? datos.ordenes : [];
+  const conResultado = new Set((resultados ?? []).map((r) => r?.id));
+  const ids = [];
+  const sinResultado = [];
+  for (const o of lista) {
+    if (!o || typeof o.id !== 'string' || !ID_VALIDO.test(o.id) || ids.includes(o.id)) continue;
+    ids.push(o.id);
+    if (!conResultado.has(o.id)) {
+      const accion = typeof o.accion === 'string' && /^[a-z-]{1,30}$/.test(o.accion) ? o.accion : 'desconocida';
+      sinResultado.push({ id: o.id, accion });
+    }
+  }
+  return { ids, sinResultado };
+}
+
 export function anotar(previo, entrada) {
   const lista = Array.isArray(previo?.resultados) ? previo.resultados.filter((r) => r?.id !== entrada.id) : [];
   return { actualizado: new Date().toISOString(), resultados: [entrada, ...lista].slice(0, MAX_RESULTADOS) };
@@ -182,8 +210,30 @@ function principal() {
     const tmp = destino + '.tmp';
     writeFileSync(tmp, JSON.stringify(anotar(leerJson(destino), nueva), null, 2) + '\n');
     renameSync(tmp, destino);
+  } else if (orden === 'heredar') {
+    const [hechas, destino] = args;
+    const previo = leerJson(destino);
+    const { ids, sinResultado } = heredar(entrada, previo?.resultados);
+    // HECHAS se crea aunque no haya ninguna: es la marca de que este móvil ya
+    // ha heredado (instalar.sh no lo vuelve a hacer al repetir la instalación).
+    const antes = leerLineas(hechas);
+    writeFileSync(hechas + '.tmp', [...antes, ...ids.filter((id) => !antes.includes(id))].map((l) => l + '\n').join(''));
+    renameSync(hechas + '.tmp', hechas);
+    if (sinResultado.length) {
+      const ahora = new Date().toISOString();
+      let r = previo;
+      for (const o of sinResultado) {
+        r = anotar(r, {
+          id: o.id, accion: o.accion, estado: 'caducada', inicio: ahora, fin: ahora, codigo: null,
+          salida: 'no se ha ejecutado: se pidió al móvil anterior y este móvil se ha instalado después (cambio de móvil). Si sigue haciendo falta, pídela otra vez.',
+        });
+      }
+      writeFileSync(destino + '.tmp', JSON.stringify(r, null, 2) + '\n');
+      renameSync(destino + '.tmp', destino);
+    }
+    process.stdout.write(`${ids.length} órdenes del móvil anterior dadas por vistas (${sinResultado.length} sin resultado, anotadas «caducada»)\n`);
   } else {
-    console.error('uso: ordenes.mjs nuevas|anotar …');
+    console.error('uso: ordenes.mjs nuevas|filtrar|anotar|heredar …');
     process.exit(2);
   }
 }

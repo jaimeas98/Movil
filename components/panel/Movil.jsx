@@ -5,7 +5,7 @@
 // y recogidas) y, al final, el registro en bruto para cuando hay que
 // entender un fallo concreto.
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import Icono from './Icono.jsx';
 import { Estado, Fallo, Hora, PuntoCine, Seccion, Vacio, cifra } from './Piezas.jsx';
 import GraficaBateria from './GraficaBateria.jsx';
@@ -254,6 +254,61 @@ function Recogidas({ movil, ahora }) {
 
 const CORTO = { 'cinesur-bahia-cadiz': 'Cinesur', 'yelmo-bahia-sur': 'Bahía Sur', 'yelmo-jerez': 'Área Sur', 'arte-siete-puerto': 'Arte Siete' };
 
+// ── ¿Cambiar de móvil? ─────────────────────────────────────────────────────
+// Para el día que el móvil se rompa: el comando que lo instala todo en otro,
+// a mano y con su botón de copiar (se pega en Termux desde el propio móvil
+// nuevo), y los pasos en corto. Va al final y plegado: casi nunca hace falta,
+// pero ese día no hay que buscarlo. La guía larga está en el repositorio.
+const RAMA_WEB = 'claude/puerto-santa-maria-restaurants-NxChu';
+const INSTALAR = `curl -fsSL https://raw.githubusercontent.com/jaimeas98/Movil/${RAMA_WEB}/scripts/movil/instalar.sh | bash`;
+const GUIA = `https://github.com/jaimeas98/Movil/blob/${RAMA_WEB}/docs/movil/RECUPERACION.md`;
+
+function CambiarMovil() {
+  const [copiado, setCopiado] = useState(null);   // null | 'si' | 'mano'
+  const ref = useRef(null);
+  async function copiar() {
+    try {
+      await navigator.clipboard.writeText(INSTALAR);
+      setCopiado('si');
+    } catch {
+      // Sin permiso para el portapapeles (o sin HTTPS): se deja seleccionado
+      // para copiarlo con el menú del sistema.
+      const sel = window.getSelection();
+      const r = document.createRange();
+      r.selectNodeContents(ref.current);
+      sel.removeAllRanges(); sel.addRange(r);
+      setCopiado('mano');
+    }
+    setTimeout(() => setCopiado(null), 4000);
+  }
+  return (
+    <>
+      <div className="pn-comando">
+        <code ref={ref} className="pn-comando-txt">{INSTALAR}</code>
+        <button type="button" className="pn-boton" onClick={copiar} aria-live="polite">
+          <Icono nombre="copiar" className="pn-ico-peq" />
+          {copiado === 'si' ? 'Copiado' : copiado === 'mano' ? 'Cópialo tú' : 'Copiar'}
+        </button>
+      </div>
+      <details className="pn-detalles">
+        <summary>Ver los pasos</summary>
+        <ol className="pn-pasos">
+          <li>Cualquier Android 8 o más, con cargador y WiFi. Pon la hora automática (España).</li>
+          <li>Instala <strong>F-Droid</strong> (f-droid.org) y desde ahí <strong>Termux</strong>, <strong>Termux:API</strong> y <strong>Termux:Boot</strong>. Las tres de F-Droid: las de Play Store no se entienden con estas.</li>
+          <li>Abre Termux, pega el comando de arriba y pulsa Intro. Tarda 5–15 min.</li>
+          <li>Cuando salga un código de 8 letras, escríbelo en <span className="pn-mono">github.com/login/device</span> desde cualquier dispositivo y pulsa «Authorize». Si Termux pone «Press Enter», pulsa Intro.</li>
+          <li>Al acabar, Termux dice los ajustes de batería de tu marca. Hazlos y abre Termux:Boot una vez.</li>
+          <li>Déjalo enchufado y bloqueado, y díselo a Claude. La clave del móvil viejo queda anulada sola.</li>
+        </ol>
+        <a className="pn-url" href={GUIA} target="_blank" rel="noreferrer">
+          Guía completa (qué se pierde, ajustes por marca, qué hace Claude después)
+          <Icono nombre="externo" className="pn-ico-peq" />
+        </a>
+      </details>
+    </>
+  );
+}
+
 export default function Movil({ datos, ahora }) {
   const movil = datos.movil;
   if (!movil) {
@@ -286,6 +341,9 @@ export default function Movil({ datos, ahora }) {
       </Seccion>
       <Seccion id="m-registro" titulo="Registro">
         <Registro texto={movil.registro} />
+      </Seccion>
+      <Seccion id="m-cambiar" titulo="¿Cambiar de móvil?" nota="Si este se rompe: las tres apps en otro Android, este comando en Termux y un código. Lo demás lo hace solo.">
+        <CambiarMovil />
       </Seccion>
     </div>
   );

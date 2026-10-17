@@ -11,6 +11,13 @@
 // desde su propio móvil y su conexión, a ritmo de persona —un par de veces al
 // día—. Así que Chromium usa la identidad del Chrome de ese mismo móvil.
 //
+// LA IDENTIDAD SALE DEL MÓVIL DONDE CORRE (17-10-2026)
+// Modelo y versión de Android los pasa tarea.sh (getprop), y la de Chrome sale
+// del Chromium instalado. Si el móvil se cambia por otro, el recolector se
+// presenta como lo que es ese otro, sin tocar nada aquí. Si no llegan (se
+// ejecuta a mano, sin tarea.sh), se usa el del primer móvil, que es lo que ya
+// funcionaba.
+//
 // QUÉ HACE
 // Abre la portada como lo haría cualquiera y, desde un mundo aislado de la
 // página, pide la cartelera al mismo endpoint que usa su web. Guarda los dos
@@ -27,6 +34,7 @@
 //
 //   DESTINO=~/Movil/data/yelmo.js CHROME=$(command -v chromium-browser) node recolector.mjs
 //   … --solo-probar      no escribe nada, solo dice si funciona
+//   … DISPOSITIVO_MODELO="$(getprop ro.product.model)" DISPOSITIVO_ANDROID="$(getprop ro.build.version.release)"
 //
 // Necesita puppeteer-core instalado junto a él (lo prepara instalar.sh en
 // ~/navegador, que es desde donde lo ejecuta tarea.sh).
@@ -93,8 +101,28 @@ export function fusionar(previa, nueva, ahora = Date.now()) {
   return { cines, conservados };
 }
 
+// ── Identidad del móvil ───────────────────────────────────────────────────
+// Lo que de verdad pondría el Chrome de este móvil. Solo se aceptan textos con
+// pinta de modelo y de versión: lo que venga raro (vacío, con comillas, un
+// getprop que ha fallado) cae al del primer móvil en vez de ir tal cual a una
+// cabecera.
+const MODELO_DE_SIEMPRE = 'Mi Note 10 Lite';
+const ANDROID_DE_SIEMPRE = '12';
+
+export function identidad(env = process.env) {
+  const m = String(env.DISPOSITIVO_MODELO ?? '').trim();
+  const a = String(env.DISPOSITIVO_ANDROID ?? '').trim();
+  const modelo = /^[A-Za-z0-9][A-Za-z0-9 ._+()-]{0,39}$/.test(m) ? m : MODELO_DE_SIEMPRE;
+  const android = /^\d{1,2}(\.\d{1,2}){0,2}$/.test(a) ? a : ANDROID_DE_SIEMPRE;
+  // Las client hints quieren tres números ("12.0.0"); el User-Agent, tal cual.
+  const partes = android.split('.');
+  while (partes.length < 3) partes.push('0');
+  return { modelo, android, androidCompleta: partes.join('.') };
+}
+
 // ── Recogida ──────────────────────────────────────────────────────────────
 async function recoger() {
+  const { modelo, android, androidCompleta } = identidad();
   const { default: puppeteer } = await import('puppeteer-core');
   const navegador = await puppeteer.launch({
     executablePath: process.env.CHROME,
@@ -106,11 +134,13 @@ async function recoger() {
   try {
     const pagina = await navegador.newPage();
     const version = (await navegador.version()).match(/\/(\d+)/)?.[1] ?? '155';
+    // Al registro (público): modelo y versiones, nada que identifique al móvil.
+    log(`identidad: Android ${android} · ${modelo} · Chrome ${version}`);
 
     // La identidad del Chrome del propio móvil, incluidas las client hints
     // (Sec-CH-UA), que es donde Chromium sin pantalla mete "HeadlessChrome".
     await pagina.setUserAgent(
-      `Mozilla/5.0 (Linux; Android 12; Mi Note 10 Lite) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version}.0.0.0 Mobile Safari/537.36`,
+      `Mozilla/5.0 (Linux; Android ${android}; ${modelo}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version}.0.0.0 Mobile Safari/537.36`,
       {
         brands: [
           { brand: 'Chromium', version },
@@ -119,12 +149,14 @@ async function recoger() {
         ],
         fullVersion: `${version}.0.0.0`,
         platform: 'Android',
-        platformVersion: '12.0.0',
+        platformVersion: androidCompleta,
         architecture: '',
-        model: 'Mi Note 10 Lite',
+        model: modelo,
         mobile: true,
       }
     );
+    // La pantalla, la de un móvil corriente: desde Termux no se puede leer la
+    // de verdad sin ADB, y no es lo que mira Cloudflare.
     await pagina.setViewport({ width: 393, height: 851, deviceScaleFactor: 2.75, isMobile: true, hasTouch: true });
     await pagina.setExtraHTTPHeaders({ 'Accept-Language': 'es-ES,es;q=0.9' });
     await pagina.evaluateOnNewDocument(() => {

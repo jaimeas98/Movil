@@ -2,7 +2,7 @@
 // cartelera con menos días de los que ya teníamos.
 //  · Yelmo: el recolector del móvil fusiona cada recogida con la anterior.
 //  · mk2 y Arte Siete: el móvil guarda una copia que la web usa si fallan.
-import { fusionar, diaDe } from './movil/recolector-navegador.mjs';
+import { fusionar, diaDe, identidad } from './movil/recolector-navegador.mjs';
 import { fusionarRespaldo } from './movil/respaldo-cines.mjs';
 import { getShowtimes, clearShowtimesCache, usarRespaldoMovil } from '../lib/cinemas/aggregator.js';
 import { usarInstantanea } from '../lib/cinemas/yelmo.js';
@@ -115,6 +115,18 @@ usarRespaldoMovil(copiaHueco(48));
 c = await cine('yelmo-bahia-sur');
 !c.byDate[iso(2)] ? ok('web: pero con una copia de hace 2 días no se rellenan huecos') : mal('web: rellenó con una copia vieja');
 usarRespaldoMovil(null);
+
+// ── Identidad del móvil (cambio de móvil) ──────────────────────────────────
+// La saca tarea.sh de getprop; si getprop falla o trae algo raro, Chromium no
+// puede quedarse sin identidad ni meter basura en una cabecera.
+const id1 = identidad({ DISPOSITIVO_MODELO: 'Pixel 7', DISPOSITIVO_ANDROID: '14' });
+id1.modelo === 'Pixel 7' && id1.android === '14' && id1.androidCompleta === '14.0.0'
+  ? ok('identidad: modelo y Android del móvil donde corre') : mal(`identidad: ${JSON.stringify(id1)}`);
+const id2 = identidad({ DISPOSITIVO_MODELO: '', DISPOSITIVO_ANDROID: 'x"; rm' });
+id2.modelo === 'Mi Note 10 Lite' && id2.androidCompleta === '12.0.0'
+  ? ok('identidad: sin getprop (o con algo raro), la del primer móvil') : mal(`identidad sin datos: ${JSON.stringify(id2)}`);
+identidad({ DISPOSITIVO_MODELO: 'SM-A536B', DISPOSITIVO_ANDROID: '8.1.0' }).androidCompleta === '8.1.0'
+  ? ok('identidad: versiones con puntos, tal cual') : mal('identidad 8.1.0');
 
 globalThis.fetch = real;
 console.log(fallos ? `\n${fallos} FALLOS` : '\nTodas pasan');

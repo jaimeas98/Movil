@@ -1,7 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # Ajustes de Android que ninguna pantalla de configuración permite hacer en
-# Android 12, aplicados SIN PC: Termux se conecta por depuración inalámbrica a
-# su propio móvil y los ejecuta con permisos de ADB. Se hace UNA vez.
+# Android 12 y 13, aplicados SIN PC: Termux se conecta por depuración
+# inalámbrica a su propio móvil y los ejecuta con permisos de ADB. Se hace UNA
+# vez por móvil (si se cambia de móvil, otra vez en el nuevo). Vale para
+# cualquier marca; necesita Android 11 o más (la depuración inalámbrica).
 #
 #   bash ~/Movil/scripts/movil/ajustes-android.sh
 #
@@ -22,13 +24,25 @@ paso() { printf '\n\033[1;33m== %s\033[0m\n' "$*"; }
 ok()   { printf '   \033[32m✓\033[0m %s\n' "$*"; }
 fallo(){ printf '   \033[31m✗\033[0m %s\n' "$*"; }
 
+# Sin depuración inalámbrica (Android 10 o menos) no hay forma sin PC. Y ahí
+# tampoco hace tanta falta: el "asesino de procesos fantasma" llegó con el 12.
+version=$(getprop ro.build.version.release 2>/dev/null | cut -d. -f1)
+if [ -n "$version" ] && [ "$version" -lt 11 ] 2>/dev/null; then
+  echo "Este móvil tiene Android $version: sin depuración inalámbrica no se puede, y"
+  echo "tampoco tiene el límite de procesos de Android 12. Basta con los ajustes de batería."
+  exit 0
+fi
+
 paso "1/4  Herramientas"
 pkg install -y android-tools >/dev/null && ok "adb instalado" || { fallo "no se pudo instalar adb"; exit 1; }
 
 paso "2/4  Emparejar Termux con el propio móvil"
 cat <<'EOF'
-   a) Ajustes → Ajustes adicionales → Opciones de desarrollador →
-      activa "Depuración inalámbrica" (el móvil tiene que estar en tu WiFi).
+   a) Opciones de desarrollador → activa "Depuración inalámbrica" (el móvil
+      tiene que estar en tu WiFi). Están en Ajustes → Sistema (en Xiaomi,
+      Ajustes → Ajustes adicionales). Si no aparecen: Ajustes → Información
+      del teléfono → toca 7 veces "Número de compilación" (en Xiaomi, "Versión
+      de MIUI" o "de HyperOS").
    b) Pon la pantalla DIVIDIDA: Termux en una mitad y Ajustes en la otra.
       (Recientes → mantén pulsado Termux → "Pantalla dividida".) Hace falta
       porque el código de emparejamiento desaparece si cambias de app.

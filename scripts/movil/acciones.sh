@@ -32,7 +32,10 @@ probar_yelmo() {
   chrome=$(command -v chromium-browser || command -v chromium) || { echo "❌ Chromium no está instalado"; return 1; }
   [ -d "$nav/node_modules/puppeteer-core" ] || { echo "❌ falta puppeteer-core en ~/navegador"; return 1; }
   cp "$DIR/scripts/movil/recolector-navegador.mjs" "$nav/recolector.mjs"
-  ( cd "$nav" && CHROME="$chrome" timeout 240 node recolector.mjs --solo-probar </dev/null )
+  ( cd "$nav" && CHROME="$chrome" \
+      DISPOSITIVO_MODELO="$(getprop ro.product.model 2>/dev/null)" \
+      DISPOSITIVO_ANDROID="$(getprop ro.build.version.release 2>/dev/null)" \
+      timeout 240 node recolector.mjs --solo-probar </dev/null )
 }
 
 bucle_vivo() { ! flock -n "$BASE/bucle.candado" true 2>/dev/null; }
