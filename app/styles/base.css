@@ -13,7 +13,7 @@ html {
   scroll-behavior: smooth;
   /* La tira de días va pegada arriba: sin este colchón, cualquier salto por
      ancla deja el destino escondido debajo. */
-  scroll-padding-top: 88px;
+  scroll-padding-top: calc(88px + env(safe-area-inset-top, 0px));
   /* El recuadro gris que iOS pinta en cada toque se sustituye por un :active
      de verdad en cada pieza pulsable. */
   -webkit-tap-highlight-color: transparent;
@@ -57,7 +57,9 @@ button {
   background: none; border: 0; padding: 0; margin: 0;
 }
 img { display: block; max-width: 100%; }
-h1, h2, h3, p, ul, ol { margin: 0; }
+/* Todos los niveles: la ficha rotula sus cines con h4 y, sin él aquí, cada
+   grupo llevaba 18,6 px de margen del navegador encima. */
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 
 /* Foco visible y de la casa en todo lo que se puede enfocar con teclado. */
@@ -71,7 +73,20 @@ ul, ol { padding: 0; list-style: none; }
   width: 100%;
   max-width: var(--ancho);
   margin-inline: auto;
-  padding-inline: var(--margen);
+  /* En apaisado, fuera de la muesca (viewport-fit: cover en app/layout.js) */
+  padding-left: max(var(--margen), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--margen), env(safe-area-inset-right, 0px));
+}
+
+/* La franja de la barra de estado cuando la app se abre a pantalla completa:
+   tapa lo que pasa por debajo al desplazar y la tira de días se pega justo
+   debajo (ver .days). Mide 0 en el navegador normal. */
+body::before {
+  content: ''; position: fixed; z-index: calc(var(--z-tira) + 1);
+  top: 0; left: 0; right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--fondo);
+  pointer-events: none;
 }
 
 /* Texto solo para lectores de pantalla */

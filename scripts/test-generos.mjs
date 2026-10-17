@@ -29,6 +29,8 @@ eq('Ciencia Ficcion', 'Ciencia ficción');
 eq('TERROR', 'Terror');
 eq('terror', 'Terror');
 eq('Opera', 'Ópera');
+// Yelmo, sin tilde: la pastilla del filtro enseñaba "Comedia dramatica"
+eq('Comedia Dramatica', 'Comedia dramática');
 // Desconocido: al menos unifica mayúsculas, no inventa
 eq('Cine negro', 'Cine negro');
 eq('CINE NEGRO', 'Cine negro');

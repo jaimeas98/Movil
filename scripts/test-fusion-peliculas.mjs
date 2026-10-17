@@ -5,7 +5,7 @@
 import {
   esLaMismaPelicula, agruparPeliculas, ordenarPeliculas, minutosDeSesion,
   sesionesEnOrden, franjasPorHora, detallesDeSesion,
-  soloEnCines, comunesDelCine, propiosDeSesion, huecosPorMinuto,
+  soloEnCines, comunesDelCine, propiosDeSesion, huecosPorMinuto, edadDe,
 } from '../lib/cartelera.js';
 
 let fallos = 0;
@@ -102,9 +102,15 @@ JSON.stringify(comunM) === '{"etiquetas":["VOSE","4K Laser Atmos"],"sala":""}'
   ? ok('lo común: VOSE y formato compartidos, salas distintas se quedan en su entrada') : mal(`comunes mezcla: ${JSON.stringify(comunM)}`);
 propiosDeSesion(mezcla[1], comunM).sala === 'Sala 5' && propiosDeSesion(mezcla[1], comunM).etiquetas.length === 0
   ? ok('lo común: cada entrada enseña solo lo que la distingue') : mal(JSON.stringify(propiosDeSesion(mezcla[1], comunM)));
-const unaSola = comunesDelCine([sesion('20:00', { language: 'VOSE' })]);
-!unaSola.sala && !unaSola.etiquetas.length
-  ? ok('lo común: con una sola sesión, lo suyo se queda en su entrada') : mal('una sesión sola no debería sacar nada');
+// Con una sola sesión, lo suyo también va junto al cine: en la entrada no
+// cabía ("4K Laser Atmos Sala 06") y, en ámbar, la sala cedía ante "en 20 min".
+const unaSola = comunesDelCine([sesion('20:00', { language: 'VOSE', format: '4K Laser Atmos', room: '06' })]);
+JSON.stringify(unaSola) === '{"etiquetas":["VOSE","4K Laser Atmos"],"sala":"Sala 06"}'
+  ? ok('lo común: con una sola sesión, lo suyo va junto al cine') : mal(`una sesión sola: ${JSON.stringify(unaSola)}`);
+const propiosUna = propiosDeSesion(sesion('20:00', { language: 'VOSE', format: '4K Laser Atmos', room: '06' }), unaSola);
+!propiosUna.sala && !propiosUna.etiquetas.length
+  ? ok('lo común: y su entrada lleva la hora sola') : mal(`entrada de una sola: ${JSON.stringify(propiosUna)}`);
+JSON.stringify(comunesDelCine([])) === '{"etiquetas":[],"sala":""}' ? ok('lo común: sin sesiones, nada') : mal('sin sesiones debería ser vacío');
 JSON.stringify(comunesDelCine([sesion('17:00', { language: 'VOSE' }), sesion('20:00')]).etiquetas) === '[]'
   ? ok('lo común: si una no es VOSE, no se saca como común') : mal('VOSE de una sola se ha sacado como común');
 
@@ -135,6 +141,25 @@ soloB[0]?.cines.length === 1 && soloB[0].primera === 17 * 60
   ? ok('filtro de cine: solo quedan sus sesiones y el orden se recalcula') : mal(JSON.stringify(soloB[0]?.cines.map((c) => c.cine.id)));
 soloEnCines(todas, ['z']).length === 0 ? ok('filtro de cine: sin sesiones en el cine elegido, no sale') : mal('sale una película sin sesiones en el cine elegido');
 soloEnCines(todas, []) === todas ? ok('filtro de cine: vacío = todos') : mal('sin filtro debería devolver la misma lista');
+
+// ── La edad, escrita igual venga del cine que venga ──────────────────────────
+// Casos reales de los datos: la misma cartelera mezclaba "+16", "M-16" y "No
+// Recomendada para Menores de 16 años" (que partía en tres líneas en negrita).
+const edades = [
+  ['+16', '+16'], ['M-16', '+16'], ['No Recomendada para Menores de 16 años', '+16'],
+  ['Mayores de 7 años, Esp Recomendada Infancia', '+7'], ['M-7', '+7'], ['18', '+18'],
+  ['TP', 'TP'], ['Todos los públicos', 'TP'], ['Especialmente recomendada para la infancia', 'TP'],
+  ['PDC', null], ['Pendiente de calificación', null], ['Sin calificación', null], [null, null], ['', null],
+];
+const malas = edades.filter(([e, esperado]) => edadDe(e) !== esperado);
+!malas.length ? ok('edad: +N, TP o nada, venga como venga') : mal(`edad: ${malas.map(([e]) => `${e} → ${edadDe(e)}`).join(' · ')}`);
+// Un "PDC" de un cine no tapa el "+16" de otro
+const pdc = agruparPeliculas([
+  { id: 'a', short: 'A', movies: [{ id: 'm', title: 'Macbeth', ageRating: 'PDC', sessions: [sesion('19:00')] }] },
+  { id: 'b', short: 'B', movies: [{ id: 'm', title: 'Macbeth', ageRating: 'No Recomendada para Menores de 12 años', sessions: [sesion('20:00')] }] },
+]);
+pdc[0]?.ageRating === '+12' ? ok('edad: la primera que dice algo, ya normalizada') : mal(`edad juntada: ${pdc[0]?.ageRating}`);
+todas[0].ageRating === '+16' ? ok('edad: "+16" y "M-16" son la misma') : mal(`edad: ${todas[0].ageRating}`);
 
 if (fallos) { console.log(`\n${fallos} fallo(s)`); process.exit(1); }
 console.log('\ntodo bien');

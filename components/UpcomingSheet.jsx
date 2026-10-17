@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 import { fechaCorta, mesDe } from '@/lib/proximas.js';
 import { minutosDeSesion } from '@/lib/cartelera.js';
+import { useTituloQueCabe } from '@/lib/tituloQueCabe.js';
 import Hoja from './Hoja.jsx';
 import Icono from './Icono.jsx';
 import Entrada from './Entrada.jsx';
@@ -61,6 +62,14 @@ function Pase({ pase, titulo }) {
       </ul>
     </li>
   );
+}
+
+// El título, entero: si una palabra no cabe en su columna se encoge ese
+// título en vez de partirla (lib/tituloQueCabe.js).
+function Nombre({ titulo }) {
+  const ref = useRef(null);
+  useTituloQueCabe(ref, titulo);
+  return <span className="prox-nombre" ref={ref}>{titulo}</span>;
 }
 
 function Pases({ pases, titulo }) {
@@ -121,7 +130,7 @@ export default function UpcomingSheet({ peliculas, onClose }) {
                         <Cartel pelicula={p} className="prox-cartel-img" />
                       </span>
                       <span className="prox-datos">
-                        <span className="prox-nombre">{p.title}</span>
+                        <Nombre titulo={p.title} />
                         <span className="prox-meta">
                           {p.genre && <span>{p.genre}</span>}
                           {duracion && <span>{duracion}</span>}

@@ -25,6 +25,12 @@ export const viewport = {
   ],
   width: 'device-width',
   initialScale: 1,
+  // La página llega hasta los bordes de la pantalla (también bajo la muesca y
+  // la barra de inicio). Sin esto, los env(safe-area-inset-*) del CSS valían
+  // siempre 0; con esto, el CSS aparta de ellas lo que se tiene que ver: la
+  // barra y la tira de días por arriba, el margen lateral en apaisado y el
+  // final del pie y de las hojas por abajo.
+  viewportFit: 'cover',
 };
 
 // Script que aplica el tema guardado ANTES de pintar, evitando parpadeos.

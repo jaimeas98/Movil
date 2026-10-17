@@ -46,7 +46,7 @@ typography:
     fontFamily: "'Big Shoulders Display Variable', 'Arial Narrow', 'Roboto Condensed', sans-serif"
     fontSize: "2rem"
     fontWeight: 800
-    lineHeight: 0.95
+    lineHeight: 1.04
     letterSpacing: "0.01em"
   title:
     fontFamily: "'Big Shoulders Display Variable', 'Arial Narrow', 'Roboto Condensed', sans-serif"
@@ -101,7 +101,7 @@ components:
     typography: "{typography.title}"
     rounded: "{rounded.pieza}"
     padding: "6px 11px 7px"
-    height: "58px"
+    height: "60px"
     width: "minmax(5.25rem, 1fr)"
   entrada-pronto:
     backgroundColor: "{colors.ambar-bombilla}"
@@ -175,7 +175,7 @@ components:
     backgroundColor: "{colors.flotante-noche}"
     textColor: "{colors.tinta-cal}"
     rounded: "{rounded.hoja}"
-    width: "min(600px, 46vw)"
+    width: "clamp(480px, 46vw, 600px)"
 ---
 
 # Design System: Cartelera Cine Jaime · Bahía de Cádiz
@@ -238,15 +238,17 @@ Una noche azul de bahía con tres acentos de trabajo (rojo butaca, ámbar bombil
 
 ### Hierarchy
 - **Display** (700, 3rem en ≥ 720 px; 2,5rem en el resto de hojas, línea 0,95): el día elegido en escritorio ("Hoy, viernes 16 de octubre") y los títulos de hoja (Próximas). En el móvil el día baja a **1,375rem** (`--t-dia-linea`) con su resumen debajo en Label: la tira ya lo dice en rojo.
-- **Headline** (800, 2rem; 2,25rem en ≥ 720 px; línea 0,95, +0,01em, MAYÚSCULAS): el título de cada película en la cartelera; 1,875rem / 2,5rem en la ficha. Las marquesinas rotulan en mayúsculas y además iguala los títulos que unos cines escriben en mayúsculas y otros no.
+- **Headline** (800, 2rem; 2,25rem en ≥ 720 px; línea 1,04, +0,01em, MAYÚSCULAS): el título de cada película en la cartelera; en la ficha `clamp(1,5rem, 7vw, 1,875rem)` en el móvil y `clamp(1,875rem, 2,4vw + 0,5rem, 2,5rem)` en el panel. Línea 1,04 y no 0,95 en todos los títulos de varias líneas (cartelera, ficha, Próximas, estados): con 0,95 la tilde de una mayúscula tocaba la línea de arriba. Las marquesinas rotulan en mayúsculas y además iguala los títulos que unos cines escriben en mayúsculas y otros no.
 - **Title** (700, 1,75rem, línea 1): la hora de cada entrada y de cada hueco del Horario. Big Shoulders no tiene cifras tabulares, así que cada cifra va en una celda de 0,45em (`Hora` en `components/Entrada.jsx`): "11:15" y "20:00" alinean en columna.
-- **Title-sm** (800, 1,25rem, MAYÚSCULAS): el título de película dentro del Horario y de Próximas (1,375rem).
+- **Title-sm** (800, 1,25rem, MAYÚSCULAS, línea 1,04): el título de película dentro del Horario y de Próximas (1,375rem).
 - **Body** (400, 1rem, línea 1,5–1,55): sinopsis (máx. 65ch) y textos de estado (máx. 60ch). 16 px también evita el zoom de iOS en el campo de búsqueda.
 - **Label** (600–650, 0,875rem): nombres de cine, mandos, botones, datos de la película, resumen del día. Cifras tabulares.
 - **Detail** (500–700, 0,8125rem): lo pequeño de la entrada (VOSE, 3D en 700; sala en apagado), avisos, fuente de cada nota.
 
 ### Named Rules
 **The Hour First Rule.** En cualquier pieza con sesión, la hora es lo más grande y lo primero; idioma, formato y sala van debajo en Detail. Nunca al revés.
+
+**The Whole Word Rule.** Un título nunca parte una palabra (`overflow-wrap: normal`). Si una palabra sola no cabe en su columna, ese título encoge lo justo (`lib/tituloQueCabe.js`, hasta 0,6×) en vez de cortarse; los demás no cambian.
 
 **The No Kicker Rule.** No hay etiquetas en mayúsculas espaciadas encima de los títulos. Las mayúsculas son de los títulos condensados, no de rótulos de sección.
 
@@ -259,7 +261,8 @@ Una columna en el móvil con un margen lateral de 16 px (`--margen`), que crece 
 - **Películas:** una entrada por película. Cartel de 76 px a la izquierda del título (104 px desde 560 px, entonces el cartel ocupa su columna y las horas van a su derecha). Separación entre películas: 16 px arriba y 32 px abajo, sin filete. Dos columnas desde 960 px (hueco de 48 px).
 - **Entradas:** rejilla `repeat(auto-fill, minmax(5.25rem, 1fr))` con 6 px de hueco: todas las de un cine miden lo mismo (91 px a 768 px), incluida la ámbar.
 - **Horario:** columna de la hora de 4,25rem (pegada a 84 px del borde superior al bajar) y, a su derecha, una fila por película. Filas a 10 px, huecos de minuto con 6 px arriba y abajo. Desde 900 px, las franjas de una hora se reparten en columnas de ≥ 24rem, como un panel de salidas.
-- **Hojas:** en el móvil (< 900 px) suben desde abajo hasta 40 px del borde superior, con máximo 720 px de ancho; en escritorio son un panel lateral derecho de `min(600px, 46vw)` a toda altura (400 px para los atajos).
+- **Hojas:** en el móvil (< 900 px) suben desde abajo hasta 40 px del borde superior, con máximo 720 px de ancho; en escritorio son un panel lateral derecho de `clamp(480px, 46vw, 600px)` a toda altura (400 px para los atajos): por debajo de 480 px el título de la ficha se quedaba sin columna.
+- **Bordes de la pantalla:** `viewport-fit: cover`; la barra, la tira de días pegada, el margen lateral y el final del pie y de las hojas se apartan de `env(safe-area-inset-*)`.
 - **Ritmo:** base 4 (`--e-1` … `--e-8`). Grupos apretados (6–8 px dentro de un cine), separación generosa entre películas (48 px de aire).
 - `content-visibility: auto` en cada película, con 640 px de tamaño de reserva (las reales miden 540–1040 px).
 
@@ -290,8 +293,8 @@ Papel de entrada: esquinas casi rectas y muescas de troquel.
 
 ### La entrada (sesión)
 La pieza firma: una entrada de papel. Pulsarla es comprar.
-- **Forma:** papel con troquel, `{rounded.pieza}`, mínimo 58 px de alto, `6px 11px 7px` de relleno; ancho de rejilla (todas iguales en su cine).
-- **Contenido:** la hora en Title; debajo, en Detail, solo lo que la distingue de sus hermanas (VOSE/3D en 700, sala en apagado). Lo que comparten todas las sesiones de su cine ("Sala Premium", "4K Laser Atmos") va una vez junto al nombre del cine. Sin nada que decir, la hora sola, centrada.
+- **Forma:** papel con troquel, `{rounded.pieza}`, mínimo 60 px de alto (la hora con una línea de detalle), `6px 11px 7px` de relleno; ancho de rejilla (todas iguales en su cine) y todas las de una fila con el mismo alto.
+- **Contenido:** la hora en Title; debajo, en Detail, solo lo que la distingue de sus hermanas (VOSE/3D en 700, sala en apagado). El detalle parte en líneas por los espacios; nunca se corta ni se sale del papel. Lo que comparten todas las entradas que quedan de su cine ("Sala Premium", "4K Laser Atmos"), y todo lo de un cine con una sola sesión, va una vez junto al nombre del cine. Sin nada que decir, la hora sola, centrada; pero si alguna hermana del mismo cine lleva detalle, todas reservan esa línea y las horas quedan a la misma altura.
 - **Color:** papel = color del cine al 17 % sobre Superficie (11 % en claro); 28 % / 19 % al pasar por encima.
 - **Pronto** (empieza en ≤ 60 min, hoy): papel Ámbar Bombilla, tinta azul noche, "en 20 min" en 700 en vez de la sala.
 - **Ya empezada** (hoy): no es una entrada. Va antes de las entradas, en la línea discreta "17:15 18:00 · ya empezadas" (Label 650 en Tenue, cifras tabulares); cada hora sigue siendo un enlace con área de toque de 44 px ampliada por fuera con márgenes negativos.
@@ -300,27 +303,27 @@ La pieza firma: una entrada de papel. Pulsarla es comprar.
 - **Pulsación:** `scale(0.97)` en 40 ms al apretar, vuelta en 160 ms `cubic-bezier(.23, 1, .32, 1)`.
 
 ### Película (entrada de la cartelera)
-- Cartel (botón fuera del tabulador, `aria-hidden`: repite el del título), título en Headline como botón "Ver ficha", y una línea de datos en Label apagada: duración, edad (en tinta), ★ nota media con coma decimal, género, "Estreno" en Rojo Texto. Duración y edad salen de la película juntada de TODOS los cines del día, no solo de los filtrados.
-- Debajo, un grupo por cine: punto de color, nombre (650), lugar (apagado), lo común (Detail), aviso de datos guardados ("datos del mar 13") y, si toca, la línea de ya empezadas y la rejilla de entradas.
+- Cartel (botón fuera del tabulador, `aria-hidden`: repite el del título), título en Headline como botón "Ver ficha" (arriba, junto al borde del cartel), y una línea de datos en Label apagada: duración, edad (en tinta, siempre "+N" o "TP": `edadDe` en `lib/cartelera.js` normaliza lo que dé cada cine), ★ nota media con coma decimal, género y "Estreno" en Rojo Texto (estos dos, juntos, sin partir). Duración y edad salen de la película juntada de TODOS los cines del día, no solo de los filtrados.
+- Debajo, un grupo por cine: punto de color, nombre (650), lugar (apagado), lo común (Detail), aviso de datos guardados ("datos del mar 13", en su propia línea en el móvil) y, si toca, la línea de ya empezadas y la rejilla de entradas. Un solo separador "·", con 6 px a cada lado, que nunca empieza una línea.
 - Las que ya no tienen nada por delante hoy se guardan tras "Ver también las N que ya han empezado" y salen al 60 %.
 
 ### Fila del Horario
 - Hora una vez por minuto, en Title, a la izquierda y pegada al bajar; en ámbar (texto) con su pastilla "en N min" si es la próxima hora; en Tenue si ya pasó.
-- A la derecha, una fila por PELÍCULA: título en Title-sm (una sola línea, con puntos suspensivos) y sus cines debajo, cada uno con su punto, su nombre corto (Cinesur, Bahía Sur, Área Sur, Arte Siete) y lo que distingue la sesión. Cada cine es su propio enlace: 22 px a la vista, caja de 44 px.
+- A la derecha, una fila por PELÍCULA: título en Title-sm (entero, en dos líneas equilibradas si hace falta; la columna nunca es más ancha que la pantalla) y sus cines debajo, cada uno con su punto, su nombre corto (Cinesur, Bahía Sur, Área Sur, Arte Siete) y lo que distingue la sesión. Cada cine es su propio enlace: 22 px a la vista, caja de 44 px.
 - Con un solo cine, toda la fila es el enlace (un `::after` cubre la fila; al apretar se hunde la fila a 0,985, no el enlace) y al pasar por encima la fila toma Superficie.
-- **Ahora:** "Ahora 18:40" en Label 700 ámbar, una raya ámbar de 2 px y, al final de la misma línea, "Ver las 35 empezadas" (enlace subrayado en apagado). Las empezadas se despliegan por encima y la página compensa el scroll para que el botón no se mueva bajo el dedo.
+- **Ahora:** "Ahora 18:40" en Label 700 ámbar, una raya ámbar de 2 px (al menos 24 px) y, al final de la misma línea, "Ver las 35 empezadas" (enlace subrayado en apagado; baja a la línea siguiente si no cabe). Las empezadas se despliegan por encima y la página compensa el scroll para que el botón no se mueva bajo el dedo.
 
 ### Hoja (ficha, Próximas, atajos)
-- Un envoltorio, una gramática. Móvil: hoja desde abajo con tirador (40 × 4 px, Línea fuerte) y equis de 44 px; escritorio: panel lateral derecho. Diálogo modal de verdad (aria-modal, foco atrapado, Escape, foco de vuelta al título).
+- Un envoltorio, una gramática. Móvil: hoja desde abajo con tirador (40 × 4 px, Línea fuerte) y equis de 44 px sin disco propio; escritorio: panel lateral derecho, contenido a 33 px de los dos lados (la barra de desplazamiento, fina, se descuenta del margen derecho). En cuanto el contenido se desplaza, una franja del color de la hoja lo funde bajo la equis. Diálogo modal de verdad (aria-modal, foco atrapado, Escape, foco de vuelta al título).
 - Lo que va relleno dentro (botones, avisos, teclas) usa un paso de tinta sobre la hoja (tinta al 7 % / 12 %), porque en claro la hoja ya es blanca.
-- **Ficha:** cartel (clamp 124–172 px; 200 px en escritorio), título, datos, nota media en Big Shoulders 2,5rem con "/10", sinopsis, "Sesiones · Hoy, viernes 16 de octubre" con los mismos grupos por cine que la cartelera, y las valoraciones en cifras grandes separadas por aire (sin rejilla de filetes ni medidores): fuente en apagado, cifra en tinta, escala en apagado.
+- **Ficha:** cartel (clamp 124–172 px; `clamp(140px, 30%, 200px)` en escritorio; en el móvil apaisado, lo que quepa en el 55 % del alto), título (con un hueco para la equis solo en su primera línea), datos, nota media en Big Shoulders 2,5rem con "/10" pegado a su cifra y su fuente debajo ("media de 3 notas", "nota de TMDB"), sinopsis, "Sesiones · Hoy, viernes 16 de octubre" con los mismos grupos por cine que la cartelera, y las valoraciones en cifras grandes separadas por aire (sin rejilla de filetes ni medidores): fuente en apagado, cifra en tinta, escala en apagado.
 - **Próximas:** por mes; cada película se despliega en sus días y, dentro de cada día, una línea por cine con sus entradas al lado (el día se escribe una vez).
 
 ### Controles
 - **Tira de días:** chips de 54 × 54 px (62 px de ancho desde 720 px), redondos; nombre del día (0,75rem 600) sobre el número (Big Shoulders 1,625rem). Hoy y Mañana se nombran; "Hoy" en Rojo Texto; el elegido, relleno Rojo Butaca. `role="tablist"` con tabulador rotatorio.
 - **Películas | Horario:** la entrada de dos partes (troquel + picado), opciones de 44 px; la elegida con un relleno de tinta invertida a 3 px del borde del papel.
 - **Interruptores de cine:** papel Superficie con su punto. Sin ninguno encendido se ven todos. Encendido: papel del cine al 22 % con contorno de 1,5 px en su color y el punto crece a 18 px con una marca; los apagados pasan a apagado con el punto en contorno. "Todos" aparece como enlace subrayado (en el móvil, en su propia línea).
-- **Género:** pastilla con icono y chevrón; abre un panel flotante (radio group con la cuenta de películas por género) que sale de la pastilla.
+- **Género:** pastilla con icono y chevrón; abre un panel flotante (radio group con la cuenta de películas por género, alto que acaba a media opción si hay que desplazarse) que sale de la pastilla y nunca se sale de los márgenes de la página. En el móvil ocupa lo que dejan la vista y la lupa: si ahí no cabe "Género" entero (320 px, texto grande), va con el icono y el chevrón (y, en el último extremo, solo el icono); el género elegido se sigue viendo por su contorno.
 - **Búsqueda:** icono en el móvil que despliega el campo a toda la fila (la vista y el género se apartan; la equis borra y luego cierra, Escape igual); campo fijo desde 720 px. Foco: contorno interior de 1,5 px en tinta.
 - **Botones de texto:** Superficie o Rojo Butaca, 44 px, `{rounded.mando}`. **Botones de icono:** 44 px, redondos, fondo solo al pasar por encima.
 - **Foco:** anillo de 2 px en Rojo Texto (claro: Rojo Butaca) a 2 px de distancia, en todo lo enfocable.
@@ -330,7 +333,7 @@ Una gramática, en `lib/muelle.js` (muelles exactos de Apple: amortiguamiento ζ
 - **Muelles de la hoja:** entrada ζ 1 / 0,30 s; vuelta ζ 1 / 0,30 s; vuelta tras lanzamiento ζ 0,8 / 0,32 s (el único rebote, porque hubo inercia); salida sin gesto ζ 1 / 0,26 s hacia 24 px más allá del borde, cortada al cruzarlo. Se resuelven en forma cerrada, se muestrean a 60 fps y se lanzan con Web Animations desde el fotograma en curso (sin un primer fotograma quieto). Se pueden agarrar en cualquier instante desde su valor en pantalla.
 - **Salida con gesto:** tramo de duración `T = clamp(D / max(v, 1), 160, 280) ms` con `cubic-bezier(.2, min(1, .2·v·T/D), .4, 1)`: arranca exactamente a la velocidad del dedo. El velo deja de recoger toques en cuanto empieza a irse.
 - **Decidir al soltar:** holgura de 4 px; cierra si `posición + proyección(v) > min(50 % del alto, 30 % de la pantalla)` (proyección de inercia con deceleración 0,998); soltar subiendo (v < −0,05 px/ms) nunca cierra. Velocidad con ventana de 90 ms y 0 si el dedo lleva 50 ms sin moverse. Hacia arriba, goma (`c = 0,55`, límite 12 % de la pantalla).
-- **Cartel → ficha (firma):** View Transition del cartel con la curva del muelle crítico pasada a `linear()`: 320 ms al abrir (ζ 1 / 0,30 s), 260 ms al cerrar (ζ 1 / 0,24 s). Un toque la salta. Solo si los dos carteles se ven; con la ficha desplazada, la hoja cierra con su muelle.
+- **Cartel → ficha (firma):** View Transition del cartel con la curva del muelle crítico pasada a `linear()`: 360 ms al abrir (ζ 1 / 0,26 s), 300 ms al cerrar (ζ 1 / 0,22 s); el 90 % del camino en ~160 / ~135 ms y una llegada a menos de 1 px por fotograma, sin frenazo. Vuela una sola foto, la grande de la ficha (sin fundido cruzado con la pequeña de la lista, que ampliada se veía borrosa y doble). Un toque la salta. Solo si los dos carteles se ven; con la ficha desplazada, la hoja cierra con su muelle.
 - **Cambio de día con el dedo:** 1:1 desde el punto en que se decide (10 px, sesgo 1,3 a favor del scroll), goma en los extremos (10 % del ancho). Cambia por distancia (> 22 % del ancho) o velocidad (> 0,45 px/ms y > 36 px), nunca si el último movimiento va de vuelta. El día viejo sigue 180 ms `--ease-out` hacia donde iba el dedo (al menos 40 px más, `|v|·120` si iba rápido) mientras se pinta el nuevo, que entra 32 px desde el otro lado, de opacidad 0,3 a 1, en 180 ms `--ease-out` (~230 ms en total desde que se suelta). Si se queda corto, vuelve en 200 ms `--ease-out` sin rebote. Un toque durante cualquiera de esas animaciones las salta al final y el dedo vuelve a mandar. Un segundo dedo no cuenta. Al cambiar de día a media lista, el día nuevo empieza bajo la tira.
 - **Pequeño:** pulsación `scale(.97)` (iconos .94, días .95, filas .985) en 40 ms y vuelta en 160 ms; panel de géneros 160 ms de opacidad y escala desde .96 (sale en 110 ms) desde la pastilla; punto de cine `scale(.667 → 1)` en 150 ms; despliegue de Próximas, fundido de 160 ms.
 - **Sin animación:** lo que se hace con el teclado (← → T R V / ? Esc), el reloj por minutos y el cambio de día con la tira o las flechas (solo vuelve arriba, al instante).

@@ -1,6 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
+import { useTituloQueCabe } from '@/lib/tituloQueCabe.js';
 import Hoja from './Hoja.jsx';
 import Icono from './Icono.jsx';
 import { Avisos } from './Estados.jsx';
@@ -64,6 +66,11 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
   const cines = pelicula.cines ?? [];
   const trailer = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${pelicula.title} tráiler oficial`)}`;
   const nSesiones = cines.reduce((n, c) => n + c.sessions.length, 0);
+  // Sin partir palabras: si una no cabe, el título encoge (lib/tituloQueCabe.js).
+  // El factor va en los datos, que es donde lo lee también el hueco de la equis.
+  const tituloRef = useRef(null);
+  const datosRef = useRef(null);
+  useTituloQueCabe(tituloRef, pelicula.title, datosRef);
 
   return (
     <Hoja variante="ficha" etiquetadaPor="ficha-titulo" onCerrar={onCerrar} salida={salida} focoAlCerrar={focoAlCerrar}>
@@ -76,8 +83,8 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
           <Cartel pelicula={pelicula} className="ficha-cartel-img" inmediato />
         </div>
 
-        <div className="ficha-datos">
-          <h2 className="ficha-titulo" id="ficha-titulo">{pelicula.title}</h2>
+        <div className="ficha-datos" ref={datosRef}>
+          <h2 className="ficha-titulo" id="ficha-titulo" ref={tituloRef}>{pelicula.title}</h2>
           <p className="ficha-meta">
             {duracion && <span>{duracion}</span>}
             {pelicula.ageRating && <span className="ficha-edad">{pelicula.ageRating}</span>}
@@ -91,10 +98,14 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
               <span className="ficha-media-num">{media}</span>
               <span className="ficha-media-escala" aria-hidden="true">/10</span>
               <span className="sr"> sobre 10</span>
-              {enLaMedia.length > 0 && (
+              {/* De dónde sale la cifra. Con TMDB como única fuente (la media
+                  solo lo usa cuando no hay ninguna otra) también se dice. */}
+              {enLaMedia.length > 0 ? (
                 <span className="ficha-media-pie">
                   media de {enLaMedia.length === 1 ? enLaMedia[0].nombre : `${enLaMedia.length} notas`}
                 </span>
+              ) : notas.some((n) => n.clave === 'tmdb') && (
+                <span className="ficha-media-pie">nota de TMDB</span>
               )}
             </p>
           )}

@@ -27,7 +27,7 @@
   max-width: 720px;
   /* Deja ver una franja de lo de detrás: dice "esto es una capa encima" y
      da un sitio obvio donde tocar para cerrar. */
-  max-height: calc(100dvh - 40px);
+  max-height: calc(100dvh - 40px - env(safe-area-inset-top, 0px));
   display: flex; flex-direction: column;
   background: var(--superficie-2);
   color: var(--tinta);
@@ -66,12 +66,27 @@
   background: var(--linea-fuerte);
 }
 
-/* Con fondo propio: el contenido pasa por debajo al desplazarse y no debe
-   verse a través de la equis. */
-.hoja-cerrar { position: absolute; top: 4px; right: 4px; z-index: 2; color: var(--apagada); background: var(--superficie-2); }
+/* La equis va sin disco propio: con él, al desplazar, su círculo de fondo
+   mordía lo que pasaba por debajo (un trozo de aviso o de título cortado en
+   redondo). En su lugar, en cuanto el contenido se ha movido, una franja del
+   color de la hoja lo funde al llegar arriba (.hoja::before) y la equis queda
+   siempre sobre fondo liso. En reposo no hay franja: nada cambia. */
+.hoja-cerrar { position: absolute; top: 4px; right: 4px; z-index: 2; color: var(--apagada); }
 @media (hover: hover) {
   .hoja-cerrar:hover { color: var(--tinta); background: var(--relleno); }
 }
+.hoja::before {
+  content: ''; position: absolute; z-index: 1;
+  left: 0; right: var(--barra, 0px);
+  /* Liso hasta pasada la equis (su icono acaba a 36 px del borde) y luego
+     se funde. */
+  top: 22px; height: 36px;
+  background: linear-gradient(var(--superficie-2) 14px, transparent);
+  opacity: 0;
+  transition: opacity 150ms var(--ease-out);
+  pointer-events: none;
+}
+.hoja[data-desplazada]::before { opacity: 1; }
 
 /* El que desplaza es el CUERPO, no la hoja ni el velo: el tirador y el botón
    de cerrar se quedan siempre a mano, y el gesto sabe con certeza si el
@@ -84,6 +99,15 @@
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   padding: 2px var(--margen) calc(var(--e-6) + env(safe-area-inset-bottom, 0px));
+  padding-left: max(var(--margen), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--margen), env(safe-area-inset-right, 0px));
+  /* Al tabular, lo enfocado no se queda bajo la franja de arriba ni con el
+     anillo cortado por abajo. */
+  scroll-padding-block: 40px 8px;
+  /* La barra con la paleta y fina: el scrollbar-color del documento
+     (base.css) apaga los estilos ::-webkit-scrollbar y en escritorio salía la
+     barra clásica de 15 px, que descompensaba los márgenes. */
+  scrollbar-width: thin;
 }
 
 /* Escritorio: panel lateral a toda altura. */
@@ -91,7 +115,9 @@
   .hoja-velo { background: var(--velo-panel); }
   .hoja {
     top: 0; bottom: 0; left: auto; right: 0;
-    width: min(600px, 46vw);
+    /* Nunca por debajo de 480 px: con 46vw, a 900 px el panel medía 414 y
+       al título le quedaban 86 px para letras de 40 (partía palabras). */
+    width: clamp(480px, 46vw, 600px);
     max-width: none; max-height: none;
     border-radius: 0;
     border-left: 1px solid var(--linea);
@@ -100,7 +126,14 @@
   .hoja::after { top: 0; bottom: 0; left: calc(100% - 1px); right: auto; width: 40vw; height: auto; }
   .hoja-tirador { display: none; }
   .hoja-cerrar { top: 14px; right: 14px; }
-  .hoja-cuerpo { padding: var(--e-6) var(--e-6) var(--e-7); }
+  .hoja::before { top: 0; height: 72px; background: linear-gradient(var(--superficie-2) 48px, transparent); }
+  /* El contenido a 33 px de cada lado (32 + el filete de la izquierda): a la
+     derecha se descuenta lo que mida la barra de desplazamiento (--barra, lo
+     mide components/Hoja.jsx; 0 con barras flotantes). */
+  .hoja-cuerpo {
+    padding: var(--e-6) calc(var(--e-6) + 1px - var(--barra, 0px)) var(--e-7) var(--e-6);
+    scroll-padding-block: 72px 8px;
+  }
   .hoja[data-variante='atajos'] { width: 400px; }
 }
 
@@ -126,20 +159,23 @@
 
 /* El cartel y la hoja con la MISMA curva (un muelle crítico pasado a
    `linear()` desde lib/muelle.js) y la misma duración: llegan a la vez y se
-   leen como una sola pieza. Las dos fotos del cartel son la misma imagen a
-   dos tamaños, así que su fundido cruzado no se nota. */
-:root[data-vt='abrir']::view-transition-group(cartel),
-:root[data-vt='abrir']::view-transition-old(cartel),
-:root[data-vt='abrir']::view-transition-new(cartel) {
+   leen como una sola pieza. */
+:root[data-vt='abrir']::view-transition-group(cartel) {
   animation-duration: var(--vt-ms-abrir);
   animation-timing-function: var(--vt-abrir);
 }
-:root[data-vt='cerrar']::view-transition-group(cartel),
-:root[data-vt='cerrar']::view-transition-old(cartel),
-:root[data-vt='cerrar']::view-transition-new(cartel) {
+:root[data-vt='cerrar']::view-transition-group(cartel) {
   animation-duration: var(--vt-ms-cerrar);
   animation-timing-function: var(--vt-cerrar);
 }
+/* Vuela UNA sola foto, la grande (la de la ficha), en los dos sentidos. Con
+   el fundido cruzado por defecto, la foto pequeña de la lista (76 px)
+   ampliada se veía borrosa y doble encima de la grande durante ~50–100 ms.
+   La grande reducida siempre es nítida, y es la misma imagen en 2:3. */
+:root[data-vt='abrir']::view-transition-old(cartel) { animation: none; opacity: 0; }
+:root[data-vt='abrir']::view-transition-new(cartel) { animation: none; }
+:root[data-vt='cerrar']::view-transition-old(cartel) { animation: none; }
+:root[data-vt='cerrar']::view-transition-new(cartel) { animation: none; opacity: 0; }
 :root[data-vt='abrir']::view-transition-new(hoja) { animation: vt-hoja-entra var(--vt-ms-abrir) var(--vt-abrir) both; }
 :root[data-vt='cerrar']::view-transition-old(hoja) { animation: vt-hoja-sale var(--vt-ms-cerrar) var(--vt-cerrar) both; }
 :root[data-vt='abrir']::view-transition-new(velo) { animation: vt-aparece var(--vt-ms-abrir) var(--ease-out) both; }
@@ -170,13 +206,25 @@
   background: var(--cartel-vacio);
 }
 .ficha-cartel-img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* Sitio para la equis: el título no se mete debajo */
-.ficha-datos { min-width: 0; padding-right: 36px; }
+/* Sitio para la equis solo en la PRIMERA línea del título, que es la única
+   que la tiene al lado: un hueco flotante a la derecha de una línea de alto.
+   Con un relleno de 36 px en todo el bloque, cada línea perdía ese sitio y
+   "CAZAFANTASMAS" partía a mitad de palabra a 375–414 px. */
+.ficha-datos { min-width: 0; --ficha-titulo: clamp(1.5rem, 7vw, 1.875rem); }
+.ficha-datos::before {
+  content: ''; float: right;
+  /* Un pelo menos que la primera línea: la segunda ya va entera. */
+  width: 36px; height: calc(1.04 * var(--ficha-titulo) * var(--encoge, 1) - 1px);
+}
+/* Las palabras no se parten nunca: si una sola no cabe, lib/tituloQueCabe.js
+   baja el cuerpo de ESE título (--encoge) hasta que quepa. */
 .ficha-titulo {
   font-family: var(--f-rotulo);
-  font-size: 1.875rem; font-weight: 800; line-height: 0.95;
+  font-size: calc(var(--ficha-titulo) * var(--encoge, 1)); font-weight: 800;
+  /* 1,04: con 0,95 la tilde de una mayúscula tocaba la línea de arriba */
+  line-height: 1.04;
   text-transform: uppercase; letter-spacing: 0.01em;
-  text-wrap: balance; overflow-wrap: anywhere; hyphens: none;
+  text-wrap: balance; overflow-wrap: normal; hyphens: manual;
 }
 .ficha-meta {
   display: flex; flex-wrap: wrap; column-gap: var(--e-3); row-gap: 2px;
@@ -187,12 +235,18 @@
 .ficha-edad { color: var(--tinta); font-weight: 650; }
 .ficha-estreno { color: var(--rojo-texto); font-weight: 650; }
 
-/* La nota media en grande, como una cifra de marquesina */
+/* La nota media en grande, como una cifra de marquesina. En rejilla y no en
+   flex que parte: en una columna estrecha el "/10" se iba a la línea de
+   abajo, lejos de su número. */
 .ficha-media {
-  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px;
+  display: grid; grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: baseline; column-gap: 4px;
   margin-top: var(--e-4);
 }
-.ficha-media-icono { width: 18px; height: 18px; align-self: center; color: var(--tinta); margin-right: 2px; }
+/* Centrada en la cifra que se VE, no en su caja: las cifras de Big Shoulders
+   no llenan su línea por abajo y, centrada en la caja, la estrella quedaba
+   2,5 px baja respecto a "7,7". */
+.ficha-media-icono { width: 18px; height: 18px; align-self: center; color: var(--tinta); margin: 0 2px 5px 0; }
 .ficha-media-num {
   font-family: var(--f-rotulo);
   font-size: 2.5rem; font-weight: 700; line-height: 0.9;
@@ -200,7 +254,7 @@
   font-variant-numeric: tabular-nums;
 }
 .ficha-media-escala { font-size: var(--t-dato); color: var(--apagada); }
-.ficha-media-pie { flex-basis: 100%; margin-top: 2px; font-size: var(--t-detalle); color: var(--apagada); }
+.ficha-media-pie { grid-column: 1 / -1; margin-top: 2px; font-size: var(--t-detalle); color: var(--apagada); }
 
 .ficha-sinopsis {
   margin-top: var(--e-5);
@@ -264,16 +318,33 @@
 @media (hover: hover) {
   .nota:hover .nota-fuente { color: var(--tinta); text-decoration: underline; text-underline-offset: 0.2em; }
 }
-.notas-pie { margin-top: var(--e-2); font-size: var(--t-detalle); color: var(--apagada); }
+.notas-pie { margin-top: var(--e-2); font-size: var(--t-detalle); color: var(--apagada); text-wrap: pretty; }
 
-.ficha-enlaces { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-top: var(--e-6); }
+/* Los dos enlaces, de su ancho y en una línea; cuando no caben juntos (320 px)
+   se apilan, y entonces los dos a todo el ancho: apilados con su ancho
+   medían 193 y 141 px. La consulta mide la propia fila (en em, para que
+   siga valiendo con el texto grande). */
+.ficha-enlaces { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-top: var(--e-6); container-type: inline-size; }
+@container (max-width: 21.5em) {
+  .ficha-enlaces > .boton { flex: 1 1 100%; }
+}
 .ficha-enlaces .ico { width: 18px; height: 18px; }
 .ficha-enlaces .ico-enlinea { width: 14px; height: 14px; color: var(--apagada); }
 
+/* Móvil apaisado (844 × 390): el cartel de 258 px llenaba casi toda la hoja
+   de 350. Su columna sale del alto disponible (55 %), en 2:3. */
+@media (max-width: 899px) and (max-height: 500px) {
+  .ficha-cabeza { grid-template-columns: min(172px, calc(55dvh * 2 / 3)) minmax(0, 1fr); }
+}
+
+/* Escritorio: la columna del cartel cede (hasta 140 px) antes que la del
+   título, y el título crece con el ancho del panel en vez de saltar a 40 px
+   en cuanto hay panel: a 900 px quedaba una columna de 86 px. */
 @media (min-width: 900px) {
-  .ficha-cabeza { grid-template-columns: 200px minmax(0, 1fr); gap: var(--e-5); padding-top: 0; }
-  .ficha-titulo { font-size: 2.5rem; }
-  .ficha-datos { padding-right: 40px; }
+  .ficha-cabeza { grid-template-columns: clamp(140px, 30%, 200px) minmax(0, 1fr); gap: var(--e-5); padding-top: 0; }
+  .ficha-datos { --ficha-titulo: clamp(1.875rem, 2.4vw + 0.5rem, 2.5rem); }
+  /* La equis del panel entra 25 px en el contenido */
+  .ficha-datos::before { width: 30px; }
 }
 
 /* ── Próximas ───────────────────────────────────────────────────────────── */
@@ -301,15 +372,21 @@
 }
 .prox-cartel {
   display: block; width: 48px; aspect-ratio: 2 / 3;
-  border-radius: 4px; overflow: hidden; background: var(--cartel-vacio);
+  border-radius: var(--r-pieza); overflow: hidden; background: var(--cartel-vacio);
 }
 .prox-cartel-img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.prox-datos { min-width: 0; display: grid; gap: 4px; }
+/* Columna que no crece con su contenido: con la implícita (auto), una palabra
+   larga ("CAZAFANTASMAS" a 320 px) ensanchaba la columna y se salía por la
+   derecha en vez de encoger el título. */
+.prox-datos { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
 .prox-nombre {
   font-family: var(--f-rotulo);
-  font-size: 1.375rem; font-weight: 800; line-height: 0.95;
+  font-size: calc(1.375rem * var(--encoge, 1)); font-weight: 800;
+  /* 1,04 como los demás títulos: con 0,95 las tildes tocaban la línea de
+     arriba. Sin partir palabras (ver lib/tituloQueCabe.js). */
+  line-height: 1.04;
   text-transform: uppercase; letter-spacing: 0.01em;
-  overflow-wrap: anywhere; text-wrap: balance;
+  overflow-wrap: normal; hyphens: manual; text-wrap: balance;
 }
 .prox-meta { display: flex; flex-wrap: wrap; column-gap: var(--e-3); font-size: var(--t-detalle); color: var(--apagada); }
 .prox-cuando { display: flex; align-items: center; gap: 6px; }
@@ -348,13 +425,14 @@
   font-size: 1.75rem; font-weight: 800; line-height: 1;
 }
 @media (min-width: 900px) { .atajos-titulo { padding-top: 0; } }
-.atajos { display: grid; margin-top: var(--e-4); }
+/* margin entero: el <dl> trae 16 px de abajo del navegador y el panel acababa
+   con 48 px en vez de 32. */
+.atajos { display: grid; margin: var(--e-4) 0 0; }
 .atajo {
   display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); align-items: center; gap: var(--e-3);
   min-height: var(--toque);
   border-top: 1px solid var(--linea);
 }
-.atajo dd { margin: 0; }
 .atajo-teclas { display: inline-flex; gap: 4px; }
 .tecla {
   display: inline-grid; place-items: center;

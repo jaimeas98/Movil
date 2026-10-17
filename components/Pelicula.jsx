@@ -69,10 +69,17 @@ function useCuantasEmpezadas(sesiones, fecha) {
 //   nivel    3 en la cartelera, 4 en la ficha (debajo de "Sesiones")
 //   aviso    "datos del mar 13" si sus datos no son de ahora
 export function GrupoCine({ cine, sessions, pelicula, fecha, onAbrir, aviso = null, nivel = 3 }) {
-  const comunes = useMemo(() => comunesDelCine(sessions), [sessions]);
   const corte = useCuantasEmpezadas(sessions, fecha);
   const empezadas = corte ? sessions.slice(0, corte) : [];
   const quedan = corte ? sessions.slice(corte) : sessions;
+  // Lo común se saca de las entradas que se VEN (las que quedan): las ya
+  // empezadas van en su línea sin detalles, y contándolas, dos entradas con
+  // "4K Laser Atmos Sala 06" lo repetían cada una porque a las 15:50 era otra
+  // sala. Si ya han empezado todas, de todas.
+  const comunes = useMemo(
+    () => comunesDelCine(corte < sessions.length ? sessions.slice(corte) : sessions),
+    [sessions, corte]
+  );
   const Titulo = nivel === 4 ? 'h4' : 'h3';
   const hayComun = comunes.etiquetas.length > 0 || !!comunes.sala;
   return (
@@ -149,8 +156,13 @@ function Pelicula({ pelicula, fecha, onAbrir }) {
               <span className="sr">Nota media </span>{nota}
             </span>
           )}
-          {pelicula.genre && <span>{pelicula.genre}</span>}
-          {pelicula.isNew && <span className="peli-estreno">Estreno</span>}
+          {/* Juntos: si no, "Estreno" se quedaba solo en otra línea */}
+          {(pelicula.genre || pelicula.isNew) && (
+            <span className="peli-datos-par">
+              {pelicula.genre && <span>{pelicula.genre}</span>}
+              {pelicula.isNew && <span className="peli-estreno">Estreno</span>}
+            </span>
+          )}
         </p>
       </div>
 

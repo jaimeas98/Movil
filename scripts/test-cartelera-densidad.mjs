@@ -16,6 +16,8 @@
 //     ámbar de "en N min" (768 px).
 //  8. La duración y la edad de una película no cambian al filtrar por cine.
 //  9. A 1024 px la cartelera va en dos columnas.
+// 10–13. Ronda de pulido (ver más abajo): filas del Horario dentro de la
+//     pantalla, controles sin montarse, horas niveladas, títulos sin partir.
 //
 // Requiere el servidor en el 3210 (o CARTELERA_URL) con datos de ejemplo y
 // playwright instalado sin guardar (npm i --no-save playwright):
@@ -188,6 +190,106 @@ async function pagina({ w = 390, h = 844, movil = true } = {}) {
   const col = await p.evaluate(() => new Set([...document.querySelectorAll('.pelis > li')].slice(0, 4).map((l) => Math.round(l.getBoundingClientRect().left))).size);
   if (col < 2) mal('a 1024 px la cartelera sigue en una sola columna');
   else bien('a 1024 px la cartelera va en dos columnas');
+  await ctx.close();
+}
+
+// ── Ronda de pulido: lo que se mide para que no vuelva ──────────────────────
+// 10. Horario a 320 px: ninguna fila más ancha que la pantalla.
+// 11. Controles a 320 y 360 px, también con el género más largo elegido: la
+//     vista, el género y la lupa no se montan unos sobre otros.
+// 12. Las horas de una misma fila de entradas, a la misma altura.
+// 13. La ficha a 320, 900 y 1024 px: ningún título parte una palabra, y los
+//     h4 de sus cines no traen margen del navegador.
+
+// Saltos de línea entre dos letras (o cifras) seguidas: palabra partida.
+const cortesDePalabra = (sel) => {
+  const el = document.querySelector(sel);
+  const nodo = [...el.childNodes].find((n) => n.nodeType === 3 && n.data.trim());
+  if (!nodo) return [];
+  const t = nodo.data; const r = document.createRange(); const cortes = [];
+  let top = null;
+  for (let i = 0; i < t.length; i++) {
+    r.setStart(nodo, i); r.setEnd(nodo, i + 1);
+    const c = r.getClientRects()[0]; if (!c) continue;
+    if (top != null && c.top > top + 2 && /[\p{L}\p{N}]/u.test(t[i - 1] ?? '') && /[\p{L}\p{N}]/u.test(t[i])) cortes.push(`${t.slice(0, i)}|${t.slice(i)}`);
+    top = c.top;
+  }
+  return cortes;
+};
+
+for (const w of [320, 360]) {
+  const { ctx, p } = await pagina({ w, h: 740 });
+  const solape = () => p.evaluate(() => {
+    const v = document.querySelector('.control-vista').getBoundingClientRect();
+    const g = document.querySelector('.control-pastilla').getBoundingClientRect();
+    const l = document.querySelector('.busqueda').getBoundingClientRect();
+    return Math.max(v.right - g.left, g.right - l.left, 0);
+  });
+  const sin = await solape();
+  await p.locator('.control-pastilla').click();
+  await p.waitForTimeout(300);
+  const nombres = await p.locator('.genero-opcion .genero-nombre').allInnerTexts();
+  const largo = nombres.slice(1).sort((a, b2) => b2.length - a.length)[0];
+  if (largo) { await p.locator('.genero-opcion', { hasText: largo }).first().click(); await p.waitForTimeout(300); }
+  const con = await solape();
+  if (sin > 0.5 || con > 0.5) mal(`controles a ${w} px: se montan ${sin.toFixed(1)} px (sin género) y ${con.toFixed(1)} px (con «${largo}»)`);
+  else bien(`controles a ${w} px: vista, género y lupa no se montan, tampoco con «${largo}»`);
+
+  if (w === 320) {
+    await p.locator('.control-pastilla').click(); await p.waitForTimeout(250);
+    await p.locator('.genero-opcion').first().click(); await p.waitForTimeout(250);
+    await p.getByRole('button', { name: 'Horario', exact: true }).click();
+    await p.waitForTimeout(500);
+    const anchas = await p.evaluate(() => {
+      const ancho = document.documentElement.clientWidth;
+      return [...document.querySelectorAll('.fila')].filter((f) => f.getBoundingClientRect().right > ancho + 0.5).length;
+    });
+    if (anchas) mal(`Horario a 320 px: ${anchas} filas más anchas que la pantalla`);
+    else bien('Horario a 320 px: ninguna fila se sale de la pantalla');
+  }
+  await ctx.close();
+}
+
+{
+  const { ctx, p } = await pagina({ w: 390, h: 844 });
+  const desnivel = await p.evaluate(() => {
+    let peor = 0;
+    for (const ul of document.querySelectorAll('.pelis .entradas')) {
+      const filas = new Map();
+      for (const e of ul.querySelectorAll('.entrada')) {
+        const top = Math.round(e.getBoundingClientRect().top);
+        const hora = e.querySelector('.entrada-hora').getBoundingClientRect().top;
+        filas.set(top, [...(filas.get(top) ?? []), hora]);
+      }
+      for (const h of filas.values()) peor = Math.max(peor, Math.max(...h) - Math.min(...h));
+    }
+    return peor;
+  });
+  if (desnivel > 0.5) mal(`las horas de una fila de entradas no están a la misma altura (hasta ${desnivel.toFixed(1)} px)`);
+  else bien('las horas de cada fila de entradas, a la misma altura');
+  await ctx.close();
+}
+
+for (const [w, h, movil] of [[320, 568, true], [900, 1000, false], [1024, 768, false]]) {
+  const { ctx, p } = await pagina({ w, h, movil });
+  // Los títulos más largos del día (son los que pueden partirse)
+  const titulos = (await p.locator('.pelis .peli-titulo-boton').evaluateAll((bs) => bs.map((x) => x.firstChild.data)))
+    .sort((a, b2) => Math.max(...b2.split(' ').map((x) => x.length)) - Math.max(...a.split(' ').map((x) => x.length))).slice(0, 6);
+  const cortes = []; let margenH4 = null;
+  for (const t of titulos) {
+    await p.locator('.pelis .peli-titulo-boton').filter({ hasText: t }).first().click();
+    await p.waitForSelector('.hoja[data-variante="ficha"]');
+    await p.waitForTimeout(700);
+    cortes.push(...(await p.evaluate(cortesDePalabra, '.ficha-titulo')));
+    margenH4 ??= await p.evaluate(() => { const h4 = document.querySelector('.hoja h4'); return h4 ? getComputedStyle(h4).marginTop : null; });
+    await p.keyboard.press('Escape');
+    await p.waitForSelector('.hoja', { state: 'detached' });
+    await p.waitForTimeout(300);
+  }
+  if (cortes.length) mal(`ficha a ${w} px: títulos con palabras partidas: ${cortes.join(' · ')}`);
+  else bien(`ficha a ${w} px: ningún título parte una palabra (${titulos.length} títulos largos)`);
+  if (margenH4 != null && margenH4 !== '0px') mal(`ficha a ${w} px: los h4 de los cines traen margen (${margenH4})`);
+  else if (w === 320) bien('ficha: los h4 de los cines sin margen del navegador');
   await ctx.close();
 }
 

@@ -123,20 +123,24 @@ function PanelGeneros({ genero, generos, onGenero }) {
 
   return (
     <div className="control-genero" ref={envoltorio} data-flechas>
-      <button
-        ref={disparador}
-        type="button"
-        className="control-pastilla pulsable"
-        data-activo={genero ? 'true' : undefined}
-        aria-haspopup="dialog"
-        aria-expanded={abierto}
-        aria-controls="panel-generos"
-        onClick={() => (abierto ? cerrar() : abrir())}
-      >
-        <Icono nombre="generos" />
-        <span className="control-pastilla-texto">{genero || 'Género'}</span>
-        <Icono nombre="abajo" className="ico ico-chevron" />
-      </button>
+      {/* La caja mide el sitio que le queda a la pastilla en el móvil (ver
+          .control-genero-caja en barra.css); el panel va fuera de ella. */}
+      <span className="control-genero-caja">
+        <button
+          ref={disparador}
+          type="button"
+          className="control-pastilla pulsable"
+          data-activo={genero ? 'true' : undefined}
+          aria-haspopup="dialog"
+          aria-expanded={abierto}
+          aria-controls="panel-generos"
+          onClick={() => (abierto ? cerrar() : abrir())}
+        >
+          <Icono nombre="generos" />
+          <span className="control-pastilla-texto">{genero || 'Género'}</span>
+          <Icono nombre="abajo" className="ico ico-chevron" />
+        </button>
+      </span>
 
       {fase && (
         <div

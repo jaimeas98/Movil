@@ -13,9 +13,11 @@
   border-radius: var(--r-mando);
   font-weight: 650; text-decoration: none;
 }
-.saltar:focus { top: var(--e-2); }
+.saltar:focus { top: calc(var(--e-2) + env(safe-area-inset-top, 0px)); }
 
 /* ── Barra superior ─────────────────────────────────────────────────────── */
+/* Por debajo de la barra de estado si la app va a pantalla completa */
+.barra { padding-top: env(safe-area-inset-top, 0px); }
 .barra-dentro {
   display: flex; align-items: center; justify-content: space-between; gap: var(--e-3);
   min-height: 56px;
@@ -54,7 +56,7 @@
 
 /* ── Tira de días ───────────────────────────────────────────────────────── */
 .days {
-  position: sticky; top: 0; z-index: var(--z-tira);
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: var(--z-tira);
   /* Opaca: dos capas de desenfoque sobre una lista que se desplaza es de lo
      más caro que puede hacer un móvil, y aquí no aportaría nada. */
   background: var(--fondo);
@@ -109,9 +111,14 @@
 /* ── Fila de controles ──────────────────────────────────────────────────────
    Móvil: [Películas|Horario] [Género] [lupa] y, debajo, los cuatro cines.
    Escritorio ancho: todo en una línea. */
+/* La columna que cede es la del GÉNERO, no la de la vista: con
+   `minmax(0, 1fr) auto auto` el cambio Películas/Horario (que no puede
+   encoger) se salía de su columna y se montaba 52 px sobre el género a
+   320 px. Ahora la vista mide lo suyo, la lupa lo suyo, y el género se queda
+   con lo que sobra (ver .control-genero-caja). */
 .controles {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-areas:
     "vista genero busqueda"
     "cines cines cines";
@@ -188,7 +195,7 @@
 .vista-opcion {
   position: relative; isolation: isolate;
   min-height: var(--toque);
-  padding: 0 var(--e-3);
+  padding: 0 10px;
   border-radius: calc(var(--r-mando) - 3px);
   font-size: var(--t-dato); font-weight: 600;
   color: var(--apagada);
@@ -209,6 +216,12 @@
 @media (hover: hover) {
   .vista-opcion[aria-pressed='false']:hover { color: var(--tinta); }
 }
+/* Por debajo de 400 px cada opción lleva 10 px de aire (y no 12) para que el
+   género quepa con su nombre al lado: a 375 px faltaban 5 px y salía "Gén…".
+   Por debajo de 375 px, 8 px: ahí el género ya va solo con su icono. */
+@media (max-width: 374px) {
+  .vista-opcion { padding: 0 var(--e-2); }
+}
 @media (min-width: 400px) {
   .vista-opcion { padding: 0 var(--e-4); }
 }
@@ -216,10 +229,22 @@
 /* Pastilla de control (Género) */
 /* En el móvil el panel se ancla a la fila entera (de gutter a gutter), no al
    botón: anclado al botón se salía por la izquierda. */
-.control-genero { position: static; display: flex; }
+.control-genero { position: static; display: flex; min-width: 0; }
 @media (min-width: 720px) { .control-genero { position: relative; } }
+/* La caja de la pastilla ocupa la columna que sobra en el móvil y la empuja a
+   la derecha, junto a la lupa. Es también el contenedor que mide cuánto sitio
+   hay (consulta de contenedor, más abajo): con 320 px, con el texto al 120 %
+   o con "Comedia dramática" elegido, la pastilla se compacta en vez de
+   montarse sobre la vista. El panel NO va dentro de la caja: así sigue
+   anclado a la fila entera aunque algún navegador hiciera de la caja su
+   bloque contenedor. */
+.control-genero-caja { display: flex; justify-content: flex-end; flex: 1 1 auto; min-width: 0; }
+@media (max-width: 719px) {
+  .control-genero-caja { container: genero / inline-size; font-size: var(--t-dato); }
+}
 .control-pastilla {
-  display: inline-flex; align-items: center; gap: var(--e-2);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
+  min-width: var(--toque); max-width: 100%;
   min-height: var(--toque);
   padding: 0 var(--e-3) 0 var(--e-3);
   border-radius: var(--r-mando);
@@ -228,7 +253,25 @@
   white-space: nowrap;
 }
 .control-pastilla .ico { width: 18px; height: 18px; color: var(--apagada); }
-.control-pastilla-texto { max-width: 7.5rem; overflow: hidden; text-overflow: ellipsis; }
+/* 9rem: "Comedia dramática", el género más largo, pide 124 px (con 7,5rem
+   salía "Comedia dramati…"). */
+.control-pastilla-texto { min-width: 0; max-width: 9rem; overflow: hidden; text-overflow: ellipsis; }
+/* Sin sitio para "Género" entero (76 px de relleno, iconos y huecos más la
+   palabra, 3,4em), el nombre se va (sigue ahí para el lector de pantalla) y
+   quedan el icono y el chevrón; el género elegido se sigue viendo por el
+   contorno. Mejor eso que "Gé…". Si ni así cabe (320 px con el texto al
+   120 %), solo el icono. Las unidades em de la consulta son las de la caja,
+   así que el umbral crece con el tamaño del texto. */
+@container genero (max-width: calc(76px + 3.4em)) {
+  .control-pastilla-texto {
+    position: absolute;
+    width: 1px; height: 1px; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0);
+  }
+}
+@container genero (max-width: 67px) {
+  .control-pastilla .ico-chevron { display: none; }
+}
 .control-pastilla[data-activo='true'] { box-shadow: inset 0 0 0 1.5px var(--tinta); }
 .control-pastilla[data-activo='true'] .ico { color: var(--tinta); }
 .ico-chevron { transition: transform 150ms var(--ease-out); }
@@ -240,7 +283,13 @@
 .panel-generos {
   position: absolute; z-index: var(--z-popover);
   top: calc(var(--e-3) + var(--toque) + var(--e-2)); left: 0; right: 0;
-  max-height: min(62vh, 28rem);
+  /* Alto que acaba a MITAD de una opción (4 px de relleno + n opciones de
+     44 + media): si hay que desplazarse, la fila partida lo dice. Con 28rem
+     cabían 10 opciones menos 2 px y el panel se desplazaba 2 px sin avisar.
+     9,5 opciones como mucho; en pantallas bajas, las que quepan en el 62 %
+     del alto, redondeadas a media opción (round() donde exista). */
+  max-height: min(62vh, calc(4px + 9.5 * var(--toque)));
+  max-height: min(calc(round(down, 62vh - 26px, var(--toque)) + 26px), calc(4px + 9.5 * var(--toque)));
   overflow-y: auto; overscroll-behavior: contain;
   padding: var(--e-1);
   background: var(--superficie-2);
@@ -262,8 +311,19 @@
   pointer-events: none;
   transition-duration: 110ms;
 }
+/* Desde 720 px el panel cuelga de la pastilla. Hasta 1180 px la pastilla va
+   a la izquierda (tras la vista) y el panel sale hacia la derecha desde su
+   borde izquierdo: alineado a su derecha se salía 8–15 px del margen de la
+   página. En la línea única de escritorio la pastilla va a la derecha y el
+   panel se alinea con su borde derecho. Nunca más ancho que la página. */
 @media (min-width: 720px) {
-  .panel-generos { top: calc(100% + var(--e-2)); left: auto; right: 0; width: 20rem; }
+  .panel-generos {
+    top: calc(100% + var(--e-2)); left: 0; right: auto;
+    width: 20rem; max-width: calc(100vw - 2 * var(--margen));
+  }
+}
+@media (min-width: 1180px) {
+  .panel-generos { left: auto; right: 0; }
 }
 /* Movimiento reducido: el fundido se queda (dice que algo aparece), el
    cambio de escala no. Gana a la regla general de base.css por ser más
@@ -279,9 +339,11 @@
   width: 100%;
   display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: var(--e-3);
   min-height: var(--toque);
-  padding: 0 var(--e-3);
+  /* Con relleno vertical: un nombre largo que parte en dos líneas no queda
+     pegado a los bordes de su opción. */
+  padding: 10px var(--e-3);
   border-radius: calc(var(--r-pieza) - 2px);
-  text-align: left; font-size: 0.9375rem;
+  text-align: left; font-size: 0.9375rem; line-height: 1.3;
 }
 .genero-opcion[aria-checked='true'] { font-weight: 650; }
 .genero-marca { display: grid; place-items: center; color: var(--rojo-texto); }
@@ -340,13 +402,18 @@
   min-width: 0;
   overflow-x: auto; scrollbar-width: none;
   overscroll-behavior-x: contain;
-  /* Sangra hasta el borde de la pantalla para que se lea que hay más */
-  margin-inline: calc(-1 * var(--margen));
-  padding: 3px var(--margen);
+  /* Sangra hasta el borde de la pantalla para que se lea que hay más.
+     4 px de colchón arriba y abajo (devueltos con el margen) para el anillo
+     de foco, que mide 2 + 2 px: con 3 px el desplazable le recortaba uno. */
+  margin: -1px calc(-1 * var(--margen));
+  padding: 4px var(--margen);
 }
 .cines::-webkit-scrollbar { display: none; }
+/* En la línea única de escritorio, el mismo colchón a los lados, devuelto con
+   margen negativo: el hueco que se ve entre la vista y el primer cine es el
+   de la rejilla (12 px), igual que entre los demás mandos (antes 15/8/12). */
 @media (min-width: 1180px) {
-  .cines { margin-inline: 0; padding-inline: 3px; }
+  .cines { margin-inline: -4px; padding-inline: 4px; }
 }
 
 .cine-interruptor {
@@ -384,7 +451,7 @@
 }
 .cines-todos {
   flex: 0 0 auto;
-  min-height: var(--toque); padding: 0 var(--e-3);
+  min-width: var(--toque); min-height: var(--toque); padding: 0 var(--e-3);
   font-size: var(--t-dato); font-weight: 600;
   color: var(--apagada);
   text-decoration: underline; text-underline-offset: 0.25em;
@@ -398,7 +465,7 @@
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 6px;
     overflow: visible;
-    margin-inline: 0; padding: 0;
+    margin: 0; padding: 0;
   }
   .cine-interruptor {
     flex-direction: column; justify-content: center; gap: 1px;

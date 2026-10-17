@@ -106,8 +106,33 @@ export default function Hoja({
       }
     };
     document.addEventListener('keydown', alTeclear, true);
+
+    // Lo que mide la barra de desplazamiento del cuerpo (0 con barras
+    // flotantes, ~11 px con las clásicas finas): el CSS la descuenta del
+    // margen derecho para que el contenido quede centrado en el panel, y la
+    // franja de arriba no la tapa.
+    const cuerpo = cuerpoRef.current;
+    const medirBarra = () => {
+      if (!cuerpo || !hoja) return;
+      hoja.style.setProperty('--barra', `${Math.max(0, cuerpo.offsetWidth - cuerpo.clientWidth)}px`);
+    };
+    medirBarra();
+    const ro = typeof ResizeObserver !== 'undefined' && cuerpo ? new ResizeObserver(medirBarra) : null;
+    ro?.observe(cuerpo);
+    // En cuanto el contenido se ha movido, la franja de arriba funde lo que
+    // pasa por debajo de la equis (ver .hoja::before en hojas.css). Solo se
+    // escribe al cambiar, no en cada evento de scroll.
+    let desplazada = false;
+    const alDesplazar = () => {
+      const ahora = cuerpo.scrollTop > 1;
+      if (ahora !== desplazada) { desplazada = ahora; hoja?.toggleAttribute('data-desplazada', ahora); }
+    };
+    cuerpo?.addEventListener('scroll', alDesplazar, { passive: true });
+
     return () => {
       document.removeEventListener('keydown', alTeclear, true);
+      ro?.disconnect();
+      cuerpo?.removeEventListener('scroll', alDesplazar);
       desbloquearScroll();                       // primero devolver el scroll…
       const destino = props.current.focoAlCerrar;
       (destino?.isConnected ? destino : anterior)?.focus?.({ preventScroll: true });   // …y luego el foco
