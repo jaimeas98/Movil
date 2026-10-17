@@ -4,6 +4,11 @@ import { memo } from 'react';
 import { useAhora, estadoDeSesion } from '@/lib/reloj.js';
 import { detallesDeSesion, propiosDeSesion } from '@/lib/cartelera.js';
 
+// Solo enlaces https: el servidor ya filtra los de compra (lib/cinemas/
+// enlaces.js), pero un `javascript:` que llegara de una caché vieja no puede
+// convertirse en un enlace que se ejecuta al tocarlo.
+const esHttps = (u) => typeof u === 'string' && /^https:\/\//i.test(u);
+
 // Hora con cifras de ancho fijo. Big Shoulders no trae cifras tabulares (su
 // "1" mide la mitad que el "0") y `font-variant-numeric: tabular-nums` no hace
 // nada con ella: "11:15" y "20:00" no se alineaban en columna. Cada cifra va
@@ -76,7 +81,7 @@ function Entrada({ sesion, cine, pelicula, fecha, onAbrir, comunes = null }) {
     </>
   );
 
-  if (sesion.buyUrl) {
+  if (esHttps(sesion.buyUrl)) {
     return (
       <a
         className="entrada"
@@ -127,7 +132,7 @@ export const Empezadas = memo(function Empezadas({ sesiones, cine, pelicula, onA
     <p className="empezadas-linea">
       {sesiones.map((s, i) => {
         const clave = `${s.time}-${i}`;
-        if (s.buyUrl) {
+        if (esHttps(s.buyUrl)) {
           return (
             <a
               key={clave}

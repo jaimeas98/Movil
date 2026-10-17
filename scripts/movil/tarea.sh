@@ -14,6 +14,12 @@
 #
 # PEDIR UNA RECOGIDA DESDE FUERA: basta con crear data/forzar-recogida en la
 # rama de la web. La vuelta siguiente recoge y borra el fichero.
+#
+# DESDE EL PANEL DE CONTROL (ordenes.sh → acciones.sh) se lanza con:
+#   RECOLECTOR_PEDIDA=informe|recoger|yelmo|respaldo  qué se ha pedido
+#   RECOLECTOR_SIN_PUBLICAR=1   no sube el informe: lo sube ordenes.sh con el
+#                               resultado de la orden ya anotado
+#   RECOLECTOR_ORDEN=<id>       para anotarlo en el historial
 
 set -u
 
@@ -38,11 +44,36 @@ termux-wake-lock 2>/dev/null
 # que cada vuelta, la lance quien la lance, comprueba que el bucle siga
 # corriendo y si no lo arranca. Si nadie tiene su candado, no está vivo.
 # También deja Termux:Boot arrancándolo al encender el móvil.
+# Copias fuera del repositorio (ver ciclo.sh): con cp + mv, nunca a medias. Un
+# bash que esté ejecutando la versión anterior sigue leyendo la suya (mv
+# cambia el nombre, no reescribe el fichero que ya tiene abierto).
+copiar_fuera() {
+  cmp -s "$DIR/scripts/movil/$1" "$BASE/$1" && return 0
+  cp "$DIR/scripts/movil/$1" "$BASE/$1.nuevo" && mv -f "$BASE/$1.nuevo" "$BASE/$1"
+}
+copiar_fuera ordenes.sh   # órdenes del panel, cada minuto desde el bucle
+
 if [ -z "${RECOLECTOR_SIN_BUCLE:-}" ]; then   # RECOLECTOR_SIN_BUCLE: solo para probar.sh
-  cmp -s "$DIR/scripts/movil/bucle.sh" "$BASE/bucle.sh" || cp "$DIR/scripts/movil/bucle.sh" "$BASE/bucle.sh"
+  copiar_fuera bucle.sh
+  # Un bucle de antes del panel (17-10-2026) no sabe actualizarse solo ni
+  # mirar órdenes, y no se iría nunca: se reconoce porque no deja su pid. Se
+  # para, y justo abajo se arranca el nuevo. (Esta vuelta es hija suya, pero
+  # sigue: matar al padre no mata a los hijos.)
+  pid_bucle=$(cat "$BASE/bucle.pid" 2>/dev/null)
+  if ! flock -n "$BASE/bucle.candado" true 2>/dev/null \
+     && ! { [ -n "$pid_bucle" ] && kill -0 "$pid_bucle" 2>/dev/null; }; then
+    echo "el bucle en marcha es de una versión anterior: lo cambio por el nuevo"
+    # Con sus hijos: el `sleep 900` de aquel bucle hereda su candado y lo
+    # retendría hasta 15 min. Si esta vuelta es hija suya, a ella no ($$).
+    for p in $(pgrep -f "$BASE/bucle.sh" 2>/dev/null); do
+      for h in $(pgrep -P "$p" 2>/dev/null); do [ "$h" != "$$" ] && kill "$h" 2>/dev/null; done
+      kill "$p" 2>/dev/null
+    done
+    sleep 1
+  fi
   if flock -n "$BASE/bucle.candado" true 2>/dev/null; then
     echo "el bucle propio no estaba corriendo: lo arranco"
-    nohup bash "$BASE/bucle.sh" </dev/null >/dev/null 2>&1 9>&- &
+    nohup bash "$BASE/bucle.sh" </dev/null >/dev/null 2>&1 8>&- 9>&- &
   fi
   arranque="$HOME/.termux/boot/recolector.sh"
   contenido=$(printf '#!/data/data/com.termux/files/usr/bin/bash
@@ -108,6 +139,16 @@ elif [ "$ultima" -lt "$turno" ]; then
   fi
 fi
 
+# Lo pedido desde el panel manda sobre los turnos.
+partes="yelmo respaldo"
+case "${RECOLECTOR_PEDIDA:-}" in
+  informe)  motivo=""; espera="informe pedido desde el panel" ;;
+  recoger)  motivo="pedida desde el panel" ;;
+  yelmo)    motivo="pedida desde el panel (solo Yelmo)"; partes="yelmo" ;;
+  respaldo) motivo="pedida desde el panel (solo la copia de mk2 y Arte Siete)"; partes="respaldo" ;;
+esac
+con() { case " $partes " in *" $1 "*) return 0 ;; esac; return 1; }
+
 resultado="sin recogida: ${espera:-no tocaba}"
 error=""
 
@@ -130,20 +171,26 @@ recolectar() {
 
 if [ -n "$motivo" ]; then
   echo "recogiendo: $motivo"
-  echo "$ahora" > "$BASE/ultimo-intento"
-  echo "$huella_rec" > "$BASE/intento-codigo"
+  t_recogida=$(date +%s)
   yelmo_ok=""
-  if salida=$(recolectar 2>&1); then yelmo_ok=1; fi
-  echo "$salida"
+  salida=""
+  if con yelmo; then
+    echo "$ahora" > "$BASE/ultimo-intento"
+    echo "$huella_rec" > "$BASE/intento-codigo"
+    if salida=$(recolectar 2>&1); then yelmo_ok=1; fi
+    echo "$salida"
+  fi
 
   # Copia de mk2 y Arte Siete. Va aparte de Yelmo y nunca hace fallar la
   # vuelta: si no responden, se conserva la copia anterior.
-  ( cd "$DIR" && DESTINO=data/respaldo.js timeout 180 node --no-warnings scripts/movil/respaldo-cines.mjs 2>&1 ) || true
+  if con respaldo; then
+    ( cd "$DIR" && DESTINO=data/respaldo.js timeout 180 node --no-warnings scripts/movil/respaldo-cines.mjs 2>&1 ) || true
+  fi
 
   if [ -n "$yelmo_ok" ]; then
     echo "$ahora" > "$BASE/ultima-recogida"
     [ -f data/forzar-recogida ] && git rm -q data/forzar-recogida
-  else
+  elif con yelmo; then
     error=$(printf '%s' "$salida" | tail -n 6)
   fi
   git add data/yelmo.js data/respaldo.js 2>/dev/null
@@ -151,7 +198,11 @@ if [ -n "$motivo" ]; then
   if git diff --cached --quiet; then
     publicado="sin cambios que publicar"
   else
-    git commit -q -m "Cartelera de Yelmo — $(date '+%Y-%m-%d %H:%M') (móvil)"
+    if con yelmo; then
+      git commit -q -m "Cartelera de Yelmo — $(date '+%Y-%m-%d %H:%M') (móvil)"
+    else
+      git commit -q -m "Copia de mk2 y Arte Siete — $(date '+%Y-%m-%d %H:%M') (móvil)"
+    fi
     # Por si entre medias se ha subido algo: nuestro commit va encima.
     if git pull --rebase --quiet origin "$RAMA_APP" && git push --quiet origin "HEAD:$RAMA_APP"; then
       publicado="publicada"
@@ -164,16 +215,30 @@ if [ -n "$motivo" ]; then
       # repositorio en un estado que confunde a la vuelta siguiente.
       git rebase --abort 2>/dev/null
       git reset --hard --quiet "origin/$RAMA_APP"
-      rm -f "$BASE/ultima-recogida"   # el turno vuelve a quedar pendiente: se reintenta en una hora
+      # El turno vuelve a quedar pendiente: se reintenta en una hora. (Una
+      # copia de respaldo suelta no cuenta como turno: no se toca.)
+      con yelmo && rm -f "$BASE/ultima-recogida"
     fi
   fi
 
-  if [ -z "$yelmo_ok" ]; then resultado="fallo al recoger"
+  if ! con yelmo; then
+    case "$publicado" in
+      publicada) resultado="copia de respaldo publicada" ;;
+      "no se pudo publicar") resultado="copia de respaldo hecha, pero no se pudo publicar" ;;
+      *) resultado="copia de respaldo sin cambios que publicar" ;;
+    esac
+  elif [ -z "$yelmo_ok" ]; then resultado="fallo al recoger"
   elif [ "$publicado" = "publicada" ]; then resultado="recogida y publicada"
   elif [ "$publicado" = "no se pudo publicar" ]; then resultado="recogida, pero no se pudo publicar"
   else resultado="recogida, sin cambios que publicar"
   fi
   echo "resultado: $resultado"
+
+  # Historial de recogidas para el panel: días y películas por cine, cuánto
+  # ha tardado. Es un extra: si falla, la vuelta sigue igual.
+  T="$t_recogida" MOTIVO="$motivo" RESULTADO="$resultado" PARTES="$partes" ORDEN="${RECOLECTOR_ORDEN:-}" \
+  YELMO="$DIR/data/yelmo.js" RESPALDO="$DIR/data/respaldo.js" LOCAL="$BASE/recogidas.jsonl" \
+    timeout 30 node --no-warnings "$DIR/scripts/movil/historiales.mjs" recogida 2>&1 || echo "aviso: no se pudo anotar la recogida en el historial"
 fi
 
 # Cuándo será la próxima recogida, para el informe.
@@ -255,7 +320,7 @@ RESULTADO="$resultado" ERROR="$error" MOTIVO="$motivo" BATERIA="$bateria" ENCHUF
 ORDEN="$(cat "$BASE/orden-hecha" 2>/dev/null)" \
 ULTIMA="$ultima_ahora" PROXIMA="$proxima" AHORA="$ahora" \
 CODIGO="$codigo" \
-MODELO="$(getprop ro.product.model 2>/dev/null)" \
+MODELO="$(getprop ro.product.model 2>/dev/null | node "$DIR/scripts/movil/ordenes.mjs" filtrar 2>/dev/null)" \
 ANDROID="$(getprop ro.build.version.release 2>/dev/null)" \
 NODEV="$(node --version 2>/dev/null)" \
 HISTORIAL="$BASE/bateria-historial.json" MODULO_BATERIA="$DIR/scripts/movil/bateria.mjs" \
@@ -304,25 +369,23 @@ node --input-type=module -e '
 '
 
 # Las últimas líneas del registro, para poder ver el detalle de un fallo.
-tail -n 200 "$LOG" > "$DIR_ESTADO/registro.txt"
+# Por el mismo filtro que la salida de las órdenes (IPs, MACs, correos,
+# claves y tokens fuera): el informe es público. Si el filtro fallara, mejor
+# sin registro que con él sin filtrar.
+tail -n 200 "$LOG" | node "$DIR/scripts/movil/ordenes.mjs" filtrar > "$DIR_ESTADO/registro.txt" 2>/dev/null \
+  || echo "(registro omitido: no se pudo filtrar)" > "$DIR_ESTADO/registro.txt"
 
-# El vigilante de GitHub se dispara con cada informe, y para eso su workflow
-# tiene que estar también en esta rama (GitHub usa el de la rama empujada).
-mkdir -p "$DIR_ESTADO/.github/workflows"
-cp "$DIR/.github/workflows/vigilante-movil.yml" "$DIR_ESTADO/.github/workflows/" 2>/dev/null || true
+# Historiales para el panel de control (historial.jsonl con una línea por
+# vuelta, y copias de recogidas.jsonl y del historial de batería). Van DESPUÉS
+# de estado.json y por su cuenta: si fallan, el latido ya está escrito.
+ESTADO="$DIR_ESTADO/estado.json" ORDEN="${RECOLECTOR_ORDEN:-}" BASE="$BASE" DESTINO="$DIR_ESTADO" \
+  timeout 30 node --no-warnings "$DIR/scripts/movil/historiales.mjs" vuelta || echo "aviso: no se pudieron escribir los historiales"
 
-# La rama de informes guarda solo el ÚLTIMO: se reescribe siempre el mismo
-# commit en vez de acumular 48 al día que no le interesan a nadie.
-git -C "$DIR_ESTADO" add -A
-git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')"
-if ! git -C "$DIR_ESTADO" push -q --force origin "$RAMA_ESTADO"; then
-  # Si GitHub no deja a esta clave subir ficheros de workflow, el informe
-  # (el latido) tiene que llegar igual: se reintenta sin el workflow.
-  git -C "$DIR_ESTADO" rm -rq --cached .github 2>/dev/null && rm -rf "$DIR_ESTADO/.github" \
-    && git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')" \
-    && git -C "$DIR_ESTADO" push -q --force origin "$RAMA_ESTADO" \
-    && echo "aviso: informe subido sin el workflow del vigilante" \
-    || echo "aviso: no se pudo subir el informe"
+# Subir el informe (ver publicar.sh: el workflow del vigilante va con él). Si
+# la vuelta la ha pedido una orden del panel, no: lo sube ordenes.sh una sola
+# vez, con el resultado de la orden ya anotado.
+if [ -z "${RECOLECTOR_SIN_PUBLICAR:-}" ]; then
+  bash "$DIR/scripts/movil/publicar.sh" </dev/null
 fi
 
 # El registro local no puede crecer sin límite en un móvil encendido meses.

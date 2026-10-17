@@ -12,7 +12,9 @@
 #  · Dos veces al día recoge la cartelera de Yelmo (con Chromium) y la publica.
 #  · En cada vuelta deja un informe en la rama `estado-movil`, que se puede leer
 #    desde cualquier sesión sin tocar el móvil.
-#  · Ejecuta las órdenes que se le dejen en data/orden.sh (una sola vez cada una).
+#  · Ejecuta las órdenes que se le dejen en data/orden.sh (una sola vez cada una)
+#    y, cada minuto, las del panel de control (rama ordenes-movil, solo las
+#    acciones de scripts/movil/acciones.sh).
 #
 # Nada entra en el móvil desde fuera: no se abre ningún puerto ni se instala
 # ningún servidor SSH. El móvil solo SALE hacia GitHub y hacia Yelmo, y solo

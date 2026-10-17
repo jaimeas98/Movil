@@ -3,7 +3,8 @@
   "regions": ["cdg1"],
   "git": {
     "deploymentEnabled": {
-      "estado-movil": false
+      "estado-movil": false,
+      "ordenes-movil": false
     }
   }
 }

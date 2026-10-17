@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getShowtimes, clearShowtimesCache } from '@/lib/cinemas/aggregator.js';
+import { sinCamposDeEnlace } from '@/lib/cinemas/enlaces.js';
 
 // Se ejecuta en el servidor (sin CORS). Devuelve TODA la cartelera (todos los
 // días) en una sola respuesta; el cliente filtra por día en memoria.
@@ -22,7 +23,11 @@ export async function GET(request) {
 
   try {
     const data = await getShowtimes();
-    return NextResponse.json(data, { headers: { 'Cache-Control': 'no-store' } });
+    // Sin los campos de los enlaces de compra: son para el panel de control
+    // (plantillas editables) y en la web pública solo serían peso.
+    return new Response(JSON.stringify(data, sinCamposDeEnlace), {
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+    });
   } catch (err) {
     return NextResponse.json(
       { error: 'No se pudo obtener la cartelera', detail: String(err) },

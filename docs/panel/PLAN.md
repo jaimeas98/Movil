@@ -148,3 +148,68 @@ Editar a mano una sesión o esconder una película; avisos también por correo;
 estadísticas (qué cine falla más); cambiar los turnos de recogida desde el
 panel; ver la cartelera "como la ve el servidor" frente a "como la ve el
 móvil"; modo mantenimiento con un aviso en la cartelera.
+
+## Cómo ha quedado (17-10-2026) y en qué se aparta del plan
+Contrato exacto: [API.md](API.md). Código: `middleware.js`, `lib/panel/**`,
+`app/api/panel/**`, `lib/cinemas/enlaces.js`, `scripts/movil/{bucle,ordenes,acciones,publicar}.sh`,
+`scripts/movil/{ordenes,historiales}.mjs`.
+- **`data/enlaces.js` en vez de `data/enlaces.json`.** Lo importa el agregador,
+  que corre en Next y también en node a secas (pruebas, y el móvil usa los
+  mismos adaptadores); node no importa `.json` sin atributos de importación.
+  Es un módulo con el JSON dentro, igual que `data/yelmo.js` y
+  `data/respaldo.js`.
+- **`PANEL_CLAVE` de 16 caracteres o más.** Con una más corta el panel no
+  existe (404), igual que sin clave: una clave corta no protege nada.
+- **El 404 sin sesión** es la página 404 normal de Next (reescritura a una
+  ruta que no existe): mismo código y mismo HTML que cualquier URL
+  inexistente. Next añade a esa respuesta la cabecera `x-middleware-rewrite`,
+  que deja ver a quien mire las cabeceras que la ruta es especial. No es un
+  agujero (lo mismo enseña `/panel/entrar`, que existe a propósito) y la
+  seguridad está en la clave y la firma, no en esconderse.
+- **Órdenes**: caducan a las 6 h sin recoger (`caducada`), para que un móvil
+  apagado un día no haga al volver lo que se pidió ayer; el panel no deja
+  pedir la misma acción si ya hay una igual pendiente de hace menos de 30 min;
+  las largas (`recoger`, `recoger-yelmo`, `respaldo`, `probar-yelmo`,
+  `actualizar-paquetes`) se anotan `en-curso` al empezar. `actualizar-paquetes`
+  corre en segundo plano con el candado de las vueltas (máx. 30 min): mientras,
+  no hay vueltas ni otras órdenes.
+- **Ritmo del bucle**: las vueltas empiezan cada 15 min contados desde el
+  principio de la anterior (antes, 15 min desde que acababa). Entre medias,
+  cada minuto, `ordenes.sh`. El bucle se vuelve a ejecutar solo (mismo
+  proceso) cuando `tarea.sh` le deja una versión nueva, y la primera vuelta
+  con este código cambia el bucle viejo (que no sabe hacerlo) por el nuevo.
+- **La rama `ordenes-movil`** se crea huérfana con `ordenes.json`, un
+  `LEEME.txt` y un `vercel.json` con los despliegues apagados (además de la
+  entrada en el `vercel.json` de la web), por si Vercel leyera la
+  configuración de la propia rama.
+- **Sin token**, las lecturas van por `raw.githubusercontent.com` (GitHub las
+  sirve con hasta 5 min de caché) y los avisos por la API anónima (60
+  peticiones por hora). El panel lo dice en `github.aviso`.
+- **Sesiones de copias viejas** sin `enlaceCampos`: los campos se sacan de su
+  enlace con el formato de siempre, para que la plantilla también les valga.
+- **Token**: además de Contents (lectura y escritura), Issues (lectura) y
+  Actions (lectura y escritura), GitHub añade siempre Metadata (lectura).
+
+
+## Revisión de seguridad (17-10-2026) — qué se cambió
+- **Enlaces de compra con lista de dominios por cine** (`HOSTS_POR_CINE` en
+  `lib/cinemas/enlaces.js`, sacados de los enlaces reales): plantillas que
+  empiezan por `https://<dominio del cine>/` escrito tal cual; cada enlace
+  que sale de una plantilla y cada enlace de un adaptador se vuelve a
+  comprobar antes de salir en la web (si no vale, el del adaptador o
+  ninguno). Una clave robada ya no puede mandar a la gente a otra web, ni un
+  cine manipulado colar un `javascript:`.
+- **Peticiones de comprobación** solo a esos dominios (y redirecciones, máx. 3,
+  solo dentro de ellos): sin SSRF por nip.io, `localhost.`, DNS rebinding…
+- **Límites de órdenes** en el servidor Y en el móvil (por su cuenta): espera
+  mínima por acción y 10 por hora; `en-curso` cuenta como pendiente. Un
+  guardado de plantilla por minuto.
+- `javascript:` y demás: solo se pintan como enlace los `https://` (panel y
+  cartelera).
+- Lo que el móvil publica en `registro.txt` pasa por el mismo filtro que los
+  resultados de las órdenes.
+- Claves heredadas (`constructor`, `__proto__`…) no valen como cine ni filtro.
+- Una orden mal formada se rechaza ella sola, sin atascar las demás.
+- Sesiones de 14 días y `PANEL_SESIONES_DESDE` para cerrarlas todas.
+- `X-Frame-Options: DENY` y `frame-ancestors 'none'` en todo el panel.
+- La respuesta pública de la cartelera ya no lleva `origen`/`datosDe`.

@@ -17,7 +17,14 @@ for c in termux-wake-lock termux-wake-unlock termux-job-scheduler; do printf '#!
 echo '#!/bin/sh
 echo "{\"percentage\": ${BAT_PCT:-81}, \"plugged\": \"${BAT_PLUG:-PLUGGED_AC}\", \"health\": \"GOOD\", \"temperature\": 29.5}"' > "$S/bin/termux-battery-status"
 echo '#!/bin/sh
-case "$1" in ro.product.model) echo "Movil de prueba";; ro.build.version.release) echo "14";; esac' > "$S/bin/getprop"
+case "$1" in ro.product.model) echo "${MODELO_PRUEBA:-Movil de prueba}";; ro.build.version.release) echo "14";; esac' > "$S/bin/getprop"
+# Sin red de verdad: curl solo sirve ficheros locales (el enchufe simulado), y
+# pkg (actualizar-paquetes) tarda un poco y dice qué haría.
+echo '#!/bin/sh
+for a in "$@"; do case "$a" in http://*|https://*) exit 7;; esac; done
+exec '"$(command -v curl)"' "$@"' > "$S/bin/curl"
+echo '#!/bin/sh
+echo "pkg $* (simulado)"; sleep 2' > "$S/bin/pkg"
 chmod +x "$S/bin/"*
 
 # Chromium y puppeteer-core simulados: el recolector real se ejecuta entero,
@@ -59,7 +66,7 @@ git clone -q --bare "$RAIZ" "$S/origin.git"
 git clone -q --branch "$RAMA" --single-branch "$S/origin.git" "$HOME/Movil" 2>/dev/null \
   || git clone -q "$S/origin.git" "$HOME/Movil"
 git -C "$HOME/Movil" checkout -q -B "$RAMA"
-rsync -a --exclude .git --exclude node_modules "$RAIZ/" "$HOME/Movil/" 2>/dev/null || cp -r "$RAIZ/scripts" "$RAIZ/data" "$RAIZ/lib" "$HOME/Movil/"
+rsync -a --exclude .git --exclude node_modules "$RAIZ/" "$HOME/Movil/" 2>/dev/null || cp -r "$RAIZ/scripts" "$RAIZ/data" "$RAIZ/lib" "$RAIZ/.github" "$HOME/Movil/"
 rm -f "$HOME/Movil/data/forzar-recogida" "$HOME/Movil/data/orden.sh"   # avisos pendientes del repo real: la simulación empieza limpia
 git -C "$HOME/Movil" add -A && git -C "$HOME/Movil" commit -qm "estado a probar" --allow-empty && git -C "$HOME/Movil" push -q -f origin "HEAD:$RAMA"
 mkdir -p "$HOME/estado-movil" && ( cd "$HOME/estado-movil" && git init -q && git remote add origin "$S/origin.git" \
@@ -186,5 +193,167 @@ RECOLECTOR_SIN_BUCLE= MOCK_YELMO=ok vuelta; sleep 1
 [ "$(pgrep -fc "$HOME/.recolector/bucle.sh")" = 1 ] && ok "nunca hay dos bucles a la vez" || mal "hay $(pgrep -fc "$HOME/.recolector/bucle.sh") bucles"
 grep -q "bucle.sh" "$HOME/.termux/boot/recolector.sh" && ok "al encender el móvil también arranca el bucle" || mal "Termux:Boot sin bucle"
 pkill -f "$HOME/.recolector/bucle.sh"; sleep 1
+
+# ── Historiales para el panel ───────────────────────────────────────────────
+E(){ git -C "$S/origin.git" show "estado-movil:$1" 2>/dev/null; }
+n=$(E historial.jsonl | wc -l)
+[ "$n" -ge 20 ] && E historial.jsonl | tail -n1 | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const l=JSON.parse(s);process.exit(l.t&&l.resultado&&"bateria" in l&&l.codigo?0:1)})' \
+  && ok "historial.jsonl: una línea por vuelta ($n), con resultado, batería y código" || mal "historial.jsonl: $n líneas"
+E recogidas.jsonl | tail -n1 | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const l=JSON.parse(s);process.exit(l.cines?.["yelmo-bahia-sur"]?.dias>=1&&l.duracionS>=0&&l.motivo?0:1)})' \
+  && ok "recogidas.jsonl: días y películas por cine y duración de cada recogida" || mal "recogidas.jsonl: '$(E recogidas.jsonl | tail -n1 | cut -c1-200)'"
+E bateria-historial.json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.exit(Array.isArray(JSON.parse(s))?0:1))' \
+  && ok "bateria-historial.json publicado (y solo si es JSON válido)" || mal "bateria-historial.json"
+viejo=$(date -u -d '8 days ago' +%Y-%m-%dT%H:%M:%S.000Z)
+sed -i "1i {\"t\":\"$viejo\",\"resultado\":\"vuelta de hace 8 días\"}" "$HOME/.recolector/historial.jsonl"
+MOCK_YELMO=ok vuelta
+! E historial.jsonl | grep -q "hace 8 días" && ok "historial.jsonl solo guarda 7 días" || mal "historial sin recortar"
+mv "$HOME/.recolector/historial.jsonl" "$S/hist.bak"; mkdir "$HOME/.recolector/historial.jsonl"
+antes=$(campo .vuelta); sleep 1; MOCK_YELMO=ok vuelta
+[ "$(campo .vuelta)" != "$antes" ] && ok "un historial que no se puede escribir no impide el informe (el latido)" || mal "sin informe con historial roto"
+rmdir "$HOME/.recolector/historial.jsonl"; mv "$S/hist.bak" "$HOME/.recolector/historial.jsonl"
+
+# ── Órdenes del panel (rama ordenes-movil) ─────────────────────────────────
+O="$S/ordenes"; mkdir -p "$O" && ( cd "$O" && git init -q && git remote add origin "$S/origin.git" && git checkout -q --orphan ordenes-movil )
+# orden id accion [pedida]: la añade a ordenes.json y la sube, como el panel.
+orden(){
+  ( cd "$O" && ID="$1" ACCION="$2" PEDIDA="${3:-$(date -u +%Y-%m-%dT%H:%M:%S.000Z)}" node -e '
+    const fs=require("fs"); let d={ordenes:[]}; try{d=JSON.parse(fs.readFileSync("ordenes.json","utf8"))}catch{}
+    d.ordenes.push({id:process.env.ID,accion:process.env.ACCION,pedida:process.env.PEDIDA,parametros:{}});
+    fs.writeFileSync("ordenes.json",JSON.stringify({ordenes:d.ordenes.slice(-20)},null,2));' \
+    && git add -A && git commit -qm "orden $1" && git push -q origin ordenes-movil )
+}
+R(){ E ordenes-resultado.json | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const r=JSON.parse(s).resultados.find(x=>x.id==='$1');console.log(r?r$2:'')}catch{console.log('')}})"; }
+# Cada prueba empieza como si hubiera pasado el tiempo: sin el registro de
+# límites del móvil (ordenes-limites.json). Las de límites usan ordenes_tal_cual.
+LIM="$HOME/.recolector/ordenes-limites.json"
+ordenes(){ rm -f "$LIM"; bash "$HOME/.recolector/ordenes.sh"; }
+ordenes_tal_cual(){ bash "$HOME/.recolector/ordenes.sh"; }
+export MOCK_YELMO=ok
+
+[ -f "$HOME/.recolector/ordenes.sh" ] && ok "cada vuelta deja ordenes.sh fuera del repositorio" || mal "falta ~/.recolector/ordenes.sh"
+ordenes; [ -z "$(E ordenes-resultado.json)" ] && ok "sin rama de órdenes no hace nada (ni falla)" || mal "resultados sin órdenes"
+
+orden o-20261102-1000-aa01 diagnostico; ordenes
+[ "$(R o-20261102-1000-aa01 .estado)" = hecha ] && R o-20261102-1000-aa01 .salida | grep -q "node:" \
+  && ok "una orden del panel se ejecuta y su resultado se publica en el acto" || mal "diagnóstico: '$(R o-20261102-1000-aa01 .estado)'"
+R o-20261102-1000-aa01 .salida | grep -Eq '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' && mal "¡el diagnóstico publica una IP!" || ok "el diagnóstico no publica IPs"
+for c in id accion estado inicio fin codigo salida; do R o-20261102-1000-aa01 ".$c" | grep -q . || mal "al resultado le falta $c"; done
+
+orden o-20261102-1001-aa02 'rm -rf ~'; orden o-20261102-1002-aa03 'informe;touch' ; orden o-20261102-1003-aa04 borrar-todo; ordenes
+[ "$(R o-20261102-1001-aa02 .estado)" = rechazada ] && [ "$(R o-20261102-1002-aa03 .estado)" = rechazada ] \
+  && [ "$(R o-20261102-1003-aa04 .estado)" = rechazada ] && [ "$(R o-20261102-1003-aa04 .codigo)" = 2 ] \
+  && ok "lo que no está en la lista cerrada se rechaza y se dice" || mal "rechazo: '$(R o-20261102-1001-aa02 .estado)' '$(R o-20261102-1003-aa04 .estado)'"
+grep -q "orden o-20261102-1003-aa04: borrar-todo" "$HOME/.recolector/ciclo.log" && mal "¡ejecutó una acción fuera de la lista!" || ok "y no se intenta ejecutar"
+bash "$HOME/Movil/scripts/movil/acciones.sh" 'diagnostico; touch x' >/dev/null; [ $? = 2 ] && ok "acciones.sh rechaza por su cuenta lo que no es de la lista" || mal "acciones.sh aceptó algo raro"
+
+orden o-20261102-1004-aa05 informe; ordenes; ordenes; orden o-20261102-1005-aa06 diagnostico; ordenes
+[ "$(grep -c 'orden o-20261102-1004-aa05: informe' "$HOME/.recolector/ciclo.log")" = 1 ] && [ "$(grep -c 'orden o-20261102-1000-aa01: diagnostico' "$HOME/.recolector/ciclo.log")" = 1 ] \
+  && ok "cada orden se ejecuta una sola vez, aunque la rama cambie después" || mal "órdenes repetidas"
+[ "$(campo .resultado)" = "sin recogida: informe pedido desde el panel" ] && [ "$(R o-20261102-1004-aa05 .estado)" = hecha ] \
+  && ok "«informe» refresca estado.json en el acto" || mal "informe: '$(campo .resultado)'"
+E historial.jsonl | tail -n 3 | grep -q '"orden":"o-20261102-1004-aa05"' && ok "el historial apunta qué vuelta pidió el panel" || mal "historial sin la orden"
+
+n=$(llamadas); orden o-20261102-1006-aa07 recoger; ordenes
+[ "$(llamadas)" -gt "$n" ] && [ "$(campo .motivo)" = "pedida desde el panel" ] && [ "$(R o-20261102-1006-aa07 .estado)" = hecha ] \
+  && E recogidas.jsonl | tail -n1 | grep -q o-20261102-1006-aa07 \
+  && ok "«recoger» recoge ya aunque no toque, y queda en recogidas.jsonl" || mal "recoger: '$(campo .motivo)' / '$(R o-20261102-1006-aa07 .estado)'"
+n=$(llamadas); orden o-20261102-1007-aa08 respaldo; ordenes
+[ "$(llamadas)" -eq "$n" ] && campo .resultado | grep -q "copia de respaldo" \
+  && ok "«respaldo» solo hace la copia de mk2 y Arte Siete, sin tocar Yelmo" || mal "respaldo: '$(campo .resultado)'"
+orden o-20261102-1008-aa09 probar-yelmo; ordenes
+[ "$(R o-20261102-1008-aa09 .estado)" = hecha ] && ok "«probar-yelmo» prueba el recolector sin publicar" || mal "probar-yelmo: '$(R o-20261102-1008-aa09 .salida)'"
+orden o-20261102-1009-aa10 informe "$(date -u -d '7 hours ago' +%Y-%m-%dT%H:%M:%S.000Z)"; ordenes
+[ "$(R o-20261102-1009-aa10 .estado)" = caducada ] && ok "una orden de hace más de 6 h ya no se ejecuta (caducada)" || mal "caducada: '$(R o-20261102-1009-aa10 .estado)'"
+( exec 9>"$HOME/.recolector/candado"; flock 9; sleep 6 ) & bloq=$!; sleep 0.5
+orden o-20261102-1010-aa11 diagnostico; RECOLECTOR_ESPERA_S=1 ordenes
+[ -z "$(R o-20261102-1010-aa11 .estado)" ] && ok "con una vuelta en marcha, la orden espera (nunca dos cosas a la vez)" || mal "se ejecutó con el candado tomado"
+kill $bloq 2>/dev/null; wait $bloq 2>/dev/null; ordenes
+[ "$(R o-20261102-1010-aa11 .estado)" = hecha ] && ok "y se hace en cuanto queda libre" || mal "la orden aplazada no se hizo"
+
+orden o-20261102-1011-aa12 actualizar-paquetes; ordenes
+[ "$(R o-20261102-1011-aa12 .estado)" = en-curso ] && ok "«actualizar-paquetes» va en segundo plano y avisa de que está en curso" || mal "actualizar: '$(R o-20261102-1011-aa12 .estado)'"
+MOCK_YELMO=ok vuelta; tail -n 2 "$HOME/.recolector/ciclo.log" | grep -q "ya hay otra vuelta" && ok "mientras se actualiza, no empieza ninguna vuelta" || mal "vuelta durante la actualización"
+for _ in $(seq 1 20); do [ "$(R o-20261102-1011-aa12 .estado)" = hecha ] && break; sleep 0.5; done
+[ "$(R o-20261102-1011-aa12 .estado)" = hecha ] && R o-20261102-1011-aa12 .salida | grep -q "pkg upgrade" \
+  && ok "y al acabar publica su resultado" || mal "actualizar sin resultado: '$(R o-20261102-1011-aa12 .estado)'"
+[ "$(E ordenes-resultado.json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).resultados.length))')" -le 20 ] \
+  && ok "ordenes-resultado.json guarda como mucho 20" || mal "demasiados resultados"
+orden o-20261102-1012-aa13 diagnostico; sh -c "cd '$O' && sed -i 's/\"diagnostico\"/\"diagnostico\",\"x\":\"-----BEGIN OPENSSH PRIVATE KEY-----\"/' ordenes.json && git commit -qam x && git push -q origin ordenes-movil"
+ordenes; [ "$(R o-20261102-1012-aa13 .estado)" = hecha ] && ok "un ordenes.json con campos de más no rompe nada" || mal "campos de más"
+
+# ── Revisión de seguridad: límites en el MÓVIL (M2), órdenes raras (L3) y
+# nada que identifique en lo publicado (L1) ────────────────────────────────
+rm -f "$LIM"
+orden o-20261102-1100-ab01 respaldo; orden o-20261102-1101-ab02 respaldo; orden o-20261102-1102-ab03 recoger-yelmo; ordenes_tal_cual
+[ "$(R o-20261102-1100-ab01 .estado)" = hecha ] && [ "$(R o-20261102-1101-ab02 .estado)" = rechazada ] && R o-20261102-1101-ab02 .salida | grep -q "demasiado pronto" \
+  && [ "$(R o-20261102-1102-ab03 .estado)" = hecha ] \
+  && ok "M2: el móvil aplica por su cuenta la espera de cada acción (dos «respaldo» seguidas: la segunda, rechazada y dice por qué)" \
+  || mal "M2 espera: '$(R o-20261102-1101-ab02 .estado)' '$(R o-20261102-1101-ab02 .salida)'"
+orden o-20261102-1103-ab04 respaldo; ordenes_tal_cual
+[ "$(R o-20261102-1103-ab04 .estado)" = rechazada ] && ok "M2: y lo recuerda en su propio registro entre una pasada y otra" || mal "M2 sin memoria: '$(R o-20261102-1103-ab04 .estado)'"
+node -e 'const t=Date.now()-600e3;require("fs").writeFileSync(process.argv[1],JSON.stringify(Array.from({length:10},(_,i)=>({id:"o-20261102-0900-x"+String(i).padStart(3,"0"),accion:"x",t}))))' "$LIM"
+orden o-20261102-1104-ab05 informe; ordenes_tal_cual
+[ "$(R o-20261102-1104-ab05 .estado)" = rechazada ] && R o-20261102-1104-ab05 .salida | grep -q "por hora" \
+  && ok "M2: como mucho 10 órdenes por hora" || mal "M2 tope: '$(R o-20261102-1104-ab05 .estado)' '$(R o-20261102-1104-ab05 .salida)'"
+rm -f "$LIM"
+orden o-20261102-1105-ab06 actualizar-paquetes; orden o-20261102-1106-ab07 diagnostico; ordenes_tal_cual
+for _ in $(seq 1 20); do [ "$(R o-20261102-1105-ab06 .estado)" = hecha ] && break; sleep 0.5; done
+[ -z "$(R o-20261102-1106-ab07 .estado)" ] && ordenes_tal_cual
+[ "$(R o-20261102-1105-ab06 .estado)" = hecha ] && [ "$(R o-20261102-1106-ab07 .estado)" = hecha ] \
+  && ok "M2: una orden que espera tras una actualización en segundo plano no choca con su propio límite" || mal "tras actualizar: '$(R o-20261102-1106-ab07 .estado)' '$(R o-20261102-1106-ab07 .salida)'"
+orden o-20261102-1107-ab08 actualizar-paquetes; ordenes_tal_cual
+[ "$(R o-20261102-1107-ab08 .estado)" = rechazada ] && ok "M2: actualizar-paquetes, como mucho una al día" || mal "dos actualizaciones: '$(R o-20261102-1107-ab08 .estado)'"
+
+rm -f "$LIM"
+sh -c "cd '$O' && node -e '
+  const fs=require(\"fs\"); const d=JSON.parse(fs.readFileSync(\"ordenes.json\",\"utf8\")); const ahora=new Date().toISOString();
+  d.ordenes.push({id:\"o-20261102-1110-ac01\",accion:\"reiniciar-bucle\",pedida:{toString:1}});
+  d.ordenes.push({id:\"o-20261102-1111-ac02\",accion:\"diagnostico\",pedida:ahora,parametros:\"x\"});
+  d.ordenes.push(null, 7, {id:[\"o-20261102-1112-ac03\"],accion:\"informe\",pedida:ahora});
+  d.ordenes.push({id:\"o-20261102-1113-ac04\",accion:\"informe\",pedida:ahora,parametros:{}});
+  fs.writeFileSync(\"ordenes.json\",JSON.stringify({ordenes:d.ordenes.slice(-20)}));' && git commit -qam raras && git push -q origin ordenes-movil"
+ordenes_tal_cual
+[ "$(R o-20261102-1110-ac01 .estado)" = rechazada ] && [ "$(R o-20261102-1111-ac02 .estado)" = rechazada ] && [ "$(R o-20261102-1113-ac04 .estado)" = hecha ] \
+  && ok "L3: una orden mal formada se rechaza ella sola y la buena de la misma tanda se hace" || mal "L3: '$(R o-20261102-1110-ac01 .estado)' '$(R o-20261102-1113-ac04 .estado)'"
+
+rm -f "$LIM"; orden o-20261102-1114-ac05 diagnostico; MODELO_PRUEBA="M2002F4LG 192.168.1.37 jaime@example.com fe80::1c2b:3fff:fe4a:1" ordenes_tal_cual
+MODELO_PRUEBA="M2002F4LG 192.168.1.37 jaime@example.com" MOCK_YELMO=ok vuelta
+fuga=0
+for f in ordenes-resultado.json registro.txt estado.json; do
+  E "$f" | grep -Eq '192\.168\.1\.37|jaime@example\.com|fe80::' && { fuga=1; mal "L1: $f publica una IP o un correo"; }
+done
+E registro.txt | grep -q "IP omitida" && [ "$fuga" = 0 ] && ok "L1: ni el resultado, ni registro.txt, ni estado.json publican IPs ni correos" || [ "$fuga" = 1 ] || mal "L1: registro.txt sin filtrar"
+
+# El bucle: recoge las órdenes en el minuto, se actualiza solo y se reinicia.
+pkill -f "$HOME/.recolector/bucle.sh"; sleep 1; rm -f "$LIM"
+cp "$HOME/Movil/scripts/movil/bucle.sh" "$HOME/.recolector/bucle.sh"
+RECOLECTOR_MINUTO_S=1 RECOLECTOR_VUELTA_S=3600 nohup bash "$HOME/.recolector/bucle.sh" </dev/null >/dev/null 2>&1 &
+sleep 3; pid=$(cat "$HOME/.recolector/bucle.pid")
+orden o-20261102-1013-aa14 diagnostico
+for _ in $(seq 1 30); do [ "$(R o-20261102-1013-aa14 .estado)" = hecha ] && break; sleep 0.5; done
+[ "$(R o-20261102-1013-aa14 .estado)" = hecha ] && ok "el bucle recoge una orden en su minuto, sin esperar a la vuelta de 15" || mal "el bucle no recogió la orden"
+{ head -n1 "$HOME/.recolector/bucle.sh"; echo 'touch "$HOME/.recolector/reejecutado"'; tail -n +2 "$HOME/.recolector/bucle.sh"; } > "$S/b2" && mv "$S/b2" "$HOME/.recolector/bucle.sh"
+for _ in $(seq 1 20); do [ -f "$HOME/.recolector/reejecutado" ] && break; sleep 0.5; done
+[ -f "$HOME/.recolector/reejecutado" ] && [ "$(cat "$HOME/.recolector/bucle.pid")" = "$pid" ] && [ "$(pgrep -fc "$HOME/.recolector/bucle.sh")" = 1 ] \
+  && ok "si cambia bucle.sh, el bucle se vuelve a ejecutar con la versión nueva (mismo proceso)" || mal "el bucle no se actualizó solo"
+orden o-20261102-1014-aa15 reiniciar-bucle
+for _ in $(seq 1 30); do [ "$(R o-20261102-1014-aa15 .estado)" = hecha ] && break; sleep 0.5; done
+sleep 1; nuevo_pid=$(cat "$HOME/.recolector/bucle.pid")
+[ "$(R o-20261102-1014-aa15 .estado)" = hecha ] && [ "$nuevo_pid" != "$pid" ] && kill -0 "$nuevo_pid" 2>/dev/null && [ "$(pgrep -fc "$HOME/.recolector/bucle.sh")" = 1 ] \
+  && ok "«reiniciar-bucle» deja un bucle nuevo, y solo uno" || mal "reiniciar: '$(R o-20261102-1014-aa15 .estado)' $pid→$nuevo_pid, $(pgrep -fc "$HOME/.recolector/bucle.sh") bucles"
+( exec 9>"$HOME/.recolector/candado"; flock -w 5 9 ) && ok "y el bucle nuevo no se queda con el candado de las vueltas" || mal "candado secuestrado por el bucle nuevo"
+pkill -f "$HOME/.recolector/bucle.sh"; sleep 1
+
+# Un bucle de la versión anterior (sin órdenes ni pid) se cambia por el nuevo.
+# (Como el de antes: toma el candado del bucle y no deja pid. Sin vueltas
+# dentro, para que no se cruce con la de la prueba.)
+printf '#!/bin/bash\nexec 8>"$HOME/.recolector/bucle.candado"\nflock -n 8 || exit 0\nwhile true; do sleep 900; done\n' > "$HOME/.recolector/bucle.sh"
+# (Y ojo: su `sleep 900` hereda el candado; la vuelta tiene que pararlo también.)
+rm -f "$HOME/.recolector/bucle.pid"
+nohup bash "$HOME/.recolector/bucle.sh" </dev/null >/dev/null 2>&1 & viejo=$!; sleep 1
+RECOLECTOR_SIN_BUCLE= MOCK_YELMO=ok vuelta; sleep 2
+! kill -0 "$viejo" 2>/dev/null && [ -n "$(cat "$HOME/.recolector/bucle.pid" 2>/dev/null)" ] && [ "$(pgrep -fc "$HOME/.recolector/bucle.sh")" = 1 ] \
+  && ok "un bucle de la versión anterior se cambia solo por el nuevo" || mal "el bucle viejo sigue ($(pgrep -fc "$HOME/.recolector/bucle.sh") bucles)"
+pkill -f "$HOME/.recolector/bucle.sh"; flock -w 60 "$HOME/.recolector/candado" true; sleep 1
 
 echo; [ $fallos -eq 0 ] && echo "Todo correcto" || { echo "$fallos FALLOS"; exit 1; }

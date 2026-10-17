@@ -6,6 +6,11 @@ import { nombreInterruptor } from '@/lib/rotulos.js';
 import { useAhora } from '@/lib/reloj.js';
 import { useEstadoSesion, textoFalta, frasePara, Hora } from './Entrada.jsx';
 
+// Solo enlaces https: el servidor ya filtra los de compra (lib/cinemas/
+// enlaces.js), pero un `javascript:` que llegara de una caché vieja no puede
+// convertirse en un enlace que se ejecuta al tocarlo.
+const esHttps = (u) => typeof u === 'string' && /^https:\/\//i.test(u);
+
 const dosCifras = (n) => String(n).padStart(2, '0');
 
 // Jerarquía: la hora se escribe UNA vez por cada hora de inicio distinta, en
@@ -38,7 +43,7 @@ function Pase({ pelicula, cine, sesion, onAbrir, pasada, falta }) {
       {sala && <span className="fila-sala">{sala}</span>}
     </span>
   );
-  return sesion.buyUrl ? (
+  return esHttps(sesion.buyUrl) ? (
     <a
       className="fila-pase"
       href={sesion.buyUrl}
