@@ -9,7 +9,7 @@ Plan y porqués: [PLAN.md](PLAN.md).
 ## Puesta en marcha (lo que hace Jaime en Vercel y GitHub)
 
 1. Vercel → proyecto → Settings → Environment Variables:
-   - `PANEL_CLAVE`: 16 caracteres o más (mejor 30+, aleatoria). Más corta = el
+   - `PANEL_CLAVE`: 12 caracteres o más (mejor 20+, aleatoria). Más corta = el
      panel no existe.
    - `PANEL_GITHUB_TOKEN`: token *fine-grained* de GitHub, **solo** del
      repositorio `jaimeas98/Movil`, con Contents: Read and write, Issues: Read,

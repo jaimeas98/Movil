@@ -5,7 +5,7 @@
 // fallos en 10 minutos desde la misma IP se cortan con 429. El límite vive en
 // la memoria de la instancia (en Vercel puede haber varias y se reinician),
 // así que es solo un freno; la protección de verdad es que la clave sea larga
-// (PANEL_CLAVE pide al menos 16 caracteres).
+// (PANEL_CLAVE pide al menos 12 caracteres).
 
 import { cabeceraCookie, claveCorrecta, claveDelServidor, crearValorCookie } from '@/lib/panel/sesion.js';
 import { error, ruta, sinCuerpo } from '@/lib/panel/http.js';

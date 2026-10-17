@@ -15,6 +15,10 @@ RAMA_ESTADO="estado-movil"
 # tiene que estar también en esta rama (GitHub usa el de la rama empujada).
 mkdir -p "$DIR_ESTADO/.github/workflows"
 cp "$DIR/.github/workflows/vigilante-movil.yml" "$DIR_ESTADO/.github/workflows/" 2>/dev/null || true
+# Y un vercel.json propio: Vercel lee la configuración del commit que le llega,
+# y sin él intentaba desplegar cada informe como si fuera la web (un "Error"
+# en la lista de despliegues cada 15 minutos).
+printf '{ "git": { "deploymentEnabled": { "estado-movil": false } } }\n' > "$DIR_ESTADO/vercel.json"
 
 git -C "$DIR_ESTADO" add -A
 git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')"
