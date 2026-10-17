@@ -306,12 +306,24 @@ node --input-type=module -e '
 # Las últimas líneas del registro, para poder ver el detalle de un fallo.
 tail -n 200 "$LOG" > "$DIR_ESTADO/registro.txt"
 
+# El vigilante de GitHub se dispara con cada informe, y para eso su workflow
+# tiene que estar también en esta rama (GitHub usa el de la rama empujada).
+mkdir -p "$DIR_ESTADO/.github/workflows"
+cp "$DIR/.github/workflows/vigilante-movil.yml" "$DIR_ESTADO/.github/workflows/" 2>/dev/null || true
+
 # La rama de informes guarda solo el ÚLTIMO: se reescribe siempre el mismo
 # commit en vez de acumular 48 al día que no le interesan a nadie.
 git -C "$DIR_ESTADO" add -A
-git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')" \
-  && git -C "$DIR_ESTADO" push -q --force origin "$RAMA_ESTADO" \
-  || echo "aviso: no se pudo subir el informe"
+git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')"
+if ! git -C "$DIR_ESTADO" push -q --force origin "$RAMA_ESTADO"; then
+  # Si GitHub no deja a esta clave subir ficheros de workflow, el informe
+  # (el latido) tiene que llegar igual: se reintenta sin el workflow.
+  git -C "$DIR_ESTADO" rm -rq --cached .github 2>/dev/null && rm -rf "$DIR_ESTADO/.github" \
+    && git -C "$DIR_ESTADO" commit -q --amend -m "Informe del recolector — $(date '+%Y-%m-%d %H:%M')" \
+    && git -C "$DIR_ESTADO" push -q --force origin "$RAMA_ESTADO" \
+    && echo "aviso: informe subido sin el workflow del vigilante" \
+    || echo "aviso: no se pudo subir el informe"
+fi
 
 # El registro local no puede crecer sin límite en un móvil encendido meses.
 if [ "$(wc -l < "$LOG")" -gt 3000 ]; then

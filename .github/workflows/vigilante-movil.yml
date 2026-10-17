@@ -4,9 +4,15 @@
 name: Vigilante del móvil
 
 on:
+  # Lo que de verdad lo dispara: cada informe que sube el móvil (cada 15 min).
+  # Las tareas programadas de GitHub se retrasan HORAS en repos pequeños
+  # (medido el 17-10-2026: 3 ejecuciones en 9 h), así que no sirven de reloj.
+  # Para eso el móvil copia este mismo fichero en su rama de informes.
+  push:
+    branches: [estado-movil]
+  # Red de seguridad para cuando el móvil calla (entonces no hay informes que
+  # lo disparen): tarde o temprano GitHub la ejecuta.
   schedule:
-    # Cada 30 min, en minutos "raros": a las en punto GitHub va saturado y
-    # retrasa las tareas programadas.
     - cron: '7,37 * * * *'
   workflow_dispatch:
     inputs:
@@ -30,6 +36,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Siempre el código de la rama principal, también cuando lo dispara
+          # un informe de la rama estado-movil (que no lleva el script).
+          ref: ${{ github.event.repository.default_branch }}
           sparse-checkout: scripts/vigilante
       - name: Revisar el informe del móvil
         run: node scripts/vigilante/revisar.mjs
