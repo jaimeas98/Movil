@@ -63,8 +63,16 @@ const FOCOS = 'a[href], button:not([disabled]), input, select, textarea, [tabind
 //   focoAlCerrar   adónde devolver el foco (por defecto, a quien lo tenía)
 //   instantanea    sin animación de entrada ni de salida (abierta con
 //                  teclado: lo que se hace con atajos no se anima)
+//   hueco          opcional: () => Element. En el panel de escritorio, el velo
+//                  deja ese elemento sin atenuar (el cartel de la película
+//                  abierta, en la lista): la tarjeta se lee como "la abierta".
+//   claveHueco     cuándo volver a medir el hueco (cambia con la película)
+//   traspasar      opcional: (x, y) => Element | null. Lo que se puede tocar a
+//                  través del velo; al tocarlo se le pasa el clic en vez de
+//                  cerrar (otra película de la lista, con el panel abierto).
 export default function Hoja({
-  variante, etiquetadaPor, etiqueta, onCerrar, salida, focoAlCerrar, instantanea = false, children,
+  variante, etiquetadaPor, etiqueta, onCerrar, salida, focoAlCerrar, instantanea = false,
+  hueco, claveHueco, traspasar, children,
 }) {
   const veloRef = useRef(null);
   const hojaRef = useRef(null);
@@ -73,8 +81,58 @@ export default function Hoja({
 
   // Los callbacks del padre llegan nuevos en cada render: en refs, para que el
   // efecto del gesto no se vuelva a montar a mitad de un arrastre.
-  const props = useRef({ onCerrar, salida, focoAlCerrar, instantanea });
-  useEffect(() => { props.current = { onCerrar, salida, focoAlCerrar, instantanea }; });
+  const props = useRef({ onCerrar, salida, focoAlCerrar, instantanea, traspasar });
+  useEffect(() => { props.current = { onCerrar, salida, focoAlCerrar, instantanea, traspasar }; });
+
+  // ── El hueco del velo (solo en el panel) ────────────────────────────────────
+  // El velo atenúa la cartelera de detrás menos el cartel de la película
+  // abierta, que se queda con su luz: es la marca de "esta es la abierta" en
+  // la lista, y de él ha salido (y a él vuelve) la copia que vuela al panel.
+  // Una máscara sobre el velo y no un realce sobre la tarjeta: la tarjeta está
+  // por debajo de la capa de la hoja y no puede subir por encima del velo sin
+  // subir también por encima del panel. El scroll de la página está bloqueado
+  // mientras la hoja está abierta, así que el sitio solo cambia al cambiar de
+  // película o de tamaño de ventana. useLayoutEffect: tiene que estar puesto
+  // antes de la foto de la View Transition, que se toma tras este commit.
+  useLayoutEffect(() => {
+    const velo = veloRef.current;
+    if (!velo || !hueco) return undefined;
+    const poner = () => {
+      const el = esPanel() ? hueco() : null;
+      const r = el?.getBoundingClientRect();
+      if (!r?.width) { velo.removeAttribute('data-hueco'); return; }
+      velo.style.setProperty('--hueco-x', `${r.left}px`);
+      velo.style.setProperty('--hueco-y', `${r.top}px`);
+      velo.style.setProperty('--hueco-w', `${r.width}px`);
+      velo.style.setProperty('--hueco-h', `${r.height}px`);
+      velo.setAttribute('data-hueco', '');
+    };
+    poner();
+    window.addEventListener('resize', poner);
+    return () => window.removeEventListener('resize', poner);
+    // Solo claveHueco: `hueco` llega nuevo en cada render y volver a medir
+    // en cada uno no cambia nada.
+  }, [claveHueco]);
+
+  // Tocar el velo cierra, salvo que debajo haya algo que se pueda traspasar.
+  // El puntero cambia encima de eso, para que no sea un truco escondido.
+  const alTocarVelo = (e) => {
+    const destino = props.current.traspasar?.(e.clientX, e.clientY);
+    if (destino) { destino.click(); return; }
+    pedirRef.current('velo');
+  };
+  const apuntaRef = useRef(0);
+  const alMoverSobreVelo = (e) => {
+    if (!props.current.traspasar || apuntaRef.current) return;
+    const { clientX: x, clientY: y } = e;
+    const velo = e.currentTarget;
+    // Una consulta por fotograma como mucho: elementsFromPoint no es gratis.
+    apuntaRef.current = requestAnimationFrame(() => {
+      apuntaRef.current = 0;
+      velo.toggleAttribute('data-apunta', !!props.current.traspasar?.(x, y));
+    });
+  };
+  useEffect(() => () => cancelAnimationFrame(apuntaRef.current), []);
 
   // ── Foco, teclado y bloqueo del documento ───────────────────────────────────
   useEffect(() => {
@@ -458,7 +516,7 @@ export default function Hoja({
   return (
     <div className="hoja-capa" data-variante={variante}>
       {/* El velo no es el diálogo: solo oscurece y, al tocarlo, cierra. */}
-      <div className="hoja-velo" ref={veloRef} onClick={() => pedirRef.current('velo')} aria-hidden="true" />
+      <div className="hoja-velo" ref={veloRef} onClick={alTocarVelo} onMouseMove={traspasar ? alMoverSobreVelo : undefined} aria-hidden="true" />
       <div
         className="hoja"
         ref={hojaRef}

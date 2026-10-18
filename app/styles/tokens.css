@@ -76,6 +76,11 @@
   --linea-fuerte: rgba(166, 179, 200, 0.30);
   --tinta:      #EEF1F4;   /* blanco cal */
   --apagada:    #A6B3C8;   /* texto secundario: 7.6 sobre superficie */
+  /* Los datos que se buscan con el ojo (duración, género, la estrella de la
+     nota): un paso por encima de --apagada y por debajo de la tinta. 9.9 sobre
+     el fondo, 8.7 sobre superficie, 7.6 en la hoja; y sobre la luz del cartel
+     con un cartel blanco (el caso peor), ≥ 4.5 (medido). */
+  --dato:       #B4C0D2;
   --tenue:      #8695AE;   /* sesiones ya empezadas: 5.3 sobre superficie, 4.6 en la hoja */
   --rojo:       #C22E43;   /* rojo butaca: seleccionado y acción principal */
   --rojo-tinta: #FFFFFF;   /* 5.6 sobre el rojo */
@@ -115,6 +120,7 @@
   --linea-fuerte: rgba(23, 34, 74, 0.24);
   --tinta:      #17224A;   /* añil */
   --apagada:    #4A5677;   /* 7.3 sobre superficie */
+  --dato:       #435070;   /* 7.3 sobre el fondo, 8.0 sobre blanco */
   --tenue:      #5D6886;   /* 5.5 sobre superficie (y la hoja) */
   --rojo:       #B3263A;   /* 6.5 de blanco sobre él */
   --rojo-tinta: #FFFFFF;

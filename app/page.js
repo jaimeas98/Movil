@@ -21,7 +21,7 @@ import MovieModal from '@/components/MovieModal.jsx';
 import UpcomingSheet from '@/components/UpcomingSheet.jsx';
 import Hoja from '@/components/Hoja.jsx';
 import { calcularProximas } from '@/lib/proximas.js';
-import { abrirConCartel, cerrarConCartel, cartelDe } from '@/lib/transicionCartel.js';
+import { abrirConCartel, cambiarConCartel, cerrarConCartel, cartelDe, objetivoBajoVelo } from '@/lib/transicionCartel.js';
 
 // ── Caché en localStorage ──────────────────────────────────────────────────────
 // Guardamos la respuesta completa de /api/showtimes para que recargas
@@ -444,10 +444,19 @@ export default function Page() {
 
   // Abrir la ficha: si se puede, el cartel pulsado vuela hasta ella (ver
   // lib/transicionCartel.js); si no, la hoja sube sola.
+  // Con la ficha ya abierta (solo pasa en el panel de escritorio, tocando otra
+  // película a través del velo), se cambia en el sitio: su cartel crece hasta
+  // el panel y la ficha anterior se funde debajo.
+  const activaRef = useRef(null);
+  activaRef.current = active;
   const openMovie = useCallback((pelicula, origen) => {
+    const abierta = activaRef.current;
+    if (abierta?.clave === pelicula.clave) return;
     focoFichaRef.current = origen?.foco ?? null;
-    abrirConCartel(origen?.cartel ?? null, () => setActive(pelicula));
+    const lanzar = abierta ? cambiarConCartel : abrirConCartel;
+    lanzar(origen?.cartel ?? null, () => setActive(pelicula));
   }, []);
+  const traspasarVelo = useCallback((x, y) => objetivoBajoVelo(x, y, activaRef.current?.clave), []);
   const cerrarFicha = useCallback(() => setActive(null), []);
   // El cierre con botón, Escape o velo devuelve el cartel a su sitio en la
   // lista por el mismo camino. Devuelve false si no puede (sin la API, con
@@ -1086,6 +1095,7 @@ export default function Page() {
           onCerrar={cerrarFicha}
           salida={salidaFicha}
           focoAlCerrar={focoFichaRef.current}
+          traspasar={traspasarVelo}
         />
       )}
 

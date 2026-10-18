@@ -113,6 +113,27 @@
 /* Escritorio: panel lateral a toda altura. */
 @media (min-width: 900px) {
   .hoja-velo { background: var(--velo-panel); }
+  /* La película abierta, sin atenuar: el velo lleva un hueco con la forma de
+     su cartel en la lista (lo mide components/Hoja.jsx). Es la marca de "esta
+     es la abierta" y el sitio del que sale y al que vuelve la copia que vuela
+     al panel (lib/transicionCartel.js). Un rectángulo redondeado (SVG sin
+     viewBox: el radio queda en px a cualquier tamaño) restado del velo. */
+  .hoja-velo[data-hueco] {
+    --hueco-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='6'/%3E%3C/svg%3E");
+    -webkit-mask-image: var(--hueco-forma), linear-gradient(#000 0 0);
+    -webkit-mask-position: var(--hueco-x) var(--hueco-y), 0 0;
+    -webkit-mask-size: var(--hueco-w) var(--hueco-h), 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: xor;
+    mask-image: var(--hueco-forma), linear-gradient(#000 0 0);
+    mask-position: var(--hueco-x) var(--hueco-y), 0 0;
+    mask-size: var(--hueco-w) var(--hueco-h), 100% 100%;
+    mask-repeat: no-repeat;
+    mask-composite: exclude;
+  }
+  /* Encima de otra película se puede tocar a través del velo (cambia la
+     ficha): el puntero lo dice. */
+  .hoja-velo[data-apunta] { cursor: pointer; }
   .hoja {
     top: 0; bottom: 0; left: auto; right: 0;
     /* Nunca por debajo de 480 px: con 46vw, a 900 px el panel medía 414 y
@@ -143,8 +164,11 @@
    pone y lo quita el JS). */
 :root[data-vt] .hoja[data-variante='ficha'] { view-transition-name: hoja; }
 :root[data-vt] .hoja-capa[data-variante='ficha'] .hoja-velo { view-transition-name: velo; }
-:root[data-vt] .ficha-cartel { view-transition-name: cartel; }
-/* El original se vacía mientras vuela su copia */
+/* En 'cambiar' el nombre lo lleva antes el cartel de la lista elegido y,
+   después, el de la ficha nueva (los pone el JS): aquí no, o habría dos. */
+:root[data-vt]:not([data-vt='cambiar']) .ficha-cartel { view-transition-name: cartel; }
+/* Móvil: el original se vacía mientras vuela su copia (en el panel se queda:
+   ver lib/transicionCartel.js) */
 [data-cartel-fuera] { opacity: 0; }
 
 /* La página no cambia por debajo: sin el fundido por defecto de la raíz, que
@@ -155,12 +179,14 @@
 /* El cartel por encima de todo, la hoja por encima del velo. */
 ::view-transition-group(velo) { z-index: 1; }
 ::view-transition-group(hoja) { z-index: 2; }
-::view-transition-group(cartel) { z-index: 3; }
+::view-transition-group(ficha-cuerpo) { z-index: 3; }
+::view-transition-group(cartel) { z-index: 4; }
 
 /* El cartel y la hoja con la MISMA curva (un muelle crítico pasado a
    `linear()` desde lib/muelle.js) y la misma duración: llegan a la vez y se
    leen como una sola pieza. */
-:root[data-vt='abrir']::view-transition-group(cartel) {
+:root[data-vt='abrir']::view-transition-group(cartel),
+:root[data-vt='cambiar']::view-transition-group(cartel) {
   animation-duration: var(--vt-ms-abrir);
   animation-timing-function: var(--vt-abrir);
 }
@@ -169,17 +195,38 @@
   animation-timing-function: var(--vt-cerrar);
 }
 /* Vuela UNA sola foto, la grande (la de la ficha), en los dos sentidos. Con
-   el fundido cruzado por defecto, la foto pequeña de la lista (76 px)
+   el fundido cruzado por defecto, la foto pequeña de la lista (92–128 px)
    ampliada se veía borrosa y doble encima de la grande durante ~50–100 ms.
    La grande reducida siempre es nítida, y es la misma imagen en 2:3. */
-:root[data-vt='abrir']::view-transition-old(cartel) { animation: none; opacity: 0; }
-:root[data-vt='abrir']::view-transition-new(cartel) { animation: none; }
+:root[data-vt='abrir']::view-transition-old(cartel),
+:root[data-vt='cambiar']::view-transition-old(cartel) { animation: none; opacity: 0; }
+:root[data-vt='abrir']::view-transition-new(cartel),
+:root[data-vt='cambiar']::view-transition-new(cartel) { animation: none; }
 :root[data-vt='cerrar']::view-transition-old(cartel) { animation: none; }
 :root[data-vt='cerrar']::view-transition-new(cartel) { animation: none; opacity: 0; }
 :root[data-vt='abrir']::view-transition-new(hoja) { animation: vt-hoja-entra var(--vt-ms-abrir) var(--vt-abrir) both; }
 :root[data-vt='cerrar']::view-transition-old(hoja) { animation: vt-hoja-sale var(--vt-ms-cerrar) var(--vt-cerrar) both; }
 :root[data-vt='abrir']::view-transition-new(velo) { animation: vt-aparece var(--vt-ms-abrir) var(--ease-out) both; }
 :root[data-vt='cerrar']::view-transition-old(velo) { animation: vt-desaparece var(--vt-ms-cerrar) var(--ease-out) both; }
+/* Cambiar de película con el panel abierto: el panel no se mueve; cambia
+   lo de dentro. El cuerpo va en su propio grupo, encima del panel, para que
+   lo viejo se vaya ANTES de que llegue lo nuevo (90 ms, y lo nuevo entra a
+   los 60 ms en 160): con el fundido cruzado de serie los dos textos se
+   superponían y a los 30 ms se leían dos fichas a la vez. Como el fondo del
+   panel es otro grupo y no cambia, el hueco entre los dos fundidos es panel
+   liso, nunca transparente. Todo más corto que el vuelo, que es lo que se
+   mira. El velo, con el fundido cruzado de serie: su hueco pasa de una
+   tarjeta a la otra. */
+:root[data-vt='cambiar'] .hoja[data-variante='ficha'] .hoja-cuerpo { view-transition-name: ficha-cuerpo; }
+:root[data-vt='cambiar']::view-transition-old(ficha-cuerpo) { animation: vt-desaparece 90ms var(--ease-out) both; mix-blend-mode: normal; }
+:root[data-vt='cambiar']::view-transition-new(ficha-cuerpo) { animation: vt-aparece 160ms var(--ease-out) 60ms both; mix-blend-mode: normal; }
+:root[data-vt='cambiar']::view-transition-old(hoja),
+:root[data-vt='cambiar']::view-transition-new(hoja),
+:root[data-vt='cambiar']::view-transition-old(velo),
+:root[data-vt='cambiar']::view-transition-new(velo) {
+  animation-duration: 200ms;
+  animation-timing-function: var(--ease-out);
+}
 @keyframes vt-hoja-entra { from { transform: translate3d(0, 100%, 0); } }
 @keyframes vt-hoja-sale { to { transform: translate3d(0, 100%, 0); } }
 @keyframes vt-panel-entra { from { transform: translate3d(100%, 0, 0); } }
@@ -226,10 +273,12 @@
   text-transform: uppercase; letter-spacing: 0.01em;
   text-wrap: balance; overflow-wrap: normal; hyphens: manual;
 }
+/* Como en la cartelera: duración y géneros en --dato a 500 (7,6:1 en la
+   hoja), un paso por encima del apagado. */
 .ficha-meta {
   display: flex; flex-wrap: wrap; column-gap: var(--e-3); row-gap: 2px;
   margin-top: var(--e-3);
-  font-size: var(--t-dato); color: var(--apagada);
+  font-size: var(--t-dato); font-weight: 500; color: var(--dato);
   font-variant-numeric: tabular-nums;
 }
 .ficha-edad { color: var(--tinta); font-weight: 650; }
@@ -246,7 +295,8 @@
 /* Centrada en la cifra que se VE, no en su caja: las cifras de Big Shoulders
    no llenan su línea por abajo y, centrada en la caja, la estrella quedaba
    2,5 px baja respecto a "7,7". */
-.ficha-media-icono { width: 18px; height: 18px; align-self: center; color: var(--tinta); margin: 0 2px 5px 0; }
+/* Rellena, como en la cartelera: la hueca se leía como "sin nota". */
+.ficha-media-icono { width: 18px; height: 18px; align-self: center; color: var(--tinta); fill: currentColor; margin: 0 2px 5px 0; }
 .ficha-media-num {
   font-family: var(--f-rotulo);
   font-size: 2.5rem; font-weight: 700; line-height: 0.9;
@@ -388,7 +438,7 @@
   text-transform: uppercase; letter-spacing: 0.01em;
   overflow-wrap: normal; hyphens: manual; text-wrap: balance;
 }
-.prox-meta { display: flex; flex-wrap: wrap; column-gap: var(--e-3); font-size: var(--t-detalle); color: var(--apagada); }
+.prox-meta { display: flex; flex-wrap: wrap; column-gap: var(--e-3); font-size: var(--t-detalle); font-weight: 500; color: var(--dato); }
 .prox-cuando { display: flex; align-items: center; gap: 6px; }
 .prox-fecha {
   font-family: var(--f-rotulo);

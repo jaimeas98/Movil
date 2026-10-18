@@ -8,6 +8,7 @@ colors:
   flotante-noche: "#1B2C4B"
   tinta-cal: "#EEF1F4"
   apagada-noche: "#A6B3C8"
+  dato-noche: "#B4C0D2"
   tenue-noche: "#8695AE"
   rojo-butaca: "#C22E43"
   rojo-butaca-texto: "#FF8E9C"
@@ -24,6 +25,7 @@ colors:
   superficie-cal: "#FFFFFF"
   tinta-anil: "#17224A"
   apagada-cal: "#4A5677"
+  dato-cal: "#435070"
   tenue-cal: "#5D6886"
   rojo-butaca-claro: "#B3263A"
   rojo-texto-claro: "#9C1F33"
@@ -198,6 +200,7 @@ El movimiento es físico y breve: muelles críticamente amortiguados que arranca
 - Lo común se dice una vez (la sala junto al cine, la película una vez por minuto en Horario).
 - Lo pasado se apaga y se encoge: una línea discreta, no entradas de tamaño completo.
 - Muelles con velocidad heredada; gestos 1:1 con el dedo, también con movimiento reducido.
+- El cartel alumbra su rótulo: una luz del propio cartel detrás de su título, nunca detrás de las sesiones.
 
 ## Colors
 
@@ -217,10 +220,11 @@ Una noche azul de bahía con tres acentos de trabajo (rojo butaca, ámbar bombil
 - **Azul Superficie** (`{colors.superficie-noche}`): un paso de tono: el papel base de las entradas, los mandos, los avisos.
 - **Azul Flotante** (`{colors.flotante-noche}`): lo que flota encima, la hoja/panel y el panel de géneros.
 - **Blanco Cal** (`{colors.tinta-cal}`): la tinta (16,1:1). En claro, **Tinta Añil** (`{colors.tinta-anil}`, 14,1:1) sobre **Blanco Cal Frío** (`{colors.fondo-cal}`) y superficies blancas.
-- **Apagada** (`{colors.apagada-noche}`; claro `{colors.apagada-cal}`): texto secundario (lugar del cine, duración, sala, resumen del día): 8,6:1 / 6,7:1.
+- **Apagada** (`{colors.apagada-noche}`; claro `{colors.apagada-cal}`): texto secundario (lugar del cine, sala y formato, resumen del día): 8,6:1 / 6,7:1.
+- **Dato** (`{colors.dato-noche}`; claro `{colors.dato-cal}`): un paso por encima de Apagada, para los datos que se buscan con el ojo después del título: duración y género (en la cartelera, la ficha y Próximas) y la estrella de la nota. 9,9:1 sobre el fondo y 7,6:1 en la hoja; 7,3:1 / 8,0:1 en claro. Sobre la luz del cartel, con un cartel blanco (el caso peor), sigue por encima de 5:1.
 - **Tenue** (`{colors.tenue-noche}`; claro `{colors.tenue-cal}`): solo lo que ya ha empezado hoy (la línea "17:15 18:00 · ya empezadas", las horas pasadas del Horario). Medido: 6,0:1 sobre el fondo y 4,6:1 dentro de la hoja en oscuro; 5,1:1 y 5,5:1 en claro.
 - **Línea** (`{colors.linea-noche}`; claro `{colors.linea-cal}`): casi no se usa. Queda en el borde inferior de la tira pegada, el pie y el panel lateral de escritorio; el tirador y las barras de scroll usan su versión fuerte.
-- **Velo** (`{colors.velo-noche}`; claro `{colors.velo-cal}`): detrás de la hoja del móvil; más ligero tras el panel de escritorio (0,5 / 0,26) para seguir leyendo la cartelera.
+- **Velo** (`{colors.velo-noche}`; claro `{colors.velo-cal}`): detrás de la hoja del móvil; más ligero tras el panel de escritorio (0,5 / 0,26) para seguir leyendo la cartelera. En el panel lleva un hueco con la forma del cartel de la película abierta: esa tarjeta se queda con su luz y el resto se atenúa (es la marca de "la abierta").
 
 ### Named Rules
 **The One Red Rule.** El rojo butaca es lo elegido o la acción principal, y en pantalla hay un rojo grande a la vez (el día). El cambio Películas/Horario va en tinta invertida, no en rojo, precisamente para no pelearse con el día.
@@ -228,6 +232,13 @@ Una noche azul de bahía con tres acentos de trabajo (rojo butaca, ámbar bombil
 **The Single Bulb Rule.** El ámbar significa "empieza en menos de una hora" y nada más. No es un acento ni un color de aviso: los avisos de datos van en apagado con su icono.
 
 **The Paper Tint Rule.** El color de un cine nunca es un fondo pleno ni un borde grueso: es un punto o un tinte del papel (≤ 28 %). La única excepción es el interruptor encendido, que lleva su contorno de 1,5 px en el color del cine.
+
+**The Poster Light Rule.** El cartel alumbra su rótulo, como en una marquesina: detrás del cartel y del título de cada película hay una luz hecha con el mismo cartel desenfocado (`.peli-cabeza::before`, blur 32 px), que sale del lado del cartel y se apaga hacia la derecha, arriba y abajo. Reglas:
+- Solo en la franja de la cabecera (cartel, título, datos). **Nunca detrás de las sesiones** ni de la línea del cine: allí manda el papel de cada cine y "ya empezadas" va en Tenue a propósito.
+- Es luz, no un fondo: en oscuro, mezcla `screen` (solo suma; un cartel oscuro no enciende nada y nunca oscurece la franja) con brillo 0,5 y opacidad 0,5, que es el tope medido para que todo el texto de la franja pase de 5:1 con un cartel blanco, amarillo o rojo. En claro, mezcla `color` al 0,8 (toma el tono y conserva la claridad del blanco cal): un tinte pálido.
+- Sin cartel, sin luz. Fuera con `prefers-reduced-transparency`, `prefers-contrast: more` y `forced-colors`.
+- No se anima ni sigue al scroll: se rasteriza una vez con su tesela. Medido a 390 px con la CPU a 1/4: el ritmo al desplazar no cambia (p50 16 ms, p95 17 ms) y el rasterizado sube de ~24 a ~60 ms en toda la lista.
+- Lo que se descartó: el cartel desenfocado como fondo de toda la película (19 tarjetas de colores, el recorte de `content-visibility` dejaba un borde recto entre películas y las sesiones bajaban de 4,5:1) y la mezcla normal con el brillo bajado (una caja más oscura que el fondo).
 
 ## Typography
 
@@ -243,7 +254,7 @@ Una noche azul de bahía con tres acentos de trabajo (rojo butaca, ámbar bombil
 - **Title-sm** (800, 1,25rem, MAYÚSCULAS, línea 1,04): el título de película dentro del Horario y de Próximas (1,375rem).
 - **Body** (400, 1rem, línea 1,5–1,55): sinopsis (máx. 65ch) y textos de estado (máx. 60ch). 16 px también evita el zoom de iOS en el campo de búsqueda.
 - **Label** (600–650, 0,875rem): nombres de cine, mandos, botones, datos de la película, resumen del día. Cifras tabulares.
-- **Detail** (500–700, 0,8125rem): lo pequeño de la entrada (VOSE, 3D en 700; sala en apagado), avisos, fuente de cada nota.
+- **Detail** (500–700, 0,8125rem): lo pequeño de la entrada, avisos, fuente de cada nota. Lo de cada sesión va en dos tratamientos según lo que SIGNIFICA, no según el cine o el campo del que venga (`piezasDeSesion` en `lib/rotulos.js`): lo que decide (VOSE, VO, 3D) en 700 y tinta, y delante; cómo es la sala (Premium, Sala Premium, 4K Laser Atmos, Láser, Sala 7) en 550 y apagado. Igual junto al cine, en la entrada, en el Horario, en la ficha y en Próximas.
 
 ### Named Rules
 **The Hour First Rule.** En cualquier pieza con sesión, la hora es lo más grande y lo primero; idioma, formato y sala van debajo en Detail. Nunca al revés.
@@ -252,13 +263,15 @@ Una noche azul de bahía con tres acentos de trabajo (rojo butaca, ámbar bombil
 
 **The No Kicker Rule.** No hay etiquetas en mayúsculas espaciadas encima de los títulos. Las mayúsculas son de los títulos condensados, no de rótulos de sección.
 
+**The Same Name Rule.** Lo que un cine escribe en mayúsculas no grita: las palabras enteras en mayúsculas de 5 letras o más pasan a minúsculas con inicial ("PREMIUM" → "Premium", "LASER" → "Laser"); las siglas cortas y lo que lleva cifras se quedan ("VOSE", "CA", "4K", "3D", "IMAX"), y "Sala 05" se escribe "Sala 5". Solo cambia el rótulo (y la frase del lector de pantalla), no los datos.
+
 ## Layout
 
 Una columna en el móvil con un margen lateral de 16 px (`--margen`), que crece a 32 px desde 720 px y a 48 px desde 1200 px, dentro de un contenedor de 1320 px.
 
 - **Arriba, en este orden:** barra fina de 56 px (marca y tres iconos), tira de días pegada (chips de 54 px, ~76 px con su relleno) y una fila de controles. En el móvil la fila son dos líneas: [Películas | Horario] [Género] [lupa] y, debajo, los cuatro cines en cuatro columnas iguales (punto encima del nombre, 48 px de alto), que caben a 390 px sin desplazarse. Desde 720 px el buscador es un campo fijo; desde 1180 px todo va en una sola línea.
-- **Primera pantalla del móvil (390 × 844):** el día a 22 px con su resumen debajo (la línea del resumen está reservada desde que carga), los avisos, y la primera película con su título (≈ 457 px) y las entradas de su primer cine (≈ 644 px) sin bajar.
-- **Películas:** una entrada por película. Cartel de 76 px a la izquierda del título (104 px desde 560 px, entonces el cartel ocupa su columna y las horas van a su derecha). Separación entre películas: 16 px arriba y 32 px abajo, sin filete. Dos columnas desde 960 px (hueco de 48 px).
+- **Primera pantalla del móvil (390 × 844):** el día a 22 px con su resumen debajo (la línea del resumen está reservada desde que carga), los avisos, y la primera película con su título (≈ 451 px) y las entradas de su primer cine (≈ 703 px con el cartel de 92 px y los datos guardados) sin bajar.
+- **Películas:** una entrada por película. Cartel de 92 px a la izquierda del título (128 px desde 560 px, entonces el cartel ocupa su columna y las horas van a su derecha); antes 76 / 104, que se leían como miniaturas (`--cartel-ancho` en `.peli`). Separación entre películas: 16 px arriba y 32 px abajo, sin filete. Dos columnas desde 960 px (hueco de 48 px).
 - **Entradas:** rejilla `repeat(auto-fill, minmax(5.25rem, 1fr))` con 6 px de hueco: todas las de un cine miden lo mismo (91 px a 768 px), incluida la ámbar.
 - **Horario:** columna de la hora de 4,25rem (pegada a 84 px del borde superior al bajar) y, a su derecha, una fila por película. Filas a 10 px, huecos de minuto con 6 px arriba y abajo. Desde 900 px, las franjas de una hora se reparten en columnas de ≥ 24rem, como un panel de salidas.
 - **Hojas:** en el móvil (< 900 px) suben desde abajo hasta 40 px del borde superior, con máximo 720 px de ancho; en escritorio son un panel lateral derecho de `clamp(480px, 46vw, 600px)` a toda altura (400 px para los atajos): por debajo de 480 px el título de la ficha se quedaba sin columna.
@@ -303,7 +316,7 @@ La pieza firma: una entrada de papel. Pulsarla es comprar.
 - **Pulsación:** `scale(0.97)` en 40 ms al apretar, vuelta en 160 ms `cubic-bezier(.23, 1, .32, 1)`.
 
 ### Película (entrada de la cartelera)
-- Cartel (botón fuera del tabulador, `aria-hidden`: repite el del título), título en Headline como botón "Ver ficha" (arriba, junto al borde del cartel), y una línea de datos en Label apagada: duración, edad (en tinta, siempre "+N" o "TP": `edadDe` en `lib/cartelera.js` normaliza lo que dé cada cine), ★ nota media con coma decimal, género y "Estreno" en Rojo Texto (estos dos, juntos, sin partir). Duración y edad salen de la película juntada de TODOS los cines del día, no solo de los filtrados.
+- Cartel (botón fuera del tabulador, `aria-hidden`: repite el del título) con su luz detrás (The Poster Light Rule), título en Headline como botón "Ver ficha" (arriba, junto al borde del cartel), y una línea de datos en Label 500 en Dato: duración, edad (en tinta 650, siempre "+N" o "TP": `edadDe` en `lib/cartelera.js` normaliza lo que dé cada cine), ★ nota media con coma decimal (estrella rellena en Dato, cifra en tinta 700: la hueca se leía como "sin nota"), género y "Estreno" en Rojo Texto (estos dos, juntos, sin partir). Duración y edad salen de la película juntada de TODOS los cines del día, no solo de los filtrados.
 - Debajo, un grupo por cine: punto de color, nombre (650), lugar (apagado), lo común (Detail), aviso de datos guardados ("datos del mar 13", en su propia línea en el móvil) y, si toca, la línea de ya empezadas y la rejilla de entradas. Un solo separador "·", con 6 px a cada lado, que nunca empieza una línea.
 - Las que ya no tienen nada por delante hoy se guardan tras "Ver también las N que ya han empezado" y salen al 60 %.
 
@@ -334,6 +347,8 @@ Una gramática, en `lib/muelle.js` (muelles exactos de Apple: amortiguamiento ζ
 - **Salida con gesto:** tramo de duración `T = clamp(D / max(v, 1), 160, 280) ms` con `cubic-bezier(.2, min(1, .2·v·T/D), .4, 1)`: arranca exactamente a la velocidad del dedo. El velo deja de recoger toques en cuanto empieza a irse.
 - **Decidir al soltar:** holgura de 4 px; cierra si `posición + proyección(v) > min(50 % del alto, 30 % de la pantalla)` (proyección de inercia con deceleración 0,998); soltar subiendo (v < −0,05 px/ms) nunca cierra. Velocidad con ventana de 90 ms y 0 si el dedo lleva 50 ms sin moverse. Hacia arriba, goma (`c = 0,55`, límite 12 % de la pantalla).
 - **Cartel → ficha (firma):** View Transition del cartel con la curva del muelle crítico pasada a `linear()`: 360 ms al abrir (ζ 1 / 0,26 s), 300 ms al cerrar (ζ 1 / 0,22 s); el 90 % del camino en ~160 / ~135 ms y una llegada a menos de 1 px por fotograma, sin frenazo. Vuela una sola foto, la grande de la ficha (sin fundido cruzado con la pequeña de la lista, que ampliada se veía borrosa y doble). Un toque la salta. Solo si los dos carteles se ven; con la ficha desplazada, la hoja cierra con su muelle.
+  - **Mover o copiar, según lo que se vea.** En el móvil (< 900 px) la hoja tapa la lista y el cartel SE MUEVE: el de la lista se vacía mientras vuela y al cerrar su sitio espera vacío a que vuelva. En el panel la lista sigue a la vista, y moverlo se veía como un cartel que se va y otro igual que aparece: allí el de la lista **no se esconde nunca**, de él crece una COPIA, la tarjeta queda marcada (el hueco del velo) y al cerrar la copia encoge hasta posarse encima del original (el destino es un hueco fijo con su sitio, no el propio cartel, que si llevara el nombre saldría de la foto de la página).
+  - **Otra película con el panel abierto:** su cartel y su título se pueden tocar a través del velo (el puntero lo dice); el resto del velo cierra, como siempre. Vuela UNA copia, la de la elegida, de su tarjeta al panel (360 ms); la ficha anterior se va en 90 ms y la nueva entra a los 60 ms en 160 ms, en su propio grupo encima del panel (con el fundido cruzado de serie se leían dos fichas a la vez). El hueco del velo pasa a la nueva. La anterior no vuelve a su tarjeta: en el panel su original nunca se fue.
 - **Cambio de día con el dedo:** 1:1 desde el punto en que se decide (10 px, sesgo 1,3 a favor del scroll), goma en los extremos (10 % del ancho). Cambia por distancia (> 22 % del ancho) o velocidad (> 0,45 px/ms y > 36 px), nunca si el último movimiento va de vuelta. El día viejo sigue 180 ms `--ease-out` hacia donde iba el dedo (al menos 40 px más, `|v|·120` si iba rápido) mientras se pinta el nuevo, que entra 32 px desde el otro lado, de opacidad 0,3 a 1, en 180 ms `--ease-out` (~230 ms en total desde que se suelta). Si se queda corto, vuelve en 200 ms `--ease-out` sin rebote. Un toque durante cualquiera de esas animaciones las salta al final y el dedo vuelve a mandar. Un segundo dedo no cuenta. Al cambiar de día a media lista, el día nuevo empieza bajo la tira.
 - **Pequeño:** pulsación `scale(.97)` (iconos .94, días .95, filas .985) en 40 ms y vuelta en 160 ms; panel de géneros 160 ms de opacidad y escala desde .96 (sale en 110 ms) desde la pastilla; punto de cine `scale(.667 → 1)` en 150 ms; despliegue de Próximas, fundido de 160 ms.
 - **Sin animación:** lo que se hace con el teclado (← → T R V / ? Esc), el reloj por minutos y el cambio de día con la tira o las flechas (solo vuelve arriba, al instante).
@@ -357,8 +372,11 @@ Una gramática, en `lib/muelle.js` (muelles exactos de Apple: amortiguamiento ζ
 - **Don't** usar el ámbar como acento, aviso o decoración: es solo "empieza en menos de una hora".
 - **Don't** usar negro puro, gris neutro ni un fondo crema: el fondo es azul noche tintado o blanco cal frío.
 - **Don't** repetir el mismo dato en cada pieza de un grupo (la sala en cada entrada, el mismo título tres veces en el mismo minuto).
-- **Don't** volver a las pastillas redondas del todo para los mandos ni añadir halos, cristal o degradados de relleno.
+- **Don't** volver a las pastillas redondas del todo para los mandos ni añadir halos, cristal o degradados de relleno. La luz del cartel es la única luz de la página y tiene su regla (The Poster Light Rule).
 - **Don't** poner etiquetas en mayúsculas espaciadas encima de los títulos, emoji como iconos ni números de sección.
 - **Don't** animar el cambio de día con entradas en cascada ni lo que se hace con el teclado; nada de rebote sin un gesto con inercia detrás.
 - **Don't** animar `width`, `height`, `top` o `left`: solo `transform` y `opacity` (el punto de cine escala dentro de una caja fija de 18 px).
 - **Don't** dejar que una hoja o un panel atrape toques cuando ya se ve fuera, ni que el cartel vuele desde algo que no se ve.
+- **Don't** esconder el cartel de la lista mientras su copia vuela si la lista sigue a la vista (panel de escritorio): se vería irse y volver otro.
+- **Don't** poner imagen, luz o color detrás de las sesiones o del texto pequeño: la luz del cartel es solo de la cabecera, y su intensidad se mide con un cartel blanco.
+- **Don't** decidir el tratamiento de un rótulo por el campo o el cine del que viene: por lo que significa (`piezasDeSesion`).

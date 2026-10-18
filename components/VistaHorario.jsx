@@ -2,7 +2,7 @@
 
 import { memo, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { sesionesEnOrden, franjasPorHora, huecosPorMinuto, detallesDeSesion } from '@/lib/cartelera.js';
-import { nombreInterruptor } from '@/lib/rotulos.js';
+import { nombreInterruptor, piezasDeSesion } from '@/lib/rotulos.js';
 import { useAhora } from '@/lib/reloj.js';
 import { useEstadoSesion, textoFalta, frasePara, Hora } from './Entrada.jsx';
 
@@ -34,13 +34,14 @@ const hhmm = (minuto) => `${dosCifras(Math.floor(minuto / 60) % 24)}:${dosCifras
 // en enlace con un lector de pantalla no ve ni el título ni la columna de la
 // izquierda.
 function Pase({ pelicula, cine, sesion, onAbrir, pasada, falta }) {
-  const { etiquetas, sala } = detallesDeSesion(sesion);
+  const piezas = piezasDeSesion(detallesDeSesion(sesion));
   const cuerpo = (
     <span className="fila-pase-cuerpo" aria-hidden="true">
       <span className="punto" />
       <span className="fila-cine">{nombreInterruptor(cine)}</span>
-      {etiquetas.map((t) => <span key={t} className="fila-etiqueta">{t}</span>)}
-      {sala && <span className="fila-sala">{sala}</span>}
+      {piezas.map((p) => (
+        <span key={p.texto} className={p.tipo === 'clave' ? 'fila-etiqueta' : 'fila-sala'}>{p.texto}</span>
+      ))}
     </span>
   );
   return esHttps(sesion.buyUrl) ? (

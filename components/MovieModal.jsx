@@ -1,12 +1,13 @@
 'use client';
 
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 import { useTituloQueCabe } from '@/lib/tituloQueCabe.js';
 import Hoja from './Hoja.jsx';
 import Icono from './Icono.jsx';
 import { Avisos } from './Estados.jsx';
 import { Cartel, GrupoCine, notaMedia } from './Pelicula.jsx';
+import { cartelDe } from '@/lib/transicionCartel.js';
 
 function buscable(title) {
   return encodeURIComponent(String(title || '').replace(/\(.*?\)/g, '').trim());
@@ -56,7 +57,9 @@ const escalaHablada = { '/10': 'sobre 10', '%': 'por ciento', '/100': 'sobre 100
 //                  ratings, isNew, cines: [{ cine, sessions }] }
 //   rotuloDia    "Hoy, viernes 16 de octubre": de qué día son las sesiones
 //   salida       el cierre con View Transition (ver components/Hoja.jsx)
-export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salida, focoAlCerrar }) {
+//   traspasar    (x, y) => Element: otra película de la lista bajo el velo del
+//                panel; tocarla cambia la ficha sin cerrarla (page.js)
+export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salida, focoAlCerrar, traspasar }) {
   const ratings = pelicula.ratings ?? null;
   const duracion = minutesToHuman(pelicula.durationMin);
   const media = notaMedia(ratings);
@@ -72,8 +75,26 @@ export default function MovieModal({ pelicula, fecha, rotuloDia, onCerrar, salid
   const datosRef = useRef(null);
   useTituloQueCabe(tituloRef, pelicula.title, datosRef);
 
+  // Otra película en la misma ficha (con el panel abierto se elige en la
+  // lista sin cerrarlo): la nueva empieza arriba, con su cartel a la vista
+  // (es adonde vuela su copia), y el foco vuelve al diálogo para que el lector
+  // de pantalla anuncie el título nuevo. En el layout effect, para que la foto
+  // de después de la View Transition ya salga así.
+  const claveAnterior = useRef(pelicula.clave);
+  useLayoutEffect(() => {
+    if (claveAnterior.current === pelicula.clave) return;
+    claveAnterior.current = pelicula.clave;
+    const hoja = tituloRef.current?.closest('.hoja');
+    const cuerpo = hoja?.querySelector('.hoja-cuerpo');
+    if (cuerpo) cuerpo.scrollTop = 0;
+    hoja?.focus({ preventScroll: true });
+  }, [pelicula.clave]);
+
   return (
-    <Hoja variante="ficha" etiquetadaPor="ficha-titulo" onCerrar={onCerrar} salida={salida} focoAlCerrar={focoAlCerrar}>
+    <Hoja
+      variante="ficha" etiquetadaPor="ficha-titulo" onCerrar={onCerrar} salida={salida} focoAlCerrar={focoAlCerrar}
+      hueco={() => cartelDe(pelicula.clave)} claveHueco={pelicula.clave} traspasar={traspasar}
+    >
       <header className="ficha-cabeza">
         {/* El cartel al que vuela el de la lista (view-transition-name en
             hojas.css). Sin carga perezosa ni decodificación diferida: la View

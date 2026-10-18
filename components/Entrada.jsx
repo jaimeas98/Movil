@@ -3,6 +3,7 @@
 import { memo } from 'react';
 import { useAhora, estadoDeSesion } from '@/lib/reloj.js';
 import { detallesDeSesion, propiosDeSesion } from '@/lib/cartelera.js';
+import { piezasDeSesion } from '@/lib/rotulos.js';
 
 // Solo enlaces https: el servidor ya filtra los de compra (lib/cinemas/
 // enlaces.js), pero un `javascript:` que llegara de una caché vieja no puede
@@ -45,12 +46,13 @@ export function useEstadoSesion(minuto, fecha) {
 // Lo que oye un lector de pantalla: la entrada entera en una frase, con la
 // película delante, porque al saltar de enlace en enlace no se ve el título.
 export function frasePara({ titulo, sesion, cine, pasada, falta, accion }) {
-  const { etiquetas, sala } = detallesDeSesion(sesion);
+  // Con el mismo rótulo que se ve ("Premium", no "PREMIUM", que algunos
+  // lectores deletrean).
+  const piezas = piezasDeSesion(detallesDeSesion(sesion));
   return [
     `${titulo}, ${sesion.time}`,
     cine?.short || cine?.name,
-    etiquetas.join(', '),
-    sala,
+    piezas.map((p) => p.texto).join(', '),
     pasada ? 'ya ha empezado' : falta != null ? textoFalta(falta) : '',
     accion,
   ].filter(Boolean).join('. ');
@@ -66,7 +68,8 @@ export function frasePara({ titulo, sesion, cine, pasada, falta, accion }) {
 function Entrada({ sesion, cine, pelicula, fecha, onAbrir, comunes = null }) {
   const titulo = pelicula.title;
   const { pasada, falta } = useEstadoSesion(sesion.minuto, fecha);
-  const { etiquetas, sala } = propiosDeSesion(sesion, comunes);
+  // Solo lo que la distingue de sus hermanas, ya con su rótulo (lib/rotulos.js)
+  const piezas = piezasDeSesion(propiosDeSesion(sesion, comunes));
   const estado = pasada ? 'pasada' : falta != null ? 'pronto' : undefined;
 
   const contenido = (
@@ -74,9 +77,11 @@ function Entrada({ sesion, cine, pelicula, fecha, onAbrir, comunes = null }) {
       <Hora className="entrada-hora" texto={sesion.time} />
       <span className="entrada-datos" aria-hidden="true">
         {falta != null && <span className="entrada-falta">{textoFalta(falta)}</span>}
-        {etiquetas.map((t) => <span key={t} className="entrada-etiqueta">{t}</span>)}
-        {/* Con poco sitio, la sala cede ante "en 25 min", que es más urgente */}
-        {sala && falta == null && <span className="entrada-sala">{sala}</span>}
+        {/* VOSE y 3D en negrita; cómo es la sala, en discreto. Con poco
+            sitio, la sala cede ante "en 25 min", que es más urgente. */}
+        {piezas.filter((p) => !(p.tipo === 'sala' && falta != null)).map((p) => (
+          <span key={p.texto} className={p.tipo === 'clave' ? 'entrada-etiqueta' : 'entrada-sala'}>{p.texto}</span>
+        ))}
       </span>
     </>
   );

@@ -3,7 +3,7 @@
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { minutesToHuman } from '@/lib/normalize.js';
 import { deCuando, comunesDelCine } from '@/lib/cartelera.js';
-import { lugarCorto } from '@/lib/rotulos.js';
+import { lugarCorto, piezasDeSesion } from '@/lib/rotulos.js';
 import { useAhora } from '@/lib/reloj.js';
 import Entrada, { Empezadas } from './Entrada.jsx';
 import Icono from './Icono.jsx';
@@ -14,6 +14,15 @@ function tonoDe(titulo) {
   let h = 0;
   for (let i = 0; i < titulo.length; i++) h = (h * 31 + titulo.charCodeAt(i)) % 360;
   return h;
+}
+
+// El cartel como valor de CSS, para la luz que alumbra su cabecera (ver "La
+// luz del cartel" en cartelera.css). Solo http(s), y con lo que podría cerrar
+// la cadena escapado (dentro de comillas los paréntesis no cierran el url()):
+// la URL viene de la web de cada cine.
+function fondoDeCartel(url) {
+  if (typeof url !== 'string' || !/^https?:\/\//i.test(url)) return undefined;
+  return { '--cartel-img': `url("${url.replace(/["\\\n\r]/g, (c) => encodeURIComponent(c))}")` };
 }
 
 // Nota media con coma decimal, que es como se escribe en España.
@@ -82,6 +91,7 @@ export function GrupoCine({ cine, sessions, pelicula, fecha, onAbrir, aviso = nu
   );
   const Titulo = nivel === 4 ? 'h4' : 'h3';
   const hayComun = comunes.etiquetas.length > 0 || !!comunes.sala;
+  const piezasComunes = useMemo(() => piezasDeSesion(comunes), [comunes]);
   return (
     <div className="peli-cine" data-cine={cine.id}>
       <Titulo className="peli-cine-nombre">
@@ -90,8 +100,12 @@ export function GrupoCine({ cine, sessions, pelicula, fecha, onAbrir, aviso = nu
         <span className="peli-cine-lugar">{lugarCorto(cine)}</span>
         {hayComun && (
           <span className="peli-cine-comun">
-            {comunes.etiquetas.map((t) => <span key={t} className="peli-cine-etiqueta">{t}</span>)}
-            {comunes.sala && <span className="peli-cine-sala">{comunes.sala}</span>}
+            {/* El mismo tratamiento venga de donde venga: Cinesur "Sala
+                Premium" y Yelmo "Premium" ya no salen uno gris y otro negro
+                (ver piezasDeSesion en lib/rotulos.js). */}
+            {piezasComunes.map((p) => (
+              <span key={p.texto} className={p.tipo === 'clave' ? 'peli-cine-etiqueta' : 'peli-cine-sala'}>{p.texto}</span>
+            ))}
           </span>
         )}
         {aviso && <span className="peli-cine-aviso">{aviso}</span>}
@@ -123,9 +137,10 @@ function Pelicula({ pelicula, fecha, onAbrir }) {
     () => onAbrir(pelicula, { cartel: cartelRef.current, foco: tituloRef.current }),
     [onAbrir, pelicula]
   );
+  const luz = useMemo(() => fondoDeCartel(pelicula.posterUrl), [pelicula.posterUrl]);
 
   return (
-    <article className="peli" aria-labelledby={`t-${pelicula.clave}`}>
+    <article className="peli" aria-labelledby={`t-${pelicula.clave}`} style={luz}>
       {/* El cartel repite el botón del título: fuera del tabulador y del
           árbol de accesibilidad para no anunciar dos veces lo mismo. */}
       <button

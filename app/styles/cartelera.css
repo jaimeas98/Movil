@@ -99,24 +99,32 @@
   .pelis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+/* El cartel, protagonista: 92 px en el móvil y 128 desde 560 px (antes 76 y
+   104, que se leían como miniaturas al lado del título; en el diseño de
+   carteles a sangre era lo primero que se veía). En el móvil cabe sin bajar
+   las entradas del primer cine del primer pliegue (ver DESIGN.md). */
 .peli {
+  --cartel-ancho: 92px;
+  --cartel-hueco: var(--e-4);
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
+  grid-template-columns: var(--cartel-ancho) minmax(0, 1fr);
   grid-template-areas:
     "cartel cabeza"
     "cines cines";
-  column-gap: var(--e-4);
+  column-gap: var(--cartel-hueco);
   row-gap: var(--e-4);
   padding: var(--e-4) 0 var(--e-6);
+  /* La luz del cartel (más abajo) se queda dentro de su película. */
+  isolation: isolate;
 }
 @media (min-width: 560px) {
   .peli {
-    grid-template-columns: 104px minmax(0, 1fr);
+    --cartel-ancho: 128px;
+    --cartel-hueco: var(--e-5);
     grid-template-areas:
       "cartel cabeza"
       "cartel cines";
     grid-template-rows: auto 1fr;
-    column-gap: var(--e-5);
   }
 }
 
@@ -137,7 +145,65 @@
 /* Arriba, junto al borde superior del cartel, a todos los anchos. Centrado
    en el móvil, el bloque daba un salto de 11 px hacia arriba cuando llegaba
    la nota y la línea de datos crecía (CLS). */
-.peli-cabeza { grid-area: cabeza; min-width: 0; align-self: start; }
+.peli-cabeza { grid-area: cabeza; min-width: 0; align-self: start; position: relative; }
+
+/* ── La luz del cartel ──────────────────────────────────────────────────────
+   Como el cartel de una marquesina, que alumbra su propio rótulo: alrededor
+   del cartel y detrás del título, una luz hecha con el mismo cartel
+   desenfocado, que sale del lado del cartel y se apaga hacia la derecha,
+   arriba y abajo. Solo en esta franja (cartel, título y datos), NUNCA detrás
+   de las sesiones: las entradas llevan el color de su cine y "ya empezadas"
+   va a 6:1 a propósito; con luz detrás, un cartel claro las dejaba por debajo
+   de 4,5:1 (medido con carteles blanco, amarillo, rojo y negro). Por lo mismo
+   es una luz y no un fondo: con todo el bloque teñido, 19 películas eran 19
+   tarjetas de colores, y el recorte de content-visibility (cada película
+   recorta su pintado) dejaba un borde recto entre una y otra.
+   · Oscuro: mezcla 'screen', que solo suma luz, como una luz de verdad sobre
+     una pared: un cartel oscuro no enciende nada, y no oscurece la franja
+     (con la mezcla normal, bajar el brillo para cuidar el contraste dejaba
+     una caja más oscura que el fondo). Brillo y opacidad a la mitad: es el
+     tope que deja todo el texto de la franja por encima de 4,5:1 con un
+     cartel blanco (≥ 4,9 medido; --dato está para eso).
+   · Claro: mezcla 'color' sobre el blanco cal: toma el tono del cartel y
+     conserva la claridad del fondo, así que la tinta no pierde contraste; un
+     tinte pálido, como alumbraría un cartel una pared blanca. Con la mezcla
+     normal, un cartel oscuro ensuciaba de gris pardo el blanco frío.
+   · Las dos mezclas necesitan algo con lo que mezclarse dentro de su grupo
+     (isolation en .peli): el fondo de la película, que es el de la página.
+   · Coste: un pseudoelemento por película, con un blur fijo que no se anima:
+     se rasteriza con su tesela y al desplazar solo se mueve; las películas
+     lejos de la pantalla no se pintan (content-visibility). Medido en el
+     móvil con la CPU a 1/4: ver DESIGN.md.
+   · Sin cartel (o si no carga) no hay luz: la variable se queda vacía. */
+.peli { background-color: var(--fondo); }
+.peli-cabeza::before {
+  content: '';
+  position: absolute; z-index: -1;
+  /* Del borde de arriba de la película al pie de la cabecera, y del borde
+     izquierdo del cartel al final de la columna. */
+  top: calc(-1 * var(--e-4)); bottom: calc(-1 * var(--e-3));
+  left: calc(-1 * (var(--cartel-ancho) + var(--cartel-hueco))); right: 0;
+  background: var(--cartel-img, none) center 30% / cover no-repeat;
+  filter: blur(32px) saturate(1.8) brightness(0.5);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  /* Sale del lado del cartel (elipse anclada a la izquierda) y se funde
+     arriba y abajo antes de los bordes de la caja, que si no se verían. */
+  -webkit-mask-image: radial-gradient(ellipse 80% 110% at 0% 50%, #000 30%, transparent 100%), linear-gradient(to bottom, transparent, #000 28%, #000 68%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: radial-gradient(ellipse 80% 110% at 0% 50%, #000 30%, transparent 100%), linear-gradient(to bottom, transparent, #000 28%, #000 68%, transparent);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+:root[data-theme='light'] .peli-cabeza::before {
+  filter: blur(32px) saturate(1.8);
+  opacity: 0.8;
+  mix-blend-mode: color;
+}
+/* Quien pide menos transparencia o más contraste, sin luz. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
+  .peli-cabeza::before { content: none; }
+}
 
 .peli-titulo {
   font-family: var(--f-rotulo);
@@ -164,15 +230,19 @@
 @media (hover: hover) {
   .peli-titulo-boton:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.12em; }
 }
+/* Duración y género, un paso por encima del apagado (--dato) y a 500: son
+   lo que se busca con el ojo después del título, y a 400 en apagado se
+   quedaban por detrás del lugar del cine, que importa menos. Edad y nota, en
+   tinta. La estrella va rellena: hueca (☆) se leía como "sin nota". */
 .peli-datos {
   display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--e-3); row-gap: 2px;
   margin-top: var(--e-2);
-  font-size: var(--t-dato); color: var(--apagada);
+  font-size: var(--t-dato); font-weight: 500; color: var(--dato);
   font-variant-numeric: tabular-nums;
 }
 .peli-edad { font-weight: 650; color: var(--tinta); }
-.peli-nota { display: inline-flex; align-items: center; gap: 4px; color: var(--tinta); font-weight: 650; }
-.ico-nota { width: 15px; height: 15px; color: var(--apagada); }
+.peli-nota { display: inline-flex; align-items: center; gap: 4px; color: var(--tinta); font-weight: 700; }
+.ico-nota { width: 14px; height: 14px; color: var(--dato); fill: currentColor; }
 .peli-estreno { color: var(--rojo-texto); font-weight: 650; }
 /* El género y "Estreno" van juntos: sueltos, "Estreno" se quedaba solo en una
    segunda línea en la mitad de las películas a 390 px. Solo se separan si
@@ -195,8 +265,13 @@
 }
 .peli-cine-lugar { font-weight: 500; color: var(--apagada); }
 /* Lo que comparten todas sus sesiones ("Sala Premium", "4K Laser Atmos"),
-   escrito una vez aquí en vez de en cada entrada. */
-.peli-cine-comun { display: inline-flex; flex-wrap: wrap; column-gap: 6px; font-size: var(--t-detalle); font-weight: 500; color: var(--apagada); }
+   escrito una vez aquí en vez de en cada entrada. Dos tratamientos, por lo
+   que significa y no por el cine del que viene (lib/rotulos.js): VOSE y 3D
+   en negrita y tinta; cómo es la sala ("Premium", "Sala Premium", "Láser",
+   "Sala 7") a 550 en apagado, en todos los cines igual. Antes "PREMIUM" de
+   Yelmo salía en negrita y mayúsculas y "Sala Premium" de Cinesur en gris
+   fino. 550 y no 500: a 13 px y en apagado se quedaba por debajo del lugar. */
+.peli-cine-comun { display: inline-flex; flex-wrap: wrap; column-gap: 6px; font-size: var(--t-detalle); font-weight: 550; color: var(--apagada); }
 .peli-cine-etiqueta { font-weight: 700; color: var(--tinta); }
 .peli-cine-aviso {
   font-size: var(--t-detalle); font-weight: 500; color: var(--apagada);
@@ -303,8 +378,9 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 .entradas:has(.entrada-datos:not(:empty)) .entrada { justify-content: flex-start; }
 .entradas:has(.entrada-datos:not(:empty)) .entrada-datos:empty { display: flex; }
 .entradas:has(.entrada-datos:not(:empty)) .entrada-datos:empty::before { content: '\a0'; }
+/* Igual que junto al cine: VOSE/3D en negrita; la sala, discreta. */
 .entrada-etiqueta { font-weight: 700; }
-.entrada-sala { color: var(--apagada); }
+.entrada-sala { font-weight: 550; color: var(--apagada); }
 
 /* Ya empezada (solo puede salir así en Próximas o si el minuto cambia entre
    dos pintados): apagada, sin el color de su cine. En la cartelera y la
@@ -478,7 +554,10 @@ a.entrada:active, button.entrada:active { transform: scale(0.97); transition-dur
 }
 .fila-pase .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--cine); }
 .fila-cine { color: var(--tinta); font-weight: 600; }
+/* El mismo par que en la cartelera: VOSE/3D en negrita y tinta; la sala y su
+   formato, a 550 en apagado. */
 .fila-etiqueta { color: var(--tinta); font-weight: 700; }
+.fila-sala { font-weight: 550; }
 
 /* La línea del ahora: dónde estás en el día. Lleva al final el botón de las
    sesiones que ya han empezado, que es la frontera que marca. */

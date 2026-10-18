@@ -15,6 +15,9 @@
 // 11. con movimiento reducido no hay vuelo y la hoja aparece igual, y el
 //     arrastre sigue al dedo (solo cambia lo que pasa al soltar)
 // 12. el contenido acompaña al dedo al cambiar de día, y el día cambia
+// 13. en el panel de escritorio el cartel de la lista no se va nunca: crece
+//     una copia, la abierta queda marcada (sin atenuar), otra película se
+//     abre a través del velo y al cerrar la copia vuelve sobre el original
 //
 // Regresiones de la revisión de movimiento:
 //  · velocidad tras una pausa: arrastrar deprisa, PARARSE (el navegador no
@@ -519,6 +522,100 @@ await p.waitForTimeout(300);
   if (!r.xs.length) console.log('info  el día cambió antes del primer fotograma; 12d no comprobable');
   else if (atras) mal(`al confirmar el día, el contenido da media vuelta: soltado en ${r.alSoltar}px → ${r.xs.join(', ')}`);
   else bien(`al confirmar el día, sigue hacia donde iba el dedo (${r.alSoltar}px → ${r.xs.join(' → ')}px)`);
+}
+
+// ── 13. Panel de escritorio: el cartel de la lista no se va ───────────────────
+// En el panel la lista sigue a la vista: del cartel crece una COPIA y el
+// original se queda en su tarjeta, sin atenuar, durante el vuelo y después
+// (antes se vaciaba y reaparecía al acabar: se veía irse y volver otro). Con
+// el panel abierto, tocar otra película a través del velo cambia la ficha; y
+// al cerrar, la copia se posa encima del original, que tampoco se esconde.
+{
+  const ctxP = await b.newContext({ viewport: { width: 1440, height: 900 } });
+  const q = await ctxP.newPage();
+  const errores = [];
+  q.on('pageerror', (e) => errores.push(String(e)));
+  await q.route('**/api/ratings', (r) => r.fulfill({ json: { ratings: {} } }));
+  await q.goto(URL, { waitUntil: 'networkidle' });
+  await q.waitForSelector('.peli-cartel[data-cartel]');
+  await q.waitForTimeout(600);
+  const hayVT = await q.evaluate(() => typeof document.startViewTransition === 'function');
+  // Mira el cartel de la lista en cada fotograma mientras <html data-vt> sea `modo`.
+  const vigilar = (clave, modo) => q.evaluate(([c, m]) => new Promise((res) => {
+    const el = document.querySelector(`[data-cartel="${CSS.escape(c)}"]`);
+    const malos = new Set(); let vistos = 0; let dobles = 0;
+    const t0 = performance.now();
+    const mirar = () => {
+      if (document.documentElement.dataset.vt === m) {
+        vistos++;
+        if (el.hasAttribute('data-cartel-fuera') || getComputedStyle(el).opacity !== '1') malos.add('escondido');
+        if (getComputedStyle(el).viewTransitionName !== 'none' && vistos > 1) malos.add('con nombre (fuera de la foto)');
+        const n = [...document.querySelectorAll('*')].filter((x) => getComputedStyle(x).viewTransitionName === 'cartel').length;
+        if (n > 1) dobles = n;
+      } else if (vistos || performance.now() - t0 > 600) { res({ vistos, malos: [...malos], dobles }); return; }
+      requestAnimationFrame(mirar);
+    };
+    mirar();
+  }), [clave, modo]);
+  const caja = (c) => q.evaluate((c) => { const r = document.querySelector(`[data-cartel="${CSS.escape(c)}"]`).getBoundingClientRect(); return [r.left, r.top, r.width, r.height]; }, c);
+  const hueco = () => q.evaluate(() => { const v = document.querySelector('.hoja-velo'); return v?.hasAttribute('data-hueco') ? ['x', 'y', 'w', 'h'].map((k) => parseFloat(v.style.getPropertyValue(`--hueco-${k}`))) : null; });
+  const casa = (a, b2) => !!a && !!b2 && a.every((v, i) => Math.abs(v - b2[i]) < 1.5);
+  const visible = (c) => q.evaluate((c) => { const el = document.querySelector(`[data-cartel="${CSS.escape(c)}"]`); return !el.hasAttribute('data-cartel-fuera') && getComputedStyle(el).opacity === '1'; }, c);
+
+  const A = await q.evaluate(() => document.querySelector('.peli-cartel[data-cartel]').dataset.cartel);
+  if (!hayVT) console.log('info  sin View Transitions: 13 solo comprueba el hueco del velo');
+  const vA = hayVT ? vigilar(A, 'abrir') : null;
+  await q.click(`[data-cartel="${A}"]`);
+  const durA = await vA;
+  await q.waitForTimeout(500);
+  if (durA && !durA.vistos) mal('panel: al abrir desde el cartel no hay View Transition');
+  else if (durA?.malos.length) mal(`panel: durante el vuelo el cartel de la lista está ${durA.malos.join(', ')}`);
+  else if (durA?.dobles) mal(`panel: ${durA.dobles} elementos con view-transition-name "cartel" a la vez`);
+  else if (durA) bien(`panel: el cartel de la lista se queda a la vista durante el vuelo (${durA.vistos} fotogramas)`);
+  if (!(await visible(A))) mal('panel: con la ficha abierta, el cartel de la lista no se ve');
+  else if (!casa(await hueco(), await caja(A))) mal('panel: el velo no deja sin atenuar el cartel de la abierta');
+  else bien('panel: con la ficha abierta, su cartel sigue en la lista y sin atenuar (hueco del velo)');
+
+  // Otra película a través del velo
+  const B = await q.evaluate((a) => {
+    const panel = document.querySelector('.hoja').getBoundingClientRect().left;
+    return [...document.querySelectorAll('.peli-cartel[data-cartel]')].find((p) => {
+      const r = p.getBoundingClientRect();
+      return p.dataset.cartel !== a && r.top > 90 && r.bottom < innerHeight && r.left + r.width / 2 < panel;
+    })?.dataset.cartel ?? null;
+  }, A);
+  if (!B) console.log('info  no hay otra película a la vista con el panel abierto; 13b no comprobable');
+  else {
+    const [x, y, w, h] = await caja(B);
+    await q.mouse.move(x + w / 2, y + h / 2);
+    await q.waitForTimeout(100);
+    const apunta = await q.evaluate(() => document.querySelector('.hoja-velo').hasAttribute('data-apunta'));
+    const vB = hayVT ? vigilar(B, 'cambiar') : null;
+    await q.mouse.click(x + w / 2, y + h / 2);
+    const durB = await vB;
+    await q.waitForTimeout(500);
+    const titulo = await q.evaluate(() => document.getElementById('ficha-titulo')?.textContent ?? '');
+    const esperado = await q.evaluate((c) => document.querySelector(`[data-cartel="${CSS.escape(c)}"]`).closest('.peli').querySelector('.peli-titulo-boton').firstChild.textContent, B);
+    if (!apunta) mal('panel: encima de otra película el puntero no dice que se puede tocar');
+    if (titulo !== esperado) mal(`panel: tocar otra película a través del velo no cambia la ficha ("${titulo}" en vez de "${esperado}")`);
+    else if (durB && (!durB.vistos || durB.malos.length || durB.dobles)) mal(`panel: el cambio de película no vuela bien (${JSON.stringify(durB)})`);
+    else if (!(await visible(A)) || !(await visible(B))) mal('panel: tras cambiar de película, un cartel de la lista ha desaparecido');
+    else if (!casa(await hueco(), await caja(B))) mal('panel: tras cambiar, el hueco del velo no pasa a la nueva');
+    else bien(`panel: tocar otra película a través del velo cambia la ficha${durB ? ' con su vuelo' : ''} y la marca en la lista`);
+  }
+
+  const abiertaAhora = B ?? A;
+  const vC = hayVT ? vigilar(abiertaAhora, 'cerrar') : null;
+  await q.keyboard.press('Escape');
+  const durC = await vC;
+  await q.waitForTimeout(500);
+  if (await q.locator('.hoja').count()) mal('panel: Escape no cierra la ficha');
+  else if (durC && !durC.vistos) mal('panel: al cerrar no vuelve con View Transition');
+  else if (durC?.malos.length) mal(`panel: al cerrar, el cartel de la lista está ${durC.malos.join(', ')}`);
+  else if (!(await visible(abiertaAhora))) mal('panel: tras cerrar, el cartel de la lista no se ve');
+  else bien('panel: al cerrar, la copia vuelve a su tarjeta y el original no se esconde en ningún momento');
+  if (errores.length) mal('panel: errores JS: ' + errores[0]);
+  await ctxP.close();
 }
 
 if (p.errores.length) mal('errores JS: ' + p.errores[0]);
