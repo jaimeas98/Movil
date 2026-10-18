@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-18T05:04:27.504Z",
+  "generatedAt": "2026-10-18T16:02:33.603Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -15,17 +15,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35018,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24222",
-                      "TimeFilter": "/Date(1792356600000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35018,
                       "CinemaId": 74,
@@ -481,60 +470,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 34959,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24116",
-                      "TimeFilter": "/Date(1792358100000)/",
-                      "Time": "16:15",
-                      "ShowtimeAMPM": "04:15 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34959,
-                  "MovieId": 0,
-                  "VistaId": "HO00001848",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7241,
-              "Title": "La isla olvidada",
-              "Key": "la-isla-olvidada",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "109",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7241/1/1/7241.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Joel  Crawford",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Vale la pena luchar por tu mejor amiga.\n\nDreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA.\n\nEsta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo.\n\nLa supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes.\n\nEn su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas.\n\nEntablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre.\n\nEl reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34929,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24115",
-                      "TimeFilter": "/Date(1792356300000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
                       "RelationshipFormatMovieId": 34929,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
@@ -572,54 +507,11 @@ export default {
               "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 27276,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "23450",
-                      "TimeFilter": "/Date(1792357200000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 27276,
-                  "MovieId": 0,
-                  "VistaId": "HO00001450",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 6829,
-              "Title": "Super Mario Galaxy: La película",
-              "Key": "super-mario-galaxy-la-pelicula",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "98",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/6829/1/1/6829.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Aaron  Horvath",
-              "Actor": null,
-              "ProjectionType": "Eventos Especiales",
-              "Synopsis": "La película tiene lugar después de los acontecimientos de la primera, en la que dos hermanos, Mario y Luigi, y la princesa Peach emprenden una aventura hasta los confines del espacio y a través de la galaxia. Secuela de \"Super Mario Bros: La película\", basada en la saga \"Mario Galaxy\".",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792299600000)/",
           "ShowtimeDate": "18 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -1231,7 +1123,7 @@ export default {
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -1843,7 +1735,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -2455,7 +2347,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3089,7 +2981,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3161,7 +3053,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3287,7 +3179,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3467,7 +3359,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3517,7 +3409,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3664,7 +3556,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3757,7 +3649,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3807,7 +3699,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3857,7 +3749,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -3907,7 +3799,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4011,7 +3903,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4061,7 +3953,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4111,7 +4003,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4161,7 +4053,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4211,7 +4103,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4261,7 +4153,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4333,7 +4225,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4460,7 +4352,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4554,7 +4446,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4648,7 +4540,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -4742,7 +4634,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         }
       ],
       "Id": 74,
@@ -5594,54 +5486,11 @@ export default {
               "Synopsis": "Tadeo y Sara son ahora padres de Olimpia (Oli), una adorable e intrépida niña de dos años. Y Momia no lleva nada bien haber dejado de ser el centro de atención. Mientras están de vacaciones en Londres, Sara sigue la pista hacia un objeto único: la lámpara maravillosa de Las mil y una noches. Y Momia, presa de los celos, pide un deseo: viajar en el tiempo hasta el momento en que era joven y todos le querían. Tadeo y Sara tienen que unir fuerzas para evitar que Momia cambie el curso de la historia y traer al grupo (Jeff, Belzoni y Ramona incluidos) de vuelta a casa, a su época. Esta nueva aventura los llevará a cruzar el Océano Atlántico desde Perú hasta Grecia, y de allí a lo más profundo de Oriente Medio, hasta la misma cueva de Ali Babá y los cuarenta ladrones.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 27266,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37765",
-                      "TimeFilter": "/Date(1792356900000)/",
-                      "Time": "15:55",
-                      "ShowtimeAMPM": "03:55 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 27266,
-                  "MovieId": 0,
-                  "VistaId": "HO00001450",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 6829,
-              "Title": "Super Mario Galaxy: La película",
-              "Key": "super-mario-galaxy-la-pelicula",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "98",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/6829/1/1/6829.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Aaron  Horvath",
-              "Actor": null,
-              "ProjectionType": "Eventos Especiales",
-              "Synopsis": "La película tiene lugar después de los acontecimientos de la primera, en la que dos hermanos, Mario y Luigi, y la princesa Peach emprenden una aventura hasta los confines del espacio y a través de la galaxia. Secuela de \"Super Mario Bros: La película\", basada en la saga \"Mario Galaxy\".",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792299600000)/",
           "ShowtimeDate": "18 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -6524,7 +6373,7 @@ export default {
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -7418,7 +7267,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -8301,7 +8150,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9259,7 +9108,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9331,7 +9180,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9543,7 +9392,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9755,7 +9604,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9848,7 +9697,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -9941,7 +9790,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10034,7 +9883,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10127,7 +9976,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10263,7 +10112,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10453,7 +10302,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10546,7 +10395,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10596,7 +10445,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10646,7 +10495,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10696,7 +10545,7 @@ export default {
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10746,7 +10595,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10893,7 +10742,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -10943,7 +10792,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11036,7 +10885,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11086,7 +10935,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11136,7 +10985,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11186,7 +11035,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11236,7 +11085,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11308,7 +11157,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11489,7 +11338,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11648,7 +11497,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11807,7 +11656,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -11955,7 +11804,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12005,7 +11854,7 @@ export default {
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12055,7 +11904,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12105,7 +11954,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12155,7 +12004,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12205,7 +12054,7 @@ export default {
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12255,7 +12104,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12305,7 +12154,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12355,7 +12204,7 @@ export default {
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         },
         {
           "Movies": [
@@ -12405,7 +12254,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-18T05:04:27.813Z"
+          "_recogido": "2026-10-18T16:02:33.816Z"
         }
       ],
       "Id": 53,
