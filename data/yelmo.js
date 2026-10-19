@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-19T05:06:04.840Z",
+  "generatedAt": "2026-10-19T16:04:44.602Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -221,92 +221,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35317,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24140",
-                      "TimeFilter": "/Date(1792443600000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35317,
-                  "MovieId": 0,
-                  "VistaId": "HO00001904",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7302,
-              "Title": "El precio de la red",
-              "Key": "el-precio-de-la-red",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "114",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7302/1/1/7302.jpg",
-              "Trailer": "",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
-              "Gender": "",
-              "Director": "Aaron Sorkin",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Descrita como una \"pieza complementaria\" de \"La red social\", la nueva película se centra en los acontecimientos que tienen lugar casi dos décadas después de que el genio programador y un grupo de pioneros de la tecnología inventaran lo que acabaría convirtiéndose en la mayor plataforma de redes sociales del mundo. Cuenta la historia real de cómo Frances Haugen (Madison), una joven ingeniera de Facebook, consigue la ayuda de Jeff Horwitz (White), un reportero del Wall Street Journal, para emprender un peligroso viaje que acaba destapando los secretos más ocultos de la red social. El reportaje de Horwitz, una serie de artículos conocida como \"The Facebook Files\" (Los archivos de Facebook), se publicó en 2021 y destapó los efectos nocivos de Facebook en los adolescentes y su proliferación a sabiendas de desinformación, que contribuyó a actos de violencia política.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35318,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24143",
-                      "TimeFilter": "/Date(1792446300000)/",
-                      "Time": "16:45",
-                      "ShowtimeAMPM": "04:45 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35318,
-                  "MovieId": 0,
-                  "VistaId": "HO00001918",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "SUBTÍTULOS ESPAÑOL"
-                }
-              ],
-              "Id": 7315,
-              "Title": "Naza",
-              "Key": "naza",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "77",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7315/1/1/7315.jpg",
-              "Trailer": "",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "",
-              "Director": "",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Rodada por la noche en los tejados de Tel Aviv, la película revela con todo detalle los mecanismos que hay detrás del asesinato en masa y deliberado de civiles palestinos en Gaza por parte de las tropas de Israel. Naza es la palabra utilizada por el ejército israelí para denominar a las víctimas civiles como 'daños colaterales'. Documental de parte del equipo de 'No Man's Land', producido por el cineasta Jonathan Glazer y su productor James Wilson, ambos responsables de 'La zona de interés'.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 35257,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
@@ -418,17 +332,6 @@ export default {
                       "RelationshipFormatMovieId": 34907,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24223",
-                      "TimeFilter": "/Date(1792445400000)/",
-                      "Time": "16:30",
-                      "ShowtimeAMPM": "04:30 PM",
-                      "Screen": 2,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24127",
                       "TimeFilter": "/Date(1792448100000)/",
                       "Time": "17:15",
@@ -505,17 +408,6 @@ export default {
                       "RelationshipFormatMovieId": 35016,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24144",
-                      "TimeFilter": "/Date(1792443300000)/",
-                      "Time": "15:55",
-                      "ShowtimeAMPM": "03:55 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35016,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24135",
                       "TimeFilter": "/Date(1792460100000)/",
                       "Time": "20:35",
@@ -570,17 +462,6 @@ export default {
                       "RelationshipFormatMovieId": 34929,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24139",
-                      "TimeFilter": "/Date(1792442700000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34929,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24137",
                       "TimeFilter": "/Date(1792467000000)/",
                       "Time": "22:30",
@@ -619,7 +500,7 @@ export default {
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -1231,7 +1112,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -1843,7 +1724,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -2477,7 +2358,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -2549,7 +2430,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -2675,7 +2556,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -2742,9 +2623,9 @@ export default {
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
                       "ShowtimeId": "24031",
-                      "TimeFilter": "/Date(1792964700000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
+                      "TimeFilter": "/Date(1792965600000)/",
+                      "Time": "16:00",
+                      "ShowtimeAMPM": "04:00 PM",
                       "Screen": 6,
                       "IsSpecialDate": false
                     },
@@ -2753,9 +2634,9 @@ export default {
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
                       "ShowtimeId": "24032",
-                      "TimeFilter": "/Date(1792973100000)/",
-                      "Time": "18:05",
-                      "ShowtimeAMPM": "06:05 PM",
+                      "TimeFilter": "/Date(1792973700000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
                       "Screen": 6,
                       "IsSpecialDate": false
                     },
@@ -2764,9 +2645,9 @@ export default {
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
                       "ShowtimeId": "24034",
-                      "TimeFilter": "/Date(1792981500000)/",
-                      "Time": "20:25",
-                      "ShowtimeAMPM": "08:25 PM",
+                      "TimeFilter": "/Date(1792981800000)/",
+                      "Time": "20:30",
+                      "ShowtimeAMPM": "08:30 PM",
                       "Screen": 6,
                       "IsSpecialDate": false
                     },
@@ -2818,9 +2699,9 @@ export default {
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
                       "ShowtimeId": "23452",
-                      "TimeFilter": "/Date(1792965600000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
+                      "TimeFilter": "/Date(1792966200000)/",
+                      "Time": "16:10",
+                      "ShowtimeAMPM": "04:10 PM",
                       "Screen": 2,
                       "IsSpecialDate": false
                     }
@@ -2855,7 +2736,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -2905,7 +2786,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3052,7 +2933,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3145,7 +3026,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3195,7 +3076,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3245,7 +3126,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3295,7 +3176,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3399,7 +3280,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3443,7 +3324,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Música y conciertos",
               "Synopsis": "EXO, los reyes del K-POP, regresan para demostrar una vez más su dominio con la gran final de su sexta gira de conciertos en solitario, el concierto [dot] encore. Siente cómo la energía arrolladora y los vítores ensordecedores cobran vida a través de pantallas gigantes y un sonido envolvento, solo en los cine Yelmo.",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             },
             {
@@ -3492,7 +3373,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3542,7 +3423,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3592,7 +3473,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3642,7 +3523,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3692,7 +3573,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3764,7 +3645,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3891,7 +3772,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -3985,7 +3866,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -4079,7 +3960,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -4173,7 +4054,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         }
       ],
       "Id": 74,
@@ -4439,17 +4320,6 @@ export default {
                       "RelationshipFormatMovieId": 37533,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
-                      "ShowtimeId": "37795",
-                      "TimeFilter": "/Date(1792442700000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
                       "ShowtimeId": "37805",
                       "TimeFilter": "/Date(1792450500000)/",
                       "Time": "17:55",
@@ -4515,17 +4385,6 @@ export default {
                       "RelationshipFormatMovieId": 35243,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
-                      "ShowtimeId": "37798",
-                      "TimeFilter": "/Date(1792444500000)/",
-                      "Time": "16:15",
-                      "ShowtimeAMPM": "04:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
                       "ShowtimeId": "37808",
                       "TimeFilter": "/Date(1792451700000)/",
                       "Time": "18:15",
@@ -4587,60 +4446,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35296,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37829",
-                      "TimeFilter": "/Date(1792443600000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35296,
-                  "MovieId": 0,
-                  "VistaId": "HO00001924",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7321,
-              "Title": "Mascotas al rescate",
-              "Key": "mascotas-al-rescate",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "86",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7321/1/1/7321.jpg",
-              "Trailer": "",
-              "Distributor": "FLINS Y PINICULAS, S.L.",
-              "Gender": "",
-              "Director": "Benoît Daffis",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Cuando un tren de alta velocidad queda fuera de control, un grupo de mascotas atrapadas deberá unirse para evitar el desastre. Falcon, un mapache ingenioso; Rex, un perro policía con un pasado pendiente; y Maggie, una gata rápida y valiente, tendrán que plantar cara al tejón Hans y detener su plan de venganza. Un viaje trepidante, divertido y lleno de corazón… ¡donde cada mascota es clave para salvar la aventura!",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35086,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37796",
-                      "TimeFilter": "/Date(1792443000000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 11,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35086,
                       "CinemaId": 53,
@@ -4727,17 +4532,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37799",
-                      "TimeFilter": "/Date(1792444800000)/",
-                      "Time": "16:20",
-                      "ShowtimeAMPM": "04:20 PM",
-                      "Screen": 8,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 34906,
                       "CinemaId": 53,
@@ -4934,49 +4728,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35042,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37826",
-                      "TimeFilter": "/Date(1792443000000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35042,
-                  "MovieId": 0,
-                  "VistaId": "HO00001767",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7154,
-              "Title": "Coyote vs. Acme",
-              "Key": "coyote-vs-acme",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "103",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7154/1/1/7154.jpg",
-              "Trailer": "",
-              "Distributor": "BETA FICTION",
-              "Gender": "",
-              "Director": "Dave Green",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Harto de que los productos Acme le fallen una y otra vez en su incansable persecución del Correcaminos, el Coyote decide contratar a un abogado de poca monta para demandar a la Corporación Acme.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 34925,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -5025,54 +4776,11 @@ export default {
               "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37794",
-                      "TimeFilter": "/Date(1792442700000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34533,
-                  "MovieId": 0,
-                  "VistaId": "HO00001765",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7152,
-              "Title": "Tadeo Jones y la lámpara maravillosa",
-              "Key": "tadeo-jones-y-la-lampara-maravillosa",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7152/1/1/7152.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Enrique Gato",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tadeo y Sara son ahora padres de Olimpia (Oli), una adorable e intrépida niña de dos años. Y Momia no lleva nada bien haber dejado de ser el centro de atención. Mientras están de vacaciones en Londres, Sara sigue la pista hacia un objeto único: la lámpara maravillosa de Las mil y una noches. Y Momia, presa de los celos, pide un deseo: viajar en el tiempo hasta el momento en que era joven y todos le querían. Tadeo y Sara tienen que unir fuerzas para evitar que Momia cambie el curso de la historia y traer al grupo (Jeff, Belzoni y Ramona incluidos) de vuelta a casa, a su época. Esta nueva aventura los llevará a cruzar el Océano Atlántico desde Perú hasta Grecia, y de allí a lo más profundo de Oriente Medio, hasta la misma cueva de Ali Babá y los cuarenta ladrones.",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792386000000)/",
           "ShowtimeDate": "19 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -5966,7 +5674,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -6849,7 +6557,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -7807,10 +7515,291 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38011",
+                      "TimeFilter": "/Date(1792793400000)/",
+                      "Time": "17:10",
+                      "ShowtimeAMPM": "05:10 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38010",
+                      "TimeFilter": "/Date(1792803600000)/",
+                      "Time": "20:00",
+                      "ShowtimeAMPM": "08:00 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38002",
+                      "TimeFilter": "/Date(1792795800000)/",
+                      "Time": "17:50",
+                      "ShowtimeAMPM": "05:50 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38003",
+                      "TimeFilter": "/Date(1792792800000)/",
+                      "Time": "17:00",
+                      "ShowtimeAMPM": "05:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38004",
+                      "TimeFilter": "/Date(1792802400000)/",
+                      "Time": "19:40",
+                      "ShowtimeAMPM": "07:40 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38005",
+                      "TimeFilter": "/Date(1792812000000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38014",
+                      "TimeFilter": "/Date(1792794300000)/",
+                      "Time": "17:25",
+                      "ShowtimeAMPM": "05:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38013",
+                      "TimeFilter": "/Date(1792802100000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38007",
+                      "TimeFilter": "/Date(1792794000000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38008",
+                      "TimeFilter": "/Date(1792802700000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38009",
+                      "TimeFilter": "/Date(1792811700000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -7875,14 +7864,575 @@ export default {
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37976",
+                      "TimeFilter": "/Date(1792803900000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37987",
+                      "TimeFilter": "/Date(1792812600000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35009,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37980",
+                      "TimeFilter": "/Date(1792794600000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35009,
+                  "MovieId": 0,
+                  "VistaId": "HO00001881",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7278,
+              "Title": "Cars 20º Aniversario",
+              "Key": "cars-20o-aniversario",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7278/1/1/7278.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Fee",
+              "Actor": null,
+              "ProjectionType": "Eventos Especiales",
+              "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37983",
+                      "TimeFilter": "/Date(1792803300000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37996",
+                      "TimeFilter": "/Date(1792809600000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37979",
+                      "TimeFilter": "/Date(1792809900000)/",
+                      "Time": "21:45",
+                      "ShowtimeAMPM": "09:45 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37982",
+                      "TimeFilter": "/Date(1792793700000)/",
+                      "Time": "17:15",
+                      "ShowtimeAMPM": "05:15 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37990",
+                      "TimeFilter": "/Date(1792800900000)/",
+                      "Time": "19:15",
+                      "ShowtimeAMPM": "07:15 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37997",
+                      "TimeFilter": "/Date(1792808400000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35086,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37988",
+                      "TimeFilter": "/Date(1792793100000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35086,
+                  "MovieId": 0,
+                  "VistaId": "HO00001720",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7107,
+              "Title": "Verity. La sombra de un engaño",
+              "Key": "verity-la-sombra-de-un-engano",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "116",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
+              "Trailer": "",
+              "Distributor": "AMAZON MGM STUDIOS",
+              "Gender": "",
+              "Director": "Michael Showalter",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37972",
+                      "TimeFilter": "/Date(1792794900000)/",
+                      "Time": "17:35",
+                      "ShowtimeAMPM": "05:35 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37981",
+                      "TimeFilter": "/Date(1792798800000)/",
+                      "Time": "18:40",
+                      "ShowtimeAMPM": "06:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37991",
+                      "TimeFilter": "/Date(1792806300000)/",
+                      "Time": "20:45",
+                      "ShowtimeAMPM": "08:45 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37993",
+                      "TimeFilter": "/Date(1792810200000)/",
+                      "Time": "21:50",
+                      "ShowtimeAMPM": "09:50 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38006",
+                      "TimeFilter": "/Date(1792801500000)/",
+                      "Time": "19:25",
+                      "ShowtimeAMPM": "07:25 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37995",
+                      "TimeFilter": "/Date(1792811400000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37992",
+                      "TimeFilter": "/Date(1792813200000)/",
+                      "Time": "22:40",
+                      "ShowtimeAMPM": "10:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38017",
+                      "TimeFilter": "/Date(1792876500000)/",
+                      "Time": "16:15",
+                      "ShowtimeAMPM": "04:15 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38030",
+                      "TimeFilter": "/Date(1792886100000)/",
+                      "Time": "18:55",
+                      "ShowtimeAMPM": "06:55 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -7974,6 +8524,255 @@ export default {
                 {
                   "Showtimes": [
                     {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38042",
+                      "TimeFilter": "/Date(1792875300000)/",
+                      "Time": "15:55",
+                      "ShowtimeAMPM": "03:55 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38022",
+                      "TimeFilter": "/Date(1792882500000)/",
+                      "Time": "17:55",
+                      "ShowtimeAMPM": "05:55 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38015",
+                      "TimeFilter": "/Date(1792878600000)/",
+                      "Time": "16:50",
+                      "ShowtimeAMPM": "04:50 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38027",
+                      "TimeFilter": "/Date(1792888500000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38039",
+                      "TimeFilter": "/Date(1792898400000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38046",
+                      "TimeFilter": "/Date(1792875000000)/",
+                      "Time": "15:50",
+                      "ShowtimeAMPM": "03:50 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38045",
+                      "TimeFilter": "/Date(1792883100000)/",
+                      "Time": "18:05",
+                      "ShowtimeAMPM": "06:05 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38026",
+                      "TimeFilter": "/Date(1792890900000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38019",
+                      "TimeFilter": "/Date(1792880400000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38028",
+                      "TimeFilter": "/Date(1792889100000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38038",
+                      "TimeFilter": "/Date(1792898100000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
                       "RelationshipFormatMovieId": 35403,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -7989,9 +8788,9 @@ export default {
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37681",
-                      "TimeFilter": "/Date(1792883100000)/",
-                      "Time": "18:05",
-                      "ShowtimeAMPM": "06:05 PM",
+                      "TimeFilter": "/Date(1792883700000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
                       "Screen": 2,
                       "IsSpecialDate": false
                     },
@@ -8050,6 +8849,534 @@ export default {
                 {
                   "Showtimes": [
                     {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38031",
+                      "TimeFilter": "/Date(1792890300000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38040",
+                      "TimeFilter": "/Date(1792899000000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35009,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38020",
+                      "TimeFilter": "/Date(1792881000000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35009,
+                  "MovieId": 0,
+                  "VistaId": "HO00001881",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7278,
+              "Title": "Cars 20º Aniversario",
+              "Key": "cars-20o-aniversario",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7278/1/1/7278.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Fee",
+              "Actor": null,
+              "ProjectionType": "Eventos Especiales",
+              "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38029",
+                      "TimeFilter": "/Date(1792889700000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38034",
+                      "TimeFilter": "/Date(1792894800000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38035",
+                      "TimeFilter": "/Date(1792898700000)/",
+                      "Time": "22:25",
+                      "ShowtimeAMPM": "10:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38033",
+                      "TimeFilter": "/Date(1792899300000)/",
+                      "Time": "22:35",
+                      "ShowtimeAMPM": "10:35 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35086,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38016",
+                      "TimeFilter": "/Date(1792878000000)/",
+                      "Time": "16:40",
+                      "ShowtimeAMPM": "04:40 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35086,
+                  "MovieId": 0,
+                  "VistaId": "HO00001720",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7107,
+              "Title": "Verity. La sombra de un engaño",
+              "Key": "verity-la-sombra-de-un-engano",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "116",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
+              "Trailer": "",
+              "Distributor": "AMAZON MGM STUDIOS",
+              "Gender": "",
+              "Director": "Michael Showalter",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38021",
+                      "TimeFilter": "/Date(1792881300000)/",
+                      "Time": "17:35",
+                      "ShowtimeAMPM": "05:35 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38023",
+                      "TimeFilter": "/Date(1792885200000)/",
+                      "Time": "18:40",
+                      "ShowtimeAMPM": "06:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38032",
+                      "TimeFilter": "/Date(1792892700000)/",
+                      "Time": "20:45",
+                      "ShowtimeAMPM": "08:45 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38036",
+                      "TimeFilter": "/Date(1792896600000)/",
+                      "Time": "21:50",
+                      "ShowtimeAMPM": "09:50 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38025",
+                      "TimeFilter": "/Date(1792886700000)/",
+                      "Time": "19:05",
+                      "ShowtimeAMPM": "07:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38037",
+                      "TimeFilter": "/Date(1792897800000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34948,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38047",
+                      "TimeFilter": "/Date(1792876800000)/",
+                      "Time": "16:20",
+                      "ShowtimeAMPM": "04:20 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34948,
+                  "MovieId": 0,
+                  "VistaId": "HO00001848",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7241,
+              "Title": "La isla olvidada",
+              "Key": "la-isla-olvidada",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "109",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7241/1/1/7241.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Joel  Crawford",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Vale la pena luchar por tu mejor amiga.\n\nDreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA.\n\nEsta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo.\n\nLa supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes.\n\nEn su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas.\n\nEntablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre.\n\nEl reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38041",
+                      "TimeFilter": "/Date(1792896000000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
                       "RelationshipFormatMovieId": 31817,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -8057,7 +9384,7 @@ export default {
                       "TimeFilter": "/Date(1792875600000)/",
                       "Time": "16:00",
                       "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 10,
+                      "Screen": 8,
                       "IsSpecialDate": false
                     }
                   ],
@@ -8091,7 +9418,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -8154,6 +9481,60 @@ export default {
                 {
                   "Showtimes": [
                     {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38049",
+                      "TimeFilter": "/Date(1792966500000)/",
+                      "Time": "16:15",
+                      "ShowtimeAMPM": "04:15 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38057",
+                      "TimeFilter": "/Date(1792976100000)/",
+                      "Time": "18:55",
+                      "ShowtimeAMPM": "06:55 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
                       "RelationshipFormatMovieId": 35233,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -8196,6 +9577,266 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38048",
+                      "TimeFilter": "/Date(1792964400000)/",
+                      "Time": "15:40",
+                      "ShowtimeAMPM": "03:40 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38054",
+                      "TimeFilter": "/Date(1792972500000)/",
+                      "Time": "17:55",
+                      "ShowtimeAMPM": "05:55 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38051",
+                      "TimeFilter": "/Date(1792967400000)/",
+                      "Time": "16:30",
+                      "ShowtimeAMPM": "04:30 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38058",
+                      "TimeFilter": "/Date(1792977300000)/",
+                      "Time": "19:15",
+                      "ShowtimeAMPM": "07:15 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38068",
+                      "TimeFilter": "/Date(1792987200000)/",
+                      "Time": "22:00",
+                      "ShowtimeAMPM": "10:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38055",
+                      "TimeFilter": "/Date(1792973100000)/",
+                      "Time": "18:05",
+                      "ShowtimeAMPM": "06:05 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38061",
+                      "TimeFilter": "/Date(1792980900000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38072",
+                      "TimeFilter": "/Date(1792961700000)/",
+                      "Time": "14:55",
+                      "ShowtimeAMPM": "02:55 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38052",
+                      "TimeFilter": "/Date(1792970400000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38059",
+                      "TimeFilter": "/Date(1792979100000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38067",
+                      "TimeFilter": "/Date(1792988100000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "37955",
+                      "TimeFilter": "/Date(1792964700000)/",
+                      "Time": "15:45",
+                      "ShowtimeAMPM": "03:45 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
                     {
                       "RelationshipFormatMovieId": 35403,
                       "CinemaId": 53,
@@ -8262,6 +9903,470 @@ export default {
                 {
                   "Showtimes": [
                     {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38060",
+                      "TimeFilter": "/Date(1792980300000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38070",
+                      "TimeFilter": "/Date(1792989000000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38063",
+                      "TimeFilter": "/Date(1792984800000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38069",
+                      "TimeFilter": "/Date(1792988700000)/",
+                      "Time": "22:25",
+                      "ShowtimeAMPM": "10:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38076",
+                      "TimeFilter": "/Date(1792971900000)/",
+                      "Time": "17:45",
+                      "ShowtimeAMPM": "05:45 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38071",
+                      "TimeFilter": "/Date(1792979400000)/",
+                      "Time": "19:50",
+                      "ShowtimeAMPM": "07:50 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38073",
+                      "TimeFilter": "/Date(1792987500000)/",
+                      "Time": "22:05",
+                      "ShowtimeAMPM": "10:05 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35086,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38075",
+                      "TimeFilter": "/Date(1792968000000)/",
+                      "Time": "16:40",
+                      "ShowtimeAMPM": "04:40 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35086,
+                  "MovieId": 0,
+                  "VistaId": "HO00001720",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7107,
+              "Title": "Verity. La sombra de un engaño",
+              "Key": "verity-la-sombra-de-un-engano",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "116",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
+              "Trailer": "",
+              "Distributor": "AMAZON MGM STUDIOS",
+              "Gender": "",
+              "Director": "Michael Showalter",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38053",
+                      "TimeFilter": "/Date(1792971300000)/",
+                      "Time": "17:35",
+                      "ShowtimeAMPM": "05:35 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38056",
+                      "TimeFilter": "/Date(1792975200000)/",
+                      "Time": "18:40",
+                      "ShowtimeAMPM": "06:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38062",
+                      "TimeFilter": "/Date(1792982700000)/",
+                      "Time": "20:45",
+                      "ShowtimeAMPM": "08:45 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38065",
+                      "TimeFilter": "/Date(1792986600000)/",
+                      "Time": "21:50",
+                      "ShowtimeAMPM": "09:50 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38074",
+                      "TimeFilter": "/Date(1792976700000)/",
+                      "Time": "19:05",
+                      "ShowtimeAMPM": "07:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38066",
+                      "TimeFilter": "/Date(1792988400000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34948,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38050",
+                      "TimeFilter": "/Date(1792966800000)/",
+                      "Time": "16:20",
+                      "ShowtimeAMPM": "04:20 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34948,
+                  "MovieId": 0,
+                  "VistaId": "HO00001848",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7241,
+              "Title": "La isla olvidada",
+              "Key": "la-isla-olvidada",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "109",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7241/1/1/7241.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Joel  Crawford",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Vale la pena luchar por tu mejor amiga.\n\nDreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA.\n\nEsta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo.\n\nLa supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes.\n\nEn su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas.\n\nEntablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre.\n\nEl reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38064",
+                      "TimeFilter": "/Date(1792986000000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
                       "RelationshipFormatMovieId": 31817,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -8303,10 +10408,64 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38079",
+                      "TimeFilter": "/Date(1793056200000)/",
+                      "Time": "17:10",
+                      "ShowtimeAMPM": "05:10 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38090",
+                      "TimeFilter": "/Date(1793065800000)/",
+                      "Time": "19:50",
+                      "ShowtimeAMPM": "07:50 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -8392,14 +10551,813 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo.\nDesde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla.\nAdemás, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo.\nUna luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado.\nEVERYWHERE WE CHEER!\nTOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW'\nComo estrellas brillantes, la cuarta gira mundial de TOMORROW X TOGETHER, ACT: TOMORROW, se desarrolla como un viaje deslumbrante hacia el mañana que prometieron juntos. Desde su hermosa narrativa hasta la impresionante producción y las impactantes presentaciones en vivo que cautivaron a los MOA de todo el mundo, ¡vive la energía envolvente de la espectacular gira mundial de TOMORROW X TOGETHER en la pantalla grande!\n",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38083",
+                      "TimeFilter": "/Date(1793058600000)/",
+                      "Time": "17:50",
+                      "ShowtimeAMPM": "05:50 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38077",
+                      "TimeFilter": "/Date(1793055600000)/",
+                      "Time": "17:00",
+                      "ShowtimeAMPM": "05:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38087",
+                      "TimeFilter": "/Date(1793065200000)/",
+                      "Time": "19:40",
+                      "ShowtimeAMPM": "07:40 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38100",
+                      "TimeFilter": "/Date(1793074800000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38081",
+                      "TimeFilter": "/Date(1793057100000)/",
+                      "Time": "17:25",
+                      "ShowtimeAMPM": "05:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38086",
+                      "TimeFilter": "/Date(1793064900000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38080",
+                      "TimeFilter": "/Date(1793056800000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38088",
+                      "TimeFilter": "/Date(1793065500000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38099",
+                      "TimeFilter": "/Date(1793074500000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38084",
+                      "TimeFilter": "/Date(1793060100000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38092",
+                      "TimeFilter": "/Date(1793068200000)/",
+                      "Time": "20:30",
+                      "ShowtimeAMPM": "08:30 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38103",
+                      "TimeFilter": "/Date(1793076300000)/",
+                      "Time": "22:45",
+                      "ShowtimeAMPM": "10:45 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35403,
+                  "MovieId": 0,
+                  "VistaId": "HO00001717",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7104,
+              "Title": "Clayface",
+              "Key": "clayface",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "108",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "James Watkins",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Venta Anticipada",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38091",
+                      "TimeFilter": "/Date(1793066700000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38101",
+                      "TimeFilter": "/Date(1793075400000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38089",
+                      "TimeFilter": "/Date(1793066100000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38095",
+                      "TimeFilter": "/Date(1793071200000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38096",
+                      "TimeFilter": "/Date(1793072700000)/",
+                      "Time": "21:45",
+                      "ShowtimeAMPM": "09:45 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38094",
+                      "TimeFilter": "/Date(1793064000000)/",
+                      "Time": "19:20",
+                      "ShowtimeAMPM": "07:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38105",
+                      "TimeFilter": "/Date(1793073900000)/",
+                      "Time": "22:05",
+                      "ShowtimeAMPM": "10:05 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35086,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38078",
+                      "TimeFilter": "/Date(1793057400000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35086,
+                  "MovieId": 0,
+                  "VistaId": "HO00001720",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7107,
+              "Title": "Verity. La sombra de un engaño",
+              "Key": "verity-la-sombra-de-un-engano",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "116",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
+              "Trailer": "",
+              "Distributor": "AMAZON MGM STUDIOS",
+              "Gender": "",
+              "Director": "Michael Showalter",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38082",
+                      "TimeFilter": "/Date(1793055900000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38085",
+                      "TimeFilter": "/Date(1793061000000)/",
+                      "Time": "18:30",
+                      "ShowtimeAMPM": "06:30 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38093",
+                      "TimeFilter": "/Date(1793067300000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38097",
+                      "TimeFilter": "/Date(1793072400000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38104",
+                      "TimeFilter": "/Date(1793055900000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38098",
+                      "TimeFilter": "/Date(1793074200000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38102",
+                      "TimeFilter": "/Date(1793076000000)/",
+                      "Time": "22:40",
+                      "ShowtimeAMPM": "10:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38109",
+                      "TimeFilter": "/Date(1793142600000)/",
+                      "Time": "17:10",
+                      "ShowtimeAMPM": "05:10 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38120",
+                      "TimeFilter": "/Date(1793152200000)/",
+                      "Time": "19:50",
+                      "ShowtimeAMPM": "07:50 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -8485,14 +11443,835 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo.\nDesde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla.\nAdemás, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo.\nUna luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado.\nEVERYWHERE WE CHEER!\nTOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW'\nComo estrellas brillantes, la cuarta gira mundial de TOMORROW X TOGETHER, ACT: TOMORROW, se desarrolla como un viaje deslumbrante hacia el mañana que prometieron juntos. Desde su hermosa narrativa hasta la impresionante producción y las impactantes presentaciones en vivo que cautivaron a los MOA de todo el mundo, ¡vive la energía envolvente de la espectacular gira mundial de TOMORROW X TOGETHER en la pantalla grande!\n",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38113",
+                      "TimeFilter": "/Date(1793145000000)/",
+                      "Time": "17:50",
+                      "ShowtimeAMPM": "05:50 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39421,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38135",
+                      "TimeFilter": "/Date(1793143800000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39421,
+                  "MovieId": 0,
+                  "VistaId": "HO00001959",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7354,
+              "Title": "El poder del Rosario",
+              "Key": "el-poder-del-rosario",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "106",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7354/1/1/7354.jpg",
+              "Trailer": "",
+              "Distributor": "DREAMS FACTORY EUROPEAN,S.L.",
+              "Gender": "",
+              "Director": "Tiago Benetti",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "\"El Poder del Rosario\" es un emocionante drama sobre la fe, la culpa, el perdón y la esperanza.\nHelena es una niña dulce y devota que guarda en su corazón el deseo de conocer al padre que nunca ha estado presente en su vida. Criada con amor por su madre, Sandra, encuentra en el Rosario su mayor fuente de consuelo y confianza.\nDecidida a hacer realidad el mayor sueño de su hija, Sandra decide enfrentarse a antiguas heridas y retomar el contacto con Roberto, el hombre que se alejó de sus vidas muchos años atrás.\nPero, de camino a ese esperado reencuentro, madre e hija sufren un grave accidente que lo cambia todo.\nMientras Helena lucha entre la vida y la muerte, Sandra se sumerge en la desesperación de una madre que ya no puede hacer nada salvo creer.\nAl mismo tiempo, André, un fotógrafo de éxito, vanidoso y alejado de la fe, se convierte en testigo de aquella tragedia. Marcado por el rosario ensangrentado que encuentra en el lugar del accidente, se ve arrastrado a un inesperado camino de conversión interior, acercándose a Helena, a Sandra y a una realidad espiritual que hasta entonces despreciaba.\n\nEn el hospital, los dolores del pasado comienzan a salir a la luz, antiguos vínculos familiares son confrontados y vidas que parecían seguir caminos separados comienzan a entrelazarse por un propósito mayor.\nRodeados por la fuerza de la oración, la intercesión de Nuestra Señora y una cadena de fe que trasciende los límites de lo imposible, todos tendrán que enfrentarse a sus errores, revisar sus decisiones y descubrir que, incluso en los momentos más oscuros, el amor de Dios puede transformar los destinos.\nInspirada en testimonios de fe y en la devoción al Santo Rosario, \"El Poder del Rosario\" es una historia conmovedora sobre milagros que comienzan en el corazón.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38106",
+                      "TimeFilter": "/Date(1793142000000)/",
+                      "Time": "17:00",
+                      "ShowtimeAMPM": "05:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38131",
+                      "TimeFilter": "/Date(1793161200000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                },
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39422,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38118",
+                      "TimeFilter": "/Date(1793151600000)/",
+                      "Time": "19:40",
+                      "ShowtimeAMPM": "07:40 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39422,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "INGLÉS"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38111",
+                      "TimeFilter": "/Date(1793143500000)/",
+                      "Time": "17:25",
+                      "ShowtimeAMPM": "05:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38117",
+                      "TimeFilter": "/Date(1793151300000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38110",
+                      "TimeFilter": "/Date(1793143200000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38119",
+                      "TimeFilter": "/Date(1793151900000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38130",
+                      "TimeFilter": "/Date(1793160900000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38114",
+                      "TimeFilter": "/Date(1793146500000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38134",
+                      "TimeFilter": "/Date(1793162700000)/",
+                      "Time": "22:45",
+                      "ShowtimeAMPM": "10:45 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35403,
+                  "MovieId": 0,
+                  "VistaId": "HO00001717",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                },
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35409,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38124",
+                      "TimeFilter": "/Date(1793154600000)/",
+                      "Time": "20:30",
+                      "ShowtimeAMPM": "08:30 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35409,
+                  "MovieId": 0,
+                  "VistaId": "HO00001717",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "INGLÉS SUBTITULADO EN ESPAÑOL (VOSE)"
+                }
+              ],
+              "Id": 7104,
+              "Title": "Clayface",
+              "Key": "clayface",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "108",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "James Watkins",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Venta Anticipada",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38122",
+                      "TimeFilter": "/Date(1793153100000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38132",
+                      "TimeFilter": "/Date(1793161800000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38121",
+                      "TimeFilter": "/Date(1793152500000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38125",
+                      "TimeFilter": "/Date(1793157600000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38127",
+                      "TimeFilter": "/Date(1793159100000)/",
+                      "Time": "21:45",
+                      "ShowtimeAMPM": "09:45 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38116",
+                      "TimeFilter": "/Date(1793150400000)/",
+                      "Time": "19:20",
+                      "ShowtimeAMPM": "07:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38128",
+                      "TimeFilter": "/Date(1793160300000)/",
+                      "Time": "22:05",
+                      "ShowtimeAMPM": "10:05 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38107",
+                      "TimeFilter": "/Date(1793142300000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38115",
+                      "TimeFilter": "/Date(1793147400000)/",
+                      "Time": "18:30",
+                      "ShowtimeAMPM": "06:30 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38123",
+                      "TimeFilter": "/Date(1793153700000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38126",
+                      "TimeFilter": "/Date(1793158800000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38108",
+                      "TimeFilter": "/Date(1793142300000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38129",
+                      "TimeFilter": "/Date(1793160600000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38133",
+                      "TimeFilter": "/Date(1793162400000)/",
+                      "Time": "22:40",
+                      "ShowtimeAMPM": "10:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38139",
+                      "TimeFilter": "/Date(1793229000000)/",
+                      "Time": "17:10",
+                      "ShowtimeAMPM": "05:10 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38149",
+                      "TimeFilter": "/Date(1793238600000)/",
+                      "Time": "19:50",
+                      "ShowtimeAMPM": "07:50 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -8578,14 +12357,813 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo.\nDesde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla.\nAdemás, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo.\nUna luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado.\nEVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA'\nLa gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38142",
+                      "TimeFilter": "/Date(1793231400000)/",
+                      "Time": "17:50",
+                      "ShowtimeAMPM": "05:50 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38136",
+                      "TimeFilter": "/Date(1793228400000)/",
+                      "Time": "17:00",
+                      "ShowtimeAMPM": "05:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38147",
+                      "TimeFilter": "/Date(1793238000000)/",
+                      "Time": "19:40",
+                      "ShowtimeAMPM": "07:40 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38160",
+                      "TimeFilter": "/Date(1793247600000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38141",
+                      "TimeFilter": "/Date(1793229900000)/",
+                      "Time": "17:25",
+                      "ShowtimeAMPM": "05:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38146",
+                      "TimeFilter": "/Date(1793237700000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38140",
+                      "TimeFilter": "/Date(1793229600000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38148",
+                      "TimeFilter": "/Date(1793238300000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38159",
+                      "TimeFilter": "/Date(1793247300000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38143",
+                      "TimeFilter": "/Date(1793232900000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38153",
+                      "TimeFilter": "/Date(1793241000000)/",
+                      "Time": "20:30",
+                      "ShowtimeAMPM": "08:30 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38163",
+                      "TimeFilter": "/Date(1793249100000)/",
+                      "Time": "22:45",
+                      "ShowtimeAMPM": "10:45 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35403,
+                  "MovieId": 0,
+                  "VistaId": "HO00001717",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7104,
+              "Title": "Clayface",
+              "Key": "clayface",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "108",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "James Watkins",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Venta Anticipada",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38151",
+                      "TimeFilter": "/Date(1793239500000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38161",
+                      "TimeFilter": "/Date(1793248200000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35009,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38164",
+                      "TimeFilter": "/Date(1793230200000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35009,
+                  "MovieId": 0,
+                  "VistaId": "HO00001881",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7278,
+              "Title": "Cars 20º Aniversario",
+              "Key": "cars-20o-aniversario",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7278/1/1/7278.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Fee",
+              "Actor": null,
+              "ProjectionType": "Eventos Especiales",
+              "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38150",
+                      "TimeFilter": "/Date(1793238900000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38154",
+                      "TimeFilter": "/Date(1793244000000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38156",
+                      "TimeFilter": "/Date(1793245500000)/",
+                      "Time": "21:45",
+                      "ShowtimeAMPM": "09:45 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38145",
+                      "TimeFilter": "/Date(1793236800000)/",
+                      "Time": "19:20",
+                      "ShowtimeAMPM": "07:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38157",
+                      "TimeFilter": "/Date(1793246700000)/",
+                      "Time": "22:05",
+                      "ShowtimeAMPM": "10:05 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38137",
+                      "TimeFilter": "/Date(1793228700000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38144",
+                      "TimeFilter": "/Date(1793233800000)/",
+                      "Time": "18:30",
+                      "ShowtimeAMPM": "06:30 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38152",
+                      "TimeFilter": "/Date(1793240100000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38155",
+                      "TimeFilter": "/Date(1793245200000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38138",
+                      "TimeFilter": "/Date(1793228700000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38158",
+                      "TimeFilter": "/Date(1793247000000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38162",
+                      "TimeFilter": "/Date(1793248800000)/",
+                      "Time": "22:40",
+                      "ShowtimeAMPM": "10:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38168",
+                      "TimeFilter": "/Date(1793315400000)/",
+                      "Time": "17:10",
+                      "ShowtimeAMPM": "05:10 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39398,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38179",
+                      "TimeFilter": "/Date(1793325000000)/",
+                      "Time": "19:50",
+                      "ShowtimeAMPM": "07:50 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39398,
+                  "MovieId": 0,
+                  "VistaId": "HO00001956",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7352,
+              "Title": "Wildwood: El bosque salvaje",
+              "Key": "wildwood-el-bosque-salvaje",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
+              "Trailer": "",
+              "Distributor": "BETA FICTION",
+              "Gender": "",
+              "Director": "Travis Knight",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo.",
+              "Status": "",
+              "Order": 0
+            },
             {
               "Formats": [
                 {
@@ -8671,11 +13249,756 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! SEVENTEEN WORLD TOUR NEW_ Para celebrar el décimo aniversario de su debut, SEVENTEEN se lanza a una gira mundial impulsados por su determinación de empezar de cero, tal como lo indica el título NEW_ Con su presencia escénica sin igual y su energía explosiva, SEVENTEEN vuelve a demostrar su potencial ilimitado. ¡Vive la intensidad del concierto —rebosante del encanto único de cada miembro— directamente en la pantalla grande!",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39400,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38172",
+                      "TimeFilter": "/Date(1793317800000)/",
+                      "Time": "17:50",
+                      "ShowtimeAMPM": "05:50 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39400,
+                  "MovieId": 0,
+                  "VistaId": "HO00001955",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7351,
+              "Title": "Superthings: La película",
+              "Key": "superthings-la-pelicula",
+              "OriginalTitle": "",
+              "Rating": "TP",
+              "RatingDescription": "Apta para todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7351/1/1/7351.jpg",
+              "Trailer": "",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "",
+              "Director": "Víctor Monigote",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos.\n\nDe la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38165",
+                      "TimeFilter": "/Date(1793314800000)/",
+                      "Time": "17:00",
+                      "ShowtimeAMPM": "05:00 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38177",
+                      "TimeFilter": "/Date(1793324400000)/",
+                      "Time": "19:40",
+                      "ShowtimeAMPM": "07:40 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39397,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38190",
+                      "TimeFilter": "/Date(1793334000000)/",
+                      "Time": "22:20",
+                      "ShowtimeAMPM": "10:20 PM",
+                      "Screen": 4,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39397,
+                  "MovieId": 0,
+                  "VistaId": "HO00001954",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7350,
+              "Title": "Sentido y sensibilidad",
+              "Key": "sentido-y-sensibilidad",
+              "OriginalTitle": "",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendada para menores de siete años.",
+              "RunTime": "132",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7350/1/1/7350.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Georgia Oakley",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38170",
+                      "TimeFilter": "/Date(1793316300000)/",
+                      "Time": "17:25",
+                      "ShowtimeAMPM": "05:25 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 39399,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38176",
+                      "TimeFilter": "/Date(1793324100000)/",
+                      "Time": "19:35",
+                      "ShowtimeAMPM": "07:35 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 39399,
+                  "MovieId": 0,
+                  "VistaId": "HO00001923",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7320,
+              "Title": "Arriba Tutto",
+              "Key": "arriba-tutto",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "102",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7320/1/1/7320.jpg",
+              "Trailer": "",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "",
+              "Director": "José  Mota",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38169",
+                      "TimeFilter": "/Date(1793316000000)/",
+                      "Time": "17:20",
+                      "ShowtimeAMPM": "05:20 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38178",
+                      "TimeFilter": "/Date(1793324700000)/",
+                      "Time": "19:45",
+                      "ShowtimeAMPM": "07:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 37696,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38189",
+                      "TimeFilter": "/Date(1793333700000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37696,
+                  "MovieId": 0,
+                  "VistaId": "HO00001951",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7347,
+              "Title": "Leones en invierno",
+              "Key": "leones-en-invierno",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "117",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Albert  Pintó",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38173",
+                      "TimeFilter": "/Date(1793319300000)/",
+                      "Time": "18:15",
+                      "ShowtimeAMPM": "06:15 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38183",
+                      "TimeFilter": "/Date(1793327400000)/",
+                      "Time": "20:30",
+                      "ShowtimeAMPM": "08:30 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35403,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38193",
+                      "TimeFilter": "/Date(1793335500000)/",
+                      "Time": "22:45",
+                      "ShowtimeAMPM": "10:45 PM",
+                      "Screen": 2,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35403,
+                  "MovieId": 0,
+                  "VistaId": "HO00001717",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7104,
+              "Title": "Clayface",
+              "Key": "clayface",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "108",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "James Watkins",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Venta Anticipada",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38181",
+                      "TimeFilter": "/Date(1793325900000)/",
+                      "Time": "20:05",
+                      "ShowtimeAMPM": "08:05 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35264,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38191",
+                      "TimeFilter": "/Date(1793334600000)/",
+                      "Time": "22:30",
+                      "ShowtimeAMPM": "10:30 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35264,
+                  "MovieId": 0,
+                  "VistaId": "HO00001922",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7319,
+              "Title": "Street Fighter",
+              "Key": "street-fighter",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "119",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "Kitao Sakurai",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38180",
+                      "TimeFilter": "/Date(1793325300000)/",
+                      "Time": "19:55",
+                      "ShowtimeAMPM": "07:55 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37532,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38184",
+                      "TimeFilter": "/Date(1793330400000)/",
+                      "Time": "21:20",
+                      "ShowtimeAMPM": "09:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37532,
+                  "MovieId": 0,
+                  "VistaId": "HO00001942",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7339,
+              "Title": "La maleta",
+              "Key": "la-maleta",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Carlos Therón",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37533,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38186",
+                      "TimeFilter": "/Date(1793331900000)/",
+                      "Time": "21:45",
+                      "ShowtimeAMPM": "09:45 PM",
+                      "Screen": 10,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37533,
+                  "MovieId": 0,
+                  "VistaId": "HO00001943",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7340,
+              "Title": "La invitación.",
+              "Key": "la-invitacion",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "107",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
+              "Trailer": "",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
+              "Gender": "",
+              "Director": "Olivia Wilde",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38175",
+                      "TimeFilter": "/Date(1793323200000)/",
+                      "Time": "19:20",
+                      "ShowtimeAMPM": "07:20 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35243,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38187",
+                      "TimeFilter": "/Date(1793333400000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 8,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35243,
+                  "MovieId": 0,
+                  "VistaId": "HO00001905",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7303,
+              "Title": "La otra madre",
+              "Key": "la-otra-madre",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "92",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
+              "Trailer": "",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
+              "Gender": "",
+              "Director": "Rob Savage",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35086,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38171",
+                      "TimeFilter": "/Date(1793316600000)/",
+                      "Time": "17:30",
+                      "ShowtimeAMPM": "05:30 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35086,
+                  "MovieId": 0,
+                  "VistaId": "HO00001720",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7107,
+              "Title": "Verity. La sombra de un engaño",
+              "Key": "verity-la-sombra-de-un-engano",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "116",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
+              "Trailer": "",
+              "Distributor": "AMAZON MGM STUDIOS",
+              "Gender": "",
+              "Director": "Michael Showalter",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38166",
+                      "TimeFilter": "/Date(1793315100000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38174",
+                      "TimeFilter": "/Date(1793320200000)/",
+                      "Time": "18:30",
+                      "ShowtimeAMPM": "06:30 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38182",
+                      "TimeFilter": "/Date(1793326500000)/",
+                      "Time": "20:15",
+                      "ShowtimeAMPM": "08:15 PM",
+                      "Screen": 1,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34906,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38185",
+                      "TimeFilter": "/Date(1793331600000)/",
+                      "Time": "21:40",
+                      "ShowtimeAMPM": "09:40 PM",
+                      "Screen": 11,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34906,
+                  "MovieId": 0,
+                  "VistaId": "HO00001743",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7128,
+              "Title": "La bola negra",
+              "Key": "la-bola-negra",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "159",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
+              "Trailer": "",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "",
+              "Director": "Javier Calvo",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38167",
+                      "TimeFilter": "/Date(1793315100000)/",
+                      "Time": "17:05",
+                      "ShowtimeAMPM": "05:05 PM",
+                      "Screen": 6,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 35014,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38188",
+                      "TimeFilter": "/Date(1793333400000)/",
+                      "Time": "22:10",
+                      "ShowtimeAMPM": "10:10 PM",
+                      "Screen": 5,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 35014,
+                  "MovieId": 0,
+                  "VistaId": "HO00001869",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7265,
+              "Title": "En el corazón de la bestia",
+              "Key": "en-el-corazon-de-la-bestia",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "101",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
+              "Trailer": "",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "",
+              "Director": "David Ayer",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "Garantía",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34925,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38192",
+                      "TimeFilter": "/Date(1793335200000)/",
+                      "Time": "22:40",
+                      "ShowtimeAMPM": "10:40 PM",
+                      "Screen": 9,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34925,
+                  "MovieId": 0,
+                  "VistaId": "HO00001752",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7139,
+              "Title": "Resident Evil",
+              "Key": "resident-evil",
+              "OriginalTitle": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
+              "RunTime": "94",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
+              "Trailer": "",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
+              "Gender": "",
+              "Director": "Zach Cregger",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
+              "Status": "",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -8811,7 +14134,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9001,7 +14324,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9094,7 +14417,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9144,7 +14467,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9194,7 +14517,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9244,7 +14567,7 @@ export default {
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9294,7 +14617,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9441,7 +14764,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9485,7 +14808,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Música y conciertos",
               "Synopsis": "EXO, los reyes del K-POP, regresan para demostrar una vez más su dominio con la gran final de su sexta gira de conciertos en solitario, el concierto [dot] encore. Siente cómo la energía arrolladora y los vítores ensordecedores cobran vida a través de pantallas gigantes y un sonido envolvento, solo en los cine Yelmo.",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             },
             {
@@ -9534,7 +14857,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9627,7 +14950,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9677,7 +15000,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9727,7 +15050,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9777,7 +15100,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9827,7 +15150,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -9899,7 +15222,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10080,7 +15403,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10239,7 +15562,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10398,7 +15721,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10546,7 +15869,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10596,7 +15919,7 @@ export default {
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10646,7 +15969,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10696,7 +16019,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10746,7 +16069,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10796,7 +16119,7 @@ export default {
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10846,7 +16169,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10896,7 +16219,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10946,7 +16269,7 @@ export default {
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         },
         {
           "Movies": [
@@ -10996,7 +16319,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-19T05:06:05.067Z"
+          "_recogido": "2026-10-19T16:04:44.886Z"
         }
       ],
       "Id": 53,
