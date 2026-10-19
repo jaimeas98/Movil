@@ -1,5 +1,8 @@
 # Cartelera de la Bahía de Cádiz
 
+> **Al empezar una sesión, lee también [`docs/TRASPASO.md`](docs/TRASPASO.md)**:
+> qué está montado, cómo se trabaja con Jaime y qué queda pendiente.
+
 Web (Next.js 14 en Vercel) con la cartelera de mk2 Cinesur, los dos Yelmo y
 Arte Siete. Rama de trabajo: `claude/puerto-santa-maria-restaurants-NxChu`.
 Yelmo bloquea a los servidores con Cloudflare, así que lo recoge **un móvil
