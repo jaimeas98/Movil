@@ -191,6 +191,42 @@ Contrato exacto: [API.md](API.md). Código: `middleware.js`, `lib/panel/**`,
   Actions (lectura y escritura), GitHub añade siempre Metadata (lectura).
 
 
+## La cabina (19-10-2026)
+Jaime pidió "otra visual" para el panel y funciones nuevas; eligió, entre tres
+estructuras, la **cabina**: una pantalla que lo dice todo.
+- **Armazón**: en escritorio, barra arriba con las pestañas (subrayado de
+  tinta en la elegida) en vez de la columna lateral, para dar todo el ancho a
+  la línea del día; entre 900 y 1100 px las pestañas se quedan en icono. En
+  el móvil, igual que antes (pestañas abajo). La primera sección se llama
+  ahora **Cabina** (sigue en `#resumen`).
+- **Veredicto** y, solo si hay algo, la lista de lo que falla con enlace a su
+  sección.
+- **Últimas 24 horas** (`components/panel/LineaDelDia.jsx`): señal (96
+  franjas de 15 min), recogidas (una "entrada" pequeña) y batería en el mismo
+  eje; se recorre con dedo, ratón o flechas y una línea de texto dice qué
+  pasó en cada franja.
+- **Cines en la web**: tablero de una fila por cine (sesiones hoy, películas y
+  hasta qué día, de cuándo son los datos y de dónde, estado).
+- **Fiabilidad, 7 días** (`Fiabilidad.jsx`): por día, sus franjas, el % de
+  señal y las recogidas; y los fallos por cine en las recogidas del móvil.
+- Al lado: el **móvil** en corto, las órdenes en camino, el **token de
+  GitHub** (caducidad, ver abajo), **accesos** a GitHub y a la cartelera, y
+  **Copiar el estado** (resumen en texto para pegárselo a Claude).
+- La pestaña del navegador lleva la cuenta de fallos: "(2) Panel".
+
+**Caducidad del token.** GitHub manda la fecha en la cabecera
+`github-authentication-token-expiration` de cada respuesta autenticada;
+`lib/panel/github.js` la apunta y `estado` la devuelve (`github.caducaToken`).
+El panel avisa 14 días antes y da fallo a 2 días o caducado.
+
+**Señal: tiempo entre informes, no franjas vacías.** El bucle del móvil no va
+cada 15 min exactos sino cada ~15 min 43 s (`bucle.sh` solo comprueba si toca
+vuelta cada minuto y pico, tras su `sleep 60` y `ordenes.sh`). Así, cada pocas horas una franja de 15 min
+se queda sin informe propio sin que falte ninguno. Contar franjas vacías daba
+un 95 % de señal y huecos que no existían; ahora dos informes a menos de 25
+min cubren lo que hay entre ellos (`tramosCubiertos` en `datos.js`) y solo eso
+cuenta como hueco. La tira de 24 h de la sección Móvil usa lo mismo.
+
 ## Revisión de seguridad (17-10-2026) — qué se cambió
 - **Enlaces de compra con lista de dominios por cine** (`HOSTS_POR_CINE` en
   `lib/cinemas/enlaces.js`, sacados de los enlaces reales): plantillas que

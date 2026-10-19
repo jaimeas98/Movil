@@ -53,10 +53,13 @@ solos al arreglarse.
 **Panel de control privado** — `/panel` (entrada en `/panel/entrar`; sin
 sesión todo da 404). Variables en Vercel (solo Production): `PANEL_CLAVE`
 (Jaime eligió 13 caracteres; mínimo en código 12) y `PANEL_GITHUB_TOKEN`
-(fine-grained, solo este repo: Contents RW, Issues R, Actions RW). Resumen,
-Móvil (batería 24 h con previsión, vueltas, recogidas, registro), Cines,
-Acciones (órdenes al móvil), Enlaces de compra (plantillas por cine en
-`data/enlaces.js`; Jaime ya arregló Arte Siete desde aquí), Avisos.
+(fine-grained, solo este repo: Contents RW, Issues R, Actions RW). Cabina
+(desde el 19-10: veredicto, línea de las últimas 24 h con señal, recogidas y
+batería, tablero de cines, fiabilidad de 7 días, caducidad del token, accesos
+y "Copiar el estado"; ver `docs/panel/PLAN.md` § La cabina), Móvil (batería
+24 h con previsión, vueltas, recogidas, registro), Cines, Acciones (órdenes al
+móvil), Enlaces de compra (plantillas por cine en `data/enlaces.js`; Jaime ya
+arregló Arte Siete desde aquí), Avisos.
 Plan, contrato y seguridad: `docs/panel/PLAN.md`, `docs/panel/API.md`. Pasó
 una auditoría de seguridad independiente (hallazgos corregidos con pruebas).
 
@@ -82,11 +85,11 @@ cualquier trabajo visual.
    Plan completo en `docs/panel/DISENOS.md` (v1 recuperada de `diseno-v1`,
    cada diseño en su ruta, `/` reescrito al activo, previsualizar solo para
    Jaime, publicar desde el panel). Sin empezar.
-2. **Revisión independiente** de los últimos ajustes (commit ad4660a: vuelo
-   del cartel en escritorio que ahora "copia" en vez de "mover", "luz de
-   cartel" tras la cabecera, etiquetas de sala unificadas con
-   `lib/rotulos.js`). Se publicó probado por quien lo hizo, pero la revisión
-   con ojos nuevos se cortó por límite de uso.
+2. ~~Revisión de ad4660a~~ — hecha el 19-10 (sesión local): dos arreglos, el
+   vuelo del cartel en escritorio (iba a 100 px por fotograma y se veía
+   cortado; ahora curva propia de 480/430 ms) y el hueco del velo, que no se
+   movía si la lista cambiaba de altura con la ficha abierta. Queda por
+   probar con el ratón en un escritorio real que el vuelo ya se ve fluido.
 3. **Aviso de prueba del vigilante**: el issue #2 sigue abierto porque existe
    `data/prueba-aviso`. Preguntar a Jaime si le llegó la notificación de
    GitHub (tenía las notificaciones desactivadas y las activó); después borrar
@@ -104,8 +107,20 @@ cualquier trabajo visual.
 7. Probar los gestos (hoja, deslizar días) con el dedo en móviles reales; se
    probaron con toques simulados.
 8. No se sabe qué significa la etiqueta "CA" de Yelmo (se muestra tal cual).
-9. Revisar la caducidad del `PANEL_GITHUB_TOKEN` (si se creó con caducidad,
-   renovarlo antes; sin él el panel queda en solo lectura).
+9. ~~Caducidad del `PANEL_GITHUB_TOKEN`~~ — el panel la enseña desde el
+   19-10 (Cabina → GitHub) y avisa 14 días antes. Mirar qué fecha dice la
+   primera vez que Jaime entre con el token.
+10. **`probar.sh` sin Linux**: el portátil de trabajo de Jaime es Windows sin
+    WSL ni Docker, y no quiere instalar nada. Opción: una tarea de GitHub
+    Actions (ubuntu, que trae flock) que ejecute `scripts/movil/probar.sh` a
+    mano o en cada push que toque `scripts/movil/`. Hasta entonces, desde ese
+    portátil no se toca `scripts/movil/`.
+11. **El bucle del móvil va cada ~15 min 43 s**, no 15: `bucle.sh` solo mira
+    si toca vuelta tras cada `sleep 60` + `ordenes.sh`, así que la vuelta
+    arranca en la primera comprobación después de los 900 s (unos 40 s
+    tarde de media). No es un fallo (el panel ya lo tiene en cuenta y el
+    vigilante tiene 45 min de margen); si se quisiera exacto, es cosa de
+    `bucle.sh` y necesita probar.sh.
 
 ## 4. Trabajar en local (otra cuenta / otro ordenador)
 - Actualizar el clon: `git fetch origin` y
@@ -120,7 +135,15 @@ cualquier trabajo visual.
   `npx next build`. Las de navegador necesitan `playwright` instalado aparte
   (no está en package.json a propósito).
 - `scripts/movil/probar.sh` necesita bash, git y `flock` (Linux; en macOS
-  `brew install flock` o usar Docker/WSL).
+  `brew install flock` o usar Docker/WSL). En el portátil Windows de Jaime no
+  hay ninguno y no quiere instalar nada (ver §3, punto 10).
+- **En ese portátil, nada fuera de la carpeta**: `next build`/`next dev` crean
+  `%APPDATA%\nextjs-nodejs` (también con `NEXT_TELEMETRY_DISABLED=1`):
+  bórralo al acabar. Para ver el panel en local: `PANEL_CLAVE` inventada en el
+  entorno del servidor de desarrollo (nunca en un fichero que se suba) y
+  `POST /api/panel/entrar` desde la propia página.
+- **No subir nada sin el visto bueno explícito de Jaime**, y nada mientras
+  tenga una VPN puesta.
 - **Una sola sesión trabajando a la vez** sobre la rama de producción (dos
   Claudes empujando a la vez se pisan). Al terminar: commit, `git pull
   --rebase`, `git push`, y actualizar este fichero (§3) con lo que quede.

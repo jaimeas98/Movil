@@ -10,7 +10,7 @@ import Icono from './Icono.jsx';
 import { Estado, Fallo, Hora, PuntoCine, Seccion, Vacio, cifra } from './Piezas.jsx';
 import GraficaBateria from './GraficaBateria.jsx';
 import Registro from './Registro.jsx';
-import { ordenCines, valorarBateria, valorarLatido } from './datos.js';
+import { cubierto, ordenCines, tramosCubiertos, valorarBateria, valorarLatido } from './datos.js';
 import { duracion } from './tiempo.js';
 
 function Dato({ k, children, ancho }) {
@@ -78,9 +78,13 @@ function TiraVueltas({ vueltas, ahora }) {
       const peso = { fallo: 3, aviso: 2, bien: 1, nada: 0 };
       if (!c[i].v || peso[v.nivel] > peso[c[i].nivel]) { c[i].nivel = v.nivel; c[i].v = v; }
     }
+    // Sin informe propio pero entre dos cercanos no es un hueco: el bucle va
+    // cada ~15 min 40 s (ver tramosCubiertos en datos.js).
+    const tramos = tramosCubiertos(vueltas);
+    for (const x of c) if (!x.v && cubierto(tramos, x.desde, x.desde + CASILLA)) x.nivel = 'cubierta';
     // El hueco más largo sin informes: es lo que dice "estuvo apagado".
     let largo = 0, actual = 0, finHueco = null;
-    c.forEach((x, i) => { if (!x.v) { actual++; if (actual > largo) { largo = actual; finHueco = i; } } else actual = 0; });
+    c.forEach((x, i) => { if (!x.v && x.nivel !== 'cubierta') { actual++; if (actual > largo) { largo = actual; finHueco = i; } } else actual = 0; });
     const hueco = largo >= 3 ? { ms: largo * CASILLA, hasta: desde + (finHueco + 1) * CASILLA } : null;
     return { casillas: c, resumen: { n, fallos, hueco } };
   }, [vueltas, ahora]);

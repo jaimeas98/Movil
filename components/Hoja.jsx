@@ -91,8 +91,9 @@ export default function Hoja({
   // Una máscara sobre el velo y no un realce sobre la tarjeta: la tarjeta está
   // por debajo de la capa de la hoja y no puede subir por encima del velo sin
   // subir también por encima del panel. El scroll de la página está bloqueado
-  // mientras la hoja está abierta, así que el sitio solo cambia al cambiar de
-  // película o de tamaño de ventana. useLayoutEffect: tiene que estar puesto
+  // mientras la hoja está abierta, así que el sitio cambia al cambiar de
+  // película, de tamaño de ventana o de alto de la lista (más abajo).
+  // useLayoutEffect: tiene que estar puesto
   // antes de la foto de la View Transition, que se toma tras este commit.
   useLayoutEffect(() => {
     const velo = veloRef.current;
@@ -109,7 +110,15 @@ export default function Hoja({
     };
     poner();
     window.addEventListener('resize', poner);
-    return () => window.removeEventListener('resize', poner);
+    // La lista de detrás también se mueve sin que nadie toque nada: cada
+    // minuto una sesión que empieza se encoge a la línea de "ya empezadas", y
+    // la cartelera se refresca sola. Si cambia algo por encima de la película
+    // abierta, su cartel baja o sube y el hueco se quedaba en el sitio viejo.
+    // El cuerpo está fijo mientras la hoja está abierta, pero su alto sigue
+    // siendo el de la página: cualquier cambio de alto lo avisa.
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(poner) : null;
+    ro?.observe(document.body);
+    return () => { window.removeEventListener('resize', poner); ro?.disconnect(); };
     // Solo claveHueco: `hueco` llega nuevo en cada render y volver a medir
     // en cada uno no cambia nada.
   }, [claveHueco]);

@@ -16,6 +16,9 @@ const TRAZOS = {
   lupa: <><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.4-4.4" /></>,
   aspa: <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />,
   abajo: <path d="m6.5 9.5 5.5 5.5 5.5-5.5" />,
+  ir: <path d="m9.5 6 6 6-6 6" />,
+  // La cabina: la línea del día con su marca de "ahora".
+  cabina: <><path d="M3.5 17.5h17" /><path d="M5.5 14v-3M8.5 14V8M11.5 14v-5M14.5 14v-2" /><path d="M18 5v12.5" /></>,
   candado: <><rect x="5" y="10.5" width="14" height="10" rx="2" /><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3" /></>,
   rayo: <path d="M13 3 6 13.5h5L10.5 21 18 10.5h-5z" />,
   copiar: <><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5" /></>,

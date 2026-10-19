@@ -331,6 +331,27 @@ ok(est.avisos.abiertos.length === 1 && est.avisos.abiertos[0].nivel === 'critico
 ok(Array.isArray(est.servidor.cines) && est.servidor.cines.length === 4 && est.servidor.claves && typeof est.servidor.claves.tmdb === 'boolean',
   `servidor: los 4 cines (${est.servidor.cines.map((c) => `${c.id}:${c.fuente}/${c.origen}`).join(', ')})`);
 ok(est.servidor.cines.every((c) => ['directo', 'movil', 'copia', 'memoria', 'ejemplo', null].includes(c.origen)), 'cada cine dice de dónde salen sus datos');
+ok(est.github.caducaToken === null, 'un token sin cabecera de caducidad: caducaToken null (no caduca)');
+// GitHub dice cuándo caduca el token en cada respuesta autenticada.
+const conCaducidad = (cab) => gh.usarFetch(async (url, o) => {
+  const r0 = await githubFalso(url, o);
+  if (!o?.headers?.Authorization) return r0;
+  const h = new Headers(r0.headers); h.set('github-authentication-token-expiration', cab);
+  return new Response(r0.status === 204 || r0.status === 304 ? null : await r0.text(), { status: r0.status, headers: h });
+}, { PANEL_GITHUB_TOKEN: TOKEN });
+conCaducidad('2026-12-31 00:00:00 +0100');
+r = await estado.GET(pedir('/api/panel/estado?partes=movil'));
+ok((await leer(r)).github.caducaToken === '2026-12-30T23:00:00.000Z', 'con cabecera "… +0100": caducaToken en ISO (UTC)');
+ok(gh.leerCaducidad('2027-01-15 10:00:00 UTC') === '2027-01-15T10:00:00.000Z' && gh.leerCaducidad('no es fecha') === null, 'también "… UTC"; lo que no es fecha, null');
+conCaducidad('el 31 de diciembre');
+r = await estado.GET(pedir('/api/panel/estado?partes=movil'));
+ok(!('caducaToken' in (await leer(r)).github), 'una cabecera que no se entiende no se lee como "no caduca"');
+// Un token caducado: GitHub responde 401 a todo y no manda fecha.
+gh.usarFetch(async (url, o) => (o?.headers?.Authorization ? resp(401, { message: 'Bad credentials' }) : githubFalso(url, o)), { PANEL_GITHUB_TOKEN: TOKEN });
+r = await estado.GET(pedir('/api/panel/estado?partes=movil'));
+const rechazo = await leer(r);
+ok(rechazo.github.tokenRechazado === true && !('caducaToken' in rechazo.github), 'con el token rechazado (401): tokenRechazado, sin fecha');
+conToken();
 r = await estado.GET(pedir('/api/panel/estado?partes=avisos'));
 const solo = await leer(r);
 ok(solo.avisos && !solo.movil && !solo.servidor && solo.github, '?partes= pide solo lo que hace falta');

@@ -26,6 +26,20 @@ export function aFecha(v) {
 
 const diaClave = (d) => fmtClave.format(d);
 
+// Día (AAAA-MM-DD) y minuto del día en Madrid: para repartir las vueltas en
+// sus franjas de 15 min del día de verdad, también los días de cambio de hora.
+const fmtPartes = new Intl.DateTimeFormat('en-GB', { timeZone: ZONA, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+export function enMadrid(v) {
+  const d = aFecha(v);
+  if (!d) return null;
+  const p = Object.fromEntries(fmtPartes.formatToParts(d).map((x) => [x.type, x.value]));
+  return { dia: `${p.year}-${p.month}-${p.day}`, minuto: Number(p.hour) * 60 + Number(p.minute) };
+}
+
+// "lun 19" para un día AAAA-MM-DD.
+const fmtDiaCorto = new Intl.DateTimeFormat('es-ES', { timeZone: 'UTC', weekday: 'short', day: 'numeric' });
+export const diaCorto = (clave) => fmtDiaCorto.format(new Date(`${clave}T12:00:00Z`)).replace('.', '');
+
 // "hoy 18:30", "ayer 07:04", "vie 16, 20:03"
 export function absoluta(v, ahora = Date.now()) {
   const d = aFecha(v);

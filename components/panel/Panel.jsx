@@ -4,10 +4,13 @@
 // de solo lectura y la sección que toque.
 //
 // Navegación: en el móvil, una barra de pestañas abajo (se alcanza con el
-// pulgar sin soltar el móvil); desde 900 px, una columna a la izquierda. Las
-// dos son la misma lista y llevan el estado de su sección (forma, no solo
-// color), así que el fallo se ve desde cualquier pantalla. La sección va en el
-// hash (#cines) para que atrás/adelante y recargar funcionen.
+// pulgar sin soltar el móvil); desde 900 px, una barra arriba con las
+// pestañas, que deja todo el ancho a la línea del día de la cabina (con la
+// columna lateral de antes se quedaba en dos tercios). Las dos son la misma
+// lista y llevan el estado de su sección (forma, no solo color), así que el
+// fallo se ve desde cualquier pantalla. La sección va en el hash (#cines)
+// para que atrás/adelante y recargar funcionen; la pestaña del navegador
+// lleva la cuenta de fallos, para verlo sin entrar.
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import ThemeToggle from '@/components/ThemeToggle.jsx';
@@ -25,7 +28,7 @@ import Enlaces from './Enlaces.jsx';
 import Avisos from './Avisos.jsx';
 
 export const SECCIONES = [
-  { id: 'resumen', nombre: 'Resumen', icono: 'resumen' },
+  { id: 'resumen', nombre: 'Cabina', icono: 'cabina' },
   { id: 'movil', nombre: 'Móvil', icono: 'movil' },
   { id: 'cines', nombre: 'Cines', icono: 'cines' },
   { id: 'acciones', nombre: 'Acciones', icono: 'acciones' },
@@ -116,6 +119,10 @@ export default function Panel() {
   }, []);
 
   const val = useMemo(() => (datos ? valorar(datos, ahora) : null), [datos, ahora]);
+
+  // "(2) Panel" en la pestaña con dos fallos: se ve sin cambiar de pestaña.
+  const fallos = val?.fallos ?? 0;
+  useEffect(() => { document.title = fallos ? `(${fallos}) Panel` : 'Panel'; }, [fallos]);
   const pendientes = useMemo(() => {
     const ids = new Set();
     for (const o of Object.values(ordenesApi.ordenes)) if (o.estado === 'pendiente' || o.estado === 'en-curso') ids.add(o.id);
@@ -143,6 +150,7 @@ export default function Panel() {
           <a
             href={`#${s.id}`}
             className="pn-nav-item"
+            title={s.largo || s.nombre}
             aria-current={s.id === seccion ? 'page' : undefined}
             onClick={(e) => { e.preventDefault(); ir(s.id); }}
           >
@@ -181,20 +189,19 @@ export default function Panel() {
   return (
     <div className="pn">
       <a href="#pn-contenido" className="pn-saltar">Saltar al contenido</a>
-      <nav className="pn-lateral" aria-label="Secciones">
+      <header className="pn-barra">
         <p className="pn-marca">Panel</p>
-        {nav}
-        <div className="pn-lateral-pie">
+        <nav className="pn-pestanas" aria-label="Secciones">{nav}</nav>
+        <div className="pn-barra-der">
           <Actualizado recibido={recibido} error={error} cargando={cargando} ahora={ahora} refrescar={refrescar} />
-          <div className="pn-lateral-botones">
-            <ThemeToggle />
-            <Salir />
-          </div>
+          <ThemeToggle />
+          <Salir />
         </div>
-      </nav>
+      </header>
 
       <div className="pn-principal">
-        <header className="pn-cabecera">
+        {/* Un div y no un header: el "banner" de la página ya es la barra de arriba. */}
+        <div className="pn-cabecera">
           <h1 id="pn-titulo" className="pn-titulo" tabIndex={-1}>{actual.largo || actual.nombre}</h1>
           <div className="pn-cabecera-botones">
             <ThemeToggle />
@@ -203,27 +210,26 @@ export default function Panel() {
           <div className="pn-cabecera-actualizado">
             <Actualizado recibido={recibido} error={error} cargando={cargando} ahora={ahora} refrescar={refrescar} />
           </div>
-        </header>
-
-        {soloLectura && (
-          <div className="pn-banda" role="note">
-            <Icono nombre="candado" className="pn-ico" />
-            <p>
-              <strong>Solo lectura.</strong> Para mandar órdenes al móvil y guardar enlaces hace falta la variable
-              {' '}<code>PANEL_GITHUB_TOKEN</code> en Vercel (token de este repositorio con permiso de escritura) y redesplegar.
-            </p>
-          </div>
-        )}
-        {/* El aviso del servidor sobre GitHub, salvo que repita lo de solo
-            lectura, que ya está dicho arriba con cómo arreglarlo. */}
-        {datos?.github.aviso && !(soloLectura && /PANEL_GITHUB_TOKEN|solo lectura/i.test(datos.github.aviso)) && (
-          <div className="pn-banda" role="note">
-            <Icono nombre="aviso" className="pn-ico" />
-            <p>{datos.github.aviso}</p>
-          </div>
-        )}
+        </div>
 
         <main id="pn-contenido" className="pn-contenido" aria-busy={!datos && cargando}>
+          {soloLectura && (
+            <div className="pn-banda" role="note">
+              <Icono nombre="candado" className="pn-ico" />
+              <p>
+                <strong>Solo lectura.</strong> Para mandar órdenes al móvil y guardar enlaces hace falta la variable
+                {' '}<code>PANEL_GITHUB_TOKEN</code> en Vercel (token de este repositorio con permiso de escritura) y redesplegar.
+              </p>
+            </div>
+          )}
+          {/* El aviso del servidor sobre GitHub, salvo que repita lo de solo
+              lectura, que ya está dicho arriba con cómo arreglarlo. */}
+          {datos?.github.aviso && !(soloLectura && /PANEL_GITHUB_TOKEN|solo lectura/i.test(datos.github.aviso)) && (
+            <div className="pn-banda" role="note">
+              <Icono nombre="aviso" className="pn-ico" />
+              <p>{datos.github.aviso}</p>
+            </div>
+          )}
           {cuerpo}
         </main>
       </div>

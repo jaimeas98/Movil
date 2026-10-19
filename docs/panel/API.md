@@ -114,7 +114,8 @@ se haya podido leer.
     "repo": "jaimeas98/Movil",
     "ramaApp": "claude/puerto-santa-maria-restaurants-NxChu",
     "lectura": "api",
-    "aviso": null
+    "aviso": null,
+    "caducaToken": "2026-12-30T23:00:00.000Z"
   },
   "movil": {
     "informe": {
@@ -260,6 +261,11 @@ Notas de campos:
 - `github.lectura`: `api` (con token: al momento) o `publica` (sin token:
   lecturas anónimas, GitHub puede servirlas con hasta 5 min de retraso y con
   límite de peticiones). `github.aviso`: texto para enseñar si algo va justo.
+- `github.caducaToken`: cuándo caduca `PANEL_GITHUB_TOKEN` (ISO), sacado de la
+  cabecera `github-authentication-token-expiration` de GitHub; `null` si no
+  caduca. No viene sin token. El panel avisa 14 días antes.
+- `github.tokenRechazado`: `true` si GitHub ha respondido 401 al token (ya
+  caducado o revocado; entonces no hay fecha). Solo viene cuando es `true`.
 
 ## Órdenes al móvil
 

@@ -184,7 +184,22 @@
 
 /* El cartel y la hoja con la MISMA curva (un muelle crítico pasado a
    `linear()` desde lib/muelle.js) y la misma duración: llegan a la vez y se
-   leen como una sola pieza. */
+   leen como una sola pieza. Una pareja para el móvil y otra, más lenta, para
+   el panel, donde el cartel cruza media pantalla (las pone el JS). */
+:root {
+  --vt-abrir: var(--vt-abrir-movil);
+  --vt-cerrar: var(--vt-cerrar-movil);
+  --vt-ms-abrir: var(--vt-ms-abrir-movil);
+  --vt-ms-cerrar: var(--vt-ms-cerrar-movil);
+}
+@media (min-width: 900px) {
+  :root {
+    --vt-abrir: var(--vt-abrir-panel);
+    --vt-cerrar: var(--vt-cerrar-panel);
+    --vt-ms-abrir: var(--vt-ms-abrir-panel);
+    --vt-ms-cerrar: var(--vt-ms-cerrar-panel);
+  }
+}
 :root[data-vt='abrir']::view-transition-group(cartel),
 :root[data-vt='cambiar']::view-transition-group(cartel) {
   animation-duration: var(--vt-ms-abrir);

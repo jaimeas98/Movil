@@ -5,7 +5,7 @@
 import { json, ruta } from '@/lib/panel/http.js';
 import { estadoMovil } from '@/lib/panel/movil.js';
 import { estadoServidor } from '@/lib/panel/servidor.js';
-import { hayEscritura, leerAvisos, RAMA_APP, REPO } from '@/lib/panel/github.js';
+import { caducidadToken, hayEscritura, leerAvisos, RAMA_APP, REPO, tokenRechazado } from '@/lib/panel/github.js';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -42,6 +42,11 @@ export const GET = ruta(async (request) => {
       repo: REPO,
       ramaApp: RAMA_APP,
       lectura: escritura ? 'api' : 'publica',
+      // Cuándo caduca el token (ISO), null si no caduca; sin token o si aún
+      // no se ha usado en esta instancia, no viene (ver github.js).
+      ...(escritura && caducidadToken() !== undefined ? { caducaToken: caducidadToken() } : {}),
+      // GitHub ha respondido 401 con el token: caducado o revocado.
+      ...(escritura && tokenRechazado() ? { tokenRechazado: true } : {}),
       aviso: escritura ? null
         : 'Solo lectura: falta PANEL_GITHUB_TOKEN. Lo del móvil puede llegar con hasta 5 min de retraso y no se pueden mandar órdenes.',
     },

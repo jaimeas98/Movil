@@ -17,8 +17,10 @@ const esHttps = (u) => typeof u === 'string' && /^https:\/\//i.test(u);
 
 const FUENTE = { live: 'Al día', stale: 'Datos guardados', error: 'Sin datos', sample: 'Ejemplo', nada: 'Sin datos' };
 
-const fmtDia = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
-const dia = (iso) => (iso ? fmtDia.format(new Date(`${iso}T12:00:00Z`)).replace('.', '') : null);
+// Con mes: la cartelera llega a cubrir hasta dos meses (Yelmo publica
+// preventas), y "lun 19–mar 23" se leía como cuatro días cuando eran 32.
+const fmtDia = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+const dia = (iso) => (iso ? fmtDia.format(new Date(`${iso}T12:00:00Z`)).replace(/\./g, '').replace(',', '') : null);
 
 function ResultadoEnlaces({ r }) {
   if (!r) return null;

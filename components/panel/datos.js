@@ -11,7 +11,7 @@
 //     que no puede pasar que una diga "bien" y la otra "fallo".
 
 import { CINEMAS } from '@/lib/cinemas/config.js';
-import { aFecha, duracion, relativa, absoluta } from './tiempo.js';
+import { aFecha, duracion, relativa, absoluta, enMadrid, diaCorto } from './tiempo.js';
 
 // ── Umbrales ──────────────────────────────────────────────────────────────
 // El bucle del móvil da una vuelta cada 15 min: con más de 32 min se ha
@@ -264,6 +264,11 @@ export function normalizar(r, ahora = Date.now()) {
       lectura: txt(r?.github?.lectura),   // 'api' | 'publica'
       aviso: txt(r?.github?.aviso),
       repo: txt(r?.github?.repo),
+      ramaApp: txt(r?.github?.ramaApp),
+      // undefined: no se sabe (sin token, o el servidor aún no lo ha usado);
+      // null: el token no caduca; número: cuándo caduca.
+      caducaToken: r?.github && 'caducaToken' in r.github ? ms(r.github.caducaToken) : undefined,
+      tokenRechazado: r?.github?.tokenRechazado === true,
     },
     generado,
   };
@@ -379,6 +384,195 @@ export function valorarAvisos(avisos) {
   return { ...base, nivel: critico ? 'fallo' : 'aviso', valor: n === 1 ? '1 abierto' : `${n} abiertos`, detalle: avisos.abiertos[0]?.titulo };
 }
 
+// El token de GitHub: si caduca, el panel se queda en solo lectura ese día.
+// Se avisa con dos semanas, que es lo que se tarda en acordarse de hacerlo.
+export const TOKEN_AVISO_MS = 14 * 864e5;
+export function valorarToken(github, ahora = Date.now()) {
+  const base = { id: 'token', titulo: 'Token de GitHub', seccion: 'resumen' };
+  if (!github?.escritura) return { ...base, nivel: 'nada', valor: 'Sin token: solo lectura', detalle: 'Sin PANEL_GITHUB_TOKEN no se pueden mandar órdenes ni guardar enlaces.' };
+  if (github.tokenRechazado) return { ...base, nivel: 'fallo', valor: 'GitHub no lo acepta', detalle: 'Ha caducado o se ha revocado. Crea uno nuevo en GitHub, cámbialo en Vercel (PANEL_GITHUB_TOKEN) y redespliega.' };
+  const c = github.caducaToken;
+  if (c === undefined) return { ...base, nivel: 'nada', valor: 'Caducidad sin comprobar', detalle: 'Se sabrá en cuanto el servidor use el token.' };
+  if (c === null) return { ...base, nivel: 'bien', valor: 'No caduca', detalle: null };
+  const falta = c - ahora;
+  const cuando = absoluta(c, ahora);
+  if (falta <= 0) return { ...base, nivel: 'fallo', valor: `Caducó ${relativa(c, ahora)}`, detalle: 'Crea uno nuevo en GitHub, cámbialo en Vercel (PANEL_GITHUB_TOKEN) y redespliega.' };
+  if (falta <= 2 * 864e5) return { ...base, nivel: 'fallo', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}. Renuévalo ya: crea uno nuevo en GitHub y cámbialo en Vercel.` };
+  if (falta <= TOKEN_AVISO_MS) return { ...base, nivel: 'aviso', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}. Conviene renovarlo antes: uno nuevo en GitHub y cambiarlo en Vercel.` };
+  return { ...base, nivel: 'bien', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}.` };
+}
+
+// ── Cobertura: qué ratos estuvo el móvil dando señal ──────────────────────
+// El bucle no da una vuelta cada 15 min exactos sino cada ~15 min 40 s
+// (scripts/movil/bucle.sh solo mira si toca tras cada sleep de 60 s y la
+// comprobación de órdenes, así que arranca algo después). Así que cada
+// pocas horas una franja de 15 min se queda sin informe propio sin que haya
+// faltado ninguno. Contar franjas vacías daba un 95 % y marcas de hueco que
+// no existían. Lo que cuenta es el tiempo ENTRE informes: dos seguidos a
+// menos de 25 min cubren todo lo que hay entre ellos.
+export const ENTRE_INFORMES_MS = 25 * 60e3;
+export function tramosCubiertos(vueltas) {
+  const asc = [...(vueltas ?? [])].map((v) => v.t).filter((t) => t != null).sort((a, b) => a - b);
+  const tramos = [];
+  for (let i = 0; i < asc.length; i++) {
+    const a = asc[i];
+    const b = asc[i + 1];
+    if (b != null && b - a <= ENTRE_INFORMES_MS) {
+      const ult = tramos.at(-1);
+      if (ult && a <= ult[1]) ult[1] = b; else tramos.push([a, b]);
+    } else if (!tramos.length || a > tramos.at(-1)[1]) {
+      tramos.push([a, a]);
+    }
+  }
+  return tramos;
+}
+// ¿Cae algún trozo de [desde, hasta) dentro de un tramo cubierto?
+export function cubierto(tramos, desde, hasta) {
+  return tramos.some(([a, b]) => a < hasta && b >= desde);
+}
+
+// ── Fiabilidad de 7 días ──────────────────────────────────────────────────
+// De lo que el móvil ya publica (historial.jsonl, 7 días; recogidas.jsonl):
+// por día de Madrid, sus 96 franjas de 15 min con la peor vuelta de cada una,
+// qué parte de las que tocaban llegaron, y las recogidas buenas y fallidas.
+// Lo que antes del primer dato del historial no se sabe sale como tal, no
+// como "sin señal": el móvil puede haber estado bien sin que quede apunte.
+export const FRANJAS_DIA = 96;
+export function fiabilidad(movil, ahora = Date.now(), dias = 7) {
+  if (!movil) return null;
+  const hoy = enMadrid(ahora);
+  const desdeDato = movil.vueltas.length ? movil.vueltas[movil.vueltas.length - 1].t : null;
+  const primero = desdeDato != null ? enMadrid(desdeDato) : null;
+  // Los días, con aritmética de calendario sobre el día de hoy en Madrid:
+  // restar 24 h repetía o se saltaba un día junto a los cambios de hora.
+  const [y, m, dd0] = hoy.dia.split('-').map(Number);
+  const claves = [];
+  for (let i = dias - 1; i >= 0; i--) claves.push(new Date(Date.UTC(y, m - 1, dd0 - i)).toISOString().slice(0, 10));
+  const porDia = new Map(claves.map((k) => [k, {
+    dia: k, etiqueta: diaCorto(k), hoy: k === hoy.dia,
+    franjas: Array(FRANJAS_DIA).fill(null), cubiertas: Array(FRANJAS_DIA).fill(false), existe: Array(FRANJAS_DIA).fill(false),
+    vueltas: 0, fallos: 0, recogidas: 0, recogidasMal: 0,
+  }]));
+  // Qué franjas existen cada día: el de adelantar la hora no tiene las de las
+  // 02:00 a las 03:00, y contarlas como esperadas daba 4 huecos que no hubo.
+  for (const k of claves) {
+    const [ky, km, kd] = k.split('-').map(Number);
+    const base = Date.UTC(ky, km - 1, kd) - 3 * 3600e3;
+    const d = porDia.get(k);
+    for (let t = base; t < base + 30 * 3600e3; t += 15 * 60e3) {
+      const p = enMadrid(t);
+      if (p.dia === k) d.existe[Math.floor(p.minuto / 15)] = true;
+    }
+  }
+  // Hoy solo cuentan las franjas que ya se pueden juzgar: hasta el último
+  // informe o, si lleva más de 25 min callado, hasta hace 25 min. La que está
+  // en curso (o la que va tras el último informe, que aún no ha llegado) no es
+  // un hueco todavía.
+  const ultimaT = movil.vueltas.length ? movil.vueltas[0].t : null;
+  const limiteHoy = enMadrid(Math.max(ultimaT ?? -Infinity, ahora - ENTRE_INFORMES_MS));
+  // Las franjas que caen entre dos informes cercanos (ver tramosCubiertos),
+  // marcadas paso a paso en la hora de Madrid.
+  for (const [a, b] of tramosCubiertos(movil.vueltas)) {
+    for (let t = a; ; t = Math.min(b, t + 5 * 60e3)) {
+      const p = enMadrid(t);
+      const dd = p && porDia.get(p.dia);
+      if (dd) dd.cubiertas[Math.min(FRANJAS_DIA - 1, Math.floor(p.minuto / 15))] = true;
+      if (t >= b) break;
+    }
+  }
+  for (const v of movil.vueltas) {
+    const p = enMadrid(v.t);
+    const d = p && porDia.get(p.dia);
+    if (!d) continue;
+    const i = Math.min(FRANJAS_DIA - 1, Math.floor(p.minuto / 15));
+    d.vueltas++;
+    if (v.nivel === 'fallo') d.fallos++;
+    if (!d.franjas[i] || PESO[v.nivel] > PESO[d.franjas[i]]) d.franjas[i] = v.nivel;
+  }
+  for (const r of movil.recogidas) {
+    const p = enMadrid(r.t);
+    const d = p && porDia.get(p.dia);
+    if (!d) continue;
+    d.recogidas++;
+    if (r.nivel === 'fallo' || r.nivel === 'aviso') d.recogidasMal++;
+  }
+  const filas = [...porDia.values()].map((d) => {
+    // Franjas que tocaban: hasta la de ahora hoy; desde la del primer dato el
+    // primer día del historial; ninguna antes de él.
+    let desde = 0, hasta = FRANJAS_DIA;
+    if (d.hoy) hasta = limiteHoy.dia === d.dia ? Math.floor(limiteHoy.minuto / 15) + 1 : 0;
+    if (!primero || d.dia < primero.dia) return { ...d, sinHistorial: true, esperadas: 0, llegadas: 0, pct: null, desde: 0, hasta };
+    if (d.dia === primero.dia) desde = Math.floor(primero.minuto / 15);
+    let llegadas = 0, esperadas = 0;
+    for (let i = desde; i < hasta; i++) {
+      if (!d.existe[i]) continue;
+      esperadas++;
+      if (d.franjas[i] || d.cubiertas[i]) llegadas++;
+    }
+    return { ...d, sinHistorial: false, esperadas, llegadas, pct: esperadas ? llegadas / esperadas : null, desde, hasta };
+  });
+  const conDatos = filas.filter((f) => !f.sinHistorial && f.esperadas);
+  const esperadas = conDatos.reduce((s, f) => s + f.esperadas, 0);
+  const llegadas = conDatos.reduce((s, f) => s + f.llegadas, 0);
+  // Los días de antes del historial no se enseñan como filas vacías: se dice
+  // desde cuándo hay datos (el historial guarda 7 días y el móvil empezó a
+  // escribirlo hace menos).
+  const primeraConDatos = filas.findIndex((f) => !f.sinHistorial);
+  return {
+    filas: primeraConDatos > 0 ? filas.slice(primeraConDatos) : filas,
+    desdeHistorial: primeraConDatos > 0 ? filas[primeraConDatos].etiqueta : null,
+    pct: esperadas ? llegadas / esperadas : null,
+    recogidas: filas.reduce((s, f) => s + f.recogidas, 0),
+    recogidasMal: filas.reduce((s, f) => s + f.recogidasMal, 0),
+    fallos: filas.reduce((s, f) => s + f.fallos, 0),
+  };
+}
+
+// Qué cine falla más en las recogidas del móvil (las que traen el detalle
+// por cine), en los mismos 7 días.
+export function fallosPorCine(movil, ahora = Date.now(), dias = 7) {
+  const desde = ahora - dias * 864e5;
+  const cuenta = Object.fromEntries(ordenCines.map((id) => [id, { id, recogidas: 0, mal: 0, ultimoError: null }]));
+  for (const r of movil?.recogidas ?? []) {
+    if (r.t < desde) continue;
+    for (const c of r.cines) {
+      const x = cuenta[c.id];
+      if (!x) continue;
+      x.recogidas++;
+      if (c.error) { x.mal++; if (!x.ultimoError) x.ultimoError = { t: r.t, error: c.error }; }
+    }
+  }
+  return cuenta;
+}
+
+// El estado en texto plano, para "Copiar estado" (pegárselo a Claude cuando
+// algo falla). Solo lo que el panel ya enseña: el móvil filtra lo que publica
+// y aquí no entra nada del servidor que no esté en pantalla.
+export function textoEstado(d, val, ahora = Date.now()) {
+  const linea = (v) => `- ${v.titulo}: ${PALABRA_NIVEL[v.nivel]}. ${v.valor}.${v.detalle ? ` ${v.detalle}` : ''}`.replace(/\.\./g, '.');
+  const ver = veredicto(val);
+  const fia = fiabilidad(d.movil, ahora);
+  const out = [
+    `Estado del panel, ${absoluta(ahora, ahora)} (${new Date(ahora).toISOString()})`,
+    `Veredicto: ${ver.texto}${ver.sub ? ` ${ver.sub}` : ''}.`,
+    '', 'Móvil:', ...val.movil.map(linea),
+    '', 'Cines en la web:', ...val.cines.map(linea),
+    '', 'Vigilante:', linea(val.avisos),
+    ...d.avisos.abiertos.map((a) => `  · #${a.numero ?? '?'} ${a.titulo}`),
+    '', linea(val.token),
+  ];
+  if (fia?.pct != null) {
+    out.push('', `Señal en 7 días: ${Math.round(fia.pct * 100)} % de las vueltas; ${fia.fallos} fallidas; ${fia.recogidas} recogidas (${fia.recogidasMal} con problemas).`);
+  }
+  const ult = d.movil?.vueltas?.[0];
+  if (ult) out.push(`Última vuelta: ${absoluta(ult.t, ahora)}, ${ult.resultado || 'sin resultado'}${ult.error ? ` (${ult.error})` : ''}.`);
+  if (d.movil?.informe?.codigo) out.push(`Código del móvil: ${d.movil.informe.codigo}.`);
+  const pend = d.movil?.ordenes?.pendientes ?? [];
+  if (pend.length) out.push(`Órdenes pendientes: ${pend.map((o) => o.accion).join(', ')}.`);
+  return out.join('\n');
+}
+const PALABRA_NIVEL = { bien: 'bien', aviso: 'aviso', fallo: 'FALLO', nada: 'sin datos' };
+
 export function valorar(d, ahora = Date.now()) {
   const movil = [valorarLatido(d.movil, ahora), valorarBateria(d.movil, ahora), valorarRecogida(d.movil, ahora)];
   let cines;
@@ -395,7 +589,8 @@ export function valorar(d, ahora = Date.now()) {
     });
   }
   const avisos = valorarAvisos(d.avisos);
-  const todas = [...movil, ...cines, avisos];
+  const token = valorarToken(d.github, ahora);
+  const todas = [...movil, ...cines, avisos, token];
   const fallos = todas.filter((v) => v.nivel === 'fallo').length;
   const avisosN = todas.filter((v) => v.nivel === 'aviso').length;
   const porSeccion = {};
@@ -403,7 +598,7 @@ export function valorar(d, ahora = Date.now()) {
     const peor = porSeccion[v.seccion];
     if (!peor || PESO[v.nivel] > PESO[peor]) porSeccion[v.seccion] = v.nivel;
   }
-  return { movil, cines, avisos, todas, fallos, avisosN, porSeccion };
+  return { movil, cines, avisos, token, todas, fallos, avisosN, porSeccion };
 }
 
 export const PESO = { bien: 0, nada: 1, aviso: 2, fallo: 3 };
