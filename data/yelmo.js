@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-20T05:08:32.760Z",
+  "generatedAt": "2026-10-20T16:07:01.711Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -232,49 +232,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35317,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24162",
-                      "TimeFilter": "/Date(1792530000000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35317,
-                  "MovieId": 0,
-                  "VistaId": "HO00001904",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7302,
-              "Title": "El precio de la red",
-              "Key": "el-precio-de-la-red",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "114",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7302/1/1/7302.jpg",
-              "Trailer": "",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
-              "Gender": "",
-              "Director": "Aaron Sorkin",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Descrita como una \"pieza complementaria\" de \"La red social\", la nueva película se centra en los acontecimientos que tienen lugar casi dos décadas después de que el genio programador y un grupo de pioneros de la tecnología inventaran lo que acabaría convirtiéndose en la mayor plataforma de redes sociales del mundo. Cuenta la historia real de cómo Frances Haugen (Madison), una joven ingeniera de Facebook, consigue la ayuda de Jeff Horwitz (White), un reportero del Wall Street Journal, para emprender un peligroso viaje que acaba destapando los secretos más ocultos de la red social. El reportaje de Horwitz, una serie de artículos conocida como \"The Facebook Files\" (Los archivos de Facebook), se publicó en 2021 y destapó los efectos nocivos de Facebook en los adolescentes y su proliferación a sabiendas de desinformación, que contribuyó a actos de violencia política.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 35257,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
@@ -462,17 +419,6 @@ export default {
                       "RelationshipFormatMovieId": 35016,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24158",
-                      "TimeFilter": "/Date(1792529700000)/",
-                      "Time": "15:55",
-                      "ShowtimeAMPM": "03:55 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35016,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24167",
                       "TimeFilter": "/Date(1792546500000)/",
                       "Time": "20:35",
@@ -527,17 +473,6 @@ export default {
                       "RelationshipFormatMovieId": 34929,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24163",
-                      "TimeFilter": "/Date(1792529100000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34929,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24165",
                       "TimeFilter": "/Date(1792553400000)/",
                       "Time": "22:30",
@@ -572,54 +507,11 @@ export default {
               "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35046,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24209",
-                      "TimeFilter": "/Date(1792531800000)/",
-                      "Time": "16:30",
-                      "ShowtimeAMPM": "04:30 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35046,
-                  "MovieId": 0,
-                  "VistaId": "HO00001767",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7154,
-              "Title": "Coyote vs. Acme",
-              "Key": "coyote-vs-acme",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "103",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7154/1/1/7154.jpg",
-              "Trailer": "",
-              "Distributor": "BETA FICTION",
-              "Gender": "",
-              "Director": "Dave Green",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Harto de que los productos Acme le fallen una y otra vez en su incansable persecución del Correcaminos, el Coyote decide contratar a un abogado de poca monta para demandar a la Corporación Acme.",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -1231,7 +1123,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -1865,7 +1757,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -2412,7 +2304,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -3067,7 +2959,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -3679,7 +3571,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -4215,7 +4107,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -4773,7 +4665,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -5309,7 +5201,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -5845,7 +5737,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -5895,7 +5787,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6042,7 +5934,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6135,7 +6027,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6185,7 +6077,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6235,7 +6127,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6285,7 +6177,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6389,7 +6281,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6482,7 +6374,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6532,7 +6424,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6582,7 +6474,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6632,7 +6524,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6682,7 +6574,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6754,7 +6646,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6881,7 +6773,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -6971,11 +6863,76 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24226",
+                      "TimeFilter": "/Date(1797630300000)/",
+                      "Time": "15:45",
+                      "ShowtimeAMPM": "03:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24227",
+                      "TimeFilter": "/Date(1797642000000)/",
+                      "Time": "19:00",
+                      "ShowtimeAMPM": "07:00 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24228",
+                      "TimeFilter": "/Date(1797653700000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34999,
+                  "MovieId": 0,
+                  "VistaId": "HO00001751",
+                  "Name": "PREMIUM",
+                  "IsExperience": true,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7137,
+              "Title": "Dune: Parte Tres",
+              "Key": "dune-parte-tres",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "152",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7137/1/1/7137.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "Denis Villeneuve",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
+              "Status": "Venta Anticipada",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -7065,11 +7022,76 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24229",
+                      "TimeFilter": "/Date(1797716700000)/",
+                      "Time": "15:45",
+                      "ShowtimeAMPM": "03:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24231",
+                      "TimeFilter": "/Date(1797728400000)/",
+                      "Time": "19:00",
+                      "ShowtimeAMPM": "07:00 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24230",
+                      "TimeFilter": "/Date(1797740100000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34999,
+                  "MovieId": 0,
+                  "VistaId": "HO00001751",
+                  "Name": "PREMIUM",
+                  "IsExperience": true,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7137,
+              "Title": "Dune: Parte Tres",
+              "Key": "dune-parte-tres",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "152",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7137/1/1/7137.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "Denis Villeneuve",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
+              "Status": "Venta Anticipada",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -7159,11 +7181,76 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24234",
+                      "TimeFilter": "/Date(1797803100000)/",
+                      "Time": "15:45",
+                      "ShowtimeAMPM": "03:45 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24232",
+                      "TimeFilter": "/Date(1797814800000)/",
+                      "Time": "19:00",
+                      "ShowtimeAMPM": "07:00 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    },
+                    {
+                      "RelationshipFormatMovieId": 34999,
+                      "CinemaId": 74,
+                      "VistaCinemaId": "1340",
+                      "ShowtimeId": "24233",
+                      "TimeFilter": "/Date(1797826500000)/",
+                      "Time": "22:15",
+                      "ShowtimeAMPM": "10:15 PM",
+                      "Screen": 7,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 34999,
+                  "MovieId": 0,
+                  "VistaId": "HO00001751",
+                  "Name": "PREMIUM",
+                  "IsExperience": true,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7137,
+              "Title": "Dune: Parte Tres",
+              "Key": "dune-parte-tres",
+              "OriginalTitle": "",
+              "Rating": "PDC",
+              "RatingDescription": "",
+              "RunTime": "152",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7137/1/1/7137.jpg",
+              "Trailer": "",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S.L",
+              "Gender": "",
+              "Director": "Denis Villeneuve",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
+              "Status": "Venta Anticipada",
+              "Order": 0
             }
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         }
       ],
       "Id": 74,
@@ -7426,28 +7513,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 37614,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37835",
-                      "TimeFilter": "/Date(1792529100000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37614,
-                  "MovieId": 0,
-                  "VistaId": "HO00001943",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "INGLÉS"
-                },
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 37533,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -7581,92 +7646,6 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35297,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37870",
-                      "TimeFilter": "/Date(1792529100000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35297,
-                  "MovieId": 0,
-                  "VistaId": "HO00001930",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7327,
-              "Title": "DORAEMON: AVENTURAS EN EL MUNDO DEL ARTE",
-              "Key": "doraemon-aventuras-en-el-mundo-del-arte",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "104",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7327/1/1/7327.jpg",
-              "Trailer": "",
-              "Distributor": "ALFA PICTURES",
-              "Gender": "",
-              "Director": "Yukiyo Teramoto",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Doraemon, Nobita y sus amigos entran dentro de una pintura que los transporta a Artelia, un mundo ilustrado inspirado en la Europa medieval. Junto a Claire y sus amigos Milo y Chai, se embarcan en una gran aventura para recuperar una misteriosa piedra azul.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35298,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37869",
-                      "TimeFilter": "/Date(1792530600000)/",
-                      "Time": "16:10",
-                      "ShowtimeAMPM": "04:10 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35298,
-                  "MovieId": 0,
-                  "VistaId": "HO00001918",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "SUBTÍTULOS ESPAÑOL"
-                }
-              ],
-              "Id": 7315,
-              "Title": "Naza",
-              "Key": "naza",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "77",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7315/1/1/7315.jpg",
-              "Trailer": "",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "",
-              "Director": "",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Rodada por la noche en los tejados de Tel Aviv, la película revela con todo detalle los mecanismos que hay detrás del asesinato en masa y deliberado de civiles palestinos en Gaza por parte de las tropas de Israel. Naza es la palabra utilizada por el ejército israelí para denominar a las víctimas civiles como 'daños colaterales'. Documental de parte del equipo de 'No Man's Land', producido por el cineasta Jonathan Glazer y su productor James Wilson, ambos responsables de 'La zona de interés'.",
               "Status": "",
               "Order": 0
             },
@@ -7989,49 +7968,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 34533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37834",
-                      "TimeFilter": "/Date(1792529100000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34533,
-                  "MovieId": 0,
-                  "VistaId": "HO00001765",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7152,
-              "Title": "Tadeo Jones y la lámpara maravillosa",
-              "Key": "tadeo-jones-y-la-lampara-maravillosa",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7152/1/1/7152.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Enrique Gato",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tadeo y Sara son ahora padres de Olimpia (Oli), una adorable e intrépida niña de dos años. Y Momia no lleva nada bien haber dejado de ser el centro de atención. Mientras están de vacaciones en Londres, Sara sigue la pista hacia un objeto único: la lámpara maravillosa de Las mil y una noches. Y Momia, presa de los celos, pide un deseo: viajar en el tiempo hasta el momento en que era joven y todos le querían. Tadeo y Sara tienen que unir fuerzas para evitar que Momia cambie el curso de la historia y traer al grupo (Jeff, Belzoni y Ramona incluidos) de vuelta a casa, a su época. Esta nueva aventura los llevará a cruzar el Océano Atlántico desde Perú hasta Grecia, y de allí a lo más profundo de Oriente Medio, hasta la misma cueva de Ali Babá y los cuarenta ladrones.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 33757,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -8073,7 +8009,7 @@ export default {
           ],
           "FilterDate": "/Date(1792472400000)/",
           "ShowtimeDate": "20 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -8956,7 +8892,7 @@ export default {
           ],
           "FilterDate": "/Date(1792558800000)/",
           "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -9914,7 +9850,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -10774,7 +10710,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -11817,7 +11753,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -12807,7 +12743,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -13699,7 +13635,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -14613,7 +14549,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -15505,7 +15441,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16397,7 +16333,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16533,7 +16469,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16723,7 +16659,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16816,7 +16752,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16866,7 +16802,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16916,7 +16852,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -16966,7 +16902,7 @@ export default {
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17016,7 +16952,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17163,7 +17099,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17256,7 +17192,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17349,7 +17285,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17399,7 +17335,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17449,7 +17385,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17499,7 +17435,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17549,7 +17485,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17802,7 +17738,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -17961,7 +17897,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18120,7 +18056,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18290,7 +18226,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18340,7 +18276,7 @@ export default {
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18390,7 +18326,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18440,7 +18376,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18490,7 +18426,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18540,7 +18476,7 @@ export default {
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18590,7 +18526,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18640,7 +18576,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18690,7 +18626,7 @@ export default {
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         },
         {
           "Movies": [
@@ -18740,7 +18676,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-20T05:08:32.966Z"
+          "_recogido": "2026-10-20T16:07:01.980Z"
         }
       ],
       "Id": 53,
