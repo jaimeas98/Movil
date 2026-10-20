@@ -191,7 +191,7 @@ export default function LineaDelDia({ movil, ahora }) {
               <span key={f.i} className="pn-franja" data-nivel={f.nivel ?? (f.i === N - 1 ? 'curso' : 'vacia')} />
             ))}
             {d.huecos.map((h) => (
-              <span key={h.ini} className="pn-hueco" style={{ left: `${(h.ini / N) * 100}%`, width: `${((h.fin - h.ini) / N) * 100}%` }}>
+              <span key={h.ini} className="pn-sin-senal" style={{ left: `${(h.ini / N) * 100}%`, width: `${((h.fin - h.ini) / N) * 100}%` }}>
                 {h.fin - h.ini >= 8 && <span>{duracion((h.fin - h.ini) * FRANJA, { segundos: false })} sin señal</span>}
               </span>
             ))}

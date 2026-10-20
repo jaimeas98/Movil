@@ -434,13 +434,13 @@ a.pn-url:hover { color: var(--tinta); }
 .pn-franja[data-nivel='fallo'] { height: 100%; background: var(--rojo); }
 .pn-franja[data-nivel='vacia'] { height: 2px; background: var(--linea-fuerte); }
 .pn-franja[data-nivel='curso'] { height: 14px; background: color-mix(in oklab, var(--tinta) 14%, transparent); }
-.pn-hueco {
+.pn-sin-senal {
   position: absolute; top: 0; bottom: 0;
   display: flex; align-items: flex-start; justify-content: center;
   background: color-mix(in oklab, var(--ambar) 16%, transparent);
   border-radius: 2px; pointer-events: none;
 }
-.pn-hueco > span { font-size: 0.6875rem; font-weight: 700; color: var(--p-aviso); white-space: nowrap; padding-top: 2px; }
+.pn-sin-senal > span { font-size: 0.6875rem; font-weight: 700; color: var(--p-aviso); white-space: nowrap; padding-top: 2px; }
 .pn-linea-recogidas { position: relative; height: var(--l-recogida); }
 .pn-recogida-marca { position: absolute; top: 50%; transform: translate(-8px, -50%); display: flex; align-items: center; gap: 5px; pointer-events: none; }
 /* La marca de una recogida es una entrada de cine en pequeño: el mismo
