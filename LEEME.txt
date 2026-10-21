@@ -1,0 +1,3 @@
+Órdenes del panel de control para el móvil recolector.
+Las escribe el panel (lib/panel/ordenes.js) y las lee scripts/movil/ordenes.sh.
+Solo acciones de una lista cerrada (scripts/movil/acciones.sh).
