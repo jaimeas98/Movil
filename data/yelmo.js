@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-22T05:13:20.333Z",
+  "generatedAt": "2026-10-22T16:11:31.145Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -15,17 +15,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35415,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24216",
-                      "TimeFilter": "/Date(1792702800000)/",
-                      "Time": "16:00",
-                      "ShowtimeAMPM": "04:00 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35415,
                       "CinemaId": 74,
@@ -73,8 +62,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -408,28 +397,6 @@ export default {
                       "RelationshipFormatMovieId": 34907,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24192",
-                      "TimeFilter": "/Date(1792701900000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24235",
-                      "TimeFilter": "/Date(1792704600000)/",
-                      "Time": "16:30",
-                      "ShowtimeAMPM": "04:30 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24207",
                       "TimeFilter": "/Date(1792713000000)/",
                       "Time": "18:50",
@@ -480,17 +447,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35016,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24205",
-                      "TimeFilter": "/Date(1792702200000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35016,
                       "CinemaId": 74,
@@ -549,17 +505,6 @@ export default {
                       "RelationshipFormatMovieId": 34929,
                       "CinemaId": 74,
                       "VistaCinemaId": "1340",
-                      "ShowtimeId": "24202",
-                      "TimeFilter": "/Date(1792701900000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34929,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
                       "ShowtimeId": "24200",
                       "TimeFilter": "/Date(1792725900000)/",
                       "Time": "22:25",
@@ -594,54 +539,11 @@ export default {
               "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34549,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24211",
-                      "TimeFilter": "/Date(1792703700000)/",
-                      "Time": "16:15",
-                      "ShowtimeAMPM": "04:15 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34549,
-                  "MovieId": 0,
-                  "VistaId": "HO00001765",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7152,
-              "Title": "Tadeo Jones y la lámpara maravillosa",
-              "Key": "tadeo-jones-y-la-lampara-maravillosa",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7152/1/1/7152.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Enrique Gato",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tadeo y Sara son ahora padres de Olimpia (Oli), una adorable e intrépida niña de dos años. Y Momia no lleva nada bien haber dejado de ser el centro de atención. Mientras están de vacaciones en Londres, Sara sigue la pista hacia un objeto único: la lámpara maravillosa de Las mil y una noches. Y Momia, presa de los celos, pide un deseo: viajar en el tiempo hasta el momento en que era joven y todos le querían. Tadeo y Sara tienen que unir fuerzas para evitar que Momia cambie el curso de la historia y traer al grupo (Jeff, Belzoni y Ramona incluidos) de vuelta a casa, a su época. Esta nueva aventura los llevará a cruzar el Océano Atlántico desde Perú hasta Grecia, y de allí a lo más profundo de Oriente Medio, hasta la misma cueva de Ali Babá y los cuarenta ladrones.",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -804,8 +706,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -1145,7 +1047,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -1330,8 +1232,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -1757,7 +1659,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -1996,8 +1898,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -2369,7 +2271,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -2532,8 +2434,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -2905,7 +2807,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -3090,8 +2992,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -3463,7 +3365,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -3626,8 +3528,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -3999,7 +3901,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4162,8 +4064,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -4535,7 +4437,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4585,7 +4487,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4732,7 +4634,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4825,7 +4727,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4875,7 +4777,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4925,7 +4827,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -4975,7 +4877,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5079,7 +4981,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5172,7 +5074,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5222,7 +5124,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5272,7 +5174,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5322,7 +5224,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5372,7 +5274,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5444,7 +5346,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5571,7 +5473,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5730,7 +5632,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -5889,7 +5791,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -6048,7 +5950,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -6120,7 +6022,7 @@ export default {
           ],
           "FilterDate": "/Date(1797832800000)/",
           "ShowtimeDate": "21 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -6192,7 +6094,7 @@ export default {
           ],
           "FilterDate": "/Date(1797919200000)/",
           "ShowtimeDate": "22 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -6264,7 +6166,7 @@ export default {
           ],
           "FilterDate": "/Date(1798005600000)/",
           "ShowtimeDate": "23 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         }
       ],
       "Id": 74,
@@ -6288,17 +6190,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35403,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37951",
-                      "TimeFilter": "/Date(1792704000000)/",
-                      "Time": "16:20",
-                      "ShowtimeAMPM": "04:20 PM",
-                      "Screen": 8,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35403,
                       "CinemaId": 53,
@@ -6335,8 +6226,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -6378,8 +6269,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -6396,17 +6287,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37532,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37914",
-                      "TimeFilter": "/Date(1792705500000)/",
-                      "Time": "16:45",
-                      "ShowtimeAMPM": "04:45 PM",
-                      "Screen": 9,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 37532,
                       "CinemaId": 53,
@@ -6638,17 +6518,6 @@ export default {
                       "RelationshipFormatMovieId": 37533,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
-                      "ShowtimeId": "37909",
-                      "TimeFilter": "/Date(1792701900000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
                       "ShowtimeId": "37920",
                       "TimeFilter": "/Date(1792709700000)/",
                       "Time": "17:55",
@@ -6699,17 +6568,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37912",
-                      "TimeFilter": "/Date(1792703700000)/",
-                      "Time": "16:15",
-                      "ShowtimeAMPM": "04:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35243,
                       "CinemaId": 53,
@@ -6776,49 +6634,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35297,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37943",
-                      "TimeFilter": "/Date(1792701900000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35297,
-                  "MovieId": 0,
-                  "VistaId": "HO00001930",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7327,
-              "Title": "DORAEMON: AVENTURAS EN EL MUNDO DEL ARTE",
-              "Key": "doraemon-aventuras-en-el-mundo-del-arte",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "104",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7327/1/1/7327.jpg",
-              "Trailer": "",
-              "Distributor": "ALFA PICTURES",
-              "Gender": "",
-              "Director": "Yukiyo Teramoto",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Doraemon, Nobita y sus amigos entran dentro de una pintura que los transporta a Artelia, un mundo ilustrado inspirado en la Europa medieval. Junto a Claire y sus amigos Milo y Chai, se embarcan en una gran aventura para recuperar una misteriosa piedra azul.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 35295,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -6861,17 +6676,6 @@ export default {
               "Formats": [
                 {
                   "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35086,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37910",
-                      "TimeFilter": "/Date(1792702200000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 11,
-                      "IsSpecialDate": false
-                    },
                     {
                       "RelationshipFormatMovieId": 35086,
                       "CinemaId": 53,
@@ -7111,49 +6915,6 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35042,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37911",
-                      "TimeFilter": "/Date(1792702200000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35042,
-                  "MovieId": 0,
-                  "VistaId": "HO00001767",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7154,
-              "Title": "Coyote vs. Acme",
-              "Key": "coyote-vs-acme",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "103",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7154/1/1/7154.jpg",
-              "Trailer": "",
-              "Distributor": "BETA FICTION",
-              "Gender": "",
-              "Director": "Dave Green",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Harto de que los productos Acme le fallen una y otra vez en su incansable persecución del Correcaminos, el Coyote decide contratar a un abogado de poca monta para demandar a la Corporación Acme.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
                       "RelationshipFormatMovieId": 34925,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
@@ -7191,54 +6952,11 @@ export default {
               "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
               "Status": "",
               "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37908",
-                      "TimeFilter": "/Date(1792701900000)/",
-                      "Time": "15:45",
-                      "ShowtimeAMPM": "03:45 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34533,
-                  "MovieId": 0,
-                  "VistaId": "HO00001765",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7152,
-              "Title": "Tadeo Jones y la lámpara maravillosa",
-              "Key": "tadeo-jones-y-la-lampara-maravillosa",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7152/1/1/7152.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Enrique Gato",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tadeo y Sara son ahora padres de Olimpia (Oli), una adorable e intrépida niña de dos años. Y Momia no lleva nada bien haber dejado de ser el centro de atención. Mientras están de vacaciones en Londres, Sara sigue la pista hacia un objeto único: la lámpara maravillosa de Las mil y una noches. Y Momia, presa de los celos, pide un deseo: viajar en el tiempo hasta el momento en que era joven y todos le querían. Tadeo y Sara tienen que unir fuerzas para evitar que Momia cambie el curso de la historia y traer al grupo (Jeff, Belzoni y Ramona incluidos) de vuelta a casa, a su época. Esta nueva aventura los llevará a cruzar el Océano Atlántico desde Perú hasta Grecia, y de allí a lo más profundo de Oriente Medio, hasta la misma cueva de Ali Babá y los cuarenta ladrones.",
-              "Status": "",
-              "Order": 0
             }
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -7282,8 +7000,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -7509,8 +7227,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -7574,8 +7292,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -8098,7 +7816,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -8142,8 +7860,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -8477,8 +8195,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -8553,8 +8271,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -9141,7 +8859,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -9239,8 +8957,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -9531,8 +9249,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -9607,8 +9325,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -10131,7 +9849,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -10175,8 +9893,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -10488,8 +10206,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -10553,8 +10271,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -11023,7 +10741,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -11110,8 +10828,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -11477,8 +11195,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -11553,8 +11271,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -11958,7 +11676,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -12002,8 +11720,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -12021,7 +11739,7 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35233,
+                      "RelationshipFormatMovieId": 35259,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37379",
@@ -12032,10 +11750,10 @@ export default {
                       "IsSpecialDate": false
                     }
                   ],
-                  "RelationshipFormatMovieId": 35233,
+                  "RelationshipFormatMovieId": 35259,
                   "MovieId": 0,
                   "VistaId": "HO00001929",
-                  "Name": "2D",
+                  "Name": "3D CA",
                   "IsExperience": false,
                   "SegobPermission": null,
                   "Language": "COREANO SUBTITULADO EN INGLÉS (VOSI)"
@@ -12315,8 +12033,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -12380,8 +12098,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -12850,7 +12568,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -12894,8 +12612,8 @@ export default {
               "Title": "Wildwood: El bosque salvaje",
               "Key": "wildwood-el-bosque-salvaje",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
               "RunTime": "132",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7352/1/1/7352.jpg",
               "Trailer": "",
@@ -12913,7 +12631,7 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35233,
+                      "RelationshipFormatMovieId": 35259,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37380",
@@ -12924,10 +12642,10 @@ export default {
                       "IsSpecialDate": false
                     }
                   ],
-                  "RelationshipFormatMovieId": 35233,
+                  "RelationshipFormatMovieId": 35259,
                   "MovieId": 0,
                   "VistaId": "HO00001929",
-                  "Name": "2D",
+                  "Name": "3D CA",
                   "IsExperience": false,
                   "SegobPermission": null,
                   "Language": "COREANO SUBTITULADO EN INGLÉS (VOSI)"
@@ -13207,8 +12925,8 @@ export default {
               "Title": "Leones en invierno",
               "Key": "leones-en-invierno",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "117",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7347/1/1/7347.jpg",
               "Trailer": "",
@@ -13272,8 +12990,8 @@ export default {
               "Title": "Clayface",
               "Key": "clayface",
               "OriginalTitle": "",
-              "Rating": "PDC",
-              "RatingDescription": "",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de dieciséis años.",
               "RunTime": "108",
               "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7104/1/1/7104.jpg",
               "Trailer": "",
@@ -13742,7 +13460,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -13794,7 +13512,7 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35233,
+                      "RelationshipFormatMovieId": 35259,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37381",
@@ -13805,10 +13523,10 @@ export default {
                       "IsSpecialDate": false
                     }
                   ],
-                  "RelationshipFormatMovieId": 35233,
+                  "RelationshipFormatMovieId": 35259,
                   "MovieId": 0,
                   "VistaId": "HO00001929",
-                  "Name": "2D",
+                  "Name": "3D CA",
                   "IsExperience": false,
                   "SegobPermission": null,
                   "Language": "COREANO SUBTITULADO EN INGLÉS (VOSI)"
@@ -13878,7 +13596,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14027,7 +13745,7 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 35233,
+                      "RelationshipFormatMovieId": 35259,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37382",
@@ -14038,10 +13756,10 @@ export default {
                       "IsSpecialDate": false
                     }
                   ],
-                  "RelationshipFormatMovieId": 35233,
+                  "RelationshipFormatMovieId": 35259,
                   "MovieId": 0,
                   "VistaId": "HO00001929",
-                  "Name": "2D",
+                  "Name": "3D CA",
                   "IsExperience": false,
                   "SegobPermission": null,
                   "Language": "COREANO SUBTITULADO EN INGLÉS (VOSI)"
@@ -14068,7 +13786,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14161,7 +13879,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14211,7 +13929,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14261,7 +13979,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14311,7 +14029,7 @@ export default {
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14361,7 +14079,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14508,7 +14226,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14601,7 +14319,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14694,7 +14412,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14744,7 +14462,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14794,7 +14512,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14844,7 +14562,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14894,7 +14612,7 @@ export default {
           ],
           "FilterDate": "/Date(1796104800000)/",
           "ShowtimeDate": "01 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -14944,7 +14662,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15016,7 +14734,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15197,7 +14915,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15432,7 +15150,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15667,7 +15385,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15902,7 +15620,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -15974,7 +15692,7 @@ export default {
           ],
           "FilterDate": "/Date(1797832800000)/",
           "ShowtimeDate": "21 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16046,7 +15764,7 @@ export default {
           ],
           "FilterDate": "/Date(1797919200000)/",
           "ShowtimeDate": "22 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16118,7 +15836,7 @@ export default {
           ],
           "FilterDate": "/Date(1798005600000)/",
           "ShowtimeDate": "23 diciembre",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16168,7 +15886,7 @@ export default {
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16218,7 +15936,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16268,7 +15986,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16318,7 +16036,7 @@ export default {
           ],
           "FilterDate": "/Date(1805781600000)/",
           "ShowtimeDate": "23 marzo",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16368,7 +16086,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16418,7 +16136,7 @@ export default {
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16468,7 +16186,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16518,7 +16236,7 @@ export default {
           ],
           "FilterDate": "/Date(1808974800000)/",
           "ShowtimeDate": "29 abril",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16568,7 +16286,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16618,7 +16336,7 @@ export default {
           ],
           "FilterDate": "/Date(1811221200000)/",
           "ShowtimeDate": "25 mayo",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16668,7 +16386,7 @@ export default {
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         },
         {
           "Movies": [
@@ -16718,7 +16436,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-22T05:13:20.570Z"
+          "_recogido": "2026-10-22T16:11:31.409Z"
         }
       ],
       "Id": 53,
