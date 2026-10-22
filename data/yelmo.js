@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-21T16:09:30.218Z",
+  "generatedAt": "2026-10-22T05:13:20.333Z",
   "origen": "navegador-movil",
   "cines": {
     "yelmo-bahia-sur": {
@@ -9,499 +9,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Movies": [
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35018,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "23456",
-                      "TimeFilter": "/Date(1792623900000)/",
-                      "Time": "18:05",
-                      "ShowtimeAMPM": "06:05 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35018,
-                  "MovieId": 0,
-                  "VistaId": "HO00001881",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7278,
-              "Title": "Cars 20º Aniversario",
-              "Key": "cars-20o-aniversario",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7278/1/1/7278.jpg",
-              "Trailer": "",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
-              "Gender": "",
-              "Director": "Brian Fee",
-              "Actor": null,
-              "ProjectionType": "Eventos Especiales",
-              "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37573,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24181",
-                      "TimeFilter": "/Date(1792631400000)/",
-                      "Time": "20:10",
-                      "ShowtimeAMPM": "08:10 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37573,
-                  "MovieId": 0,
-                  "VistaId": "HO00001942",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7339,
-              "Title": "La maleta",
-              "Key": "la-maleta",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "107",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Carlos Therón",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37574,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24171",
-                      "TimeFilter": "/Date(1792629900000)/",
-                      "Time": "19:45",
-                      "ShowtimeAMPM": "07:45 PM",
-                      "Screen": 2,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37574,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24185",
-                      "TimeFilter": "/Date(1792638900000)/",
-                      "Time": "22:15",
-                      "ShowtimeAMPM": "10:15 PM",
-                      "Screen": 2,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37574,
-                  "MovieId": 0,
-                  "VistaId": "HO00001911",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7157,
-              "Title": "Whalefall",
-              "Key": "whalefall",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "105",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
-              "Trailer": "",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
-              "Gender": "",
-              "Director": "Brian Duffield",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35265,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24169",
-                      "TimeFilter": "/Date(1792620000000)/",
-                      "Time": "17:00",
-                      "ShowtimeAMPM": "05:00 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35265,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24189",
-                      "TimeFilter": "/Date(1792629000000)/",
-                      "Time": "19:30",
-                      "ShowtimeAMPM": "07:30 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35265,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24187",
-                      "TimeFilter": "/Date(1792638000000)/",
-                      "Time": "22:00",
-                      "ShowtimeAMPM": "10:00 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35265,
-                  "MovieId": 0,
-                  "VistaId": "HO00001922",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7319,
-              "Title": "Street Fighter",
-              "Key": "street-fighter",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "119",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Kitao Sakurai",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35257,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24174",
-                      "TimeFilter": "/Date(1792626300000)/",
-                      "Time": "18:45",
-                      "ShowtimeAMPM": "06:45 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35257,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24173",
-                      "TimeFilter": "/Date(1792633500000)/",
-                      "Time": "20:45",
-                      "ShowtimeAMPM": "08:45 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35257,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24172",
-                      "TimeFilter": "/Date(1792640700000)/",
-                      "Time": "22:45",
-                      "ShowtimeAMPM": "10:45 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35257,
-                  "MovieId": 0,
-                  "VistaId": "HO00001905",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7303,
-              "Title": "La otra madre",
-              "Key": "la-otra-madre",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "92",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Rob Savage",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35087,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24179",
-                      "TimeFilter": "/Date(1792622700000)/",
-                      "Time": "17:45",
-                      "ShowtimeAMPM": "05:45 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35087,
-                  "MovieId": 0,
-                  "VistaId": "HO00001720",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7107,
-              "Title": "Verity. La sombra de un engaño",
-              "Key": "verity-la-sombra-de-un-engano",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "116",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
-              "Trailer": "",
-              "Distributor": "AMAZON MGM STUDIOS",
-              "Gender": "",
-              "Director": "Michael Showalter",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24170",
-                      "TimeFilter": "/Date(1792620900000)/",
-                      "Time": "17:15",
-                      "ShowtimeAMPM": "05:15 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24176",
-                      "TimeFilter": "/Date(1792625100000)/",
-                      "Time": "18:25",
-                      "ShowtimeAMPM": "06:25 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24188",
-                      "TimeFilter": "/Date(1792632300000)/",
-                      "Time": "20:25",
-                      "ShowtimeAMPM": "08:25 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34907,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24175",
-                      "TimeFilter": "/Date(1792636800000)/",
-                      "Time": "21:40",
-                      "ShowtimeAMPM": "09:40 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34907,
-                  "MovieId": 0,
-                  "VistaId": "HO00001743",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7128,
-              "Title": "La bola negra",
-              "Key": "la-bola-negra",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "159",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
-              "Trailer": "",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "",
-              "Director": "Javier Calvo",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "Garantía",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35016,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24178",
-                      "TimeFilter": "/Date(1792632900000)/",
-                      "Time": "20:35",
-                      "ShowtimeAMPM": "08:35 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35016,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24177",
-                      "TimeFilter": "/Date(1792640700000)/",
-                      "Time": "22:45",
-                      "ShowtimeAMPM": "10:45 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35016,
-                  "MovieId": 0,
-                  "VistaId": "HO00001869",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7265,
-              "Title": "En el corazón de la bestia",
-              "Key": "en-el-corazon-de-la-bestia",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "101",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "David Ayer",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "Garantía",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34929,
-                      "CinemaId": 74,
-                      "VistaCinemaId": "1340",
-                      "ShowtimeId": "24180",
-                      "TimeFilter": "/Date(1792639800000)/",
-                      "Time": "22:30",
-                      "ShowtimeAMPM": "10:30 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34929,
-                  "MovieId": 0,
-                  "VistaId": "HO00001752",
-                  "Name": "PREMIUM",
-                  "IsExperience": true,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7139,
-              "Title": "Resident Evil",
-              "Key": "resident-evil",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
-              "Trailer": "",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
-              "Gender": "",
-              "Director": "Zach Cregger",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
-              "Status": "",
-              "Order": 0
-            }
-          ],
-          "FilterDate": "/Date(1792558800000)/",
-          "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
-        },
         {
           "Movies": [
             {
@@ -577,7 +84,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -620,7 +127,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -1134,7 +641,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -1308,7 +815,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -1437,7 +944,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -1638,7 +1145,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -1834,7 +1341,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -1963,7 +1470,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -2250,7 +1757,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -2500,7 +2007,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -2862,7 +2369,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -3036,7 +2543,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -3398,7 +2905,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -3594,7 +3101,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -3956,7 +3463,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -4130,7 +3637,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -4259,7 +3766,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -4492,7 +3999,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -4666,7 +4173,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -5028,7 +4535,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5078,7 +4585,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5225,7 +4732,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5318,7 +4825,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5368,7 +4875,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5418,7 +4925,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5468,7 +4975,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5523,7 +5030,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "Por primera vez, Stray Kids presenta una transmisión especial en vivo de «Stray Kids World Tour <RUN IT>» desde el Tokyo Dome en cines de todo el mundo.\n\nFiel al título de la gira, <RUN IT> refleja el impulso del grupo por adentrarse en mundos más grandes y subir a escenarios más audaces. Los ocho miembros (Bang Chan, Lee Know, Changbin, Hyunjin, HAN, Felix, Seungmin e I.N) desatan una energía imparable a través de coreografías explosivas y voces potentes, llevando la experiencia en vivo a su punto más álgido. Su presentación empieza con «Hall of Fame», una canción que expresa la ambición de Stray Kids de escribir su propia historia, trazando su crecimiento musical desde el principio hasta donde están ahora. La producción se enriquece aún más con montajes escénicos dinámicos, toques de espectáculos tradicionales coreanos y una iluminación láser espectacular, todo diseñado para que el público —tanto en el estadio como en el cine— se ponga de pie, cante, baile y celebre junto con los artistas.\n\nGrabado en vivo desde Tokio y transmitido a cines de todo el mundo, este evento de proyección en vivo te permite a ti, como parte de STAY, disfrutar de la magnitud, el espectáculo y la energía pura del show en vivo de Stray Kids —todos juntos, en la pantalla grande. ",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             },
             {
@@ -5572,7 +5079,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5665,7 +5172,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5715,7 +5222,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5765,7 +5272,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5815,7 +5322,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5865,7 +5372,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -5937,7 +5444,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6064,7 +5571,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6223,7 +5730,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6382,7 +5889,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6541,7 +6048,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6613,7 +6120,7 @@ export default {
           ],
           "FilterDate": "/Date(1797832800000)/",
           "ShowtimeDate": "21 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6685,7 +6192,7 @@ export default {
           ],
           "FilterDate": "/Date(1797919200000)/",
           "ShowtimeDate": "22 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -6757,7 +6264,7 @@ export default {
           ],
           "FilterDate": "/Date(1798005600000)/",
           "ShowtimeDate": "23 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         }
       ],
       "Id": 74,
@@ -6775,792 +6282,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Movies": [
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37532,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37879",
-                      "TimeFilter": "/Date(1792619100000)/",
-                      "Time": "16:45",
-                      "ShowtimeAMPM": "04:45 PM",
-                      "Screen": 9,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37532,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37888",
-                      "TimeFilter": "/Date(1792627500000)/",
-                      "Time": "19:05",
-                      "ShowtimeAMPM": "07:05 PM",
-                      "Screen": 9,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37532,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37970",
-                      "TimeFilter": "/Date(1792640100000)/",
-                      "Time": "22:35",
-                      "ShowtimeAMPM": "10:35 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37532,
-                  "MovieId": 0,
-                  "VistaId": "HO00001942",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7339,
-              "Title": "La maleta",
-              "Key": "la-maleta",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "107",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7339/1/1/7339.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Carlos Therón",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35264,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37882",
-                      "TimeFilter": "/Date(1792621800000)/",
-                      "Time": "17:30",
-                      "ShowtimeAMPM": "05:30 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35264,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37892",
-                      "TimeFilter": "/Date(1792630800000)/",
-                      "Time": "20:00",
-                      "ShowtimeAMPM": "08:00 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35264,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37904",
-                      "TimeFilter": "/Date(1792639800000)/",
-                      "Time": "22:30",
-                      "ShowtimeAMPM": "10:30 PM",
-                      "Screen": 1,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35264,
-                  "MovieId": 0,
-                  "VistaId": "HO00001922",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7319,
-              "Title": "Street Fighter",
-              "Key": "street-fighter",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "119",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7319/1/1/7319.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "Kitao Sakurai",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37531,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37967",
-                      "TimeFilter": "/Date(1792620900000)/",
-                      "Time": "17:15",
-                      "ShowtimeAMPM": "05:15 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37531,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37889",
-                      "TimeFilter": "/Date(1792628700000)/",
-                      "Time": "19:25",
-                      "ShowtimeAMPM": "07:25 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37531,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37900",
-                      "TimeFilter": "/Date(1792637400000)/",
-                      "Time": "21:50",
-                      "ShowtimeAMPM": "09:50 PM",
-                      "Screen": 6,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37531,
-                  "MovieId": 0,
-                  "VistaId": "HO00001911",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7157,
-              "Title": "Whalefall",
-              "Key": "whalefall",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "105",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
-              "Trailer": "",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
-              "Gender": "",
-              "Director": "Brian Duffield",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35009,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "36643",
-                      "TimeFilter": "/Date(1792623600000)/",
-                      "Time": "18:00",
-                      "ShowtimeAMPM": "06:00 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35009,
-                  "MovieId": 0,
-                  "VistaId": "HO00001881",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7278,
-              "Title": "Cars 20º Aniversario",
-              "Key": "cars-20o-aniversario",
-              "OriginalTitle": "",
-              "Rating": "TP",
-              "RatingDescription": "Apta para todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7278/1/1/7278.jpg",
-              "Trailer": "",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
-              "Gender": "",
-              "Director": "Brian Fee",
-              "Actor": null,
-              "ProjectionType": "Eventos Especiales",
-              "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 37533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37885",
-                      "TimeFilter": "/Date(1792623300000)/",
-                      "Time": "17:55",
-                      "ShowtimeAMPM": "05:55 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37894",
-                      "TimeFilter": "/Date(1792631400000)/",
-                      "Time": "20:10",
-                      "ShowtimeAMPM": "08:10 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 37533,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37903",
-                      "TimeFilter": "/Date(1792639500000)/",
-                      "Time": "22:25",
-                      "ShowtimeAMPM": "10:25 PM",
-                      "Screen": 10,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 37533,
-                  "MovieId": 0,
-                  "VistaId": "HO00001943",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7340,
-              "Title": "La invitación.",
-              "Key": "la-invitacion",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "107",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7340/1/1/7340.jpg",
-              "Trailer": "",
-              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCION AUDIOVISUAL, S.L",
-              "Gender": "",
-              "Director": "Olivia Wilde",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
-              "Status": "Estreno",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37877",
-                      "TimeFilter": "/Date(1792617300000)/",
-                      "Time": "16:15",
-                      "ShowtimeAMPM": "04:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37887",
-                      "TimeFilter": "/Date(1792624500000)/",
-                      "Time": "18:15",
-                      "ShowtimeAMPM": "06:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37895",
-                      "TimeFilter": "/Date(1792631700000)/",
-                      "Time": "20:15",
-                      "ShowtimeAMPM": "08:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35243,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37902",
-                      "TimeFilter": "/Date(1792638900000)/",
-                      "Time": "22:15",
-                      "ShowtimeAMPM": "10:15 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35243,
-                  "MovieId": 0,
-                  "VistaId": "HO00001905",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7303,
-              "Title": "La otra madre",
-              "Key": "la-otra-madre",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "92",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7303/1/1/7303.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Rob Savage",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35086,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37874",
-                      "TimeFilter": "/Date(1792615800000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 11,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35086,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37893",
-                      "TimeFilter": "/Date(1792631100000)/",
-                      "Time": "20:05",
-                      "ShowtimeAMPM": "08:05 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35086,
-                  "MovieId": 0,
-                  "VistaId": "HO00001720",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7107,
-              "Title": "Verity. La sombra de un engaño",
-              "Key": "verity-la-sombra-de-un-engano",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "116",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7107/1/1/7107.jpg",
-              "Trailer": "",
-              "Distributor": "AMAZON MGM STUDIOS",
-              "Gender": "",
-              "Director": "Michael Showalter",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37878",
-                      "TimeFilter": "/Date(1792617600000)/",
-                      "Time": "16:20",
-                      "ShowtimeAMPM": "04:20 PM",
-                      "Screen": 8,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37880",
-                      "TimeFilter": "/Date(1792620600000)/",
-                      "Time": "17:10",
-                      "ShowtimeAMPM": "05:10 PM",
-                      "Screen": 2,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37886",
-                      "TimeFilter": "/Date(1792624200000)/",
-                      "Time": "18:10",
-                      "ShowtimeAMPM": "06:10 PM",
-                      "Screen": 11,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37890",
-                      "TimeFilter": "/Date(1792629000000)/",
-                      "Time": "19:30",
-                      "ShowtimeAMPM": "07:30 PM",
-                      "Screen": 8,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37896",
-                      "TimeFilter": "/Date(1792632600000)/",
-                      "Time": "20:30",
-                      "ShowtimeAMPM": "08:30 PM",
-                      "Screen": 2,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34906,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37899",
-                      "TimeFilter": "/Date(1792636800000)/",
-                      "Time": "21:40",
-                      "ShowtimeAMPM": "09:40 PM",
-                      "Screen": 11,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34906,
-                  "MovieId": 0,
-                  "VistaId": "HO00001743",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7128,
-              "Title": "La bola negra",
-              "Key": "la-bola-negra",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "159",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7128/1/1/7128.jpg",
-              "Trailer": "",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "",
-              "Director": "Javier Calvo",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "Garantía",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35014,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37883",
-                      "TimeFilter": "/Date(1792622700000)/",
-                      "Time": "17:45",
-                      "ShowtimeAMPM": "05:45 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35014,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37891",
-                      "TimeFilter": "/Date(1792630500000)/",
-                      "Time": "19:55",
-                      "ShowtimeAMPM": "07:55 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35014,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37901",
-                      "TimeFilter": "/Date(1792638300000)/",
-                      "Time": "22:05",
-                      "ShowtimeAMPM": "10:05 PM",
-                      "Screen": 7,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35014,
-                  "MovieId": 0,
-                  "VistaId": "HO00001869",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7265,
-              "Title": "En el corazón de la bestia",
-              "Key": "en-el-corazon-de-la-bestia",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "101",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7265/1/1/7265.jpg",
-              "Trailer": "",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "",
-              "Director": "David Ayer",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y\nel vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "Garantía",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34948,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37884",
-                      "TimeFilter": "/Date(1792623000000)/",
-                      "Time": "17:50",
-                      "ShowtimeAMPM": "05:50 PM",
-                      "Screen": 5,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34948,
-                  "MovieId": 0,
-                  "VistaId": "HO00001848",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7241,
-              "Title": "La isla olvidada",
-              "Key": "la-isla-olvidada",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "109",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7241/1/1/7241.jpg",
-              "Trailer": "",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S.L",
-              "Gender": "",
-              "Director": "Joel  Crawford",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Vale la pena luchar por tu mejor amiga.\n\nDreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA.\n\nEsta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo.\n\nLa supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes.\n\nEn su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas.\n\nEntablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre.\n\nEl reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 35042,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37875",
-                      "TimeFilter": "/Date(1792615800000)/",
-                      "Time": "15:50",
-                      "ShowtimeAMPM": "03:50 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 35042,
-                  "MovieId": 0,
-                  "VistaId": "HO00001767",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7154,
-              "Title": "Coyote vs. Acme",
-              "Key": "coyote-vs-acme",
-              "OriginalTitle": "",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendada para menores de siete años.",
-              "RunTime": "103",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7154/1/1/7154.jpg",
-              "Trailer": "",
-              "Distributor": "BETA FICTION",
-              "Gender": "",
-              "Director": "Dave Green",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Harto de que los productos Acme le fallen una y otra vez en su incansable persecución del Correcaminos, el Coyote decide contratar a un abogado de poca monta para demandar a la Corporación Acme.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34925,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37897",
-                      "TimeFilter": "/Date(1792633200000)/",
-                      "Time": "20:40",
-                      "ShowtimeAMPM": "08:40 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 34925,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37906",
-                      "TimeFilter": "/Date(1792640700000)/",
-                      "Time": "22:45",
-                      "ShowtimeAMPM": "10:45 PM",
-                      "Screen": 4,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34925,
-                  "MovieId": 0,
-                  "VistaId": "HO00001752",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7139,
-              "Title": "Resident Evil",
-              "Key": "resident-evil",
-              "OriginalTitle": "",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de dieciséis años.",
-              "RunTime": "94",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7139/1/1/7139.jpg",
-              "Trailer": "",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
-              "Gender": "",
-              "Director": "Zach Cregger",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "En una historia totalmente nueva, Resident Evil sigue a Bryan (Austin Abrams), un mensajero médico que, sin saberlo, se ve envuelto en una carrera por la supervivencia llena de acción y sin tregua mientras una fatídica y espantosa noche todo se desmorona a su alrededor en medio del caos.",
-              "Status": "",
-              "Order": 0
-            },
-            {
-              "Formats": [
-                {
-                  "Showtimes": [
-                    {
-                      "RelationshipFormatMovieId": 34075,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "37907",
-                      "TimeFilter": "/Date(1792635600000)/",
-                      "Time": "21:20",
-                      "ShowtimeAMPM": "09:20 PM",
-                      "Screen": 9,
-                      "IsSpecialDate": false
-                    }
-                  ],
-                  "RelationshipFormatMovieId": 34075,
-                  "MovieId": 0,
-                  "VistaId": "HO00001716",
-                  "Name": "2D",
-                  "IsExperience": false,
-                  "SegobPermission": null,
-                  "Language": "ESPAÑOL"
-                }
-              ],
-              "Id": 7103,
-              "Title": "Spider-Man: Brand New Day",
-              "Key": "spider-man-brand-new-day",
-              "OriginalTitle": "",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de doce años.",
-              "RunTime": "145",
-              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7103/1/1/7103.jpg",
-              "Trailer": "",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S.A",
-              "Gender": "",
-              "Director": "Destin Daniel Cretton",
-              "Actor": null,
-              "ProjectionType": "Movie",
-              "Synopsis": "Tras el gran éxito global de Spider-Man: No Way Home, Spider-Man: Brand New Day marca una etapa completamente nueva para Peter Parker y Spider-Man. Han pasado cuatro años desde los acontecimientos de No Way Home, y Peter Parker ahora es un adulto que vive completamente solo, ha desaparecido voluntariamente de las vidas y recuerdos de quienes ama. Combatiendo el crimen en una Nueva York que ya no conoce su nombre, se ha dedicado por completo a proteger su ciudad—un Spider-Man a tiempo completo—, pero a medida que aumentan las exigencias sobre él, la presión desencadena una sorprendente evolución física que amenaza su existencia, al mismo tiempo que un extraño nuevo patrón de crímenes da lugar a una de las amenazas más poderosas a las que se ha enfrentado.",
-              "Status": "",
-              "Order": 0
-            }
-          ],
-          "FilterDate": "/Date(1792558800000)/",
-          "ShowtimeDate": "21 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
-        },
         {
           "Movies": [
             {
@@ -7625,7 +6346,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -7668,7 +6389,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -7906,7 +6627,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -8517,7 +7238,7 @@ export default {
           ],
           "FilterDate": "/Date(1792645200000)/",
           "ShowtimeDate": "22 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -8799,7 +7520,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -8864,7 +7585,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -8961,7 +7682,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -9377,7 +8098,7 @@ export default {
           ],
           "FilterDate": "/Date(1792731600000)/",
           "ShowtimeDate": "23 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -9767,7 +8488,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -9843,7 +8564,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -9940,7 +8661,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -10420,7 +9141,7 @@ export default {
           ],
           "FilterDate": "/Date(1792818000000)/",
           "ShowtimeDate": "24 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -10537,7 +9258,7 @@ export default {
                 {
                   "Showtimes": [
                     {
-                      "RelationshipFormatMovieId": 40188,
+                      "RelationshipFormatMovieId": 35259,
                       "CinemaId": 53,
                       "VistaCinemaId": "803",
                       "ShowtimeId": "37378",
@@ -10548,13 +9269,13 @@ export default {
                       "IsSpecialDate": false
                     }
                   ],
-                  "RelationshipFormatMovieId": 40188,
+                  "RelationshipFormatMovieId": 35259,
                   "MovieId": 0,
                   "VistaId": "HO00001929",
-                  "Name": "2D",
+                  "Name": "3D CA",
                   "IsExperience": false,
                   "SegobPermission": null,
-                  "Language": "3D CA COR SUB ING"
+                  "Language": "COREANO SUBTITULADO EN INGLÉS (VOSI)"
                 }
               ],
               "Id": 7326,
@@ -10821,7 +9542,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -10897,7 +9618,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -11410,7 +10131,7 @@ export default {
           ],
           "FilterDate": "/Date(1792904400000)/",
           "ShowtimeDate": "25 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -11778,7 +10499,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -11843,7 +10564,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -12302,7 +11023,7 @@ export default {
           ],
           "FilterDate": "/Date(1792994400000)/",
           "ShowtimeDate": "26 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -12767,7 +11488,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -12843,7 +11564,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -12858,17 +11579,6 @@ export default {
                       "TimeFilter": "/Date(1793153100000)/",
                       "Time": "20:05",
                       "ShowtimeAMPM": "08:05 PM",
-                      "Screen": 3,
-                      "IsSpecialDate": false
-                    },
-                    {
-                      "RelationshipFormatMovieId": 35264,
-                      "CinemaId": 53,
-                      "VistaCinemaId": "803",
-                      "ShowtimeId": "38132",
-                      "TimeFilter": "/Date(1793161800000)/",
-                      "Time": "22:30",
-                      "ShowtimeAMPM": "10:30 PM",
                       "Screen": 3,
                       "IsSpecialDate": false
                     }
@@ -12897,6 +11607,49 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen…\n\n¡FIN DE LA PARTIDA!",
+              "Status": "Estreno",
+              "Order": 0
+            },
+            {
+              "Formats": [
+                {
+                  "Showtimes": [
+                    {
+                      "RelationshipFormatMovieId": 37531,
+                      "CinemaId": 53,
+                      "VistaCinemaId": "803",
+                      "ShowtimeId": "38217",
+                      "TimeFilter": "/Date(1793162100000)/",
+                      "Time": "22:35",
+                      "ShowtimeAMPM": "10:35 PM",
+                      "Screen": 3,
+                      "IsSpecialDate": false
+                    }
+                  ],
+                  "RelationshipFormatMovieId": 37531,
+                  "MovieId": 0,
+                  "VistaId": "HO00001911",
+                  "Name": "2D",
+                  "IsExperience": false,
+                  "SegobPermission": null,
+                  "Language": "ESPAÑOL"
+                }
+              ],
+              "Id": 7157,
+              "Title": "Whalefall",
+              "Key": "whalefall",
+              "OriginalTitle": "",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de doce años.",
+              "RunTime": "105",
+              "Poster": "https://eu-static.yelmocines.es/content/img/movies/posters/7157/1/1/7157.jpg",
+              "Trailer": "",
+              "Distributor": "THE WALT DISNEY COMPANY IBERIA S.L",
+              "Gender": "",
+              "Director": "Brian Duffield",
+              "Actor": null,
+              "ProjectionType": "Movie",
+              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
               "Status": "Estreno",
               "Order": 0
             },
@@ -13205,7 +11958,7 @@ export default {
           ],
           "FilterDate": "/Date(1793080800000)/",
           "ShowtimeDate": "27 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -13573,7 +12326,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -13638,7 +12391,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -13735,7 +12488,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Eventos Especiales",
               "Synopsis": "Sorprendido por una nueva generación de corredores ultrarrápidos, el legendario Rayo McQueen (voz de Owen Wilson) queda relegado repentinamente del deporte que tanto ama. Para retomar su carrera, va a necesitar la ayuda de una joven mecánica de carreras, Cruz Ramírez, que tiene su propio plan para ganar, además de la inspiración del fallecido Fabuloso Hudson Hornet y un par de giros inesperados. ¡Y para probar que el nº95 no está ni mucho menos acabado, el campeón tendrá que poner a prueba su valía en el gran circuito de la Copa Piston!",
-              "Status": "Estreno",
+              "Status": "",
               "Order": 0
             },
             {
@@ -14097,7 +12850,7 @@ export default {
           ],
           "FilterDate": "/Date(1793167200000)/",
           "ShowtimeDate": "28 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -14465,7 +13218,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "La pérdida inesperada de una hija nos llevará a la diferente gestión del duelo de cada uno de sus progenitores y nos desvelará como, en ese dolor inmenso, nuestro padre protagonista se quiebra dejando en libertad el león que lleva dentro y que creyó tener firmemente enjaulado en su pasado.  Las ansías de encontrar la verdad y de hacer justicia a su manera, le llevarán a una trama de corrupción, poder y crimen organizado y mientras el responsable de la muerte de su hija luchará por ocultar la verdad, el padre de la víctima  irá cruzando líneas rojas, adentrándose en un camino que no tiene retorno y es que hay algo más peligroso que un padre defendiendo a sus hijos y es un padre que ya no tiene hijos a los que defender.",
-              "Status": "",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -14530,7 +13283,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "Order": 0
             },
             {
@@ -14989,7 +13742,7 @@ export default {
           ],
           "FilterDate": "/Date(1793253600000)/",
           "ShowtimeDate": "29 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15125,7 +13878,7 @@ export default {
           ],
           "FilterDate": "/Date(1793340000000)/",
           "ShowtimeDate": "30 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15315,7 +14068,7 @@ export default {
           ],
           "FilterDate": "/Date(1793426400000)/",
           "ShowtimeDate": "31 octubre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15408,7 +14161,7 @@ export default {
           ],
           "FilterDate": "/Date(1793512800000)/",
           "ShowtimeDate": "01 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15458,7 +14211,7 @@ export default {
           ],
           "FilterDate": "/Date(1793599200000)/",
           "ShowtimeDate": "02 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15508,7 +14261,7 @@ export default {
           ],
           "FilterDate": "/Date(1793685600000)/",
           "ShowtimeDate": "03 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15552,13 +14305,13 @@ export default {
               "Actor": null,
               "ProjectionType": "Música y conciertos",
               "Synopsis": "Rammstein - Live in Mexico City es una nueva película de concierto que captura uno de los momentos más representativos de la gira mundial de estadios que la banda llevó a cabo durante cinco años. Filmada a lo largo de tres noches consecutivas con todas las entradas agotadas en el Foro Sol, con capacidad para 65.000 espectadores, la película está dirigida por el aclamado cineasta Paul Dugdale (nominado en cuatro ocasiones a los premios GRAMMY® y ganador de dos premios Primetime Emmy®). Con 20 canciones que recorren toda la trayectoria de la banda, entre ellas Du Hast, Sonne, Ich Will y el cierre en Ciudad de México con Te Quiero Puta!, la película muestra a Rammstein en su versión más espectacular, con llamas de hasta 20 metros de altura, efectos pirotécnicos que abarcan todo el estadio e imponentes estructuras de estética industrial, equilibrados con poderosos momentos de conexión entre la banda y sus seguidores.",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             }
           ],
           "FilterDate": "/Date(1793772000000)/",
           "ShowtimeDate": "04 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15608,7 +14361,7 @@ export default {
           ],
           "FilterDate": "/Date(1793944800000)/",
           "ShowtimeDate": "06 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15663,7 +14416,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Movie",
               "Synopsis": "Por primera vez, Stray Kids presenta una transmisión especial en vivo de «Stray Kids World Tour <RUN IT>» desde el Tokyo Dome en cines de todo el mundo.\n\nFiel al título de la gira, <RUN IT> refleja el impulso del grupo por adentrarse en mundos más grandes y subir a escenarios más audaces. Los ocho miembros (Bang Chan, Lee Know, Changbin, Hyunjin, HAN, Felix, Seungmin e I.N) desatan una energía imparable a través de coreografías explosivas y voces potentes, llevando la experiencia en vivo a su punto más álgido. Su presentación empieza con «Hall of Fame», una canción que expresa la ambición de Stray Kids de escribir su propia historia, trazando su crecimiento musical desde el principio hasta donde están ahora. La producción se enriquece aún más con montajes escénicos dinámicos, toques de espectáculos tradicionales coreanos y una iluminación láser espectacular, todo diseñado para que el público —tanto en el estadio como en el cine— se ponga de pie, cante, baile y celebre junto con los artistas.\n\nGrabado en vivo desde Tokio y transmitido a cines de todo el mundo, este evento de proyección en vivo te permite a ti, como parte de STAY, disfrutar de la magnitud, el espectáculo y la energía pura del show en vivo de Stray Kids —todos juntos, en la pantalla grande. ",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             },
             {
@@ -15706,7 +14459,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Música y conciertos",
               "Synopsis": "Rammstein - Live in Mexico City es una nueva película de concierto que captura uno de los momentos más representativos de la gira mundial de estadios que la banda llevó a cabo durante cinco años. Filmada a lo largo de tres noches consecutivas con todas las entradas agotadas en el Foro Sol, con capacidad para 65.000 espectadores, la película está dirigida por el aclamado cineasta Paul Dugdale (nominado en cuatro ocasiones a los premios GRAMMY® y ganador de dos premios Primetime Emmy®). Con 20 canciones que recorren toda la trayectoria de la banda, entre ellas Du Hast, Sonne, Ich Will y el cierre en Ciudad de México con Te Quiero Puta!, la película muestra a Rammstein en su versión más espectacular, con llamas de hasta 20 metros de altura, efectos pirotécnicos que abarcan todo el estadio e imponentes estructuras de estética industrial, equilibrados con poderosos momentos de conexión entre la banda y sus seguidores.",
-              "Status": "",
+              "Status": "Venta Anticipada",
               "Order": 0
             },
             {
@@ -15755,7 +14508,7 @@ export default {
           ],
           "FilterDate": "/Date(1794031200000)/",
           "ShowtimeDate": "07 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15848,7 +14601,7 @@ export default {
           ],
           "FilterDate": "/Date(1794117600000)/",
           "ShowtimeDate": "08 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15892,7 +14645,7 @@ export default {
               "Actor": null,
               "ProjectionType": "Ópera",
               "Synopsis": "La aclamada producción de Richard Eyre de la obra maestra de Bizet vuelve a los cines esta temporada para una reposición especial, protagonizada por la soprano Elīna Garanča en el papel protagonista y el tenor Roberto Alagna como Don José, en la emblemática representación del Met de 2010, una de las favoritas de los aficionados de la serie «The Met: Live in HD». La dirige Yannick Nézet-Séguin.",
-              "Status": "Venta Anticipada",
+              "Status": "",
               "Order": 0
             },
             {
@@ -15941,7 +14694,7 @@ export default {
           ],
           "FilterDate": "/Date(1794636000000)/",
           "ShowtimeDate": "14 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -15991,7 +14744,7 @@ export default {
           ],
           "FilterDate": "/Date(1794722400000)/",
           "ShowtimeDate": "15 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16041,7 +14794,7 @@ export default {
           ],
           "FilterDate": "/Date(1795240800000)/",
           "ShowtimeDate": "21 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16091,7 +14844,7 @@ export default {
           ],
           "FilterDate": "/Date(1795327200000)/",
           "ShowtimeDate": "22 noviembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16141,7 +14894,7 @@ export default {
           ],
           "FilterDate": "/Date(1796104800000)/",
           "ShowtimeDate": "01 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16191,7 +14944,7 @@ export default {
           ],
           "FilterDate": "/Date(1796450400000)/",
           "ShowtimeDate": "05 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16263,7 +15016,7 @@ export default {
           ],
           "FilterDate": "/Date(1797314400000)/",
           "ShowtimeDate": "15 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16444,7 +15197,7 @@ export default {
           ],
           "FilterDate": "/Date(1797487200000)/",
           "ShowtimeDate": "17 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16679,7 +15432,7 @@ export default {
           ],
           "FilterDate": "/Date(1797573600000)/",
           "ShowtimeDate": "18 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -16914,7 +15667,7 @@ export default {
           ],
           "FilterDate": "/Date(1797660000000)/",
           "ShowtimeDate": "19 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17149,7 +15902,7 @@ export default {
           ],
           "FilterDate": "/Date(1797746400000)/",
           "ShowtimeDate": "20 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17221,7 +15974,7 @@ export default {
           ],
           "FilterDate": "/Date(1797832800000)/",
           "ShowtimeDate": "21 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17293,7 +16046,7 @@ export default {
           ],
           "FilterDate": "/Date(1797919200000)/",
           "ShowtimeDate": "22 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17365,7 +16118,7 @@ export default {
           ],
           "FilterDate": "/Date(1798005600000)/",
           "ShowtimeDate": "23 diciembre",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17409,13 +16162,13 @@ export default {
               "Actor": null,
               "ProjectionType": "Teatro",
               "Synopsis": "Simon Boccanegra, de Giuseppe Verdi (1813-1901), llega al Real en una coproducción con las Óperas de Tokio y Helsinki, con una alabada puesta en escena de Pierre Audi, que falleció repentinamente después del estreno de la producción en Tokio. La dramaturgia enfatiza la profunda soledad de Simon Boccanegra, que vive en un entorno explosivo de angustiosa violencia, temor y desconfianza, representado por la escenografía simbólica y muy potente del gran escultor Anish Kapoor. Nicola Luisotti, director honorario del Teatro Real, estará al frente del Coro y Orquesta Titulares del Teatro Real y de grandísimos intérpretes verdianos como Ludovic Tézier, Hrachuhí Bassénz, Francesco Meli y Gianluca Buratto, entre otros.",
-              "Status": "Venta Anticipada",
+              "Status": "",
               "Order": 0
             }
           ],
           "FilterDate": "/Date(1799388000000)/",
           "ShowtimeDate": "08 enero",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17465,7 +16218,7 @@ export default {
           ],
           "FilterDate": "/Date(1800684000000)/",
           "ShowtimeDate": "23 enero",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17515,7 +16268,7 @@ export default {
           ],
           "FilterDate": "/Date(1805522400000)/",
           "ShowtimeDate": "20 marzo",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17565,7 +16318,7 @@ export default {
           ],
           "FilterDate": "/Date(1805781600000)/",
           "ShowtimeDate": "23 marzo",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17615,7 +16368,7 @@ export default {
           ],
           "FilterDate": "/Date(1806732000000)/",
           "ShowtimeDate": "03 abril",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17659,13 +16412,13 @@ export default {
               "Actor": null,
               "ProjectionType": "Teatro",
               "Synopsis": "Norma, de Vincenzo Bellini, con dirección de escena de Justin Way, retrata a la protagonista como la soprano que interpreta a la sacerdotisa, en una constante catarsis en la que se entrelazan el drama de la cantante y el de su personaje durante el Risorgimento italiano. La dirección musical será de Francesco Lanzillotta, que triunfó recientemente con su versión de I masnadieri, de Verdi¬ y bajo su dirección estarán el Coro y Orquesta Titulares del Teatro Real, junto a un reparto estelar, en que destacan Lidia Fridman, Javier Camarena, Aigul Akhmetshina y Riccardo Fassi, en los principales papeles.",
-              "Status": "Venta Anticipada",
+              "Status": "",
               "Order": 0
             }
           ],
           "FilterDate": "/Date(1808370000000)/",
           "ShowtimeDate": "22 abril",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17715,7 +16468,7 @@ export default {
           ],
           "FilterDate": "/Date(1808542800000)/",
           "ShowtimeDate": "24 abril",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17765,7 +16518,7 @@ export default {
           ],
           "FilterDate": "/Date(1808974800000)/",
           "ShowtimeDate": "29 abril",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17815,7 +16568,7 @@ export default {
           ],
           "FilterDate": "/Date(1809752400000)/",
           "ShowtimeDate": "08 mayo",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17865,7 +16618,7 @@ export default {
           ],
           "FilterDate": "/Date(1811221200000)/",
           "ShowtimeDate": "25 mayo",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17909,13 +16662,13 @@ export default {
               "Actor": null,
               "ProjectionType": "Teatro",
               "Synopsis": "Tannhäuser, de Richard Wagner (1813-18 83), vuelve al Real en una nueva y espectacular coproducción con la Ópera de Lyon con dirección de escena de David Hermann, que evoca el mundo de la ciencia ficción con innumerables referencias cinematográficas desde la clásica Metrópolis a las sagas Star Wars y Mad Max, concediendo una gran espectacularidad al mundo mitológico wagneriano. El director musical del Real, Gustavo Gimeno, estará al frente de la Orquesta y Coro Titulares del Teatro Real y de un fantástico reparto verdiano, con Clay Hilley, Malin Byström, Ludovic Tézier, Ausrine Stundyte, Georg Zeppenfeld y Cassandre Berthon.",
-              "Status": "Venta Anticipada",
+              "Status": "",
               "Order": 0
             }
           ],
           "FilterDate": "/Date(1811998800000)/",
           "ShowtimeDate": "03 junio",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         },
         {
           "Movies": [
@@ -17965,7 +16718,7 @@ export default {
           ],
           "FilterDate": "/Date(1812171600000)/",
           "ShowtimeDate": "05 junio",
-          "_recogido": "2026-10-21T16:09:30.438Z"
+          "_recogido": "2026-10-22T05:13:20.570Z"
         }
       ],
       "Id": 53,
