@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-23T14:02:56.237Z",
+  "generatedAt": "2026-10-23T16:08:43.887Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -91,7 +91,7 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-23T17:55:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -117,15 +117,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24236",
-                      "Time": "17:10",
-                      "TimeFilter": "23/10/2026 17:10:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T17:10:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24237",
                       "Time": "19:50",
@@ -168,15 +159,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24250",
-                      "Time": "17:00",
-                      "TimeFilter": "23/10/2026 17:00:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T17:00:00",
-                      "Availability": "#FFBE06"
-                    },
                     {
                       "ShowtimeId": "24245",
                       "Time": "18:45",
@@ -244,39 +226,6 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-23T21:45:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24242",
-                      "Time": "17:05",
-                      "TimeFilter": "23/10/2026 17:05:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T17:05:00",
                       "Availability": "#FFBE06"
                     }
                   ]
@@ -434,7 +383,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-24",
@@ -679,7 +628,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T19:35:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24266",
@@ -944,7 +893,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-25",
@@ -1421,7 +1370,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-26",
@@ -1838,7 +1787,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-27",
@@ -1873,21 +1822,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "24316",
-                      "Time": "19:45",
-                      "TimeFilter": "27/10/2026 19:45:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T19:45:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24315",
                       "Time": "22:00",
                       "TimeFilter": "27/10/2026 22:00:00",
                       "Screen": 6,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24316",
+                      "Time": "19:45",
+                      "TimeFilter": "27/10/2026 19:45:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-10-27T19:45:00",
                       "Availability": ""
                     }
                   ]
@@ -1957,21 +1913,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "24319",
-                      "Time": "19:40",
-                      "TimeFilter": "27/10/2026 19:40:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T19:40:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24322",
                       "Time": "22:20",
                       "TimeFilter": "27/10/2026 22:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T22:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24319",
+                      "Time": "19:40",
+                      "TimeFilter": "27/10/2026 19:40:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-10-27T19:40:00",
                       "Availability": ""
                     }
                   ]
@@ -2255,7 +2218,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-28",
@@ -2672,7 +2635,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-29",
@@ -3089,7 +3052,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-30",
@@ -3128,7 +3091,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-31",
@@ -3242,7 +3205,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-01",
@@ -3314,7 +3277,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-02",
@@ -3353,7 +3316,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-03",
@@ -3375,7 +3338,7 @@ export default {
               "Formats": [
                 {
                   "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -3392,7 +3355,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3414,7 +3377,7 @@ export default {
               "Formats": [
                 {
                   "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -3431,7 +3394,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3453,7 +3416,7 @@ export default {
               "Formats": [
                 {
                   "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -3512,7 +3475,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3567,7 +3530,7 @@ export default {
               "Formats": [
                 {
                   "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -3584,7 +3547,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-14",
@@ -3623,7 +3586,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-15",
@@ -3662,7 +3625,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3701,7 +3664,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-22",
@@ -3740,7 +3703,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-15",
@@ -3773,7 +3736,14 @@ export default {
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-12-15T19:00:00",
                       "Availability": "#FFBE06"
-                    },
+                    }
+                  ]
+                },
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
                     {
                       "ShowtimeId": "23417",
                       "Time": "20:30",
@@ -3788,7 +3758,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-17",
@@ -3821,15 +3791,6 @@ export default {
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-12-17T16:15:00",
                       "Availability": "#FF804A"
-                    },
-                    {
-                      "ShowtimeId": "24015",
-                      "Time": "17:15",
-                      "TimeFilter": "17/12/2026 17:15:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-12-17T17:15:00",
-                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24013",
@@ -3877,11 +3838,27 @@ export default {
                       "Availability": "#FFBE06"
                     }
                   ]
+                },
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24015",
+                      "Time": "17:15",
+                      "TimeFilter": "17/12/2026 17:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-12-17T17:15:00",
+                      "Availability": "#FFBE06"
+                    }
+                  ]
                 }
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-18",
@@ -4007,7 +3984,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-19",
@@ -4133,7 +4110,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-20",
@@ -4259,7 +4236,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-21",
@@ -4316,7 +4293,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-22",
@@ -4373,7 +4350,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-23",
@@ -4430,7 +4407,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         }
       ],
       "Id": 74,
@@ -4503,39 +4480,6 @@ export default {
               ]
             },
             {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38002",
-                      "Time": "17:50",
-                      "TimeFilter": "23/10/2026 17:50:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "sentido-y-sensibilidad",
               "Title": "Sentido y sensibilidad",
               "OriginalTitle": "Sense and Sensibility",
@@ -4555,15 +4499,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38003",
-                      "Time": "17:00",
-                      "TimeFilter": "23/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:00:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38004",
                       "Time": "19:40",
@@ -4607,15 +4542,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38011",
-                      "Time": "17:10",
-                      "TimeFilter": "23/10/2026 17:10:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38010",
                       "Time": "20:00",
                       "TimeFilter": "23/10/2026 20:00:00",
@@ -4648,15 +4574,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "37972",
-                      "Time": "17:35",
-                      "TimeFilter": "23/10/2026 17:35:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:35:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "37981",
                       "Time": "18:40",
@@ -4709,15 +4626,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38014",
-                      "Time": "17:25",
-                      "TimeFilter": "23/10/2026 17:25:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:25:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38013",
                       "Time": "19:35",
                       "TimeFilter": "23/10/2026 19:35:00",
@@ -4750,15 +4658,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38007",
-                      "Time": "17:20",
-                      "TimeFilter": "23/10/2026 17:20:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:20:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38008",
                       "Time": "19:45",
@@ -4817,39 +4716,6 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-23T22:10:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37980",
-                      "Time": "17:30",
-                      "TimeFilter": "23/10/2026 17:30:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:30:00",
                       "Availability": ""
                     }
                   ]
@@ -4918,15 +4784,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "37982",
-                      "Time": "17:15",
-                      "TimeFilter": "23/10/2026 17:15:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:15:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "37990",
                       "Time": "19:15",
@@ -5080,42 +4937,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37988",
-                      "Time": "17:05",
-                      "TimeFilter": "23/10/2026 17:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T17:05:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-24",
@@ -5925,7 +5749,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-25",
@@ -6696,7 +6520,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-26",
@@ -7389,7 +7213,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-27",
@@ -7424,21 +7248,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "38124",
-                      "Time": "20:30",
-                      "TimeFilter": "27/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T20:30:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38134",
                       "Time": "22:45",
                       "TimeFilter": "27/10/2026 22:45:00",
                       "Screen": 2,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-27T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38124",
+                      "Time": "20:30",
+                      "TimeFilter": "27/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-27T20:30:00",
                       "Availability": ""
                     }
                   ]
@@ -8104,7 +7935,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-28",
@@ -8797,7 +8628,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-29",
@@ -9490,7 +9321,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-30",
@@ -9595,7 +9426,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-10-31",
@@ -9742,7 +9573,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-01",
@@ -9814,7 +9645,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-02",
@@ -9853,7 +9684,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-03",
@@ -9875,7 +9706,7 @@ export default {
               "Formats": [
                 {
                   "Name": "2D",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -9892,7 +9723,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-04",
@@ -9914,7 +9745,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -9931,7 +9762,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-06",
@@ -9953,7 +9784,7 @@ export default {
               "Formats": [
                 {
                   "Name": "2D",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -9970,7 +9801,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-07",
@@ -9992,7 +9823,7 @@ export default {
               "Formats": [
                 {
                   "Name": "2D",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -10025,7 +9856,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -10084,7 +9915,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-08",
@@ -10139,7 +9970,7 @@ export default {
               "Formats": [
                 {
                   "Name": "2D",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -10156,7 +9987,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-14",
@@ -10211,7 +10042,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -10228,7 +10059,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-15",
@@ -10267,7 +10098,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-21",
@@ -10306,7 +10137,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-11-22",
@@ -10345,7 +10176,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-01",
@@ -10384,7 +10215,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-05",
@@ -10406,7 +10237,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -10423,7 +10254,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-15",
@@ -10456,7 +10287,14 @@ export default {
                       "VistaCinemaId": "803",
                       "Datetime": "2026-12-15T19:00:00",
                       "Availability": ""
-                    },
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
                     {
                       "ShowtimeId": "36609",
                       "Time": "20:30",
@@ -10471,7 +10309,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-17",
@@ -10497,15 +10335,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "37646",
-                      "Time": "16:45",
-                      "TimeFilter": "17/12/2026 16:45:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-12-17T16:45:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "37644",
                       "Time": "17:15",
                       "TimeFilter": "17/12/2026 17:15:00",
@@ -10524,15 +10353,6 @@ export default {
                       "Availability": "#FFBE06"
                     },
                     {
-                      "ShowtimeId": "37647",
-                      "Time": "20:00",
-                      "TimeFilter": "17/12/2026 20:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-12-17T20:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "37645",
                       "Time": "20:30",
                       "TimeFilter": "17/12/2026 20:30:00",
@@ -10549,6 +10369,31 @@ export default {
                       "VistaCinemaId": "803",
                       "Datetime": "2026-12-17T21:45:00",
                       "Availability": "#FFBE06"
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "37646",
+                      "Time": "16:45",
+                      "TimeFilter": "17/12/2026 16:45:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-12-17T16:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "37647",
+                      "Time": "20:00",
+                      "TimeFilter": "17/12/2026 20:00:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-12-17T20:00:00",
+                      "Availability": ""
                     }
                   ]
                 }
@@ -10606,7 +10451,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-18",
@@ -10692,21 +10537,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "37654",
-                      "Time": "20:00",
-                      "TimeFilter": "18/12/2026 20:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-12-18T20:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "37651",
                       "Time": "20:30",
                       "TimeFilter": "18/12/2026 20:30:00",
                       "Screen": 4,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-12-18T20:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "37654",
+                      "Time": "20:00",
+                      "TimeFilter": "18/12/2026 20:00:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-12-18T20:00:00",
                       "Availability": ""
                     }
                   ]
@@ -10783,7 +10635,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-19",
@@ -10869,21 +10721,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "37655",
-                      "Time": "20:00",
-                      "TimeFilter": "19/12/2026 20:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-12-19T20:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "37658",
                       "Time": "20:30",
                       "TimeFilter": "19/12/2026 20:30:00",
                       "Screen": 4,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-12-19T20:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "37655",
+                      "Time": "20:00",
+                      "TimeFilter": "19/12/2026 20:00:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-12-19T20:00:00",
                       "Availability": ""
                     }
                   ]
@@ -10960,7 +10819,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-20",
@@ -11046,21 +10905,28 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "37668",
-                      "Time": "20:00",
-                      "TimeFilter": "20/12/2026 20:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-12-20T20:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "37665",
                       "Time": "20:30",
                       "TimeFilter": "20/12/2026 20:30:00",
                       "Screen": 4,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-12-20T20:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "37668",
+                      "Time": "20:00",
+                      "TimeFilter": "20/12/2026 20:00:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-12-20T20:00:00",
                       "Availability": ""
                     }
                   ]
@@ -11137,7 +11003,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-21",
@@ -11194,7 +11060,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-22",
@@ -11251,7 +11117,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2026-12-23",
@@ -11308,7 +11174,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-01-08",
@@ -11330,7 +11196,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11347,7 +11213,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-01-23",
@@ -11369,7 +11235,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11386,7 +11252,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-03-20",
@@ -11408,7 +11274,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11425,7 +11291,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-03-23",
@@ -11464,7 +11330,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-04-03",
@@ -11486,7 +11352,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11503,7 +11369,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-04-22",
@@ -11525,7 +11391,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11542,7 +11408,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-04-24",
@@ -11564,7 +11430,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11581,7 +11447,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-04-29",
@@ -11620,7 +11486,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-05-08",
@@ -11642,7 +11508,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11659,7 +11525,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-05-25",
@@ -11698,7 +11564,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-06-03",
@@ -11720,7 +11586,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11737,7 +11603,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         },
         {
           "Dia": "2027-06-05",
@@ -11759,7 +11625,7 @@ export default {
               "Formats": [
                 {
                   "Name": "CA",
-                  "Language": "ESPAÑOL",
+                  "Language": "VOSE",
                   "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
@@ -11776,7 +11642,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T14:02:56.500Z"
+          "_recogido": "2026-10-23T16:08:44.248Z"
         }
       ],
       "Id": 53,
