@@ -54,7 +54,7 @@ const f = (a, b) => nombreFormato(a && { name: a }, b && { name: b });
 es(f('2D', 'PREM') === 'PREMIUM' && f('3D', 'PREM') === '3D PREMIUM' && f('2D', null) === '2D' && f('2D', '2D') === '2D'
   && f('3D', null) === '3D' && f('2D', 'DolbyAtmos') === 'DOLBY ATMOS' && f(null, null) === '2D' && f('2D', '4DE') === '4DE',
   'formato como en la web antigua: "PREMIUM", "3D PREMIUM", "2D"…', [f('2D', 'PREM'), f('3D', 'PREM'), f('2D', 'DolbyAtmos')].join(' / '));
-es(esVOSE('en', 'Inglés subtitulado') && esVOSE('es', 'VOSE') && esVOSE('ja', '') && esVOSE('', 'Versión original')
+es(esVOSE('SUB ESP', 'SUB ESP') && esVOSE('COR', 'COR') && esVOSE('en', 'Inglés subtitulado') && esVOSE('es', 'VOSE') && esVOSE('ja', '') && esVOSE('', 'Versión original')
   && !esVOSE('es', 'Español') && !esVOSE('', 'Castellano') && !esVOSE('ca', 'Català') && !esVOSE('', ''),
   'VOSE: por el texto o por un idioma que no es español; el doblaje, no');
 

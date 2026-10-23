@@ -97,26 +97,14 @@ cualquier trabajo visual.
   personales.
 
 ## 3. Pendiente (por prioridad)
-0. **Comprobar el recolector nuevo de Yelmo en el mundo real** (escrito el
-   23-10-2026 sin haber visto nunca una respuesta de horarios: todas daban
-   401). `data/orden.sh` (orden 10) lo prueba con `--solo-probar` en la vuelta
-   siguiente al push; mirar `orden-salida.txt` en estado-movil:
-   - que las cabeceras copiadas basten (si da 401 con cabeceras, es que
-     caducan o van firmadas: habría que dejar que la web haga ella la
-     petición de horarios, p. ej. navegando a la ficha de cada película);
-   - la "muestra del API": si `date`/`datetime` vienen como se supuso (con
-     zona o sin ella), qué es `screen`, qué dicen `language`/`displayLanguage`
-     (la detección de VOSE) y los nombres de formato/experiencia (hoy se
-     traducen `PREM` → "PREMIUM"; los demás van tal cual);
-   - si el API filtra `Movies` por cine y si `Billboard` admite los dos cines
-     separados por coma (el recolector se adapta solo, pero lo dice);
-   - el tiempo total (máximo 200 s; tarea.sh corta a los 240);
-   - que el enlace de compra de ejemplo abra la sesión. Si no, buscar en la
-     web nueva la ruta de compra (su código tiene `asientos`, `resumen`,
-     `BillboardOrderLinking`) y cambiar la plantilla desde el panel.
-   Después, borrar `data/orden.sh` o dejar la siguiente orden, copiar una
-   respuesta real de Billboard a `scripts/datos-prueba/yelmo-api-real.json`
-   y ajustar `scripts/test-recolector-yelmo.mjs` a ella.
+0. **Recolector nuevo de Yelmo: COMPROBADO en el móvil el 23-10-2026** (recogió
+   y publicó a las 16:01: Bahía Sur 27 días/26 películas/204 sesiones, Área Sur
+   23/31/292). Cabeceras que copia de la web: accept, content-type, country-id,
+   language, x-apikey. Corregido después: "SUB ESP" ahora es VOSE; si el API
+   corta ("Failed to fetch" tras ~57 consultas seguidas, pasó con 22 de Área
+   Sur: óperas, ballets, conciertos), se sigue más despacio y se reintentan al
+   final. Pendiente: confirmar en el turno siguiente que ya no se salta
+   ninguna; averiguar qué es el formato "CA" de Yelmo (se muestra tal cual).
 1. **Diseños intercambiables desde el panel** — pedido por Jaime el 18-10.
    Plan completo en `docs/panel/DISENOS.md` (v1 recuperada de `diseno-v1`,
    cada diseño en su ruta, `/` reescrito al activo, previsualizar solo para

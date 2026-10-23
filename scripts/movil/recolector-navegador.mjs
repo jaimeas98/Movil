@@ -301,7 +301,8 @@ export function nombreFormato(format, experience) {
 const ESPANOL = /^(es|esp|spa|cas|castellano|espa[nñ]ol|doblad[ao])$/i;
 export function esVOSE(language, displayLanguage) {
   const texto = `${limpio(displayLanguage)} ${limpio(language)}`;
-  if (/VOSE|\bVOS\b|\bV\.?O\.?\b|ORIGINAL|SUBTITUL|INGL[EÉ]S|ENGLISH/i.test(texto)) return true;
+  // "SUB ESP" (así lo pone Yelmo desde el 23-10-2026) es subtitulada: VOSE.
+  if (/VOSE|\bVOS\b|\bV\.?O\.?\b|ORIGINAL|SUBTITUL|\bSUB\b|INGL[EÉ]S|ENGLISH/i.test(texto)) return true;
   const l = limpio(language);
   return /^[a-z]{2,3}$/i.test(l) && !ESPANOL.test(l) && !/^(ca|cat)$/i.test(l);
 }
@@ -550,8 +551,11 @@ async function recoger() {
     // Una petición al API, sin reintentos y siempre después de una pausa:
     // una detrás de otra, a ritmo de persona.
     let peticiones = 0;
+    // Si el API corta ("Failed to fetch" a partir de ~57 seguidas, 23-10-2026),
+    // se sigue más despacio y lo cortado se reintenta al final, una vez.
+    let lenta = false;
     const pedir = async (consulta, variables, operationName, que) => {
-      if (peticiones++) await dormir(pausa(300, 600));
+      if (peticiones++) await dormir(lenta ? pausa(900, 1500) : pausa(300, 600));
       if (Date.now() > limite) {
         throw conEstado(-1, `No ha dado tiempo: la recogida pasaba de ${PRESUPUESTO_MS / 1000} s (${peticiones - 1} peticiones). No se publica una a medias.`);
       }
@@ -647,6 +651,7 @@ async function recoger() {
 
     const horarios = [];
     const fallos = [];
+    const cortadas = [];
     const consultar = (t) => pedir(CONSULTA_HORARIOS,
       { countryId: 'ES', movieId: t.movieId, cinemas: t.cinemas, timezone: 'Europe/Madrid' }, 'Billboard', `los horarios de «${titulo(t.movieId)}»`)
       .then((datos) => {
@@ -676,8 +681,28 @@ async function recoger() {
             if (e2.estado === 401 || e2.estado === 403 || e2.estado === -1) throw explicar(e2);
           }
         }
+        if (e.estado === 0) { lenta = true; cortadas.push(t); continue; }
         fallos.push(`«${titulo(t.movieId)}»: ${e.message}`);
         log(`⚠️  sin horarios de «${titulo(t.movieId)}» (${t.cinemas}): ${e.message} — se salta`);
+      }
+    }
+    // Lo que cortó el API: un respiro y otra vez, despacio, mientras dé tiempo
+    // (con margen: pasarse del presupuesto tiraría la recogida entera).
+    if (cortadas.length) {
+      log(`el API ha cortado ${cortadas.length} consultas; respiro y se reintentan despacio`);
+      await dormir(PAUSA_FIJA ?? 15000);
+      for (const t of cortadas) {
+        if (Date.now() > limite - 20000) {
+          fallos.push(`«${titulo(t.movieId)}»: sin tiempo para reintentarla`);
+          log(`⚠️  sin horarios de «${titulo(t.movieId)}» (${t.cinemas}): sin tiempo para reintentarla — se salta`);
+          continue;
+        }
+        try { horarios.push({ movieId: t.movieId, billboard: await consultar(t) }); }
+        catch (e) {
+          if (e.estado === 401 || e.estado === 403 || e.estado === -1) throw explicar(e);
+          fallos.push(`«${titulo(t.movieId)}»: ${e.message}`);
+          log(`⚠️  sin horarios de «${titulo(t.movieId)}» (${t.cinemas}): ${e.message} — se salta`);
+        }
       }
     }
     if (!horarios.length) throw new Error(`No ha funcionado ninguna consulta de horarios (${fallos.length}). La primera: ${fallos[0] ?? '—'}`);
