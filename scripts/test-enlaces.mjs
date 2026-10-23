@@ -105,6 +105,9 @@ ok(!enlaceDelCine('https://bahia.artesiete.es@evil.example/x', 'arte-siete-puert
   && !enlaceDelCine('https://cine.entradas.com/x', 'arte-siete-puerto'), 'H1: enlaceDelCine solo deja https a un dominio del propio cine');
 ok(HOSTS_POR_CINE['cinesur-bahia-cadiz'].includes('entradas.com') && hostDelCine('cine.entradas.com', 'cinesur-bahia-cadiz')
   && hostDelCine('bahia.artesiete.es', 'arte-siete-puerto') && hostDelCine('compra.yelmocines.es', 'yelmo-jerez'), 'los dominios de hoy (de los enlaces reales) están en la lista');
+ok(enlaceDelCine('https://cineyelmo.com/es/compra?sesion=1', 'yelmo-bahia-sur') && hostDelCine('cineyelmo.com', 'yelmo-jerez')
+  && !hostDelCine('cineyelmo.com', 'arte-siete-puerto') && !hostDelCine('cineyelmo.com.evil.example', 'yelmo-jerez'),
+  'la web nueva de Yelmo (cineyelmo.com) vale para Yelmo, y solo para Yelmo');
 
 // Aplicar a una cartelera: manda la plantilla; si falta un campo, la de siempre.
 const plantillaNueva = 'https://bahia.artesiete.es/compra/sesion/{pase}?pelicula={titulo|slug}&e={espectaculo}';

@@ -195,34 +195,17 @@ case "\$1 \$2" in
 esac
 EOF
 
-# puppeteer-core simulado: el recolector real se ejecuta entero; apunta con qué
-# identidad se presenta Chromium.
+# puppeteer-core y cineyelmo.com simulados (los mismos que usa probar.sh): el
+# recolector real se ejecuta entero; además apunta con qué identidad se
+# presenta Chromium (ENSAYO_UA).
 P="$S/puppeteer-simulado"; mkdir -p "$P"
 echo '{"name":"puppeteer-core","version":"0.0.0-ensayo","type":"module","exports":"./index.js"}' > "$P/package.json"
-cat > "$P/index.js" <<'EOF'
-import { appendFileSync } from 'node:fs';
-const hoy = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid' }).format(new Date());
-const cine = (Key) => ({ Key, VistaId: '1', Dates: [{ Movies: [{ Title: 'Peli ' + Key, RunTime: 100,
-  Formats: [{ Name: '2D', Language: 'Español', Showtimes: [{ Time: '20:00', ShowtimeId: '1', TimeFilter: hoy + ' 22:30:00' }] }] }] }] });
-let chrome = null;
-const pagina = {
-  setUserAgent: async (ua, meta) => { appendFileSync(process.env.ENSAYO_UA, JSON.stringify({ ua, meta, chrome }) + '\n'); },
-  setViewport: async () => {}, setExtraHTTPHeaders: async () => {},
-  evaluateOnNewDocument: async () => {}, title: async () => 'Yelmo Cines',
-  goto: async () => ({ status: () => 200 }),
-  createCDPSession: async () => ({ send: async (m) => {
-    if (m === 'Page.getFrameTree') return { frameTree: { frame: { id: 'f' } } };
-    if (m === 'Page.createIsolatedWorld') return { executionContextId: 1 };
-    return { result: { value: { status: 200, texto: JSON.stringify({ d: { Cinemas: [cine('premium-bahia-sur'), cine('area-sur')] } }) } } };
-  } }),
-};
-export default { launch: async (o) => { chrome = o.executablePath; return { newPage: async () => pagina, version: async () => 'Chrome/155.0.8059.39', close: async () => {} }; } };
-EOF
+cp "$RAIZ/scripts/movil/simulacion-yelmo.mjs" "$P/index.js"
 echo "globalThis.fetch = async () => { throw new Error('sin red en el ensayo'); };" > "$S/sin-red.mjs"
 
 printf '\n' > "$S/teclado"   # el Intro que pide gh
 export HOME="$H" PATH="$S/usr/bin:$S/bin:$PATH" ENSAYO_REPO="$S/github.git" ENSAYO_TTY="$S/teclado" \
-  ENSAYO_UA="$REG/ua" NODE_OPTIONS="--import $S/sin-red.mjs" \
+  ENSAYO_UA="$REG/ua" NODE_OPTIONS="--import $S/sin-red.mjs" RECOLECTOR_PAUSA_MS=0 \
   RECOLECTOR_MINUTO_S=1 RECOLECTOR_VUELTA_S=3600   # el bucle, deprisa (ver bucle.sh)
 unset GIT_CONFIG_GLOBAL RECOLECTOR_SIN_BUCLE AHORA_PRUEBA
 
@@ -294,7 +277,7 @@ sleep 1
   && ok "el primer informe ya es del móvil nuevo (Pixel 7, Android 14)" || mal "informe: modelo '$(campo .dispositivo.modelo)'"
 E_ historial.jsonl | grep -q '"recogida y publicada"' && E_ recogidas.jsonl | tail -n1 | grep -q '"turno de las' \
   && ok "la primera vuelta RECOGE (sin esperas ni límites heredados)" || mal "primera vuelta sin recogida: '$(campo .resultado)'"
-G show "$RAMA:data/yelmo.js" | grep -q 'Peli premium-bahia-sur' && G log -1 --format=%s "$RAMA" | grep -q '(móvil)' \
+G show "$RAMA:data/yelmo.js" | grep -q 'premium-bahia-sur-cadiz' && G show "$RAMA:data/yelmo.js" | grep -q 'Peli uno' && G log -1 --format=%s "$RAMA" | grep -q '(móvil)' \
   && ok "y publica la cartelera de Yelmo en la rama de la web" || mal "yelmo.js sin publicar"
 ua=$(tail -n1 "$REG/ua" 2>/dev/null)
 echo "$ua" | grep -q 'Android 14; Pixel 7)' && echo "$ua" | grep -q '"model":"Pixel 7"' && echo "$ua" | grep -q '"platformVersion":"14.0.0"' \

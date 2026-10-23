@@ -38,6 +38,22 @@ rama de producción (commits "Cartelera de Yelmo — … (móvil)": **haz siempr
 - Bucle propio con wake lock (`scripts/movil/bucle.sh`); cada minuto mira
   órdenes del panel en la rama **`ordenes-movil`** (lista cerrada en
   `scripts/movil/acciones.sh`, con límites de repetición en servidor y móvil).
+- **Yelmo cambió de web el 23-10-2026**: www.yelmocines.es redirige a
+  **https://cineyelmo.com/es** (la web de Cinépolis, Next.js) y los datos
+  salen de un API GraphQL en **api-g.cinepolis.com**, también tras Cloudflare
+  y que además pide unas cabeceras propias de la web (sin ellas, 401). El
+  recolector (`scripts/movil/recolector-navegador.mjs`) abre la portada, copia
+  las cabeceras de las peticiones de la propia web (al registro solo van sus
+  nombres), toma la cartelera (`Movies`) y pide los horarios (`Billboard`)
+  película a película con pausas de persona, y lo convierte al formato
+  antiguo que lee `lib/cinemas/yelmo.js` (la web no cambió). Cines en el API:
+  `premium-bahia-sur-cadiz` (Vista 1340) y `area-sur-cadiz` (Vista 803). Los
+  enlaces de compra siguen siendo `compra.yelmocines.es/?cinemaVistaId=…&showtimeVistaId=<sessionId>`;
+  si esa taquilla muere, se cambian desde el panel (Enlaces de compra; ya
+  admite cineyelmo.com). Simulación del sitio nuevo:
+  `scripts/movil/simulacion-yelmo.mjs` (la usan probar.sh y el ensayo);
+  respuestas reales en `scripts/datos-prueba/yelmo-api-real.json`;
+  exploraciones en la rama estado-movil (`exploracion-yelmo{,2,3}.json`).
 - Todo lo que se sube a `scripts/movil/` lo ejecuta el móvil en su vuelta
   siguiente. Antes de subir: `bash scripts/movil/probar.sh` (y
   `ensayo-recuperacion.sh` si tocas el instalador).
@@ -81,6 +97,26 @@ cualquier trabajo visual.
   personales.
 
 ## 3. Pendiente (por prioridad)
+0. **Comprobar el recolector nuevo de Yelmo en el mundo real** (escrito el
+   23-10-2026 sin haber visto nunca una respuesta de horarios: todas daban
+   401). `data/orden.sh` (orden 10) lo prueba con `--solo-probar` en la vuelta
+   siguiente al push; mirar `orden-salida.txt` en estado-movil:
+   - que las cabeceras copiadas basten (si da 401 con cabeceras, es que
+     caducan o van firmadas: habría que dejar que la web haga ella la
+     petición de horarios, p. ej. navegando a la ficha de cada película);
+   - la "muestra del API": si `date`/`datetime` vienen como se supuso (con
+     zona o sin ella), qué es `screen`, qué dicen `language`/`displayLanguage`
+     (la detección de VOSE) y los nombres de formato/experiencia (hoy se
+     traducen `PREM` → "PREMIUM"; los demás van tal cual);
+   - si el API filtra `Movies` por cine y si `Billboard` admite los dos cines
+     separados por coma (el recolector se adapta solo, pero lo dice);
+   - el tiempo total (máximo 200 s; tarea.sh corta a los 240);
+   - que el enlace de compra de ejemplo abra la sesión. Si no, buscar en la
+     web nueva la ruta de compra (su código tiene `asientos`, `resumen`,
+     `BillboardOrderLinking`) y cambiar la plantilla desde el panel.
+   Después, borrar `data/orden.sh` o dejar la siguiente orden, copiar una
+   respuesta real de Billboard a `scripts/datos-prueba/yelmo-api-real.json`
+   y ajustar `scripts/test-recolector-yelmo.mjs` a ella.
 1. **Diseños intercambiables desde el panel** — pedido por Jaime el 18-10.
    Plan completo en `docs/panel/DISENOS.md` (v1 recuperada de `diseno-v1`,
    cada diseño en su ruta, `/` reescrito al activo, previsualizar solo para

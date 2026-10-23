@@ -1,0 +1,593 @@
+{
+ "_leeme": "Respuestas REALES del API de cineyelmo.com (api-g.cinepolis.com), recogidas por el móvil el 23-10-2026 (rama estado-movil, exploracion-yelmo2.json). Recortadas a unas pocas películas.",
+ "moviesNowPlaying": {
+  "variables": {
+   "category": "now-playing",
+   "cinemas": "",
+   "limit": 100,
+   "countryId": "ES",
+   "isAbsoluteMediaPath": true
+  },
+  "nodos": [
+   {
+    "id": "clayface",
+    "type": "",
+    "countryId": "ES",
+    "name": "Clayface",
+    "originalName": "Clayface",
+    "distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+    "rating": "M-16",
+    "ratingDescription": "No recomendada para menores de 16 años.",
+    "position": "1",
+    "genre": [
+     "TERROR",
+     "THRILLER",
+     "SUSPENSO"
+    ],
+    "synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+    "length": "108 min",
+    "availableForSale": true,
+    "alerts": [],
+    "releaseDate": "2026-10-22T06:00",
+    "languages": [
+     "es",
+     "en",
+     "ca"
+    ],
+    "formats": [
+     "2D"
+    ],
+    "tags": [],
+    "media": [
+     {
+      "resource": "",
+      "type": "image",
+      "code": "poster",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/107x160_copia_2__5.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/80x80_44.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "movie_card",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/900x900_22.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/900x900_22.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/900x900_22.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_movie_detail",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x900_copia_2__9.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x900_copia_2__9.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x900_copia_2__9.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_purchase_flow",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x502_36.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x502_36.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/1440x502_36.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "carousel",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_A_767x496.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_A_767x496.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_A_767x496.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "carousel",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_767x496.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_767x496.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/Clayface/Es/still_767x496.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     }
+    ],
+    "cities": [],
+    "cinemas": [],
+    "categories": [
+     "now-playing"
+    ],
+    "experiences": [
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/Master_Data/Experiences/2D/Es/2d_1__2.svg",
+      "name": "2D",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/DolbyAtmos/Es/ATMOS.svg",
+      "name": "DolbyAtmos",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/4DE/Es/4DE.svg",
+      "name": "4DE",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/LUX/Es/LUX.svg",
+      "name": "LUX",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/PREM/Es/PREM.svg",
+      "name": "PREM",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/XE/Es/XE.svg",
+      "name": "XE",
+      "__typename": "ResourceStatic"
+     }
+    ],
+    "__typename": "Movie"
+   },
+   {
+    "id": "superthings-la-pelicula",
+    "type": "",
+    "countryId": "ES",
+    "name": "Superthings: La película",
+    "originalName": "Superthings: La película",
+    "distributor": "FILMAX PICTURES S.L.",
+    "rating": "TP",
+    "ratingDescription": "Todos los públicos.",
+    "position": "2",
+    "genre": [
+     "ANIMACIÓN",
+     "AVENTURA"
+    ],
+    "synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+    "length": "93 min",
+    "availableForSale": true,
+    "alerts": [],
+    "releaseDate": "2026-10-23T06:00",
+    "languages": [
+     "es",
+     "en",
+     "ca"
+    ],
+    "formats": [
+     "2D"
+    ],
+    "tags": [],
+    "media": [
+     {
+      "resource": "",
+      "type": "image",
+      "code": "poster",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/107x160_57.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/80x80_copia_12.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "movie_card",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/900x900_43.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/900x900_43.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/900x900_43.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_movie_detail",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x900_67.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x900_67.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x900_67.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_purchase_flow",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x502_51.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x502_51.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SuperthingsLaPelicula/Es/1440x502_51.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     }
+    ],
+    "cities": [],
+    "cinemas": [],
+    "categories": [
+     "now-playing"
+    ],
+    "experiences": [
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/Experiences/SJ/Es/SJ.svg",
+      "name": "SJ",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/Master_Data/Experiences/2D/Es/2d_1__2.svg",
+      "name": "2D",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/PREM/Es/PREM.svg",
+      "name": "PREM",
+      "__typename": "ResourceStatic"
+     }
+    ],
+    "__typename": "Movie"
+   },
+   {
+    "id": "sentido-y-sensibilidad",
+    "type": "",
+    "countryId": "ES",
+    "name": "Sentido y sensibilidad",
+    "originalName": "Sense and Sensibility",
+    "distributor": "BETTA PICTURES S. L",
+    "rating": "M-7",
+    "ratingDescription": "No recomendado para menores de 7 años.",
+    "position": "3",
+    "genre": [
+     "DRAMA"
+    ],
+    "synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+    "length": "132 min",
+    "availableForSale": true,
+    "alerts": [],
+    "releaseDate": "2026-10-23T06:00",
+    "languages": [
+     "es",
+     "en",
+     "ca"
+    ],
+    "formats": [
+     "2D"
+    ],
+    "tags": [],
+    "media": [
+     {
+      "resource": "",
+      "type": "image",
+      "code": "poster",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/107x160_copia_7.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/80x80_copia_12.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "movie_card",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/900x900_43.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/900x900_43.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/900x900_43.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_movie_detail",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x900_67.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x900_67.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x900_67.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_purchase_flow",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x502_51.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x502_51.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/SentidoYSensibilidad/Es/1440x502_51.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     }
+    ],
+    "cities": [],
+    "cinemas": [],
+    "categories": [
+     "now-playing"
+    ],
+    "experiences": [
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/Master_Data/Experiences/2D/Es/2d_1__2.svg",
+      "name": "2D",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/LUX/Es/LUX.svg",
+      "name": "LUX",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/PREM/Es/PREM.svg",
+      "name": "PREM",
+      "__typename": "ResourceStatic"
+     }
+    ],
+    "__typename": "Movie"
+   }
+  ]
+ },
+ "moviesComingSoon": {
+  "variables": {
+   "category": "coming-soon",
+   "countryId": "ES",
+   "isAbsoluteMediaPath": true
+  },
+  "nodos": [
+   {
+    "id": "bts-world-tour-arirang-in-buenos-aires-live-viewing",
+    "type": "",
+    "countryId": "ES",
+    "name": "BTS WORLD TOUR ARIRANG: BUENOS AIRES LIVE VIEWING",
+    "originalName": "BTS WORLD TOUR 'ARIRANG' IN BUENOS AIRES LIVE VIEWING",
+    "distributor": "Trafalgar Releasing",
+    "rating": "PDC",
+    "ratingDescription": "Pendiente de clasificación de edades.",
+    "position": "11",
+    "genre": [
+     "CONCIERTO",
+     "CONTENIDO ALTERNATIVO",
+     "MÚSICA"
+    ],
+    "synopsis": "La primera transmisión en vivo de BTS desde América del Sur. ¡Vive la experiencia BTS WORLD TOUR 'ARIRANG' en cines de todo el mundo, transmitida desde Buenos Aires, Argentina! En esta primera vez que la banda se presenta en Argentina, con este concierto monumental, vivirás la energía explosiva de un estadio repleto directamente en la pantalla grande. Las transmisiones en algunos territorios están programadas en horario diferido para adaptarse a los husos horarios locales.",
+    "length": "195 min",
+    "availableForSale": true,
+    "alerts": [],
+    "releaseDate": "2026-10-25T06:00",
+    "languages": [
+     "es",
+     "en",
+     "ca"
+    ],
+    "formats": [
+     "2D"
+    ],
+    "tags": [
+     {
+      "name": "Preventa",
+      "resource": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Tags/Preventa/Es/VentaAnticipada.png",
+      "__typename": "TagsInfo"
+     },
+     {
+      "name": "+QueCine",
+      "resource": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Tags/Que_Cine/Es/MasQueCine_1.png",
+      "__typename": "TagsInfo"
+     }
+    ],
+    "media": [
+     {
+      "resource": "",
+      "type": "image",
+      "code": "poster",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/720x1022_copia_2__6.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/107x160_copia_2__6.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/80x80_59.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "movie_card",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/900x900_32.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/900x900_32.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/900x900_32.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_movie_detail",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x900_copia_11.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x900_copia_11.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x900_copia_11.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "header_purchase_flow",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x502_44.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x502_44.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/1440x502_44.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "carousel",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_B_767x496.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_B_767x496.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_B_767x496.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "carousel",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_767x496.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_767x496.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_767x496.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     },
+     {
+      "resource": "",
+      "type": "image",
+      "code": "carousel",
+      "sizes": {
+       "large": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_A_767x496.jpg",
+       "medium": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_A_767x496.jpg",
+       "small": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Movies/BTSWorldTourArirangInBuenosAiresLiveViewing/Es/Still_WEB_ARG_A_767x496.jpg",
+       "__typename": "SizeInfo"
+      },
+      "__typename": "MediaInfo"
+     }
+    ],
+    "cities": [],
+    "cinemas": [],
+    "categories": [
+     "pre-sale",
+     "now-playing",
+     "coming-soon"
+    ],
+    "experiences": [
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/Master_Data/Experiences/2D/Es/2d_1__2.svg",
+      "name": "2D",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/CA/Es/CA.svg",
+      "name": "CA",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/LUX/Es/LUX.svg",
+      "name": "LUX",
+      "__typename": "ResourceStatic"
+     },
+     {
+      "icon": "https://pimcore-content.cinepolis.com/assets/España/Tickets/Country_Experiences/PREM/Es/PREM.svg",
+      "name": "PREM",
+      "__typename": "ResourceStatic"
+     }
+    ],
+    "__typename": "Movie"
+   }
+  ]
+ },
+ "ciudadCadiz": {
+  "id": "cadiz",
+  "name": "Cádiz",
+  "regions": [],
+  "settings": {
+   "hasFoodSales": true,
+   "hasPresales": true,
+   "__typename": "CitySettings"
+  },
+  "timezone": "Europe/Madrid",
+  "cinemas": [
+   {
+    "id": "area-sur-cadiz",
+    "regionId": null,
+    "vistaId": "803",
+    "type": "TRADICIONAL",
+    "name": "Área Sur",
+    "cityId": "cadiz",
+    "lat": "36.69109",
+    "lng": "-6.15545",
+    "alias": null,
+    "businessType": "TRADICIONAL",
+    "experiences": [],
+    "settings": {
+     "requireContiguousSeating": false,
+     "__typename": "CinemaSettings"
+    },
+    "__typename": "Cinema"
+   },
+   {
+    "id": "premium-bahia-sur-cadiz",
+    "regionId": null,
+    "vistaId": "1340",
+    "type": "TRADICIONAL",
+    "name": "Premium Bahía Sur",
+    "cityId": "cadiz",
+    "lat": "36.4724",
+    "lng": "-6.208625",
+    "alias": null,
+    "businessType": "TRADICIONAL",
+    "experiences": [],
+    "settings": {
+     "requireContiguousSeating": false,
+     "__typename": "CinemaSettings"
+    },
+    "__typename": "Cinema"
+   },
+   {
+    "id": "premium-puerta-europa-cadiz",
+    "regionId": null,
+    "vistaId": "1098",
+    "type": "TRADICIONAL",
+    "name": "Premium Puerta Europa",
+    "cityId": "cadiz",
+    "lat": "36.13443",
+    "lng": "-5.463502",
+    "alias": null,
+    "businessType": "TRADICIONAL",
+    "experiences": [],
+    "settings": {
+     "requireContiguousSeating": false,
+     "__typename": "CinemaSettings"
+    },
+    "__typename": "Cinema"
+   }
+  ],
+  "__typename": "City"
+ }
+}

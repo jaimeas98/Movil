@@ -27,36 +27,20 @@ echo '#!/bin/sh
 echo "pkg $* (simulado)"; sleep 2' > "$S/bin/pkg"
 chmod +x "$S/bin/"*
 
-# Chromium y puppeteer-core simulados: el recolector real se ejecuta entero,
-# pero lo que "responde Yelmo" lo decide MOCK_YELMO (ok, bloqueo, uno).
+# Chromium, puppeteer-core y cineyelmo.com simulados: el recolector real se
+# ejecuta entero, pero lo que "responde Yelmo" lo decide MOCK_YELMO (ok,
+# bloqueo, uno, sin-cabeceras, api-403, sin-filtro, sin-coma: ver
+# simulacion-yelmo.mjs, que también usa ensayo-recuperacion.sh).
 printf '#!/bin/sh\nexit 0\n' > "$S/bin/chromium-browser"; chmod +x "$S/bin/chromium-browser"
 P="$S/home/navegador/node_modules/puppeteer-core"; mkdir -p "$P"
 echo '{"name":"puppeteer-core","type":"module","exports":"./index.js"}' > "$P/package.json"
-cat > "$P/index.js" <<'EOF'
-import { appendFileSync } from 'node:fs';
-const hoy = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Madrid' }).format(new Date());
-const cine = (Key) => ({ Key, VistaId: '1', Dates: [{ Movies: [{ Title: 'Peli ' + Key, RunTime: 100,
-  Formats: [{ Name: '2D', Language: 'Español', Showtimes: [{ Time: '20:00', ShowtimeId: '1', TimeFilter: hoy + ' 22:30:00' }] }] }] }] });
-const modo = () => process.env.MOCK_YELMO;
-const pagina = {
-  setUserAgent: async () => {}, setViewport: async () => {}, setExtraHTTPHeaders: async () => {},
-  evaluateOnNewDocument: async () => {}, title: async () => 'Yelmo Cines',
-  goto: async () => { appendFileSync(process.env.LLAMADAS, 'x'); return { status: () => (modo() === 'bloqueo' ? 403 : 200) }; },
-  createCDPSession: async () => ({ send: async (m) => {
-    if (m === 'Page.getFrameTree') return { frameTree: { frame: { id: 'f' } } };
-    if (m === 'Page.createIsolatedWorld') return { executionContextId: 1 };
-    const cines = modo() === 'uno' ? [cine('area-sur')] : [cine('premium-bahia-sur'), cine('area-sur')];
-    return { result: { value: { status: 200, texto: JSON.stringify({ d: { Cinemas: cines } }) } } };
-  } }),
-};
-export default { launch: async () => ({ newPage: async () => pagina, version: async () => 'Chrome/155.0.0.0', close: async () => {} }) };
-EOF
+cp "$RAIZ/scripts/movil/simulacion-yelmo.mjs" "$P/index.js"
 
 # mk2 y Arte Siete (la copia de respaldo): sin red en la simulación, fallan
 # rápido; lo que se comprueba aquí es que eso no tumbe nada.
 echo "globalThis.fetch = async () => { throw new Error('sin red en la simulación'); };" > "$S/sin-red.mjs"
 
-export RECOLECTOR_SIN_BUCLE=1 HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas" NODE_OPTIONS="--import $S/sin-red.mjs"
+export RECOLECTOR_SIN_BUCLE=1 RECOLECTOR_PAUSA_MS=0 HOME="$S/home" PATH="$S/bin:$PATH" LLAMADAS="$S/llamadas" NODE_OPTIONS="--import $S/sin-red.mjs"
 : > "$LLAMADAS"
 git config --global user.name sim; git config --global user.email sim@x; git config --global init.defaultBranch main
 
@@ -139,6 +123,50 @@ reloj "$D2 19:05"; MOCK_YELMO=uno vuelta
 [ "$(campo .resultado)" = "recogida y publicada" ] && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q premium-bahia-sur \
   && grep -q "se conserva el de la recogida anterior" "$HOME/.recolector/ciclo.log" \
   && ok "si falta un cine, se conserva el de la recogida anterior" || mal "un cine de menos: '$(campo .resultado)'"
+
+# ── La web nueva (cineyelmo.com, 23-10-2026) ────────────────────────────────
+# Las cabeceras de la web (con su clave) se copian, pero sus VALORES nunca
+# llegan a nada de lo que se publica: solo sus nombres.
+grep -q "cabeceras copiadas de la web (solo nombres): accept, authorization, content-type, x-api-key" "$HOME/.recolector/ciclo.log" \
+  && ok "copia las cabeceras de las peticiones de la propia web y apunta solo sus nombres" || mal "cabeceras: $(grep 'cabeceras copiadas' "$HOME/.recolector/ciclo.log" | tail -n1)"
+fuga=""
+for f in registro.txt estado.json; do git -C "$S/origin.git" show "estado-movil:$f" | grep -q "SECRET[AO]-DE-PRUEBA" && fuga="$fuga $f"; done
+git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q "SECRET[AO]-DE-PRUEBA" && fuga="$fuga yelmo.js"
+grep -q "SECRET[AO]-DE-PRUEBA" "$HOME/.recolector/ciclo.log" && fuga="$fuga ciclo.log"
+[ -z "$fuga" ] && ok "el valor de las cabeceras (la clave de la web) no aparece en nada de lo publicado" || mal "¡la clave de la web aparece en:$fuga!"
+grep -q "sin horarios de «Peli rota»" "$HOME/.recolector/ciclo.log" && git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q '"Peli uno"' \
+  && ! git -C "$S/origin.git" show "$RAMA:data/yelmo.js" | grep -q '"Peli rota"' \
+  && ok "una película cuyos horarios fallan se salta y se apunta; las demás se publican" || mal "película rota"
+# Lo publicado lo entiende la web tal cual (lib/cinemas/yelmo.js, sin tocar).
+git -C "$S/origin.git" show "$RAMA:data/yelmo.js" > "$S/yelmo-publicado.mjs"
+web=$(cd "$HOME/Movil" && node --no-warnings --input-type=module -e '
+  const { leerInstantanea } = await import("./lib/cinemas/yelmo.js");
+  const datos = (await import(process.argv[1])).default;
+  const bs = leerInstantanea("yelmo-bahia-sur", datos), j = leerInstantanea("yelmo-jerez", datos);
+  const s = Object.values(bs ?? {}).flat().flatMap((m) => m.sessions);
+  const sj = Object.values(j ?? {}).flat().flatMap((m) => m.sessions);
+  const ok = s.length && sj.length && s.some((x) => x.format === "PREMIUM") && s.some((x) => x.language === "VOSE")
+    && s.every((x) => /^https:\/\/compra\.yelmocines\.es\/\?cinemaVistaId=1340&showtimeVistaId=\d+$/.test(x.buyUrl))
+    && sj.every((x) => x.buyUrl.includes("cinemaVistaId=803"));
+  console.log(ok ? "bien" : JSON.stringify(s.slice(0, 2)));' "$S/yelmo-publicado.mjs" 2>&1)
+[ "$web" = bien ] && ok "la web lee lo publicado: sesiones, Premium, VOSE y enlaces de compra de cada cine" || mal "la web no entiende lo publicado: $web"
+# El recolector a solas, en los casos raros (como «probar-yelmo»).
+rec(){ ( cd "$HOME/navegador" && cp "$HOME/Movil/scripts/movil/recolector-navegador.mjs" recolector.mjs \
+  && LLAMADAS=/dev/null CHROME=chromium-browser MOCK_YELMO="$1" timeout 60 node recolector.mjs --solo-probar 2>&1 ); }
+sal=$(rec sin-cabeceras); r=$?
+[ "$r" != 0 ] && echo "$sal" | grep -q "401 (no autorizado)" && echo "$sal" | grep -q "Cabeceras copiadas de la web: ninguna" \
+  && ok "sin las cabeceras de la web, el API da 401 y el error lo explica" || mal "401: $(echo "$sal" | tail -n1)"
+sal=$(rec api-403); r=$?
+[ "$r" != 0 ] && echo "$sal" | tail -n1 | grep -q "Cloudflare" && ok "si Cloudflare bloquea el API (403), el error lo dice" || mal "api-403: $(echo "$sal" | tail -n1)"
+sal=$(rec sin-filtro); r=$?
+[ "$r" = 0 ] && echo "$sal" | grep -q "los dos cines a la vez" && echo "$sal" | grep -q "✅ yelmo-jerez" \
+  && ok "si el API no filtra por cine, pide cada película con los dos cines a la vez" || mal "sin-filtro: $(echo "$sal" | tail -n1)"
+sal=$(rec sin-coma); r=$?
+[ "$r" = 0 ] && echo "$sal" | grep -q "se piden de uno en uno" && echo "$sal" | grep -q "✅ yelmo-bahia-sur" && echo "$sal" | grep -q "✅ yelmo-jerez" \
+  && ok "y si no admite los dos a la vez, se da cuenta y los pide de uno en uno" || mal "sin-coma: $(echo "$sal" | tail -n1)"
+sal=$(rec ok)
+echo "$sal" | grep -q "compra (formato de siempre): https://compra.yelmocines.es/?cinemaVistaId=1340&showtimeVistaId=" && echo "$sal" | grep -q "muestra del API:" \
+  && echo "$sal" | grep -q "VEREDICTO: FUNCIONA" && ok "--solo-probar enseña ejemplos de sesiones, un enlace de compra y la forma de lo recibido" || mal "solo-probar: $(echo "$sal" | tail -n3)"
 
 subir sed -i 's/^CERCA=7200$/CERCA=7200  # cambio de prueba/' "$T/scripts/movil/tarea.sh"
 nuevo=$(git -C "$T" rev-parse --short HEAD); MOCK_YELMO=ok vuelta
