@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-24T05:12:26.575Z",
+  "generatedAt": "2026-10-24T16:10:23.299Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -34,22 +34,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24030",
-                      "Time": "15:45",
-                      "TimeFilter": "24/10/2026 15:45:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T15:45:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24029",
                       "Time": "18:05",
                       "TimeFilter": "24/10/2026 18:05:00",
                       "Screen": 6,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T18:05:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24027",
@@ -94,22 +85,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24269",
-                      "Time": "16:30",
-                      "TimeFilter": "24/10/2026 16:30:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T16:30:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24268",
                       "Time": "18:15",
                       "TimeFilter": "24/10/2026 18:15:00",
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T18:15:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -135,15 +117,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24255",
-                      "Time": "16:45",
-                      "TimeFilter": "24/10/2026 16:45:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T16:45:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24253",
                       "Time": "19:45",
@@ -187,15 +160,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24261",
-                      "Time": "17:00",
-                      "TimeFilter": "24/10/2026 17:00:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T17:00:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
                       "ShowtimeId": "24265",
                       "Time": "18:45",
                       "TimeFilter": "24/10/2026 18:45:00",
@@ -211,7 +175,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T20:05:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24264",
@@ -220,7 +184,7 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T22:00:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -253,7 +217,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T19:35:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24266",
@@ -262,73 +226,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T21:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24258",
-                      "Time": "17:10",
-                      "TimeFilter": "24/10/2026 17:10:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T17:10:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "minions-y-monsters",
-              "Title": "Minions & Monsters",
-              "OriginalTitle": "Minions&Monsters",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "85",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/MinionsYMonsters/Es/720x1022_19.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Este capítulo cuenta la desvergonzada, disparatada y verdadera historia de cómo los Minions conquistaron Hollywood, se convirtieron en estrellas de cine, lo perdieron todo, soltaron monstruos en el mundo y acabaron uniéndose de nuevo en un intento de salvar el planeta del desastre que ellos mismos habían creado.",
-              "Status": "",
-              "ReleaseDate": "2026-07-01T06:00",
-              "Order": 10,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "23451",
-                      "Time": "16:00",
-                      "TimeFilter": "24/10/2026 16:00:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T16:00:00",
-                      "Availability": ""
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -394,7 +292,7 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T20:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24256",
@@ -445,40 +343,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T18:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-isla-olvidada",
-              "Title": "La isla olvidada",
-              "OriginalTitle": "La isla olvidada",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "109",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Laislaolvidada/Es/la_isla_olvidada_720x1022_2.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Vale la pena luchar por tu mejor amiga. DreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA. Esta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo. La supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes. En su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas. Entablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre. El reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
-              "Status": "",
-              "ReleaseDate": "2026-09-19T06:00",
-              "Order": 32,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24271",
-                      "Time": "16:15",
-                      "TimeFilter": "24/10/2026 16:15:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-24T16:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -518,7 +383,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-25",
@@ -712,7 +577,7 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-25T18:45:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24274",
@@ -995,7 +860,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-26",
@@ -1412,7 +1277,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-27",
@@ -1843,7 +1708,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-28",
@@ -2260,7 +2125,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-29",
@@ -2677,7 +2542,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-30",
@@ -2716,7 +2581,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-31",
@@ -2830,7 +2695,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-01",
@@ -2902,7 +2767,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-02",
@@ -2941,7 +2806,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-03",
@@ -2980,7 +2845,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3019,7 +2884,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3100,7 +2965,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3172,7 +3037,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-14",
@@ -3211,7 +3076,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-15",
@@ -3250,7 +3115,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3289,7 +3154,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-22",
@@ -3328,7 +3193,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-15",
@@ -3383,7 +3248,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-17",
@@ -3483,7 +3348,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-18",
@@ -3609,7 +3474,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-19",
@@ -3735,7 +3600,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-20",
@@ -3861,7 +3726,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-21",
@@ -3918,7 +3783,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-22",
@@ -3975,7 +3840,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-23",
@@ -4032,7 +3897,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         }
       ],
       "Id": 74,
@@ -4073,15 +3938,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "37954",
-                      "Time": "15:45",
-                      "TimeFilter": "24/10/2026 15:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T15:45:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "37681",
                       "Time": "18:15",
@@ -4134,22 +3990,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38042",
-                      "Time": "15:55",
-                      "TimeFilter": "24/10/2026 15:55:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T15:55:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38022",
                       "Time": "17:55",
                       "TimeFilter": "24/10/2026 17:55:00",
                       "Screen": 3,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-24T17:55:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -4175,15 +4022,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38015",
-                      "Time": "16:50",
-                      "TimeFilter": "24/10/2026 16:50:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T16:50:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38027",
                       "Time": "19:35",
@@ -4227,22 +4065,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38017",
-                      "Time": "16:15",
-                      "TimeFilter": "24/10/2026 16:15:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T16:15:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38030",
                       "Time": "18:55",
                       "TimeFilter": "24/10/2026 18:55:00",
                       "Screen": 9,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-24T18:55:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -4269,22 +4098,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38021",
-                      "Time": "17:35",
-                      "TimeFilter": "24/10/2026 17:35:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T17:35:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38023",
                       "Time": "18:40",
                       "TimeFilter": "24/10/2026 18:40:00",
                       "Screen": 11,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-24T18:40:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "38032",
@@ -4329,15 +4149,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38046",
-                      "Time": "15:50",
-                      "TimeFilter": "24/10/2026 15:50:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T15:50:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38045",
                       "Time": "18:05",
                       "TimeFilter": "24/10/2026 18:05:00",
@@ -4379,15 +4190,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38019",
-                      "Time": "17:20",
-                      "TimeFilter": "24/10/2026 17:20:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T17:20:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38028",
                       "Time": "19:45",
@@ -4446,72 +4248,6 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-24T22:10:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38020",
-                      "Time": "17:30",
-                      "TimeFilter": "24/10/2026 17:30:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T17:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "minions-y-monsters",
-              "Title": "Minions & Monsters",
-              "OriginalTitle": "Minions&Monsters",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "85",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/MinionsYMonsters/Es/720x1022_19.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Este capítulo cuenta la desvergonzada, disparatada y verdadera historia de cómo los Minions conquistaron Hollywood, se convirtieron en estrellas de cine, lo perdieron todo, soltaron monstruos en el mundo y acabaron uniéndose de nuevo en un intento de salvar el planeta del desastre que ellos mismos habían creado.",
-              "Status": "",
-              "ReleaseDate": "2026-07-01T06:00",
-              "Order": 10,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "36616",
-                      "Time": "16:00",
-                      "TimeFilter": "24/10/2026 16:00:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T16:00:00",
                       "Availability": ""
                     }
                   ]
@@ -4759,39 +4495,6 @@ export default {
               ]
             },
             {
-              "Key": "la-isla-olvidada",
-              "Title": "La isla olvidada",
-              "OriginalTitle": "La isla olvidada",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "109",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Laislaolvidada/Es/la_isla_olvidada_720x1022_2.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Vale la pena luchar por tu mejor amiga. DreamWorks Animation, el estudio que nos enseñó que podía existir un vínculo inolvidable entre un chico y un dragón en Cómo entrenar a tu dragón, un ogro y un burro en Shrek, un robot y un ganso en Robot salvaje, vuelve con una asombrosa y emotiva historia en torno a dos mejores amigas que deben reunirse antes de separarse en LA ISLA OLVIDADA. Esta nueva película original está escrita y dirigida por Joel Crawford, nominado al Oscar, junto a Januel Mercado. La producción corre a cargo de Mark Swift, también nominado al Oscar, quien ya colaboró con los directores en El gato con botas: El último deseo. La supernova H.E.R., premiada por los Grammy y los Oscar, y Liza Soberano (Lisa Frankenstein, Alone Together) protagonizan la versión original de la película, prestando sus voces a Jo y Raissa, dos mejores amigas desde primaria que acaban de graduarse del instituto y ahora deben ir por caminos diferentes. En su última noche juntas, Jo y Raissa descubren un misterioso portal que las transporta a la fantástica isla de Nakali, poblada con numerosas criaturas mágicas y mitológicas que aparecían en las historias que les contaban sus familias filipinas. Entablarán amistad con algunos de estos seres, y deberán enfrentarse a otros. Con el desafortunado –aunque bien intencionado– hombre perro Raww (Dave Franco en VO) y un pequeño, pero fuerte grupo de amigos, Jo y Raissa lucharán contra la temida Manananggal (en VO la famosa cantante Lea Salonga, ganadora de un Tony), la criatura más aterradora de la isla. Cuando descubren que el recuerdo de su amistad es el precio que les permitirá regresar a casa, Jo y Raissa se lanzarán a una desenfrenada carrera para abandonar la isla antes de olvidarse para siempre. El reparto estelar de voces en versión original está compuesto por la nominada a un Emmy Jenny Slate (Marcel, la concha con zapatos, la serie “Dying for Sex”), Manny Jacinto (la serie “The Good Place”, Top Gun: Maverick), la nominada a un BAFTA Dolly de Leon (El triángulo de la tristeza, Ghostlight), la cómica Jo Koy (Mansión encantada/Haunted Mansion, el especial “Jo Koy: Live from Brooklyn”) y el ganador de un Emmy Ronny Chieng (la serie “Las noticias de Jon Stewart”, M3GAN).",
-              "Status": "",
-              "ReleaseDate": "2026-09-19T06:00",
-              "Order": 32,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38047",
-                      "Time": "16:20",
-                      "TimeFilter": "24/10/2026 16:20:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T16:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "resident-evil",
               "Title": "Resident Evil",
               "OriginalTitle": "Resident Evil",
@@ -4823,42 +4526,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38016",
-                      "Time": "16:40",
-                      "TimeFilter": "24/10/2026 16:40:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-24T16:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-25",
@@ -5331,7 +5001,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-25T18:30:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -5629,7 +5299,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-26",
@@ -6322,7 +5992,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-27",
@@ -7044,7 +6714,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-28",
@@ -7737,7 +7407,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-29",
@@ -8430,7 +8100,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-30",
@@ -8535,7 +8205,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-10-31",
@@ -8682,7 +8352,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-01",
@@ -8754,7 +8424,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-02",
@@ -8793,7 +8463,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-03",
@@ -8832,7 +8502,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-04",
@@ -8871,7 +8541,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-06",
@@ -8910,7 +8580,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-07",
@@ -9024,7 +8694,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-08",
@@ -9096,7 +8766,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-14",
@@ -9168,7 +8838,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-15",
@@ -9207,7 +8877,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-21",
@@ -9246,7 +8916,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-11-22",
@@ -9285,7 +8955,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-01",
@@ -9324,7 +8994,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-05",
@@ -9363,7 +9033,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-15",
@@ -9418,7 +9088,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-17",
@@ -9560,7 +9230,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-18",
@@ -9744,7 +9414,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-19",
@@ -9928,7 +9598,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-20",
@@ -10112,7 +9782,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-21",
@@ -10169,7 +9839,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-22",
@@ -10226,7 +9896,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2026-12-23",
@@ -10283,7 +9953,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-01-08",
@@ -10322,7 +9992,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-01-23",
@@ -10361,7 +10031,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-03-20",
@@ -10400,7 +10070,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-03-23",
@@ -10439,7 +10109,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-04-03",
@@ -10478,7 +10148,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-04-22",
@@ -10517,7 +10187,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-04-24",
@@ -10556,7 +10226,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-04-29",
@@ -10595,7 +10265,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-05-08",
@@ -10634,7 +10304,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-05-25",
@@ -10673,7 +10343,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-06-03",
@@ -10712,7 +10382,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         },
         {
           "Dia": "2027-06-05",
@@ -10751,7 +10421,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-24T05:12:26.857Z"
+          "_recogido": "2026-10-24T16:10:23.575Z"
         }
       ],
       "Id": 53,
