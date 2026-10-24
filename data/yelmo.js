@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-23T16:08:43.887Z",
+  "generatedAt": "2026-10-24T05:12:26.575Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -10,381 +10,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Dia": "2026-10-23",
-          "Movies": [
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24024",
-                      "Time": "18:05",
-                      "TimeFilter": "23/10/2026 18:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T18:05:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24026",
-                      "Time": "20:25",
-                      "TimeFilter": "23/10/2026 20:25:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T20:25:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24025",
-                      "Time": "22:45",
-                      "TimeFilter": "23/10/2026 22:45:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24241",
-                      "Time": "17:55",
-                      "TimeFilter": "23/10/2026 17:55:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T17:55:00",
-                      "Availability": "#FF804A"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24237",
-                      "Time": "19:50",
-                      "TimeFilter": "23/10/2026 19:50:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T19:50:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24238",
-                      "Time": "22:30",
-                      "TimeFilter": "23/10/2026 22:30:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T22:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24245",
-                      "Time": "18:45",
-                      "TimeFilter": "23/10/2026 18:45:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T18:45:00",
-                      "Availability": "#FF804A"
-                    },
-                    {
-                      "ShowtimeId": "24251",
-                      "Time": "20:05",
-                      "TimeFilter": "23/10/2026 20:05:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T20:05:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24246",
-                      "Time": "22:00",
-                      "TimeFilter": "23/10/2026 22:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T22:00:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24243",
-                      "Time": "19:30",
-                      "TimeFilter": "23/10/2026 19:30:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T19:30:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24244",
-                      "Time": "21:45",
-                      "TimeFilter": "23/10/2026 21:45:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T21:45:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "street-fighter",
-              "Title": "Street Fighter",
-              "OriginalTitle": "Street Fighter",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24248",
-                      "Time": "20:35",
-                      "TimeFilter": "23/10/2026 20:35:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T20:35:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24239",
-                      "Time": "20:15",
-                      "TimeFilter": "23/10/2026 20:15:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T20:15:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24240",
-                      "Time": "22:15",
-                      "TimeFilter": "23/10/2026 22:15:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T22:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24252",
-                      "Time": "23:15",
-                      "TimeFilter": "23/10/2026 23:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T23:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "whalefall",
-              "Title": "Whalefall",
-              "OriginalTitle": "Whalefall",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "105",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Whalefall/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24249",
-                      "Time": "18:20",
-                      "TimeFilter": "23/10/2026 18:20:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T18:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "resident-evil",
-              "Title": "Resident Evil",
-              "OriginalTitle": "Resident Evil",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "94",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
-              "Status": "",
-              "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24247",
-                      "Time": "23:05",
-                      "TimeFilter": "23/10/2026 23:05:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-23T23:05:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
-        },
         {
           "Dia": "2026-10-24",
           "Movies": [
@@ -433,7 +58,7 @@ export default {
                       "Screen": 6,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T20:25:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24028",
@@ -484,7 +109,7 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T18:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -568,7 +193,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T17:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24265",
@@ -577,7 +202,7 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T18:45:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24260",
@@ -595,7 +220,7 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-24T22:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -893,7 +518,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-25",
@@ -1370,7 +995,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-26",
@@ -1787,7 +1412,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-27",
@@ -1977,7 +1602,7 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T18:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24310",
@@ -2218,7 +1843,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-28",
@@ -2635,7 +2260,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-29",
@@ -3052,7 +2677,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-30",
@@ -3091,7 +2716,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-31",
@@ -3205,7 +2830,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-01",
@@ -3277,7 +2902,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-02",
@@ -3316,7 +2941,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-03",
@@ -3355,7 +2980,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3394,7 +3019,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3475,7 +3100,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3547,7 +3172,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-14",
@@ -3586,7 +3211,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-15",
@@ -3625,7 +3250,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3664,7 +3289,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-22",
@@ -3703,7 +3328,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-15",
@@ -3758,7 +3383,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-17",
@@ -3858,7 +3483,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-18",
@@ -3984,7 +3609,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-19",
@@ -4110,7 +3735,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-20",
@@ -4236,7 +3861,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-21",
@@ -4293,7 +3918,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-22",
@@ -4350,7 +3975,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-23",
@@ -4407,7 +4032,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         }
       ],
       "Id": 74,
@@ -4425,522 +4050,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Dia": "2026-10-23",
-          "Movies": [
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37676",
-                      "Time": "18:05",
-                      "TimeFilter": "23/10/2026 18:05:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T18:05:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37677",
-                      "Time": "20:25",
-                      "TimeFilter": "23/10/2026 20:25:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T20:25:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37678",
-                      "Time": "22:45",
-                      "TimeFilter": "23/10/2026 22:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38004",
-                      "Time": "19:40",
-                      "TimeFilter": "23/10/2026 19:40:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:40:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38005",
-                      "Time": "22:20",
-                      "TimeFilter": "23/10/2026 22:20:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "wildwood-el-bosque-salvaje",
-              "Title": "Wildwood: El bosque salvaje",
-              "OriginalTitle": "Wildwood",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "120",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 4,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38010",
-                      "Time": "20:00",
-                      "TimeFilter": "23/10/2026 20:00:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T20:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37981",
-                      "Time": "18:40",
-                      "TimeFilter": "23/10/2026 18:40:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T18:40:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37991",
-                      "Time": "20:45",
-                      "TimeFilter": "23/10/2026 20:45:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T20:45:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37993",
-                      "Time": "21:50",
-                      "TimeFilter": "23/10/2026 21:50:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T21:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "arriba-tutto",
-              "Title": "Arriba Tutto",
-              "OriginalTitle": "Arriba Tutto",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "102",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ArribaTutto/Es/720x1022_copia_7.jpg",
-              "Distributor": "A CONTRACORRIENTE",
-              "Gender": "COMEDIA",
-              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 6,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38013",
-                      "Time": "19:35",
-                      "TimeFilter": "23/10/2026 19:35:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:35:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "leones-en-invierno",
-              "Title": "Leones en invierno",
-              "OriginalTitle": "Leones en invierno",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "117",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "THRILLER",
-              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 7,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38008",
-                      "Time": "19:45",
-                      "TimeFilter": "23/10/2026 19:45:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:45:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38009",
-                      "Time": "22:15",
-                      "TimeFilter": "23/10/2026 22:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38006",
-                      "Time": "19:25",
-                      "TimeFilter": "23/10/2026 19:25:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:25:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37995",
-                      "Time": "22:10",
-                      "TimeFilter": "23/10/2026 22:10:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:10:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "street-fighter",
-              "Title": "Street Fighter",
-              "OriginalTitle": "Street Fighter",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37976",
-                      "Time": "20:05",
-                      "TimeFilter": "23/10/2026 20:05:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T20:05:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37987",
-                      "Time": "22:30",
-                      "TimeFilter": "23/10/2026 22:30:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37990",
-                      "Time": "19:15",
-                      "TimeFilter": "23/10/2026 19:15:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "37997",
-                      "Time": "21:20",
-                      "TimeFilter": "23/10/2026 21:20:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T21:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "whalefall",
-              "Title": "Whalefall",
-              "OriginalTitle": "Whalefall",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "105",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Whalefall/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37983",
-                      "Time": "19:55",
-                      "TimeFilter": "23/10/2026 19:55:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T19:55:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-invitacion",
-              "Title": "La invitación.",
-              "OriginalTitle": "The Invite",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaInvitacion/Es/la_invitacion_720x1022_2_2.jpg",
-              "Distributor": "Diamond Films",
-              "Gender": "COMEDIA",
-              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37979",
-                      "Time": "21:45",
-                      "TimeFilter": "23/10/2026 21:45:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T21:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-maleta",
-              "Title": "La Maleta",
-              "OriginalTitle": "La Maleta",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaMaleta/Es/720x1022_21.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "COMEDIA",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37996",
-                      "Time": "21:40",
-                      "TimeFilter": "23/10/2026 21:40:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T21:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "resident-evil",
-              "Title": "Resident Evil",
-              "OriginalTitle": "Resident Evil",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "94",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
-              "Status": "",
-              "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37992",
-                      "Time": "22:40",
-                      "TimeFilter": "23/10/2026 22:40:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-23T22:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
-        },
         {
           "Dia": "2026-10-24",
           "Movies": [
@@ -5749,7 +4858,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-25",
@@ -6520,7 +5629,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-26",
@@ -7213,7 +6322,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-27",
@@ -7935,7 +7044,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-28",
@@ -8628,7 +7737,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-29",
@@ -9321,7 +8430,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-30",
@@ -9426,7 +8535,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-10-31",
@@ -9573,7 +8682,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-01",
@@ -9645,7 +8754,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-02",
@@ -9684,7 +8793,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-03",
@@ -9723,7 +8832,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-04",
@@ -9762,7 +8871,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-06",
@@ -9801,7 +8910,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-07",
@@ -9915,7 +9024,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-08",
@@ -9987,7 +9096,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-14",
@@ -10059,7 +9168,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-15",
@@ -10098,7 +9207,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-21",
@@ -10137,7 +9246,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-11-22",
@@ -10176,7 +9285,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-01",
@@ -10215,7 +9324,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-05",
@@ -10254,7 +9363,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-15",
@@ -10309,7 +9418,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-17",
@@ -10451,7 +9560,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-18",
@@ -10635,7 +9744,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-19",
@@ -10819,7 +9928,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-20",
@@ -11003,7 +10112,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-21",
@@ -11060,7 +10169,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-22",
@@ -11117,7 +10226,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2026-12-23",
@@ -11174,7 +10283,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-01-08",
@@ -11213,7 +10322,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-01-23",
@@ -11252,7 +10361,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-03-20",
@@ -11291,7 +10400,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-03-23",
@@ -11330,7 +10439,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-04-03",
@@ -11369,7 +10478,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-04-22",
@@ -11408,7 +10517,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-04-24",
@@ -11447,7 +10556,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-04-29",
@@ -11486,7 +10595,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-05-08",
@@ -11525,7 +10634,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-05-25",
@@ -11564,7 +10673,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-06-03",
@@ -11603,7 +10712,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         },
         {
           "Dia": "2027-06-05",
@@ -11642,7 +10751,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-23T16:08:44.248Z"
+          "_recogido": "2026-10-24T05:12:26.857Z"
         }
       ],
       "Id": 53,
