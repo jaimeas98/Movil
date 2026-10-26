@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-26T06:05:13.117Z",
+  "generatedAt": "2026-10-26T17:05:15.825Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -33,15 +33,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24292",
-                      "Time": "17:30",
-                      "TimeFilter": "26/10/2026 17:30:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-26T17:30:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24289",
                       "Time": "19:45",
@@ -118,15 +109,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24305",
-                      "Time": "17:05",
-                      "TimeFilter": "26/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-26T17:05:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24304",
                       "Time": "19:40",
                       "TimeFilter": "26/10/2026 19:40:00",
@@ -169,22 +151,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24296",
-                      "Time": "17:15",
-                      "TimeFilter": "26/10/2026 17:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-26T17:15:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24291",
                       "Time": "18:15",
                       "TimeFilter": "26/10/2026 18:15:00",
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-26T18:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24295",
@@ -326,39 +299,6 @@ export default {
               ]
             },
             {
-              "Key": "whalefall",
-              "Title": "Whalefall",
-              "OriginalTitle": "Whalefall",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "105",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Whalefall/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24307",
-                      "Time": "17:45",
-                      "TimeFilter": "26/10/2026 17:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-26T17:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "resident-evil",
               "Title": "Resident Evil",
               "OriginalTitle": "Resident Evil",
@@ -390,42 +330,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24306",
-                      "Time": "17:00",
-                      "TimeFilter": "26/10/2026 17:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-26T17:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-27",
@@ -624,7 +531,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T20:30:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24311",
@@ -783,7 +690,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T17:45:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -856,7 +763,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-28",
@@ -1041,7 +948,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T20:30:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24341",
@@ -1273,7 +1180,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-29",
@@ -1690,7 +1597,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-30",
@@ -1729,7 +1636,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-31",
@@ -1843,7 +1750,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-01",
@@ -1915,7 +1822,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-02",
@@ -1954,7 +1861,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-03",
@@ -1993,7 +1900,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-06",
@@ -2032,7 +1939,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-07",
@@ -2113,7 +2020,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-08",
@@ -2185,7 +2092,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-14",
@@ -2224,7 +2131,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-15",
@@ -2263,7 +2170,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-21",
@@ -2302,7 +2209,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-22",
@@ -2341,7 +2248,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-15",
@@ -2396,7 +2303,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-17",
@@ -2496,7 +2403,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-18",
@@ -2622,7 +2529,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-19",
@@ -2748,7 +2655,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-20",
@@ -2874,7 +2781,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-21",
@@ -2931,7 +2838,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-22",
@@ -2988,7 +2895,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-23",
@@ -3045,7 +2952,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         }
       ],
       "Id": 74,
@@ -3171,15 +3078,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38077",
-                      "Time": "17:00",
-                      "TimeFilter": "26/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38087",
                       "Time": "19:40",
                       "TimeFilter": "26/10/2026 19:40:00",
@@ -3222,15 +3120,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38079",
-                      "Time": "17:10",
-                      "TimeFilter": "26/10/2026 17:10:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38090",
                       "Time": "19:50",
                       "TimeFilter": "26/10/2026 19:50:00",
@@ -3263,15 +3152,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38082",
-                      "Time": "17:05",
-                      "TimeFilter": "26/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:05:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38085",
                       "Time": "18:30",
@@ -3324,15 +3204,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38081",
-                      "Time": "17:25",
-                      "TimeFilter": "26/10/2026 17:25:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:25:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38086",
                       "Time": "19:35",
                       "TimeFilter": "26/10/2026 19:35:00",
@@ -3365,15 +3236,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38080",
-                      "Time": "17:20",
-                      "TimeFilter": "26/10/2026 17:20:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:20:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38088",
                       "Time": "19:45",
@@ -3416,15 +3278,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38104",
-                      "Time": "17:05",
-                      "TimeFilter": "26/10/2026 17:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:05:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38098",
                       "Time": "22:10",
@@ -3719,42 +3572,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38078",
-                      "Time": "17:30",
-                      "TimeFilter": "26/10/2026 17:30:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-26T17:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-27",
@@ -4476,7 +4296,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-28",
@@ -5169,7 +4989,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-29",
@@ -5862,11 +5682,371 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-30",
           "Movies": [
+            {
+              "Key": "clayface",
+              "Title": "Clayface",
+              "OriginalTitle": "Clayface",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "108",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38228",
+                      "Time": "18:20",
+                      "TimeFilter": "30/10/2026 18:20:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38247",
+                      "Time": "20:35",
+                      "TimeFilter": "30/10/2026 20:35:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:35:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38248",
+                      "Time": "22:45",
+                      "TimeFilter": "30/10/2026 22:45:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "superthings-la-pelicula",
+              "Title": "Superthings: La película",
+              "OriginalTitle": "Superthings: La película",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 2,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38227",
+                      "Time": "18:15",
+                      "TimeFilter": "30/10/2026 18:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T18:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "sentido-y-sensibilidad",
+              "Title": "Sentido y sensibilidad",
+              "OriginalTitle": "Sense and Sensibility",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendado para menores de 7 años.",
+              "RunTime": "132",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 3,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38244",
+                      "Time": "17:20",
+                      "TimeFilter": "30/10/2026 17:20:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38249",
+                      "Time": "22:15",
+                      "TimeFilter": "30/10/2026 22:15:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "wildwood-el-bosque-salvaje",
+              "Title": "Wildwood: El bosque salvaje",
+              "OriginalTitle": "Wildwood",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "120",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 4,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38222",
+                      "Time": "19:40",
+                      "TimeFilter": "30/10/2026 19:40:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T19:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-bola-negra",
+              "Title": "La bola negra",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 5,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38242",
+                      "Time": "17:10",
+                      "TimeFilter": "30/10/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38226",
+                      "Time": "18:30",
+                      "TimeFilter": "30/10/2026 18:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38372",
+                      "Time": "20:30",
+                      "TimeFilter": "30/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38234",
+                      "Time": "21:40",
+                      "TimeFilter": "30/10/2026 21:40:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T21:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "arriba-tutto",
+              "Title": "Arriba Tutto",
+              "OriginalTitle": "Arriba Tutto",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "102",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ArribaTutto/Es/720x1022_copia_7.jpg",
+              "Distributor": "A CONTRACORRIENTE",
+              "Gender": "COMEDIA",
+              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 6,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38224",
+                      "Time": "17:45",
+                      "TimeFilter": "30/10/2026 17:45:00",
+                      "Screen": 10,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "leones-en-invierno",
+              "Title": "Leones en invierno",
+              "OriginalTitle": "Leones en invierno",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "THRILLER",
+              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 7,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38239",
+                      "Time": "22:35",
+                      "TimeFilter": "30/10/2026 22:35:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:35:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "en-el-corazon-de-la-bestia",
+              "Title": "En el corazón de la bestia",
+              "OriginalTitle": "En el corazón de la bestia",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "101",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
+              "Distributor": "Paramount",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "",
+              "ReleaseDate": "2026-09-24T06:00",
+              "Order": 8,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38238",
+                      "Time": "19:30",
+                      "TimeFilter": "30/10/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38246",
+                      "Time": "21:45",
+                      "TimeFilter": "30/10/2026 21:45:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "cars-20-aniversario",
+              "Title": "Cars 20º Aniversario",
+              "OriginalTitle": "Cars 20º Aniversario",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
+              "Distributor": "Disney",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 9,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38225",
+                      "Time": "17:05",
+                      "TimeFilter": "30/10/2026 17:05:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:05:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "seventeen-world-tour-new",
               "Title": "SEVENTEEN WORLD TOUR 'NEW_'",
@@ -5883,17 +6063,17 @@ export default {
               "Order": 13,
               "Formats": [
                 {
-                  "Name": "2D",
+                  "Name": "CA",
                   "Language": "VOSE",
                   "Idioma": "COR",
                   "Showtimes": [
                     {
                       "ShowtimeId": "37370",
-                      "Time": "20:00",
-                      "TimeFilter": "30/10/2026 20:00:00",
+                      "Time": "19:50",
+                      "TimeFilter": "30/10/2026 19:50:00",
                       "Screen": 8,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:00:00",
+                      "Datetime": "2026-10-30T19:50:00",
                       "Availability": ""
                     }
                   ]
@@ -5934,6 +6114,114 @@ export default {
               ]
             },
             {
+              "Key": "street-fighter",
+              "Title": "Street Fighter",
+              "OriginalTitle": "Street Fighter",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 19,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38240",
+                      "Time": "21:50",
+                      "TimeFilter": "30/10/2026 21:50:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T21:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-otra-madre",
+              "Title": "La otra madre",
+              "OriginalTitle": "Other Mommy",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "92",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
+              "Gender": "THRILLER",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "ReleaseDate": "2026-10-09T06:00",
+              "Order": 20,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38223",
+                      "Time": "20:15",
+                      "TimeFilter": "30/10/2026 20:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38245",
+                      "Time": "22:20",
+                      "TimeFilter": "30/10/2026 22:20:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "verity-la-sombra-de-un-enganio",
+              "Title": "Verity. La sombra de un engaño",
+              "OriginalTitle": "Verity",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "116",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "DRAMA",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "ReleaseDate": "2026-10-02T06:00",
+              "Order": 38,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38221",
+                      "Time": "17:15",
+                      "TimeFilter": "30/10/2026 17:15:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "pesadilla-antes-de-navidad",
               "Title": "Pesadilla antes de Navidad",
               "OriginalTitle": "The Nightmare Before Christmas",
@@ -5965,13 +6253,436 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "karateka",
+              "Title": "Karateka",
+              "OriginalTitle": "Karateka",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "110",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
+              "Status": "",
+              "ReleaseDate": "2026-10-30T06:00",
+              "Order": 414,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38252",
+                      "Time": "18:05",
+                      "TimeFilter": "30/10/2026 18:05:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T18:05:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38251",
+                      "Time": "20:20",
+                      "TimeFilter": "30/10/2026 20:20:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38250",
+                      "Time": "22:40",
+                      "TimeFilter": "30/10/2026 22:40:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "hope",
+              "Title": "Hope",
+              "OriginalTitle": "Hope",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
+              "Distributor": "Mubi",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
+              "Status": "",
+              "ReleaseDate": "2026-10-29T06:00",
+              "Order": 423,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38256",
+                      "Time": "18:50",
+                      "TimeFilter": "30/10/2026 18:50:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T18:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38257",
+                      "Time": "22:00",
+                      "TimeFilter": "30/10/2026 22:00:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-10-31",
           "Movies": [
+            {
+              "Key": "clayface",
+              "Title": "Clayface",
+              "OriginalTitle": "Clayface",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "108",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38291",
+                      "Time": "16:10",
+                      "TimeFilter": "31/10/2026 16:10:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T16:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38267",
+                      "Time": "18:20",
+                      "TimeFilter": "31/10/2026 18:20:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38277",
+                      "Time": "20:35",
+                      "TimeFilter": "31/10/2026 20:35:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T20:35:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38286",
+                      "Time": "22:45",
+                      "TimeFilter": "31/10/2026 22:45:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "superthings-la-pelicula",
+              "Title": "Superthings: La película",
+              "OriginalTitle": "Superthings: La película",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 2,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38290",
+                      "Time": "16:15",
+                      "TimeFilter": "31/10/2026 16:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T16:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38266",
+                      "Time": "18:15",
+                      "TimeFilter": "31/10/2026 18:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T18:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "sentido-y-sensibilidad",
+              "Title": "Sentido y sensibilidad",
+              "OriginalTitle": "Sense and Sensibility",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendado para menores de 7 años.",
+              "RunTime": "132",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 3,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38262",
+                      "Time": "15:50",
+                      "TimeFilter": "31/10/2026 15:50:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T15:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38292",
+                      "Time": "19:30",
+                      "TimeFilter": "31/10/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38283",
+                      "Time": "22:15",
+                      "TimeFilter": "31/10/2026 22:15:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "wildwood-el-bosque-salvaje",
+              "Title": "Wildwood: El bosque salvaje",
+              "OriginalTitle": "Wildwood",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "120",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 4,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38271",
+                      "Time": "16:45",
+                      "TimeFilter": "31/10/2026 16:45:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T16:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-bola-negra",
+              "Title": "La bola negra",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 5,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38260",
+                      "Time": "17:10",
+                      "TimeFilter": "31/10/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T17:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38268",
+                      "Time": "18:30",
+                      "TimeFilter": "31/10/2026 18:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38375",
+                      "Time": "20:30",
+                      "TimeFilter": "31/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38278",
+                      "Time": "21:40",
+                      "TimeFilter": "31/10/2026 21:40:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T21:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "leones-en-invierno",
+              "Title": "Leones en invierno",
+              "OriginalTitle": "Leones en invierno",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "THRILLER",
+              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 7,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38289",
+                      "Time": "15:30",
+                      "TimeFilter": "31/10/2026 15:30:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T15:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38285",
+                      "Time": "22:25",
+                      "TimeFilter": "31/10/2026 22:25:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:25:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "en-el-corazon-de-la-bestia",
+              "Title": "En el corazón de la bestia",
+              "OriginalTitle": "En el corazón de la bestia",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "101",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
+              "Distributor": "Paramount",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "",
+              "ReleaseDate": "2026-09-24T06:00",
+              "Order": 8,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38279",
+                      "Time": "19:50",
+                      "TimeFilter": "31/10/2026 19:50:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T19:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38270",
+                      "Time": "22:05",
+                      "TimeFilter": "31/10/2026 22:05:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:05:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "bts-world-tour-arirang-in-sao-paulo-live-viewing",
               "Title": "BTS WORLD TOUR ARIRANG IN SAO PAULO: LIVE VIEWING",
@@ -6048,6 +6759,81 @@ export default {
               ]
             },
             {
+              "Key": "street-fighter",
+              "Title": "Street Fighter",
+              "OriginalTitle": "Street Fighter",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 19,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38280",
+                      "Time": "22:30",
+                      "TimeFilter": "31/10/2026 22:30:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-otra-madre",
+              "Title": "La otra madre",
+              "OriginalTitle": "Other Mommy",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "92",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
+              "Gender": "THRILLER",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "ReleaseDate": "2026-10-09T06:00",
+              "Order": 20,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38274",
+                      "Time": "20:15",
+                      "TimeFilter": "31/10/2026 20:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T20:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38284",
+                      "Time": "22:20",
+                      "TimeFilter": "31/10/2026 22:20:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "pesadilla-antes-de-navidad",
               "Title": "Pesadilla antes de Navidad",
               "OriginalTitle": "The Nightmare Before Christmas",
@@ -6112,13 +6898,661 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "el-gato-con-sombrero",
+              "Title": "El gato con sombrero",
+              "OriginalTitle": "The Cat in the Hat",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "90",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ElGatoConSombrero/Es/720x1022_copia_7.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Un astuto gato lleva el caos con sus travesuras a la vida de un par de hermanos que lidian con su mudanza a una nueva ciudad.",
+              "Status": "",
+              "ReleaseDate": "2026-10-31T06:00",
+              "Order": 335,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38293",
+                      "Time": "17:30",
+                      "TimeFilter": "31/10/2026 17:30:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T17:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "karateka",
+              "Title": "Karateka",
+              "OriginalTitle": "Karateka",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "110",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
+              "Status": "",
+              "ReleaseDate": "2026-10-30T06:00",
+              "Order": 414,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38294",
+                      "Time": "15:45",
+                      "TimeFilter": "31/10/2026 15:45:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T15:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38265",
+                      "Time": "18:05",
+                      "TimeFilter": "31/10/2026 18:05:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T18:05:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38275",
+                      "Time": "20:20",
+                      "TimeFilter": "31/10/2026 20:20:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T20:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38287",
+                      "Time": "22:40",
+                      "TimeFilter": "31/10/2026 22:40:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T22:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "hope",
+              "Title": "Hope",
+              "OriginalTitle": "Hope",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
+              "Distributor": "Mubi",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
+              "Status": "",
+              "ReleaseDate": "2026-10-29T06:00",
+              "Order": 423,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38296",
+                      "Time": "15:40",
+                      "TimeFilter": "31/10/2026 15:40:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T15:40:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38269",
+                      "Time": "18:50",
+                      "TimeFilter": "31/10/2026 18:50:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T18:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38281",
+                      "Time": "21:55",
+                      "TimeFilter": "31/10/2026 21:55:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T21:55:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-01",
           "Movies": [
+            {
+              "Key": "clayface",
+              "Title": "Clayface",
+              "OriginalTitle": "Clayface",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "108",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38328",
+                      "Time": "15:45",
+                      "TimeFilter": "01/11/2026 15:45:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T15:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38306",
+                      "Time": "18:20",
+                      "TimeFilter": "01/11/2026 18:20:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38316",
+                      "Time": "20:35",
+                      "TimeFilter": "01/11/2026 20:35:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:35:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38325",
+                      "Time": "22:45",
+                      "TimeFilter": "01/11/2026 22:45:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "superthings-la-pelicula",
+              "Title": "Superthings: La película",
+              "OriginalTitle": "Superthings: La película",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 2,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38329",
+                      "Time": "16:15",
+                      "TimeFilter": "01/11/2026 16:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T16:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38305",
+                      "Time": "18:15",
+                      "TimeFilter": "01/11/2026 18:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T18:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "sentido-y-sensibilidad",
+              "Title": "Sentido y sensibilidad",
+              "OriginalTitle": "Sense and Sensibility",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendado para menores de 7 años.",
+              "RunTime": "132",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 3,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38301",
+                      "Time": "15:50",
+                      "TimeFilter": "01/11/2026 15:50:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T15:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38322",
+                      "Time": "19:30",
+                      "TimeFilter": "01/11/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38332",
+                      "Time": "22:15",
+                      "TimeFilter": "01/11/2026 22:15:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "wildwood-el-bosque-salvaje",
+              "Title": "Wildwood: El bosque salvaje",
+              "OriginalTitle": "Wildwood",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "120",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 4,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38310",
+                      "Time": "19:40",
+                      "TimeFilter": "01/11/2026 19:40:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T19:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-bola-negra",
+              "Title": "La bola negra",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 5,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38299",
+                      "Time": "17:10",
+                      "TimeFilter": "01/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T17:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38307",
+                      "Time": "18:30",
+                      "TimeFilter": "01/11/2026 18:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38374",
+                      "Time": "20:30",
+                      "TimeFilter": "01/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38317",
+                      "Time": "21:40",
+                      "TimeFilter": "01/11/2026 21:40:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T21:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "leones-en-invierno",
+              "Title": "Leones en invierno",
+              "OriginalTitle": "Leones en invierno",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "THRILLER",
+              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 7,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38327",
+                      "Time": "16:00",
+                      "TimeFilter": "01/11/2026 16:00:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T16:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38324",
+                      "Time": "22:35",
+                      "TimeFilter": "01/11/2026 22:35:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:35:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "en-el-corazon-de-la-bestia",
+              "Title": "En el corazón de la bestia",
+              "OriginalTitle": "En el corazón de la bestia",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "101",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
+              "Distributor": "Paramount",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "",
+              "ReleaseDate": "2026-09-24T06:00",
+              "Order": 8,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38309",
+                      "Time": "20:10",
+                      "TimeFilter": "01/11/2026 20:10:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38318",
+                      "Time": "22:25",
+                      "TimeFilter": "01/11/2026 22:25:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:25:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "cars-20-aniversario",
+              "Title": "Cars 20º Aniversario",
+              "OriginalTitle": "Cars 20º Aniversario",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
+              "Distributor": "Disney",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 9,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38298",
+                      "Time": "17:05",
+                      "TimeFilter": "01/11/2026 17:05:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T17:05:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "street-fighter",
+              "Title": "Street Fighter",
+              "OriginalTitle": "Street Fighter",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 19,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38319",
+                      "Time": "22:00",
+                      "TimeFilter": "01/11/2026 22:00:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-otra-madre",
+              "Title": "La otra madre",
+              "OriginalTitle": "Other Mommy",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "92",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
+              "Gender": "THRILLER",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "ReleaseDate": "2026-10-09T06:00",
+              "Order": 20,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38313",
+                      "Time": "20:15",
+                      "TimeFilter": "01/11/2026 20:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38323",
+                      "Time": "22:20",
+                      "TimeFilter": "01/11/2026 22:20:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "resident-evil",
+              "Title": "Resident Evil",
+              "OriginalTitle": "Resident Evil",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "94",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "DRAMA",
+              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
+              "Status": "",
+              "ReleaseDate": "2026-09-18T06:00",
+              "Order": 37,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38330",
+                      "Time": "15:50",
+                      "TimeFilter": "01/11/2026 15:50:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T15:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "verity-la-sombra-de-un-enganio",
+              "Title": "Verity. La sombra de un engaño",
+              "OriginalTitle": "Verity",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "116",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "DRAMA",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "ReleaseDate": "2026-10-02T06:00",
+              "Order": 38,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38300",
+                      "Time": "17:15",
+                      "TimeFilter": "01/11/2026 17:15:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T17:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "pesadilla-antes-de-navidad",
               "Title": "Pesadilla antes de Navidad",
@@ -6184,13 +7618,670 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "el-gato-con-sombrero",
+              "Title": "El gato con sombrero",
+              "OriginalTitle": "The Cat in the Hat",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "90",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ElGatoConSombrero/Es/720x1022_copia_7.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Un astuto gato lleva el caos con sus travesuras a la vida de un par de hermanos que lidian con su mudanza a una nueva ciudad.",
+              "Status": "",
+              "ReleaseDate": "2026-10-31T06:00",
+              "Order": 335,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38331",
+                      "Time": "17:50",
+                      "TimeFilter": "01/11/2026 17:50:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T17:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "karateka",
+              "Title": "Karateka",
+              "OriginalTitle": "Karateka",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "110",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
+              "Status": "",
+              "ReleaseDate": "2026-10-30T06:00",
+              "Order": 414,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38333",
+                      "Time": "15:50",
+                      "TimeFilter": "01/11/2026 15:50:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T15:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38304",
+                      "Time": "18:05",
+                      "TimeFilter": "01/11/2026 18:05:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T18:05:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38314",
+                      "Time": "20:20",
+                      "TimeFilter": "01/11/2026 20:20:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38326",
+                      "Time": "22:40",
+                      "TimeFilter": "01/11/2026 22:40:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T22:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "hope",
+              "Title": "Hope",
+              "OriginalTitle": "Hope",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
+              "Distributor": "Mubi",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
+              "Status": "",
+              "ReleaseDate": "2026-10-29T06:00",
+              "Order": 423,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38335",
+                      "Time": "15:45",
+                      "TimeFilter": "01/11/2026 15:45:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T15:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38308",
+                      "Time": "18:50",
+                      "TimeFilter": "01/11/2026 18:50:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T18:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38320",
+                      "Time": "21:55",
+                      "TimeFilter": "01/11/2026 21:55:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T21:55:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-02",
           "Movies": [
+            {
+              "Key": "clayface",
+              "Title": "Clayface",
+              "OriginalTitle": "Clayface",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "108",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38336",
+                      "Time": "15:45",
+                      "TimeFilter": "02/11/2026 15:45:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T15:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38351",
+                      "Time": "18:20",
+                      "TimeFilter": "02/11/2026 18:20:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38361",
+                      "Time": "20:35",
+                      "TimeFilter": "02/11/2026 20:35:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:35:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38371",
+                      "Time": "22:45",
+                      "TimeFilter": "02/11/2026 22:45:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "superthings-la-pelicula",
+              "Title": "Superthings: La película",
+              "OriginalTitle": "Superthings: La película",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 2,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38343",
+                      "Time": "16:15",
+                      "TimeFilter": "02/11/2026 16:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T16:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38350",
+                      "Time": "18:15",
+                      "TimeFilter": "02/11/2026 18:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T18:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "sentido-y-sensibilidad",
+              "Title": "Sentido y sensibilidad",
+              "OriginalTitle": "Sense and Sensibility",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendado para menores de 7 años.",
+              "RunTime": "132",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 3,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38338",
+                      "Time": "15:50",
+                      "TimeFilter": "02/11/2026 15:50:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T15:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38354",
+                      "Time": "19:30",
+                      "TimeFilter": "02/11/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38366",
+                      "Time": "22:15",
+                      "TimeFilter": "02/11/2026 22:15:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "wildwood-el-bosque-salvaje",
+              "Title": "Wildwood: El bosque salvaje",
+              "OriginalTitle": "Wildwood",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "120",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "BETTA PICTURES S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 4,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38355",
+                      "Time": "19:10",
+                      "TimeFilter": "02/11/2026 19:10:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T19:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38376",
+                      "Time": "21:50",
+                      "TimeFilter": "02/11/2026 21:50:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T21:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-bola-negra",
+              "Title": "La bola negra",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 5,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38345",
+                      "Time": "17:10",
+                      "TimeFilter": "02/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T17:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38352",
+                      "Time": "18:30",
+                      "TimeFilter": "02/11/2026 18:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38373",
+                      "Time": "20:30",
+                      "TimeFilter": "02/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38362",
+                      "Time": "21:40",
+                      "TimeFilter": "02/11/2026 21:40:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T21:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "leones-en-invierno",
+              "Title": "Leones en invierno",
+              "OriginalTitle": "Leones en invierno",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "THRILLER",
+              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-22T06:00",
+              "Order": 7,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38341",
+                      "Time": "16:00",
+                      "TimeFilter": "02/11/2026 16:00:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T16:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38369",
+                      "Time": "22:35",
+                      "TimeFilter": "02/11/2026 22:35:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:35:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "en-el-corazon-de-la-bestia",
+              "Title": "En el corazón de la bestia",
+              "OriginalTitle": "En el corazón de la bestia",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "101",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
+              "Distributor": "Paramount",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
+              "Status": "",
+              "ReleaseDate": "2026-09-24T06:00",
+              "Order": 8,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38357",
+                      "Time": "20:10",
+                      "TimeFilter": "02/11/2026 20:10:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:10:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38368",
+                      "Time": "22:25",
+                      "TimeFilter": "02/11/2026 22:25:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:25:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "cars-20-aniversario",
+              "Title": "Cars 20º Aniversario",
+              "OriginalTitle": "Cars 20º Aniversario",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
+              "Distributor": "Disney",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 9,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38344",
+                      "Time": "17:05",
+                      "TimeFilter": "02/11/2026 17:05:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T17:05:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "street-fighter",
+              "Title": "Street Fighter",
+              "OriginalTitle": "Street Fighter",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 19,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38364",
+                      "Time": "20:10",
+                      "TimeFilter": "02/11/2026 20:10:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:10:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-otra-madre",
+              "Title": "La otra madre",
+              "OriginalTitle": "Other Mommy",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "92",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
+              "Gender": "THRILLER",
+              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
+              "Status": "",
+              "ReleaseDate": "2026-10-09T06:00",
+              "Order": 20,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38358",
+                      "Time": "20:15",
+                      "TimeFilter": "02/11/2026 20:15:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38367",
+                      "Time": "22:20",
+                      "TimeFilter": "02/11/2026 22:20:00",
+                      "Screen": 4,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "resident-evil",
+              "Title": "Resident Evil",
+              "OriginalTitle": "Resident Evil",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "94",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "DRAMA",
+              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
+              "Status": "",
+              "ReleaseDate": "2026-09-18T06:00",
+              "Order": 37,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38339",
+                      "Time": "15:50",
+                      "TimeFilter": "02/11/2026 15:50:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T15:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "verity-la-sombra-de-un-enganio",
+              "Title": "Verity. La sombra de un engaño",
+              "OriginalTitle": "Verity",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "116",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
+              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
+              "Gender": "DRAMA",
+              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
+              "Status": "",
+              "ReleaseDate": "2026-10-02T06:00",
+              "Order": 38,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38346",
+                      "Time": "16:45",
+                      "TimeFilter": "02/11/2026 16:45:00",
+                      "Screen": 5,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T16:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "los-cazafantasmas",
               "Title": "Los cazafantasmas",
@@ -6223,9 +8314,153 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "el-gato-con-sombrero",
+              "Title": "El gato con sombrero",
+              "OriginalTitle": "The Cat in the Hat",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "90",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ElGatoConSombrero/Es/720x1022_copia_7.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Un astuto gato lleva el caos con sus travesuras a la vida de un par de hermanos que lidian con su mudanza a una nueva ciudad.",
+              "Status": "",
+              "ReleaseDate": "2026-10-31T06:00",
+              "Order": 335,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38347",
+                      "Time": "17:50",
+                      "TimeFilter": "02/11/2026 17:50:00",
+                      "Screen": 8,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T17:50:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "karateka",
+              "Title": "Karateka",
+              "OriginalTitle": "Karateka",
+              "Rating": "M-12",
+              "RatingDescription": "No recomendada para menores de 12 años.",
+              "RunTime": "110",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__5.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "DRAMA",
+              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
+              "Status": "",
+              "ReleaseDate": "2026-10-30T06:00",
+              "Order": 414,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38340",
+                      "Time": "15:50",
+                      "TimeFilter": "02/11/2026 15:50:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T15:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38349",
+                      "Time": "18:05",
+                      "TimeFilter": "02/11/2026 18:05:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T18:05:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38359",
+                      "Time": "20:20",
+                      "TimeFilter": "02/11/2026 20:20:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38370",
+                      "Time": "22:40",
+                      "TimeFilter": "02/11/2026 22:40:00",
+                      "Screen": 9,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T22:40:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "hope",
+              "Title": "Hope",
+              "OriginalTitle": "Hope",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
+              "Distributor": "Mubi",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
+              "Status": "",
+              "ReleaseDate": "2026-10-29T06:00",
+              "Order": 423,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38337",
+                      "Time": "15:45",
+                      "TimeFilter": "02/11/2026 15:45:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T15:45:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38353",
+                      "Time": "18:50",
+                      "TimeFilter": "02/11/2026 18:50:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T18:50:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38363",
+                      "Time": "21:55",
+                      "TimeFilter": "02/11/2026 21:55:00",
+                      "Screen": 11,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T21:55:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-03",
@@ -6264,7 +8499,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-04",
@@ -6303,7 +8538,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-06",
@@ -6342,7 +8577,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-07",
@@ -6440,7 +8675,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-07T13:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "37949",
@@ -6456,7 +8691,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-08",
@@ -6528,7 +8763,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-14",
@@ -6600,7 +8835,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-15",
@@ -6639,7 +8874,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-21",
@@ -6678,7 +8913,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-11-22",
@@ -6717,7 +8952,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-01",
@@ -6756,7 +8991,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-05",
@@ -6795,7 +9030,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-15",
@@ -6850,7 +9085,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-17",
@@ -6992,7 +9227,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-18",
@@ -7176,7 +9411,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-19",
@@ -7360,7 +9595,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-20",
@@ -7544,7 +9779,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-21",
@@ -7601,7 +9836,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-22",
@@ -7658,7 +9893,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2026-12-23",
@@ -7715,7 +9950,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-01-08",
@@ -7754,7 +9989,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-01-23",
@@ -7793,7 +10028,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-03-20",
@@ -7832,7 +10067,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-03-23",
@@ -7871,7 +10106,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-04-03",
@@ -7910,7 +10145,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-04-22",
@@ -7949,7 +10184,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-04-24",
@@ -7988,7 +10223,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-04-29",
@@ -8027,7 +10262,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-05-08",
@@ -8066,7 +10301,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-05-25",
@@ -8105,7 +10340,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-06-03",
@@ -8144,7 +10379,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         },
         {
           "Dia": "2027-06-05",
@@ -8183,7 +10418,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-26T06:05:13.392Z"
+          "_recogido": "2026-10-26T17:05:16.102Z"
         }
       ],
       "Id": 53,
