@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-27T06:09:31.948Z",
+  "generatedAt": "2026-10-27T17:08:06.139Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -33,15 +33,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24313",
-                      "Time": "17:30",
-                      "TimeFilter": "27/10/2026 17:30:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T17:30:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24315",
                       "Time": "22:00",
@@ -125,15 +116,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24318",
-                      "Time": "17:05",
-                      "TimeFilter": "27/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T17:05:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
                       "ShowtimeId": "24322",
                       "Time": "22:20",
                       "TimeFilter": "27/10/2026 22:20:00",
@@ -156,7 +138,7 @@ export default {
                       "Screen": 1,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T19:40:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -183,22 +165,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24309",
-                      "Time": "17:15",
-                      "TimeFilter": "27/10/2026 17:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T17:15:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24314",
                       "Time": "18:15",
                       "TimeFilter": "27/10/2026 18:15:00",
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T18:15:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24310",
@@ -207,7 +180,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-27T20:30:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24311",
@@ -277,7 +250,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -310,7 +283,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -340,39 +313,6 @@ export default {
               ]
             },
             {
-              "Key": "la-maleta",
-              "Title": "La Maleta",
-              "OriginalTitle": "La Maleta",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaMaleta/Es/720x1022_21.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "COMEDIA",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24326",
-                      "Time": "17:45",
-                      "TimeFilter": "27/10/2026 17:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T17:45:00",
-                      "Availability": "#FF804A"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "resident-evil",
               "Title": "Resident Evil",
               "OriginalTitle": "Resident Evil",
@@ -385,7 +325,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -404,42 +344,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24317",
-                      "Time": "17:00",
-                      "TimeFilter": "27/10/2026 17:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-27T17:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-28",
@@ -727,7 +634,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -760,7 +667,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -802,7 +709,7 @@ export default {
               "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
+              "Order": 26,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -835,7 +742,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -856,7 +763,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-29",
@@ -1111,7 +1018,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1144,7 +1051,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1186,7 +1093,7 @@ export default {
               "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
+              "Order": 28,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1219,7 +1126,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1252,7 +1159,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1273,7 +1180,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-30",
@@ -1291,7 +1198,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1312,7 +1219,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-31",
@@ -1330,7 +1237,7 @@ export default {
               "Synopsis": "¡Vive la experiencia BTS WORLD TOUR 'ARIRANG' en cines de todo el mundo, transmitida desde São Paulo, Brasil! Como colofón de su gira por Latinoamérica, este concierto monumental llevará directamente a la pantalla grande toda la energía explosiva del estadio repleto de Brasil. Las transmisiones en algunos territorios están programadas en horario diferido para adaptarse a los husos horarios locales.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 12,
+              "Order": 11,
               "Formats": [
                 {
                   "Name": "CA",
@@ -1372,7 +1279,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1405,7 +1312,7 @@ export default {
               "Synopsis": "Jack Torrance se traslada con su mujer y su hijo de siete años al impresionante hotel Overlook, en Colorado, para encargarse del mantenimiento de las instalaciones durante la temporada invernal, época en la que permanece cerrado y aislado por la nieve. Su objetivo es encontrar paz y sosiego para escribir una novela. Sin embargo, poco después de su llegada al hotel, al mismo tiempo que Jack empieza a padecer inquietantes trastornos de personalidad, se suceden extraños y espeluznantes fenómenos paranormales.",
               "Status": "",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 43,
+              "Order": 42,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1426,7 +1333,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-01",
@@ -1444,7 +1351,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1477,7 +1384,7 @@ export default {
               "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
               "Status": "",
               "ReleaseDate": "2026-11-01T06:00",
-              "Order": 42,
+              "Order": 41,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1498,7 +1405,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-02",
@@ -1516,7 +1423,7 @@ export default {
               "Synopsis": "A los doctores Venkman, Stantz y Spengler, expertos en parapsicología, no les conceden una beca de investigación que habían solicitado. Al encontrarse sin trabajo, deciden fundar la empresa \"Los Cazafantasmas\", dedicada a limpiar Nueva York de ectoplasmas. El aumento repentino de apariciones espectrales en la ciudad será el presagio de la llegada de un peligroso y poderoso demonio.",
               "Status": "",
               "ReleaseDate": "2026-11-02T06:00",
-              "Order": 45,
+              "Order": 44,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1537,7 +1444,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-03",
@@ -1555,7 +1462,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1576,7 +1483,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-06",
@@ -1594,7 +1501,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1615,7 +1522,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-07",
@@ -1633,7 +1540,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1666,7 +1573,7 @@ export default {
               "Synopsis": "Por primera vez, Stray Kids presenta una transmisión especial en vivo de «Stray Kids World Tour » desde el Tokyo Dome en cines de todo el mundo. Fiel al título de la gira,  refleja el impulso del grupo por adentrarse en mundos más grandes y subir a escenarios más audaces. Los ocho miembros (Bang Chan, Lee Know, Changbin, Hyunjin, HAN, Felix, Seungmin e I.N) desatan una energía imparable a través de coreografías explosivas y voces potentes, llevando la experiencia en vivo a su punto más álgido. Su presentación empieza con «Hall of Fame», una canción que expresa la ambición de Stray Kids de escribir su propia historia, trazando su crecimiento musical desde el principio hasta donde están ahora. La producción se enriquece aún más con montajes escénicos dinámicos, toques de espectáculos tradicionales coreanos y una iluminación láser espectacular, todo diseñado para que el público —tanto en el estadio como en el cine— se ponga de pie, cante, baile y celebre junto con los artistas. Grabado en vivo desde Tokio y transmitido a cines de todo el mundo, este evento de proyección en vivo te permite a ti, como parte de STAY, disfrutar de la magnitud, el espectáculo y la energía pura del show en vivo de Stray Kids —todos juntos, en la pantalla grande.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-07T06:00",
-              "Order": 59,
+              "Order": 58,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1680,7 +1587,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-07T13:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24221",
@@ -1696,7 +1603,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-08",
@@ -1714,7 +1621,7 @@ export default {
               "Synopsis": "EXO, los reyes del K-POP, regresan para demostrar una vez más su dominio con la gran final de su sexta gira de conciertos en solitario, el concierto [dot] encore. Siente cómo la energía arrolladora y los vítores ensordecedores cobran vida a través de pantallas gigantes y un sonido envolvento, solo en los cine Yelmo.",
               "Status": "",
               "ReleaseDate": "2026-11-08T06:00",
-              "Order": 26,
+              "Order": 25,
               "Formats": [
                 {
                   "Name": "CA",
@@ -1747,7 +1654,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1768,7 +1675,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-14",
@@ -1786,7 +1693,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1807,7 +1714,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-15",
@@ -1825,7 +1732,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1846,7 +1753,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-21",
@@ -1864,7 +1771,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1885,7 +1792,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-22",
@@ -1903,7 +1810,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1924,7 +1831,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-15",
@@ -1942,7 +1849,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1979,7 +1886,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-17",
@@ -1997,7 +1904,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2079,7 +1986,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-18",
@@ -2097,7 +2004,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2148,7 +2055,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2205,7 +2112,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-19",
@@ -2223,7 +2130,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2274,7 +2181,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2331,7 +2238,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-20",
@@ -2349,7 +2256,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2400,7 +2307,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2457,7 +2364,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-21",
@@ -2475,7 +2382,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2514,7 +2421,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-22",
@@ -2532,7 +2439,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2571,7 +2478,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-23",
@@ -2589,7 +2496,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2628,7 +2535,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         }
       ],
       "Id": 74,
@@ -2708,39 +2615,6 @@ export default {
               ]
             },
             {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38113",
-                      "Time": "17:50",
-                      "TimeFilter": "27/10/2026 17:50:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "sentido-y-sensibilidad",
               "Title": "Sentido y sensibilidad",
               "OriginalTitle": "Sense and Sensibility",
@@ -2761,15 +2635,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38106",
-                      "Time": "17:00",
-                      "TimeFilter": "27/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:00:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38131",
                       "Time": "22:20",
                       "TimeFilter": "27/10/2026 22:20:00",
@@ -2783,7 +2648,7 @@ export default {
                 {
                   "Name": "2D",
                   "Language": "VOSE",
-                  "Idioma": "INGLÉS",
+                  "Idioma": "SUB ESP",
                   "Showtimes": [
                     {
                       "ShowtimeId": "38118",
@@ -2819,15 +2684,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38109",
-                      "Time": "17:10",
-                      "TimeFilter": "27/10/2026 17:10:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38120",
                       "Time": "19:50",
                       "TimeFilter": "27/10/2026 19:50:00",
@@ -2860,15 +2716,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38107",
-                      "Time": "17:05",
-                      "TimeFilter": "27/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:05:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38115",
                       "Time": "18:30",
@@ -2921,15 +2768,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38111",
-                      "Time": "17:25",
-                      "TimeFilter": "27/10/2026 17:25:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:25:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38117",
                       "Time": "19:35",
                       "TimeFilter": "27/10/2026 19:35:00",
@@ -2963,15 +2801,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38110",
-                      "Time": "17:20",
-                      "TimeFilter": "27/10/2026 17:20:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:20:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38119",
                       "Time": "19:45",
                       "TimeFilter": "27/10/2026 19:45:00",
@@ -2994,39 +2823,6 @@ export default {
               ]
             },
             {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38108",
-                      "Time": "17:05",
-                      "TimeFilter": "27/10/2026 17:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:05:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "tomorrow-x-together-world-tour-act-tomorrow",
               "Title": "TOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW'",
               "OriginalTitle": "TOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW'",
@@ -3039,7 +2835,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! TOMORROW X TOGETHER WORLD TOUR 'ACT : TOMORROW' Como estrellas brillantes, la cuarta gira mundial de TOMORROW X TOGETHER, ACT: TOMORROW, se desarrolla como un viaje deslumbrante hacia el mañana que prometieron juntos. Desde su hermosa narrativa hasta la impresionante producción y las impactantes presentaciones en vivo que cautivaron a los MOA de todo el mundo, ¡vive la energía envolvente de la espectacular gira mundial de TOMORROW X TOGETHER en la pantalla grande!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 14,
+              "Order": 13,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3072,7 +2868,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3105,7 +2901,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3138,7 +2934,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3168,39 +2964,6 @@ export default {
               ]
             },
             {
-              "Key": "el-poder-del-rosario",
-              "Title": "El poder del Rosario",
-              "OriginalTitle": "O Poder do Rosário",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "106",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ElPoderDelRosario/Es/720x1022_copia_7.jpg",
-              "Distributor": "DREAMS FACTORY EUROPEAN S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "\"El Poder del Rosario\" es un emocionante drama sobre la fe, la culpa, el perdón y la esperanza. Helena es una niña dulce y devota que guarda en su corazón el deseo de conocer al padre que nunca ha estado presente en su vida. Criada con amor por su madre, Sandra, encuentra en el Rosario su mayor fuente de consuelo y confianza. Decidida a hacer realidad el mayor sueño de su hija, Sandra decide enfrentarse a antiguas heridas y retomar el contacto con Roberto, el hombre que se alejó de sus vidas muchos años atrás. Pero, de camino a ese esperado reencuentro, madre e hija sufren un grave accidente que lo cambia todo. Mientras Helena lucha entre la vida y la muerte, Sandra se sumerge en la desesperación de una madre que ya no puede hacer nada salvo creer. Al mismo tiempo, André, un fotógrafo de éxito, vanidoso y alejado de la fe, se convierte en testigo de aquella tragedia. Marcado por el rosario ensangrentado que encuentra en el lugar del accidente, se ve arrastrado a un inesperado camino de conversión interior, acercándose a Helena, a Sandra y a una realidad espiritual que hasta entonces despreciaba. En el hospital, los dolores del pasado comienzan a salir a la luz, antiguos vínculos familiares son confrontados y vidas que parecían seguir caminos separados comienzan a entrelazarse por un propósito mayor. Rodeados por la fuerza de la oración, la intercesión de Nuestra Señora y una cadena de fe que trasciende los límites de lo imposible, todos tendrán que enfrentarse a sus errores, revisar sus decisiones y descubrir que, incluso en los momentos más oscuros, el amor de Dios puede transformar los destinos. Inspirada en testimonios de fe y en la devoción al Santo Rosario, \"El Poder del Rosario\" es una historia conmovedora sobre milagros que comienzan en el corazón.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 23,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38135",
-                      "Time": "17:00",
-                      "TimeFilter": "27/10/2026 17:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-27T17:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "whalefall",
               "Title": "Whalefall",
               "OriginalTitle": "Whalefall",
@@ -3213,7 +2976,7 @@ export default {
               "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
+              "Order": 26,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3246,7 +3009,7 @@ export default {
               "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
+              "Order": 27,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3279,7 +3042,7 @@ export default {
               "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
+              "Order": 28,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3312,7 +3075,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3345,7 +3108,7 @@ export default {
               "Synopsis": "En los bajos fondos del París del siglo XVIII, el dinero es el rey. Nada es sagrado, hasta el amor tiene un precio. Manon, asidua de ese submundo hedonista, se ve atrapada entre dos deseos cuando se enamora del estudiante Des Grieux. Des Grieux, leal y abnegado, le ofrece la posibilidad de una vida honorable. Y aun así, la riqueza que promete el mundo de la sociedad parisina sigue siendo tentadora... La lucha y la angustia de Manon por sobrevivir se encuentran en el devastador epicentro de la adaptación de Kenneth MacMillan de la novela de 1974 de Abbé Prévost. En esta obra cumbre de The Royal Ballet, la visión analítica de MacMillan de la psicología del ser humano ofrece un retrato honesto de la degradación del París de Manon, al tiempo que su decadencia y declive cobran vida gracias a la partitura de Jules Massenet y el vestuario de Nicholas Georgiadis.",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-27T06:00",
-              "Order": 78,
+              "Order": 77,
               "Formats": [
                 {
                   "Name": "CA",
@@ -3366,62 +3129,11 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-28",
           "Movies": [
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38143",
-                      "Time": "18:15",
-                      "TimeFilter": "28/10/2026 18:15:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T18:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38153",
-                      "Time": "20:30",
-                      "TimeFilter": "28/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T20:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38163",
-                      "Time": "22:45",
-                      "TimeFilter": "28/10/2026 22:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "Key": "superthings-la-pelicula",
               "Title": "Superthings: La película",
@@ -3789,7 +3501,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3822,7 +3534,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 16,
+              "Order": 15,
               "Formats": [
                 {
                   "Name": "3D CA",
@@ -3855,7 +3567,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3897,7 +3609,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3939,7 +3651,7 @@ export default {
               "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
+              "Order": 26,
               "Formats": [
                 {
                   "Name": "2D",
@@ -3972,7 +3684,7 @@ export default {
               "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
+              "Order": 27,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4005,7 +3717,7 @@ export default {
               "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
+              "Order": 28,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4038,7 +3750,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4059,62 +3771,11 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-29",
           "Movies": [
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38173",
-                      "Time": "18:15",
-                      "TimeFilter": "29/10/2026 18:15:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T18:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38183",
-                      "Time": "20:30",
-                      "TimeFilter": "29/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T20:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38193",
-                      "Time": "22:45",
-                      "TimeFilter": "29/10/2026 22:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "Key": "superthings-la-pelicula",
               "Title": "Superthings: La película",
@@ -4449,7 +4110,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! SEVENTEEN WORLD TOUR NEW_ Para celebrar el décimo aniversario de su debut, SEVENTEEN se lanza a una gira mundial impulsados por su determinación de empezar de cero, tal como lo indica el título NEW_ Con su presencia escénica sin igual y su energía explosiva, SEVENTEEN vuelve a demostrar su potencial ilimitado. ¡Vive la intensidad del concierto —rebosante del encanto único de cada miembro— directamente en la pantalla grande!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 13,
+              "Order": 12,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4482,7 +4143,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 16,
+              "Order": 15,
               "Formats": [
                 {
                   "Name": "3D CA",
@@ -4515,7 +4176,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4557,7 +4218,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4599,7 +4260,7 @@ export default {
               "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
+              "Order": 26,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4632,7 +4293,7 @@ export default {
               "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
+              "Order": 27,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4665,7 +4326,7 @@ export default {
               "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
+              "Order": 28,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4698,7 +4359,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4731,7 +4392,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -4752,7 +4413,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-30",
@@ -4937,30 +4598,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38242",
-                      "Time": "17:10",
-                      "TimeFilter": "30/10/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38226",
                       "Time": "18:30",
                       "TimeFilter": "30/10/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38372",
-                      "Time": "20:30",
-                      "TimeFilter": "30/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -5130,7 +4773,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! SEVENTEEN WORLD TOUR NEW_ Para celebrar el décimo aniversario de su debut, SEVENTEEN se lanza a una gira mundial impulsados por su determinación de empezar de cero, tal como lo indica el título NEW_ Con su presencia escénica sin igual y su energía explosiva, SEVENTEEN vuelve a demostrar su potencial ilimitado. ¡Vive la intensidad del concierto —rebosante del encanto único de cada miembro— directamente en la pantalla grande!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 13,
+              "Order": 12,
               "Formats": [
                 {
                   "Name": "CA",
@@ -5163,7 +4806,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 16,
+              "Order": 15,
               "Formats": [
                 {
                   "Name": "3D CA",
@@ -5196,7 +4839,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5229,7 +4872,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5271,7 +4914,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5304,7 +4947,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5337,7 +4980,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5370,7 +5013,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5412,7 +5055,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5454,7 +5097,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5493,7 +5136,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-10-31",
@@ -5705,30 +5348,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38260",
-                      "Time": "17:10",
-                      "TimeFilter": "31/10/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-31T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38268",
                       "Time": "18:30",
                       "TimeFilter": "31/10/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-31T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38375",
-                      "Time": "20:30",
-                      "TimeFilter": "31/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-31T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -5841,7 +5466,7 @@ export default {
               "Synopsis": "¡Vive la experiencia BTS WORLD TOUR 'ARIRANG' en cines de todo el mundo, transmitida desde São Paulo, Brasil! Como colofón de su gira por Latinoamérica, este concierto monumental llevará directamente a la pantalla grande toda la energía explosiva del estadio repleto de Brasil. Las transmisiones en algunos territorios están programadas en horario diferido para adaptarse a los husos horarios locales.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 12,
+              "Order": 11,
               "Formats": [
                 {
                   "Name": "CA",
@@ -5883,7 +5508,7 @@ export default {
               "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
               "Status": "Estreno",
               "ReleaseDate": "2026-10-23T06:00",
-              "Order": 16,
+              "Order": 15,
               "Formats": [
                 {
                   "Name": "3D CA",
@@ -5916,7 +5541,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5949,7 +5574,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5991,7 +5616,7 @@ export default {
               "Synopsis": "Un astuto gato lleva el caos con sus travesuras a la vida de un par de hermanos que lidian con su mudanza a una nueva ciudad.",
               "Status": "",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 40,
+              "Order": 39,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6024,7 +5649,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6057,7 +5682,7 @@ export default {
               "Synopsis": "Jack Torrance se traslada con su mujer y su hijo de siete años al impresionante hotel Overlook, en Colorado, para encargarse del mantenimiento de las instalaciones durante la temporada invernal, época en la que permanece cerrado y aislado por la nieve. Su objetivo es encontrar paz y sosiego para escribir una novela. Sin embargo, poco después de su llegada al hotel, al mismo tiempo que Jack empieza a padecer inquietantes trastornos de personalidad, se suceden extraños y espeluznantes fenómenos paranormales.",
               "Status": "",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 43,
+              "Order": 42,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6090,7 +5715,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6132,7 +5757,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6174,7 +5799,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6225,7 +5850,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6273,7 +5898,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-01",
@@ -6485,30 +6110,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38299",
-                      "Time": "17:10",
-                      "TimeFilter": "01/11/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-01T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38307",
                       "Time": "18:30",
                       "TimeFilter": "01/11/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-01T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38374",
-                      "Time": "20:30",
-                      "TimeFilter": "01/11/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-01T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -6654,7 +6261,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6687,7 +6294,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6729,7 +6336,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6762,7 +6369,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6795,7 +6402,7 @@ export default {
               "Synopsis": "Un astuto gato lleva el caos con sus travesuras a la vida de un par de hermanos que lidian con su mudanza a una nueva ciudad.",
               "Status": "",
               "ReleaseDate": "2026-10-31T06:00",
-              "Order": 40,
+              "Order": 39,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6828,7 +6435,7 @@ export default {
               "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 41,
+              "Order": 40,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6861,7 +6468,7 @@ export default {
               "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
               "Status": "",
               "ReleaseDate": "2026-11-01T06:00",
-              "Order": 42,
+              "Order": 41,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6894,7 +6501,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6936,7 +6543,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6978,7 +6585,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7029,7 +6636,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7077,7 +6684,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-02",
@@ -7298,30 +6905,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38345",
-                      "Time": "17:10",
-                      "TimeFilter": "02/11/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-02T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38352",
                       "Time": "18:30",
                       "TimeFilter": "02/11/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-02T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38373",
-                      "Time": "20:30",
-                      "TimeFilter": "02/11/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-02T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -7467,7 +7056,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7500,7 +7089,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7542,7 +7131,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7575,7 +7164,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7608,7 +7197,7 @@ export default {
               "Synopsis": "A los doctores Venkman, Stantz y Spengler, expertos en parapsicología, no les conceden una beca de investigación que habían solicitado. Al encontrarse sin trabajo, deciden fundar la empresa \"Los Cazafantasmas\", dedicada a limpiar Nueva York de ectoplasmas. El aumento repentino de apariciones espectrales en la ciudad será el presagio de la llegada de un peligroso y poderoso demonio.",
               "Status": "",
               "ReleaseDate": "2026-11-02T06:00",
-              "Order": 45,
+              "Order": 44,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7641,7 +7230,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7683,7 +7272,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7725,7 +7314,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7776,7 +7365,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7824,7 +7413,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-03",
@@ -8000,30 +7589,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38379",
-                      "Time": "17:10",
-                      "TimeFilter": "03/11/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-03T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38394",
                       "Time": "18:20",
                       "TimeFilter": "03/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-03T18:20:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38406",
-                      "Time": "20:30",
-                      "TimeFilter": "03/11/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-03T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -8202,7 +7773,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8235,7 +7806,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8277,7 +7848,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8310,7 +7881,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8343,7 +7914,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8376,7 +7947,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8409,7 +7980,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8458,7 +8029,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8507,7 +8078,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8546,7 +8117,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-04",
@@ -8722,30 +8293,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38411",
-                      "Time": "17:10",
-                      "TimeFilter": "04/11/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-04T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38418",
                       "Time": "18:20",
                       "TimeFilter": "04/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-04T18:20:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38428",
-                      "Time": "20:30",
-                      "TimeFilter": "04/11/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-04T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -8924,7 +8477,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8957,7 +8510,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8999,7 +8552,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9032,7 +8585,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9065,7 +8618,7 @@ export default {
               "Synopsis": "Rammstein - Live in Mexico City es una nueva película de concierto que captura uno de los momentos más representativos de la gira mundial de estadios que la banda llevó a cabo durante cinco años. Filmada a lo largo de tres noches consecutivas con todas las entradas agotadas en el Foro Sol, con capacidad para 65.000 espectadores, la película está dirigida por el aclamado cineasta Paul Dugdale (nominado en cuatro ocasiones a los premios GRAMMY® y ganador de dos premios Primetime Emmy®). Con 20 canciones que recorren toda la trayectoria de la banda, entre ellas Du Hast, Sonne, Ich Will y el cierre en Ciudad de México con Te Quiero Puta!, la película muestra a Rammstein en su versión más espectacular, con llamas de hasta 20 metros de altura, efectos pirotécnicos que abarcan todo el estadio e imponentes estructuras de estética industrial, equilibrados con poderosos momentos de conexión entre la banda y sus seguidores.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-04T06:00",
-              "Order": 58,
+              "Order": 57,
               "Formats": [
                 {
                   "Name": "CA",
@@ -9098,7 +8651,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9131,7 +8684,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9173,7 +8726,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9215,7 +8768,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9254,7 +8807,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-05",
@@ -9430,30 +8983,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38441",
-                      "Time": "17:10",
-                      "TimeFilter": "05/11/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-05T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38448",
                       "Time": "18:20",
                       "TimeFilter": "05/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-05T18:20:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38458",
-                      "Time": "20:30",
-                      "TimeFilter": "05/11/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-05T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -9632,7 +9167,7 @@ export default {
               "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
               "Status": "",
               "ReleaseDate": "2026-10-16T06:00",
-              "Order": 19,
+              "Order": 18,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9665,7 +9200,7 @@ export default {
               "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
               "Status": "",
               "ReleaseDate": "2026-10-09T06:00",
-              "Order": 20,
+              "Order": 19,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9707,7 +9242,7 @@ export default {
               "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
               "Status": "",
               "ReleaseDate": "2026-09-18T06:00",
-              "Order": 37,
+              "Order": 36,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9740,7 +9275,7 @@ export default {
               "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
               "Status": "",
               "ReleaseDate": "2026-10-02T06:00",
-              "Order": 38,
+              "Order": 37,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9773,7 +9308,7 @@ export default {
               "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 63,
+              "Order": 62,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9806,7 +9341,7 @@ export default {
               "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 64,
+              "Order": 63,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9848,7 +9383,7 @@ export default {
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
               "Status": "",
               "ReleaseDate": "2026-10-29T06:00",
-              "Order": 66,
+              "Order": 65,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9890,7 +9425,7 @@ export default {
               "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
               "Status": "",
               "ReleaseDate": "2026-10-30T06:00",
-              "Order": 67,
+              "Order": 66,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9929,7 +9464,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-06",
@@ -9947,7 +9482,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9968,7 +9503,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-07",
@@ -9986,7 +9521,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10019,7 +9554,7 @@ export default {
               "Synopsis": "Rammstein - Live in Mexico City es una nueva película de concierto que captura uno de los momentos más representativos de la gira mundial de estadios que la banda llevó a cabo durante cinco años. Filmada a lo largo de tres noches consecutivas con todas las entradas agotadas en el Foro Sol, con capacidad para 65.000 espectadores, la película está dirigida por el aclamado cineasta Paul Dugdale (nominado en cuatro ocasiones a los premios GRAMMY® y ganador de dos premios Primetime Emmy®). Con 20 canciones que recorren toda la trayectoria de la banda, entre ellas Du Hast, Sonne, Ich Will y el cierre en Ciudad de México con Te Quiero Puta!, la película muestra a Rammstein en su versión más espectacular, con llamas de hasta 20 metros de altura, efectos pirotécnicos que abarcan todo el estadio e imponentes estructuras de estética industrial, equilibrados con poderosos momentos de conexión entre la banda y sus seguidores.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-04T06:00",
-              "Order": 58,
+              "Order": 57,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10052,7 +9587,7 @@ export default {
               "Synopsis": "Por primera vez, Stray Kids presenta una transmisión especial en vivo de «Stray Kids World Tour » desde el Tokyo Dome en cines de todo el mundo. Fiel al título de la gira,  refleja el impulso del grupo por adentrarse en mundos más grandes y subir a escenarios más audaces. Los ocho miembros (Bang Chan, Lee Know, Changbin, Hyunjin, HAN, Felix, Seungmin e I.N) desatan una energía imparable a través de coreografías explosivas y voces potentes, llevando la experiencia en vivo a su punto más álgido. Su presentación empieza con «Hall of Fame», una canción que expresa la ambición de Stray Kids de escribir su propia historia, trazando su crecimiento musical desde el principio hasta donde están ahora. La producción se enriquece aún más con montajes escénicos dinámicos, toques de espectáculos tradicionales coreanos y una iluminación láser espectacular, todo diseñado para que el público —tanto en el estadio como en el cine— se ponga de pie, cante, baile y celebre junto con los artistas. Grabado en vivo desde Tokio y transmitido a cines de todo el mundo, este evento de proyección en vivo te permite a ti, como parte de STAY, disfrutar de la magnitud, el espectáculo y la energía pura del show en vivo de Stray Kids —todos juntos, en la pantalla grande.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-07T06:00",
-              "Order": 59,
+              "Order": 58,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10082,7 +9617,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-08",
@@ -10100,7 +9635,7 @@ export default {
               "Synopsis": "EXO, los reyes del K-POP, regresan para demostrar una vez más su dominio con la gran final de su sexta gira de conciertos en solitario, el concierto [dot] encore. Siente cómo la energía arrolladora y los vítores ensordecedores cobran vida a través de pantallas gigantes y un sonido envolvento, solo en los cine Yelmo.",
               "Status": "",
               "ReleaseDate": "2026-11-08T06:00",
-              "Order": 26,
+              "Order": 25,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10133,7 +9668,7 @@ export default {
               "Synopsis": "La guerra redujo a Japón a cero, y Godzilla lo hundió en números negativos. Han pasado dos años desde entonces, y el país ha soportado un doloroso camino hacia la recuperación, logrando por fin recuperar su vida cotidiana. Pero justo cuando la humanidad consigue aferrarse a una paz ganada con tanto sacrificio, una nueva amenaza irrumpe y aplasta toda esperanza en un instante. No habrá una tercera oportunidad. Todo termina aquí.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-03T06:00",
-              "Order": 51,
+              "Order": 50,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10154,7 +9689,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-14",
@@ -10172,7 +9707,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10205,7 +9740,7 @@ export default {
               "Synopsis": "La aclamada producción de Richard Eyre de la obra maestra de Bizet vuelve a los cines esta temporada para una reposición especial, protagonizada por la soprano Elīna Garanča en el papel protagonista y el tenor Roberto Alagna como Don José, en la emblemática representación del Met de 2010, una de las favoritas de los aficionados de la serie «The Met: Live in HD». La dirige Yannick Nézet-Séguin.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-05-18T06:00",
-              "Order": 87,
+              "Order": 85,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10226,7 +9761,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-15",
@@ -10244,7 +9779,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10265,7 +9800,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-21",
@@ -10283,7 +9818,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10304,7 +9839,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-11-22",
@@ -10322,7 +9857,7 @@ export default {
               "Synopsis": "¡Únete a Peppa Pig y su familia para disfrutar de una divertida aventura en la gran pantalla mientras celebran la primera Navidad de Evie! Comparte la emoción del día de Navidad mientras Peppa y su familia recuerdan algunos de sus momentos navideños más especiales. Desde aventuras en la nieve y obras de teatro festivas hasta decorar el árbol de Navidad, esta experiencia cinematográfica de una hora reúne siete episodios clásicos navideños de Peppa Pig y cuatro canciones totalmente nuevas para que los más pequeños canten y bailen. Llena de risas, música y momentos entrañables, esta experiencia cinematográfica especial es el plan perfecto para disfrutar en familia durante la Navidad. ¡Así que prepara los gorros, bufandas y guantes y disfruta de la magia de la Navidad junto a Peppa y su familia en Diversión Navideña con Peppa: La Experiencia en Cines!",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-11-14T06:00",
-              "Order": 34,
+              "Order": 33,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10343,7 +9878,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-01",
@@ -10361,7 +9896,7 @@ export default {
               "Synopsis": "En una acogedora fiesta navideña, la joven Clara conoce al misterioso mago Drosselmeyer, que le regala una muñeca cascanueces. Cuando los invitados se marchan y todos en la casa duermen, Clara baja las escaleras en busca de la muñeca, pero en su lugar, se encuentra con Drosselmeyer, quien la transporta por arte de magia a un mundo encantado: increíbles paisajes de torbellinos de nieve y una fantasía centelleante, en la que los juguetes cobran vida y la magia nunca cesa. La producción de Peter Wright de este clásico navideño para toda la familia encandila acompañada del maravilloso despliegue de la partitura orquestal de Tchaikovsky y el brillo y la majestuosidad del vestuario de época de Julia Trevelyan Oman.",
               "Status": "",
               "ReleaseDate": "2026-12-01T06:00",
-              "Order": 79,
+              "Order": 78,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10382,7 +9917,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-05",
@@ -10400,7 +9935,7 @@ export default {
               "Synopsis": "La espectacular interpretación de Saint-Saëns sobre el héroe bíblico de fuerza legendaria y la seductora filistea cuya belleza lo subyuga regresa en la grandiosa producción del Met. Con una orquesta y un coro de gran envergadura y algunas de las melodías más cautivadoras de la ópera, esta obra maestra es un auténtico festín para la vista y el oído. Giacomo Sagripanti dirige un reparto electrizante encabezado por la formidable pareja protagonista formada por la mezzosoprano Aigul Akhmetshina y el tenor Clay Hilley, retransmitida en directo a cines de todo el mundo.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-05T06:00",
-              "Order": 88,
+              "Order": 86,
               "Formats": [
                 {
                   "Name": "CA",
@@ -10421,7 +9956,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-15",
@@ -10439,7 +9974,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10476,7 +10011,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-17",
@@ -10494,7 +10029,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10579,7 +10114,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10618,7 +10153,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-18",
@@ -10636,7 +10171,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10687,7 +10222,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10745,7 +10280,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10802,7 +10337,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-19",
@@ -10820,7 +10355,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10871,7 +10406,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10929,7 +10464,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -10986,7 +10521,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-20",
@@ -11004,7 +10539,7 @@ export default {
               "Synopsis": "Diecisiete años después de su ascenso al trono, Paul Atreides reina como el Mesías desde Arrakis mientras la yihad librada en su nombre ha segado miles de millones de vidas. Atormentado por visiones de una extinción inevitable, debe enfrentar una conspiración mortal orquestada por las Bene Gesserit, los Tleilaxu y la Cofradía Espacial. Mientras Chani lidia con el rechazo a un imperio que no reconoce, el regreso de un espectro del pasado amenaza con desestabilizarlo todo. El Camino Dorado exige ahora un sacrificio final: su humanidad o el caos absoluto. La arena ya no promete redención, solo el peso de profecías quebradas. Tercera parte de 'Dune'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-18T06:00",
-              "Order": 17,
+              "Order": 16,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11055,7 +10590,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 21,
+              "Order": 20,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11113,7 +10648,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11170,7 +10705,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-21",
@@ -11188,7 +10723,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11227,7 +10762,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-22",
@@ -11245,7 +10780,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11284,7 +10819,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2026-12-23",
@@ -11302,7 +10837,7 @@ export default {
               "Synopsis": "Primera de las dos películas de Los Vengadores para la Fase 6 del MCU. Se desconoce el argumento pero, por los cómics en los que se inspira, la historia sigue al Doctor Doom (Robert Downey Jr.) emergiendo como la mayor amenaza del multiverso, poniendo en jaque a todas las realidades. Los Avengers, junto a los Cuatro Fantásticos y otros héroes clave, deberán unirse por primera vez a gran escala en un conflicto que prepara el terreno para el gran evento multiversal que culminará en 'Avengers: Secret Wars'.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2026-12-17T06:00",
-              "Order": 22,
+              "Order": 21,
               "Formats": [
                 {
                   "Name": "2D",
@@ -11341,7 +10876,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-01-08",
@@ -11359,7 +10894,7 @@ export default {
               "Synopsis": "Simon Boccanegra, de Giuseppe Verdi (1813-1901), llega al Real en una coproducción con las Óperas de Tokio y Helsinki, con una alabada puesta en escena de Pierre Audi, que falleció repentinamente después del estreno de la producción en Tokio. La dramaturgia enfatiza la profunda soledad de Simon Boccanegra, que vive en un entorno explosivo de angustiosa violencia, temor y desconfianza, representado por la escenografía simbólica y muy potente del gran escultor Anish Kapoor. Nicola Luisotti, director honorario del Teatro Real, estará al frente del Coro y Orquesta Titulares del Teatro Real y de grandísimos intérpretes verdianos como Ludovic Tézier, Hrachuhí Bassénz, Francesco Meli y Gianluca Buratto, entre otros.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-01-08T06:00",
-              "Order": 68,
+              "Order": 67,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11380,7 +10915,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-01-23",
@@ -11398,7 +10933,7 @@ export default {
               "Synopsis": "El emocionante drama de Puccini ambientado en el Salvaje Oeste regresa en una nueva puesta en escena de Richard Jones, lo que supone la primera nueva producción de La Fanciulla del West de la compañía en más de 30 años. La soprano Sondra Radvanovsky debuta en el papel de Minnie, la tenaz dueña de una taberna con un corazón de oro que encuentra el amor cuando menos se lo espera. El tenor SeokJong Baek es el apuesto bandido que llega a la remota ciudad minera de California para robarle el corazón, frente al barítono Christopher Maltman, en el papel del agente de la ley decidido a hacer justicia... y a conquistar a Minnie para sí mismo. La maestra Keri-Lynn Wilson se pone al frente del podio para dirigir una de las aventuras más trepidantes de la ópera, en directo desde el escenario del Met a los cines de todo el mundo.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-01-23T06:00",
-              "Order": 90,
+              "Order": 88,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11419,7 +10954,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-03-20",
@@ -11437,7 +10972,7 @@ export default {
               "Synopsis": "Tras su exitoso debut en la compañía con *The Hours*, el compositor Kevin Puts regresa al Met con su ópera ganadora del Premio Pulitzer, inspirada en los hechos reales de la tregua de Navidad de 1914. Una conmovedora representación de la humanidad compartida en las circunstancias más inhumanas, la grandiosa y cinematográfica ópera de Puts —con un libreto en inglés, francés y alemán de Mark Campbell— ha sido ampliamente aclamada desde su estreno en 2011, calificada como «una experiencia emocional abrumadora» por The Guardian. La evocadora puesta en escena de James Robinson transporta al público directamente a los campos de batalla del frente occidental con un reparto repleto de estrellas, entre las que destacan la soprano Elza van den Heever y los tenores Ben Bliss y Rolando Villazón, bajo la dirección de la maestra Dalia Stasevska, en directo desde el Met a cines de todo el mundo.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-03-20T06:00",
-              "Order": 92,
+              "Order": 90,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11458,7 +10993,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-03-23",
@@ -11476,7 +11011,7 @@ export default {
               "Synopsis": "En una fiesta en el jardín, una soleada tarde, Alicia se sorprende al ver como el amigo de sus padres Lewis Carroll se transforma en un conejo blanco. Cuando lo sigue por una madriguera, las situaciones se vuelven cada vez más curiosas… A medida que Alicia recorre el País de las Maravillas, se va a encontrando con innumerables criaturas extrañas. Queda cautivada por la encantadora Sota de Corazones, quien huye por haber robado las tartas. La confusión no hace más que crecer. Entonces, Alicia se despierta sobresaltada. ¿Soñaba despierta? Las Aventuras de Alicia en el País de Las Maravillas de Christopher Wheeldon irrumpió en escena en 2011 con una explosión de color, magia y una coreografía original y sofisticada sobre los escenarios. La partitura de Joby Talbot combina sonidos contemporáneos con melodías arrebatadoras, en un guiño a las partituras de ballet del siglo XIX. El increíblemente llamativo y original vestuario de Bob Crowley echa mano de todo, desde marionetas a proyecciones, para que el País de las Maravillas resulte maravillosamente real. El resultado se traduce en lo mejor de The Royal Ballet, un ballet de primer nivel, un espectáculo visual para toda la familia y una música y vestuario ingeniosos.",
               "Status": "",
               "ReleaseDate": "2027-03-23T06:00",
-              "Order": 80,
+              "Order": 79,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11497,7 +11032,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-04-03",
@@ -11515,7 +11050,7 @@ export default {
               "Synopsis": "Tras su radiante interpretación en *Romeo y Julieta* de Gounod —que cosechó elogios por «unas notas agudas que resonaban como oro líquido… Sierra alcanzó las alturas del firmamento operístico» (The New York Times)—, la superestrella soprano Nadine Sierra se mete en la piel de otra seductora heroína francesa: la irresistible protagonista del apasionado drama de Massenet, en directo desde el escenario del Met a los cines de todo el mundo. El destacado tenor Matthew Polenzani es su idealista amante, el Chevalier des Grieux, junto al barítono Andrzej Filończyk, una estrella en ascenso, en el papel de su leal primo, Lescaut, en una impresionante puesta en escena del director Laurent Pelly.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-04-03T06:00",
-              "Order": 94,
+              "Order": 92,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11536,7 +11071,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-04-22",
@@ -11554,7 +11089,7 @@ export default {
               "Synopsis": "Norma, de Vincenzo Bellini, con dirección de escena de Justin Way, retrata a la protagonista como la soprano que interpreta a la sacerdotisa, en una constante catarsis en la que se entrelazan el drama de la cantante y el de su personaje durante el Risorgimento italiano. La dirección musical será de Francesco Lanzillotta, que triunfó recientemente con su versión de I masnadieri, de Verdi¬ y bajo su dirección estarán el Coro y Orquesta Titulares del Teatro Real, junto a un reparto estelar, en que destacan Lidia Fridman, Javier Camarena, Aigul Akhmetshina y Riccardo Fassi, en los principales papeles.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-04-22T06:00",
-              "Order": 69,
+              "Order": 68,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11575,7 +11110,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-04-24",
@@ -11593,7 +11128,7 @@ export default {
               "Synopsis": "Brian Jagde, uno de los tenores dramáticos más destacados de la actualidad, interpreta el exigente papel protagonista de la que muchos consideran la ópera italiana por excelencia, en directo en cines de todo el mundo. La monumental tragedia shakespeariana de Verdi cuenta también con la soprano Ailyn Pérez, en su debut en la compañía en el papel de la sufrida Desdémona, junto al barítono Artur Ruciński como el siniestro Yago. Michele Mariotti dirige a la Orquesta y al Coro del Met al completo en esta emocionante partitura.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-04-24T06:00",
-              "Order": 96,
+              "Order": 94,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11614,7 +11149,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-04-29",
@@ -11632,7 +11167,7 @@ export default {
               "Synopsis": "La princesa Odette está bajo el influjo de una maldición, convertida en cisne por la malvada bruja Von Rothbart. La maldición solo puede romperse por una promesa de amor eterno. Cuando conoce al príncipe Sigfrido, este se enamora inmediatamente de su frágil belleza y promete liberarla. Pero la libertad de Odette no está garantizada, ya que Von Rothbart conspira para dar al traste con los planes de los amantes. La producción de Liam Scarlett para The Royal Ballet reúne la imponente partitura de Tchaikovsky con el pintoresco vestuario de John Macfarlane para crear un espectáculo de ballet eterno de amor, traición y perdón.",
               "Status": "",
               "ReleaseDate": "2027-04-22T06:00",
-              "Order": 81,
+              "Order": 80,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11653,7 +11188,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-05-08",
@@ -11671,7 +11206,7 @@ export default {
               "Synopsis": "La soprano Lise Davidsen interpreta el papel protagonista de la diva por excelencia de Puccini, junto al tenor Freddie De Tommaso como Cavaradossi y el barítono Quinn Kelsey como Scarpia, en la aclamada representación de 2024 del Met de la emocionante producción de David McVicar. Dirige Yannick Nézet-Séguin.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-05-08T06:00",
-              "Order": 98,
+              "Order": 96,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11692,7 +11227,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-05-25",
@@ -11710,7 +11245,7 @@ export default {
               "Synopsis": "El clásico cuento de Shakespeare de amantes marcados por un trágico destino se transforma en el embriagador ballet de Kenneth MacMillan. El florecer del amor juvenil está tan presente en el encuentro de Romeo y Julieta en el balcón como en sus últimos momentos, cuando se agarran desesperadamente a la vida en la tumba. La música evocadora de Prokofiev ambienta momentos románticos robados y enemistades mortales, y lleva al ballet a su conclusión trágica e inevitable.",
               "Status": "",
               "ReleaseDate": "2027-05-25T06:00",
-              "Order": 82,
+              "Order": 81,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11731,7 +11266,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-06-03",
@@ -11749,7 +11284,7 @@ export default {
               "Synopsis": "Tannhäuser, de Richard Wagner (1813-18 83), vuelve al Real en una nueva y espectacular coproducción con la Ópera de Lyon con dirección de escena de David Hermann, que evoca el mundo de la ciencia ficción con innumerables referencias cinematográficas desde la clásica Metrópolis a las sagas Star Wars y Mad Max, concediendo una gran espectacularidad al mundo mitológico wagneriano. El director musical del Real, Gustavo Gimeno, estará al frente de la Orquesta y Coro Titulares del Teatro Real y de un fantástico reparto verdiano, con Clay Hilley, Malin Byström, Ludovic Tézier, Ausrine Stundyte, Georg Zeppenfeld y Cassandre Berthon.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-06-03T06:00",
-              "Order": 70,
+              "Order": 69,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11770,7 +11305,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         },
         {
           "Dia": "2027-06-05",
@@ -11788,7 +11323,7 @@ export default {
               "Synopsis": "Una profunda reflexión filosófica sobre la compasión y la reconciliación, esta interpretación trascendental de la heroica búsqueda del Santo Grial por parte de un caballero medieval vuelve a la gran pantalla en la aclamada producción de François Girard, una «puesta en escena reflexiva e intrépida, llena de imágenes impactantes» (The New York Times). Yannick Nézet-Séguin dirige a un elenco de superestrellas wagnerianas, entre las que se encuentran el tenor Piotr Beczała en el papel protagonista, la mezzosoprano Elīna Garanča como la enigmática Kundry, el barítono Peter Mattei como el enfermo Amfortas, el barítono bajo Ryan Speedo Green como el hechicero Klingsor y el bajo Jongmin Park como el sabio Gurnemanz.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-06-05T06:00",
-              "Order": 100,
+              "Order": 98,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11809,7 +11344,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-27T06:09:32.261Z"
+          "_recogido": "2026-10-27T17:08:06.423Z"
         }
       ],
       "Id": 53,
