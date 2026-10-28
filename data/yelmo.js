@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-28T06:11:59.907Z",
+  "generatedAt": "2026-10-28T17:11:05.303Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -33,15 +33,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24339",
-                      "Time": "17:30",
-                      "TimeFilter": "28/10/2026 17:30:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T17:30:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24336",
                       "Time": "19:45",
@@ -118,15 +109,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24335",
-                      "Time": "17:05",
-                      "TimeFilter": "28/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T17:05:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24334",
                       "Time": "19:40",
                       "TimeFilter": "28/10/2026 19:40:00",
@@ -169,22 +151,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24343",
-                      "Time": "17:15",
-                      "TimeFilter": "28/10/2026 17:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T17:15:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
                       "ShowtimeId": "24338",
                       "Time": "18:15",
                       "TimeFilter": "28/10/2026 18:15:00",
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T18:15:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     },
                     {
                       "ShowtimeId": "24342",
@@ -235,7 +208,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T19:25:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24328",
@@ -244,39 +217,6 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T21:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24345",
-                      "Time": "17:00",
-                      "TimeFilter": "28/10/2026 17:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T17:00:00",
                       "Availability": ""
                     }
                   ]
@@ -343,7 +283,7 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T20:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24330",
@@ -352,39 +292,6 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-28T22:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "whalefall",
-              "Title": "Whalefall",
-              "OriginalTitle": "Whalefall",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "105",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Whalefall/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "THE WALT DISNEY COMPANY IBERIA S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "Tras la muerte de su padre (Josh Brolin), Jay Gardiner (Austin Abrams) se sumerge en la costa central de California en busca de sus restos, pero es tragado por una ballena. Atrapado en su interior con solo una hora de oxígeno restante, Jay se da cuenta de que las lecciones que su padre le enseñó pueden ser la clave para escapar.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 26,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24346",
-                      "Time": "17:45",
-                      "TimeFilter": "28/10/2026 17:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T17:45:00",
                       "Availability": ""
                     }
                   ]
@@ -425,7 +332,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-29",
@@ -842,7 +749,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-30",
@@ -1292,7 +1199,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-31",
@@ -1826,7 +1733,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-01",
@@ -2336,7 +2243,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-02",
@@ -2789,7 +2696,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-03",
@@ -3196,7 +3103,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-04",
@@ -3589,7 +3496,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-05",
@@ -3982,7 +3889,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-06",
@@ -4021,7 +3928,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-07",
@@ -4102,7 +4009,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-08",
@@ -4174,7 +4081,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-14",
@@ -4213,7 +4120,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-15",
@@ -4252,7 +4159,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-20",
@@ -4318,7 +4225,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-21",
@@ -4417,7 +4324,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-22",
@@ -4516,7 +4423,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-23",
@@ -4582,7 +4489,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-24",
@@ -4655,7 +4562,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-25",
@@ -4721,7 +4628,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-26",
@@ -4787,7 +4694,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-15",
@@ -4842,7 +4749,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-17",
@@ -4942,7 +4849,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-18",
@@ -5068,7 +4975,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-19",
@@ -5194,7 +5101,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-20",
@@ -5320,7 +5227,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-21",
@@ -5377,7 +5284,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-22",
@@ -5434,7 +5341,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-23",
@@ -5491,7 +5398,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         }
       ],
       "Id": 74,
@@ -5564,39 +5471,6 @@ export default {
               ]
             },
             {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38142",
-                      "Time": "17:40",
-                      "TimeFilter": "28/10/2026 17:40:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "sentido-y-sensibilidad",
               "Title": "Sentido y sensibilidad",
               "OriginalTitle": "Sense and Sensibility",
@@ -5616,15 +5490,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38136",
-                      "Time": "17:00",
-                      "TimeFilter": "28/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:00:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38147",
                       "Time": "19:40",
@@ -5668,15 +5533,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38139",
-                      "Time": "17:10",
-                      "TimeFilter": "28/10/2026 17:10:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38149",
                       "Time": "19:50",
                       "TimeFilter": "28/10/2026 19:50:00",
@@ -5709,15 +5565,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38137",
-                      "Time": "17:05",
-                      "TimeFilter": "28/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:05:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38144",
                       "Time": "18:30",
@@ -5769,15 +5616,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38141",
-                      "Time": "17:25",
-                      "TimeFilter": "28/10/2026 17:25:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:25:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38146",
                       "Time": "19:35",
@@ -5854,54 +5692,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38138",
-                      "Time": "17:05",
-                      "TimeFilter": "28/10/2026 17:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:05:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38158",
                       "Time": "22:25",
                       "TimeFilter": "28/10/2026 22:25:00",
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-28T22:25:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 9,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38164",
-                      "Time": "17:30",
-                      "TimeFilter": "28/10/2026 17:30:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T17:30:00",
                       "Availability": ""
                     }
                   ]
@@ -6149,7 +5945,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-29",
@@ -6716,7 +6512,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-30",
@@ -7439,7 +7235,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-10-31",
@@ -8201,7 +7997,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-01",
@@ -8987,7 +8783,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-02",
@@ -9716,7 +9512,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-03",
@@ -10420,7 +10216,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-04",
@@ -11086,7 +10882,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-05",
@@ -11743,7 +11539,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-06",
@@ -11782,7 +11578,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-07",
@@ -11896,7 +11692,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-08",
@@ -11968,7 +11764,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-14",
@@ -12040,7 +11836,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-15",
@@ -12079,7 +11875,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-20",
@@ -12118,7 +11914,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-21",
@@ -12157,7 +11953,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-11-22",
@@ -12196,7 +11992,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-01",
@@ -12235,7 +12031,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-05",
@@ -12274,7 +12070,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-15",
@@ -12329,7 +12125,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-17",
@@ -12471,7 +12267,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-18",
@@ -12655,7 +12451,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-19",
@@ -12839,7 +12635,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-20",
@@ -13023,7 +12819,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-21",
@@ -13080,7 +12876,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-22",
@@ -13137,7 +12933,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2026-12-23",
@@ -13194,7 +12990,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-01-08",
@@ -13233,7 +13029,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-01-23",
@@ -13272,7 +13068,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-03-20",
@@ -13311,7 +13107,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-03-23",
@@ -13350,7 +13146,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-04-03",
@@ -13389,7 +13185,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-04-22",
@@ -13428,7 +13224,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-04-24",
@@ -13467,7 +13263,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-04-29",
@@ -13506,7 +13302,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-05-08",
@@ -13545,7 +13341,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-05-25",
@@ -13584,7 +13380,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-06-03",
@@ -13623,7 +13419,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         },
         {
           "Dia": "2027-06-05",
@@ -13662,7 +13458,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T06:12:00.173Z"
+          "_recogido": "2026-10-28T17:11:05.583Z"
         }
       ],
       "Id": 53,
