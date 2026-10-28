@@ -16,6 +16,9 @@ su informe cada 15 min en la rama `estado-movil` y obedece al panel privado
   Diseño: `DESIGN.md`, `PRODUCT.md`.
 - **Panel**: `app/panel/`, `app/api/panel/`, `components/panel/`, `lib/panel/`,
   `middleware.js`. Plan y contrato: `docs/panel/PLAN.md`, `docs/panel/API.md`.
+  Es también el panel del **visor de LoL** (repo privado `jaimeas98/Trabajo-IA`):
+  pestaña LoL, `lib/panel/lol.js`, `components/panel/Lol.jsx`; se conecta con
+  `LOL_URL` y un token con acceso a ese repo.
 - **Móvil**: `scripts/movil/` — `instalar.sh` (instalación), `ciclo.sh` →
   `tarea.sh` (cada vuelta), `bucle.sh`, `ordenes.sh` + `acciones.sh` (órdenes
   del panel, lista cerrada), `publicar.sh`.

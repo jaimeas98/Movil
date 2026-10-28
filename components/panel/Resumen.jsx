@@ -7,7 +7,8 @@
 // la línea de las últimas 24 h (components/panel/LineaDelDia.jsx), que es la
 // pieza que no hay en ningún otro sitio: señal, recogidas y batería en el
 // mismo eje. Luego el tablero de los cuatro cines y la fiabilidad de 7 días;
-// al lado, el móvil, el token de GitHub y los accesos.
+// al lado, el móvil, el visor de LoL (otra web, el mismo panel), el token de
+// GitHub y los accesos.
 //
 // Lo que está bien no se enciende: tinta tranquila. Solo lo que falla lleva
 // color, para que el ojo vaya derecho.
@@ -15,7 +16,7 @@
 import { useMemo, useState } from 'react';
 import Icono from './Icono.jsx';
 import { Estado, Hora, PuntoCine, cifra } from './Piezas.jsx';
-import { fallosPorCine, ordenCines, nombreCine, textoEstado, veredicto } from './datos.js';
+import { fallosPorCine, ordenCines, nombreCine, textoEstado, textoPartidoLol, veredicto } from './datos.js';
 import LineaDelDia from './LineaDelDia.jsx';
 import Fiabilidad from './Fiabilidad.jsx';
 
@@ -136,6 +137,41 @@ function Movil({ datos, val, ahora, ir }) {
   );
 }
 
+// El visor de LoL en cuatro líneas: su web, lolesports.com, el respaldo y lo
+// que está en directo ahora (cada partido abre su ficha en el visor).
+function VisorLol({ datos, val, ir }) {
+  const lol = datos.lol;
+  const [web, api, respaldo] = val.lol;
+  const directo = lol?.web?.agenda?.directo ?? [];
+  const url = lol?.web?.url && /^https:\/\//i.test(lol.web.url) ? lol.web.url : null;
+  return (
+    <>
+      <dl className="pn-ficha">
+        <div><dt>Web</dt><dd data-nivel={web.nivel}>{web.valor}</dd></div>
+        <div><dt>lolesports.com</dt><dd data-nivel={api.nivel}>{api.nivel === 'bien' ? 'Responde' : api.valor}</dd></div>
+        <div><dt>Respaldo</dt><dd data-nivel={respaldo.nivel}>{respaldo.valor}</dd></div>
+        <div><dt>En directo</dt><dd>{lol?.web?.agenda ? (directo.length ? directo.length : 'Nada') : '—'}</dd></div>
+      </dl>
+      {directo.length > 0 && (
+        <ul className="pn-lol-cabina">
+          {directo.map((p, i) => (
+            <li key={p.id ?? i}>
+              {url && p.id ? (
+                <a className="pn-enlace-fila" href={`${url}/?partido=${encodeURIComponent(p.id)}`} target="_blank" rel="noreferrer noopener">
+                  <span className="pn-lol-vivo">●</span><span>{textoPartidoLol(p)}</span>
+                </a>
+              ) : (
+                <span className="pn-enlace-fila"><span className="pn-lol-vivo">●</span><span>{textoPartidoLol(p)}</span></span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="pn-ficha-pie"><button type="button" className="pn-enlace" onClick={() => ir('lol')}>Todo lo del visor<Icono nombre="ir" className="pn-ico-peq pn-ico-tras" /></button></div>
+    </>
+  );
+}
+
 // Los sitios a los que se va desde el panel. Todos de GitHub o de la propia
 // web: nada de servicios con cuenta aparte.
 function Accesos({ datos }) {
@@ -149,6 +185,11 @@ function Accesos({ datos }) {
     { texto: 'Informe del móvil', que: 'la rama estado-movil, fichero a fichero', url: `${gh}/tree/estado-movil` },
     { texto: 'Cambios publicados', que: 'lo último que se ha subido a la web', url: `${gh}/commits/${rama.split('/').map(encodeURIComponent).join('/')}` },
   ];
+  // Y los del visor de LoL, si está conectado.
+  const lolWeb = datos.lol?.web?.url;
+  const lolRepo = datos.lol?.repo?.url;
+  if (lolWeb && /^https:\/\//i.test(lolWeb)) lista.push({ texto: 'El visor de LoL', que: 'la web de los partidos', url: lolWeb });
+  if (datos.lol?.configurado.github && lolRepo && lolRepo.startsWith('https://github.com/')) lista.push({ texto: 'Tareas del visor', que: 'respaldo, cuerpo técnico y capturas, con su registro', url: `${lolRepo}/actions` });
   return (
     <ul className="pn-accesos">
       {lista.map((a) => (
@@ -211,10 +252,15 @@ export default function Resumen({ datos, val, ahora, ir }) {
           </section>
         </div>
 
-        <aside className="pn-cabina-lado" aria-label="El móvil y las herramientas">
+        <aside className="pn-cabina-lado" aria-label="El móvil, el visor de LoL y las herramientas">
           <section aria-labelledby="c-movil">
             <h2 id="c-movil" className="pn-bloque-titulo">Móvil</h2>
             <Movil datos={datos} val={val} ahora={ahora} ir={ir} />
+          </section>
+
+          <section aria-labelledby="c-lol">
+            <h2 id="c-lol" className="pn-bloque-titulo">Visor de LoL</h2>
+            <VisorLol datos={datos} val={val} ir={ir} />
           </section>
 
           {pendientes.length > 0 && (

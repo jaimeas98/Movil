@@ -136,7 +136,7 @@
   border-top: 1px solid var(--linea);
   padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
 }
-.pn-abajo .pn-nav-lista { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.pn-abajo .pn-nav-lista { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
 .pn-abajo .pn-nav-item {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   height: var(--p-abajo);
@@ -147,13 +147,16 @@
 .pn-abajo .pn-nav-item[aria-current='page'] { color: var(--tinta); font-weight: 750; }
 .pn-abajo .pn-nav-ico-caja {
   position: relative; display: grid; place-items: center;
-  width: 48px; height: 30px; border-radius: var(--r-control);
+  width: min(48px, calc(100% - 4px)); height: 30px; border-radius: var(--r-control);
   transition: background-color 150ms ease, transform var(--d-press) var(--ease-press);
 }
 .pn-abajo .pn-nav-item[aria-current='page'] .pn-nav-ico-caja { background: color-mix(in oklab, var(--tinta) 13%, transparent); }
 .pn-abajo .pn-nav-item:active .pn-nav-ico-caja { transform: scale(0.94); transition-duration: 40ms; }
 .pn-abajo .pn-nav-nombre { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 2px; }
 .pn-nav-ico { width: 22px; height: 22px; display: block; }
+/* Siete pestañas en un móvil estrecho: un punto menos de letra para que
+   quepan los nombres. */
+@media (max-width: 400px) { .pn-abajo .pn-nav-item { font-size: 0.6875rem; } }
 
 /* La marca de estado en la navegación: forma propia (triángulo, octógono)
    o una cuenta, arriba a la derecha del icono. */
@@ -225,9 +228,10 @@
   .pn-barra-der .pn-actualizado .boton-icono { margin-right: 0; }
   .pn-contenido { padding: var(--e-6) var(--e-6) 0; margin: 0 auto; max-width: 1280px; }
 }
-@media (min-width: 900px) and (max-width: 1099px) {
-  /* Entre 900 y 1100 no caben los seis nombres y "actualizado": las pestañas
-     se quedan en icono (con su nombre para el lector y en el title). */
+@media (min-width: 900px) and (max-width: 1199px) {
+  /* Entre 900 y 1200 no caben los siete nombres (desde que está la pestaña
+     del visor de LoL) y "actualizado": las pestañas se quedan en icono (con
+     su nombre para el lector y en el title). */
   .pn-pestanas .pn-nav-nombre { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .pn-pestanas .pn-nav-item { padding: 0 var(--e-3); }
 }
@@ -257,6 +261,7 @@
   box-shadow: inset 0 0 0 1px var(--linea);
   transition: transform var(--d-press) var(--ease-press), background-color 150ms ease, opacity 150ms ease;
 }
+a.pn-boton { text-decoration: none; }
 .pn-boton:active:not(:disabled) { transform: scale(0.97); transition-duration: 40ms; }
 .pn-boton:disabled { opacity: 0.5; cursor: not-allowed; }
 .pn-boton[aria-busy='true'] { cursor: progress; }
@@ -900,6 +905,73 @@ tr[data-hoy] .pn-fia-dia { color: var(--tinta); font-weight: 750; }
 .pn-entrar-progreso { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; overflow: hidden; }
 .pn-entrar-progreso::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 30%; background: var(--fondo); opacity: .55; animation: pn-barrer 1.1s cubic-bezier(.45, 0, .55, 1) infinite; }
 
+/* ── Visor de LoL ──────────────────────────────────────────────────────────
+   Los partidos van como filas de herramienta, no como la cartela del visor:
+   aquí se mira si hay algo en directo y se salta al visor para verlo. El
+   código de cada equipo en rótulo, el marcador tabular en medio, y la hora o
+   "En directo" a la izquierda; lo único con color es el directo (la misma
+   tinta de aviso del panel: es lo que hay que mirar ya). */
+.pn-lol-agenda { display: grid; gap: var(--e-5); }
+@media (min-width: 1100px) { .pn-lol-agenda { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; } }
+.pn-lol-grupo-t { font-size: var(--t-detalle); font-weight: 700; color: var(--apagada); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--e-2); }
+.pn-lol-sub { margin-top: var(--e-5); }
+.pn-lol-partidos { display: flex; flex-direction: column; gap: 2px; }
+.pn-lol-partido {
+  display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; grid-template-rows: auto auto; gap: 0 var(--e-3); align-items: center;
+  min-height: var(--toque); padding: var(--e-2) var(--e-3);
+  border-radius: var(--r-pieza); background: var(--superficie);
+  color: var(--tinta); text-decoration: none;
+  transition: background-color 150ms ease;
+}
+:root[data-theme='light'] .pn-lol-partido { box-shadow: inset 0 0 0 1px var(--linea); }
+.pn-lol-partido[data-estado='directo'] { background: var(--p-aviso-fondo); }
+@media (hover: hover) { a.pn-lol-partido:hover { background: var(--superficie-2); } a.pn-lol-partido[data-estado='directo']:hover { background: color-mix(in oklab, var(--ambar) 20%, var(--fondo)); } }
+.pn-lol-cuando { grid-row: 1 / 3; font-size: var(--t-dato); font-weight: 650; white-space: nowrap; }
+.pn-lol-vivo { color: var(--p-aviso); font-weight: 800; }
+.pn-lol-cruce { display: flex; align-items: baseline; gap: var(--e-2); min-width: 0; }
+.pn-lol-equipo { font-family: var(--f-rotulo); font-weight: 700; font-size: 1.25rem; line-height: 1.1; text-transform: uppercase; color: var(--apagada); }
+.pn-lol-equipo[data-gana] { color: var(--tinta); }
+.pn-lol-partido[data-estado='programado'] .pn-lol-equipo, .pn-lol-partido[data-estado='directo'] .pn-lol-equipo { color: var(--tinta); }
+.pn-lol-marcador { font-weight: 700; font-size: var(--t-dato); font-variant-numeric: tabular-nums; color: var(--tinta); }
+.pn-lol-partido[data-estado='programado'] .pn-lol-marcador { color: var(--tenue); font-weight: 600; }
+.pn-lol-liga { grid-column: 2; grid-row: 2; font-size: var(--t-detalle); color: var(--apagada); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pn-lol-ir { grid-column: 3; grid-row: 1 / 3; width: 18px; height: 18px; color: var(--apagada); }
+
+.pn-lol-fuentes { display: flex; flex-direction: column; margin-top: var(--e-2); }
+.pn-lol-fuentes > li + li { border-top: 1px solid var(--linea); }
+.pn-lol-fuente { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px var(--e-3); align-items: baseline; padding: var(--e-2) 0; }
+.pn-lol-fuente-n { font-weight: 650; font-size: var(--t-dato); }
+.pn-lol-fuente-d { grid-column: 1 / -1; font-size: var(--t-detalle); color: var(--apagada); line-height: 1.4; overflow-wrap: anywhere; }
+@media (min-width: 700px) {
+  .pn-lol-fuente { grid-template-columns: 12rem 8rem minmax(0, 1fr); }
+  .pn-lol-fuente-d { grid-column: auto; }
+}
+.pn-lol-consultas { margin-top: var(--e-4); }
+
+.pn-lol-ultima { display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--e-3); margin-top: var(--e-2); font-size: var(--t-detalle); }
+.pn-lol-tira { display: inline-flex; gap: 3px; }
+.pn-lol-tira > span { width: 8px; height: 14px; border-radius: 2px; background: var(--nivel); opacity: .85; }
+.pn-lol-tira > span[data-nivel='bien'] { background: var(--apagada); opacity: .55; }
+.pn-lol-tira > span[data-nivel='nada'], .pn-lol-tira > span[data-nivel='espera'] { background: transparent; box-shadow: inset 0 0 0 1px var(--tenue); }
+/* En el móvil, el texto de la tarea a todo el ancho y los botones debajo:
+   al lado se quedaba en una columna de cuatro palabras. */
+@media (max-width: 599px) {
+  .pn-lol-tarea { flex-wrap: wrap; }
+  .pn-lol-tarea .pn-accion-txt { flex-basis: 100%; }
+}
+.pn-lol-ver, .pn-lol-todas { min-height: 0; font-size: var(--t-detalle); }
+.pn-lol-todas { align-self: center; padding: 0 var(--e-1); }
+
+.pn-lol-cambios { display: flex; flex-direction: column; }
+.pn-lol-cambios > li + li { border-top: 1px solid var(--linea); }
+.pn-lol-cambio { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px var(--e-4); padding: var(--e-2) 0; color: var(--tinta); text-decoration: none; font-size: var(--t-dato); }
+a.pn-lol-cambio:hover .pn-lol-cambio-m { text-decoration: underline; text-underline-offset: 0.2em; }
+.pn-lol-cambio-m { min-width: 0; overflow-wrap: anywhere; }
+
+/* La tarjeta del visor en la cabina: los partidos en directo, uno por línea. */
+.pn-lol-cabina { display: flex; flex-direction: column; gap: 2px; margin-top: var(--e-3); }
+.pn-lol-cabina a { text-decoration: none; }
+
 /* ── Menos movimiento ──────────────────────────────────────────────────────
    Nada que gire, barra o se hunda: lo que indica "en marcha" late. */
 @media (prefers-reduced-motion: reduce) {
@@ -912,7 +984,8 @@ tr[data-hoy] .pn-fia-dia { color: var(--tinta); font-weight: 750; }
 
 /* Sin colores (alto contraste de Windows): las formas siguen diciendo el estado. */
 @media (forced-colors: active) {
-  .pn-pendiente, .pn-tablero-fila, .pn-cabina-linea, .pn-cine, .pn-accion, .pn-aviso, .pn-fallo { border: 1px solid CanvasText; }
+  .pn-pendiente, .pn-tablero-fila, .pn-cabina-linea, .pn-cine, .pn-accion, .pn-aviso, .pn-fallo, .pn-lol-partido { border: 1px solid CanvasText; }
+  .pn-lol-tira > span { background: CanvasText !important; }
   .pn-casilla, .pn-franja, .pn-fia-tira > span, .pn-recogida-ficha { background: CanvasText !important; }
   .pn-pestanas .pn-nav-item::after { background: CanvasText; }
 }

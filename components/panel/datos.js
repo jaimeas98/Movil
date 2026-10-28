@@ -207,6 +207,67 @@ function normalizarFecha(v) {
   return { t: ms(v), edadMs: null, origen: null, cines: [] };
 }
 
+// El visor de LoL (lib/panel/lol.js ya lo manda resumido; aquí solo se fija
+// la forma y las fechas pasan a milisegundos).
+function normalizarPartidoLol(p) {
+  return {
+    id: txt(p?.id),
+    inicio: ms(p?.inicio),
+    estado: txt(p?.estado),
+    liga: txt(p?.liga),
+    bloque: txt(p?.bloque),
+    mejorDe: num(p?.mejorDe),
+    equipos: lista(p?.equipos).map((e) => ({ codigo: txt(e?.codigo) || '?', nombre: txt(e?.nombre), victorias: num(e?.victorias), resultado: txt(e?.resultado) })),
+  };
+}
+const copiaLol = (c) => (c && typeof c === 'object' ? { t: ms(c.generado), edadMs: segAms(c.antiguedadSeg), torneo: txt(c.torneo) } : null);
+function normalizarEjecucion(x) {
+  return { id: num(x?.id), estado: txt(x?.estado), conclusion: txt(x?.conclusion), evento: txt(x?.evento), creada: ms(x?.creada), actualizada: ms(x?.actualizada), url: txt(x?.url) };
+}
+export function normalizarLol(l) {
+  if (!l || typeof l !== 'object') return null;
+  const web = l.web && typeof l.web === 'object' ? l.web : {};
+  const est = web.estado && typeof web.estado === 'object' ? web.estado : null;
+  const ag = web.agenda && typeof web.agenda === 'object' ? web.agenda : null;
+  const rep = l.repo && typeof l.repo === 'object' ? l.repo : null;
+  const resp = est?.respaldo ?? {};
+  return {
+    configurado: { web: l.configurado?.web === true, github: l.configurado?.github === true, tokenPropio: l.configurado?.tokenPropio === true },
+    web: {
+      url: txt(web.url),
+      responde: web.responde === true,
+      error: txt(web.error),
+      generado: ms(est?.generado),
+      fuentes: Object.entries(est?.fuentes ?? {}).map(([clave, f]) => ({
+        clave, ultimaOk: ms(f?.ultimaOk), ultimoError: txt(f?.ultimoError), ultimoErrorEn: ms(f?.ultimoErrorEn), ultimaFuente: txt(f?.ultimaFuente),
+      })),
+      respaldo: est ? {
+        agenda: copiaLol(resp.agenda),
+        ligas: copiaLol(resp.ligas),
+        torneos: Object.entries(resp.torneos ?? {}).map(([slug, c]) => ({ slug, ...(copiaLol(c) ?? { t: null, edadMs: null, torneo: null }) })),
+        ultimaRecogida: ms(resp.ultimaRecogida?.generado),
+      } : null,
+      consultas: est?.consultas ? { origen: txt(est.consultas.origen), redescubierto: ms(est.consultas.redescubiertoEn), error: txt(est.consultas.error) } : null,
+      agenda: ag ? {
+        generado: ms(ag.generado),
+        fuente: txt(ag.fuente),
+        edadMs: segAms(ag.antiguedadSeg),
+        directo: lista(ag.directo).map(normalizarPartidoLol),
+        proximos: lista(ag.proximos).map(normalizarPartidoLol),
+        terminados: lista(ag.terminados).map(normalizarPartidoLol),
+      } : null,
+    },
+    repo: rep ? {
+      nombre: txt(rep.nombre),
+      url: txt(rep.url),
+      tareas: Object.fromEntries(Object.entries(rep.tareas ?? {}).map(([k, v]) => [k, Array.isArray(v) ? v.map(normalizarEjecucion) : null])),
+      cambios: Array.isArray(rep.cambios) ? rep.cambios.map((c) => ({ sha: txt(c?.sha), mensaje: txt(c?.mensaje), t: ms(c?.fecha), url: txt(c?.url) })) : null,
+      error: txt(rep.error),
+    } : null,
+    error: txt(l.error),
+  };
+}
+
 export function normalizar(r, ahora = Date.now()) {
   const m = r?.movil ?? null;
   const s = r?.servidor ?? null;
@@ -270,6 +331,7 @@ export function normalizar(r, ahora = Date.now()) {
       caducaToken: r?.github && 'caducaToken' in r.github ? ms(r.github.caducaToken) : undefined,
       tokenRechazado: r?.github?.tokenRechazado === true,
     },
+    lol: normalizarLol(r?.lol),
     generado,
   };
 }
@@ -400,6 +462,89 @@ export function valorarToken(github, ahora = Date.now()) {
   if (falta <= 2 * 864e5) return { ...base, nivel: 'fallo', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}. Renuévalo ya: crea uno nuevo en GitHub y cámbialo en Vercel.` };
   if (falta <= TOKEN_AVISO_MS) return { ...base, nivel: 'aviso', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}. Conviene renovarlo antes: uno nuevo en GitHub y cambiarlo en Vercel.` };
   return { ...base, nivel: 'bien', valor: `Caduca ${relativa(c, ahora)}`, detalle: `El ${cuando}.` };
+}
+
+// ── El visor de LoL ───────────────────────────────────────────────────────
+// Tres preguntas: ¿responde su web?, ¿responde lolesports.com (o el visor
+// está tirando de su copia)?, ¿se renueva su respaldo? Que lolesports.com
+// falle es un aviso, no un fallo: el visor sigue enseñando su copia diciendo
+// de cuándo es. Sin LOL_URL ni token no hay nada que valorar ("sin datos",
+// que no cuenta en el veredicto); con token pero sin acceso al repositorio,
+// sí es algo que mirar, porque se arregla en un minuto.
+export const LOL_RESPALDO_AVISO_MS = 8 * 3600e3;   // va cada 2 h; GitHub retrasa, pero no tanto
+
+// Como /estado del visor: bien si lo último bueno es más nuevo que el
+// último error; con fallos si falló después de una buena; falla si nunca.
+export function estadoFuenteLol(f) {
+  const ok = f?.ultimaOk ?? 0;
+  const err = f?.ultimoErrorEn ?? 0;
+  if (!ok && !err) return f?.ultimaFuente ? 'aviso' : 'nada';
+  if (ok >= err) return 'bien';
+  return ok ? 'aviso' : 'fallo';
+}
+
+export function valorarLolWeb(lol) {
+  const base = { id: 'lol-web', titulo: 'Web del visor', seccion: 'lol' };
+  if (!lol) return { ...base, nivel: 'nada', valor: 'Sin datos', detalle: null };
+  if (lol.error) return { ...base, nivel: 'nada', valor: 'No se ha podido leer', detalle: frase(lol.error) };
+  if (!lol.configurado.web) return { ...base, nivel: 'nada', valor: 'Sin conectar', detalle: lol.web.error ? frase(lol.web.error) : 'Falta LOL_URL en Vercel con la dirección del visor.' };
+  if (!lol.web.responde) return { ...base, nivel: 'fallo', valor: 'No responde', detalle: frase(lol.web.error) };
+  return { ...base, nivel: 'bien', valor: 'Responde', detalle: lol.web.error ? frase(lol.web.error) : null };
+}
+
+export function valorarLolApi(lol, ahora = Date.now()) {
+  const base = { id: 'lol-api', titulo: 'lolesports.com', seccion: 'lol' };
+  if (!lol?.web?.responde || !lol.web.generado) return { ...base, nivel: 'nada', valor: 'Sin datos', detalle: null };
+  const f = lol.web.fuentes;
+  const niveles = f.map(estadoFuenteLol);
+  const bien = niveles.filter((n) => n === 'bien').length;
+  const mal = f.filter((_, i) => niveles[i] === 'fallo' || niveles[i] === 'aviso');
+  const ag = lol.web.agenda;
+  const deCopia = ag && ag.fuente && ag.fuente !== 'directo'
+    ? `La agenda sale de ${ag.fuente === 'memoria' ? 'la copia en memoria' : 'el respaldo del repositorio'}${ag.edadMs != null ? `, de hace ${duracion(ag.edadMs, { segundos: false })}` : ''}.`
+    : null;
+  if (!f.length) return { ...base, nivel: 'nada', valor: 'El visor aún no le ha pedido nada', detalle: deCopia };
+  if (!mal.length) return { ...base, nivel: deCopia ? 'aviso' : 'bien', valor: deCopia ? 'Responde, pero la agenda es de la copia' : 'Responde: datos de ahora', detalle: deCopia };
+  const ultimo = mal.map((x) => x.ultimoErrorEn).filter(Boolean).sort((a, b) => b - a)[0];
+  const error = mal.find((x) => x.ultimoErrorEn === ultimo)?.ultimoError ?? mal[0].ultimoError;
+  return {
+    ...base,
+    nivel: 'aviso',
+    valor: bien ? `${mal.length} de ${f.length} fuentes fallan` : 'No responde: el visor enseña su copia',
+    detalle: [error ? frase(`${mayus(error.replace(/[.\s]+$/, ''))}${ultimo ? ` (${relativa(ultimo, ahora)})` : ''}`) : null, deCopia].filter(Boolean).join(' ') || null,
+  };
+}
+
+// La tarea `respaldo` (o la que se pida) según sus últimas ejecuciones.
+export function valorarTareaLol(lol, tarea, ahora = Date.now()) {
+  const titulo = tarea === 'respaldo' ? 'Respaldo del visor' : 'Cuerpo técnico (visor)';
+  const base = { id: `lol-${tarea}`, titulo, seccion: 'lol' };
+  if (!lol || lol.error) return { ...base, nivel: 'nada', valor: 'Sin datos', detalle: null };
+  if (!lol.configurado.github) return { ...base, nivel: 'nada', valor: 'Sin acceso al repositorio', detalle: 'Falta un token con acceso al repositorio del visor (LOL_GITHUB_TOKEN).' };
+  const runs = lol.repo?.tareas?.[tarea];
+  if (!runs) return { ...base, nivel: 'aviso', valor: 'No se pueden leer sus tareas', detalle: frase(lol.repo?.error) };
+  const hechas = runs.filter((x) => x.estado === 'completed' && x.conclusion !== 'cancelled' && x.conclusion !== 'skipped');
+  if (!hechas.length) return { ...base, nivel: 'nada', valor: runs.length ? 'En marcha' : 'Sin ejecuciones', detalle: null };
+  const ult = hechas[0];
+  const buena = hechas.find((x) => x.conclusion === 'success');
+  if (ult.conclusion !== 'success') {
+    const seguidas = hechas.findIndex((x) => x.conclusion === 'success');
+    const n = seguidas === -1 ? hechas.length : seguidas;
+    return {
+      ...base,
+      nivel: n >= 3 && tarea === 'respaldo' ? 'fallo' : 'aviso',
+      valor: `Falló ${relativa(ult.creada, ahora)}`,
+      detalle: [n > 1 ? `Van ${n} seguidas mal.` : null, buena ? `La última buena, ${relativa(buena.creada, ahora)}.` : null].filter(Boolean).join(' ') || null,
+    };
+  }
+  if (tarea === 'respaldo' && ahora - ult.creada > LOL_RESPALDO_AVISO_MS) {
+    return { ...base, nivel: 'aviso', valor: `Última ${relativa(ult.creada, ahora)}`, detalle: 'Debería ir cada 2 h: GitHub la está retrasando o se ha desactivado.' };
+  }
+  return { ...base, nivel: 'bien', valor: `Última ${relativa(ult.creada, ahora)}`, detalle: null };
+}
+
+export function valorarLol(lol, ahora = Date.now()) {
+  return [valorarLolWeb(lol), valorarLolApi(lol, ahora), valorarTareaLol(lol, 'respaldo', ahora), valorarTareaLol(lol, 'cuerpo-tecnico', ahora)];
 }
 
 // ── Cobertura: qué ratos estuvo el móvil dando señal ──────────────────────
@@ -560,7 +705,10 @@ export function textoEstado(d, val, ahora = Date.now()) {
     '', 'Vigilante:', linea(val.avisos),
     ...d.avisos.abiertos.map((a) => `  · #${a.numero ?? '?'} ${a.titulo}`),
     '', linea(val.token),
+    '', 'Visor de LoL:', ...val.lol.map(linea),
   ];
+  const directo = d.lol?.web?.agenda?.directo ?? [];
+  if (directo.length) out.push(`  En directo: ${directo.map(textoPartidoLol).join('; ')}.`);
   if (fia?.pct != null) {
     out.push('', `Señal en 7 días: ${Math.round(fia.pct * 100)} % de las vueltas; ${fia.fallos} fallidas; ${fia.recogidas} recogidas (${fia.recogidasMal} con problemas).`);
   }
@@ -570,6 +718,12 @@ export function textoEstado(d, val, ahora = Date.now()) {
   const pend = d.movil?.ordenes?.pendientes ?? [];
   if (pend.length) out.push(`Órdenes pendientes: ${pend.map((o) => o.accion).join(', ')}.`);
   return out.join('\n');
+}
+// "T1 1-0 GEN (Mundial)".
+export function textoPartidoLol(p) {
+  const [a, b] = p.equipos;
+  const marcador = a?.victorias != null && b?.victorias != null && p.estado !== 'programado' ? ` ${a.victorias}-${b.victorias} ` : ' – ';
+  return `${a?.codigo ?? '?'}${marcador}${b?.codigo ?? '?'}${p.liga ? ` (${p.liga})` : ''}`;
 }
 const PALABRA_NIVEL = { bien: 'bien', aviso: 'aviso', fallo: 'FALLO', nada: 'sin datos' };
 
@@ -590,7 +744,8 @@ export function valorar(d, ahora = Date.now()) {
   }
   const avisos = valorarAvisos(d.avisos);
   const token = valorarToken(d.github, ahora);
-  const todas = [...movil, ...cines, avisos, token];
+  const lol = valorarLol(d.lol, ahora);
+  const todas = [...movil, ...cines, avisos, token, ...lol];
   const fallos = todas.filter((v) => v.nivel === 'fallo').length;
   const avisosN = todas.filter((v) => v.nivel === 'aviso').length;
   const porSeccion = {};
@@ -598,7 +753,7 @@ export function valorar(d, ahora = Date.now()) {
     const peor = porSeccion[v.seccion];
     if (!peor || PESO[v.nivel] > PESO[peor]) porSeccion[v.seccion] = v.nivel;
   }
-  return { movil, cines, avisos, token, todas, fallos, avisosN, porSeccion };
+  return { movil, cines, avisos, token, lol, todas, fallos, avisosN, porSeccion };
 }
 
 export const PESO = { bien: 0, nada: 1, aviso: 2, fallo: 3 };

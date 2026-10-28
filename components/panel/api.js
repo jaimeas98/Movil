@@ -150,3 +150,7 @@ export const guardarPlantilla = (cine, plantilla) =>
 // ── Avisos ───────────────────────────────────────────────────────────────
 export const vigilarAhora = () => pedir('/avisos/vigilar', { metodo: 'POST', cuerpo: {} });
 export const avisoDePrueba = () => pedir('/avisos/prueba', { metodo: 'POST', cuerpo: {} });
+
+// ── Visor de LoL ─────────────────────────────────────────────────────────
+// Lanza una tarea de GitHub Actions del visor (lista cerrada en lib/panel/lol.js).
+export const lanzarTareaLol = (tarea) => pedir('/lol/lanzar', { metodo: 'POST', cuerpo: { tarea } });

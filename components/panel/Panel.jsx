@@ -26,6 +26,7 @@ import Cines from './Cines.jsx';
 import Acciones from './Acciones.jsx';
 import Enlaces from './Enlaces.jsx';
 import Avisos from './Avisos.jsx';
+import Lol from './Lol.jsx';
 
 export const SECCIONES = [
   { id: 'resumen', nombre: 'Cabina', icono: 'cabina' },
@@ -34,6 +35,8 @@ export const SECCIONES = [
   { id: 'acciones', nombre: 'Acciones', icono: 'acciones' },
   { id: 'enlaces', nombre: 'Enlaces', largo: 'Enlaces de compra', icono: 'enlaces' },
   { id: 'avisos', nombre: 'Avisos', icono: 'avisos' },
+  // El visor de LoL: otra web, el mismo panel (lib/panel/lol.js).
+  { id: 'lol', nombre: 'LoL', largo: 'Visor de LoL', icono: 'lol' },
 ];
 const IDS = new Set(SECCIONES.map((s) => s.id));
 
@@ -140,6 +143,7 @@ export default function Panel() {
     acciones: null,
     enlaces: null,
     avisos: val?.porSeccion.avisos,
+    lol: val?.porSeccion.lol,
   };
   const cuentas = { acciones: pendientes || null, avisos: datos?.avisos.abiertos.length || null };
 
@@ -173,7 +177,7 @@ export default function Panel() {
   if (!datos && error) {
     cuerpo = <Fallo titulo="No se ha podido leer el estado" error={error} alReintentar={refrescar} reintentando={cargando} />;
   } else if (!datos) {
-    cuerpo = <Cargando texto="Leyendo el estado del móvil y de los cines…" />;
+    cuerpo = <Cargando texto="Leyendo el estado del móvil, de los cines y del visor de LoL…" />;
   } else {
     const comun = { datos, val, ahora, ir, refrescar, parchear, soloLectura, ordenesApi };
     cuerpo = {
@@ -183,6 +187,7 @@ export default function Panel() {
       acciones: <Acciones {...comun} />,
       enlaces: <Enlaces {...comun} />,
       avisos: <Avisos {...comun} />,
+      lol: <Lol {...comun} />,
     }[seccion];
   }
 

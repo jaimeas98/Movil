@@ -1,10 +1,11 @@
-// GET /api/panel/estado[?partes=movil,servidor,avisos] — todo el panel de un
-// vistazo. Cada parte se pide a la vez y un fallo en una no tumba las demás:
+// GET /api/panel/estado[?partes=movil,servidor,avisos,lol] — todo el panel de
+// un vistazo (la cartelera y el visor de LoL). Cada parte se pide a la vez y un fallo en una no tumba las demás:
 // sale con su `error` y lo que se haya podido leer. Contrato: docs/panel/API.md.
 
 import { json, ruta } from '@/lib/panel/http.js';
 import { estadoMovil } from '@/lib/panel/movil.js';
 import { estadoServidor } from '@/lib/panel/servidor.js';
+import { estadoLol } from '@/lib/panel/lol.js';
 import { caducidadToken, hayEscritura, leerAvisos, RAMA_APP, REPO, tokenRechazado } from '@/lib/panel/github.js';
 
 export const dynamic = 'force-dynamic';
@@ -13,7 +14,7 @@ export const runtime = 'nodejs';
 export const preferredRegion = 'cdg1';
 export const maxDuration = 60;
 
-const PARTES = ['movil', 'servidor', 'avisos'];
+const PARTES = ['movil', 'servidor', 'avisos', 'lol'];
 
 export const GET = ruta(async (request) => {
   const pedidas = new URL(request.url).searchParams.get('partes');
@@ -24,11 +25,13 @@ export const GET = ruta(async (request) => {
     movil: () => estadoMovil(),
     servidor: () => estadoServidor(),
     avisos: () => leerAvisos().then((a) => ({ ...a, error: null })),
+    lol: () => estadoLol(),
   };
   const vacio = {
     movil: (e) => ({ informe: null, latidoHace: null, vivo: false, bateria: null, historialBateria: [], ultimasVueltas: [], ultimasRecogidas: [], registro: null, ordenes: { pendientes: [], resultados: [] }, ficheros: {}, error: e }),
     servidor: (e) => ({ generadoEn: null, cacheHace: null, cines: [], instantaneaYelmo: null, respaldo: null, claves: null, error: e }),
     avisos: (e) => ({ abiertos: [], recientes: [], error: e }),
+    lol: (e) => ({ configurado: { web: false, github: false, tokenPropio: false }, web: null, repo: null, error: e }),
   };
   const resultado = await Promise.all(partes.map(async (p) => {
     try { return [p, await tareas[p]()]; }

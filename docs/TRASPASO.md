@@ -79,6 +79,13 @@ arregló Arte Siete desde aquí), Avisos.
 Plan, contrato y seguridad: `docs/panel/PLAN.md`, `docs/panel/API.md`. Pasó
 una auditoría de seguridad independiente (hallazgos corregidos con pruebas).
 
+**Panel unificado con el visor de LoL** (28-10-2026, a petición de Jaime): el
+mismo `/panel` enseña también el visor de LoL Esports (`jaimeas98/Trabajo-IA`,
+su propio Vercel): pestaña **LoL** (directo/próximos/terminados con enlace a
+la ficha, estado de lolesports.com y del respaldo, tareas de Actions del visor
+con botón para lanzarlas, últimos cambios) y un bloque en la cabina. Ver
+`docs/panel/PLAN.md` § Un panel para la cartelera y el visor de LoL.
+
 **Skills de diseño** en `.claude/skills/` (Impeccable, Emil Kowalski incl.
 apple-design, Taste): solo guías, sin sus scripts (ver su LEEME). Úsalas para
 cualquier trabajo visual.
@@ -97,6 +104,12 @@ cualquier trabajo visual.
   personales.
 
 ## 3. Pendiente (por prioridad)
+-1. **Conectar el visor de LoL al panel** (lo hace Jaime, una vez): en Vercel,
+   proyecto de la cartelera, `LOL_URL` = dirección de producción del visor; y
+   añadir `jaimeas98/Trabajo-IA` al `PANEL_GITHUB_TOKEN` (o crear
+   `LOL_GITHUB_TOKEN` solo para ese repo: Contents R, Actions RW). Redesplegar
+   y mirar la pestaña LoL. Si el visor aún no está publicado en Vercel, va
+   primero (README del visor).
 0. **Recolector nuevo de Yelmo: COMPROBADO en el móvil el 23-10-2026** (recogió
    y publicó a las 16:01: Bahía Sur 27 días/26 películas/204 sesiones, Área Sur
    23/31/292). Cabeceras que copia de la web: accept, content-type, country-id,

@@ -227,6 +227,26 @@ un 95 % de señal y huecos que no existían; ahora dos informes a menos de 25
 min cubren lo que hay entre ellos (`tramosCubiertos` en `datos.js`) y solo eso
 cuenta como hueco. La tira de 24 h de la sección Móvil usa lo mismo.
 
+## Un panel para la cartelera y el visor de LoL (28-10-2026)
+Jaime pidió tenerlo todo en el mismo panel. El visor de LoL Esports
+(`jaimeas98/Trabajo-IA`, privado, su propio Vercel) no tenía panel: solo su
+página `/estado`. Se ha metido aquí como séptima pestaña, **LoL**, y como un
+bloque más de la cabina (su veredicto suma al de la cartelera):
+- **Ahora en LoL**: en directo, próximos y terminados, cada uno con enlace a
+  su ficha en el visor (`/?partido=<id>`).
+- **lolesports.com**: cada fuente del visor (bien / con fallos / falla) y la
+  edad de su respaldo; lo mismo que su `/estado`, en el idioma del panel.
+- **Tareas del visor**: respaldo, cuerpo técnico y captura, con sus últimas
+  ejecuciones y un botón para lanzarlas (lista cerrada, con esperas).
+- **Últimos cambios** de su repositorio.
+Por qué así y no juntando las dos webs: el visor es privado y este repo es
+público, cada uno despliega por su cuenta y un fallo en uno no debe tumbar
+al otro. El panel solo LEE las rutas públicas del visor y su repositorio, y
+solo ESCRIBE lanzando sus tareas de Actions. Se conecta con `LOL_URL` y un
+token con acceso a su repositorio (API.md, «Puesta en marcha»); sin eso, la
+pestaña explica qué poner y no cuenta como fallo. Contrato: API.md § Visor de
+LoL. Pruebas: `scripts/test-panel-lol.mjs`.
+
 ## Revisión de seguridad (17-10-2026) — qué se cambió
 - **Enlaces de compra con lista de dominios por cine** (`HOSTS_POR_CINE` en
   `lib/cinemas/enlaces.js`, sacados de los enlaces reales): plantillas que

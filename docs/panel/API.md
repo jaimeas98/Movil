@@ -17,6 +17,14 @@ Plan y porqués: [PLAN.md](PLAN.md).
    - Las dos **solo en el entorno Production** (no en Preview ni Development):
      así una rama o un despliegue de prueba no puede leerlas.
    - Opcional: `PANEL_SESIONES_DESDE` (ver abajo).
+   - Para el **visor de LoL** (pestaña LoL, ver [Visor de LoL](#visor-de-lol)):
+     `LOL_URL` con la dirección de producción del visor (https) y acceso al
+     repositorio privado del visor: o se añade `jaimeas98/Trabajo-IA` al
+     mismo `PANEL_GITHUB_TOKEN` (GitHub → Settings → Developer settings →
+     Fine-grained tokens → el token → Repository access), o se crea
+     `LOL_GITHUB_TOKEN` solo para ese repositorio, con Contents: Read y
+     Actions: Read and write (si está, manda sobre el otro). Opcional
+     `LOL_REPO` si el visor cambia de repositorio.
 2. Vercel → Settings → Git: deja activada la **Git Fork Protection**, para que
    un PR desde un fork no se despliegue con las variables.
 3. Redesplegar (las variables nuevas solo se ven tras un despliegue).
@@ -98,7 +106,7 @@ como todo lo demás.
 ## Estado
 
 ### `GET /api/panel/estado`
-Opcional `?partes=movil,servidor,avisos` (por defecto las tres). `github`
+Opcional `?partes=movil,servidor,avisos,lol` (por defecto las cuatro). `github`
 siempre va. Lo de GitHub se cachea ~20 s en memoria (4 s para las órdenes);
 el servidor usa la caché de 5 min del agregador (para saltársela,
 `POST /api/panel/servidor/refrescar`).
@@ -266,6 +274,8 @@ Notas de campos:
   caduca. No viene sin token. El panel avisa 14 días antes.
 - `github.tokenRechazado`: `true` si GitHub ha respondido 401 al token (ya
   caducado o revocado; entonces no hay fecha). Solo viene cuando es `true`.
+
+- `lol`: el visor de LoL, ver [Visor de LoL](#visor-de-lol).
 
 ## Órdenes al móvil
 
@@ -514,6 +524,83 @@ Cuerpo `{}`. Lanza el workflow `vigilante-movil.yml` ya (`workflow_dispatch`).
 Cuerpo `{}`. Igual, con `prueba: true`: abre un aviso de prueba que se cierra
 solo en la siguiente revisión.
 - **202** `{"ok":true,"aviso":"Aviso de prueba pedido; debería llegarte en 1–2 min."}`
+
+## Visor de LoL
+
+El visor de LoL Esports es otra web (su proyecto de Vercel, su repositorio
+privado `jaimeas98/Trabajo-IA`); el panel lo enseña en la pestaña LoL y en la
+cabina. Todo en `lib/panel/lol.js`. Nada de esto toca el móvil.
+
+### Parte `lol` de `GET /api/panel/estado`
+Se cachea 60 s en memoria. Lo de la web sale de sus rutas públicas
+`/api/estado` y `/api/agenda?desde=<hoy>&hasta=<mañana>` (12 s de plazo),
+resumido: solo campos conocidos, textos recortados, ids de partido solo
+numéricos. Lo del repositorio, de la API de GitHub con `LOL_GITHUB_TOKEN` o
+`PANEL_GITHUB_TOKEN`: últimas 5 ejecuciones de cada tarea en la rama del visor
+y sus 6 últimos commits (primera línea y fecha; ni autores ni correos).
+
+```json
+{
+  "configurado": { "web": true, "github": true, "tokenPropio": false },
+  "web": {
+    "url": "https://<visor>.vercel.app",
+    "responde": true,
+    "error": null,
+    "estado": {
+      "generado": "…",
+      "fuentes": { "agenda": { "ultimaOk": "…", "ultimoError": null, "ultimoErrorEn": null, "ultimaFuente": "directo" } },
+      "respaldo": {
+        "agenda": { "generado": "…", "antiguedadSeg": 3600, "torneo": null },
+        "ligas": { … },
+        "torneos": { "worlds": { "generado": "…", "antiguedadSeg": 3600, "torneo": "Worlds 2026" } },
+        "ultimaRecogida": { "generado": "…", "origen": "api" }
+      },
+      "consultas": { "origen": "codigo", "redescubiertoEn": null, "error": null }
+    },
+    "agenda": {
+      "generado": "…", "fuente": "directo", "antiguedadSeg": 5,
+      "directo": [ { "id": "1156…", "inicio": "…", "estado": "directo", "liga": "Worlds", "bloque": "…", "mejorDe": 5,
+                     "equipos": [ { "codigo": "T1", "nombre": "T1", "victorias": 1, "resultado": null }, { … } ] } ],
+      "proximos": [ … ],      // programados entre hace 2 h y dentro de 24 h (≤6)
+      "terminados": [ … ]     // de las últimas 18 h, el más reciente primero (≤6)
+    }
+  },
+  "repo": {
+    "nombre": "jaimeas98/Trabajo-IA",
+    "url": "https://github.com/jaimeas98/Trabajo-IA",
+    "rama": "claude/esports-matches-visualizer-dzwrhe",
+    "tareas": {
+      "respaldo": [ { "id": 1, "estado": "completed", "conclusion": "success", "evento": "schedule", "creada": "…", "actualizada": "…", "url": "https://github.com/…" } ],
+      "cuerpo-tecnico": [ … ],
+      "captura": [ … ]        // null si no se ha podido leer
+    },
+    "cambios": [ { "sha": "abcdef1", "mensaje": "Respaldo de datos de LoL Esports (…)", "fecha": "…", "url": "https://github.com/…" } ],
+    "error": null             // p. ej. "PANEL_GITHUB_TOKEN no tiene acceso a jaimeas98/Trabajo-IA: …"
+  },
+  "error": null
+}
+```
+- Sin `LOL_URL`: `configurado.web: false` y `web.error: null` (no es un fallo,
+  falta conectarlo). `LOL_URL` sin https: no se usa y `web.error` lo dice.
+- Sin token: `configurado.github: false`, `repo.tareas` vacío.
+- Valoración (components/panel/datos.js): web que no responde = fallo;
+  lolesports.com fallando o agenda servida de la copia = aviso (el visor
+  sigue enseñando su copia con su fecha); respaldo fallido = aviso, tres
+  seguidos = fallo; sin respaldo bueno en 8 h = aviso; token sin acceso al
+  repositorio = aviso. Sin configurar = "sin datos" (no cuenta).
+
+### `POST /api/panel/lol/lanzar`
+Cuerpo `{"tarea": "respaldo" | "cuerpo-tecnico" | "captura"}` (lista cerrada).
+Lanza su workflow (`respaldo.yml`, `cuerpo-tecnico.yml`, `captura.yml`) en la
+rama del visor con `workflow_dispatch`.
+- **202** `{"ok":true,"tarea","aviso"}`
+- **400** tarea que no está en la lista.
+- **403** `solo-lectura`: sin token, o el token no tiene «Actions: Read and write» en el repositorio del visor.
+- **409** `ya-pedida`: ya hay una ejecución de esa tarea en marcha.
+- **429** `limite`: la última lanzada a mano es de hace menos de su espera
+  (respaldo 10 min, captura 30 min, cuerpo técnico 6 h: Liquipedia limita).
+  Se mira en las ejecuciones de GitHub, así que vale entre instancias.
+- **502** `github`: GitHub no responde o no da acceso (el texto dice qué hacer).
 
 ## Ficheros de GitHub que intervienen
 
