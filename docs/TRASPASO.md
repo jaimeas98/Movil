@@ -104,12 +104,13 @@ cualquier trabajo visual.
   personales.
 
 ## 3. Pendiente (por prioridad)
--1. **Conectar el visor de LoL al panel** (lo hace Jaime, una vez): en Vercel,
-   proyecto de la cartelera, `LOL_URL` = dirección de producción del visor; y
-   añadir `jaimeas98/Trabajo-IA` al `PANEL_GITHUB_TOKEN` (o crear
-   `LOL_GITHUB_TOKEN` solo para ese repo: Contents R, Actions RW). Redesplegar
-   y mirar la pestaña LoL. Si el visor aún no está publicado en Vercel, va
-   primero (README del visor).
+-1. ~~Conectar el visor de LoL al panel~~ — hecho el 29-10-2026: `LOL_URL` y
+   `LOL_GITHUB_TOKEN` (propio, solo Trabajo-IA: Contents R, Actions RW) en
+   Vercel; Jaime confirma que la pestaña LoL sale bien. Queda: **regenerar
+   `LOL_GITHUB_TOKEN`** (Jaime lo pegó en un chat; GitHub → el token
+   `panel-lol` → Regenerate → cambiarlo en Vercel → Redeploy). Ese token no
+   lo vigila la cabina (solo `PANEL_GITHUB_TOKEN`): si caduca, la pestaña LoL
+   dirá que no tiene acceso.
 0. **Recolector nuevo de Yelmo: COMPROBADO en el móvil el 23-10-2026** (recogió
    y publicó a las 16:01: Bahía Sur 27 días/26 películas/204 sesiones, Área Sur
    23/31/292). Cabeceras que copia de la web: accept, content-type, country-id,
