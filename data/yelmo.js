@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-28T17:11:05.303Z",
+  "generatedAt": "2026-10-29T06:16:00.009Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -10,330 +10,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Dia": "2026-10-28",
-          "Movies": [
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24336",
-                      "Time": "19:45",
-                      "TimeFilter": "28/10/2026 19:45:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T19:45:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24337",
-                      "Time": "22:00",
-                      "TimeFilter": "28/10/2026 22:00:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T22:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24333",
-                      "Time": "18:00",
-                      "TimeFilter": "28/10/2026 18:00:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T18:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24334",
-                      "Time": "19:40",
-                      "TimeFilter": "28/10/2026 19:40:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T19:40:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24331",
-                      "Time": "22:20",
-                      "TimeFilter": "28/10/2026 22:20:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T22:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24338",
-                      "Time": "18:15",
-                      "TimeFilter": "28/10/2026 18:15:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T18:15:00",
-                      "Availability": "#FF804A"
-                    },
-                    {
-                      "ShowtimeId": "24342",
-                      "Time": "20:30",
-                      "TimeFilter": "28/10/2026 20:30:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T20:30:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24341",
-                      "Time": "21:30",
-                      "TimeFilter": "28/10/2026 21:30:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T21:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24344",
-                      "Time": "19:25",
-                      "TimeFilter": "28/10/2026 19:25:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T19:25:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24328",
-                      "Time": "21:50",
-                      "TimeFilter": "28/10/2026 21:50:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T21:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "street-fighter",
-              "Title": "Street Fighter",
-              "OriginalTitle": "Street Fighter",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 18,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24332",
-                      "Time": "20:15",
-                      "TimeFilter": "28/10/2026 20:15:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T20:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 19,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24329",
-                      "Time": "20:00",
-                      "TimeFilter": "28/10/2026 20:00:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T20:00:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24330",
-                      "Time": "22:30",
-                      "TimeFilter": "28/10/2026 22:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T22:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "resident-evil",
-              "Title": "Resident Evil",
-              "OriginalTitle": "Resident Evil",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "94",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
-              "Status": "",
-              "ReleaseDate": "2026-09-18T06:00",
-              "Order": 36,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24340",
-                      "Time": "22:45",
-                      "TimeFilter": "28/10/2026 22:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-28T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
-        },
         {
           "Dia": "2026-10-29",
           "Movies": [
@@ -348,7 +24,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -749,7 +425,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-10-30",
@@ -765,7 +441,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -1116,7 +792,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -1199,7 +875,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-10-31",
@@ -1215,7 +891,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -1641,7 +1317,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -1733,7 +1409,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-01",
@@ -1749,7 +1425,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -2108,39 +1784,6 @@ export default {
               ]
             },
             {
-              "Key": "pesadilla-en-elm-street",
-              "Title": "Pesadilla en Elm Street",
-              "OriginalTitle": "A Nightmare on Elm Street",
-              "Rating": "M-18",
-              "RatingDescription": "No recomendada para menores de 18 años.",
-              "RunTime": "91",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaEnElmStreet/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
-              "Status": "",
-              "ReleaseDate": "2026-11-01T06:00",
-              "Order": 42,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24049",
-                      "Time": "20:00",
-                      "TimeFilter": "01/11/2026 20:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-11-01T20:00:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "hope",
               "Title": "Hope",
               "OriginalTitle": "Hope",
@@ -2151,7 +1794,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -2243,7 +1886,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-02",
@@ -2259,7 +1902,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -2604,7 +2247,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -2696,7 +2339,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-03",
@@ -2712,7 +2355,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -3013,7 +2656,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -3103,7 +2746,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-04",
@@ -3119,7 +2762,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -3413,7 +3056,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -3496,7 +3139,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-05",
@@ -3512,7 +3155,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -3806,7 +3449,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -3889,7 +3532,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3928,7 +3571,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-07",
@@ -4009,7 +3652,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-08",
@@ -4081,7 +3724,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-14",
@@ -4120,7 +3763,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-15",
@@ -4159,7 +3802,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-20",
@@ -4225,7 +3868,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-21",
@@ -4324,7 +3967,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-22",
@@ -4423,7 +4066,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-23",
@@ -4489,7 +4132,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-24",
@@ -4562,7 +4205,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-25",
@@ -4628,7 +4271,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-26",
@@ -4694,7 +4337,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-15",
@@ -4749,7 +4392,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-17",
@@ -4849,7 +4492,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-18",
@@ -4975,7 +4618,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-19",
@@ -5101,7 +4744,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-20",
@@ -5227,7 +4870,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-21",
@@ -5284,7 +4927,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-22",
@@ -5341,7 +4984,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-23",
@@ -5398,7 +5041,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         }
       ],
       "Id": 74,
@@ -5417,7 +5060,7 @@ export default {
       "CityId": 19,
       "Dates": [
         {
-          "Dia": "2026-10-28",
+          "Dia": "2026-10-29",
           "Movies": [
             {
               "Key": "clayface",
@@ -5430,7 +5073,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -5440,516 +5083,69 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38143",
+                      "ShowtimeId": "38173",
                       "Time": "18:15",
-                      "TimeFilter": "28/10/2026 18:15:00",
-                      "Screen": 3,
+                      "TimeFilter": "29/10/2026 18:15:00",
+                      "Screen": 2,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T18:15:00",
+                      "Datetime": "2026-10-29T18:15:00",
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "38153",
+                      "ShowtimeId": "38183",
                       "Time": "20:30",
-                      "TimeFilter": "28/10/2026 20:30:00",
-                      "Screen": 3,
+                      "TimeFilter": "29/10/2026 20:30:00",
+                      "Screen": 2,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T20:30:00",
+                      "Datetime": "2026-10-29T20:30:00",
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "38163",
+                      "ShowtimeId": "38193",
                       "Time": "22:45",
-                      "TimeFilter": "28/10/2026 22:45:00",
+                      "TimeFilter": "29/10/2026 22:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-29T22:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "superthings-la-pelicula",
+              "Title": "Superthings: La película",
+              "OriginalTitle": "Superthings: La película",
+              "Rating": "TP",
+              "RatingDescription": "Todos los públicos.",
+              "RunTime": "93",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
+              "Distributor": "FILMAX PICTURES S.L.",
+              "Gender": "ANIMACIÓN",
+              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-23T06:00",
+              "Order": 2,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38172",
+                      "Time": "17:50",
+                      "TimeFilter": "29/10/2026 17:50:00",
                       "Screen": 3,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:45:00",
+                      "Datetime": "2026-10-29T17:50:00",
                       "Availability": ""
                     }
                   ]
                 }
               ]
             },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38147",
-                      "Time": "19:40",
-                      "TimeFilter": "28/10/2026 19:40:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T19:40:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38160",
-                      "Time": "22:20",
-                      "TimeFilter": "28/10/2026 22:20:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "wildwood-el-bosque-salvaje",
-              "Title": "Wildwood: El bosque salvaje",
-              "OriginalTitle": "Wildwood",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "120",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 4,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38149",
-                      "Time": "19:50",
-                      "TimeFilter": "28/10/2026 19:50:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T19:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38144",
-                      "Time": "18:30",
-                      "TimeFilter": "28/10/2026 18:30:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38152",
-                      "Time": "20:15",
-                      "TimeFilter": "28/10/2026 20:15:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T20:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38155",
-                      "Time": "21:40",
-                      "TimeFilter": "28/10/2026 21:40:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T21:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "arriba-tutto",
-              "Title": "Arriba Tutto",
-              "OriginalTitle": "Arriba Tutto",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "102",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ArribaTutto/Es/720x1022_copia_7.jpg",
-              "Distributor": "A CONTRACORRIENTE",
-              "Gender": "COMEDIA",
-              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 6,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38146",
-                      "Time": "19:35",
-                      "TimeFilter": "28/10/2026 19:35:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T19:35:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "leones-en-invierno",
-              "Title": "Leones en invierno",
-              "OriginalTitle": "Leones en invierno",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "117",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "THRILLER",
-              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 7,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38148",
-                      "Time": "19:45",
-                      "TimeFilter": "28/10/2026 19:45:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T19:45:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38159",
-                      "Time": "22:15",
-                      "TimeFilter": "28/10/2026 22:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38158",
-                      "Time": "22:25",
-                      "TimeFilter": "28/10/2026 22:25:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:25:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "enhypen-world-tour-blood-saga",
-              "Title": "ENHYPEN WORLD TOUR 'BLOOD SAGA'",
-              "OriginalTitle": "ENHYPEN WORLD TOUR 'BLOOD SAGA'",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnhypenWorldTourBloodSaga/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "TRAFALGAR REALISING LTD",
-              "Gender": "CONCIERTO",
-              "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 14,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "VOSE",
-                  "Idioma": "COR",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37377",
-                      "Time": "20:00",
-                      "TimeFilter": "28/10/2026 20:00:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T20:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "hybe-cheering-party",
-              "Title": "HYBE CHEERING PARTY",
-              "OriginalTitle": "HYBE CHEERING PARTY",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "60",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/HybeCheeringParty/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "TRAFALGAR REALISING LTD",
-              "Gender": "CONCIERTO",
-              "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 15,
-              "Formats": [
-                {
-                  "Name": "3D CA",
-                  "Language": "VOSE",
-                  "Idioma": "COR",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37379",
-                      "Time": "18:00",
-                      "TimeFilter": "28/10/2026 18:00:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T18:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "street-fighter",
-              "Title": "Street Fighter",
-              "OriginalTitle": "Street Fighter",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 18,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38473",
-                      "Time": "20:00",
-                      "TimeFilter": "28/10/2026 20:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T20:00:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38151",
-                      "Time": "22:05",
-                      "TimeFilter": "28/10/2026 22:05:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:05:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 19,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38145",
-                      "Time": "19:20",
-                      "TimeFilter": "28/10/2026 19:20:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T19:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-invitacion",
-              "Title": "La invitación.",
-              "OriginalTitle": "The Invite",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaInvitacion/Es/la_invitacion_720x1022_2_2.jpg",
-              "Distributor": "Diamond Films",
-              "Gender": "COMEDIA",
-              "Synopsis": "Una pareja invita a los vecinos a su casa, lo que desencadena una velada llena de giros inesperados, revelando emociones profundamente reprimidas y una sexualidad inexplorada en esta historia que explora las complejidades de las relaciones de hoy en día.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 27,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38156",
-                      "Time": "21:45",
-                      "TimeFilter": "28/10/2026 21:45:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T21:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-maleta",
-              "Title": "La Maleta",
-              "OriginalTitle": "La Maleta",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaMaleta/Es/720x1022_21.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "COMEDIA",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38154",
-                      "Time": "21:20",
-                      "TimeFilter": "28/10/2026 21:20:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T21:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "resident-evil",
-              "Title": "Resident Evil",
-              "OriginalTitle": "Resident Evil",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "94",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
-              "Status": "",
-              "ReleaseDate": "2026-09-18T06:00",
-              "Order": 36,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38470",
-                      "Time": "22:40",
-                      "TimeFilter": "28/10/2026 22:40:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-28T22:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
-        },
-        {
-          "Dia": "2026-10-29",
-          "Movies": [
             {
               "Key": "sentido-y-sensibilidad",
               "Title": "Sentido y sensibilidad",
@@ -6156,7 +5352,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -6298,6 +5494,48 @@ export default {
                       "Screen": 8,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-29T18:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "street-fighter",
+              "Title": "Street Fighter",
+              "OriginalTitle": "Street Fighter",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "119",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "ACCIÓN",
+              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
+              "Status": "",
+              "ReleaseDate": "2026-10-16T06:00",
+              "Order": 18,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38181",
+                      "Time": "20:05",
+                      "TimeFilter": "29/10/2026 20:05:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-29T20:05:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38191",
+                      "Time": "22:30",
+                      "TimeFilter": "29/10/2026 22:30:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-29T22:30:00",
                       "Availability": ""
                     }
                   ]
@@ -6512,7 +5750,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-10-30",
@@ -6528,7 +5766,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -6697,12 +5935,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38242",
+                      "Time": "17:10",
+                      "TimeFilter": "30/10/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38226",
                       "Time": "18:30",
                       "TimeFilter": "30/10/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38372",
+                      "Time": "20:30",
+                      "TimeFilter": "30/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -6762,7 +6018,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -7152,7 +6408,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -7235,7 +6491,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-10-31",
@@ -7251,7 +6507,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -7447,12 +6703,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38260",
+                      "Time": "17:10",
+                      "TimeFilter": "31/10/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38268",
                       "Time": "18:30",
                       "TimeFilter": "31/10/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-31T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38375",
+                      "Time": "20:30",
+                      "TimeFilter": "31/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-31T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -7479,7 +6753,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -7896,7 +7170,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -7997,7 +7271,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-01",
@@ -8013,7 +7287,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -8209,12 +7483,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38299",
+                      "Time": "17:10",
+                      "TimeFilter": "01/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38307",
                       "Time": "18:30",
                       "TimeFilter": "01/11/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-01T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38374",
+                      "Time": "20:30",
+                      "TimeFilter": "01/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -8241,7 +7533,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -8555,39 +7847,6 @@ export default {
               ]
             },
             {
-              "Key": "pesadilla-en-elm-street",
-              "Title": "Pesadilla en Elm Street",
-              "OriginalTitle": "A Nightmare on Elm Street",
-              "Rating": "M-18",
-              "RatingDescription": "No recomendada para menores de 18 años.",
-              "RunTime": "91",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaEnElmStreet/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
-              "Status": "",
-              "ReleaseDate": "2026-11-01T06:00",
-              "Order": 42,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37704",
-                      "Time": "20:00",
-                      "TimeFilter": "01/11/2026 20:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-01T20:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "la-oveja-shaun-mision-calabaza",
               "Title": "La Oveja Shaun: Misión Calabaza",
               "OriginalTitle": "La Oveja Shaun: Misión Calabaza",
@@ -8682,7 +7941,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -8783,7 +8042,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-02",
@@ -8799,7 +8058,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -8995,12 +8254,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38345",
+                      "Time": "17:10",
+                      "TimeFilter": "02/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38352",
                       "Time": "18:30",
                       "TimeFilter": "02/11/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-02T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38373",
+                      "Time": "20:30",
+                      "TimeFilter": "02/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-02T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -9027,7 +8304,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -9411,7 +8688,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -9512,7 +8789,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-03",
@@ -9528,7 +8805,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -9688,12 +8965,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38379",
+                      "Time": "17:10",
+                      "TimeFilter": "03/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-03T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38394",
                       "Time": "18:20",
                       "TimeFilter": "03/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-03T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38406",
+                      "Time": "20:30",
+                      "TimeFilter": "03/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-03T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -9753,7 +9048,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -10126,7 +9421,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -10216,7 +9511,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-04",
@@ -10232,7 +9527,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -10466,7 +9761,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -10799,7 +10094,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -10882,7 +10177,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-05",
@@ -10898,7 +10193,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 1,
               "Formats": [
@@ -11123,7 +10418,7 @@ export default {
               "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
               "Gender": "THRILLER",
               "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "Estreno",
+              "Status": "",
               "ReleaseDate": "2026-10-22T06:00",
               "Order": 7,
               "Formats": [
@@ -11456,7 +10751,7 @@ export default {
               "Distributor": "Mubi",
               "Gender": "ACCIÓN",
               "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-29T06:00",
               "Order": 66,
               "Formats": [
@@ -11539,7 +10834,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-06",
@@ -11578,7 +10873,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-07",
@@ -11692,7 +10987,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-08",
@@ -11764,7 +11059,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-14",
@@ -11836,7 +11131,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-15",
@@ -11875,11 +11170,71 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-20",
           "Movies": [
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38477",
+                      "Time": "17:15",
+                      "TimeFilter": "20/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-20T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38474",
+                      "Time": "18:30",
+                      "TimeFilter": "20/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-20T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38478",
+                      "Time": "20:30",
+                      "TimeFilter": "20/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-20T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38475",
+                      "Time": "21:45",
+                      "TimeFilter": "20/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-20T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "los-40-music-awards-santander",
               "Title": "Los 40 Music Awards Santander",
@@ -11914,7 +11269,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-21",
@@ -11951,9 +11306,69 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38480",
+                      "Time": "17:15",
+                      "TimeFilter": "21/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-21T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38482",
+                      "Time": "18:30",
+                      "TimeFilter": "21/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-21T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38479",
+                      "Time": "20:30",
+                      "TimeFilter": "21/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-21T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38481",
+                      "Time": "21:45",
+                      "TimeFilter": "21/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-21T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-11-22",
@@ -11990,9 +11405,340 @@ export default {
                   ]
                 }
               ]
+            },
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38485",
+                      "Time": "17:15",
+                      "TimeFilter": "22/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-22T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38483",
+                      "Time": "18:30",
+                      "TimeFilter": "22/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-22T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38486",
+                      "Time": "20:30",
+                      "TimeFilter": "22/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-22T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38484",
+                      "Time": "21:45",
+                      "TimeFilter": "22/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-22T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
+        },
+        {
+          "Dia": "2026-11-23",
+          "Movies": [
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38488",
+                      "Time": "17:15",
+                      "TimeFilter": "23/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-23T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38490",
+                      "Time": "18:30",
+                      "TimeFilter": "23/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-23T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38487",
+                      "Time": "20:30",
+                      "TimeFilter": "23/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-23T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38489",
+                      "Time": "21:45",
+                      "TimeFilter": "23/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-23T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-29T06:16:00.258Z"
+        },
+        {
+          "Dia": "2026-11-24",
+          "Movies": [
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38493",
+                      "Time": "17:15",
+                      "TimeFilter": "24/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-24T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38491",
+                      "Time": "18:30",
+                      "TimeFilter": "24/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-24T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38492",
+                      "Time": "21:45",
+                      "TimeFilter": "24/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-24T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                },
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "SUB ESP",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38494",
+                      "Time": "20:30",
+                      "TimeFilter": "24/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-24T20:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-29T06:16:00.258Z"
+        },
+        {
+          "Dia": "2026-11-25",
+          "Movies": [
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38497",
+                      "Time": "17:15",
+                      "TimeFilter": "25/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-25T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38495",
+                      "Time": "18:30",
+                      "TimeFilter": "25/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-25T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38498",
+                      "Time": "20:30",
+                      "TimeFilter": "25/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-25T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38496",
+                      "Time": "21:45",
+                      "TimeFilter": "25/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-25T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-29T06:16:00.258Z"
+        },
+        {
+          "Dia": "2026-11-26",
+          "Movies": [
+            {
+              "Key": "los-juegos-del-hambre-amanecer-en-la-cosecha",
+              "Title": "Los juegos del hambre: Amanecer en la cosecha",
+              "OriginalTitle": "The Hunger Games: Sunrise on the Reaping",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "160",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LosJuegosDelHambreAmanecerEnLaCosecha/Es/720x1022_copia_5.jpg",
+              "Distributor": "DIAMOND FILMS ESPAÑA Y PRODUCCIÓN AUDIOVISUAL S. L",
+              "Gender": "CIENCIA FICCIÓN",
+              "Synopsis": "En Los Juegos Del Hambre: Amanecer En La Cosecha volveremos al mundo de Panem 24 años antes de los acontecimientos de la primera película, comenzando en la mañana de la cosecha de los 50º Juegos del Hambre, también denominados como el Segundo Vasallaje de los Veinticinco.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-20T06:00",
+              "Order": 40,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38500",
+                      "Time": "17:15",
+                      "TimeFilter": "26/11/2026 17:15:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-26T17:15:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38502",
+                      "Time": "18:30",
+                      "TimeFilter": "26/11/2026 18:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-26T18:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38499",
+                      "Time": "20:30",
+                      "TimeFilter": "26/11/2026 20:30:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-26T20:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38501",
+                      "Time": "21:45",
+                      "TimeFilter": "26/11/2026 21:45:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-26T21:45:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-01",
@@ -12031,7 +11777,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-05",
@@ -12070,7 +11816,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-15",
@@ -12125,7 +11871,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-17",
@@ -12267,7 +12013,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-18",
@@ -12451,7 +12197,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-19",
@@ -12635,7 +12381,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-20",
@@ -12819,7 +12565,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-21",
@@ -12876,7 +12622,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-22",
@@ -12933,7 +12679,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2026-12-23",
@@ -12990,7 +12736,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-01-08",
@@ -13029,7 +12775,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-01-23",
@@ -13068,7 +12814,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-03-20",
@@ -13107,7 +12853,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-03-23",
@@ -13146,7 +12892,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-04-03",
@@ -13185,7 +12931,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-04-22",
@@ -13224,7 +12970,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-04-24",
@@ -13263,7 +13009,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-04-29",
@@ -13302,7 +13048,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-05-08",
@@ -13341,7 +13087,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-05-25",
@@ -13380,7 +13126,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-06-03",
@@ -13419,7 +13165,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         },
         {
           "Dia": "2027-06-05",
@@ -13458,7 +13204,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-28T17:11:05.583Z"
+          "_recogido": "2026-10-29T06:16:00.258Z"
         }
       ],
       "Id": 53,
