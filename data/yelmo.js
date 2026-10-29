@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-29T06:16:00.009Z",
+  "generatedAt": "2026-10-29T17:15:54.223Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -33,15 +33,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24360",
-                      "Time": "17:30",
-                      "TimeFilter": "29/10/2026 17:30:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-29T17:30:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24356",
                       "Time": "19:45",
@@ -118,15 +109,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24354",
-                      "Time": "17:05",
-                      "TimeFilter": "29/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-29T17:05:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24353",
                       "Time": "19:40",
                       "TimeFilter": "29/10/2026 19:40:00",
@@ -169,22 +151,13 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24364",
-                      "Time": "17:15",
-                      "TimeFilter": "29/10/2026 17:15:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-29T17:15:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24359",
                       "Time": "18:15",
                       "TimeFilter": "29/10/2026 18:15:00",
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-29T18:15:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24363",
@@ -326,39 +299,6 @@ export default {
               ]
             },
             {
-              "Key": "la-maleta",
-              "Title": "La Maleta",
-              "OriginalTitle": "La Maleta",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "107",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaMaleta/Es/720x1022_21.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "COMEDIA",
-              "Synopsis": "Laura (Lucía Caraballo), un huracán amante del rock y de vivir deprisa, y Nacho (Alejandro Speitzer), un amante de las normas con miedo a volar, se conocen en un vuelo Londres-Madrid y saltan chispas. Tanto que Laura no quiere dejarlo escapar y le propone un juego: si en la cinta de equipajes sale primero la maleta de él, se van cada uno por su lado. Pero si sale la de ella, continúan la noche con gin tonics y hasta donde los lleve. Nacho acepta con la boca pequeña y, para salirse con la suya, ella coge la primera maleta que ve... sin saber que pertenece a unos terroristas.",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 28,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24357",
-                      "Time": "17:45",
-                      "TimeFilter": "29/10/2026 17:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-29T17:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "resident-evil",
               "Title": "Resident Evil",
               "OriginalTitle": "Resident Evil",
@@ -390,42 +330,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 37,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24355",
-                      "Time": "17:00",
-                      "TimeFilter": "29/10/2026 17:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-29T17:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-10-30",
@@ -875,7 +782,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-10-31",
@@ -1409,7 +1316,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-01",
@@ -1784,6 +1691,39 @@ export default {
               ]
             },
             {
+              "Key": "pesadilla-en-elm-street",
+              "Title": "Pesadilla en Elm Street",
+              "OriginalTitle": "A Nightmare on Elm Street",
+              "Rating": "M-18",
+              "RatingDescription": "No recomendada para menores de 18 años.",
+              "RunTime": "91",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaEnElmStreet/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
+              "Status": "",
+              "ReleaseDate": "2026-11-01T06:00",
+              "Order": 42,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24049",
+                      "Time": "20:00",
+                      "TimeFilter": "01/11/2026 20:00:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-01T20:00:00",
+                      "Availability": "#FFBE06"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "hope",
               "Title": "Hope",
               "OriginalTitle": "Hope",
@@ -1886,7 +1826,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-02",
@@ -2339,7 +2279,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-03",
@@ -2746,7 +2686,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-04",
@@ -3139,7 +3079,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-05",
@@ -3532,7 +3472,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3571,7 +3511,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3652,7 +3592,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3724,7 +3664,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-14",
@@ -3763,7 +3703,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-15",
@@ -3802,7 +3742,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-20",
@@ -3868,7 +3808,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3967,7 +3907,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-22",
@@ -4066,7 +4006,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-23",
@@ -4132,7 +4072,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-24",
@@ -4205,7 +4145,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-25",
@@ -4271,7 +4211,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-26",
@@ -4337,7 +4277,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-15",
@@ -4392,7 +4332,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-17",
@@ -4492,7 +4432,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-18",
@@ -4618,7 +4558,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-19",
@@ -4744,7 +4684,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-20",
@@ -4870,7 +4810,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-21",
@@ -4927,7 +4867,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-22",
@@ -4984,7 +4924,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-23",
@@ -5041,7 +4981,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         }
       ],
       "Id": 74,
@@ -5114,39 +5054,6 @@ export default {
               ]
             },
             {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38172",
-                      "Time": "17:50",
-                      "TimeFilter": "29/10/2026 17:50:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Key": "sentido-y-sensibilidad",
               "Title": "Sentido y sensibilidad",
               "OriginalTitle": "Sense and Sensibility",
@@ -5166,15 +5073,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38165",
-                      "Time": "17:00",
-                      "TimeFilter": "29/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:00:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38177",
                       "Time": "19:40",
@@ -5218,15 +5116,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38168",
-                      "Time": "17:10",
-                      "TimeFilter": "29/10/2026 17:10:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38179",
                       "Time": "19:50",
                       "TimeFilter": "29/10/2026 19:50:00",
@@ -5259,15 +5148,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38166",
-                      "Time": "17:05",
-                      "TimeFilter": "29/10/2026 17:05:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:05:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38174",
                       "Time": "18:30",
@@ -5320,15 +5200,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38170",
-                      "Time": "17:25",
-                      "TimeFilter": "29/10/2026 17:25:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:25:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38176",
                       "Time": "19:35",
                       "TimeFilter": "29/10/2026 19:35:00",
@@ -5361,15 +5232,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "38169",
-                      "Time": "17:20",
-                      "TimeFilter": "29/10/2026 17:20:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:20:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "38178",
                       "Time": "19:45",
@@ -5413,15 +5275,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38167",
-                      "Time": "17:05",
-                      "TimeFilter": "29/10/2026 17:05:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:05:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38188",
                       "Time": "22:10",
                       "TimeFilter": "29/10/2026 22:10:00",
@@ -5461,39 +5314,6 @@ export default {
                       "Screen": 8,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-29T20:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "hybe-cheering-party",
-              "Title": "HYBE CHEERING PARTY",
-              "OriginalTitle": "HYBE CHEERING PARTY",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "60",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/HybeCheeringParty/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "TRAFALGAR REALISING LTD",
-              "Gender": "CONCIERTO",
-              "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 15,
-              "Formats": [
-                {
-                  "Name": "3D CA",
-                  "Language": "VOSE",
-                  "Idioma": "COR",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37380",
-                      "Time": "18:00",
-                      "TimeFilter": "29/10/2026 18:00:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T18:00:00",
                       "Availability": ""
                     }
                   ]
@@ -5715,42 +5535,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 37,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38171",
-                      "Time": "17:30",
-                      "TimeFilter": "29/10/2026 17:30:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-29T17:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-10-30",
@@ -6491,7 +6278,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-10-31",
@@ -7271,7 +7058,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-01",
@@ -7847,6 +7634,39 @@ export default {
               ]
             },
             {
+              "Key": "pesadilla-en-elm-street",
+              "Title": "Pesadilla en Elm Street",
+              "OriginalTitle": "A Nightmare on Elm Street",
+              "Rating": "M-18",
+              "RatingDescription": "No recomendada para menores de 18 años.",
+              "RunTime": "91",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaEnElmStreet/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
+              "Gender": "TERROR",
+              "Synopsis": "Varios jóvenes de una pequeña localidad tienen habitualmente pesadillas en las que son perseguidos por un hombre deformado por el fuego y que usa un guante terminado en afiladas cuchillas. Algunos de ellos comienzan a ser asesinados mientras duermen por este ser que resulta ser Freddy Krueger, un hombre con un pasado abominable.",
+              "Status": "",
+              "ReleaseDate": "2026-11-01T06:00",
+              "Order": 42,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "37704",
+                      "Time": "20:00",
+                      "TimeFilter": "01/11/2026 20:00:00",
+                      "Screen": 3,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-01T20:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "la-oveja-shaun-mision-calabaza",
               "Title": "La Oveja Shaun: Misión Calabaza",
               "OriginalTitle": "La Oveja Shaun: Misión Calabaza",
@@ -8042,7 +7862,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-02",
@@ -8789,7 +8609,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-03",
@@ -9511,7 +9331,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-04",
@@ -10177,7 +9997,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-05",
@@ -10834,7 +10654,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-06",
@@ -10873,7 +10693,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-07",
@@ -10987,7 +10807,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-08",
@@ -11059,7 +10879,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-14",
@@ -11131,7 +10951,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-15",
@@ -11170,7 +10990,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-20",
@@ -11269,7 +11089,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-21",
@@ -11368,7 +11188,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-22",
@@ -11467,7 +11287,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-23",
@@ -11533,7 +11353,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-24",
@@ -11606,7 +11426,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-25",
@@ -11672,7 +11492,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-11-26",
@@ -11738,7 +11558,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-01",
@@ -11777,7 +11597,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-05",
@@ -11816,7 +11636,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-15",
@@ -11871,7 +11691,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-17",
@@ -12013,7 +11833,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-18",
@@ -12197,7 +12017,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-19",
@@ -12381,7 +12201,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-20",
@@ -12565,7 +12385,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-21",
@@ -12622,7 +12442,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-22",
@@ -12679,7 +12499,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2026-12-23",
@@ -12736,7 +12556,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-01-08",
@@ -12775,7 +12595,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-01-23",
@@ -12814,7 +12634,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-03-20",
@@ -12853,7 +12673,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-03-23",
@@ -12892,7 +12712,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-04-03",
@@ -12931,7 +12751,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-04-22",
@@ -12970,7 +12790,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-04-24",
@@ -13009,7 +12829,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-04-29",
@@ -13048,7 +12868,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-05-08",
@@ -13087,7 +12907,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-05-25",
@@ -13126,7 +12946,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-06-03",
@@ -13165,7 +12985,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         },
         {
           "Dia": "2027-06-05",
@@ -13204,7 +13024,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-29T06:16:00.258Z"
+          "_recogido": "2026-10-29T17:15:54.540Z"
         }
       ],
       "Id": 53,
