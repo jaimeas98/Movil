@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-30T06:05:23.905Z",
+  "generatedAt": "2026-10-30T17:02:10.799Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -65,6 +65,39 @@ export default {
               ]
             },
             {
+              "Key": "la-bola-negra-version-ocap",
+              "Title": "La bola negra (Versión OCAP)",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "ORIGINAL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24421",
+                      "Time": "20:20",
+                      "TimeFilter": "30/10/2026 20:20:00",
+                      "Screen": 6,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-10-30T20:20:00",
+                      "Availability": "#FFBE06"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "hope",
               "Title": "Hope",
               "OriginalTitle": "Hope",
@@ -91,7 +124,7 @@ export default {
                       "Screen": 1,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-30T19:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24376",
@@ -127,15 +160,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "24422",
-                      "Time": "17:10",
-                      "TimeFilter": "30/10/2026 17:10:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24555",
                       "Time": "18:40",
                       "TimeFilter": "30/10/2026 18:40:00",
@@ -145,55 +169,13 @@ export default {
                       "Availability": ""
                     },
                     {
-                      "ShowtimeId": "24421",
-                      "Time": "20:20",
-                      "TimeFilter": "30/10/2026 20:20:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T20:20:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "24556",
                       "Time": "21:50",
                       "TimeFilter": "30/10/2026 21:50:00",
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-30T21:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 4,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24380",
-                      "Time": "17:00",
-                      "TimeFilter": "30/10/2026 17:00:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T17:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -235,7 +217,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-30T20:45:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24417",
@@ -244,39 +226,6 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-30T23:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 12,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24552",
-                      "Time": "17:00",
-                      "TimeFilter": "30/10/2026 17:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T17:00:00",
                       "Availability": ""
                     }
                   ]
@@ -296,7 +245,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -319,39 +268,6 @@ export default {
                       "Screen": 4,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-10-30T22:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 17,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24394",
-                      "Time": "17:35",
-                      "TimeFilter": "30/10/2026 17:35:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T17:35:00",
                       "Availability": ""
                     }
                   ]
@@ -458,7 +374,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-10-31",
@@ -788,7 +704,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -992,7 +908,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-01",
@@ -1331,7 +1247,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1502,7 +1418,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-02",
@@ -1808,7 +1724,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1850,7 +1766,7 @@ export default {
               "Synopsis": "A los doctores Venkman, Stantz y Spengler, expertos en parapsicología, no les conceden una beca de investigación que habían solicitado. Al encontrarse sin trabajo, deciden fundar la empresa \"Los Cazafantasmas\", dedicada a limpiar Nueva York de ectoplasmas. El aumento repentino de apariciones espectrales en la ciudad será el presagio de la llegada de un peligroso y poderoso demonio.",
               "Status": "",
               "ReleaseDate": "2026-11-02T06:00",
-              "Order": 23,
+              "Order": 22,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -1955,7 +1871,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-03",
@@ -2005,6 +1921,39 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-03T22:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Key": "la-bola-negra-version-ocap",
+              "Title": "La bola negra (Versión OCAP)",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "VOSE",
+                  "Idioma": "ORIGINAL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24408",
+                      "Time": "18:40",
+                      "TimeFilter": "03/11/2026 18:40:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-03T18:40:00",
                       "Availability": ""
                     }
                   ]
@@ -2087,15 +2036,6 @@ export default {
                       "Screen": 6,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-03T17:10:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24408",
-                      "Time": "18:40",
-                      "TimeFilter": "03/11/2026 18:40:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-11-03T18:40:00",
                       "Availability": ""
                     },
                     {
@@ -2257,7 +2197,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2362,7 +2302,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-04",
@@ -2650,7 +2590,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -2755,7 +2695,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-05",
@@ -3052,7 +2992,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "PREMIUM",
@@ -3148,7 +3088,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3187,7 +3127,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3268,7 +3208,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3340,11 +3280,119 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
+        },
+        {
+          "Dia": "2026-11-13",
+          "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24571",
+                      "Time": "17:00",
+                      "TimeFilter": "13/11/2026 17:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-13T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24572",
+                      "Time": "19:30",
+                      "TimeFilter": "13/11/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-13T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24573",
+                      "Time": "22:00",
+                      "TimeFilter": "13/11/2026 22:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-13T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-14",
           "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24576",
+                      "Time": "17:00",
+                      "TimeFilter": "14/11/2026 17:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-14T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24575",
+                      "Time": "19:30",
+                      "TimeFilter": "14/11/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-14T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24574",
+                      "Time": "22:00",
+                      "TimeFilter": "14/11/2026 22:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-14T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "diversion-navidena-con-peppa-la-experiencia",
               "Title": "Diversión Navideña con Peppa: La Experiencia",
@@ -3379,11 +3427,62 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-15",
           "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24579",
+                      "Time": "17:00",
+                      "TimeFilter": "15/11/2026 17:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-15T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24578",
+                      "Time": "19:30",
+                      "TimeFilter": "15/11/2026 19:30:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-15T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "24577",
+                      "Time": "22:00",
+                      "TimeFilter": "15/11/2026 22:00:00",
+                      "Screen": 7,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-15T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "diversion-navidena-con-peppa-la-experiencia",
               "Title": "Diversión Navideña con Peppa: La Experiencia",
@@ -3418,7 +3517,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-20",
@@ -3468,7 +3567,7 @@ export default {
                       "Screen": 7,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-20T20:30:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     },
                     {
                       "ShowtimeId": "24570",
@@ -3484,7 +3583,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3583,7 +3682,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-22",
@@ -3682,7 +3781,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-23",
@@ -3748,7 +3847,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-24",
@@ -3821,7 +3920,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-25",
@@ -3887,7 +3986,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-26",
@@ -3953,7 +4052,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-15",
@@ -4008,7 +4107,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-17",
@@ -4108,7 +4207,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-18",
@@ -4234,7 +4333,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-19",
@@ -4360,7 +4459,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-20",
@@ -4486,7 +4585,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-21",
@@ -4543,7 +4642,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-22",
@@ -4600,7 +4699,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-23",
@@ -4657,7 +4756,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         }
       ],
       "Id": 74,
@@ -4730,6 +4829,39 @@ export default {
               ]
             },
             {
+              "Key": "la-bola-negra-version-ocap",
+              "Title": "La bola negra (Versión OCAP)",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "ORIGINAL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38512",
+                      "Time": "20:30",
+                      "TimeFilter": "30/10/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-10-30T20:30:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "hope",
               "Title": "Hope",
               "OriginalTitle": "Hope",
@@ -4792,30 +4924,12 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38242",
-                      "Time": "17:10",
-                      "TimeFilter": "30/10/2026 17:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:10:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38226",
                       "Time": "18:30",
                       "TimeFilter": "30/10/2026 18:30:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38372",
-                      "Time": "20:30",
-                      "TimeFilter": "30/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -5017,7 +5131,7 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T19:40:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -5044,15 +5158,6 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
-                      "ShowtimeId": "38244",
-                      "Time": "17:20",
-                      "TimeFilter": "30/10/2026 17:20:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:20:00",
-                      "Availability": ""
-                    },
-                    {
                       "ShowtimeId": "38249",
                       "Time": "22:15",
                       "TimeFilter": "30/10/2026 22:15:00",
@@ -5078,7 +5183,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -5134,72 +5239,6 @@ export default {
                       "Screen": 5,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T22:35:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "arriba-tutto",
-              "Title": "Arriba Tutto",
-              "OriginalTitle": "Arriba Tutto",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "102",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ArribaTutto/Es/720x1022_copia_7.jpg",
-              "Distributor": "A CONTRACORRIENTE",
-              "Gender": "COMEDIA",
-              "Synopsis": "1905. Un cómico ambulante ha enseñado a su hijo pequeño, Michi, a ver la magia y el humor en cada rincón de la vida. Pasados los años, en tiempos de guerra, Michi se ha convertido en un hombre amargado y consumido por el rencor. Un inesperado suceso y el reencuentro con Conchita, su amor de niñez le ayudará a recuperar la fascinante visión del mundo que le inculcó su padre.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 16,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38224",
-                      "Time": "17:00",
-                      "TimeFilter": "30/10/2026 17:00:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "cars-20-aniversario",
-              "Title": "Cars 20º Aniversario",
-              "OriginalTitle": "Cars 20º Aniversario",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Cars20Aniversario/Es/720x1022_25.jpg",
-              "Distributor": "Disney",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 17,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38225",
-                      "Time": "17:05",
-                      "TimeFilter": "30/10/2026 17:05:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:05:00",
                       "Availability": ""
                     }
                   ]
@@ -5299,7 +5338,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-30T20:00:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -5379,42 +5418,9 @@ export default {
                   ]
                 }
               ]
-            },
-            {
-              "Key": "verity-la-sombra-de-un-enganio",
-              "Title": "Verity. La sombra de un engaño",
-              "OriginalTitle": "Verity",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "116",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/VerityLaSombraDeUnEngano/Es/720x1022_copia_5.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Basada en la novela superventas de Colleen Hoover, este seductor thriller psicológico sigue a la famosa autora Verity Crawford (Anne Hathaway) y a Lowen Ashleigh (Dakota Johnson), una escritora en apuros que se traslada a la remota finca de los Crawford para trabajar como escritora fantasma de Verity. Tras descubrir unas escalofriantes notas autobiográficas de Verity, Lowen se enfrenta a las inquietantes y retorcidas confesiones sobre el marido de esta, Jeremy (Josh Hartnett), luchando por distinguir la ficción de la realidad, la manipulación de la atracción y la oportunidad de la obsesión",
-              "Status": "",
-              "ReleaseDate": "2026-10-02T06:00",
-              "Order": 52,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38221",
-                      "Time": "17:15",
-                      "TimeFilter": "30/10/2026 17:15:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-10-31",
@@ -5906,7 +5912,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6037,7 +6043,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-10-31T18:00:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
@@ -6194,7 +6200,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-01",
@@ -6686,7 +6692,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -6998,7 +7004,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-02",
@@ -7457,7 +7463,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7574,7 +7580,7 @@ export default {
               "Synopsis": "A los doctores Venkman, Stantz y Spengler, expertos en parapsicología, no les conceden una beca de investigación que habían solicitado. Al encontrarse sin trabajo, deciden fundar la empresa \"Los Cazafantasmas\", dedicada a limpiar Nueva York de ectoplasmas. El aumento repentino de apariciones espectrales en la ciudad será el presagio de la llegada de un peligroso y poderoso demonio.",
               "Status": "",
               "ReleaseDate": "2026-11-02T06:00",
-              "Order": 23,
+              "Order": 22,
               "Formats": [
                 {
                   "Name": "2D",
@@ -7745,7 +7751,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-03",
@@ -7802,6 +7808,39 @@ export default {
               ]
             },
             {
+              "Key": "la-bola-negra-version-ocap",
+              "Title": "La bola negra (Versión OCAP)",
+              "OriginalTitle": "La bola negra",
+              "Rating": "M-16",
+              "RatingDescription": "No recomendada para menores de 16 años.",
+              "RunTime": "159",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
+              "Distributor": "ELÁSTICA FILMS, S.L.U.",
+              "Gender": "DRAMA",
+              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
+              "Status": "",
+              "ReleaseDate": "2026-09-25T06:00",
+              "Order": 1,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "VOSE",
+                  "Idioma": "ORIGINAL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38513",
+                      "Time": "18:20",
+                      "TimeFilter": "03/11/2026 18:20:00",
+                      "Screen": 1,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-03T18:20:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "hope",
               "Title": "Hope",
               "OriginalTitle": "Hope",
@@ -7839,11 +7878,11 @@ export default {
                   "Showtimes": [
                     {
                       "ShowtimeId": "38387",
-                      "Time": "18:55",
-                      "TimeFilter": "03/11/2026 18:55:00",
+                      "Time": "19:00",
+                      "TimeFilter": "03/11/2026 19:00:00",
                       "Screen": 11,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-11-03T18:55:00",
+                      "Datetime": "2026-11-03T19:00:00",
                       "Availability": ""
                     }
                   ]
@@ -7877,15 +7916,6 @@ export default {
                       "Screen": 2,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-03T17:10:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38394",
-                      "Time": "18:20",
-                      "TimeFilter": "03/11/2026 18:20:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-11-03T18:20:00",
                       "Availability": ""
                     },
                     {
@@ -8155,7 +8185,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -8467,7 +8497,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-04",
@@ -8545,11 +8575,11 @@ export default {
                   "Showtimes": [
                     {
                       "ShowtimeId": "38420",
-                      "Time": "18:55",
-                      "TimeFilter": "04/11/2026 18:55:00",
+                      "Time": "19:00",
+                      "TimeFilter": "04/11/2026 19:00:00",
                       "Screen": 11,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-11-04T18:55:00",
+                      "Datetime": "2026-11-04T19:00:00",
                       "Availability": ""
                     },
                     {
@@ -8586,12 +8616,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38411",
+                      "Time": "17:10",
+                      "TimeFilter": "04/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-04T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38418",
                       "Time": "18:20",
                       "TimeFilter": "04/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-04T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38428",
+                      "Time": "20:30",
+                      "TimeFilter": "04/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-04T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -8854,7 +8902,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9133,7 +9181,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-05",
@@ -9211,11 +9259,11 @@ export default {
                   "Showtimes": [
                     {
                       "ShowtimeId": "38450",
-                      "Time": "18:55",
-                      "TimeFilter": "05/11/2026 18:55:00",
+                      "Time": "19:00",
+                      "TimeFilter": "05/11/2026 19:00:00",
                       "Screen": 11,
                       "VistaCinemaId": "803",
-                      "Datetime": "2026-11-05T18:55:00",
+                      "Datetime": "2026-11-05T19:00:00",
                       "Availability": ""
                     },
                     {
@@ -9252,12 +9300,30 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "38441",
+                      "Time": "17:10",
+                      "TimeFilter": "05/11/2026 17:10:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-05T17:10:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "38448",
                       "Time": "18:20",
                       "TimeFilter": "05/11/2026 18:20:00",
                       "Screen": 1,
                       "VistaCinemaId": "803",
                       "Datetime": "2026-11-05T18:20:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38458",
+                      "Time": "20:30",
+                      "TimeFilter": "05/11/2026 20:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-05T20:30:00",
                       "Availability": ""
                     },
                     {
@@ -9511,7 +9577,7 @@ export default {
               "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
               "Status": "",
               "ReleaseDate": "2026-09-24T06:00",
-              "Order": 15,
+              "Order": 14,
               "Formats": [
                 {
                   "Name": "2D",
@@ -9790,7 +9856,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-06",
@@ -9829,7 +9895,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-07",
@@ -9943,7 +10009,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-08",
@@ -10015,7 +10081,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-14",
@@ -10087,7 +10153,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-15",
@@ -10126,7 +10192,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-20",
@@ -10225,7 +10291,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-21",
@@ -10324,7 +10390,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-22",
@@ -10423,7 +10489,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-23",
@@ -10489,7 +10555,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-24",
@@ -10562,7 +10628,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-25",
@@ -10628,7 +10694,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-11-26",
@@ -10694,7 +10760,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-01",
@@ -10733,7 +10799,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-05",
@@ -10772,7 +10838,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-15",
@@ -10827,7 +10893,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-17",
@@ -10969,7 +11035,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-18",
@@ -11153,7 +11219,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-19",
@@ -11337,7 +11403,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-20",
@@ -11521,7 +11587,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-21",
@@ -11578,7 +11644,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-22",
@@ -11635,7 +11701,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2026-12-23",
@@ -11692,7 +11758,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-01-08",
@@ -11710,7 +11776,7 @@ export default {
               "Synopsis": "Simon Boccanegra, de Giuseppe Verdi (1813-1901), llega al Real en una coproducción con las Óperas de Tokio y Helsinki, con una alabada puesta en escena de Pierre Audi, que falleció repentinamente después del estreno de la producción en Tokio. La dramaturgia enfatiza la profunda soledad de Simon Boccanegra, que vive en un entorno explosivo de angustiosa violencia, temor y desconfianza, representado por la escenografía simbólica y muy potente del gran escultor Anish Kapoor. Nicola Luisotti, director honorario del Teatro Real, estará al frente del Coro y Orquesta Titulares del Teatro Real y de grandísimos intérpretes verdianos como Ludovic Tézier, Hrachuhí Bassénz, Francesco Meli y Gianluca Buratto, entre otros.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-01-08T06:00",
-              "Order": 61,
+              "Order": 60,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11731,7 +11797,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-01-23",
@@ -11749,7 +11815,7 @@ export default {
               "Synopsis": "El emocionante drama de Puccini ambientado en el Salvaje Oeste regresa en una nueva puesta en escena de Richard Jones, lo que supone la primera nueva producción de La Fanciulla del West de la compañía en más de 30 años. La soprano Sondra Radvanovsky debuta en el papel de Minnie, la tenaz dueña de una taberna con un corazón de oro que encuentra el amor cuando menos se lo espera. El tenor SeokJong Baek es el apuesto bandido que llega a la remota ciudad minera de California para robarle el corazón, frente al barítono Christopher Maltman, en el papel del agente de la ley decidido a hacer justicia... y a conquistar a Minnie para sí mismo. La maestra Keri-Lynn Wilson se pone al frente del podio para dirigir una de las aventuras más trepidantes de la ópera, en directo desde el escenario del Met a los cines de todo el mundo.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-01-23T06:00",
-              "Order": 92,
+              "Order": 93,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11770,7 +11836,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-03-20",
@@ -11788,7 +11854,7 @@ export default {
               "Synopsis": "Tras su exitoso debut en la compañía con *The Hours*, el compositor Kevin Puts regresa al Met con su ópera ganadora del Premio Pulitzer, inspirada en los hechos reales de la tregua de Navidad de 1914. Una conmovedora representación de la humanidad compartida en las circunstancias más inhumanas, la grandiosa y cinematográfica ópera de Puts —con un libreto en inglés, francés y alemán de Mark Campbell— ha sido ampliamente aclamada desde su estreno en 2011, calificada como «una experiencia emocional abrumadora» por The Guardian. La evocadora puesta en escena de James Robinson transporta al público directamente a los campos de batalla del frente occidental con un reparto repleto de estrellas, entre las que destacan la soprano Elza van den Heever y los tenores Ben Bliss y Rolando Villazón, bajo la dirección de la maestra Dalia Stasevska, en directo desde el Met a cines de todo el mundo.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-03-20T06:00",
-              "Order": 94,
+              "Order": 95,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11809,7 +11875,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-03-23",
@@ -11848,7 +11914,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-04-03",
@@ -11866,7 +11932,7 @@ export default {
               "Synopsis": "Tras su radiante interpretación en *Romeo y Julieta* de Gounod —que cosechó elogios por «unas notas agudas que resonaban como oro líquido… Sierra alcanzó las alturas del firmamento operístico» (The New York Times)—, la superestrella soprano Nadine Sierra se mete en la piel de otra seductora heroína francesa: la irresistible protagonista del apasionado drama de Massenet, en directo desde el escenario del Met a los cines de todo el mundo. El destacado tenor Matthew Polenzani es su idealista amante, el Chevalier des Grieux, junto al barítono Andrzej Filończyk, una estrella en ascenso, en el papel de su leal primo, Lescaut, en una impresionante puesta en escena del director Laurent Pelly.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-04-03T06:00",
-              "Order": 105,
+              "Order": 106,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11887,7 +11953,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-04-22",
@@ -11926,7 +11992,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-04-24",
@@ -11944,7 +12010,7 @@ export default {
               "Synopsis": "Brian Jagde, uno de los tenores dramáticos más destacados de la actualidad, interpreta el exigente papel protagonista de la que muchos consideran la ópera italiana por excelencia, en directo en cines de todo el mundo. La monumental tragedia shakespeariana de Verdi cuenta también con la soprano Ailyn Pérez, en su debut en la compañía en el papel de la sufrida Desdémona, junto al barítono Artur Ruciński como el siniestro Yago. Michele Mariotti dirige a la Orquesta y al Coro del Met al completo en esta emocionante partitura.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-04-24T06:00",
-              "Order": 96,
+              "Order": 97,
               "Formats": [
                 {
                   "Name": "CA",
@@ -11965,7 +12031,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-04-29",
@@ -12004,7 +12070,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-05-08",
@@ -12022,7 +12088,7 @@ export default {
               "Synopsis": "La soprano Lise Davidsen interpreta el papel protagonista de la diva por excelencia de Puccini, junto al tenor Freddie De Tommaso como Cavaradossi y el barítono Quinn Kelsey como Scarpia, en la aclamada representación de 2024 del Met de la emocionante producción de David McVicar. Dirige Yannick Nézet-Séguin.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-05-08T06:00",
-              "Order": 98,
+              "Order": 99,
               "Formats": [
                 {
                   "Name": "CA",
@@ -12043,7 +12109,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-05-25",
@@ -12082,7 +12148,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-06-03",
@@ -12121,7 +12187,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         },
         {
           "Dia": "2027-06-05",
@@ -12139,7 +12205,7 @@ export default {
               "Synopsis": "Una profunda reflexión filosófica sobre la compasión y la reconciliación, esta interpretación trascendental de la heroica búsqueda del Santo Grial por parte de un caballero medieval vuelve a la gran pantalla en la aclamada producción de François Girard, una «puesta en escena reflexiva e intrépida, llena de imágenes impactantes» (The New York Times). Yannick Nézet-Séguin dirige a un elenco de superestrellas wagnerianas, entre las que se encuentran el tenor Piotr Beczała en el papel protagonista, la mezzosoprano Elīna Garanča como la enigmática Kundry, el barítono Peter Mattei como el enfermo Amfortas, el barítono bajo Ryan Speedo Green como el hechicero Klingsor y el bajo Jongmin Park como el sabio Gurnemanz.",
               "Status": "Venta Anticipada",
               "ReleaseDate": "2027-06-05T06:00",
-              "Order": 100,
+              "Order": 101,
               "Formats": [
                 {
                   "Name": "CA",
@@ -12160,7 +12226,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T06:05:24.142Z"
+          "_recogido": "2026-10-30T17:02:11.118Z"
         }
       ],
       "Id": 53,
