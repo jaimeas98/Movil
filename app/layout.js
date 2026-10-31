@@ -14,6 +14,11 @@ export const metadata = {
   description:
     'Cartelera unificada de los cines de la Bahía de Cádiz: Cinesur Bahía de Cádiz, Yelmo Bahía Sur, Yelmo Jerez y Arte Siete El Puerto. Día a día, con horarios, duración y filtros.',
   manifest: '/manifest.webmanifest',
+  // La entrada roja sobre el azul noche (scripts/iconos.mjs los genera todos).
+  icons: {
+    icon: [{ url: '/icono.svg', type: 'image/svg+xml' }, { url: '/icono-192.png', sizes: '192x192', type: 'image/png' }],
+    apple: [{ url: '/icono-180.png', sizes: '180x180' }],
+  },
 };
 
 export const viewport = {

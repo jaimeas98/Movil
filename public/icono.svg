@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Icono de la cartelera: la entrada roja butaca sobre el azul noche. Generado por scripts/iconos.mjs: se cambia allí. -->
+  <rect width="512" height="512" rx="112" fill="#0B1526"/>
+  <g transform="translate(256 256) scale(1) translate(-256 -256)">
+  <mask id="troquel">
+    <rect x="64" y="156" width="384" height="200" rx="10" fill="#fff"/>
+    <circle cx="64" cy="256" r="28" fill="#000"/><circle cx="448" cy="256" r="28" fill="#000"/>
+  </mask>
+  <rect x="64" y="156" width="384" height="200" rx="10" fill="#C22E43" mask="url(#troquel)"/>
+  <line x1="366" y1="176" x2="366" y2="336" stroke="#0B1526" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round"/></g>
+</svg>
