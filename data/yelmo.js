@@ -1,7 +1,7 @@
 // Instantánea de la cartelera de Yelmo, recogida con un navegador desde el móvil.
 // La genera scripts/movil/recolector-navegador.mjs — NO se edita a mano.
 export default {
-  "generatedAt": "2026-10-30T17:02:10.799Z",
+  "generatedAt": "2026-10-31T06:06:15.787Z",
   "origen": "navegador-movil",
   "fuente": "cineyelmo.com",
   "cines": {
@@ -10,372 +10,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Dia": "2026-10-30",
-          "Movies": [
-            {
-              "Key": "karateka",
-              "Title": "Karateka",
-              "OriginalTitle": "Karateka",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "110",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24378",
-                      "Time": "17:50",
-                      "TimeFilter": "30/10/2026 17:50:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T17:50:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24377",
-                      "Time": "20:10",
-                      "TimeFilter": "30/10/2026 20:10:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T20:10:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24379",
-                      "Time": "22:30",
-                      "TimeFilter": "30/10/2026 22:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T22:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra-version-ocap",
-              "Title": "La bola negra (Versión OCAP)",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "VOSE",
-                  "Idioma": "ORIGINAL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24421",
-                      "Time": "20:20",
-                      "TimeFilter": "30/10/2026 20:20:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T20:20:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "hope",
-              "Title": "Hope",
-              "OriginalTitle": "Hope",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "156",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
-              "Distributor": "Mubi",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-29T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24375",
-                      "Time": "19:00",
-                      "TimeFilter": "30/10/2026 19:00:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T19:00:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24376",
-                      "Time": "22:15",
-                      "TimeFilter": "30/10/2026 22:15:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T22:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24555",
-                      "Time": "18:40",
-                      "TimeFilter": "30/10/2026 18:40:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T18:40:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24556",
-                      "Time": "21:50",
-                      "TimeFilter": "30/10/2026 21:50:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T21:50:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24416",
-                      "Time": "18:15",
-                      "TimeFilter": "30/10/2026 18:15:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T18:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24414",
-                      "Time": "20:45",
-                      "TimeFilter": "30/10/2026 20:45:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T20:45:00",
-                      "Availability": "#FFBE06"
-                    },
-                    {
-                      "ShowtimeId": "24417",
-                      "Time": "23:00",
-                      "TimeFilter": "30/10/2026 23:00:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T23:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 14,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24553",
-                      "Time": "19:40",
-                      "TimeFilter": "30/10/2026 19:40:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T19:40:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "24554",
-                      "Time": "22:00",
-                      "TimeFilter": "30/10/2026 22:00:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T22:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "pesadilla-antes-de-navidad",
-              "Title": "Pesadilla antes de Navidad",
-              "OriginalTitle": "The Nightmare Before Christmas",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "76",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaAntesDeNavidad/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "Park Circus",
-              "Gender": "MUSICAL",
-              "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 21,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24044",
-                      "Time": "20:00",
-                      "TimeFilter": "30/10/2026 20:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T20:00:00",
-                      "Availability": "#FF804A"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 30,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24381",
-                      "Time": "22:45",
-                      "TimeFilter": "30/10/2026 22:45:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "resident-evil",
-              "Title": "Resident Evil",
-              "OriginalTitle": "Resident Evil",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "94",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ResidentEvil/Es/720x1022_19.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "DRAMA",
-              "Synopsis": "Película basada en la saga de videojuegos de Capcom del mismo nombre. En una reinvención totalmente nueva, el mensajero médico Bryan (Austin Abrams) se ve inmerso en una carrera de acción sin descanso por la supervivencia, mientras el caos se desata a su alrededor.",
-              "Status": "",
-              "ReleaseDate": "2026-09-18T06:00",
-              "Order": 51,
-              "Formats": [
-                {
-                  "Name": "PREMIUM",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "24423",
-                      "Time": "23:30",
-                      "TimeFilter": "30/10/2026 23:30:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-30T23:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
-        },
         {
           "Dia": "2026-10-31",
           "Movies": [
@@ -399,15 +33,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24460",
-                      "Time": "15:45",
-                      "TimeFilter": "31/10/2026 15:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-10-31T15:45:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24459",
                       "Time": "18:15",
@@ -636,7 +261,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "ANIMACIÓN",
               "Synopsis": "Siguiendo la maravillosa y caprichosa tradición del Dr. Seuss, El gato con sombrero llega a la gran pantalla en su debut cinematográfico animado. Haciendo lo que mejor sabe hacer, contagia su alegría a los niños. Nuestro héroe se enfrenta a su misión más difícil hasta la fecha: animar a Gabby y Sebastian, dos hermanos que están atravesando dificultades después de mudarse a una nueva ciudad.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 7,
               "Formats": [
@@ -745,6 +370,15 @@ export default {
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
                     {
+                      "ShowtimeId": "24580",
+                      "Time": "16:30",
+                      "TimeFilter": "31/10/2026 16:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-10-31T16:30:00",
+                      "Availability": ""
+                    },
+                    {
                       "ShowtimeId": "24045",
                       "Time": "18:00",
                       "TimeFilter": "31/10/2026 18:00:00",
@@ -768,7 +402,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "Jack Torrance se traslada con su mujer y su hijo de siete años al impresionante hotel Overlook, en Colorado, para encargarse del mantenimiento de las instalaciones durante la temporada invernal, época en la que permanece cerrado y aislado por la nieve. Su objetivo es encontrar paz y sosiego para escribir una novela. Sin embargo, poco después de su llegada al hotel, al mismo tiempo que Jack empieza a padecer inquietantes trastornos de personalidad, se suceden extraños y espeluznantes fenómenos paranormales.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 23,
               "Formats": [
@@ -876,7 +510,7 @@ export default {
               "Distributor": "Trafalgar Releasing",
               "Gender": "CONCIERTO",
               "Synopsis": "¡Vive la experiencia BTS WORLD TOUR 'ARIRANG' en cines de todo el mundo, transmitida desde São Paulo, Brasil! Como colofón de su gira por Latinoamérica, este concierto monumental llevará directamente a la pantalla grande toda la energía explosiva del estadio repleto de Brasil. Las transmisiones en algunos territorios están programadas en horario diferido para adaptarse a los husos horarios locales.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 58,
               "Formats": [
@@ -908,7 +542,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-01",
@@ -933,15 +567,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24469",
-                      "Time": "15:45",
-                      "TimeFilter": "01/11/2026 15:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-11-01T15:45:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24468",
                       "Time": "18:15",
@@ -1179,7 +804,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "ANIMACIÓN",
               "Synopsis": "Siguiendo la maravillosa y caprichosa tradición del Dr. Seuss, El gato con sombrero llega a la gran pantalla en su debut cinematográfico animado. Haciendo lo que mejor sabe hacer, contagia su alegría a los niños. Nuestro héroe se enfrenta a su misión más difícil hasta la fecha: animar a Gabby y Sebastian, dos hermanos que están atravesando dificultades después de mudarse a una nueva ciudad.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 7,
               "Formats": [
@@ -1303,7 +928,7 @@ export default {
                       "Screen": 3,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-01T20:00:00",
-                      "Availability": "#FFBE06"
+                      "Availability": "#FF804A"
                     }
                   ]
                 }
@@ -1329,6 +954,15 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
+                    {
+                      "ShowtimeId": "24581",
+                      "Time": "16:30",
+                      "TimeFilter": "01/11/2026 16:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-01T16:30:00",
+                      "Availability": ""
+                    },
                     {
                       "ShowtimeId": "24046",
                       "Time": "18:00",
@@ -1418,7 +1052,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-02",
@@ -1443,15 +1077,6 @@ export default {
                   "Language": "ESPAÑOL",
                   "Idioma": "ESPAÑOL",
                   "Showtimes": [
-                    {
-                      "ShowtimeId": "24501",
-                      "Time": "15:45",
-                      "TimeFilter": "02/11/2026 15:45:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "1340",
-                      "Datetime": "2026-11-02T15:45:00",
-                      "Availability": ""
-                    },
                     {
                       "ShowtimeId": "24486",
                       "Time": "18:05",
@@ -1754,6 +1379,39 @@ export default {
               ]
             },
             {
+              "Key": "pesadilla-antes-de-navidad",
+              "Title": "Pesadilla antes de Navidad",
+              "OriginalTitle": "The Nightmare Before Christmas",
+              "Rating": "M-7",
+              "RatingDescription": "No recomendado para menores de 7 años.",
+              "RunTime": "76",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaAntesDeNavidad/Es/720x1022_copia_2__7.jpg",
+              "Distributor": "Park Circus",
+              "Gender": "MUSICAL",
+              "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
+              "Status": "Estreno",
+              "ReleaseDate": "2026-10-30T06:00",
+              "Order": 21,
+              "Formats": [
+                {
+                  "Name": "PREMIUM",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "24582",
+                      "Time": "16:15",
+                      "TimeFilter": "02/11/2026 16:15:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "1340",
+                      "Datetime": "2026-11-02T16:15:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Key": "los-cazafantasmas",
               "Title": "Los cazafantasmas",
               "OriginalTitle": "Ghostbusters",
@@ -1871,7 +1529,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-03",
@@ -2302,7 +1960,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-04",
@@ -2695,7 +2353,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-05",
@@ -3088,7 +2746,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-06",
@@ -3127,7 +2785,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-07",
@@ -3208,7 +2866,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-08",
@@ -3280,7 +2938,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-13",
@@ -3337,7 +2995,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-14",
@@ -3427,7 +3085,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-15",
@@ -3517,7 +3175,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-20",
@@ -3576,14 +3234,14 @@ export default {
                       "Screen": 6,
                       "VistaCinemaId": "1340",
                       "Datetime": "2026-11-20T21:45:00",
-                      "Availability": ""
+                      "Availability": "#FFBE06"
                     }
                   ]
                 }
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-21",
@@ -3682,7 +3340,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-22",
@@ -3781,7 +3439,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-23",
@@ -3847,7 +3505,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-24",
@@ -3920,7 +3578,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-25",
@@ -3986,7 +3644,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-26",
@@ -4052,7 +3710,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-15",
@@ -4107,7 +3765,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-17",
@@ -4207,7 +3865,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-18",
@@ -4333,7 +3991,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-19",
@@ -4459,7 +4117,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-20",
@@ -4585,7 +4243,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-21",
@@ -4642,7 +4300,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-22",
@@ -4699,7 +4357,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-23",
@@ -4756,7 +4414,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         }
       ],
       "Id": 74,
@@ -4774,654 +4432,6 @@ export default {
       "CityName": "Cádiz",
       "CityId": 19,
       "Dates": [
-        {
-          "Dia": "2026-10-30",
-          "Movies": [
-            {
-              "Key": "karateka",
-              "Title": "Karateka",
-              "OriginalTitle": "Karateka",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "110",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Karateka/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "Esta es la historia de Sandra Sánchez, una mujer que nunca dejó de creer y desafió todas las convenciones. De ser descartada por el sistema a convertirse en la mejor karateka de todos los tiempos. Con la guía de Jesús del Moral, su entrenador y compañero de vida, Sandra emprendió un viaje imposible: conquistar el oro olímpico a los 39 años y redefinir el significado de la perseverancia en un deporte donde los más veteranos se retiran a los 30 años y que siempre habían dominado los japoneses. Un relato de amor, sacrificio y lucha que trasciende el Karate y se convierte en leyenda.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38252",
-                      "Time": "18:05",
-                      "TimeFilter": "30/10/2026 18:05:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:05:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38251",
-                      "Time": "20:20",
-                      "TimeFilter": "30/10/2026 20:20:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:20:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38250",
-                      "Time": "22:40",
-                      "TimeFilter": "30/10/2026 22:40:00",
-                      "Screen": 9,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra-version-ocap",
-              "Title": "La bola negra (Versión OCAP)",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegraVersionOCAP/Es/720x1022_27.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "Versión OCAP: versión subtitulada al castellano con subtítulos descriptivos. 'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 1,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "VOSE",
-                  "Idioma": "ORIGINAL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38512",
-                      "Time": "20:30",
-                      "TimeFilter": "30/10/2026 20:30:00",
-                      "Screen": 2,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:30:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "hope",
-              "Title": "Hope",
-              "OriginalTitle": "Hope",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "156",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Hope/Es/720x1022_29.jpg",
-              "Distributor": "Mubi",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Los refuerzos se han desviado para combatir los incendios forestales y se han cortado todas las comunicaciones. El jefe del puesto policial de Hope, Bum-seok, y la agente Sung-ae luchan por defender un pueblo de ancianos, mientras que en las montañas, Sung-ki y los lugareños que se han lanzado a la búsqueda de la bestia se ven, por el contrario, acosados por ella. Lo que comienza como ignorancia siembra la semilla del desastre, que se intensifica a través del conflicto humano hasta convertirse en una tragedia de proporciones cósmicas.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-29T06:00",
-              "Order": 2,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38256",
-                      "Time": "18:55",
-                      "TimeFilter": "30/10/2026 18:55:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:55:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38257",
-                      "Time": "22:00",
-                      "TimeFilter": "30/10/2026 22:00:00",
-                      "Screen": 11,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-bola-negra",
-              "Title": "La bola negra",
-              "OriginalTitle": "La bola negra",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "159",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaBolaNegra/Es/720x1022_28.jpg",
-              "Distributor": "ELÁSTICA FILMS, S.L.U.",
-              "Gender": "DRAMA",
-              "Synopsis": "'La bola negra’ narra las vidas interconectadas de tres hombres en tres épocas distintas. Tres existencias íntimamente ligadas por la sexualidad y el deseo, el dolor y la herencia; y una de las últimas obras, inacabada, de Federico García Lorca",
-              "Status": "",
-              "ReleaseDate": "2026-09-25T06:00",
-              "Order": 3,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38226",
-                      "Time": "18:30",
-                      "TimeFilter": "30/10/2026 18:30:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38234",
-                      "Time": "21:40",
-                      "TimeFilter": "30/10/2026 21:40:00",
-                      "Screen": 1,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T21:40:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "superthings-la-pelicula",
-              "Title": "Superthings: La película",
-              "OriginalTitle": "Superthings: La película",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "93",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SuperthingsLaPelicula/Es/720x1022_copia_7.jpg",
-              "Distributor": "FILMAX PICTURES S.L.",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Mía, Kai y Finn, tres amigos de sexto de primaria, descubren por accidente un fragmento de Kazoom que fusiona Normalópolis, su gris y ordenada ciudad, con Kaboom City, el disparatado universo de los Superthings, donde los objetos cotidianos han cobrado vida convertidos en superhéroes y villanos. De la noche a la mañana, su mundo se llena de poderes, rivalidades imposibles y aventuras fuera de control. Convertidos en los Kazoom Kids, deberán enfrentarse a Mr. King, un villano decidido a hacerse con el poder del Kazoom. Para detenerlo, tendrán que confiar en su amistad, su ingenio y su valentía… y descubrir que, juntos, son mucho más fuertes.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 4,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38227",
-                      "Time": "18:15",
-                      "TimeFilter": "30/10/2026 18:15:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "clayface",
-              "Title": "Clayface",
-              "OriginalTitle": "Clayface",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "108",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Clayface/Es/720x1022_copia_5.jpg",
-              "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
-              "Gender": "TERROR",
-              "Synopsis": "El descenso espeluznante de un hombre, estrella de Hollywood a un monstruo lleno de venganza, en una historia que explora la perdida de la identidad y humanidad de alguien, el amor corrosivo y el lado oscuro de la ambición científica.",
-              "Status": "",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 5,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38228",
-                      "Time": "18:20",
-                      "TimeFilter": "30/10/2026 18:20:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:20:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38247",
-                      "Time": "20:35",
-                      "TimeFilter": "30/10/2026 20:35:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:35:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38248",
-                      "Time": "22:45",
-                      "TimeFilter": "30/10/2026 22:45:00",
-                      "Screen": 6,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-oveja-shaun-mision-calabaza",
-              "Title": "La Oveja Shaun: Misión Calabaza",
-              "OriginalTitle": "La Oveja Shaun: Misión Calabaza",
-              "Rating": "TP",
-              "RatingDescription": "Todos los públicos.",
-              "RunTime": "81",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOvejaShaunMisionCalabaza/Es/720x1022_27.jpg",
-              "Distributor": "Selecta Vision",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Los habitantes de la granja Mossy Bottom esperan con ilusión Halloween, hasta que el torpe Granjero destroza accidentalmente el querido huerto de calabazas del rebaño. Cuando Shaun decide convertirse en un científico loco para arreglar el problema, la situación se complica rápidamente. Con el Granjero desaparecido y una bestia salvaje merodeando por los bosques de Mosshingam, todo está listo para vivir una aventura familiar monstruosamente divertida.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 6,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "VOSE",
-                  "Idioma": "NO SUB",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38253",
-                      "Time": "17:50",
-                      "TimeFilter": "30/10/2026 17:50:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T17:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "wicker",
-              "Title": "Wicker",
-              "OriginalTitle": "Wicker",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "105",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/Wicker/Es/720x1022_copia_7.jpg",
-              "Distributor": "VERTICE CINE S. L",
-              "Gender": "COMEDIA",
-              "Synopsis": "WICKER, una audaz fábula, en clave de comedia, sobre el sexo, el matrimonio y lo absurdo de las convenciones sociales, narra la original historia de amor de una pescadora socialmente marginada (Olivia Colman) que encarga al artesano local (Peter Dinklage) que le fabrique un marido de mimbre (Alexander Skarsgård). Cuando su marido resulta ser más espectacular de lo que jamás había podido imaginar, su espíritu conmovedor y sus habilidades excepcionales despiertan algo en su interior. Lo que comienza como un simple plan de la protagonista para molestar a sus entrometidos vecinos, acaba convirtiéndose en un auténtico romance desencadenando una oleada de celos, fascinación y agitación que amenaza el propio tejido de la vida del pueblo.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 8,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38254",
-                      "Time": "19:55",
-                      "TimeFilter": "30/10/2026 19:55:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T19:55:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38255",
-                      "Time": "22:10",
-                      "TimeFilter": "30/10/2026 22:10:00",
-                      "Screen": 10,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:10:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "wildwood-el-bosque-salvaje",
-              "Title": "Wildwood: El bosque salvaje",
-              "OriginalTitle": "Wildwood",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "120",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/WildwoodElBosqueSalvaje/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "ANIMACIÓN",
-              "Synopsis": "Cuando el hermanito de Prue McKeel es raptado por una bandada de cuervos, se verá obligada a emprender una desesperada misión de rescate. Acompañada por su torpe pero leal compañero de clase Curtis Mehlberg, Prue se adentra en un mundo de animales parlantes, bandidos y poderosos personajes movidos por el dolor y la ambición. A medida que ambos se ven arrastrados a un conflicto que amenaza el equilibrio del bosque, Prue deberá descubrir una fortaleza y una determinación que nunca supo que poseía. Si quiere salvar a su hermano y proteger el frágil futuro de Wildwood, tendrá que arriesgarlo todo. Basada en el libro escrito por Colin Meloy e ilustrado por Carson Ellis.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 11,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38222",
-                      "Time": "19:40",
-                      "TimeFilter": "30/10/2026 19:40:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T19:40:00",
-                      "Availability": "#FFBE06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "sentido-y-sensibilidad",
-              "Title": "Sentido y sensibilidad",
-              "OriginalTitle": "Sense and Sensibility",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "132",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SentidoYSensibilidad/Es/720x1022_27.jpg",
-              "Distributor": "BETTA PICTURES S. L",
-              "Gender": "DRAMA",
-              "Synopsis": "De Focus Features y Working Title llega una nueva e irresistible visión de la emblemática SENTIDO Y SENSIBILIDAD de Jane Austen: una fascinante e ingeniosa historia de amor y sororidad que nos invita a conectar profundamente con sus protagonistas, interpretadas por Daisy Edgar Jones y Esmé Creed-Miles.",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 12,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38249",
-                      "Time": "22:15",
-                      "TimeFilter": "30/10/2026 22:15:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:15:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "en-el-corazon-de-la-bestia",
-              "Title": "En el corazón de la bestia",
-              "OriginalTitle": "En el corazón de la bestia",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "101",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/EnElCorazondeLaBestia/Es/720x1022_copia_5.jpg",
-              "Distributor": "Paramount",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Tras sobrevivir a un brutal accidente aéreo, un oficial de Fuerzas Especiales y su perro de combate quedan atrapados en el corazón indomable de Alaska. Frente a una naturaleza implacable, ambos deberán luchar al límite por sobrevivir. Dirigida por David Ayer, EN EL CORAZÓN DE LA BESTIA es un intenso y emocionante thriller de aventuras sobre lealtad, coraje y el vínculo inquebrantable entre un soldado y su compañero más fiel en su mayor desafío.",
-              "Status": "",
-              "ReleaseDate": "2026-09-24T06:00",
-              "Order": 14,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38238",
-                      "Time": "19:30",
-                      "TimeFilter": "30/10/2026 19:30:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T19:30:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38246",
-                      "Time": "21:45",
-                      "TimeFilter": "30/10/2026 21:45:00",
-                      "Screen": 7,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T21:45:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "leones-en-invierno",
-              "Title": "Leones en invierno",
-              "OriginalTitle": "Leones en invierno",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "117",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LeonesEnInvierno/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "SONY PICTURES RELEASING DE ESPAÑA S. A",
-              "Gender": "THRILLER",
-              "Synopsis": "Un policía infiltrado atropella a una joven y se fuga. El padre de la víctima, un antiguo ultrasur, investiga por su cuenta, chocando con el pasado.",
-              "Status": "",
-              "ReleaseDate": "2026-10-22T06:00",
-              "Order": 15,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38239",
-                      "Time": "22:35",
-                      "TimeFilter": "30/10/2026 22:35:00",
-                      "Screen": 5,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:35:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "hybe-cheering-party",
-              "Title": "HYBE CHEERING PARTY",
-              "OriginalTitle": "HYBE CHEERING PARTY",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "60",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/HybeCheeringParty/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "TRAFALGAR REALISING LTD",
-              "Gender": "CONCIERTO",
-              "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! ENHYPEN WORLD TOUR 'BLOOD SAGA' La gira mundial actual de ENHYPEN, BLOOD SAGA, sigue cautivando al público de todo el mundo. Revive el inolvidable concierto en Seúl que marcó el inicio de la BLOOD SAGA, donde cobra vida una fascinante fantasía oscura. La coreografía intensa y sincronizada de los integrantes y una escenografía espectacular e impresionante surgen de entre el resplandor rojo y la oscuridad profunda. ¡Disfruta del sonido intenso al estilo de una banda y del universo vampírico sin igual que solo ENHYPEN puede ofrecerte en los cines!",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 18,
-              "Formats": [
-                {
-                  "Name": "3D CA",
-                  "Language": "VOSE",
-                  "Idioma": "COR",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37381",
-                      "Time": "18:00",
-                      "TimeFilter": "30/10/2026 18:00:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T18:00:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "seventeen-world-tour-new",
-              "Title": "SEVENTEEN WORLD TOUR 'NEW_'",
-              "OriginalTitle": "SEVENTEEN WORLD TOUR 'NEW_'",
-              "Rating": "M-12",
-              "RatingDescription": "No recomendada para menores de 12 años.",
-              "RunTime": "102",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/SeventeenWorldTourNew/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "TRAFALGAR REALISING LTD",
-              "Gender": "CONCIERTO",
-              "Synopsis": "En octubre de 2026, llega un momento emocionante en el que los artistas de HYBE y los fans de todo el mundo se unen a través de la pantalla. El HYBE CINE FEST 2026 se expande desde Latinoamérica y Asia a las pantallas de todo el mundo. Desde las emisiones en vivo de la gira mundial ARIRANG de BTS en Buenos Aires y São Paulo, hasta las películas de conciertos como NEW_ de SEVENTEEN, ACT : TOMORROW de TOMORROW X TOGETHER y BLOOD SAGA de ENHYPEN, la energía vibrante de las giras mundiales de estos artistas cobrará vida directamente en la pantalla. Además, con el HYBE CHEERING PARTY podrás cantar junto con las letras en pantalla mejoradas en 3D, como si estuvieras jugando, mientras que las distintas zonas de contenido interactivo alrededor de los cines te ofrecen una experiencia inmersiva a un nivel completamente nuevo. Una luz brillante de alegría que llenará de color cada rincón del mundo. Artistas, fans y nosotros, traspasando fronteras, uniéndonos como una sola luz para dar inicio al festival más radiante y apasionado. EVERYWHERE WE CHEER! SEVENTEEN WORLD TOUR NEW_ Para celebrar el décimo aniversario de su debut, SEVENTEEN se lanza a una gira mundial impulsados por su determinación de empezar de cero, tal como lo indica el título NEW_ Con su presencia escénica sin igual y su energía explosiva, SEVENTEEN vuelve a demostrar su potencial ilimitado. ¡Vive la intensidad del concierto —rebosante del encanto único de cada miembro— directamente en la pantalla grande!",
-              "Status": "",
-              "ReleaseDate": "2026-10-23T06:00",
-              "Order": 19,
-              "Formats": [
-                {
-                  "Name": "CA",
-                  "Language": "VOSE",
-                  "Idioma": "COR",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37370",
-                      "Time": "19:50",
-                      "TimeFilter": "30/10/2026 19:50:00",
-                      "Screen": 8,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T19:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "pesadilla-antes-de-navidad",
-              "Title": "Pesadilla antes de Navidad",
-              "OriginalTitle": "The Nightmare Before Christmas",
-              "Rating": "M-7",
-              "RatingDescription": "No recomendado para menores de 7 años.",
-              "RunTime": "76",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/PesadillaAntesDeNavidad/Es/720x1022_copia_2__7.jpg",
-              "Distributor": "Park Circus",
-              "Gender": "MUSICAL",
-              "Synopsis": "Cuando Jack Skellington, el Señor de Halloween, descubre la Navidad, se queda fascinado y decide mejorarla. Sin embargo, su visión de la festividad es totalmente contraria al espíritu navideño. Sus planes incluyen el secuestro de Santa Claus y la introducción de cambios bastante macabros. Sólo su novia Sally es consciente del error que está cometiendo.",
-              "Status": "Estreno",
-              "ReleaseDate": "2026-10-30T06:00",
-              "Order": 21,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "37700",
-                      "Time": "20:00",
-                      "TimeFilter": "30/10/2026 20:00:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:00:00",
-                      "Availability": "#FF804A"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "street-fighter",
-              "Title": "Street Fighter",
-              "OriginalTitle": "Street Fighter",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "119",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/StreetFighter/Es/720x1022_copia_5.jpg",
-              "Distributor": "PARAMOUNT SPAIN S.L",
-              "Gender": "ACCIÓN",
-              "Synopsis": "Ambientada en 1993, los alejados Street Fighters Ryu (Andrew Koji) y Ken Masters (Noah Centineo) son lanzados de nuevo al combate cuando la misteriosa Chun-Li (Callina Liang) los recluta para el próximo Torneo Mundial de Guerreros: un brutal choque de puños, destino y furia. Pero detrás de esta batalla se esconde una conspiración mortal que los obliga a enfrentarse entre ellos y a los demonios de sus pasados. Y si no lo hacen… ¡FIN DE LA PARTIDA!",
-              "Status": "",
-              "ReleaseDate": "2026-10-16T06:00",
-              "Order": 29,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38240",
-                      "Time": "21:50",
-                      "TimeFilter": "30/10/2026 21:50:00",
-                      "Screen": 3,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T21:50:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Key": "la-otra-madre",
-              "Title": "La otra madre",
-              "OriginalTitle": "Other Mommy",
-              "Rating": "M-16",
-              "RatingDescription": "No recomendada para menores de 16 años.",
-              "RunTime": "92",
-              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/LaOtraMadre/Es/720x1022_copia_2__5.jpg",
-              "Distributor": "UNIVERSAL PICTURES INTERNATIONAL SPAIN S. L",
-              "Gender": "THRILLER",
-              "Synopsis": "La historia se centra en Bela, una niña de 8 años que vive en un hogar tenso por el matrimonio problemático de sus padres, y que ve cómo su vida se ve trastornada por una entidad siniestra a la que llama Otra Mamá. Cuando esta presencia malévola emerge de su armario preguntando: \"¿Puedo entrar en tu corazón?\". Bela se niega. Pero pronto, las manifestaciones de la Otra Mamá se vuelven cada vez más agresivas, amenazando la seguridad de la familia de Bela.",
-              "Status": "",
-              "ReleaseDate": "2026-10-09T06:00",
-              "Order": 30,
-              "Formats": [
-                {
-                  "Name": "2D",
-                  "Language": "ESPAÑOL",
-                  "Idioma": "ESPAÑOL",
-                  "Showtimes": [
-                    {
-                      "ShowtimeId": "38223",
-                      "Time": "20:15",
-                      "TimeFilter": "30/10/2026 20:15:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T20:15:00",
-                      "Availability": ""
-                    },
-                    {
-                      "ShowtimeId": "38245",
-                      "Time": "22:20",
-                      "TimeFilter": "30/10/2026 22:20:00",
-                      "Screen": 4,
-                      "VistaCinemaId": "803",
-                      "Datetime": "2026-10-30T22:20:00",
-                      "Availability": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
-        },
         {
           "Dia": "2026-10-31",
           "Movies": [
@@ -5751,7 +4761,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "ANIMACIÓN",
               "Synopsis": "Siguiendo la maravillosa y caprichosa tradición del Dr. Seuss, El gato con sombrero llega a la gran pantalla en su debut cinematográfico animado. Haciendo lo que mejor sabe hacer, contagia su alegría a los niños. Nuestro héroe se enfrenta a su misión más difícil hasta la fecha: animar a Gabby y Sebastian, dos hermanos que están atravesando dificultades después de mudarse a una nueva ciudad.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 7,
               "Formats": [
@@ -6060,7 +5070,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "TERROR",
               "Synopsis": "Jack Torrance se traslada con su mujer y su hijo de siete años al impresionante hotel Overlook, en Colorado, para encargarse del mantenimiento de las instalaciones durante la temporada invernal, época en la que permanece cerrado y aislado por la nieve. Su objetivo es encontrar paz y sosiego para escribir una novela. Sin embargo, poco después de su llegada al hotel, al mismo tiempo que Jack empieza a padecer inquietantes trastornos de personalidad, se suceden extraños y espeluznantes fenómenos paranormales.",
-              "Status": "",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 23,
               "Formats": [
@@ -6168,7 +5178,7 @@ export default {
               "Distributor": "Trafalgar Releasing",
               "Gender": "CONCIERTO",
               "Synopsis": "¡Vive la experiencia BTS WORLD TOUR 'ARIRANG' en cines de todo el mundo, transmitida desde São Paulo, Brasil! Como colofón de su gira por Latinoamérica, este concierto monumental llevará directamente a la pantalla grande toda la energía explosiva del estadio repleto de Brasil. Las transmisiones en algunos territorios están programadas en horario diferido para adaptarse a los husos horarios locales.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 58,
               "Formats": [
@@ -6200,7 +5210,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-01",
@@ -6531,7 +5541,7 @@ export default {
               "Distributor": "WARNER BROS ENTERTAIMENT ESPAÑA S. L",
               "Gender": "ANIMACIÓN",
               "Synopsis": "Siguiendo la maravillosa y caprichosa tradición del Dr. Seuss, El gato con sombrero llega a la gran pantalla en su debut cinematográfico animado. Haciendo lo que mejor sabe hacer, contagia su alegría a los niños. Nuestro héroe se enfrenta a su misión más difícil hasta la fecha: animar a Gabby y Sebastian, dos hermanos que están atravesando dificultades después de mudarse a una nueva ciudad.",
-              "Status": "Venta Anticipada",
+              "Status": "Estreno",
               "ReleaseDate": "2026-10-31T06:00",
               "Order": 7,
               "Formats": [
@@ -7004,7 +6014,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-02",
@@ -7751,7 +6761,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-03",
@@ -8497,7 +7507,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-04",
@@ -9181,7 +8191,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-05",
@@ -9856,7 +8866,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-06",
@@ -9895,7 +8905,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-07",
@@ -10009,7 +9019,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-08",
@@ -10081,11 +9091,119 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
+        },
+        {
+          "Dia": "2026-11-13",
+          "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38503",
+                      "Time": "17:00",
+                      "TimeFilter": "13/11/2026 17:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-13T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38504",
+                      "Time": "19:30",
+                      "TimeFilter": "13/11/2026 19:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-13T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38505",
+                      "Time": "22:00",
+                      "TimeFilter": "13/11/2026 22:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-13T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-14",
           "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38508",
+                      "Time": "17:00",
+                      "TimeFilter": "14/11/2026 17:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-14T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38507",
+                      "Time": "19:30",
+                      "TimeFilter": "14/11/2026 19:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-14T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38506",
+                      "Time": "22:00",
+                      "TimeFilter": "14/11/2026 22:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-14T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "diversion-navidena-con-peppa-la-experiencia",
               "Title": "Diversión Navideña con Peppa: La Experiencia",
@@ -10153,11 +9271,62 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-15",
           "Movies": [
+            {
+              "Key": "scrooge-y-los-fantasmas-de-la-navidad",
+              "Title": "Scrooge y los fantasmas de la Navidad",
+              "OriginalTitle": "Ebenezer",
+              "Rating": "PDC",
+              "RatingDescription": "Pendiente de clasificación de edades.",
+              "RunTime": "117",
+              "Poster": "https://pimcore-content.cinepolis.com/assets/Espa%C3%B1a/Tickets/Movies/ScroogeYLosFantasmasDeLaNavidad/Es/720x1022_copia_7.jpg",
+              "Distributor": "PARAMOUNT SPAIN S.L",
+              "Gender": "FANTASÍA",
+              "Synopsis": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+              "Status": "Venta Anticipada",
+              "ReleaseDate": "2026-11-13T06:00",
+              "Order": 27,
+              "Formats": [
+                {
+                  "Name": "2D",
+                  "Language": "ESPAÑOL",
+                  "Idioma": "ESPAÑOL",
+                  "Showtimes": [
+                    {
+                      "ShowtimeId": "38509",
+                      "Time": "17:00",
+                      "TimeFilter": "15/11/2026 17:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-15T17:00:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38510",
+                      "Time": "19:30",
+                      "TimeFilter": "15/11/2026 19:30:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-15T19:30:00",
+                      "Availability": ""
+                    },
+                    {
+                      "ShowtimeId": "38511",
+                      "Time": "22:00",
+                      "TimeFilter": "15/11/2026 22:00:00",
+                      "Screen": 2,
+                      "VistaCinemaId": "803",
+                      "Datetime": "2026-11-15T22:00:00",
+                      "Availability": ""
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Key": "diversion-navidena-con-peppa-la-experiencia",
               "Title": "Diversión Navideña con Peppa: La Experiencia",
@@ -10192,7 +9361,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-20",
@@ -10291,7 +9460,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-21",
@@ -10390,7 +9559,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-22",
@@ -10489,7 +9658,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-23",
@@ -10555,7 +9724,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-24",
@@ -10628,7 +9797,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-25",
@@ -10694,7 +9863,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-11-26",
@@ -10760,7 +9929,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-01",
@@ -10799,7 +9968,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-05",
@@ -10838,7 +10007,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-15",
@@ -10893,7 +10062,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-17",
@@ -11035,7 +10204,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-18",
@@ -11219,7 +10388,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-19",
@@ -11403,7 +10572,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-20",
@@ -11587,7 +10756,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-21",
@@ -11644,7 +10813,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-22",
@@ -11701,7 +10870,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2026-12-23",
@@ -11758,7 +10927,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-01-08",
@@ -11797,7 +10966,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-01-23",
@@ -11836,7 +11005,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-03-20",
@@ -11875,7 +11044,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-03-23",
@@ -11914,7 +11083,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-04-03",
@@ -11953,7 +11122,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-04-22",
@@ -11992,7 +11161,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-04-24",
@@ -12031,7 +11200,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-04-29",
@@ -12070,7 +11239,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-05-08",
@@ -12109,7 +11278,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-05-25",
@@ -12148,7 +11317,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-06-03",
@@ -12187,7 +11356,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         },
         {
           "Dia": "2027-06-05",
@@ -12226,7 +11395,7 @@ export default {
               ]
             }
           ],
-          "_recogido": "2026-10-30T17:02:11.118Z"
+          "_recogido": "2026-10-31T06:06:16.095Z"
         }
       ],
       "Id": 53,
